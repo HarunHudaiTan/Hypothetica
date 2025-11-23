@@ -36,7 +36,7 @@ class QueryWrapper:
         """
         # Build the command
         cmd = [
-            "python3",
+            sys.executable,
             "embed_mvp.py",
             "query",
             query_text,
@@ -92,7 +92,7 @@ class QueryWrapper:
             cache_path: Path to embedding cache
         """
         cmd = [
-            "python3",
+            sys.executable,
             "embed_mvp.py",
             "build",
             jsonl_path,
