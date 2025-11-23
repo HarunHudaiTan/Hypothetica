@@ -15,3 +15,4 @@ index_dir/meta.jsonl
 embeddemo/sample_papers.jsonl
 embeddemo/index_dir/index.faiss
 embeddemo/sample_papers.jsonl
+.env
