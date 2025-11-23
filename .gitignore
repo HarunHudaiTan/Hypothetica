@@ -16,3 +16,6 @@ embeddemo/sample_papers.jsonl
 embeddemo/index_dir/index.faiss
 embeddemo/sample_papers.jsonl
 .env
+embeddemo/sample_papers.jsonl
+/embeddemo/index_dir
+/Agents/__pycache__

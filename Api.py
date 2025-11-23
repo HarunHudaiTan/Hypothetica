@@ -33,10 +33,21 @@ def research_pipeline():
         
         # Step 1: Get papers using ArxivReq
         print("Step 1: Fetching papers from ArXiv...")
+        print(f"ArXiv API Request: Starting paper search for user idea: {user_idea}")
         arxiv_req = ArxivReq()
         papers_json = arxiv_req.get_papers(user_idea)
         papers = json.loads(papers_json)
         print(f"Found {len(papers.get('papers', []))} papers")
+        
+        # Log paper links
+        print("Paper links retrieved from ArXiv:")
+        # Handle nested structure where papers are grouped by keywords/topics
+        for topic, topic_data in papers.items():
+            if isinstance(topic_data, dict) and 'papers' in topic_data:
+                for paper in topic_data['papers']:
+                    if 'id' in paper:
+                        print(f"  {paper['id']}")
+        
         print("Papers found:" + f"{papers}")
         
         # Step 2: Embed query and search literature
