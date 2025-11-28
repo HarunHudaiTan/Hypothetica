@@ -13,3 +13,5 @@ index_dir/meta.jsonl
 *.pyc
 /Agents/__pycache__
 embeddemo/sample_papers.jsonl
+embeddemo/index_dir/index.faiss
+embeddemo/sample_papers.jsonl

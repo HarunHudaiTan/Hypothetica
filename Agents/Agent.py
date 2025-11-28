@@ -53,27 +53,54 @@ class Agent:
                     logger.info("Retrying request after rate limit wait")
                     return self.generate_chat_response(prompt)
 
-    def generate_text_generation_response(self, prompt):
-        try:
-            response = self.client.models.generate_content(model=self.model,
-                                                           config=self.config, contents=prompt)
-            return response
-        except ClientError as e:
-            print(e)
-            logger.error(f"ClientError occurred: {str(e)}")
-            error = e.details['error']['details']
-
-            for detail in error:
-                if detail.get("@type") == "type.googleapis.com/google.rpc.RetryInfo":
-                    retry_str = detail.get("retryDelay")
-                    retry_time = int(retry_str[:-1])
-                    wait_time = retry_time + self.timebuffer
-
-                    logger.warning(f"Rate limit exceeded. Waiting for {wait_time} seconds")
+    def generate_text_generation_response(self, prompt, max_retries=3):
+        for attempt in range(max_retries):
+            try:
+                response = self.client.models.generate_content(model=self.model,
+                                                               config=self.config, contents=prompt)
+                return response
+            except ClientError as e:
+                logger.error(f"ClientError occurred (attempt {attempt + 1}/{max_retries}): {str(e)}")
+                
+                # Check if it's a 503 UNAVAILABLE error
+                error_code = e.details.get('error', {}).get('code', 0)
+                error_status = e.details.get('error', {}).get('status', '')
+                
+                if error_code == 503 or error_status == 'UNAVAILABLE':
+                    # Exponential backoff for 503 errors
+                    wait_time = (2 ** attempt) * 5 + self.timebuffer  # 5s, 10s, 20s + buffer
+                    logger.warning(f"Model overloaded (503). Waiting {wait_time}s before retry...")
                     time.sleep(wait_time)
-
-                    logger.info("Retrying request after rate limit wait")
-                    return self.generate_text_generation_response(prompt)
+                    continue
+                
+                # Check for rate limit with RetryInfo
+                error_details = e.details.get('error', {}).get('details', [])
+                for detail in error_details:
+                    if detail.get("@type") == "type.googleapis.com/google.rpc.RetryInfo":
+                        retry_str = detail.get("retryDelay", "10s")
+                        retry_time = int(retry_str.rstrip('s'))
+                        wait_time = retry_time + self.timebuffer
+                        logger.warning(f"Rate limit exceeded. Waiting {wait_time}s...")
+                        time.sleep(wait_time)
+                        break
+                else:
+                    # No retry info found, use default wait
+                    if attempt < max_retries - 1:
+                        wait_time = (2 ** attempt) * 3 + self.timebuffer
+                        logger.warning(f"Unknown error, waiting {wait_time}s before retry...")
+                        time.sleep(wait_time)
+                    else:
+                        raise  # Re-raise on last attempt
+            except Exception as e:
+                logger.error(f"Unexpected error: {str(e)}")
+                if attempt < max_retries - 1:
+                    wait_time = (2 ** attempt) * 3
+                    logger.warning(f"Waiting {wait_time}s before retry...")
+                    time.sleep(wait_time)
+                else:
+                    raise
+        
+        raise Exception("Max retries exceeded for API call")
 
     def get_chat_history(self):
 

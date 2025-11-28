@@ -90,49 +90,49 @@ Scenario 3: You want sections II and V (non-consecutive sections)
 
 #
 #
-# if __name__ == '__main__':
-#      extractor = HeadingExtractor()
-#      source = "https://arxiv.org/pdf/2311.07582v1"
-#      markdown = extractor.convert_to_markdown(source)
-#      headings = extractor.extract_headings(markdown)
-#      headings_json = extractor.get_headings_json(headings)
-#      print(headings_json)
-#      abstract="""
-# Recent advances in Large Language Models (LLMs) have presented new opportunities for
-# integrating Artificial General Intelligence (AGI) into biological research and education. This study
-# evaluated the capabilities of leading LLMs, including GPT-4, GPT-3.5, PaLM2, Claude2, and
-# SenseNova, in answering conceptual biology questions. The models were tested on a 108-
-# question multiple-choice exam covering biology topics in molecular biology, biological techniques,
-# metabolic engineering, and synthetic biology. Among the models, GPT-4 achieved the highest
-# average score of 90 and demonstrated the greatest consistency across trials with different
-# prompts. The results indicated GPT-4's proficiency in logical reasoning and its potential to aid
-# biology research through capabilities like data analysis, hypothesis generation, and knowledge
-# integration. However, further development and validation are still required before the promise of
-# LLMs in accelerating biological discovery can be realized
+if __name__ == '__main__':
+     extractor = HeadingExtractor()
+     source = "https://arxiv.org/pdf/2311.07582v1"
+     markdown = extractor.convert_to_markdown(source)
+     headings = extractor.extract_headings(markdown)
+     headings_json = extractor.get_headings_json(headings)
+     print(headings_json)
+     abstract="""
+Recent advances in Large Language Models (LLMs) have presented new opportunities for
+integrating Artificial General Intelligence (AGI) into biological research and education. This study
+evaluated the capabilities of leading LLMs, including GPT-4, GPT-3.5, PaLM2, Claude2, and
+SenseNova, in answering conceptual biology questions. The models were tested on a 108-
+question multiple-choice exam covering biology topics in molecular biology, biological techniques,
+metabolic engineering, and synthetic biology. Among the models, GPT-4 achieved the highest
+average score of 90 and demonstrated the greatest consistency across trials with different
+prompts. The results indicated GPT-4's proficiency in logical reasoning and its potential to aid
+biology research through capabilities like data analysis, hypothesis generation, and knowledge
+integration. However, further development and validation are still required before the promise of
+LLMs in accelerating biological discovery can be realized
+
+
+     """
+     project_idea="""
+Large language models could be adapted to predict protein-protein interaction networks by treating amino acid sequences as a specialized language with its own grammar and semantics. While current approaches often rely on computationally expensive molecular dynamics simulations or limited experimental data, an LLM fine-tuned on millions of known protein interactions, evolutionary conservation patterns, and structural motifs could learn the implicit rules governing how proteins recognize and bind to each other. The model could be trained on a multi-modal dataset combining sequence data, 3D structural information encoded as distance matrices or graph representations, and existing interaction databases, with the goal of not just predicting binary interactions but also estimating binding affinities, identifying specific binding sites, and suggesting mutations that could modulate interaction strength. This approach could accelerate drug discovery by rapidly screening potential therapeutic targets, help understand disease mechanisms driven by aberrant protein interactions, and reveal previously unknown signaling pathways—all while potentially uncovering the underlying "syntax" of molecular recognition that has been refined through billions of years of evolution.
+     """
+     agent=HeadingSelectorAgent()
+     heading_interval_list= agent.generate_heading_selector_agent_response(project_idea, headings_json, abstract)
+     print(heading_interval_list)
+
+#      extracted_heading_text=[]
+#      for interval in heading_interval_list:
+#          text=extractor.get_text_between_headings(markdown,interval['from_heading'],interval['to_heading'])
+#          extracted_heading_text.append(text)
 #
+#      print(extracted_heading_text)
 #
-#      """
-#      project_idea="""
-# Large language models could be adapted to predict protein-protein interaction networks by treating amino acid sequences as a specialized language with its own grammar and semantics. While current approaches often rely on computationally expensive molecular dynamics simulations or limited experimental data, an LLM fine-tuned on millions of known protein interactions, evolutionary conservation patterns, and structural motifs could learn the implicit rules governing how proteins recognize and bind to each other. The model could be trained on a multi-modal dataset combining sequence data, 3D structural information encoded as distance matrices or graph representations, and existing interaction databases, with the goal of not just predicting binary interactions but also estimating binding affinities, identifying specific binding sites, and suggesting mutations that could modulate interaction strength. This approach could accelerate drug discovery by rapidly screening potential therapeutic targets, help understand disease mechanisms driven by aberrant protein interactions, and reveal previously unknown signaling pathways—all while potentially uncovering the underlying "syntax" of molecular recognition that has been refined through billions of years of evolution.
-#      """
-#      agent=HeadingSelectorAgent()
-#      heading_interval_list= agent.generate_heading_selector_agent_response(project_idea, headings_json, abstract)
-#      print(heading_interval_list)
+#      # Save extracted text to file
+#      extractor.save_extracted_text_to_file(extracted_heading_text)
 #
-# #      extracted_heading_text=[]
-# #      for interval in heading_interval_list:
-# #          text=extractor.get_text_between_headings(markdown,interval['from_heading'],interval['to_heading'])
-# #          extracted_heading_text.append(text)
+#      # heading_interval_list=json.loads(agent_response)
+#      # print(heading_interval_list)
+#      # print(type(heading_interval_list))
+#
 # #
-# #      print(extracted_heading_text)
 # #
-# #      # Save extracted text to file
-# #      extractor.save_extracted_text_to_file(extracted_heading_text)
 # #
-# #      # heading_interval_list=json.loads(agent_response)
-# #      # print(heading_interval_list)
-# #      # print(type(heading_interval_list))
-# #
-# # #
-# # #
-# # #
