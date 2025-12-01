@@ -98,9 +98,31 @@ class ArxivReq:
 
         url = f"http://export.arxiv.org/api/query?{urllib.parse.urlencode(params)}"
 
-        # Make the request
-        response = urllib.request.urlopen(url)
-        return response.read().decode('utf-8')
+        # Make the request with retry logic for rate limiting
+        import time
+        max_retries = 5
+        base_delay = 3  # Start with 3 seconds
+        
+        for attempt in range(max_retries):
+            try:
+                response = urllib.request.urlopen(url)
+                return response.read().decode('utf-8')
+            except urllib.error.HTTPError as e:
+                if e.code == 429:  # Rate limit error
+                    if attempt < max_retries - 1:
+                        # Exponential backoff: 3s, 6s, 12s, 24s, 48s
+                        delay = base_delay * (2 ** attempt)
+                        print(f"Rate limit hit (429). Retrying in {delay} seconds... (attempt {attempt + 1}/{max_retries})")
+                        time.sleep(delay)
+                    else:
+                        print(f"Max retries ({max_retries}) reached. Rate limit still in effect.")
+                        raise
+                else:
+                    # For other HTTP errors, raise immediately
+                    raise
+            except Exception as e:
+                # For non-HTTP errors, raise immediately
+                raise
 
 
     def parse_arxiv_xml_to_json(self,xml_string):
@@ -275,7 +297,7 @@ class ArxivReq:
 
             # Be nice to the API - add a delay between requests
             import time
-            time.sleep(3)  # 3 second delay as recommended
+            time.sleep(5)  # 5 second delay to avoid rate limiting
 
         return results
 

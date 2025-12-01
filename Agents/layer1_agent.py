@@ -360,13 +360,13 @@ def main():
     """
     # User's research idea
     user_idea={
-        "user_idea": "An AI-powered protein structure prediction tool that uses deep learning to accelerate drug discovery for cancer treatment. The system takes amino acid sequences as input and predicts 3D protein structures to identify potential drug binding sites. It combines transformer-based neural networks with molecular dynamics simulations to predict how candidate drug molecules will interact with target proteins. The platform aims to reduce the time required for initial drug screening from months to days by automatically analyzing thousands of protein-drug combinations and ranking them by predicted binding affinity. The tool specifically focuses on identifying inhibitors for oncogenic proteins involved in breast cancer and lung cancer, providing researchers with a prioritized list of promising drug candidates for laboratory testing."
-    }
+    "user_idea": "An AI-powered protein structure prediction tool that uses deep learning to accelerate drug discovery for cancer treatment. The system takes amino acid sequences as input and predicts 3D protein structures to identify potential drug binding sites. It combines transformer-based neural networks with molecular dynamics simulations to predict how candidate drug molecules will interact with target proteins. The platform aims to reduce the time required for initial drug screening from months to days by automatically analyzing thousands of protein-drug combinations and ranking them by predicted binding affinity. The tool specifically focuses on identifying inhibitors for oncogenic proteins involved in breast cancer and lung cancer, providing researchers with a prioritized list of promising drug candidates for laboratory testing."
+}
     
     # Read paper details from file
     import os
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    paper_details_path = os.path.join(script_dir, "extracted_pdf_info", "/Users/harun/Documents/GitHub/Hypothetica/Agents/extracted_pdf_info/paper_003_DeepDTA_Deep_Drug_Target_Binding_Affinity_Predicti_20251130_173927.txt")
+    paper_details_path = os.path.join(script_dir, "extracted_pdf_info", "/Users/harun/Documents/GitHub/Hypothetica/Agents/extracted_pdf_info/paper_002_Machine_Learning_Harnesses_Molecular_Dynamics_to_D_20251201_104905.txt")
     
     try:
         with open(paper_details_path, 'r', encoding='utf-8') as f:
