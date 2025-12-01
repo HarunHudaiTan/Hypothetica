@@ -28,10 +28,14 @@ Analyze a single research paper against a user's research idea to identify poten
 
 ### Core Evaluation Framework
 
-You will assess **FOUR CRITICAL DIMENSIONS** of originality by answering specific questions for each dimension. Each question receives a score from **0.0 to 1.0** where:
-- **0.0 = Completely Novel** (no overlap/conflict)
-- **0.5 = Moderate Overlap** (related but distinguishable)  
-- **1.0 = Complete Overlap** (identical/substantially similar)
+You will assess **FOUR CRITICAL DIMENSIONS** of originality by answering specific questions for each dimension. Each question receives a **SIMILARITY SCORE** using the following categorical scale:
+
+**SIMILARITY_MAPPING:**
+- **NONE**: No overlap or similarity whatsoever
+- **MINIMAL**: Slight overlap in broad concepts but fundamentally different
+- **MODERATE**: Some meaningful overlap but significant differences remain
+- **SIGNIFICANT**: Substantial overlap with only minor differences
+- **COMPLETE**: Identical or nearly identical with negligible differences
 
 ---
 
@@ -40,42 +44,45 @@ You will assess **FOUR CRITICAL DIMENSIONS** of originality by answering specifi
 Evaluate whether the core research problem has been addressed before by answering these questions:
 
 ### Question 1.1: Does the paper address the exact same research question?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different research questions with no conceptual overlap
-- **0.3-0.5**: Related research questions but different specific focus or scope
-- **0.6-0.8**: Similar research questions with minor variations in formulation
-- **0.9-1.0**: Identical or nearly identical research questions
+**Score Guidance:**
+- **NONE**: Completely different research questions with no conceptual overlap
+- **MINIMAL**: Tangentially related research questions in the same broad field
+- **MODERATE**: Related research questions but different specific focus or scope
+- **SIGNIFICANT**: Similar research questions with minor variations in formulation
+- **COMPLETE**: Identical or nearly identical research questions
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence explanation of similarity/difference]
 - **Evidence**: [List of 2-4 specific quotes or observations from the paper]
 
 ---
 
 ### Question 1.2: Are the problem constraints and requirements identical?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different constraints, requirements, or problem boundaries
-- **0.3-0.5**: Some overlapping constraints but significant differences in requirements
-- **0.6-0.8**: Most constraints are similar with minor variations
-- **0.9-1.0**: Identical or nearly identical constraints and requirements
+**Score Guidance:**
+- **NONE**: Completely different constraints, requirements, or problem boundaries
+- **MINIMAL**: Few overlapping constraints with fundamentally different requirements
+- **MODERATE**: Some overlapping constraints but significant differences in requirements
+- **SIGNIFICANT**: Most constraints are similar with minor variations
+- **COMPLETE**: Identical or nearly identical constraints and requirements
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence explanation of constraint overlap]
 - **Evidence**: [List of 2-4 specific constraints mentioned in the paper]
 
 ---
 
 ### Question 1.3: Is the motivation and problem context the same?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different motivations and problem contexts
-- **0.3-0.5**: Related motivations but different application contexts or drivers
-- **0.6-0.8**: Similar motivations with minor contextual differences
-- **0.9-1.0**: Identical motivation and problem context
+**Score Guidance:**
+- **NONE**: Completely different motivations and problem contexts
+- **MINIMAL**: Distantly related motivations in the same general domain
+- **MODERATE**: Related motivations but different application contexts or drivers
+- **SIGNIFICANT**: Similar motivations with minor contextual differences
+- **COMPLETE**: Identical motivation and problem context
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence explanation of motivation alignment]
 - **Evidence**: [List of 2-4 motivation statements from the paper]
 
@@ -86,42 +93,45 @@ Evaluate whether the core research problem has been addressed before by answerin
 Assess the novelty of the proposed approach and techniques by answering these questions:
 
 ### Question 2.1: Are the core algorithms, models, or techniques the same?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different algorithmic approaches or techniques
-- **0.3-0.5**: Different algorithms but from same family or paradigm (e.g., both use deep learning but different architectures)
-- **0.6-0.8**: Similar algorithms with minor modifications or variations
-- **0.9-1.0**: Identical or nearly identical algorithms and techniques
+**Score Guidance:**
+- **NONE**: Completely different algorithmic approaches or techniques
+- **MINIMAL**: Different approaches from the same broad paradigm (e.g., both use ML but different types)
+- **MODERATE**: Different algorithms but from same family or paradigm (e.g., both use deep learning but different architectures)
+- **SIGNIFICANT**: Similar algorithms with minor modifications or variations
+- **COMPLETE**: Identical or nearly identical algorithms and techniques
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence comparison of algorithmic approaches]
 - **Evidence**: [List of 2-4 specific algorithms/techniques mentioned in the paper]
 
 ---
 
 ### Question 2.2: Does the paper use the same architectural choices or design patterns?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different system architecture and design patterns
-- **0.3-0.5**: Different architectures but some shared design patterns or components
-- **0.6-0.8**: Similar overall architecture with minor component differences
-- **0.9-1.0**: Identical or nearly identical architectural design
+**Score Guidance:**
+- **NONE**: Completely different system architecture and design patterns
+- **MINIMAL**: Different architectures with few shared high-level concepts
+- **MODERATE**: Different architectures but some shared design patterns or components
+- **SIGNIFICANT**: Similar overall architecture with minor component differences
+- **COMPLETE**: Identical or nearly identical architectural design
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence comparison of architectural choices]
 - **Evidence**: [List of 2-4 architectural components or design patterns from the paper]
 
 ---
 
 ### Question 2.3: Are the implementation strategies and technical approaches identical?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different implementation strategies
-- **0.3-0.5**: Different strategies but some shared technical approaches
-- **0.6-0.8**: Similar implementation strategies with minor variations
-- **0.9-1.0**: Identical or nearly identical implementation approach
+**Score Guidance:**
+- **NONE**: Completely different implementation strategies
+- **MINIMAL**: Different strategies with few shared technical concepts
+- **MODERATE**: Different strategies but some shared technical approaches
+- **SIGNIFICANT**: Similar implementation strategies with minor variations
+- **COMPLETE**: Identical or nearly identical implementation approach
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence comparison of implementation strategies]
 - **Evidence**: [List of 2-4 implementation details from the paper]
 
@@ -132,42 +142,45 @@ Assess the novelty of the proposed approach and techniques by answering these qu
 Determine overlap in target applications and use cases by answering these questions:
 
 ### Question 3.1: Do both target the same industry, field, or application area?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different industries, fields, or application areas
-- **0.3-0.5**: Related fields but different specific application areas
-- **0.6-0.8**: Same field with different industry verticals or sub-domains
-- **0.9-1.0**: Identical industry, field, and application area
+**Score Guidance:**
+- **NONE**: Completely different industries, fields, or application areas
+- **MINIMAL**: Distantly related fields with minimal application overlap
+- **MODERATE**: Related fields but different specific application areas
+- **SIGNIFICANT**: Same field with different industry verticals or sub-domains
+- **COMPLETE**: Identical industry, field, and application area
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence comparison of target domains]
 - **Evidence**: [List of 2-4 domain indicators from the paper]
 
 ---
 
 ### Question 3.2: Are the end-users and stakeholders the same?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different end-users and stakeholder groups
-- **0.3-0.5**: Some overlapping user groups but different primary users
-- **0.6-0.8**: Similar user base with minor demographic differences
-- **0.9-1.0**: Identical end-users and stakeholders
+**Score Guidance:**
+- **NONE**: Completely different end-users and stakeholder groups
+- **MINIMAL**: Distantly related user groups with different needs
+- **MODERATE**: Some overlapping user groups but different primary users
+- **SIGNIFICANT**: Similar user base with minor demographic differences
+- **COMPLETE**: Identical end-users and stakeholders
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence comparison of target users]
 - **Evidence**: [List of 2-4 user/stakeholder mentions from the paper]
 
 ---
 
 ### Question 3.3: Do they solve problems for the same market segment?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different market segments
-- **0.3-0.5**: Related market segments but different niches or customer types
-- **0.6-0.8**: Similar market segments with minor variations
-- **0.9-1.0**: Identical market segment
+**Score Guidance:**
+- **NONE**: Completely different market segments
+- **MINIMAL**: Distantly related market segments
+- **MODERATE**: Related market segments but different niches or customer types
+- **SIGNIFICANT**: Similar market segments with minor variations
+- **COMPLETE**: Identical market segment
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence comparison of market segments]
 - **Evidence**: [List of 2-4 market indicators from the paper]
 
@@ -178,28 +191,30 @@ Determine overlap in target applications and use cases by answering these questi
 Evaluate similarity in claimed contributions and innovations by answering these questions:
 
 ### Question 4.1: Do both claim the same primary innovations or breakthroughs?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different innovation claims
-- **0.3-0.5**: Some overlapping claims but different primary contributions
-- **0.6-0.8**: Similar primary innovations with different secondary contributions
-- **0.9-1.0**: Identical or nearly identical innovation claims
+**Score Guidance:**
+- **NONE**: Completely different innovation claims
+- **MINIMAL**: Distantly related innovation claims in the same broad area
+- **MODERATE**: Some overlapping claims but different primary contributions
+- **SIGNIFICANT**: Similar primary innovations with different secondary contributions
+- **COMPLETE**: Identical or nearly identical innovation claims
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence comparison of claimed innovations]
 - **Evidence**: [List of 2-4 innovation claims from the paper]
 
 ---
 
 ### Question 4.2: Are the technical advantages and benefits identical?
-**Score Range Guidance:**
-- **0.0-0.2**: Completely different claimed advantages and benefits
-- **0.3-0.5**: Some overlapping benefits but different primary value propositions
-- **0.6-0.8**: Similar advantages with minor differences in emphasis
-- **0.9-1.0**: Identical claimed advantages and benefits
+**Score Guidance:**
+- **NONE**: Completely different claimed advantages and benefits
+- **MINIMAL**: Distantly related benefits in the same general domain
+- **MODERATE**: Some overlapping benefits but different primary value propositions
+- **SIGNIFICANT**: Similar advantages with minor differences in emphasis
+- **COMPLETE**: Identical claimed advantages and benefits
 
 **Required Output:**
-- **Score**: [0.0-1.0]
+- **Score**: [NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE]
 - **Answer**: [1-2 sentence comparison of claimed benefits]
 - **Evidence**: [List of 2-4 claimed advantages from the paper]
 
@@ -225,80 +240,80 @@ Your assessment must be returned as a JSON object with the following structure:
     "abstract_snippet": "string (first 200 chars)"
   },
   "originality_scores": {
-    "technical_problem_novelty": {
-      "q1_same_research_question": {
+    "technical_problem_novelty": [
+      {
         "question": "Does the paper address the exact same research question?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       },
-      "q2_identical_constraints": {
+      {
         "question": "Are the problem constraints and requirements identical?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       },
-      "q3_same_motivation_context": {
+      {
         "question": "Is the motivation and problem context the same?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       }
-    },
-    "methodological_innovation": {
-      "q1_same_algorithms_models": {
+    ],
+    "methodological_innovation": [
+      {
         "question": "Are the core algorithms, models, or techniques the same?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       },
-      "q2_same_architectural_choices": {
+      {
         "question": "Does the paper use the same architectural choices or design patterns?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       },
-      "q3_identical_implementation_strategies": {
+      {
         "question": "Are the implementation strategies and technical approaches identical?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       }
-    },
-    "application_domain_overlap": {
-      "q1_same_industry_field": {
+    ],
+    "application_domain_overlap": [
+      {
         "question": "Do both target the same industry, field, or application area?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       },
-      "q2_same_users_stakeholders": {
+      {
         "question": "Are the end-users and stakeholders the same?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       },
-      "q3_same_market_segment": {
+      {
         "question": "Do they solve problems for the same market segment?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       }
-    },
-    "innovation_claims_overlap": {
-      "q1_same_primary_innovations": {
+    ],
+    "innovation_claims_overlap": [
+      {
         "question": "Do both claim the same primary innovations or breakthroughs?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       },
-      "q2_identical_advantages_benefits": {
+      {
         "question": "Are the technical advantages and benefits identical?",
-        "score": 0.0-1.0,
+        "score": "NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE",
         "answer": "string (1-2 sentences)",
         "evidence": ["array of 2-4 evidence items"]
       }
-    }
+    ]
   },
   "metadata": {
     "assessment_duration_seconds": float,
@@ -311,21 +326,22 @@ Your assessment must be returned as a JSON object with the following structure:
 
 ## Critical Instructions
 
-1. **Score Every Question**: You must provide a score (0.0-1.0) for all 11 questions
+1. **Score Every Question**: You must provide a categorical score (NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE) for all 11 questions
 2. **Provide Evidence**: Each question must have 2-4 specific pieces of evidence from the paper
 3. **Be Precise**: Answers should be exactly 1-2 sentences explaining the score
 4. **Stay Objective**: Base all scores on factual comparison, not subjective interpretation
 5. **No Aggregation**: Do NOT calculate dimension scores or overall scores - only provide individual question scores
 6. **Complete Analysis**: Never skip questions or provide partial assessments
+7. **Ignore ASCII Artifacts**: Do not include ASCII art, tables, diagrams, or visual text patterns (like "17×19" or similar formatting artifacts) in your analysis - focus only on meaningful textual content
 
 ## Scoring Philosophy
 
-- **Be Conservative**: When in doubt, score higher (more overlap) to flag potential prior art
+- **Be Conservative**: When in doubt between two categories, choose the higher similarity level to flag potential prior art
 - **Evidence-Based**: Every score must be justified by specific evidence from the paper
-- **Granular Precision**: Use the full 0.0-1.0 range - avoid clustering around 0.5
-- **Context Matters**: Consider the specific research context when scoring similarity
+- **Clear Categories**: Use the five distinct categories to provide grounded, interpretable assessments
+- **Context Matters**: Consider the specific research context when assigning similarity categories
 
-Your assessment will be used by downstream systems to calculate aggregate scores and make originality determinations. Focus exclusively on providing accurate, evidence-based question scores.
+Your assessment will be used by downstream systems to calculate aggregate scores and make originality determinations. Focus exclusively on providing accurate, evidence-based categorical scores.
 
 """
 
@@ -353,6 +369,97 @@ class Layer1Agent(Agent):
         return response.text
 
 
+# Utility functions for calculating originality scores
+
+def categorical_to_numerical(category: str) -> float:
+    """Convert categorical similarity score to numerical value (0.0-1.0)"""
+    mapping = {
+        "NONE": 0.0,
+        "MINIMAL": 0.25,
+        "MODERATE": 0.5,
+        "SIGNIFICANT": 0.75,
+        "COMPLETE": 1.0
+    }
+    return mapping.get(category.upper(), 0.0)
+
+
+def calculate_originality_score(analysis_result: dict) -> dict:
+    """
+    Calculate originality score from Layer 1 analysis result.
+    
+    Args:
+        analysis_result: Parsed JSON response from Layer 1 agent
+        
+    Returns:
+        Dictionary with dimension scores, overall originality score, and classification
+    """
+    scores = analysis_result.get("originality_scores", {})
+    
+    # Calculate average score for each dimension using simple loops
+    dimension_averages = {}
+    
+    for dimension_name in ["technical_problem_novelty", "methodological_innovation", 
+                           "application_domain_overlap", "innovation_claims_overlap"]:
+        questions = scores.get(dimension_name, [])
+        if questions:
+            # Convert categorical scores to numerical and calculate average
+            numerical_scores = []
+            for q in questions:
+                # Handle case where q might be a string or dict
+                if isinstance(q, dict):
+                    score = q.get("score", "NONE")
+                    numerical_scores.append(categorical_to_numerical(score))
+                else:
+                    # If not a dict, skip it or default to NONE
+                    numerical_scores.append(0.0)
+            
+            if numerical_scores:
+                dimension_averages[dimension_name] = sum(numerical_scores) / len(numerical_scores)
+            else:
+                dimension_averages[dimension_name] = 0.0
+        else:
+            dimension_averages[dimension_name] = 0.0
+    
+    # Calculate weighted overlap score
+    # Weights: Method (40%), Problem (30%), Domain (20%), Claims (10%)
+    overlap_score = (
+        dimension_averages["technical_problem_novelty"] * 0.30 +
+        dimension_averages["methodological_innovation"] * 0.40 +
+        dimension_averages["application_domain_overlap"] * 0.20 +
+        dimension_averages["innovation_claims_overlap"] * 0.10
+    )
+    
+    # Convert to originality score (0-100)
+    originality_score = (1 - overlap_score) * 100
+    
+    # Classify the result
+    if originality_score >= 75:
+        classification = "HIGH ORIGINALITY"
+        color = "GREEN"
+    elif originality_score >= 50:
+        classification = "MODERATE ORIGINALITY"
+        color = "YELLOW"
+    elif originality_score >= 25:
+        classification = "LOW ORIGINALITY"
+        color = "ORANGE"
+    else:
+        classification = "BLOCKING PRIOR ART"
+        color = "RED"
+    
+    return {
+        "dimension_scores": {
+            "technical_problem_novelty": round(dimension_averages["technical_problem_novelty"], 2),
+            "methodological_innovation": round(dimension_averages["methodological_innovation"], 2),
+            "application_domain_overlap": round(dimension_averages["application_domain_overlap"], 2),
+            "innovation_claims_overlap": round(dimension_averages["innovation_claims_overlap"], 2)
+        },
+        "overlap_score": round(overlap_score, 2),
+        "originality_score": round(originality_score, 1),
+        "classification": classification,
+        "color": color
+    }
+
+
 def main():
     """
     Main method to demonstrate Layer 1 Agent usage.
@@ -360,7 +467,7 @@ def main():
     """
     # User's research idea
     user_idea={
-    "user_idea": "An AI-powered protein structure prediction tool that uses deep learning to accelerate drug discovery for cancer treatment. The system takes amino acid sequences as input and predicts 3D protein structures to identify potential drug binding sites. It combines transformer-based neural networks with molecular dynamics simulations to predict how candidate drug molecules will interact with target proteins. The platform aims to reduce the time required for initial drug screening from months to days by automatically analyzing thousands of protein-drug combinations and ranking them by predicted binding affinity. The tool specifically focuses on identifying inhibitors for oncogenic proteins involved in breast cancer and lung cancer, providing researchers with a prioritized list of promising drug candidates for laboratory testing."
+  "user_idea": "An intelligent application that automates academic literature review by taking a user's research idea, querying recent arXiv papers (e.g., past 6-12 months) using semantic search and the arXiv API, and generating a comprehensive AI-powered report that identifies whether similar work exists, analyzes the strengths and weaknesses of relevant papers, and performs gap analysis to assess the novelty of the user's idea. The system parses the input idea to generate optimized search queries, retrieves and analyzes papers for their methodologies, contributions, limitations, and implementation details, then synthesizes findings into a structured report with paper-by-paper breakdowns, comparative tables, and actionable recommendations for how the user can differentiate their work or identify unexplored research angles. This saves researchers significant time in the initial literature review phase while providing deeper insights through AI-driven analysis of semantic similarity, research trends, and positioning opportunities."
 }
     
     # Read paper details from file
@@ -382,28 +489,38 @@ def main():
     agent = Layer1Agent()
     
     # Generate analysis
-    print("Analyzing paper against user idea...")
-    print("-" * 80)
-    
     try:
         response = agent.generate_layer1_agent_response(
             user_idea=json.dumps(user_idea),
             paper_details=paper_details
         )
         
-        # Pretty print the JSON response
-        print("\nLayer 1 Analysis Result:")
-        print("=" * 80)
-        
-        # Parse and pretty print the JSON
+        # Parse and display the JSON response
         try:
             parsed_response = json.loads(response)
+            
+            print("\n=== AGENT RESPONSE ===")
             print(json.dumps(parsed_response, indent=2))
+            
+            # Debug: Check structure of originality_scores
+            print("\n=== DEBUG: Checking structure ===")
+            scores = parsed_response.get("originality_scores", {})
+            for dim_name in ["technical_problem_novelty", "methodological_innovation", 
+                           "application_domain_overlap", "innovation_claims_overlap"]:
+                dim_data = scores.get(dim_name)
+                print(f"{dim_name}: type={type(dim_data)}, is_list={isinstance(dim_data, list)}")
+                if isinstance(dim_data, list) and len(dim_data) > 0:
+                    print(f"  First item type: {type(dim_data[0])}")
+            
+            # Calculate and display originality score
+            originality_result = calculate_originality_score(parsed_response)
+            
+            print("\n=== ORIGINALITY SCORES ===")
+            print(json.dumps(originality_result, indent=2))
+            
         except json.JSONDecodeError:
-            # If response is not valid JSON, print as-is
+            print("Error: Invalid JSON response")
             print(response)
-        
-        print("=" * 80)
         
     except Exception as e:
         print(f"Error during analysis: {e}")
