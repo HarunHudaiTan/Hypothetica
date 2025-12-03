@@ -91,17 +91,152 @@ class DimensionAnalysis:
 
 
 @dataclass
+class PaperMetadata:
+    """
+    Full metadata for a paper - used for grounded RAG display.
+    """
+    paper_id: str
+    arxiv_id: str
+    title: str
+    authors: List[str] = field(default_factory=list)
+    publication_date: str = ""
+    categories: List[str] = field(default_factory=list)
+    abstract: str = ""
+    
+    @property
+    def arxiv_url(self) -> str:
+        """Direct link to arxiv paper."""
+        if self.arxiv_id:
+            return f"https://arxiv.org/abs/{self.arxiv_id}"
+        return ""
+    
+    @property
+    def pdf_url(self) -> str:
+        """Direct link to PDF."""
+        if self.arxiv_id:
+            return f"https://arxiv.org/pdf/{self.arxiv_id}.pdf"
+        return ""
+    
+    @property
+    def authors_str(self) -> str:
+        """Formatted author string."""
+        if not self.authors:
+            return "Unknown authors"
+        if len(self.authors) <= 3:
+            return ", ".join(self.authors)
+        return f"{self.authors[0]} et al."
+    
+    def to_dict(self) -> dict:
+        return {
+            "paper_id": self.paper_id,
+            "arxiv_id": self.arxiv_id,
+            "title": self.title,
+            "authors": self.authors,
+            "authors_str": self.authors_str,
+            "publication_date": self.publication_date,
+            "categories": self.categories,
+            "arxiv_url": self.arxiv_url,
+            "pdf_url": self.pdf_url
+        }
+
+
+@dataclass
 class MatchedSection:
     """
     A section/chunk that matches a user's sentence.
+    Enhanced with full paper metadata and context for grounded RAG display.
     """
+    # Chunk identification
     chunk_id: str
     paper_id: str
     paper_title: str
-    heading: str
-    text_snippet: str              # Relevant excerpt from chunk
-    similarity: float              # Cosine similarity score
-    reason: str                    # Why this matches
+    
+    # Section context
+    heading: str                   # Section heading (e.g., "3.1 Methodology")
+    heading_hierarchy: List[str] = field(default_factory=list)  # ["3. Methods", "3.1 Methodology"]
+    
+    # Text content with context
+    text_snippet: str              # The matching excerpt
+    context_before: str = ""       # 1-2 sentences before for context
+    context_after: str = ""        # 1-2 sentences after for context
+    highlight_start: int = 0       # Character position where match starts
+    highlight_end: int = 0         # Character position where match ends
+    
+    # Matching info
+    similarity: float = 0.0        # Cosine similarity score (0-1)
+    reason: str = ""               # Why this matches (from LLM)
+    dimension: str = ""            # Which dimension this relates to (problem/method/domain/claims)
+    
+    # Full paper metadata (for grounded display)
+    paper_metadata: Optional[PaperMetadata] = None
+    
+    @property
+    def full_context(self) -> str:
+        """Get full context with the matched part."""
+        parts = []
+        if self.context_before:
+            parts.append(f"...{self.context_before}")
+        parts.append(self.text_snippet)
+        if self.context_after:
+            parts.append(f"{self.context_after}...")
+        return " ".join(parts)
+    
+    @property 
+    def arxiv_url(self) -> str:
+        """Get arxiv URL from paper metadata."""
+        if self.paper_metadata:
+            return self.paper_metadata.arxiv_url
+        return ""
+    
+    @property
+    def similarity_percent(self) -> str:
+        """Similarity as percentage string."""
+        return f"{self.similarity * 100:.1f}%"
+    
+    def to_dict(self) -> dict:
+        return {
+            "chunk_id": self.chunk_id,
+            "paper_id": self.paper_id,
+            "paper_title": self.paper_title,
+            "heading": self.heading,
+            "heading_hierarchy": self.heading_hierarchy,
+            "text_snippet": self.text_snippet,
+            "context_before": self.context_before,
+            "context_after": self.context_after,
+            "full_context": self.full_context,
+            "similarity": self.similarity,
+            "similarity_percent": self.similarity_percent,
+            "reason": self.reason,
+            "dimension": self.dimension,
+            "arxiv_url": self.arxiv_url,
+            "paper_metadata": self.paper_metadata.to_dict() if self.paper_metadata else None
+        }
+    
+    def to_display_dict(self) -> dict:
+        """Formatted dict for UI display."""
+        return {
+            "paper": {
+                "title": self.paper_title,
+                "arxiv_id": self.paper_metadata.arxiv_id if self.paper_metadata else "",
+                "authors": self.paper_metadata.authors_str if self.paper_metadata else "",
+                "date": self.paper_metadata.publication_date if self.paper_metadata else "",
+                "url": self.arxiv_url,
+                "categories": self.paper_metadata.categories if self.paper_metadata else []
+            },
+            "match": {
+                "section": self.heading,
+                "section_path": " > ".join(self.heading_hierarchy) if self.heading_hierarchy else self.heading,
+                "similarity": self.similarity_percent,
+                "dimension": self.dimension,
+                "reason": self.reason
+            },
+            "content": {
+                "snippet": self.text_snippet,
+                "full_context": self.full_context,
+                "context_before": self.context_before,
+                "context_after": self.context_after
+            }
+        }
 
 
 @dataclass
@@ -362,3 +497,152 @@ class Layer2Result:
     def green_sentences(self) -> List[SentenceAnnotation]:
         """Sentences with high originality."""
         return self.get_sentences_by_label(OriginalityLabel.HIGH)
+
+
+# ============================================================================
+# RAG Display Formatters
+# ============================================================================
+
+class RAGDisplayFormatter:
+    """
+    Utility class to format RAG results for grounded display.
+    """
+    
+    DIMENSION_LABELS = {
+        "technical_problem_novelty": "🔬 Problem Novelty",
+        "methodological_innovation": "⚙️ Methodology",
+        "application_domain_overlap": "🎯 Application Domain",
+        "innovation_claims_overlap": "💡 Innovation Claims",
+        "problem": "🔬 Problem",
+        "method": "⚙️ Method",
+        "domain": "🎯 Domain",
+        "claims": "💡 Claims"
+    }
+    
+    @classmethod
+    def format_matched_section_for_display(cls, section: MatchedSection) -> dict:
+        """
+        Format a single matched section for rich UI display.
+        """
+        # Get dimension label
+        dim_key = section.dimension.lower() if section.dimension else ""
+        dim_label = cls.DIMENSION_LABELS.get(dim_key, section.dimension or "General")
+        
+        return {
+            "paper_info": {
+                "title": section.paper_title,
+                "arxiv_id": section.paper_metadata.arxiv_id if section.paper_metadata else "",
+                "authors": section.paper_metadata.authors_str if section.paper_metadata else "Unknown",
+                "date": section.paper_metadata.publication_date if section.paper_metadata else "",
+                "url": section.arxiv_url,
+                "pdf_url": section.paper_metadata.pdf_url if section.paper_metadata else ""
+            },
+            "section_info": {
+                "heading": section.heading,
+                "path": " → ".join(section.heading_hierarchy) if section.heading_hierarchy else section.heading,
+                "dimension": dim_label,
+                "similarity": f"{section.similarity * 100:.1f}%"
+            },
+            "content": {
+                "matched_text": section.text_snippet,
+                "context_before": section.context_before,
+                "context_after": section.context_after,
+                "full_context": section.full_context
+            },
+            "explanation": {
+                "reason": section.reason,
+                "dimension_raw": section.dimension
+            }
+        }
+    
+    @classmethod
+    def format_sentence_matches_for_display(cls, annotation: 'SentenceAnnotation') -> dict:
+        """
+        Format all matches for a sentence into a structured display format.
+        """
+        # Group matches by paper
+        papers = {}
+        for section in annotation.linked_sections:
+            paper_key = section.paper_id
+            if paper_key not in papers:
+                papers[paper_key] = {
+                    "paper_info": {
+                        "title": section.paper_title,
+                        "arxiv_id": section.paper_metadata.arxiv_id if section.paper_metadata else "",
+                        "authors": section.paper_metadata.authors_str if section.paper_metadata else "Unknown",
+                        "url": section.arxiv_url
+                    },
+                    "matches": []
+                }
+            papers[paper_key]["matches"].append(cls.format_matched_section_for_display(section))
+        
+        # Get dimension label for primary dimension
+        dim_key = annotation.primary_dimension.lower() if annotation.primary_dimension else ""
+        primary_dim_label = cls.DIMENSION_LABELS.get(dim_key, annotation.primary_dimension or "General")
+        
+        return {
+            "sentence": {
+                "text": annotation.sentence,
+                "index": annotation.index,
+                "overlap_score": f"{annotation.overlap_score * 100:.0f}%",
+                "originality_score": f"{annotation.originality_score * 100:.0f}%",
+                "label": annotation.label.value,
+                "primary_dimension": primary_dim_label
+            },
+            "evidence": annotation.evidence[:5],  # Top 5 evidence quotes
+            "papers": list(papers.values()),
+            "total_matches": len(annotation.linked_sections)
+        }
+    
+    @classmethod
+    def generate_markdown_report(cls, annotation: 'SentenceAnnotation') -> str:
+        """
+        Generate a markdown-formatted report for a sentence's matches.
+        """
+        data = cls.format_sentence_matches_for_display(annotation)
+        
+        lines = [
+            f"## Matching Sources for Sentence",
+            f"",
+            f"**Your sentence:** \"{data['sentence']['text']}\"",
+            f"",
+            f"**Overlap Score:** {data['sentence']['overlap_score']} | **Primary Dimension:** {data['sentence']['primary_dimension']}",
+            f"",
+            f"---",
+            f""
+        ]
+        
+        if data['evidence']:
+            lines.append("### Key Evidence")
+            for i, ev in enumerate(data['evidence'], 1):
+                lines.append(f"{i}. \"{ev}\"")
+            lines.append("")
+        
+        lines.append(f"### Matching Papers ({len(data['papers'])} found)")
+        lines.append("")
+        
+        for paper in data['papers']:
+            info = paper['paper_info']
+            lines.append(f"#### 📄 {info['title']}")
+            lines.append(f"")
+            lines.append(f"- **Authors:** {info['authors']}")
+            lines.append(f"- **ArXiv:** [{info['arxiv_id']}]({info['url']})" if info['arxiv_id'] else "")
+            lines.append("")
+            
+            for match in paper['matches']:
+                section = match['section_info']
+                content = match['content']
+                explanation = match['explanation']
+                
+                lines.append(f"**Section:** {section['path']} | **Similarity:** {section['similarity']} | **Dimension:** {section['dimension']}")
+                lines.append("")
+                lines.append(f"> {content['full_context']}")
+                lines.append("")
+                if explanation['reason']:
+                    lines.append(f"*Why this matches:* {explanation['reason']}")
+                lines.append("")
+            
+            lines.append("---")
+            lines.append("")
+        
+        return "\n".join(lines)

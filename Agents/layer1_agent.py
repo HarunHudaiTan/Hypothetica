@@ -18,6 +18,7 @@ from models.analysis import (
     CriteriaScores, 
     SentenceAnalysis,
     MatchedSection,
+    PaperMetadata,
     DimensionAnalysis,
     QuestionAnalysis,
     SimilarityCategory
@@ -73,7 +74,11 @@ For EACH sentence in the user's idea:
 1. Determine overlap_score (0.0-1.0) based on dimension analysis
 2. Identify which dimension is most relevant (primary_dimension)
 3. Provide 1-2 evidence quotes from the paper supporting the overlap
-4. List matched paper sections (heading + reason)
+4. List matched paper sections with FULL CONTEXT:
+   - heading: The section heading
+   - text_snippet: The ACTUAL TEXT from the paper that matches (2-3 sentences)
+   - reason: Why this text matches the user's sentence
+   - dimension: Which dimension this match relates to (problem/method/domain/claims)
 
 ---
 
@@ -170,7 +175,9 @@ Return ONLY valid JSON:
       "matched_sections": [
         {
           "heading": "METHODOLOGY",
-          "reason": "Similar algorithmic approach described"
+          "text_snippet": "We propose a transformer-based architecture that processes input sequences through self-attention mechanisms, enabling the model to capture long-range dependencies.",
+          "reason": "Both use transformer architecture with self-attention for sequence processing",
+          "dimension": "methodological_innovation"
         }
       ]
     }
@@ -188,6 +195,8 @@ Return ONLY valid JSON:
 5. **Evidence-based only** - do NOT hallucinate paper content
 6. **Use categorical scores** - NONE/MINIMAL/MODERATE/SIGNIFICANT/COMPLETE only
 7. **Sentence overlap scores** should reflect the dimension analysis (e.g., if methodology is SIGNIFICANT=0.75, sentences about methods should be ~0.75)
+8. **ALWAYS include text_snippet** in matched_sections - copy 2-3 actual sentences from the paper that match
+9. **ALWAYS include dimension** in matched_sections - specify which dimension (problem/method/domain/claims) the match relates to
 
 ## SCORING PHILOSOPHY
 
@@ -387,12 +396,23 @@ Return valid JSON only."""
         # Calculate weighted overall score
         overall_overlap = criteria.weighted_average
         
+        # Create paper metadata for grounded RAG display
+        paper_metadata = PaperMetadata(
+            paper_id=paper.paper_id,
+            arxiv_id=paper.arxiv_id,
+            title=paper.title,
+            authors=paper.authors if hasattr(paper, 'authors') else [],
+            publication_date=paper.published if hasattr(paper, 'published') else "",
+            categories=paper.categories if hasattr(paper, 'categories') else [],
+            abstract=paper.abstract if hasattr(paper, 'abstract') else ""
+        )
+        
         # Parse sentence-level analysis
         sentence_analyses = []
         for sent_data in result_dict.get('sentence_level', []):
             idx = sent_data.get('sentence_index', 0)
             
-            # Parse matched sections
+            # Parse matched sections with full context
             matched = []
             for match in sent_data.get('matched_sections', []):
                 matched.append(MatchedSection(
@@ -400,9 +420,14 @@ Return valid JSON only."""
                     paper_id=paper.paper_id,
                     paper_title=paper.title,
                     heading=match.get('heading', ''),
-                    text_snippet="",  # Will be filled by RAG
+                    heading_hierarchy=[match.get('heading', '')],  # Single heading for now
+                    text_snippet=match.get('text_snippet', ''),  # Now populated by LLM
+                    context_before="",  # Can be filled by RAG later
+                    context_after="",   # Can be filled by RAG later
                     similarity=sent_data.get('overlap_score', 0.0),
-                    reason=match.get('reason', '')
+                    reason=match.get('reason', ''),
+                    dimension=match.get('dimension', sent_data.get('primary_dimension', '')),
+                    paper_metadata=paper_metadata
                 ))
             
             # Get sentence text
