@@ -146,29 +146,23 @@ class MatchedSection:
     A section/chunk that matches a user's sentence.
     Enhanced with full paper metadata and context for grounded RAG display.
     """
-    # Chunk identification
+    # Required fields (no defaults) - must come first
     chunk_id: str
     paper_id: str
     paper_title: str
-    
-    # Section context
     heading: str                   # Section heading (e.g., "3.1 Methodology")
-    heading_hierarchy: List[str] = field(default_factory=list)  # ["3. Methods", "3.1 Methodology"]
     
-    # Text content with context
-    text_snippet: str              # The matching excerpt
+    # Optional fields (with defaults) - must come after required fields
+    text_snippet: str = ""         # The matching excerpt
+    heading_hierarchy: List[str] = field(default_factory=list)  # ["3. Methods", "3.1 Methodology"]
     context_before: str = ""       # 1-2 sentences before for context
     context_after: str = ""        # 1-2 sentences after for context
     highlight_start: int = 0       # Character position where match starts
     highlight_end: int = 0         # Character position where match ends
-    
-    # Matching info
     similarity: float = 0.0        # Cosine similarity score (0-1)
     reason: str = ""               # Why this matches (from LLM)
     dimension: str = ""            # Which dimension this relates to (problem/method/domain/claims)
-    
-    # Full paper metadata (for grounded display)
-    paper_metadata: Optional[PaperMetadata] = None
+    paper_metadata: Optional[PaperMetadata] = None  # Full paper metadata for grounded display
     
     @property
     def full_context(self) -> str:

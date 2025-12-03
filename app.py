@@ -287,43 +287,135 @@ def render_sentence_with_highlighting(annotations):
 
 
 def render_matches_panel(pipeline, sentence_idx, annotations):
-    """Render the matching sources panel for a selected sentence."""
+    """Render the matching sources panel for a selected sentence with enhanced grounded display."""
     if sentence_idx is None or sentence_idx >= len(annotations):
         return
     
     ann = annotations[sentence_idx]
     
+    # Dimension label mapping
+    DIMENSION_LABELS = {
+        "technical_problem_novelty": "🔬 Problem Novelty",
+        "methodological_innovation": "⚙️ Methodology",
+        "application_domain_overlap": "🎯 Application Domain",
+        "innovation_claims_overlap": "💡 Innovation Claims",
+        "problem": "🔬 Problem",
+        "method": "⚙️ Method",
+        "domain": "🎯 Domain",
+        "claims": "💡 Claims"
+    }
+    
+    # Header
     st.markdown("### 📄 Matching Sources")
-    st.markdown(f"**Selected sentence:** *{ann.sentence}*")
-    st.markdown(f"**Overlap score:** {ann.overlap_score:.2%}")
     
-    # Get matches from RAG
-    matches = pipeline.get_matches_for_sentence(ann.sentence, top_k=5)
+    # Selected sentence info
+    dim_key = ann.primary_dimension.lower() if hasattr(ann, 'primary_dimension') and ann.primary_dimension else ""
+    dim_label = DIMENSION_LABELS.get(dim_key, ann.primary_dimension if hasattr(ann, 'primary_dimension') else "General")
     
-    if not matches and ann.linked_sections:
-        # Use linked sections from Layer 1 analysis
-        matches = [
-            {
-                "paper_title": ls.paper_title,
-                "heading": ls.heading,
-                "text": ls.text_snippet,
-                "similarity": ls.similarity,
-                "reason": ls.reason
-            }
-            for ls in ann.linked_sections
-        ]
+    st.markdown(f"""
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <p style="color: white; font-size: 14px; margin: 0;"><strong>Selected sentence:</strong></p>
+        <p style="color: white; font-style: italic; margin: 5px 0;">"{ann.sentence}"</p>
+        <p style="color: white; margin: 5px 0;"><strong>Overlap:</strong> {ann.overlap_score:.0%} | <strong>Primary Dimension:</strong> {dim_label}</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    if matches:
-        for i, match in enumerate(matches):
-            with st.expander(f"📑 {match.get('paper_title', 'Unknown Paper')[:50]}...", expanded=(i == 0)):
-                st.markdown(f"**Section:** {match.get('heading', 'N/A')}")
-                st.markdown(f"**Similarity:** {match.get('similarity', 0):.2%}")
+    # Show evidence if available
+    if hasattr(ann, 'evidence') and ann.evidence:
+        with st.expander("📝 Key Evidence from Analysis", expanded=False):
+            for i, ev in enumerate(ann.evidence[:3], 1):
+                st.markdown(f"> {i}. *\"{ev}\"*")
+    
+    # Get matches - prefer linked_sections from Layer 1 (has paper_metadata)
+    linked = ann.linked_sections if hasattr(ann, 'linked_sections') else []
+    
+    # Also try RAG if available
+    rag_matches = []
+    if pipeline and hasattr(pipeline, 'get_matches_for_sentence'):
+        try:
+            rag_matches = pipeline.get_matches_for_sentence(ann.sentence, top_k=5) or []
+        except:
+            pass
+    
+    # Use linked_sections as primary source (they have paper_metadata)
+    if linked:
+        st.markdown(f"**Found {len(linked)} matching sections:**")
+        
+        for i, ls in enumerate(linked):
+            # Get paper metadata if available
+            paper_meta = ls.paper_metadata if hasattr(ls, 'paper_metadata') and ls.paper_metadata else None
+            
+            # Paper title and info
+            title = ls.paper_title if ls.paper_title else "Unknown Paper"
+            arxiv_id = paper_meta.arxiv_id if paper_meta else ""
+            authors = paper_meta.authors_str if paper_meta else "Unknown authors"
+            arxiv_url = paper_meta.arxiv_url if paper_meta else ""
+            
+            # Dimension for this match
+            match_dim = ls.dimension if hasattr(ls, 'dimension') and ls.dimension else ""
+            match_dim_label = DIMENSION_LABELS.get(match_dim.lower(), match_dim)
+            
+            # Create expander with full title
+            with st.expander(f"📑 {title}", expanded=(i == 0)):
+                # Paper info row
+                col1, col2 = st.columns([3, 1])
+                with col1:
+                    st.markdown(f"**Authors:** {authors}")
+                    if arxiv_id:
+                        st.markdown(f"**ArXiv:** [{arxiv_id}]({arxiv_url})")
+                with col2:
+                    st.markdown(f"**Similarity:** `{ls.similarity:.0%}`")
+                    if match_dim_label:
+                        st.markdown(f"**Dimension:** {match_dim_label}")
+                
                 st.markdown("---")
-                st.markdown(f"*{match.get('text', 'No text available')[:500]}...*")
-    else:
-        st.info("No detailed matches found for this sentence.")
+                
+                # Section info
+                heading = ls.heading if ls.heading else "Unknown Section"
+                heading_path = " → ".join(ls.heading_hierarchy) if hasattr(ls, 'heading_hierarchy') and ls.heading_hierarchy else heading
+                st.markdown(f"**📍 Section:** {heading_path}")
+                
+                # Text content with context
+                text = ls.text_snippet if hasattr(ls, 'text_snippet') and ls.text_snippet else ""
+                context_before = ls.context_before if hasattr(ls, 'context_before') and ls.context_before else ""
+                context_after = ls.context_after if hasattr(ls, 'context_after') and ls.context_after else ""
+                
+                if text:
+                    # Build full context display
+                    full_text = ""
+                    if context_before:
+                        full_text += f"...{context_before} "
+                    full_text += f"**{text}**"
+                    if context_after:
+                        full_text += f" {context_after}..."
+                    
+                    st.markdown("**Matching Text:**")
+                    st.markdown(f"> {full_text if full_text else text}")
+                
+                # Reason
+                reason = ls.reason if hasattr(ls, 'reason') and ls.reason else ""
+                if reason:
+                    st.markdown(f"**💡 Why this matches:** {reason}")
+                
+                # Link to paper
+                if arxiv_url:
+                    st.markdown(f"[📄 View Full Paper]({arxiv_url}) | [📥 Download PDF]({arxiv_url.replace('abs', 'pdf')}.pdf)")
     
-    if st.button("← Back to results"):
+    elif rag_matches:
+        # Fallback to RAG matches (less detailed)
+        st.markdown(f"**Found {len(rag_matches)} matching sections:**")
+        for i, match in enumerate(rag_matches):
+            with st.expander(f"📑 {match.get('paper_title', 'Unknown Paper')}", expanded=(i == 0)):
+                st.markdown(f"**Section:** {match.get('heading', 'N/A')}")
+                st.markdown(f"**Similarity:** {match.get('similarity', 0):.0%}")
+                st.markdown("---")
+                text = match.get('text', 'No text available')
+                st.markdown(f"> {text[:800]}{'...' if len(text) > 800 else ''}")
+    else:
+        st.info("No detailed matches found for this sentence. This may indicate the sentence is relatively original.")
+    
+    st.markdown("---")
+    if st.button("← Back to results", type="secondary"):
         st.session_state.selected_sentence_idx = None
         st.rerun()
 
