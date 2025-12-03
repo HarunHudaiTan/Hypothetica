@@ -198,12 +198,7 @@ Return ONLY valid JSON:
 8. **ALWAYS include text_snippet** in matched_sections - copy 2-3 actual sentences from the paper that match
 9. **ALWAYS include dimension** in matched_sections - specify which dimension (problem/method/domain/claims) the match relates to
 
-## SCORING PHILOSOPHY
 
-- **Method (40% weight)**: Most important for novelty
-- **Problem (30% weight)**: Research question novelty
-- **Domain (20% weight)**: Application area overlap
-- **Claims (10% weight)**: Contribution overlap
 """
 
 
