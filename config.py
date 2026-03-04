@@ -22,10 +22,15 @@ EMBEDDING_DEVICE = "mps"  # Use "cuda" for NVIDIA, "cpu" for fallback
 # =============================================================================
 # PIPELINE PARAMETERS
 # =============================================================================
-# ArXiv Search
+# Enhanced ArXiv Search (High-Recall Retrieval)
+PAPERS_PER_QUERY_VARIANT = 150  # Papers to fetch per query variant
+EMBEDDING_TOPK = 100  # Candidates from embedding search
+RERANK_TOPK = 20  # Papers after cross-encoder reranking
+MAX_PAPERS_TO_ANALYZE = 5  # Final papers for detailed analysis
+
+# Legacy (backward compatibility)
 NUM_KEYWORDS = 7
 PAPERS_PER_KEYWORD = 10
-MAX_PAPERS_TO_ANALYZE = 5
 
 # Chunking
 MAX_CHUNK_SIZE = 512  # tokens approximately (characters / 4)

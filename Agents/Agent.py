@@ -62,18 +62,23 @@ class Agent:
             except ClientError as e:
                 logger.error(f"ClientError occurred (attempt {attempt + 1}/{max_retries}): {str(e)}")
                 
-                # Check if it's a 503 UNAVAILABLE error
                 error_code = e.details.get('error', {}).get('code', 0)
                 error_status = e.details.get('error', {}).get('status', '')
+                error_message = e.details.get('error', {}).get('message', '')
                 
+                # Check if it's a 503 UNAVAILABLE error
                 if error_code == 503 or error_status == 'UNAVAILABLE':
-                    # Exponential backoff for 503 errors
-                    wait_time = (2 ** attempt) * 5 + self.timebuffer  # 5s, 10s, 20s + buffer
+                    wait_time = (2 ** attempt) * 5 + self.timebuffer
                     logger.warning(f"Model overloaded (503). Waiting {wait_time}s before retry...")
                     time.sleep(wait_time)
                     continue
                 
-                # Check for rate limit with RetryInfo
+                # Check if it's a QUOTA EXHAUSTED error (daily limit hit - don't retry)
+                if error_code == 429 and 'free_tier' in error_message.lower():
+                    logger.error("Daily free tier quota exhausted. Add billing or wait until tomorrow.")
+                    raise QuotaExhaustedError("Gemini API daily free tier quota exhausted. Please add billing at https://ai.google.dev/ or wait until tomorrow.")
+                
+                # Check for rate limit with RetryInfo (temporary rate limit - can retry)
                 error_details = e.details.get('error', {}).get('details', [])
                 for detail in error_details:
                     if detail.get("@type") == "type.googleapis.com/google.rpc.RetryInfo":
@@ -84,13 +89,12 @@ class Agent:
                         time.sleep(wait_time)
                         break
                 else:
-                    # No retry info found, use default wait
                     if attempt < max_retries - 1:
                         wait_time = (2 ** attempt) * 3 + self.timebuffer
                         logger.warning(f"Unknown error, waiting {wait_time}s before retry...")
                         time.sleep(wait_time)
                     else:
-                        raise  # Re-raise on last attempt
+                        raise
             except Exception as e:
                 logger.error(f"Unexpected error: {str(e)}")
                 if attempt < max_retries - 1:
@@ -101,6 +105,11 @@ class Agent:
                     raise
         
         raise Exception("Max retries exceeded for API call")
+
+
+class QuotaExhaustedError(Exception):
+    """Raised when Gemini API quota is exhausted."""
+    pass
 
     def get_chat_history(self):
 

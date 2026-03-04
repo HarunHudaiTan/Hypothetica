@@ -58,7 +58,11 @@ Analyze the relationship between a user's research idea and a given paper. Deter
 ## Sentence-Level Analysis
 For EACH sentence in the user's idea, evaluate:
 - overlap_score: How much this specific sentence overlaps with paper content (0.0-1.0)
-- matched_sections: Which paper sections relate to this sentence
+- matched_sections: Which paper sections relate to this sentence. For each match you MUST include:
+  - heading: The section heading where the overlap was found
+  - similar_text: Quote or closely paraphrase the SPECIFIC passage (1-3 sentences) from the paper that is similar. Do NOT leave this empty.
+  - reason: Explain WHAT about the user's sentence and the paper passage is similar (e.g., "Both propose using graph attention networks for molecular property prediction")
+  - similarity: Numeric score 0.0-1.0
 
 ## Output Format
 Return ONLY valid JSON:
@@ -80,7 +84,8 @@ Return ONLY valid JSON:
       "matched_sections": [
         {
           "heading": "INTRODUCTION",
-          "reason": "Similar problem statement",
+          "similar_text": "The exact or closely paraphrased passage from the paper that overlaps with this sentence.",
+          "reason": "Both address the same problem of X using approach Y, though the user proposes Z as a differentiator.",
           "similarity": 0.68
         }
       ]
@@ -237,11 +242,11 @@ Return valid JSON only."""
             matched = []
             for match in sent_data.get('matched_sections', []):
                 matched.append(MatchedSection(
-                    chunk_id="",  # Will be linked by RAG later
+                    chunk_id="",
                     paper_id=paper.paper_id,
                     paper_title=paper.title,
                     heading=match.get('heading', ''),
-                    text_snippet="",  # Will be filled by RAG
+                    text_snippet=match.get('similar_text', ''),
                     similarity=float(match.get('similarity', 0.0)),
                     reason=match.get('reason', '')
                 ))
