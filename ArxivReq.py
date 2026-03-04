@@ -3,14 +3,23 @@ import urllib.parse
 from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 import json
+import time
 
-from Agents.keyword_agent import KeywordAgent
+from Agents.query_variant_agent import QueryVariantAgent
 
 
 class ArxivReq:
+    """
+    ArXiv paper retrieval with high-recall multi-query search and deduplication.
+    """
+    
     def __init__(self):
-     self.keyword_agent = KeywordAgent()
-    def search_arxiv(self,terms=None, operator=None, category=None, search_in="all",
+        self.query_variant_agent = QueryVariantAgent()
+        # Configurable parameters for retrieval
+        self.papers_per_query = 150  # Increased from 10 for high recall
+        self.api_delay = 3  # Seconds between API calls (arXiv recommendation)
+    
+    def search_arxiv(self, terms=None, operator=None, category=None, search_in="all",
                      max_results=10, start=0, sort_by=None, sort_order="descending",
                      date_from=None, date_to=None):
         """
@@ -30,16 +39,6 @@ class ArxivReq:
 
         Returns:
             String containing the Atom XML response
-
-        Examples:
-            # Papers from last 6 months
-            search_arxiv("RAG", date_from=datetime.now() - timedelta(days=180))
-
-            # Papers from 2024
-            search_arxiv("agents", date_from="202401010000", date_to="202412312359")
-
-            # Recent AI papers from last year
-            search_arxiv(category="cs.AI", date_from=datetime.now() - timedelta(days=365))
         """
 
         query_parts = []
@@ -62,15 +61,13 @@ class ArxivReq:
 
         # Add date range filter if specified
         if date_from or date_to:
-            # Convert datetime objects to string format if needed
             if isinstance(date_from, datetime):
                 date_from = date_from.strftime("%Y%m%d%H%M")
             if isinstance(date_to, datetime):
                 date_to = date_to.strftime("%Y%m%d%H%M")
 
-            # Set defaults if only one date is provided
             if not date_from:
-                date_from = "200001010000"  # arXiv started in 2000
+                date_from = "200001010000"
             if not date_to:
                 date_to = datetime.now().strftime("%Y%m%d%H%M")
 
@@ -91,45 +88,32 @@ class ArxivReq:
             'max_results': max_results
         }
 
-        # Add sorting parameters if specified
         if sort_by:
             params['sortBy'] = sort_by
             params['sortOrder'] = sort_order
 
         url = f"http://export.arxiv.org/api/query?{urllib.parse.urlencode(params)}"
 
-        # Make the request
         response = urllib.request.urlopen(url)
         return response.read().decode('utf-8')
 
-
-    def parse_arxiv_xml_to_json(self,xml_string):
+    def parse_arxiv_xml_to_json(self, xml_string):
         """
         Parse arXiv API XML response and convert to JSON format.
-
-        Args:
-            xml_string: XML string from arXiv API response
-
-        Returns:
-            Dictionary containing parsed paper information
         """
-        # Define namespaces
         namespaces = {
             'atom': 'http://www.w3.org/2005/Atom',
             'opensearch': 'http://a9.com/-/spec/opensearch/1.1/',
             'arxiv': 'http://arxiv.org/schemas/atom'
         }
 
-        # Parse XML
         root = ET.fromstring(xml_string)
 
-        # Extract feed-level metadata
         feed_link = root.find('atom:link[@rel="self"]', namespaces)
         feed_title = root.find('atom:title', namespaces)
         feed_id = root.find('atom:id', namespaces)
         feed_updated = root.find('atom:updated', namespaces)
 
-        # Extract opensearch metadata
         total_results = root.find('opensearch:totalResults', namespaces)
         start_index = root.find('opensearch:startIndex', namespaces)
         items_per_page = root.find('opensearch:itemsPerPage', namespaces)
@@ -145,18 +129,14 @@ class ArxivReq:
             'papers': []
         }
 
-        # Extract paper entries
         for entry in root.findall('atom:entry', namespaces):
             paper = {}
 
-            # Extract ID and convert to arxiv_id
             id_elem = entry.find('atom:id', namespaces)
             if id_elem is not None:
                 paper['id'] = id_elem.text
-                # Extract arxiv_id from URL (e.g., "2205.06168v1" from "http://arxiv.org/abs/2205.06168v1")
                 paper['arxiv_id'] = id_elem.text.split('/abs/')[-1]
 
-            # Extract dates
             published = entry.find('atom:published', namespaces)
             if published is not None:
                 paper['published'] = published.text
@@ -165,19 +145,14 @@ class ArxivReq:
             if updated is not None:
                 paper['updated'] = updated.text
 
-            # Extract title
             title = entry.find('atom:title', namespaces)
             if title is not None:
-                # Clean up title (remove extra whitespace and newlines)
                 paper['title'] = ' '.join(title.text.split())
 
-            # Extract summary/abstract
             summary = entry.find('atom:summary', namespaces)
             if summary is not None:
-                # Clean up summary
                 paper['summary'] = ' '.join(summary.text.split())
 
-            # Extract authors
             authors = []
             for author in entry.findall('atom:author', namespaces):
                 name = author.find('atom:name', namespaces)
@@ -185,7 +160,6 @@ class ArxivReq:
                     authors.append(name.text)
             paper['authors'] = authors
 
-            # Extract links
             links = {}
             for link in entry.findall('atom:link', namespaces):
                 rel = link.get('rel')
@@ -198,7 +172,6 @@ class ArxivReq:
                     links['html'] = href
             paper['links'] = links
 
-            # Extract categories
             categories = []
             for category in entry.findall('atom:category', namespaces):
                 term = category.get('term')
@@ -206,22 +179,18 @@ class ArxivReq:
                     categories.append(term)
             paper['categories'] = categories
 
-            # Extract primary category
             primary_cat = entry.find('arxiv:primary_category', namespaces)
             if primary_cat is not None:
                 paper['primary_category'] = primary_cat.get('term')
 
-            # Extract comment if present
             comment = entry.find('arxiv:comment', namespaces)
             if comment is not None:
                 paper['comment'] = comment.text
 
-            # Extract journal reference if present
             journal_ref = entry.find('arxiv:journal_ref', namespaces)
             if journal_ref is not None:
                 paper['journal_ref'] = journal_ref.text
 
-            # Extract DOI if present
             doi = entry.find('arxiv:doi', namespaces)
             if doi is not None:
                 paper['doi'] = doi.text
@@ -230,104 +199,166 @@ class ArxivReq:
 
         return result
 
-
-    # Helper functions for common date ranges
-    def last_days(self,days):
+    def last_days(self, days):
         """Get datetime for N days ago"""
         return datetime.now() - timedelta(days=days)
 
-
-    def last_months(self,months):
+    def last_months(self, months):
         """Get approximate datetime for N months ago (30 days per month)"""
         return datetime.now() - timedelta(days=months * 30)
 
-
-    def search_multiple_topics(self,topics, return_json=True, **kwargs):
+    def search_with_pagination(self, query: str, max_papers: int = 150, **kwargs) -> list:
         """
-        Search multiple topics separately with individual API calls.
-
-        Args:
-            topics: List of topics to search separately
-            return_json: If True, return parsed JSON; if False, return raw XML (default: True)
-            **kwargs: Additional parameters passed to search_arxiv
-
-        Returns:
-            Dictionary with results for each topic (JSON format if return_json=True)
-        """
-        results = {}
-        for topic in topics:
-            print(f"Searching for: {topic}...")
-            xml_result = self.search_arxiv(topic, **kwargs)
-
-            if return_json:
-                # Parse XML to JSON
-                json_result = self.parse_arxiv_xml_to_json(xml_result)
-                results[topic] = json_result
-                print(f"Found {json_result['total_results']} results for '{topic}', retrieved {len(json_result['papers'])} papers")
-            else:
-                results[topic] = xml_result
-                # Count results from XML response
-                import re
-                total_results = re.search(r'<opensearch:totalResults[^>]*>(\d+)</opensearch:totalResults>', xml_result)
-                if total_results:
-                    count = total_results.group(1)
-                    print(f"Found {count} results for '{topic}'")
-
-            # Be nice to the API - add a delay between requests
-            import time
-            time.sleep(3)  # 3 second delay as recommended
-
-        return results
-
-    def convert_to_jsonl_format(self, search_results):
-        """
-        Convert ArXiv search results to JSONL format compatible with embed_mvp.py
+        Search arXiv with pagination to get more results.
         
         Args:
-            search_results: Dictionary of search results from search_multiple_topics
+            query: Search query string
+            max_papers: Maximum number of papers to retrieve
+            **kwargs: Additional parameters for search_arxiv
+            
+        Returns:
+            List of paper dictionaries
+        """
+        all_papers = []
+        batch_size = min(100, max_papers)  # arXiv max per request is 100
+        start = 0
+        
+        while len(all_papers) < max_papers:
+            try:
+                xml_result = self.search_arxiv(
+                    terms=query,
+                    max_results=batch_size,
+                    start=start,
+                    sort_by="relevance",
+                    **kwargs
+                )
+                json_result = self.parse_arxiv_xml_to_json(xml_result)
+                papers = json_result.get('papers', [])
+                
+                if not papers:
+                    break
+                    
+                all_papers.extend(papers)
+                start += batch_size
+                
+                # Check if we got all available results
+                if len(papers) < batch_size:
+                    break
+                    
+                # Rate limiting
+                time.sleep(self.api_delay)
+                
+            except Exception as e:
+                print(f"Error fetching papers for query '{query}': {e}")
+                break
+                
+        return all_papers[:max_papers]
+
+    def search_multiple_queries(self, queries: list, papers_per_query: int = None) -> dict:
+        """
+        Search multiple query variants and collect results.
+        
+        Args:
+            queries: List of query variant dictionaries with 'type' and 'query' keys
+            papers_per_query: Number of papers to fetch per query (default: self.papers_per_query)
+            
+        Returns:
+            Dictionary with query as key and results as value
+        """
+        if papers_per_query is None:
+            papers_per_query = self.papers_per_query
+            
+        results = {}
+        
+        for variant in queries:
+            query = variant['query']
+            query_type = variant['type']
+            
+            print(f"Searching [{query_type}]: {query}")
+            
+            papers = self.search_with_pagination(query, max_papers=papers_per_query)
+            results[query] = {
+                'type': query_type,
+                'papers': papers,
+                'count': len(papers)
+            }
+            
+            print(f"  Found {len(papers)} papers")
+            time.sleep(self.api_delay)
+            
+        return results
+
+    def deduplicate_papers(self, search_results: dict) -> list:
+        """
+        Merge and deduplicate papers from multiple query results.
+        
+        Args:
+            search_results: Dictionary of search results from search_multiple_queries
+            
+        Returns:
+            List of unique paper dictionaries with source query info
+        """
+        seen_ids = set()
+        unique_papers = []
+        
+        for query, data in search_results.items():
+            for paper in data.get('papers', []):
+                arxiv_id = paper.get('arxiv_id', '')
+                
+                # Normalize arXiv ID (remove version suffix for deduplication)
+                base_id = arxiv_id.split('v')[0] if arxiv_id else ''
+                
+                if base_id and base_id not in seen_ids:
+                    seen_ids.add(base_id)
+                    # Add source query information
+                    paper['source_query'] = query
+                    paper['source_type'] = data.get('type', 'unknown')
+                    unique_papers.append(paper)
+                    
+        print(f"Deduplicated: {sum(d['count'] for d in search_results.values())} → {len(unique_papers)} unique papers")
+        return unique_papers
+
+    def convert_to_jsonl_format(self, papers: list) -> list:
+        """
+        Convert papers to JSONL format compatible with embed_mvp.py
+        
+        Args:
+            papers: List of paper dictionaries (already deduplicated)
             
         Returns:
             List of dictionaries in JSONL format
         """
         jsonl_papers = []
         
-        for topic, topic_results in search_results.items():
-            for paper in topic_results.get('papers', []):
-                # Extract year from published date (format: "2025-02-25T05:55:15Z")
-                year = None
-                if 'published' in paper:
-                    try:
-                        year = int(paper['published'][:4])
-                    except (ValueError, TypeError):
-                        year = None
-                
-                # Create JSONL format entry
-                jsonl_entry = {
-                    "search_keyword": topic,
-                    "id": paper.get('arxiv_id', ''),
-                    "title": paper.get('title', ''),
-                    "abstract": paper.get('summary', ''),  # ArXiv uses 'summary' for abstract
-                    "url": paper.get('links', {}).get('html', ''),
-                    "year": year,
-                    "categories": paper.get('categories', []),
-                    # Add the keyword that was used to find this paper
-                }
-                
-                jsonl_papers.append(jsonl_entry)
+        for paper in papers:
+            year = None
+            if 'published' in paper:
+                try:
+                    year = int(paper['published'][:4])
+                except (ValueError, TypeError):
+                    year = None
+            
+            jsonl_entry = {
+                "id": paper.get('arxiv_id', ''),
+                "title": paper.get('title', ''),
+                "abstract": paper.get('summary', ''),
+                "url": paper.get('links', {}).get('html', ''),
+                "year": year,
+                "categories": paper.get('categories', []),
+                "source_query": paper.get('source_query', ''),
+                "source_type": paper.get('source_type', ''),
+            }
+            
+            jsonl_papers.append(jsonl_entry)
         
         return jsonl_papers
     
-    def save_to_jsonl_file(self, jsonl_papers, filename="embeddemo/sample_papers.jsonl"):
+    def save_to_jsonl_file(self, jsonl_papers: list, filename: str = "embeddemo/sample_papers.jsonl"):
         """
         Save papers to JSONL file format
-        
-        Args:
-            jsonl_papers: List of paper dictionaries in JSONL format
-            filename: Output filename (default: embeddemo/sample_papers.jsonl)
         """
         import os
         
-        # Ensure directory exists
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         
         with open(filename, 'w', encoding='utf-8') as f:
@@ -336,52 +367,75 @@ class ArxivReq:
         
         print(f"Saved {len(jsonl_papers)} papers to {filename}")
 
-    def get_papers(self,user_idea):
-        keywords= self.keyword_agent.generate_keyword_agent_response(user_idea)
-        print("keywords: ", keywords)
-        search_results = self.search_multiple_topics(keywords)
+    def get_papers(self, user_idea: str, papers_per_query: int = None) -> str:
+        """
+        Main entry point: Generate query variants, search arXiv, deduplicate, and save.
         
-        # Convert to JSONL format and save to file
-        jsonl_papers = self.convert_to_jsonl_format(search_results)
+        Args:
+            user_idea: User's research idea/description
+            papers_per_query: Number of papers to fetch per query variant
+            
+        Returns:
+            JSON string with search results summary
+        """
+        # Step 1: Generate query variants
+        print("=" * 60)
+        print("Step 1: Generating query variants...")
+        query_variants = self.query_variant_agent.generate_query_variants(user_idea)
+        print(f"Generated {len(query_variants)} query variants:")
+        for v in query_variants:
+            print(f"  [{v['type']}] {v['query']}")
+        
+        # Step 2: Search arXiv with all variants
+        print("\n" + "=" * 60)
+        print("Step 2: Searching arXiv...")
+        search_results = self.search_multiple_queries(query_variants, papers_per_query)
+        
+        # Step 3: Deduplicate
+        print("\n" + "=" * 60)
+        print("Step 3: Deduplicating papers...")
+        unique_papers = self.deduplicate_papers(search_results)
+        
+        # Step 4: Convert and save to JSONL
+        print("\n" + "=" * 60)
+        print("Step 4: Saving to JSONL...")
+        jsonl_papers = self.convert_to_jsonl_format(unique_papers)
         self.save_to_jsonl_file(jsonl_papers)
         
-        return json.dumps(search_results,indent=4)
+        # Return summary
+        summary = {
+            "query_variants": query_variants,
+            "total_papers_fetched": sum(d['count'] for d in search_results.values()),
+            "unique_papers": len(unique_papers),
+            "papers": jsonl_papers
+        }
+        
+        return json.dumps(summary, indent=2)
 
 
-# Example usage:
-# if __name__ == "__main__":
-#
-#     prompt=''' Theoretical Bounds on Sample Complexity for Few-Shot Learning
-#
-# I'm exploring the theoretical foundations of few-shot learning - specifically, what are
-# the fundamental limits on how few examples are needed to learn a new task? I want to
-# derive sample complexity bounds that depend on task similarity, model capacity, and the
-# structure of the meta-learning algorithm. This could help explain why certain meta-learning
-# architectures (like MAML or Prototypical Networks) work better than others and guide the
-# design of more sample-efficient algorithms.'''
-#
-#     request=ArxivReq()
-#     print(request.get_papers(prompt))
+# Legacy compatibility - keep old method name working
+def search_multiple_topics(self, topics, return_json=True, **kwargs):
+    """
+    Backward compatibility wrapper for old keyword-based search.
+    Converts topics to query variant format.
+    """
+    query_variants = [{"type": "keyword", "query": topic} for topic in topics]
+    return self.search_multiple_queries(query_variants, papers_per_query=10)
 
 
+# Testing
+if __name__ == "__main__":
+    prompt = '''Theoretical Bounds on Sample Complexity for Few-Shot Learning
 
+I'm exploring the theoretical foundations of few-shot learning - specifically, what are
+the fundamental limits on how few examples are needed to learn a new task? I want to
+derive sample complexity bounds that depend on task similarity, model capacity, and the
+structure of the meta-learning algorithm.'''
 
-
-
-    # print("\n" + "=" * 50 + "\n")
-
-    # # Papers from 2024 only
-    # print("All RAG papers from 2024:")
-    # result = search_arxiv("RAG", date_from="202401010000", date_to="202412312359", max_results=10)
-    # print(result[:500])
-
-    # print("\n" + "=" * 50 + "\n")
-
-    # # Last 30 days, newest first
-    # print("Recent papers from last 30 days:")
-    # result = search_arxiv(["RAG", "retrieval"],
-    #                       date_from=last_days(30),
-    #                       sort_by="submittedDate",
-    #                       sort_order="descending",
-    #                       max_results=5)
-    # print(result[:500])
+    request = ArxivReq()
+    result = request.get_papers(prompt)
+    print("\n" + "=" * 60)
+    print("RESULT SUMMARY:")
+    result_dict = json.loads(result)
+    print(f"Total fetched: {result_dict['total_papers_fetched']}")
+    print(f"Unique papers: {result_dict['unique_papers']}")

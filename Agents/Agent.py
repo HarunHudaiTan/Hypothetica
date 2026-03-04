@@ -53,27 +53,63 @@ class Agent:
                     logger.info("Retrying request after rate limit wait")
                     return self.generate_chat_response(prompt)
 
-    def generate_text_generation_response(self, prompt):
-        try:
-            response = self.client.models.generate_content(model=self.model,
-                                                           config=self.config, contents=prompt)
-            return response
-        except ClientError as e:
-            print(e)
-            logger.error(f"ClientError occurred: {str(e)}")
-            error = e.details['error']['details']
-
-            for detail in error:
-                if detail.get("@type") == "type.googleapis.com/google.rpc.RetryInfo":
-                    retry_str = detail.get("retryDelay")
-                    retry_time = int(retry_str[:-1])
-                    wait_time = retry_time + self.timebuffer
-
-                    logger.warning(f"Rate limit exceeded. Waiting for {wait_time} seconds")
+    def generate_text_generation_response(self, prompt, max_retries=3):
+        for attempt in range(max_retries):
+            try:
+                response = self.client.models.generate_content(model=self.model,
+                                                               config=self.config, contents=prompt)
+                return response
+            except ClientError as e:
+                logger.error(f"ClientError occurred (attempt {attempt + 1}/{max_retries}): {str(e)}")
+                
+                error_code = e.details.get('error', {}).get('code', 0)
+                error_status = e.details.get('error', {}).get('status', '')
+                error_message = e.details.get('error', {}).get('message', '')
+                
+                # Check if it's a 503 UNAVAILABLE error
+                if error_code == 503 or error_status == 'UNAVAILABLE':
+                    wait_time = (2 ** attempt) * 5 + self.timebuffer
+                    logger.warning(f"Model overloaded (503). Waiting {wait_time}s before retry...")
                     time.sleep(wait_time)
+                    continue
+                
+                # Check if it's a QUOTA EXHAUSTED error (daily limit hit - don't retry)
+                if error_code == 429 and 'free_tier' in error_message.lower():
+                    logger.error("Daily free tier quota exhausted. Add billing or wait until tomorrow.")
+                    raise QuotaExhaustedError("Gemini API daily free tier quota exhausted. Please add billing at https://ai.google.dev/ or wait until tomorrow.")
+                
+                # Check for rate limit with RetryInfo (temporary rate limit - can retry)
+                error_details = e.details.get('error', {}).get('details', [])
+                for detail in error_details:
+                    if detail.get("@type") == "type.googleapis.com/google.rpc.RetryInfo":
+                        retry_str = detail.get("retryDelay", "10s")
+                        retry_time = int(retry_str.rstrip('s'))
+                        wait_time = retry_time + self.timebuffer
+                        logger.warning(f"Rate limit exceeded. Waiting {wait_time}s...")
+                        time.sleep(wait_time)
+                        break
+                else:
+                    if attempt < max_retries - 1:
+                        wait_time = (2 ** attempt) * 3 + self.timebuffer
+                        logger.warning(f"Unknown error, waiting {wait_time}s before retry...")
+                        time.sleep(wait_time)
+                    else:
+                        raise
+            except Exception as e:
+                logger.error(f"Unexpected error: {str(e)}")
+                if attempt < max_retries - 1:
+                    wait_time = (2 ** attempt) * 3
+                    logger.warning(f"Waiting {wait_time}s before retry...")
+                    time.sleep(wait_time)
+                else:
+                    raise
+        
+        raise Exception("Max retries exceeded for API call")
 
-                    logger.info("Retrying request after rate limit wait")
-                    return self.generate_text_generation_response(prompt)
+
+class QuotaExhaustedError(Exception):
+    """Raised when Gemini API quota is exhausted."""
+    pass
 
     def get_chat_history(self):
 
