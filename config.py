@@ -17,7 +17,7 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 # =============================================================================
 LLM_MODEL = "gemini-2.5-flash"
 EMBEDDING_MODEL = "intfloat/e5-base-v2"
-EMBEDDING_DEVICE = "mps"  # Use "cuda" for NVIDIA, "cpu" for fallback
+EMBEDDING_DEVICE = "cpu"  # Use "cuda" for NVIDIA, "cpu" for fallback
 
 # =============================================================================
 # PIPELINE PARAMETERS

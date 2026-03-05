@@ -3,6 +3,8 @@ import json
 import traceback
 import asyncio
 
+import config
+
 # Import all the required classes
 from ArxivReq import ArxivReq
 from embeddemo.embed_query_wrapper import QueryWrapper
@@ -52,7 +54,11 @@ def research_pipeline():
         
         # Step 2: Embed query and search literature
         print("Step 2: Searching literature using embeddings...")
-        query_wrapper = QueryWrapper()
+        query_wrapper = QueryWrapper(
+            backend="st",
+            model=config.EMBEDDING_MODEL,
+            device=config.EMBEDDING_DEVICE,
+        )
         search_results = query_wrapper.search_literature(user_idea, include_scores=False)
         print("Literature search completed")
         print("Search results:"+f"{search_results}")

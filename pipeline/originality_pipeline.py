@@ -116,7 +116,12 @@ class OriginalityPipeline:
         
         # Enhanced retrieval components
         self.arxiv_req = ArxivReq()
-        self.query_wrapper = QueryWrapper(use_reranker=True)
+        self.query_wrapper = QueryWrapper(
+            backend="st",
+            model=config.EMBEDDING_MODEL,
+            device=config.EMBEDDING_DEVICE,
+            use_reranker=True,
+        )
         self.paper_selector = RelevantPaperSelectorAgent()
         
         # Analysis agents
