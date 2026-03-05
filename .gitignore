@@ -13,10 +13,11 @@ index_dir/meta.jsonl
 *.pyc
 *.pyc
 /Agents/__pycache__
+
+# Embedding demo artifacts
 embeddemo/sample_papers.jsonl
-embeddemo/index_dir/index.faiss
-embeddemo/sample_papers.jsonl
-.env
-embeddemo/sample_papers.jsonl
-/embeddemo/index_dir
-/Agents/__pycache__
+/embeddemo/index_dir/
+/embeddemo/index_dir/index.faiss
+/embeddemo/index_dir/meta.jsonl
+
+frontend/package-lock.json
