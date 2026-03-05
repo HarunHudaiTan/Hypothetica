@@ -11,6 +11,8 @@ import json
 import shutil
 from typing import List, Dict, Any, Optional
 
+import config
+
 
 class QueryWrapper:
     """
@@ -20,7 +22,7 @@ class QueryWrapper:
     def __init__(self, 
                  backend: str = "st",
                  model: str = "intfloat/e5-base-v2",
-                 device: str = "mps",
+                 device: str = None,
                  cache_path: str = None,
                  index_dir: str = None,
                  use_reranker: bool = True,
@@ -31,7 +33,7 @@ class QueryWrapper:
         Args:
             backend: "st" for SentenceTransformers or "openai"
             model: Model name for embeddings
-            device: Device for computation ("mps", "cuda", "cpu")
+            device: Device for computation ("mps", "cuda", "cpu"). If None, uses config.EMBEDDING_DEVICE
             cache_path: Path to embedding cache SQLite file
             index_dir: Directory for FAISS index
             use_reranker: Whether to use cross-encoder reranking
@@ -39,7 +41,7 @@ class QueryWrapper:
         """
         self.backend = backend
         self.model = model
-        self.device = device
+        self.device = device or config.EMBEDDING_DEVICE
         self.use_reranker = use_reranker
         self.reranker_model = reranker_model
         
@@ -314,7 +316,7 @@ the fundamental limits on how few examples are needed to learn a new task? I wan
 derive sample complexity bounds that depend on task similarity, model capacity, and the 
 structure of the meta-learning algorithm.'''
 
-    wrapper = QueryWrapper(use_reranker=True)
+    wrapper = QueryWrapper(device=config.EMBEDDING_DEVICE, use_reranker=True)
     result_json = wrapper.search_literature(prompt, include_scores=True)
     
     results = json.loads(result_json)

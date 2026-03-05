@@ -198,9 +198,10 @@ Return the {select_count} best papers with brief reasons for each selection."""
 # Testing
 if __name__ == '__main__':
     from embeddemo.embed_query_wrapper import QueryWrapper
+    import config
     
     selector = RelevantPaperSelectorAgent()
-    wrapper = QueryWrapper()
+    wrapper = QueryWrapper(device=config.EMBEDDING_DEVICE)
     
     user_idea = """I'm exploring the theoretical foundations of few-shot learning - specifically, what are
 the fundamental limits on how few examples are needed to learn a new task? I want to
