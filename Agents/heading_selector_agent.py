@@ -1,6 +1,6 @@
 import json
 
-from Agents.Agent import Agent
+from Agents.agent import Agent
 from heading_extraction.heading_extractor import HeadingExtractor
 
 

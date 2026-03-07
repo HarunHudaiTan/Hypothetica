@@ -1,5 +1,5 @@
 import json
-from Agents.Agent import Agent, QuotaExhaustedError
+from Agents.agent import Agent, QuotaExhaustedError
 
 
 class RelevantPaperSelectorAgent(Agent):

@@ -1,5 +1,5 @@
 import json
-from Agents.Agent import Agent
+from Agents.agent import Agent
 
 
 class QueryVariantAgent(Agent):

@@ -9,7 +9,7 @@ import json
 import logging
 from typing import Dict, Optional
 
-from Agents.Agent import Agent
+from Agents.agent import Agent
 import config
 
 logger = logging.getLogger(__name__)

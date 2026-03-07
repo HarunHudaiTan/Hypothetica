@@ -1,6 +1,5 @@
 """
-In-memory job state manager for analysis pipelines.
-Stores pipeline instances and status per job_id.
+In-memory job state manager for analysis jobs.
 """
 import uuid
 import threading
@@ -8,9 +7,35 @@ import logging
 from typing import Dict, Optional, Any, List
 from dataclasses import dataclass, field
 
-from api.models import JobStatus
+from api.schemas.job import JobStatus
+from models.paper import Paper
+from models.analysis import Layer1Result, Layer2Result, CostBreakdown
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass
+class PipelineState:
+    """Holds the current state of the analysis pipeline."""
+    user_idea: str = ""
+    enriched_idea: str = ""
+    user_sentences: List[str] = field(default_factory=list)
+    followup_questions: List[Dict] = field(default_factory=list)
+    followup_answers: List[str] = field(default_factory=list)
+    query_variants: List[Dict] = field(default_factory=list)
+    keywords: List[str] = field(default_factory=list)
+    all_papers: List[Dict] = field(default_factory=list)
+    selected_papers: List[Paper] = field(default_factory=list)
+    layer1_results: List[Layer1Result] = field(default_factory=list)
+    layer2_result: Optional[Layer2Result] = None
+    cost: CostBreakdown = field(default_factory=CostBreakdown)
+    reality_check_result: Dict = field(default_factory=dict)
+    reality_check_warning: Optional[str] = None
+    # Pipeline stats
+    total_papers_fetched: int = 0
+    unique_papers_after_dedup: int = 0
+    papers_after_embedding: int = 0
+    papers_after_rerank: int = 0
 
 
 @dataclass
@@ -19,7 +44,7 @@ class Job:
     status: JobStatus = JobStatus.GENERATING_QUESTIONS
     progress: float = 0.0
     progress_message: str = ""
-    pipeline: Any = None
+    state: PipelineState = field(default_factory=PipelineState)
     questions: Optional[List[Dict]] = None
     results: Optional[Dict] = None
     error: Optional[str] = None

@@ -6,8 +6,9 @@ import json
 import logging
 from typing import List, Dict
 
-from Agents.Agent import Agent
+from Agents.agent import Agent
 import config
+from . import agent_config
 
 logger = logging.getLogger(__name__)
 
@@ -89,9 +90,9 @@ class FollowUpAgent(Agent):
     def __init__(self):
         super().__init__(
             system_prompt=FOLLOWUP_SYSTEM_PROMPT,
-            temperature=config.FOLLOWUP_TEMPERATURE,
-            top_p=config.FOLLOWUP_TOP_P,
-            top_k=config.FOLLOWUP_TOP_K,
+            temperature=agent_config.FOLLOWUP_TEMPERATURE,
+            top_p=agent_config.FOLLOWUP_TOP_P,
+            top_k=agent_config.FOLLOWUP_TOP_K,
             response_mime_type='application/json',
             create_chat=False
         )
