@@ -1,20 +1,43 @@
+# IDE and OS
 /.idea
 .DS_Store
+
+# Environment files
 .env
-*.pdf
-/__pycache__
-*.txt
-.embed_cache/
-retrieval/.embed_cache/
-heading_extraction/__init__.py
-index_dir/
-*.pyc
-
-# Retrieval artifacts
-retrieval/sample_papers.jsonl
-retrieval/index_dir/
-
-frontend/package-lock.json
-node_modules/
-dist/
 .env.local
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Backend runtime files
+backend/app/retrieval/sample_papers.jsonl
+backend/app/retrieval/index_dir/
+backend/app/retrieval/.embed_cache/
+backend/**/__pycache__/
+backend/**/*.pyc
+
+# Data runtime files
+data/chroma_db/
+data/.embed_cache/
+data/extracted_info/*.json
+data/extracted_info/*.pkl
+
+# PDFs (downloaded papers)
+*.pdf
+
+# Frontend
+frontend/package-lock.json
+frontend/node_modules/
+frontend/dist/
+
+# Logs
+*.log
+
+# Legacy/backup files
+*.bak
+*.swp
+*.tmp
