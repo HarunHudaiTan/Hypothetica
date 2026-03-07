@@ -197,7 +197,7 @@ Return the {select_count} best papers with brief reasons for each selection."""
 
 # Testing
 if __name__ == '__main__':
-    from embeddemo.embed_query_wrapper import QueryWrapper
+    from retrieval.paper_search import QueryWrapper
     
     selector = RelevantPaperSelectorAgent()
     wrapper = QueryWrapper()

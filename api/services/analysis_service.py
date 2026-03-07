@@ -7,8 +7,8 @@ from typing import List, Dict, Any
 from api.managers.job_manager import job_manager
 from api.schemas.job import JobStatus
 
-from rag.chroma_store import ChromaStore
-from rag.retriever import Retriever
+from retrieval.chroma_store import ChromaStore
+from retrieval.retriever import Retriever
 
 from Agents.followup_agent import FollowUpAgent
 from Agents.reality_check_agent import RealityCheckAgent

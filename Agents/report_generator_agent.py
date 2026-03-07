@@ -3,7 +3,6 @@ import json
 from langchain_experimental.graph_transformers.llm import system_prompt
 
 from Agents.agent import Agent
-from embeddemo.embed_query_wrapper import QueryWrapper
 
 
 class ReportGenerator(Agent):

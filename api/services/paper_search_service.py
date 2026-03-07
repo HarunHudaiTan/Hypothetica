@@ -6,7 +6,7 @@ from api.managers.job_manager import job_manager
 from models.paper import Paper
 
 from processing.arxiv_search import ArxivReq
-from embeddemo.embed_query_wrapper import QueryWrapper
+from retrieval.paper_search import QueryWrapper
 from Agents.relevant_paper_selector_agent import RelevantPaperSelectorAgent
 
 logger = logging.getLogger(__name__)
@@ -70,6 +70,12 @@ class PaperSearchService:
             final_count=final_papers_count
         )
         selected_papers_data = json.loads(selected_json)
+
+        # Log LLM selection details
+        logger.info(f"LLM selected {len(selected_papers_data)} papers from {job.state.papers_after_rerank} candidates")
+        for i, paper in enumerate(selected_papers_data):
+            title = paper.get('title', 'Unknown')[:60] + "..." if len(paper.get('title', '')) > 60 else paper.get('title', '')
+            logger.info(f"Selected paper {i+1}: {title}")
 
         job.state.all_papers = search_results_list if isinstance(search_results_list, list) else []
 
