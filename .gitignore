@@ -5,17 +5,16 @@
 /__pycache__
 *.txt
 .embed_cache/
-embeddemo/.embed_cache/
+retrieval/.embed_cache/
 heading_extraction/__init__.py
 index_dir/
 *.pyc
 
-# Embedding demo artifacts
-embeddemo/sample_papers.jsonl
-embeddemo/index_dir/
+# Retrieval artifacts
+retrieval/sample_papers.jsonl
+retrieval/index_dir/
 
 frontend/package-lock.json
 node_modules/
 dist/
 .env.local
-api/embeddemo/sample_papers.jsonl

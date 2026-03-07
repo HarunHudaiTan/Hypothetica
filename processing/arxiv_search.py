@@ -320,7 +320,7 @@ class ArxivReq:
 
     def convert_to_jsonl_format(self, papers: list) -> list:
         """
-        Convert papers to JSONL format compatible with embed_mvp.py
+        Convert papers to JSONL format compatible with retrieval/paper_search.py
 
         Args:
             papers: List of paper dictionaries (already deduplicated)
@@ -353,7 +353,7 @@ class ArxivReq:
 
         return jsonl_papers
 
-    def save_to_jsonl_file(self, jsonl_papers: list, filename: str = "embeddemo/sample_papers.jsonl"):
+    def save_to_jsonl_file(self, jsonl_papers: list, filename: str = "retrieval/sample_papers.jsonl"):
         """
         Save papers to JSONL file format
         """

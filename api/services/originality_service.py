@@ -22,6 +22,7 @@ class OriginalityService:
             return
 
         processed_papers = [p for p in job.state.selected_papers if p.is_processed]
+        logger.info(f"Starting Layer 1 analysis on {len(processed_papers)} processed papers")
         update_progress(job_id, f"Analyzing {len(processed_papers)} papers...", 0.78)
 
         _, retriever = get_retriever(job_id)
@@ -32,13 +33,17 @@ class OriginalityService:
 
         for i, paper in enumerate(processed_papers):
             progress = 0.78 + (0.12 * (i / len(processed_papers)))
+            title_short = paper.title[:50] + "..." if len(paper.title) > 50 else paper.title
             update_progress(job_id, f"Layer 1 analysis: Paper {i+1}/{len(processed_papers)}", progress)
+
+            logger.info(f"Analyzing paper {i+1}/{len(processed_papers)}: {title_short}")
 
             context_chunks = retriever.get_context_for_paper(paper_id=paper.paper_id, query=idea)
             context_text = "\n\n".join([
                 f"[{c.get('metadata', {}).get('heading', 'Section')}]\n{c.get('text', '')[:800]}"
                 for c in context_chunks[:5]
             ])
+            logger.info(f"Retrieved {len(context_chunks)} context chunks for paper {paper.paper_id}")
 
             result = cls._layer1_agent.analyze_paper(
                 user_idea=idea,
@@ -49,9 +54,13 @@ class OriginalityService:
             results.append(result)
             layer1_cost += cls._layer1_agent.get_cost()
 
+            logger.info(f"Paper {paper.paper_id} analysis complete: {result.overall_overlap_score:.0%} overlap")
+            logger.info(f"Criteria scores: problem={result.criteria_scores.problem_similarity:.1f}, method={result.criteria_scores.method_similarity:.1f}, domain={result.criteria_scores.domain_overlap:.1f}, contribution={result.criteria_scores.contribution_similarity:.1f}")
+
         cls._enrich_matched_sections(job_id, results, get_retriever)
         job.state.layer1_results = results
         job.state.cost.layer1 = layer1_cost
+        logger.info(f"Layer 1 analysis complete: {len(results)} papers analyzed, total cost: ${layer1_cost:.4f}")
         update_progress(job_id, "Completed Layer 1 analysis", 0.90)
 
     @classmethod
@@ -78,12 +87,19 @@ class OriginalityService:
 
         update_progress(job_id, "Computing global originality score...", 0.92)
 
+        logger.info(f"Starting Layer 2 aggregation with {len(job.state.layer1_results)} paper results")
+
         result = cls._layer2_aggregator.aggregate(
             layer1_results=job.state.layer1_results,
             user_sentences=job.state.user_sentences,
             cost_breakdown=job.state.cost
         )
         job.state.layer2_result = result
+
+        logger.info(f"Layer 2 aggregation complete: {result.global_originality_score}/100 originality score")
+        logger.info(f"Final summary: {result.summary[:200]}..." if len(result.summary) > 200 else f"Final summary: {result.summary}")
+        logger.info(f"Total analysis cost: ${result.cost.total:.4f}")
+
         update_progress(job_id, f"Originality score: {result.global_originality_score}/100", 0.98)
 
     @classmethod
