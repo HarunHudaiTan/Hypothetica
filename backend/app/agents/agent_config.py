@@ -3,9 +3,10 @@ Agent-specific configuration parameters for Hypothetica Research Originality Sys
 All agent tuning parameters (temperature, top_p, top_k) are centralized here.
 """
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent.parent.parent.parent / "envfiles" / ".env")
 
 # =============================================================================
 # FOLLOW-UP AGENT CONFIG

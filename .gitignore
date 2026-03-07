@@ -5,6 +5,7 @@
 # Environment files
 .env
 .env.local
+envfiles/.env
 
 # Python cache
 __pycache__/

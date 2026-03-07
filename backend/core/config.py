@@ -3,9 +3,11 @@ Central configuration for Hypothetica Research Originality System.
 Global settings, API keys, models, pipeline parameters, and thresholds.
 """
 import os
+from pathlib import Path
 from dotenv import load_dotenv
+import torch
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent.parent.parent / "envfiles" / ".env")
 
 # =============================================================================
 # API KEYS
@@ -17,7 +19,14 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 # =============================================================================
 LLM_MODEL = "gemini-2.5-flash"
 EMBEDDING_MODEL = "intfloat/e5-base-v2"
-EMBEDDING_DEVICE = "mps"  # Use "cuda" for NVIDIA, "cpu" for fallback
+def _detect_device():
+    if torch.cuda.is_available():
+        return "cuda"
+    if hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+        return "mps"
+    return "cpu"
+
+EMBEDDING_DEVICE = _detect_device()
 
 # =============================================================================
 # PIPELINE PARAMETERS

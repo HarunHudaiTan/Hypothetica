@@ -58,7 +58,10 @@ class PaperSearchService:
         )
 
         search_results_list = json.loads(search_results)
-        job.state.papers_after_rerank = len(search_results_list) if isinstance(search_results_list, list) else 0
+        if not isinstance(search_results_list, list):
+            logger.error(f"search_literature returned unexpected format: {type(search_results_list)}")
+            search_results_list = []
+        job.state.papers_after_rerank = len(search_results_list)
 
         update_progress(job_id, f"Semantic search: {embedding_topk} -> {job.state.papers_after_rerank}", 0.40)
 

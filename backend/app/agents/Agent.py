@@ -3,6 +3,7 @@ import logging
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
+from pathlib import Path
 import os
 from google.genai.errors import ClientError
 
@@ -26,7 +27,7 @@ class Agent:
             response_mime_type=response_mime_type,
             thinking_config=types.ThinkingConfig(thinking_budget=0)
         )
-        load_dotenv()
+        load_dotenv(Path(__file__).resolve().parent.parent.parent.parent / "envfiles" / ".env")
         self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
         if create_chat:
             self.chat = self.client.chats.create(model=self.model, config=self.config)

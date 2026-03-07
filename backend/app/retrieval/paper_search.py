@@ -376,7 +376,7 @@ class QueryWrapper:
     def __init__(self,
                  backend: str = "st",
                  model: str = "intfloat/e5-base-v2",
-                 device: str = "mps",
+                 device: str = None,
                  cache_path: str = None,
                  index_dir: str = None,
                  use_reranker: bool = True,
@@ -387,15 +387,16 @@ class QueryWrapper:
         Args:
             backend: "st" for SentenceTransformers or "openai"
             model: Model name for embeddings
-            device: Device for computation ("mps", "cuda", "cpu")
+            device: Device for computation ("mps", "cuda", "cpu"). Auto-detected if None.
             cache_path: Path to embedding cache SQLite file
             index_dir: Directory for FAISS index
             use_reranker: Whether to use cross-encoder reranking
             reranker_model: Cross-encoder model for reranking
         """
+        from core.config import EMBEDDING_DEVICE
         self.backend = backend
         self.model = model
-        self.device = device
+        self.device = device or EMBEDDING_DEVICE
         self.use_reranker = use_reranker
         self.reranker_model = reranker_model
 
@@ -609,49 +610,56 @@ class QueryWrapper:
 
         Returns:
             JSON string with search results
+
+        Raises:
+            RuntimeError: If index building, embedding search, or reranking fails.
         """
-        print(f"\n{'='*60}")
-        print(f"Searching literature for: {query[:100]}...")
+        import logging
+        logger = logging.getLogger(__name__)
 
+        logger.info(f"Searching literature for: {query[:100]}...")
+
+        # Step 1: Build/update index
         try:
-            # Step 1: Build/update index
             self.build_index(force_rebuild=force_rebuild)
-
-            # Step 2: Embedding search (high recall)
-            print(f"\nStep 1: Embedding search (top {embedding_topk})...")
-            results = self.query_embeddings(query, topk=embedding_topk)
-
-            if not results:
-                return json.dumps({"error": "No results found", "query": query, "results": []})
-
-            print(f"Found {len(results)} candidates from embedding search")
-
-            # Step 3: Rerank for precision
-            if self.use_reranker:
-                print(f"\nStep 2: Cross-encoder reranking (top {rerank_topk})...")
-                results = self.rerank_results(query, results, topk=rerank_topk)
-            else:
-                results = results[:rerank_topk]
-
-            # Remove scores if not requested
-            if not include_scores:
-                for result in results:
-                    result.pop('score', None)
-                    result.pop('rerank_score', None)
-                    result.pop('embedding_score', None)
-
-            print(f"\nReturning {len(results)} papers")
-            return json.dumps(results, indent=2, ensure_ascii=False)
-
         except Exception as e:
-            import traceback
-            error_result = {
-                "error": str(e),
-                "traceback": traceback.format_exc(),
-                "query": query,
-                "results": []
-            }
-            return json.dumps(error_result, indent=2, ensure_ascii=False)
+            logger.error(f"Failed to build index: {e}", exc_info=True)
+            raise RuntimeError(f"Index build failed: {e}") from e
+
+        # Step 2: Embedding search (high recall)
+        logger.info(f"Step 1: Embedding search (top {embedding_topk})...")
+        try:
+            results = self.query_embeddings(query, topk=embedding_topk)
+        except Exception as e:
+            logger.error(f"Embedding search failed: {e}", exc_info=True)
+            raise RuntimeError(f"Embedding search failed: {e}") from e
+
+        if not results:
+            logger.warning("Embedding search returned 0 results")
+            return json.dumps([])
+
+        logger.info(f"Found {len(results)} candidates from embedding search")
+
+        # Step 3: Rerank for precision
+        if self.use_reranker:
+            logger.info(f"Step 2: Cross-encoder reranking (top {rerank_topk})...")
+            try:
+                results = self.rerank_results(query, results, topk=rerank_topk)
+            except Exception as e:
+                logger.error(f"Reranking failed, falling back to embedding order: {e}", exc_info=True)
+                results = results[:rerank_topk]
+        else:
+            results = results[:rerank_topk]
+
+        # Remove scores if not requested
+        if not include_scores:
+            for result in results:
+                result.pop('score', None)
+                result.pop('rerank_score', None)
+                result.pop('embedding_score', None)
+
+        logger.info(f"Returning {len(results)} papers")
+        return json.dumps(results, indent=2, ensure_ascii=False)
 
 
 # ---------------------- CLI ----------------------
