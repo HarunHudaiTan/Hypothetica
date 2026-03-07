@@ -4,20 +4,18 @@
 *.pdf
 /__pycache__
 *.txt
-.embed_cache/cache.sqlite3
+.embed_cache/
+embeddemo/.embed_cache/
 heading_extraction/__init__.py
-heading_extraction/__init__.py
-index_dir/meta.jsonl
-/Agents/__pycache__
+index_dir/
 *.pyc
-*.pyc
-*.pyc
-/Agents/__pycache__
 
 # Embedding demo artifacts
 embeddemo/sample_papers.jsonl
-/embeddemo/index_dir/
-/embeddemo/index_dir/index.faiss
-/embeddemo/index_dir/meta.jsonl
+embeddemo/index_dir/
 
 frontend/package-lock.json
+node_modules/
+dist/
+.env.local
+api/embeddemo/sample_papers.jsonl

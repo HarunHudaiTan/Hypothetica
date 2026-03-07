@@ -6,8 +6,9 @@ import json
 import logging
 from typing import List, Optional
 
-from Agents.Agent import Agent
+from Agents.agent import Agent
 import config
+from . import agent_config
 from models.paper import Paper
 from models.analysis import (
     Layer1Result, 
@@ -113,9 +114,9 @@ class Layer1Agent(Agent):
     def __init__(self):
         super().__init__(
             system_prompt=LAYER1_SYSTEM_PROMPT,
-            temperature=config.LAYER1_TEMPERATURE,
-            top_p=config.LAYER1_TOP_P,
-            top_k=config.LAYER1_TOP_K,
+            temperature=agent_config.LAYER1_TEMPERATURE,
+            top_p=agent_config.LAYER1_TOP_P,
+            top_k=agent_config.LAYER1_TOP_K,
             response_mime_type='application/json',
             create_chat=False
         )

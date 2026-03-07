@@ -1,6 +1,6 @@
 """
 Central configuration for Hypothetica Research Originality System.
-All configurable parameters in one place.
+Global settings, API keys, models, pipeline parameters, and thresholds.
 """
 import os
 from dotenv import load_dotenv
@@ -59,29 +59,6 @@ SCORE_YELLOW_MAX = 70   # 40-70 = medium originality
 # =============================================================================
 CHROMA_COLLECTION_NAME = "paper_chunks"
 CHROMA_PERSIST_DIR = None  # None = in-memory for demo
-
-# =============================================================================
-# AGENT PARAMETERS
-# =============================================================================
-# Follow-up Agent
-FOLLOWUP_TEMPERATURE = 0.7
-FOLLOWUP_TOP_P = 0.9
-FOLLOWUP_TOP_K = 40
-
-# Keyword Agent
-KEYWORD_TEMPERATURE = 0.3
-KEYWORD_TOP_P = 0.85
-KEYWORD_TOP_K = 40
-
-# Layer 1 Agent (per-paper analysis)
-LAYER1_TEMPERATURE = 0.2
-LAYER1_TOP_P = 0.8
-LAYER1_TOP_K = 30
-
-# Layer 2 Agent (summary generation only)
-LAYER2_TEMPERATURE = 0.5
-LAYER2_TOP_P = 0.9
-LAYER2_TOP_K = 40
 
 # =============================================================================
 # COST TRACKING (Gemini 2.5 Flash pricing per 1M tokens)

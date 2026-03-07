@@ -12,13 +12,13 @@ class ArxivReq:
     """
     ArXiv paper retrieval with high-recall multi-query search and deduplication.
     """
-    
+
     def __init__(self):
         self.query_variant_agent = QueryVariantAgent()
         # Configurable parameters for retrieval
         self.papers_per_query = 150  # Increased from 10 for high recall
         self.api_delay = 3  # Seconds between API calls (arXiv recommendation)
-    
+
     def search_arxiv(self, terms=None, operator=None, category=None, search_in="all",
                      max_results=10, start=0, sort_by=None, sort_order="descending",
                      date_from=None, date_to=None):
@@ -210,19 +210,19 @@ class ArxivReq:
     def search_with_pagination(self, query: str, max_papers: int = 150, **kwargs) -> list:
         """
         Search arXiv with pagination to get more results.
-        
+
         Args:
             query: Search query string
             max_papers: Maximum number of papers to retrieve
             **kwargs: Additional parameters for search_arxiv
-            
+
         Returns:
             List of paper dictionaries
         """
         all_papers = []
         batch_size = min(100, max_papers)  # arXiv max per request is 100
         start = 0
-        
+
         while len(all_papers) < max_papers:
             try:
                 xml_result = self.search_arxiv(
@@ -234,102 +234,102 @@ class ArxivReq:
                 )
                 json_result = self.parse_arxiv_xml_to_json(xml_result)
                 papers = json_result.get('papers', [])
-                
+
                 if not papers:
                     break
-                    
+
                 all_papers.extend(papers)
                 start += batch_size
-                
+
                 # Check if we got all available results
                 if len(papers) < batch_size:
                     break
-                    
+
                 # Rate limiting
                 time.sleep(self.api_delay)
-                
+
             except Exception as e:
                 print(f"Error fetching papers for query '{query}': {e}")
                 break
-                
+
         return all_papers[:max_papers]
 
     def search_multiple_queries(self, queries: list, papers_per_query: int = None) -> dict:
         """
         Search multiple query variants and collect results.
-        
+
         Args:
             queries: List of query variant dictionaries with 'type' and 'query' keys
             papers_per_query: Number of papers to fetch per query (default: self.papers_per_query)
-            
+
         Returns:
             Dictionary with query as key and results as value
         """
         if papers_per_query is None:
             papers_per_query = self.papers_per_query
-            
+
         results = {}
-        
+
         for variant in queries:
             query = variant['query']
             query_type = variant['type']
-            
+
             print(f"Searching [{query_type}]: {query}")
-            
+
             papers = self.search_with_pagination(query, max_papers=papers_per_query)
             results[query] = {
                 'type': query_type,
                 'papers': papers,
                 'count': len(papers)
             }
-            
+
             print(f"  Found {len(papers)} papers")
             time.sleep(self.api_delay)
-            
+
         return results
 
     def deduplicate_papers(self, search_results: dict) -> list:
         """
         Merge and deduplicate papers from multiple query results.
-        
+
         Args:
             search_results: Dictionary of search results from search_multiple_queries
-            
+
         Returns:
             List of unique paper dictionaries with source query info
         """
         seen_ids = set()
         unique_papers = []
-        
+
         for query, data in search_results.items():
             for paper in data.get('papers', []):
                 arxiv_id = paper.get('arxiv_id', '')
-                
+
                 # Normalize arXiv ID (remove version suffix for deduplication)
                 base_id = arxiv_id.split('v')[0] if arxiv_id else ''
-                
+
                 if base_id and base_id not in seen_ids:
                     seen_ids.add(base_id)
                     # Add source query information
                     paper['source_query'] = query
                     paper['source_type'] = data.get('type', 'unknown')
                     unique_papers.append(paper)
-                    
+
         print(f"Deduplicated: {sum(d['count'] for d in search_results.values())} → {len(unique_papers)} unique papers")
         return unique_papers
 
     def convert_to_jsonl_format(self, papers: list) -> list:
         """
         Convert papers to JSONL format compatible with embed_mvp.py
-        
+
         Args:
             papers: List of paper dictionaries (already deduplicated)
-            
+
         Returns:
             List of dictionaries in JSONL format
         """
         jsonl_papers = []
-        
+
         for paper in papers:
             year = None
             if 'published' in paper:
@@ -337,7 +337,7 @@ class ArxivReq:
                     year = int(paper['published'][:4])
                 except (ValueError, TypeError):
                     year = None
-            
+
             jsonl_entry = {
                 "id": paper.get('arxiv_id', ''),
                 "title": paper.get('title', ''),
@@ -348,33 +348,33 @@ class ArxivReq:
                 "source_query": paper.get('source_query', ''),
                 "source_type": paper.get('source_type', ''),
             }
-            
+
             jsonl_papers.append(jsonl_entry)
-        
+
         return jsonl_papers
-    
+
     def save_to_jsonl_file(self, jsonl_papers: list, filename: str = "embeddemo/sample_papers.jsonl"):
         """
         Save papers to JSONL file format
         """
         import os
-        
+
         os.makedirs(os.path.dirname(filename), exist_ok=True)
-        
+
         with open(filename, 'w', encoding='utf-8') as f:
             for paper in jsonl_papers:
                 f.write(json.dumps(paper, ensure_ascii=False) + '\n')
-        
+
         print(f"Saved {len(jsonl_papers)} papers to {filename}")
 
     def get_papers(self, user_idea: str, papers_per_query: int = None) -> str:
         """
         Main entry point: Generate query variants, search arXiv, deduplicate, and save.
-        
+
         Args:
             user_idea: User's research idea/description
             papers_per_query: Number of papers to fetch per query variant
-            
+
         Returns:
             JSON string with search results summary
         """
@@ -385,23 +385,23 @@ class ArxivReq:
         print(f"Generated {len(query_variants)} query variants:")
         for v in query_variants:
             print(f"  [{v['type']}] {v['query']}")
-        
+
         # Step 2: Search arXiv with all variants
         print("\n" + "=" * 60)
         print("Step 2: Searching arXiv...")
         search_results = self.search_multiple_queries(query_variants, papers_per_query)
-        
+
         # Step 3: Deduplicate
         print("\n" + "=" * 60)
         print("Step 3: Deduplicating papers...")
         unique_papers = self.deduplicate_papers(search_results)
-        
+
         # Step 4: Convert and save to JSONL
         print("\n" + "=" * 60)
         print("Step 4: Saving to JSONL...")
         jsonl_papers = self.convert_to_jsonl_format(unique_papers)
         self.save_to_jsonl_file(jsonl_papers)
-        
+
         # Return summary
         summary = {
             "query_variants": query_variants,
@@ -409,33 +409,5 @@ class ArxivReq:
             "unique_papers": len(unique_papers),
             "papers": jsonl_papers
         }
-        
+
         return json.dumps(summary, indent=2)
-
-
-# Legacy compatibility - keep old method name working
-def search_multiple_topics(self, topics, return_json=True, **kwargs):
-    """
-    Backward compatibility wrapper for old keyword-based search.
-    Converts topics to query variant format.
-    """
-    query_variants = [{"type": "keyword", "query": topic} for topic in topics]
-    return self.search_multiple_queries(query_variants, papers_per_query=10)
-
-
-# Testing
-if __name__ == "__main__":
-    prompt = '''Theoretical Bounds on Sample Complexity for Few-Shot Learning
-
-I'm exploring the theoretical foundations of few-shot learning - specifically, what are
-the fundamental limits on how few examples are needed to learn a new task? I want to
-derive sample complexity bounds that depend on task similarity, model capacity, and the
-structure of the meta-learning algorithm.'''
-
-    request = ArxivReq()
-    result = request.get_papers(prompt)
-    print("\n" + "=" * 60)
-    print("RESULT SUMMARY:")
-    result_dict = json.loads(result)
-    print(f"Total fetched: {result_dict['total_papers_fetched']}")
-    print(f"Unique papers: {result_dict['unique_papers']}")

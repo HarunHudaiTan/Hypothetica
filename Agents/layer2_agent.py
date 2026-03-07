@@ -5,8 +5,9 @@ Combines Layer 1 results with hard-coded scoring logic.
 import logging
 from typing import List, Dict, Optional
 
-from Agents.Agent import Agent
+from Agents.agent import Agent
 import config
+from . import agent_config
 from models.analysis import (
     Layer1Result,
     Layer2Result,
@@ -60,9 +61,9 @@ class Layer2Aggregator:
         if self.summary_agent is None:
             self.summary_agent = Agent(
                 system_prompt=LAYER2_SUMMARY_PROMPT,
-                temperature=config.LAYER2_TEMPERATURE,
-                top_p=config.LAYER2_TOP_P,
-                top_k=config.LAYER2_TOP_K,
+                temperature=agent_config.LAYER2_TEMPERATURE,
+                top_p=agent_config.LAYER2_TOP_P,
+                top_k=agent_config.LAYER2_TOP_K,
                 response_mime_type='text/plain',
                 create_chat=False
             )
