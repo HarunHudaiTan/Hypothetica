@@ -78,6 +78,7 @@ export interface AnalysisResults {
   label: "high" | "medium" | "low";
   sentence_annotations: SentenceAnnotation[];
   summary: string;
+  comprehensive_report: string;
   aggregated_criteria: CriteriaScores | null;
   papers_analyzed: number;
   papers?: PaperDetail[];

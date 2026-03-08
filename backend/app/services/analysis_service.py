@@ -138,6 +138,7 @@ class AnalysisService:
             PaperProcessingService.process_papers(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer1_analysis(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer2_analysis(job_id, cls._update_progress)
+            OriginalityService.generate_comprehensive_report(job_id, cls._update_progress)
 
             rc_thread.join(timeout=10)
 
