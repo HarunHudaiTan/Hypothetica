@@ -6,12 +6,15 @@ from app.models.analysis import Layer1Result
 
 from app.agents.layer1_agent import Layer1Agent
 from app.agents.layer2_agent import Layer2Aggregator
+from app.agents.report_generator_agent import ReportGenerator, ReportAnalysisData
+from core import config
 
 logger = logging.getLogger(__name__)
 
 
 class OriginalityService:
     _layer2_aggregator = Layer2Aggregator()
+    _report_generator = ReportGenerator()
 
     @classmethod
     def run_layer1_analysis(cls, job_id: str, update_progress: Callable, get_retriever: Callable):
@@ -115,6 +118,56 @@ class OriginalityService:
         logger.info(f"Total analysis cost: ${result.cost.total:.4f}")
 
         update_progress(job_id, f"Originality score: {result.global_originality_score}/100", 0.98)
+
+    @classmethod
+    def generate_comprehensive_report(cls, job_id: str, update_progress: Callable):
+        """Generate comprehensive report using enhanced ReportGenerator."""
+        job = job_manager.get_job(job_id)
+        if not job:
+            return
+
+        update_progress(job_id, "Generating comprehensive analysis report...", 0.99)
+
+        try:
+            # Get scoring rubrics from layer1 agent
+            from app.agents.layer1_agent import CRITERION_RUBRICS
+            
+            # Create ReportAnalysisData with all available information
+            analysis_data = ReportAnalysisData(
+                user_idea=job.state.enriched_idea or job.user_idea,
+                user_sentences=job.state.user_sentences,
+                papers=job.state.selected_papers,
+                layer1_results=job.state.layer1_results,
+                layer2_result=job.state.layer2_result,
+                criteria_weights=config.CRITERIA_WEIGHTS,
+                scoring_rubrics=CRITERION_RUBRICS,
+                threshold_config={
+                    "high_overlap_threshold": config.HIGH_OVERLAP_THRESHOLD,
+                    "medium_overlap_threshold": config.MEDIUM_OVERLAP_THRESHOLD,
+                    "paper_threat_max_weight": config.PAPER_THREAT_MAX_WEIGHT,
+                    "global_threat_max_weight": config.GLOBAL_THREAT_MAX_WEIGHT,
+                    "guardrail_critical_floor": config.GUARDRAIL_CRITICAL_FLOOR,
+                    "guardrail_high_floor": config.GUARDRAIL_HIGH_FLOOR,
+                    "guardrail_high_count": config.GUARDRAIL_HIGH_COUNT,
+                },
+                total_tokens_used=sum(r.tokens_used for r in job.state.layer1_results),
+                total_cost_usd=job.state.cost.total,
+                processing_time_seconds=job.state.layer2_result.total_processing_time
+            )
+
+            # Generate comprehensive report
+            comprehensive_report = cls._report_generator.generate_report_generator_agent_response(analysis_data)
+            
+            # Store comprehensive report in layer2 result
+            job.state.layer2_result.comprehensive_report = comprehensive_report
+            
+            logger.info(f"Comprehensive report generated for job {job_id}")
+            update_progress(job_id, "Comprehensive report generated", 1.0)
+
+        except Exception as e:
+            logger.error(f"Failed to generate comprehensive report for job {job_id}: {e}")
+            # Fallback to basic summary if comprehensive report fails
+            job.state.layer2_result.comprehensive_report = job.state.layer2_result.summary
 
     @classmethod
     def get_matches_for_sentence(cls, job_id: str, sentence: str, top_k: int, get_retriever: Callable) -> List[Dict[str, Any]]:

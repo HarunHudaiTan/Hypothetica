@@ -198,8 +198,9 @@ class Layer2Result:
     # Sentence annotations
     sentence_annotations: List[SentenceAnnotation] = field(default_factory=list)
     
-    # Summary
+    # Summary and comprehensive report
     summary: str = ""              # 1-2 sentence explanation
+    comprehensive_report: str = ""  # Detailed analysis report
     
     # Aggregated criteria (averaged across papers)
     aggregated_criteria: Optional[CriteriaScores] = None
@@ -220,6 +221,7 @@ class Layer2Result:
             "label": self.label.value,
             "sentence_annotations": [sa.to_dict() for sa in self.sentence_annotations],
             "summary": self.summary,
+            "comprehensive_report": self.comprehensive_report,
             "aggregated_criteria": self.aggregated_criteria.to_dict() if self.aggregated_criteria else None,
             "papers_analyzed": self.papers_analyzed,
             "cost": self.cost.to_dict(),

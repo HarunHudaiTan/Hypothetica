@@ -32,7 +32,7 @@ export default function ResultsView({
   const reportText = [
     `# Originality Assessment Report\n`,
     `## Score: ${results.global_originality_score}/100\n`,
-    `## Summary\n${results.summary}\n`,
+    `## Summary\n${results.comprehensive_report || results.summary}\n`,
     `## Sentence Analysis`,
     ...results.sentence_annotations.map((ann) => {
       const emoji =
