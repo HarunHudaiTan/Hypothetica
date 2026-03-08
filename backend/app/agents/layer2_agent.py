@@ -63,6 +63,8 @@ class Layer2Aggregator:
     def __init__(self):
         self.summary_agent = None
         self.last_token_count = 0
+        self.last_input_tokens = 0
+        self.last_output_tokens = 0
 
     def _init_summary_agent(self):
         if self.summary_agent is None:
@@ -152,6 +154,7 @@ class Layer2Aggregator:
                 + cost_breakdown.keywords
                 + cost_breakdown.layer1
                 + cost_breakdown.layer2
+                + cost_breakdown.reality_check
             )
 
         return Layer2Result(
@@ -407,7 +410,10 @@ Write a 1-2 sentence summary explaining the assessment and giving actionable ins
         try:
             response = self.summary_agent.generate_text_generation_response(prompt)
             if hasattr(response, 'usage_metadata'):
-                self.last_token_count = response.usage_metadata.total_token_count
+                um = response.usage_metadata
+                self.last_token_count = getattr(um, 'total_token_count', 0) or 0
+                self.last_input_tokens = getattr(um, 'prompt_token_count', 0) or 0
+                self.last_output_tokens = getattr(um, 'candidates_token_count', 0) or 0
             return response.text.strip()
         except Exception as e:
             logger.error(f"Summary generation failed: {e}")
@@ -477,6 +483,11 @@ Write a 1-2 sentence summary explaining the assessment and giving actionable ins
         )
 
     def get_cost(self) -> float:
+        if self.last_input_tokens > 0 or self.last_output_tokens > 0:
+            return (
+                (self.last_input_tokens / 1_000_000) * config.INPUT_TOKEN_PRICE
+                + (self.last_output_tokens / 1_000_000) * config.OUTPUT_TOKEN_PRICE
+            )
         if self.last_token_count > 0:
             inp = self.last_token_count * 0.7
             out = self.last_token_count * 0.3

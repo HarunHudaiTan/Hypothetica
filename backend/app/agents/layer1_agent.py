@@ -121,6 +121,8 @@ class Layer1Agent:
             create_chat=False,
         )
         self.total_tokens = 0
+        self.total_input_tokens = 0
+        self.total_output_tokens = 0
 
 
 
@@ -136,6 +138,8 @@ class Layer1Agent:
         """
         paper_text = self._format_paper(paper, paper_context)
         self.total_tokens = 0
+        self.total_input_tokens = 0
+        self.total_output_tokens = 0
 
         logger.info(f"[Layer1] Starting analysis for paper: {paper.paper_id} — \"{paper.title[:60]}\"")
 
@@ -143,7 +147,7 @@ class Layer1Agent:
         logger.info(f"[Layer1] Phase 1: Scoring 4 criteria for {paper.paper_id}")
         criteria_results: Dict[str, Dict] = {}
         for criterion_name in CRITERION_ORDER:
-            score, justification, tokens = self._score_criterion(
+            score, justification, tokens, inp, out = self._score_criterion(
                 criterion_name, user_idea, paper_text, paper
             )
             criteria_results[criterion_name] = {
@@ -151,6 +155,8 @@ class Layer1Agent:
                 "justification": justification,
             }
             self.total_tokens += tokens
+            self.total_input_tokens += inp
+            self.total_output_tokens += out
 
         # Build CriteriaScores (0-1 floats)
         criteria = CriteriaScores(
@@ -194,10 +200,12 @@ class Layer1Agent:
 
         # Phase 2 — sentence-level analysis anchored to criteria scores
         logger.info(f"[Layer1] Phase 2: Sentence analysis for {paper.paper_id} ({len(user_sentences)} sentences)")
-        sentence_analyses, sent_tokens = self._analyze_sentences(
+        sentence_analyses, sent_tokens, sent_inp, sent_out = self._analyze_sentences(
             user_idea, user_sentences, paper_text, paper, criteria_results
         )
         self.total_tokens += sent_tokens
+        self.total_input_tokens += sent_inp
+        self.total_output_tokens += sent_out
 
         for sa in sentence_analyses:
             logger.info(
@@ -227,6 +235,11 @@ class Layer1Agent:
 
     def get_cost(self) -> float:
         """Cost estimate for the last analyze_paper call (all 5 sub-calls)."""
+        if self.total_input_tokens > 0 or self.total_output_tokens > 0:
+            return (
+                (self.total_input_tokens / 1_000_000) * config.INPUT_TOKEN_PRICE
+                + (self.total_output_tokens / 1_000_000) * config.OUTPUT_TOKEN_PRICE
+            )
         if self.total_tokens > 0:
             inp = self.total_tokens * 0.8
             out = self.total_tokens * 0.2
@@ -245,7 +258,7 @@ class Layer1Agent:
         sections_text = ""
         for heading in paper.headings:
             if heading.section_text and heading.is_valid:
-                sections_text += f"\n### {heading.text}\n{heading.section_text[:1500]}\n"
+                sections_text += f"\n### {heading.text}\n{heading.section_text[:3000]}\n"
 
         return (
             f"Title: {paper.title}\n"
@@ -266,8 +279,8 @@ class Layer1Agent:
         user_idea: str,
         paper_text: str,
         paper: Paper,
-    ) -> Tuple[int, str, int]:
-        """Score a single criterion. Returns (likert_score, justification, tokens)."""
+    ) -> Tuple[int, str, int, int, int]:
+        """Score a single criterion. Returns (likert_score, justification, total_tokens, input_tokens, output_tokens)."""
         rubric_info = CRITERION_RUBRICS[criterion_name]
 
         prompt = f"""## USER'S RESEARCH IDEA
@@ -295,18 +308,18 @@ Return ONLY valid JSON:
 
         try:
             response = self._criterion_agent.generate_text_generation_response(prompt)
-            tokens = getattr(
-                getattr(response, "usage_metadata", None),
-                "total_token_count", 0,
-            )
+            um = getattr(response, "usage_metadata", None)
+            tokens = getattr(um, "total_token_count", 0) or 0
+            inp = getattr(um, "prompt_token_count", 0) or 0
+            out = getattr(um, "candidates_token_count", 0) or 0
             result = json.loads(response.text)
             score = max(1, min(5, int(result.get("score", 1))))
             justification = result.get("justification", "")
             logger.info(f"  {criterion_name}: {score}/5 — {justification[:100]}")
-            return score, justification, tokens
+            return score, justification, tokens, inp, out
         except Exception as e:
             logger.error(f"Failed to score {criterion_name} for {paper.paper_id}: {e}")
-            return 1, f"Error: {e}", 0
+            return 1, f"Error: {e}", 0, 0, 0
 
     # ------------------------------------------------------------------
     # Internals — sentence-level analysis (5th call, anchored to criteria)
@@ -319,8 +332,8 @@ Return ONLY valid JSON:
         paper_text: str,
         paper: Paper,
         criteria_results: Dict[str, Dict],
-    ) -> Tuple[List[SentenceAnalysis], int]:
-        """Sentence-level analysis anchored to the pre-computed criterion scores."""
+    ) -> Tuple[List[SentenceAnalysis], int, int, int]:
+        """Sentence-level analysis anchored to the pre-computed criterion scores. Returns (analyses, total_tokens, input_tokens, output_tokens)."""
         sentences_text = "\n".join(
             f"[{i}] {sent}" for i, sent in enumerate(user_sentences)
         )
@@ -366,15 +379,15 @@ Return ONLY valid JSON:
 
         try:
             response = self._sentence_agent.generate_text_generation_response(prompt)
-            tokens = getattr(
-                getattr(response, "usage_metadata", None),
-                "total_token_count", 0,
-            )
+            um = getattr(response, "usage_metadata", None)
+            tokens = getattr(um, "total_token_count", 0) or 0
+            inp = getattr(um, "prompt_token_count", 0) or 0
+            out = getattr(um, "candidates_token_count", 0) or 0
             result = json.loads(response.text)
             analyses = self._parse_sentence_results(
                 result, paper, user_sentences
             )
-            return analyses, tokens
+            return analyses, tokens, inp, out
         except Exception as e:
             logger.error(f"Sentence analysis failed for {paper.paper_id}: {e}")
             fallback = [
@@ -384,7 +397,7 @@ Return ONLY valid JSON:
                 )
                 for i, s in enumerate(user_sentences)
             ]
-            return fallback, 0
+            return fallback, 0, 0, 0
 
     # ------------------------------------------------------------------
     # Internals — parsing helpers

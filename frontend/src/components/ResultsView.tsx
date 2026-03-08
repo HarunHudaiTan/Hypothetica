@@ -3,6 +3,7 @@ import type { AnalysisResults, SentenceAnnotation } from "../types/api";
 import OriginalityGauge from "./OriginalityGauge";
 import CriteriaBreakdown from "./CriteriaBreakdown";
 import SentenceHighlighting from "./SentenceHighlighting";
+import HighlightedIdea from "./HighlightedIdea";
 import MatchesModal from "./MatchesModal";
 import PaperTable from "./PaperTable";
 
@@ -46,24 +47,47 @@ export default function ResultsView({
       {/* Reality check disclaimer — advisory only, does not affect score */}
       <RealityCheckBanner realityCheck={realityCheck} results={results} />
 
+      {/* User Idea + Score Section */}
+      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 mb-6">
+        {/* User's Idea with highlighting */}
+        <div className="mb-6">
+          <h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wider mb-3">
+            Your Research Idea
+            <span className="text-xs font-normal text-slate-400 ml-2">
+              (highlighted areas show overlap with existing research)
+            </span>
+          </h3>
+          <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+            <HighlightedIdea 
+              annotations={results.sentence_annotations}
+              jobId={jobId}
+            />
+          </div>
+          {/* Legend */}
+          <div className="flex items-center gap-4 mt-2 text-xs text-slate-500">
+            <span className="flex items-center gap-1">
+              <span className="w-3 h-2 bg-red-200 rounded-sm border-b-2 border-red-400" />
+              High overlap
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="w-3 h-2 bg-amber-200 rounded-sm border-b-2 border-amber-400" />
+              Moderate overlap
+            </span>
+            <span className="text-slate-400">Click highlighted text to see evidence</span>
+          </div>
+        </div>
+
+        {/* Originality Gauge with Summary */}
+        <OriginalityGauge 
+          score={results.global_originality_score} 
+          summary={results.summary}
+        />
+      </div>
+
       {/* Main results grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left column: Score + Summary + Criteria */}
+        {/* Left column: Criteria + Stats + Cost */}
         <div className="space-y-6">
-          {/* Gauge */}
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-            <OriginalityGauge score={results.global_originality_score} />
-          </div>
-
-          {/* Summary */}
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-            <h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wider mb-3">
-              Summary
-            </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              {results.summary}
-            </p>
-          </div>
 
           {/* Stats */}
           {results.stats && (
@@ -135,13 +159,6 @@ export default function ResultsView({
                   Click 🔍 on highlighted sentences to see matching sources
                 </p>
               </div>
-            </div>
-
-            {/* User idea */}
-            <div className="bg-slate-50 rounded-xl p-4 mb-5 border border-slate-100">
-              <p className="text-sm text-slate-600 leading-relaxed italic">
-                "{userIdea}"
-              </p>
             </div>
 
             <SentenceHighlighting

@@ -29,17 +29,21 @@ class PaperProcessingService:
         num_papers = len(job.state.selected_papers)
         processed_count = 0
 
+        # Phase 1: Parallel PDF processing (download + conversion)
+        update_progress(job_id, "Processing PDFs in parallel...", 0.56)
+        cls._pdf_processor.process_papers_parallel(
+            job.state.selected_papers,
+            max_workers=min(5, num_papers)
+        )
+
+        # Phase 2: Sequential chunking + indexing (maintains order for progress)
         for i, paper in enumerate(job.state.selected_papers):
-            progress = 0.55 + (0.20 * (i / num_papers))
+            progress = 0.56 + (0.19 * ((i + 1) / num_papers))
             title_short = paper.title[:40] + "..." if len(paper.title) > 40 else paper.title
-            update_progress(job_id, f"Processing paper {i+1}/{num_papers}: {title_short}", progress)
+            update_progress(job_id, f"Indexing paper {i+1}/{num_papers}: {title_short}", progress)
 
             try:
-                logger.info(f"Downloading PDF for paper {paper.paper_id}")
-                cls._pdf_processor.process_paper(paper)
-
                 if paper.is_processed and paper.headings:
-                    logger.info(f"Extracted {len(paper.headings)} sections from {paper.paper_id}")
                     logger.info(f"Chunking paper {paper.paper_id}")
                     cls._chunk_processor.process_paper(paper)
 

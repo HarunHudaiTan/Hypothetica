@@ -7,12 +7,19 @@ from pathlib import Path
 from dotenv import load_dotenv
 import torch
 
-load_dotenv(Path(__file__).resolve().parent.parent.parent / "envfiles" / ".env")
+# Load .env: try envfiles/.env first (Docker), then project root .env (local dev)
+_root = Path(__file__).resolve().parent.parent.parent
+load_dotenv(_root / "envfiles" / ".env")
+load_dotenv(_root / ".env")  # Fallback for local development
 
 # =============================================================================
 # API KEYS
 # =============================================================================
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+# Supabase (for persisting analysis queries)
+SUPABASE_URL = os.getenv("SUPABASE_URL", "https://jqdjzvnqvkwyaiqednyf.supabase.co")
+SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 
 # =============================================================================
 # MODEL CONFIGURATION
@@ -98,9 +105,10 @@ CHROMA_PERSIST_DIR = None  # None = in-memory for demo
 
 # =============================================================================
 # COST TRACKING (Gemini 2.5 Flash pricing per 1M tokens)
+# See https://ai.google.dev/gemini-api/docs/pricing for current rates.
 # =============================================================================
-INPUT_TOKEN_PRICE = 0.075   # $0.075 per 1M input tokens
-OUTPUT_TOKEN_PRICE = 0.30   # $0.30 per 1M output tokens
+INPUT_TOKEN_PRICE = 0.30    # $0.30 per 1M input tokens
+OUTPUT_TOKEN_PRICE = 2.50   # $2.50 per 1M output tokens
 
 # =============================================================================
 # RAG CONFIGURATION

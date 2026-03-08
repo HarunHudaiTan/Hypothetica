@@ -27,7 +27,9 @@ class Agent:
             response_mime_type=response_mime_type,
             thinking_config=types.ThinkingConfig(thinking_budget=0)
         )
-        load_dotenv(Path(__file__).resolve().parent.parent.parent.parent / "envfiles" / ".env")
+        _root = Path(__file__).resolve().parent.parent.parent.parent
+        load_dotenv(_root / "envfiles" / ".env")
+        load_dotenv(_root / ".env")  # Fallback for local development
         self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
         if create_chat:
             self.chat = self.client.chats.create(model=self.model, config=self.config)

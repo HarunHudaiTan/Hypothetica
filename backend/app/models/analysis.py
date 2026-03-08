@@ -170,6 +170,7 @@ class CostBreakdown:
     layer2: float = 0.0
     followup: float = 0.0
     keywords: float = 0.0
+    reality_check: float = 0.0
     total: float = 0.0
     
     def to_dict(self) -> dict:
@@ -180,7 +181,8 @@ class CostBreakdown:
                 "layer1": round(self.layer1, 4),
                 "layer2": round(self.layer2, 4),
                 "followup": round(self.followup, 4),
-                "keywords": round(self.keywords, 4)
+                "keywords": round(self.keywords, 4),
+                "reality_check": round(self.reality_check, 4),
             }
         }
 

@@ -55,6 +55,7 @@ class AnalysisService:
 
         result = cls._reality_check_agent.check_idea(job.user_idea)
         job.state.reality_check_result = result
+        job.state.cost.reality_check = cls._reality_check_agent.get_cost()
 
         warning = cls._reality_check_agent.get_warning_message(result)
         job.state.reality_check_warning = warning
@@ -169,9 +170,18 @@ class AnalysisService:
             results_dict["reality_check"] = job.state.reality_check_result
             results_dict["reality_check_warning"] = job.state.reality_check_warning
             results_dict["stats"] = cls.get_stats(job_id)
+            results_dict["user_idea"] = job.user_idea
+            results_dict["enriched_idea"] = job.state.enriched_idea or job.user_idea
 
             job_manager.set_results(job_id, results_dict)
             cls._update_progress(job_id, "Analysis complete!", 1.0)
+
+            # Persist to Supabase (non-blocking, failures logged only)
+            try:
+                from app.db.supabase_repository import save_analysis
+                save_analysis(job_id, results_dict)
+            except Exception as db_err:
+                logger.warning("Supabase persistence failed (non-fatal): %s", db_err)
 
         except Exception as e:
             logger.exception(f"Error in analysis phase for job {job_id}")

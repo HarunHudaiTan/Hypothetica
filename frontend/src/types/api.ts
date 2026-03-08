@@ -68,6 +68,7 @@ export interface CostBreakdown {
     layer2: number;
     followup: number;
     keywords: number;
+    reality_check: number;
   };
 }
 
