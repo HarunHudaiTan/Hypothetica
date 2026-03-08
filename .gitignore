@@ -29,6 +29,7 @@ backend/**/__pycache__/
 backend/**/*.pyc
 
 # Generated / extracted data (optional: remove if you want to track these)
+extracted_pdf_info/
 Agents/extracted_pdf_info/
 embeddemo/index_dir/
 
