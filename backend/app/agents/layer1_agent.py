@@ -1,18 +1,20 @@
 """
 Layer 1 Agent: Per-paper originality analysis.
-Evaluates how similar a single paper is to the user's research idea.
+Uses 4 focused criterion calls + 1 sentence-level analysis call per paper.
+Each criterion is evaluated independently with its own Likert rubric,
+then sentence analysis is anchored to the computed criterion scores.
 """
 import json
 import logging
-from typing import List, Optional
+from typing import List, Tuple, Dict
 
 from app.agents.Agent import Agent
 from core import config
 from . import agent_config
 from app.models.paper import Paper
 from app.models.analysis import (
-    Layer1Result, 
-    CriteriaScores, 
+    Layer1Result,
+    CriteriaScores,
     SentenceAnalysis,
     MatchedSection
 )
@@ -20,298 +22,447 @@ from app.models.analysis import (
 logger = logging.getLogger(__name__)
 
 
-LAYER1_SYSTEM_PROMPT = """You are an academic originality assessor, similar to a TÜBİTAK grant reviewer. Your task is to evaluate how similar a research paper is to a user's research idea.
+# ---------------------------------------------------------------------------
+# System prompts (minimal — criterion-specific rubrics go in user prompts)
+# ---------------------------------------------------------------------------
 
-## Your Role
-Analyze the relationship between a user's research idea and a given paper. Determine overlap in:
-- Problem definition / research question
-- Proposed methodology / approach
-- Application domain
-- Claimed contributions
+CRITERION_SYSTEM_PROMPT = (
+    "You are an academic originality assessor. You evaluate how similar a "
+    "research paper is to a user's research idea on a single criterion. "
+    "Be objective, evidence-based, and precise. Return ONLY valid JSON."
+)
 
-## Input You Will Receive
-1. User's research idea (possibly with clarifications)
-2. Paper information: title, abstract, and extracted sections
-3. ArXiv categories/keywords
+SENTENCE_SYSTEM_PROMPT = (
+    "You are an academic originality assessor performing sentence-level "
+    "overlap analysis. You compare each sentence of a user's research idea "
+    "against a paper's content. Be objective and evidence-based. "
+    "Return ONLY valid JSON."
+)
 
-## Evaluation Criteria (Score 0.0 to 1.0, where higher = MORE SIMILAR / LESS ORIGINAL)
+# ---------------------------------------------------------------------------
+# Per-criterion Likert rubrics
+# ---------------------------------------------------------------------------
 
-1. **problem_similarity**: How similar is the research problem or question?
-   - 0.0 = Completely different problems
-   - 0.5 = Related but distinct problems
-   - 1.0 = Identical problem being addressed
-
-2. **method_similarity**: How similar is the proposed method/approach?
-   - 0.0 = Completely different techniques
-   - 0.5 = Same general family of methods
-   - 1.0 = Identical methodology
-
-3. **domain_overlap**: How much do application domains overlap?
-   - 0.0 = Different fields entirely
-   - 0.5 = Related fields
-   - 1.0 = Same specific domain/application
-
-4. **contribution_similarity**: How similar are the claimed contributions?
-   - 0.0 = Different contributions
-   - 0.5 = Partial overlap in contributions
-   - 1.0 = Same contributions claimed
-
-## Sentence-Level Analysis
-For EACH sentence in the user's idea, evaluate:
-- overlap_score: How much this specific sentence overlaps with paper content (0.0-1.0)
-- matched_sections: Which paper sections relate to this sentence. For each match you MUST include:
-  - heading: The section heading where the overlap was found
-  - similar_text: Quote or closely paraphrase the SPECIFIC passage (1-3 sentences) from the paper that is similar. Do NOT leave this empty.
-  - reason: Explain WHAT about the user's sentence and the paper passage is similar (e.g., "Both propose using graph attention networks for molecular property prediction")
-  - similarity: Numeric score 0.0-1.0
-
-## Output Format
-Return ONLY valid JSON:
-
-{
-  "paper_id": "paper_01",
-  "overall_overlap_score": 0.45,
-  "criteria_scores": {
-    "problem_similarity": 0.70,
-    "method_similarity": 0.20,
-    "domain_overlap": 0.50,
-    "contribution_similarity": 0.40
-  },
-  "sentence_level": [
-    {
-      "sentence_index": 0,
-      "sentence": "The user's first sentence.",
-      "overlap_score": 0.65,
-      "matched_sections": [
-        {
-          "heading": "INTRODUCTION",
-          "similar_text": "The exact or closely paraphrased passage from the paper that overlaps with this sentence.",
-          "reason": "Both address the same problem of X using approach Y, though the user proposes Z as a differentiator.",
-          "similarity": 0.68
-        }
-      ]
-    }
-  ],
-  "analysis_notes": "Brief explanation of key overlaps and differences"
+CRITERION_RUBRICS: Dict[str, Dict[str, str]] = {
+    "problem_similarity": {
+        "description": "How similar is the research problem or question?",
+        "rubric": (
+            "1 = Completely unrelated question. The paper addresses a fundamentally different research gap.\n"
+            "2 = Loosely related area but a clearly distinct research question with different goals.\n"
+            "3 = Same broad topic, but different specific problem or different angle on the problem.\n"
+            "4 = Very similar problem statement, differing only in scope, constraints, or minor framing.\n"
+            "5 = Same problem, same framing. The paper asks essentially the same question."
+        ),
+    },
+    "method_similarity": {
+        "description": "How similar is the proposed method or approach?",
+        "rubric": (
+            "1 = Completely different techniques. No methodological overlap whatsoever.\n"
+            "2 = Methods share a broad category (e.g., both use deep learning) but differ in architecture, training, and application.\n"
+            "3 = Same general method family with meaningful differences in design, components, or pipeline.\n"
+            "4 = Very similar methodology; differences are incremental (e.g., a different loss function or minor architectural tweak).\n"
+            "5 = Identical methodology with the same implementation approach. Only trivial differences if any."
+        ),
+    },
+    "domain_overlap": {
+        "description": "How much do the application domains overlap?",
+        "rubric": (
+            "1 = Different fields entirely (e.g., NLP vs. robotics).\n"
+            "2 = Related disciplines but different application contexts (e.g., both in healthcare but radiology vs. genomics).\n"
+            "3 = Same discipline, different sub-area or application target.\n"
+            "4 = Same sub-area with closely related application targets.\n"
+            "5 = Same specific application area, same data type, same target population or system."
+        ),
+    },
+    "contribution_similarity": {
+        "description": "How similar are the claimed contributions?",
+        "rubric": (
+            "1 = Unrelated contributions addressing different gaps.\n"
+            "2 = Contributions in the same general direction but clearly different claims.\n"
+            "3 = Partial overlap: some contributions are related, others are distinct.\n"
+            "4 = Most contributions overlap, with only minor novel additions in the user's idea.\n"
+            "5 = Same claims and results. The paper already demonstrates what the user proposes to contribute."
+        ),
+    },
 }
 
-## Important Guidelines
-- Be objective and evidence-based
-- Reference specific parts of the paper when identifying overlaps
-- If no overlap exists for a criterion, score it near 0.0
-- overall_overlap_score should be weighted average: problem(0.3) + method(0.3) + domain(0.2) + contribution(0.2)
-- For sentence_level, include ALL sentences from the user's idea
-- DO NOT hallucinate paper content - only reference what is provided
-"""
+CRITERION_ORDER = [
+    "problem_similarity",
+    "method_similarity",
+    "domain_overlap",
+    "contribution_similarity",
+]
 
 
-class Layer1Agent(Agent):
+class Layer1Agent:
     """
-    Layer 1 Agent for per-paper originality analysis.
-    Compares user's idea against a single paper.
+    Layer 1: Per-paper originality analysis.
+
+    For each paper runs 5 stateless text-generation calls:
+      1-4. One per criterion  (problem / method / domain / contribution)
+      5.   Sentence-level analysis anchored to the four criterion scores
     """
-    
+
     def __init__(self):
-        super().__init__(
-            system_prompt=LAYER1_SYSTEM_PROMPT,
+        self._criterion_agent = Agent(
+            system_prompt=CRITERION_SYSTEM_PROMPT,
             temperature=agent_config.LAYER1_TEMPERATURE,
             top_p=agent_config.LAYER1_TOP_P,
             top_k=agent_config.LAYER1_TOP_K,
-            response_mime_type='application/json',
-            create_chat=False
+            response_mime_type="application/json",
+            create_chat=False,
         )
-        self.last_token_count = 0
-    
+        self._sentence_agent = Agent(
+            system_prompt=SENTENCE_SYSTEM_PROMPT,
+            temperature=agent_config.LAYER1_TEMPERATURE,
+            top_p=agent_config.LAYER1_TOP_P,
+            top_k=agent_config.LAYER1_TOP_K,
+            response_mime_type="application/json",
+            create_chat=False,
+        )
+        self.total_tokens = 0
+
+
+
     def analyze_paper(
         self,
         user_idea: str,
         user_sentences: List[str],
         paper: Paper,
-        paper_context: str = ""
+        paper_context: str = "",
     ) -> Layer1Result:
         """
-        Analyze a single paper against the user's idea.
-        
-        Args:
-            user_idea: Full enriched user idea text
-            user_sentences: User's idea split into sentences
-            paper: Paper object to analyze
-            paper_context: Extracted relevant sections from paper
-            
-        Returns:
-            Layer1Result with scores and sentence-level analysis
+        Full analysis of one paper: 4 criterion calls + 1 sentence call.
         """
-        # Build prompt with paper information
-        prompt = self._build_analysis_prompt(
-            user_idea=user_idea,
-            user_sentences=user_sentences,
-            paper=paper,
-            paper_context=paper_context
-        )
-        
-        try:
-            response = self.generate_text_generation_response(prompt)
-            
-            # Track tokens
-            if hasattr(response, 'usage_metadata'):
-                self.last_token_count = response.usage_metadata.total_token_count
-            
-            # Parse response
-            result_dict = json.loads(response.text)
-            return self._parse_result(result_dict, paper, user_sentences)
-            
-        except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse Layer1 JSON for {paper.paper_id}: {e}")
-            return self._create_error_result(paper, str(e))
-        except Exception as e:
-            logger.error(f"Layer1 analysis failed for {paper.paper_id}: {e}")
-            return self._create_error_result(paper, str(e))
-    
-    def _build_analysis_prompt(
-        self,
-        user_idea: str,
-        user_sentences: List[str],
-        paper: Paper,
-        paper_context: str
-    ) -> str:
-        """Build the analysis prompt with all relevant information."""
-        
-        # Format sentences with indices
-        sentences_text = "\n".join([
-            f"[{i}] {sent}" for i, sent in enumerate(user_sentences)
-        ])
-        
-        # Format paper sections
-        sections_text = ""
-        for heading in paper.headings:
-            if heading.section_text and heading.is_valid:
-                sections_text += f"\n### {heading.text}\n{heading.section_text[:1500]}...\n"
-        
-        prompt = f"""Analyze the following paper against the user's research idea.
+        paper_text = self._format_paper(paper, paper_context)
+        self.total_tokens = 0
 
-## USER'S RESEARCH IDEA
-{user_idea}
+        logger.info(f"[Layer1] Starting analysis for paper: {paper.paper_id} — \"{paper.title[:60]}\"")
 
-## USER'S IDEA SENTENCES (analyze each one)
-{sentences_text}
+        # Phase 1 — score each criterion independently
+        logger.info(f"[Layer1] Phase 1: Scoring 4 criteria for {paper.paper_id}")
+        criteria_results: Dict[str, Dict] = {}
+        for criterion_name in CRITERION_ORDER:
+            score, justification, tokens = self._score_criterion(
+                criterion_name, user_idea, paper_text, paper
+            )
+            criteria_results[criterion_name] = {
+                "score": score,
+                "justification": justification,
+            }
+            self.total_tokens += tokens
 
-## PAPER TO ANALYZE
-Paper ID: {paper.paper_id}
-ArXiv ID: {paper.arxiv_id}
-Title: {paper.title}
-Categories: {', '.join(paper.categories)}
-
-### ABSTRACT
-{paper.abstract}
-
-### EXTRACTED SECTIONS
-{sections_text if sections_text else paper_context if paper_context else "No sections extracted"}
-
-## TASK
-1. Evaluate criteria_scores (problem, method, domain, contribution similarity)
-2. Calculate overall_overlap_score as weighted average
-3. For EACH sentence in the user's idea, assess overlap with this paper
-4. Provide brief analysis_notes
-
-Return valid JSON only."""
-
-        return prompt
-    
-    def _parse_result(
-        self,
-        result_dict: dict,
-        paper: Paper,
-        user_sentences: List[str]
-    ) -> Layer1Result:
-        """Parse JSON response into Layer1Result object."""
-        
-        # Parse criteria scores
-        criteria_dict = result_dict.get('criteria_scores', {})
+        # Build CriteriaScores (0-1 floats)
         criteria = CriteriaScores(
-            problem_similarity=float(criteria_dict.get('problem_similarity', 0.0)),
-            method_similarity=float(criteria_dict.get('method_similarity', 0.0)),
-            domain_overlap=float(criteria_dict.get('domain_overlap', 0.0)),
-            contribution_similarity=float(criteria_dict.get('contribution_similarity', 0.0))
+            problem_similarity=self._likert_to_float(criteria_results["problem_similarity"]["score"]),
+            method_similarity=self._likert_to_float(criteria_results["method_similarity"]["score"]),
+            domain_overlap=self._likert_to_float(criteria_results["domain_overlap"]["score"]),
+            contribution_similarity=self._likert_to_float(criteria_results["contribution_similarity"]["score"]),
         )
-        
-        # Parse sentence-level analysis
-        sentence_analyses = []
-        for sent_data in result_dict.get('sentence_level', []):
-            idx = sent_data.get('sentence_index', 0)
-            
-            # Parse matched sections
-            matched = []
-            for match in sent_data.get('matched_sections', []):
-                matched.append(MatchedSection(
-                    chunk_id="",
-                    paper_id=paper.paper_id,
-                    paper_title=paper.title,
-                    heading=match.get('heading', ''),
-                    text_snippet=match.get('similar_text', ''),
-                    similarity=float(match.get('similarity', 0.0)),
-                    reason=match.get('reason', '')
-                ))
-            
-            # Get sentence text
-            sentence = sent_data.get('sentence', '')
-            if not sentence and idx < len(user_sentences):
-                sentence = user_sentences[idx]
-            
-            sentence_analyses.append(SentenceAnalysis(
-                sentence=sentence,
-                sentence_index=idx,
-                overlap_score=float(sent_data.get('overlap_score', 0.0)),
-                matched_sections=matched
-            ))
-        
-        # Ensure we have analysis for all sentences
-        analyzed_indices = {sa.sentence_index for sa in sentence_analyses}
-        for i, sent in enumerate(user_sentences):
-            if i not in analyzed_indices:
-                sentence_analyses.append(SentenceAnalysis(
-                    sentence=sent,
-                    sentence_index=i,
-                    overlap_score=0.0,
-                    matched_sections=[]
-                ))
-        
-        # Sort by index
-        sentence_analyses.sort(key=lambda x: x.sentence_index)
-        
-        return Layer1Result(
+
+        # Overall overlap (weighted average of criteria)
+        w = config.CRITERIA_WEIGHTS
+        overall_overlap = (
+            w["problem"] * criteria.problem_similarity
+            + w["method"] * criteria.method_similarity
+            + w["domain"] * criteria.domain_overlap
+            + w["contribution"] * criteria.contribution_similarity
+        )
+
+        logger.info(
+            f"[Layer1] Phase 1 complete for {paper.paper_id}: "
+            f"p={criteria_results['problem_similarity']['score']}/5, "
+            f"m={criteria_results['method_similarity']['score']}/5, "
+            f"d={criteria_results['domain_overlap']['score']}/5, "
+            f"c={criteria_results['contribution_similarity']['score']}/5 "
+            f"→ overall_overlap={overall_overlap:.2f}"
+        )
+
+        # Derive confidence / originality_threat from raw Likert scores
+        high_count = sum(
+            1 for v in criteria_results.values() if v["score"] >= 4
+        )
+        if high_count >= 3:
+            originality_threat = "high"
+            confidence = "high"
+        elif high_count >= 1:
+            originality_threat = "moderate"
+            confidence = "medium"
+        else:
+            originality_threat = "low"
+            confidence = "medium"
+
+        # Phase 2 — sentence-level analysis anchored to criteria scores
+        logger.info(f"[Layer1] Phase 2: Sentence analysis for {paper.paper_id} ({len(user_sentences)} sentences)")
+        sentence_analyses, sent_tokens = self._analyze_sentences(
+            user_idea, user_sentences, paper_text, paper, criteria_results
+        )
+        self.total_tokens += sent_tokens
+
+        for sa in sentence_analyses:
+            logger.info(
+                f"[Layer1]   sentence[{sa.sentence_index}] overlap={sa.overlap_score:.2f} "
+                f"role={sa.sentence_role} matches={len(sa.matched_sections)} "
+                f"— \"{sa.sentence[:60]}...\""
+            )
+
+        result = Layer1Result(
             paper_id=paper.paper_id,
             paper_title=paper.title,
             arxiv_id=paper.arxiv_id,
-            overall_overlap_score=float(result_dict.get('overall_overlap_score', criteria.average)),
+            overall_overlap_score=overall_overlap,
             criteria_scores=criteria,
             sentence_analyses=sentence_analyses,
-            tokens_used=self.last_token_count
+            confidence=confidence,
+            originality_threat=originality_threat,
+            tokens_used=self.total_tokens,
         )
-    
+
+        logger.info(
+            f"[Layer1] Result JSON for {paper.paper_id}:\n"
+            f"{json.dumps(result.to_dict(), indent=2, ensure_ascii=False)}"
+        )
+
+        return result
+
+    def get_cost(self) -> float:
+        """Cost estimate for the last analyze_paper call (all 5 sub-calls)."""
+        if self.total_tokens > 0:
+            inp = self.total_tokens * 0.8
+            out = self.total_tokens * 0.2
+            return (
+                (inp / 1_000_000) * config.INPUT_TOKEN_PRICE
+                + (out / 1_000_000) * config.OUTPUT_TOKEN_PRICE
+            )
+        return 0.0
+
+    # ------------------------------------------------------------------
+    # Internals — paper formatting
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _format_paper(paper: Paper, paper_context: str) -> str:
+        sections_text = ""
+        for heading in paper.headings:
+            if heading.section_text and heading.is_valid:
+                sections_text += f"\n### {heading.text}\n{heading.section_text[:1500]}\n"
+
+        return (
+            f"Title: {paper.title}\n"
+            f"ArXiv ID: {paper.arxiv_id}\n"
+            f"Categories: {', '.join(paper.categories)}\n\n"
+            f"### ABSTRACT\n{paper.abstract}\n\n"
+            f"### EXTRACTED SECTIONS\n"
+            f"{sections_text if sections_text else paper_context if paper_context else 'No sections extracted'}"
+        )
+
+    # ------------------------------------------------------------------
+    # Internals — criterion scoring (1 call per criterion)
+    # ------------------------------------------------------------------
+
+    def _score_criterion(
+        self,
+        criterion_name: str,
+        user_idea: str,
+        paper_text: str,
+        paper: Paper,
+    ) -> Tuple[int, str, int]:
+        """Score a single criterion. Returns (likert_score, justification, tokens)."""
+        rubric_info = CRITERION_RUBRICS[criterion_name]
+
+        prompt = f"""## USER'S RESEARCH IDEA
+{user_idea}
+
+## PAPER TO EVALUATE
+{paper_text}
+
+## CRITERION: {criterion_name}
+{rubric_info["description"]}
+
+### Scoring Rubric (1-5 Likert, higher = MORE similar to existing work)
+{rubric_info["rubric"]}
+
+## CONSTRAINTS
+- Be objective and evidence-based. A score above 1 must be justified by specific paper content.
+- DO NOT hallucinate paper content — only reference text that appears above.
+- If paper content is missing or too short to evaluate this criterion, default to 1.
+- When uncertain between two adjacent scores, choose the lower one.
+- A score of 5 requires near-verbatim or structurally identical overlap.
+
+## OUTPUT FORMAT
+Return ONLY valid JSON:
+{{"score": <integer 1-5>, "justification": "<2-3 sentences explaining why this score, citing specific paper content>"}}"""
+
+        try:
+            response = self._criterion_agent.generate_text_generation_response(prompt)
+            tokens = getattr(
+                getattr(response, "usage_metadata", None),
+                "total_token_count", 0,
+            )
+            result = json.loads(response.text)
+            score = max(1, min(5, int(result.get("score", 1))))
+            justification = result.get("justification", "")
+            logger.info(f"  {criterion_name}: {score}/5 — {justification[:100]}")
+            return score, justification, tokens
+        except Exception as e:
+            logger.error(f"Failed to score {criterion_name} for {paper.paper_id}: {e}")
+            return 1, f"Error: {e}", 0
+
+    # ------------------------------------------------------------------
+    # Internals — sentence-level analysis (5th call, anchored to criteria)
+    # ------------------------------------------------------------------
+
+    def _analyze_sentences(
+        self,
+        user_idea: str,
+        user_sentences: List[str],
+        paper_text: str,
+        paper: Paper,
+        criteria_results: Dict[str, Dict],
+    ) -> Tuple[List[SentenceAnalysis], int]:
+        """Sentence-level analysis anchored to the pre-computed criterion scores."""
+        sentences_text = "\n".join(
+            f"[{i}] {sent}" for i, sent in enumerate(user_sentences)
+        )
+        criteria_summary = "\n".join(
+            f"- {name}: {r['score']}/5 — {r['justification'][:120]}"
+            for name, r in criteria_results.items()
+        )
+
+        prompt = f"""## USER'S RESEARCH IDEA
+{user_idea}
+
+## USER'S IDEA SENTENCES (analyze every one)
+{sentences_text}
+
+## PAPER
+{paper_text}
+
+## CRITERIA SCORES (already computed — use as calibration anchor)
+{criteria_summary}
+
+## TASK
+For EACH sentence in the user's idea above, provide:
+1. **overlap_score** (integer 1-5): How much this sentence overlaps with paper content.
+2. **role**: One of "contribution", "methodology", "problem", "application", "background", "other".
+3. **matched_sections**: List of overlapping passages from the paper:
+   - heading: Paper section heading where overlap was found.
+   - similar_text: Quote or closely paraphrase the SPECIFIC passage (1-3 sentences). NEVER leave empty.
+   - reason: Explain WHAT is similar.
+   - similarity: Integer 1-5.
+
+## CONSISTENCY CONSTRAINT
+Sentence scores MUST align with the criteria scores above:
+- If method_similarity is 2, methodology sentences should generally not exceed 3.
+- If contribution_similarity is 4, contribution sentences should generally be 3-5.
+
+## OUTPUT FORMAT
+Return ONLY valid JSON:
+{{"sentence_level": [
+    {{"sentence_index": 0, "sentence": "...", "role": "methodology", "overlap_score": 3,
+      "matched_sections": [{{"heading": "...", "similar_text": "...", "reason": "...", "similarity": 3}}]
+    }}
+]}}"""
+
+        try:
+            response = self._sentence_agent.generate_text_generation_response(prompt)
+            tokens = getattr(
+                getattr(response, "usage_metadata", None),
+                "total_token_count", 0,
+            )
+            result = json.loads(response.text)
+            analyses = self._parse_sentence_results(
+                result, paper, user_sentences
+            )
+            return analyses, tokens
+        except Exception as e:
+            logger.error(f"Sentence analysis failed for {paper.paper_id}: {e}")
+            fallback = [
+                SentenceAnalysis(
+                    sentence=s, sentence_index=i,
+                    overlap_score=0.0, matched_sections=[],
+                )
+                for i, s in enumerate(user_sentences)
+            ]
+            return fallback, 0
+
+    # ------------------------------------------------------------------
+    # Internals — parsing helpers
+    # ------------------------------------------------------------------
+
+    def _parse_sentence_results(
+        self,
+        result: dict,
+        paper: Paper,
+        user_sentences: List[str],
+    ) -> List[SentenceAnalysis]:
+        analyses: List[SentenceAnalysis] = []
+
+        for sent_data in result.get("sentence_level", []):
+            idx = sent_data.get("sentence_index", 0)
+
+            matched = [
+                MatchedSection(
+                    chunk_id="",
+                    paper_id=paper.paper_id,
+                    paper_title=paper.title,
+                    heading=m.get("heading", ""),
+                    text_snippet=m.get("similar_text", ""),
+                    similarity=self._likert_to_float(m.get("similarity", 1)),
+                    reason=m.get("reason", ""),
+                )
+                for m in sent_data.get("matched_sections", [])
+            ]
+
+            sentence = sent_data.get("sentence", "")
+            if not sentence and idx < len(user_sentences):
+                sentence = user_sentences[idx]
+
+            analyses.append(
+                SentenceAnalysis(
+                    sentence=sentence,
+                    sentence_index=idx,
+                    overlap_score=self._likert_to_float(
+                        sent_data.get("overlap_score", 1)
+                    ),
+                    matched_sections=matched,
+                    sentence_role=sent_data.get("role", "other"),
+                )
+            )
+
+        # Fill any missing sentences
+        analyzed = {sa.sentence_index for sa in analyses}
+        for i, sent in enumerate(user_sentences):
+            if i not in analyzed:
+                analyses.append(
+                    SentenceAnalysis(
+                        sentence=sent, sentence_index=i,
+                        overlap_score=0.0, matched_sections=[],
+                    )
+                )
+
+        analyses.sort(key=lambda x: x.sentence_index)
+        return analyses
+
+    @staticmethod
+    def _likert_to_float(value) -> float:
+        """Convert Likert integer (1-5) or legacy float (0-1) to a 0-1 float."""
+        v = float(value)
+        int_v = int(v)
+        if int_v == v and int_v in config.LIKERT_TO_FLOAT:
+            return config.LIKERT_TO_FLOAT[int_v]
+        if 0.0 <= v <= 1.0:
+            return v
+        clamped = max(1, min(5, int(round(v))))
+        return config.LIKERT_TO_FLOAT[clamped]
+
     def _create_error_result(self, paper: Paper, error: str) -> Layer1Result:
-        """Create a result object for failed analysis."""
+        """Create a result object for a completely failed analysis."""
         return Layer1Result(
             paper_id=paper.paper_id,
             paper_title=paper.title,
             arxiv_id=paper.arxiv_id,
             overall_overlap_score=0.0,
-            criteria_scores=CriteriaScores(
-                problem_similarity=0.0,
-                method_similarity=0.0,
-                domain_overlap=0.0,
-                contribution_similarity=0.0
-            ),
-            sentence_analyses=[]
+            criteria_scores=CriteriaScores(0.0, 0.0, 0.0, 0.0),
+            sentence_analyses=[],
         )
-    
-    def get_cost(self) -> float:
-        """Calculate cost for the last analysis."""
-        if self.last_token_count > 0:
-            input_tokens = self.last_token_count * 0.8  # More input for analysis
-            output_tokens = self.last_token_count * 0.2
-            
-            cost = (input_tokens / 1_000_000) * config.INPUT_TOKEN_PRICE
-            cost += (output_tokens / 1_000_000) * config.OUTPUT_TOKEN_PRICE
-            return cost
-        return 0.0
-

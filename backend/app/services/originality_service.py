@@ -11,12 +11,11 @@ logger = logging.getLogger(__name__)
 
 
 class OriginalityService:
-    _layer1_agent = Layer1Agent()
     _layer2_aggregator = Layer2Aggregator()
 
     @classmethod
     def run_layer1_analysis(cls, job_id: str, update_progress: Callable, get_retriever: Callable):
-        """Run Layer 1 analysis on each paper."""
+        """Run Layer 1 analysis on each paper (4 criterion calls + 1 sentence call per paper)."""
         job = job_manager.get_job(job_id)
         if not job:
             return
@@ -31,10 +30,17 @@ class OriginalityService:
 
         idea = job.state.enriched_idea or job.user_idea
 
+        # Create a fresh agent per job for thread safety
+        agent = Layer1Agent()
+
         for i, paper in enumerate(processed_papers):
             progress = 0.78 + (0.12 * (i / len(processed_papers)))
             title_short = paper.title[:50] + "..." if len(paper.title) > 50 else paper.title
-            update_progress(job_id, f"Layer 1 analysis: Paper {i+1}/{len(processed_papers)}", progress)
+            update_progress(
+                job_id,
+                f"Layer 1 analysis: Paper {i+1}/{len(processed_papers)} — {title_short}",
+                progress,
+            )
 
             logger.info(f"Analyzing paper {i+1}/{len(processed_papers)}: {title_short}")
 
@@ -45,17 +51,25 @@ class OriginalityService:
             ])
             logger.info(f"Retrieved {len(context_chunks)} context chunks for paper {paper.paper_id}")
 
-            result = cls._layer1_agent.analyze_paper(
+            result = agent.analyze_paper(
                 user_idea=idea,
                 user_sentences=job.state.user_sentences,
                 paper=paper,
-                paper_context=context_text
+                paper_context=context_text,
             )
             results.append(result)
-            layer1_cost += cls._layer1_agent.get_cost()
+            layer1_cost += agent.get_cost()
 
-            logger.info(f"Paper {paper.paper_id} analysis complete: {result.overall_overlap_score:.0%} overlap")
-            logger.info(f"Criteria scores: problem={result.criteria_scores.problem_similarity:.1f}, method={result.criteria_scores.method_similarity:.1f}, domain={result.criteria_scores.domain_overlap:.1f}, contribution={result.criteria_scores.contribution_similarity:.1f}")
+            logger.info(
+                f"Paper {paper.paper_id} analysis complete: {result.overall_overlap_score:.0%} overlap "
+                f"(threat: {result.originality_threat})"
+            )
+            logger.info(
+                f"Criteria scores: problem={result.criteria_scores.problem_similarity:.2f}, "
+                f"method={result.criteria_scores.method_similarity:.2f}, "
+                f"domain={result.criteria_scores.domain_overlap:.2f}, "
+                f"contribution={result.criteria_scores.contribution_similarity:.2f}"
+            )
 
         cls._enrich_matched_sections(job_id, results, get_retriever)
         job.state.layer1_results = results

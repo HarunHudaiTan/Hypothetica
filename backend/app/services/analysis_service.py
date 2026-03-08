@@ -23,12 +23,15 @@ logger = logging.getLogger(__name__)
 class AnalysisService:
     _followup_agent = FollowUpAgent()
     _reality_check_agent = RealityCheckAgent()
+    _retriever_cache: Dict[str, tuple] = {}
 
-    @staticmethod
-    def _get_retriever(job_id: str):
-        """Helper to get ChromaStore and Retriever."""
-        store = ChromaStore()
-        return store, Retriever(store)
+    @classmethod
+    def _get_retriever(cls, job_id: str):
+        """Helper to get ChromaStore and Retriever, cached per job."""
+        if job_id not in cls._retriever_cache:
+            store = ChromaStore()
+            cls._retriever_cache[job_id] = (store, Retriever(store))
+        return cls._retriever_cache[job_id]
 
     @staticmethod
     def _update_progress(job_id: str, message: str, progress: float):
@@ -173,6 +176,8 @@ class AnalysisService:
         except Exception as e:
             logger.exception(f"Error in analysis phase for job {job_id}")
             job_manager.set_error(job_id, str(e))
+        finally:
+            cls._retriever_cache.pop(job_id, None)
 
     @staticmethod
     def start_questions_phase(job_id: str):
@@ -193,7 +198,7 @@ class AnalysisService:
         job = job_manager.get_job(job_id)
         if not job: return {}
 
-        store = ChromaStore()
+        store, _ = cls._get_retriever(job_id)
         return {
             "query_variants": len(job.state.query_variants),
             "total_fetched": job.state.total_papers_fetched,

@@ -36,6 +36,7 @@ class SentenceAnalysis:
     sentence_index: int
     overlap_score: float           # 0-1 score
     matched_sections: List[MatchedSection] = field(default_factory=list)
+    sentence_role: str = "other"   # contribution, methodology, problem, application, background, other
 
 
 @dataclass
@@ -84,7 +85,11 @@ class Layer1Result:
     
     # Sentence-level analysis
     sentence_analyses: List[SentenceAnalysis] = field(default_factory=list)
-    
+
+    # Confidence and threat assessment
+    confidence: str = "medium"          # low, medium, high
+    originality_threat: str = "low"     # low, moderate, high
+
     # Processing metadata
     tokens_used: int = 0
     processing_time: float = 0.0   # seconds
@@ -101,6 +106,7 @@ class Layer1Result:
                     "sentence": sa.sentence,
                     "sentence_index": sa.sentence_index,
                     "overlap_score": sa.overlap_score,
+                    "sentence_role": sa.sentence_role,
                     "matched_sections": [
                         {
                             "chunk_id": ms.chunk_id,
@@ -114,7 +120,9 @@ class Layer1Result:
                     ]
                 }
                 for sa in self.sentence_analyses
-            ]
+            ],
+            "confidence": self.confidence,
+            "originality_threat": self.originality_threat
         }
 
 
