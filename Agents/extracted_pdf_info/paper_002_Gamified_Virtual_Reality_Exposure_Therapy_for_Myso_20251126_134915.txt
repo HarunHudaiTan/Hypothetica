@@ -1,0 +1,108 @@
+RESEARCH IDEA: can video games help in treatment of mental health issues
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: Gamified Virtual Reality Exposure Therapy for Mysophobia: Evaluating the Efficacy of a Simulated Sneeze Intervention
+
+URL: https://arxiv.org/pdf/2511.14118v1
+
+ABSTRACT:
+Mysophobia, or the fear of germs, is a prevalent anxiety disorder that significantly impacts daily life. This study investigates the potential of a gamified virtual reality (VR) intervention to simulate contamination-related scenarios and assess their emotional and psychological effects. A VR game based sneeze simulation was developed to evaluate its influence on participants' emotional states. Seven participants completed two versions of the game: a baseline version and an experimental version featuring the sneeze simulation. Emotional responses were measured using the Positive and Negative Affect Schedule (PANAS) and State-Trait Anxiety Inventory - State (STAI-S) questionnaires. The results revealed slight increases in negative affect and anxiety levels during the sneeze simulation. Also, a reduction in positive affect was revealed. However, these differences were not statistically significant (p > 0.05). This is likely due to small sample sizes, a lack of grossness in the simulation, or participants not being clinically mysophobes. This exploratory study highlights the potential of VR-based interventions for understanding and addressing contamination-related anxieties. It provides a foundation for future research with larger and more diverse participant pools.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## II. LITERATURE REVIEW
+
+The application of gamified and automated Virtual Reality Exposure Therapy (VRET) systems has demonstrated promising results in treating specific phobias and anxiety disorders. Lindner et al. [7] showcased the efficacy of a gamified VRET system for spider phobia. Significant symptom reduction was observed through a single-session, self-guided intervention under simulated real-world conditions. This highlights the scalability and effectiveness of combining gamification and automation in therapeutic settings. Additionally, Lindner et al. [8] emphasized the role of gamification elements such as task progression and narrative structure in enhancing user engagement and satisfaction. These findings show the value of using gamification to boost engagement and improve results.
+
+Miloff et al. [9] further expanded the scope of gamified VRET by comparing its efficacy to traditional one-session exposure therapy (OST) for spider phobia. Their randomized controlled trial demonstrated that gamified VRET was noninferior to OST while providing greater accessibility and reducing logistical barriers. These findings validate the potential of gamified VR applications as viable alternatives to traditional therapy.
+
+Beyond specific phobias, gamified VR interventions have been explored for broader psychological conditions. Davies et al. [2] developed a VR first-person shooter game with behavioral tracking sensors to treat hypervigilance. This approach exemplifies how VR systems can be personalized to promote emotional and cognitive regulation. Similarly, Hossan et al. [4] discussed different personalization techniques to adapt games to player preferences.
+
+Kahlon et al. [5] applied gamified VRET to reduce public speaking anxiety in adolescents. They demonstrated significant symptom reduction through an engaging and self-guided intervention. The inclusion of gamification elements such as progress tracking and feedback improved user engagement and supported consistent adherence to the therapy. These studies underscore the value of adaptive and immersive VR systems in addressing diverse psychological challenges.
+
+In the context of mysophobia, Yuan et al. [14] proposed a conscious system to model obsessive-compulsive disorder (OCD), specifically targeting compulsive behaviors like excessive handwashing. By integrating cognitive-behavioral therapy (CBT) principles into an artificial intelligence based framework, the study highlights the potential for technologydriven mental health interventions. Meanwhile, Yameen and Qadir [11] investigated the physiological underpinnings of mysophobia and revealed no significant correlation between blood oxygen levels and germ-related anxiety. This finding reinforced the need for psychological, rather than physiological, approaches in designing interventions for mysophobia.
+
+To optimize exposure-based therapies, Craske [1] explored strategies rooted in inhibitory learning and regulation models. Techniques such as deepened extinction and occasional reinforced extinction were shown to enhance the effectiveness of exposure therapy by disconfirming threat expectations. These methodologies offer a foundation for designing exposure based interventions that maximize therapeutic outcomes. Finally, Page and Coxon [10] reviewed the effectiveness of VRET for anxiety disorders. They highlighted the potential of VR environments to provide controlled, customizable exposure scenarios. While they identified methodological limitations such as small sample sizes and lack of control groups, the review reinforced the validity of VR as a therapeutic tool.
+
+Eishita et al. [3] proposed Militant of the Maze Generation 2 (MoMG), a gamified handheld digital platform for treating OCD-related cleanliness compulsions. By incorporating virtual contamination scenarios, animated germ splashes, and realtime heart rate variability (HRV) monitoring, their system aim to train users in emotional regulation during exposure tasks.
+
+Inspired by these studies, we designed our VR-based intervention for mysophobia to test the efficacy of a simulated sneeze scenario. By integrating validated methodologies from these prior works, we aimed to establish a robust framework for evaluating the role of VR in treating mysophobia, advancing the understanding of its therapeutic potential.
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## III. METHODOLOGY
+
+## A. Participants
+
+The study involved 7 participants (4 males and 3 females) who voluntarily took part in the experiment. All participants were briefed about the study procedures, and a signed consent letter was obtained prior to their participation. Inclusion criteria required participants to have no prior history of diagnosed mysophobia. We initially conducted the experiment on nonmysophobic individuals to evaluate the game's impact on emotional states in a controlled manner.
+
+## B. Materials and Setup
+
+A virtual reality (VR) game was developed to simulate a controlled contamination related scenario. The game was designed to include two versions: a baseline condition without contamination stimuli and an experimental condition incorporating a digital sneeze simulation. The VR system consisted of a oculus meta quest 3 head mounted display with motion tracking to ensure an immersive and interactive experience. The game environment included a virtual room with tables, non-playable characters (NPCs), and target objects.
+
+The Positive and Negative Affect Schedule (PANAS) and the State-Trait Anxiety Inventory - State (STAI-S) questionnaires were used to measure participants' emotional states before and after exposure to the scenarios.
+
+Each participant experienced two versions of the VR game sequentially:
+
+## C. Baseline Version
+
+Participants were instructed to navigate the virtual environment and complete a series of tasks. First, as shown in Figure 1 they walked to a table to pick up a rifle, which was placed near three NPCs. After acquiring the rifle, participants proceeded to another table and initiated the game by pressing a start button. After the start of the game moving targets in random positions appeared in front of the player as seen in Figure 2. Participants were tasked with shooting the targets within a 1 minute time frame. Score were calculated based on accuracy with bullseye shots awarding the highest score. A timer displayed the remaining time and a score indicator tracked the participant's performance. Upon completion, participants reported their scores to the experimenter and completed the PANAS and STAI-S questionnaires.
+
+Fig. 1: Gun pickup of baseline version
+
+<!-- image -->
+
+Fig. 2: Gameplay of baseline version
+
+<!-- image -->
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## RESULT
+
+The results from the study were analyzed using the Positive and Negative Affect Schedule (PANAS) and State-Trait Anxiety Inventory - State (STAI-S) questionnaires to evaluate participants' emotional responses to the virtual sneeze simulation. A paired t-test was used to assess differences between the baseline (plain) condition and the sneeze condition. The findings are detailed below:
+
+## G. PANAS Positive Affect (PA)
+
+For Positive Affect (PA),the p-value (p = 0.34) indicates that the reduction in positive affect in the sneeze condition was not statistically significant. The boxplot (Figure 5) highlights the broader range of scores observed in the sneeze condition.
+
+Fig. 5: Positive affect
+
+<!-- image -->
+
+## H. PANAS Negative Affect (NA)
+
+The average Negative Affect (NA) score for the sneeze condition was slightly higher compared to the plain condition. However, the difference was not statistically significant (p = 0.44). The boxplot (Figure 6) shows that the sneeze condition induced marginally higher variability in negative affect. It suggests a potential emotional impact of the sneeze simulation.
+
+Fig. 6: Negative affect
+
+<!-- image -->
+
+## I. STAI-S
+
+The State Anxiety (STAI-S) scores were analyzed to assess participants' anxiety levels. The average scores were higher in the sneeze condition compared to the plain condition. However, the difference was again not statistically significant (p = 0.33). Figure 7 shows that participants experienced some variability in anxiety levels. This may reflect differences in individual sensitivity to the sneeze simulation.
+
+Fig. 7: State Trait anxiety inventory - State
+
+<!-- image -->
+
+
+================================================================================
+EXTRACTED ON: 2025-11-26 13:49:15
+================================================================================

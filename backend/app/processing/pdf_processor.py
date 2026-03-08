@@ -1,9 +1,11 @@
 """
 PDF processor for extracting content from research papers.
 Uses Docling for PDF to Markdown conversion and heading extraction.
+Supports parallel processing for faster throughput.
 """
 import re
 import logging
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import List, Optional, Tuple
 from datetime import datetime
 
@@ -71,6 +73,75 @@ class PDFProcessor:
             paper.processing_error = str(e)
         
         return paper
+    
+    def _process_paper_isolated(self, paper: Paper) -> Paper:
+        """
+        Process a single paper with a fresh DocumentConverter.
+        Thread-safe: each call uses its own converter to avoid shared state.
+        """
+        if not paper.pdf_url:
+            paper.processing_error = "No PDF URL provided"
+            return paper
+        
+        try:
+            logger.info(f"Processing PDF: {paper.title[:50]}...")
+            converter = DocumentConverter()
+            result = converter.convert(paper.pdf_url)
+            markdown = result.document.export_to_markdown()
+            
+            if not markdown:
+                paper.processing_error = "Failed to convert PDF to markdown"
+                return paper
+            
+            paper.markdown_content = markdown
+            headings = self._extract_headings_with_content(markdown, paper.paper_id)
+            paper.headings = headings
+            paper.is_processed = True
+            paper.processed_at = datetime.now()
+            logger.info(f"Extracted {len(headings)} headings from {paper.paper_id}")
+            
+        except Exception as e:
+            logger.error(f"Error processing paper {paper.paper_id}: {e}")
+            paper.processing_error = str(e)
+        
+        return paper
+    
+    def process_papers_parallel(
+        self,
+        papers: List[Paper],
+        max_workers: int = 5
+    ) -> List[Paper]:
+        """
+        Process multiple papers in parallel (PDF conversion + heading extraction).
+        Uses a fresh DocumentConverter per paper for thread safety.
+        
+        Args:
+            papers: List of Paper objects to process
+            max_workers: Maximum number of concurrent workers
+            
+        Returns:
+            The same papers with markdown_content and headings populated
+        """
+        if not papers:
+            return papers
+        
+        workers = min(max_workers, len(papers))
+        logger.info(f"Processing {len(papers)} PDFs in parallel (max_workers={workers})")
+        
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            future_to_paper = {
+                executor.submit(self._process_paper_isolated, p): p
+                for p in papers
+            }
+            for future in as_completed(future_to_paper):
+                paper = future_to_paper[future]
+                try:
+                    future.result()
+                except Exception as e:
+                    logger.error(f"Error processing paper {paper.paper_id}: {e}")
+                    paper.processing_error = str(e)
+        
+        return papers
     
     def _convert_to_markdown(self, source: str) -> Optional[str]:
         """

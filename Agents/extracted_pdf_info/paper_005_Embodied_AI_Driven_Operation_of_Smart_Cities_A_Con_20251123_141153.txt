@@ -1,0 +1,156 @@
+RESEARCH IDEA: Want to do a ai based domestic relocation assistant
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: Embodied AI-Driven Operation of Smart Cities: A Concise Review
+
+URL: https://arxiv.org/pdf/2108.09823v1
+
+ABSTRACT:
+A smart city can be seen as a framework, comprised of Information and Communication Technologies (ICT). An intelligent network of connected devices that collect data with their sensors and transmit them using cloud technologies in order to communicate with other assets in the ecosystem plays a pivotal role in this framework. Maximizing the quality of life of citizens, making better use of resources, cutting costs, and improving sustainability are the ultimate goals that a smart city is after. Hence, data collected from connected devices will continuously get thoroughly analyzed to gain better insights into the services that are being offered across the city; with this goal in mind that they can be used to make the whole system more efficient. Robots and physical machines are inseparable parts of a smart city. Embodied AI is the field of study that takes a deeper look into these and explores how they can fit into real-world environments. It focuses on learning through interaction with the surrounding environment, as opposed to Internet AI which tries to learn from static datasets. Embodied AI aims to train an agent that can See (Computer Vision), Talk (NLP), Navigate and Interact with its environment (Reinforcement Learning), and Reason (General Intelligence), all at the same time. Autonomous driving cars and personal companions are some of the examples that benefit from Embodied AI nowadays. In this paper, we attempt to do a concise review of this field. We will go through its definitions, its characteristics, and its current achievements along with different algorithms, approaches, and solutions that are being used in different components of it (e.g. Vision, NLP, RL). We will then explore all the available simulators and 3D interactable databases that will make the research in this area feasible. Finally, we will address its challenges and identify its potentials for future research.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## 2 Rise of the Embodied AI
+
+In the mid-1980s a major paradigm shift took place towards embodiment and computer science started to become more practical than theoretical algorithms and approaches. Embedded systems started to appear in all kinds of forms to aid humans in everyday life. Controllers for trains, airplanes, elevators, air conditioners, and Softwares for translation and audio manipulation are some of the most important ones to name a few [24].
+
+Embodied Artificial Intelligence is a broad term, and those successes were for sure great ones to start with; yet, it could clearly be seen that it was a huge room for improvement. Theoretically, the ultimate goal of AI is not only to master any given algorithm or task that is given to, but also gain the ability to multitask and get to human-level intelligence, and that as mentioned requires meaningful interaction with the real world. There are many specialized robots for a vast set of tasks out there, especially in large industries, which can do the assigned task to them to perfection, let it be cutting different metals, painting, soldering circuits, and much more, but until one single machine emerges to have the ability to do different tasks or at least a small subset of them by itself and not just by following orders, it cannot be called intelligence.
+
+Humanoids are the main thing that comes to mind when we talk about robots with intelligence. Although it is the ultimate goal, it is not the only form of intelligence on the earth. Other animals, such as insects have their own kind of intelligence and due to being relatively simpler in comparison to humans, they are a very good place, to begin with.
+
+Rodney Brooks has a famous argument that says it took the evolution much longer to create insects from scratch than getting to human-level intelligence from there. Consequently, he suggested that these simpler biorobotics should be first dealt with in the road to make much more complex ones. Genghis, a six-legged walking robot [25] is one of his contributions to this field.
+
+This line of thought was a fundamental change and led researchers to have a change of direction in their work and with that came attention to new domains and topics such as robotics, locomotion, artificial life, bio-inspired systems, and much more. The classical approach did not care about tasks related to interaction with the real world and consequently, locomotion and grasping were the ones to start the journey with.
+
+Since not much computational power was available at the time of this shift, a big challenge for the researchers was the trade-off between simplicity and the potential to operate in complex environments. An extensive amount of work has been done in this area to explore or invent ways to exploit natural body dynamics, materials used in the modules, and their morphologies to make the robots move and become able to grasp and manipulate items without sophisticated processing units [26, 27, 28]. It goes without saying that the ones who could use the physical properties of themselves and the environment to function were more energy-efficient, but they had their own limitations. Not being able to generalize well to complex environments was a major drawback. But, they were fast as the machines with huge processing units needed a reasonable amount of time to think and plan their next action and often move their rigid and non-smooth actuators.
+
+Nowadays, a big part of these issues are solved and we can see extremely fast and smooth natural moving robots capable of doing different types of maneuvers [29], but yet it is foreseen that with the advances of artificial muscles, joints, and tendons this progress can be further improved.
+
+## 3 Breakdown of Embodied AI
+
+In this section, we try to categorize a broad range of research that has been done under the field of Embodied AI. Due to the huge diversity, each section will necessarily be abstract, selective, and reflect the authors' personal opinion.
+
+## 3.1 Language Grounding
+
+Machine and human communication has always been a topic of interest. As time goes on, more and more aspects of our lives are controlled by AIs, and hence it is crucial to have ways to talk with them. This is a must for giving new instructions to them or receiving an answer from them, and since we are talking about general day to day machines, we desire this interface to be higher level than programming languages and closer to spoken language. To achieve this, machines must be capable of relating language to actions and the world. Language grounding is the field that tries to tackle this and map natural language instructions to robot behavior.
+
+Hermann et al.'s work show that this can be achieved by rewarding an agent upon successful execution of written instructions in a 3D environment with a combination of unsupervised learning and reinforcement learning [30]. They also argue that their agent can generalize well after training and can interpret new unseen instructions and operate in unfamiliar situations.
+
+## 3.2 Language plus Vision
+
+Now that we know that machines can understand languages and there exist sophisticated models just for this purpose out there [31], it is time to bring another sense into play. One of the most popular ways to show the
+
+potential of joint training of vision and language is the image and video captioning [32, 33, 34, 35, 36].
+
+More recently, a new line of work has been introduced to take advantage of this connection. Visual Question Answering (VQA) [17] is the task of receiving an image along with a natural language question about that image as an input and attempting to find the accurate natural language answer for it as the output. The beauty of this task is that both the questions and the answers can be open-ended and also the questions can target different aspects of the image such as the objects that are present in them, their relationship or relative positions, colors, and background.
+
+Following this research, Singh et al. [37] cleverly added an OCR module to the VQA model to enable the agent to read the texts available in the image as well and answer questions asked from them or use the additional context indirectly to answer the question better.
+
+One may ask where does the new task stands relative to the previous one. Do agents who can answer questions more intelligent than the ones who deal with captions or not? The answer is yes. In [17] the authors show that VQA agents need a deeper and more detailed understanding of the image and reasoning than models for captioning.
+
+## 3.3 Embodied Visual Recognition
+
+Passive or fixed agents may fail to recognize objects in scenes if they are partially or heavily occluded. Embodiment comes to the rescue here and gifts the possibility of moving in the environment to actively control the viewing position and angle to remove any ambiguity in object shapes and semantics.
+
+Jayaraman et al. [38] started to learn representations that will exploit the link between how the agent moves and how it will affect its visual surrounding. To do this they used raw unlabeled videos along with an external GPS sensor that provided the agent's coordinates and trained their model to learn a representation linking these two. So, after this, the agent would have the ability to predict the outcome of its future actions and guess how the scene would look like after moving forward or turning to a side.
+
+This was powerful and in a sense, the agent developed imagination. But, there was an issue here. If we pay attention we realize that the agent is still being fed pre-recorded video as the input and is learning similar to the observer kitten in the kitten carousel experiment explained above. So, following this, the authors went after this problem and proposed to train an agent that takes any given object from an arbitrary angle and then predict or better to say imagine the other views by finding the representation in a self-supervised manner [39].
+
+Up until this point, the agent does not use the sound of its surroundings while humans are all about experiencing the world in a multi-sensory manner. We can see, hear, smell, touch all at the same time, and extract and use the relevant information that could be beneficial to our task at hand. All that said, understanding and learning the sound of objects present in a scene is not easy since all the sounds are overlapped and are being received via a single channel sensor. This is often dealt with as an audio source separation problem and lots of work has been done on it in the literature [40, 41, 42, 43, 44].
+
+Now it was the reinforcement learning turn to make a difference. Policies have to be learned to aid agents move around a scene and this is the task of active recognition [45, 46, 47, 48, 49]). The policy will be learned at the same time it is learning other tasks and representation and it will tell the agent where and how to strategically move to recognize things faster [50, 51].
+
+Results show that policies indeed help the agent to achieve better visual recognition performance and the agents can strategize their future moves and path for better results that are mostly different from shortest paths [52].
+
+## 3.4 Embodied Question Answering
+
+Embodied Question Answering brings QA into the embodied world. The task starts by an agent being spawned at a random location in a 3D environment and asked a question which its answer can be found somewhere in the
+
+environment. In order for the agent to answer it, it must first strategically navigate to explore the environment, gathers necessary data via its vision, and then answer the question when the agent finds it [53, 54].
+
+Following this, Das et al. [55] also presented a modular approach to further enhance this process by teaching the agent to break the master policy into sub-goals that are also interpretable by humans and execute them to answer the question. This proved to increase the success rate.
+
+## 3.5 Interactive Question Answering
+
+Interactive Question Answering (IQA) is closely related to the Embodied version of it. The only main issue is that question is designed in a way that the agent must interact with the environment to find the answer. For example, it has to open the refrigerator, or pick up something from the cabinet and then and plan for a series of actions conditioned on the question [56].
+
+## 3.6 Multi-Agent Systems
+
+Multi-Agent Systems (MAS) is another interesting line of development. The default standpoint of AI has a strong focus on individual agents. MAS research which has its origins in the field of biology tries to change this and studies the emergence of behaviors in groups of agents or swarms instead [57, 58].
+
+Every agent has a set of abilities and is good in them to an extent. The point of interest in MAS is how a sophisticated global behavior can emerge from a population of agents working together. A real-life example of such behavior can be found in insects like ants and bees [59, 60]. One of the interesting goals of this research is to ultimately make agents that could self-repair [61, 62].
+
+The emerging behavior of MAS can be tailored by researchers to let the group of agents tackle various tasks such as rescue missions, traffic control, fun sports events, surveillance, and much more. Additionally, when fused with other fields unexpected outcomes can occur. Take for instance 'Talking Heads' experiment by Luc Steels [63, 64] that showed a common vocabulary emerges through the interaction of agents with each other and their environment via a language game.
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## 4 Simulators
+
+Now that we know about the fields and tasks that Embodied AI can shine in, the question is how our agents should be trained. One may say it's good to directly train in the physical world and expose them to its richness. Although a valid solution, this choice comes with a few drawbacks. First, The training process in the real-world is slow, and the process cannot be sped up or parallelized. Second, it is very hard to control the environment and create custom scenarios. Third, it's expensive, both in terms of power and time. Fourth, it's not safe, and improperly trained or not fully trained robots can hurt themselves, humans, animals, and other assets. Fifth, in order for the agent to generalize the training, has to be done in plenty of different environments that is not feasible in this case.
+
+Our next choice is simulators, which can successfully deal with all the aforementioned problems pretty well. In the shift from Internet AI to Embodied AI, simulators take the role that was previously played by traditional datasets. Additionally, one more advantage of using simulators is that the physics in the environment can be tweaked as well. For instance, some traditional approaches in this field [65] are sensitive to noise and for the remedy, the noise in the sensors can be turned off for the purpose of this task.
+
+As a result, agents nowadays are often developed and benchmarked in simulators [66, 67] and once a promising model has been trained and tested, it can then be transferred to the physical world [68, 69].
+
+House3D [70], AI2-THOR [71], Gibson [72], CHALET [73], MINOS [74] and Habitat [75] are some of the popular simulators for the Embodied AI studies. These platforms vary with respect to the 3D environments they
+
+use, the tasks they can handle, and the evaluation protocols they provide. These simulators support different sensors such as vision, depth, touch, and semantic segmentation.
+
+In this paper we mainly focus on MINOS and Habitat since they provide more customization abilities (number of sensors, their positions, and their parameters) and are implemented in a loosely coupled manner to generalize well to new multi-sensory tasks and environments. As their API can be used to define any high-level task and the material, object clutter variation, and much more can be programmatically configured for the environment. They both support navigation with both continuous and discrete state spaces. Also, for the purpose of their benchmarks, all the actuators are noiseless, but they both have the ability to enable noises if desired [76].
+
+In the last section, we saw numerous task definitions and how they each can be tackled by the agents. So, before jumping into MINOS and Habitat simulators and reviewing them, let's first get more familiarized with the three main goal-directed navigation tasks, namely, PointGoal Navigation, ObjectGoal Navigation, and RoomGoal Navigation.
+
+In PointGoal Navigation, an agent is appeared at a random starting position and orientation in a 3D environment and is asked to navigate to target coordinates which are given relative to the agent's position. The agent can access its position via an indoor GPS. There exists no ground-truth map and the agent must only use its sensors to do the task. The scenarios start the same for ObjectGoal Navigation, and RoomGoal Navigation as well, however, instead of coordinates, the agent is asked to find an object or go to a specific room.
+
+## 4.1 MINOS
+
+Minos simulator provides access to 45,000 three-dimensional models of furnished houses with more than 750K rooms of different types available in the SUNCG [77] dataset and 90 multi-floor residences with approximately 2,000 annotated room regions that are in the Matterport3D [78] dataset by default. Environments in Matterport3D are more realistic looking than the ones in SUNCG. MINOS simulator can approximately reach hundreds of frames per second on a normal workstation.
+
+In order to benchmark the system, the authors studied four navigation algorithms; three of which were based on asynchronous advantage actor-critic (A3C) approach [79] and the remaining one was Direct Future Prediction (DFP) [80].
+
+The most basic one among the algorithms was Feedforward A3C. In this algorithm, a feedforward CNN model is employed as the function approximator to learn the policy along with the total value function that is the expected sum of rewards from the current timestamp until the end of the episode. The second one was LSTM A3C that used an LSTM model with the Feedforward A3C act as a simple memory. Next was UNREAL, an LSTM A3C model boosted with auxiliary tasks such as value function replay and reward prediction. Last but not the least, the DFP algorithm was employed that can be considered as Monte Carlo RL [81] with a decomposed reward.
+
+The authors benchmarked these algorithms on PointGoal and RoomGoal tasks and found out that firstly, the naive feedforward algorithm fails to learn any useful representation; secondly, in small environments, DFP performs better while in big and more complex environments UNREAL beat the others.
+
+## 4.2 Habitat
+
+Habitat was designed and built in a way to provide the maximum customizability in terms of the datasets that can be used and how the agents and the environment can be configured. That being said, Habitat works with all the major 3D environment datasets without a problem. Moreover, it's extremely fast in comparison to other simulators. AI2-THOR and CHALET can get to an fps of roughly ten, MINOS and Gibson can get to around a hundred, and House3D yields 300 fps in the best case, while Habitat is capable of getting up to 10,000 frames per second. Habitat also provides a more realistic collision model in which if a collision happens, the agent can be moved partially or not at all in the intended direction.
+
+To benchmark Habitat, the owners employed a few naive algorithm baselines, Proximal Policy Optimization (PPO) [82] as the representer of learning algorithms versus ORB-SLAM2 [83, 84] as the chosen candidate for non-learning agents and tested them on the PointGoal Navigation task on Gibson and Matterport3D. They used Success weighted by Path Length (SPL) [85] as the metric for their performance. The PPO agent was tested with different levels of sensors (e.g. No visual sensor, only depth, only RGB, and RGBD) to perform an ablation study and find the proportion in which each sensor helps the progress. SLAM agents were given RGBD sensors in all the episodes.
+
+The authors found out that first, PPO agents with only RGB perform as bad as agents with no visual sensors. Second, all agents perform better and generalize more on Gibson rather than Matterport3D since the size of environments in the latter is bigger. Third, agents with only depth sensors generalize across datasets the best and can achieve the highest SPL. But most importantly, they realized that unlike what has been mentioned in the previous work, if the PPO agent learns long enough, it will eventually outperform the traditional SLAM pipeline. This finding was only possible because the Habitat simulator was fast enough to train PPO agents for 75million time steps as opposed to only 5million time steps in the previous investigations.
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## 5 Future of Embodied AI
+
+## 5.1 Higher Intelligence
+
+Consciousness has always been considered as the ultimate characteristic for true intelligence. Qualia [86, 87] is the philosophical view of consciousness and it is related to the subjective sensory qualities like "the redness of red" that humans have in their mind. If at some point machines can understand this concept and objectively measure such things, then the ultimate goal can be marked as accomplished.
+
+Robots still struggle at performing a wide spectrum of tasks effortlessly and smoothly, and this mainly due to actuator technology as currently mostly electrical motors are used. Advances in artificial muscles and skin sensors that could cover the entire embodiment of the agent would be essential to fully mitigate the human experience in the real world and eventually unlock the desired cognition [88].
+
+## 5.2 Evolution
+
+One more key component for cognition is the ability to grow and evolve over time [89, 90, 91]. It's easy to evolve the agent's controller via an evolutionary algorithm but it's not enough. If we aim to have completely different agents, we might as well give them the ability to evolve in terms of embodiment and the sensors as well. This again requires the above mentioned artificial cell organism to encode different physical attributes in them and flip them slightly over time. Of course, we are far from this to become reality, but it is always good to know the furthermost step that has to be done one day.
+
+
+================================================================================
+EXTRACTED ON: 2025-11-23 14:11:53
+================================================================================

@@ -1,0 +1,5 @@
+# Hypothetica dependencies
+# Install: pip install -r requirements.txt
+
+# Supabase - for persisting analysis queries (API/frontend)
+supabase>=2.0.0

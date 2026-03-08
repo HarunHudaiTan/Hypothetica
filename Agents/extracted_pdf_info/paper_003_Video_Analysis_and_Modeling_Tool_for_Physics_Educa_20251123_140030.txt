@@ -1,0 +1,304 @@
+RESEARCH IDEA: Can ultra-long video essays replace traditional textbooks as a primary learning method for university students?
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: Video Analysis and Modeling Tool for Physics Education: A workshop for Redesigning Pedagogy
+
+URL: https://arxiv.org/pdf/1207.0220v1
+
+ABSTRACT:
+This workshop aims to demonstrate how the Tracker Video Analysis and Modeling Tool engages, enables and empowers teachers to be learners so that we can be leaders in our teaching practice. Through this workshop, the kinematics of a falling ball and a projectile motion are explored using video analysis and in the later video modeling. We hope to lead and inspire other teachers by facilitating their experiences with this ICT-enabled video modeling pedagogy (Brown, 2008) and free tool for facilitating students-centered active learning, thus motivate students to be more self-directed.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## II. INSTALATION, RUNNING OF TRACKER AND CONTENTS OF WORKSHOP
+
+Tracker is a free video analysis and modeling tool built on the Open Source Physics (OSP) Java framework. The recommended  installation  method  is  to  use  the  respective version 4.05 available at http://www.cabrillo.edu/~dbrown/Tracker/  depending  on  the operating system of the computer, though it is also possible to run from the Webstart. Readers may find this YouTube video (Wee, 2010b) that shows how to get the Tracker version 3.1, download and use it. There is a slight difference between the current version 4.05 and 3.1 but the YouTube video could still be useful.
+
+All curriculum, professional development and ICT support materials of the workshop are available for download and use on the author's blog http://weelookang.blogspot.com/2011/05/video-analysisand-modeling-tool-for.html  (2011)  for  mass  adoption  and adaptation to scale this ICT enabled practice.
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## III. KINEMATICS OF A FALLING BALL
+
+In  a  free  falling  ball  motion  equation  (1)  represents  its motion and equation (2) is the parabola fit equation for which the coefficients are equated, to derive the numerical values of the quantities such as acceleration in y direction, ay and initial velocity of motion in y direction, uy .
+
+<!-- formula-not-decoded -->
+
+<!-- formula-not-decoded -->
+
+<!-- image -->
+
+<!-- image -->
+
+ingapore. http://conference.nie.edu.sg/2011/
+
+NIE Redesigning Pedagogy: Transoming Tarding eping teaming
+
+5 Model Builder
+
+Conference Dates 30 May - 1 June 2011
+
+Model: • fx=10
+
+8 2 019
+
+Start 10-
+
+8 Model Builder
+
+10.0
+
+0.0
+
+VX
+
+VY
+
+Model:
+
+• constant vx -
+
+Parameters
+
+Force Functions
+
+Name
+
+Start 102 |
+
+1.77
+
+10.0
+
+Expression
+
+Expression
+
+Name
+
+In  Tracker's  video  analysis  of  the y vs t graph,  after choosing the parabola fit of equation (2) , the parameter are determine by the Tracker software as a = - 4.844, b = - 0.28 and c =  -  0.001.  By comparing the equation (1) and (2), the students can infer the values of ay 2 1 = - 4.844, thus ay = -У 0.0
+
+9.688 m/s 2 , uy =  -  0.28 m/s and c =  -  0.001 m respectively. The  value ay =  -  9.688  m/s 2 can  be  interpreted  to  be approximately equal in value to the gravitational acceleration constant at the surface of Earth of - 9.81 m/s 2 (3 significance figures, used in Advanced Level) and -10 m/s 2 (2 significance figures, used in Ordinary Level).
+
+This activity is well suited to redesign ICT based pedagogy due to its ability to allow student to figure out the physics of motion  through a real world video, without referring  to  the  authoritative  sources  of  knowledge  such  as teacher(s) and books.
+
+A good teaching point that surfaced would be the appreciation of systematic error possible from the calibration stick  error,  and  random  error  from  the  measurement  or selection of the points of the path of the motion, experienced while in the act of being a scientist (Dewey, 1958).
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## IV. PROJECTILE EQUATIONS AND ITS MATHEMATICAL DYNAMIC MODEL IN TRACKER
+
+In an ideal projectile motion equation (3) and (4) represents the motion under constant acceleration.
+
+<!-- formula-not-decoded -->
+
+<!-- formula-not-decoded -->
+
+The  dynamic  particle  model  is  selected  as  it  is  more suitable  for  this  projectile  motion  instead  of  the  analytic particle  model  as  more  complex  drag  force  affected  motion can  be  more  easily  modeled  and  be  compared  to  the  video. Readers  may  find  this  YouTube  video  (Wee,  2010c)  useful that  shows  how  the  same  process  of  building  a  dynamic model on the same projectile motion.
+
+## A. Initial velocity in the x-direction &amp; no x-direction force in projectile motion
+
+Novice  students  generally  may  not  fully  appreciate  the meaning of constant velocity in the x-direction of projectile motion as imply in equation (3x) and (4x) when ax = 0 m/s 2 . We suggest  an  activity  where  student  key  in  values  for  the initial velocity vx in the dynamic model and observe the real data  (red)  versus  the  constant vx model  (pink),  and  make sense  for  themselves  that  instantaneous  velocity  is  equal  to 1.77 m/s at all times of the projectile motion as in Figure 2.
+
+Figure 2. World view of a projectile motion with real data (red) versus the constant vx model (pink) on the left and the model builder of vx = 1.77 on the right.
+
+<!-- image -->
+
+<!-- image -->
+
+Figure 3. World view of a projectile motion with real data (red) versus the fx =10 N model (teal) on the left and the model builder values of vx = 1.77 and fx = 10 for this incorrect model on the right.
+
+<!-- image -->
+
+Novice students also have little means in typical classroom  settings  to  understand  why  in  projectile  motion, there is no acceleration in the x direction where ax = 0 m/s 2 , confused  by  their  prior  knowledge  perhaps  from  movies  of propelled projectile motion like rockets. Similarly, by keying in  for  the fx ≠ 0 N when  mass  of  projectile m  = 1 kg, the students can observe paths similar to Figure 3 for example fx =  10 N and  compare  the  real  data  (red)  versus  the fx =10 N model  (teal)  to  be  not  the  vertically  projected  downward 'shadow'  of  the  real  data,  thus  this  incorrect  model  is  not representative of the real motion.
+
+## B. The increment experience of video model building
+
+We  have  used  Tracker  with  our  students  and  initial findings suggest that this kind of video modeling pedagogy is suitable for active and deep learning because the students can be said to be predicting by keying certain values, observing by compare the real  data  with  the  current  proposed  model,  and explaining (White &amp; Gunstone, 1992) by choice of values and linking to the video analysis data. Even with incorrect models input  in,  the  results  from  the  world  view  and  associated multiple  representational  views  (Wong,  Sng,  Ng,  &amp;  Wee, 2011) in various scientific  plots  can allow  the  facilitation  of data driven social discussions (Chai, Lim, So, &amp; Cheah, 2011) among students and teacher(s). A possible completed model is shown in Figure 4 by trial and error, notice the 15 th frame is slightly off from the real data but is somewhat close enough.
+
+<!-- image -->
+
+Workshop at the 4th Redesigning Pedagogy International Conference June 2011, Singapore. http://conference.nie.edu.sg/2011/
+
+8 Model Builder
+
+Model:
+
+complete model
+
+Add
+
+Copy
+
+Name
+
+Name
+
+10₴
+
+- Enc
+
+Paste
+
+Expression
+
+Expression
+
+<!-- image -->
+
+Data Buil mass\_A
+
+• Plot • Fit • Statistics • Coordinates • Slope • Area
+
+Fit Name: Parabola -
+
+Fit Equation: y = a*t^2 + b*t + c
+
+Figure 6. Data tool display real data mass\_A y versus t view where
+
+Figure 4. World view of a projectile motion with real data (red) versus the correct model of vx = 1.777 m/s , vy = 2.418 m/s and fy = -10.328 m/s 2 (light blue) by a largely trial and error approach to video modeling.
+
+<!-- image -->
+
+Start
+
+Cut
+
+1.0
+
+0.0
+
+igure 4. World view of a projectile motion with real data (red) versus the blue) by a largely trial and error approach to video modeling.
+
+orrect model of vx = 1.777 m/s, vy = 2.418 m/s and fy = -10.328 m/s* (light mass\_A
+
+1.0
+
+0.8
+
+× 0.6
+
+0.4
+
+0.2
+
+0
+
+Fit Name: Line
+
+Fit Equation: x = a*t + b igure 5. Data tool display real data mass.
+
+0.008 as determined using Tracker. By comparing with equation (4x). it is line fit equation of x = a*t +b is used with parameter a = 1.759 and b = -
+
+Figure 5. Data tool display real data mass\_A of the x versus t view where a line fit equation of x = a*t + b is used with parameter a = 1.759 and b = -0.008 as determined using Tracker. By comparing with equation (4x), it is determine that vx = 1.759 m/s .
+
+## C. Using of analysis data to support choice of  model building
+
+Here is where we highlight to the students that the video analysis  data  of  the  same  projectile  motion  (not  detailed before) can be used to create a very accurate model. We found that  students  can  have  strong  emotional  responses  as  they didn't  realize  the  analysis  part  was  intended  to  allow  for  a means  of  data  checking,  that  we  hope  can  create  a  more lasting long-term memory effect on their learning. In our data analysis, we determine vx = 1.759 m/s as in Figure 5 and ay = -10.124 m/s 2 as well as vy = 2.393 m/s as in Figure 6.
+
+31₴
+
+NIE Redesigning Pedogogy: Transoming Teaching leping Le
+
+Data Bui
+
+<!-- image -->
+
+<!-- image -->
+
+Model:
+
+© data driven model
+
+Start
+
+10
+
+End
+
+31
+
+Figure 6. Data tool display real data mass\_A y versus t view where parabola fit equation of x = a 2 *t + b*t +c is used with parameters a = -5.062, b =-2.393 and c = -0. By comparing with equation (4y), it is determine that ay = -10.124 m/s 2 and vy = 2.393 m/s respectively.
+
+Name alerence Deles so May - 1 Jane
+
+0.0
+
+Figure 7. World view of a projectile motion with real data (red) versus the correct model of vx = 1.759 m/s , vy = 2.393 m/s and fy = -10.124 m/s 2 (green) by a video analysis data driven approach to video modeling.
+
+<!-- image -->
+
+As in our model, it is assumed that the mass m =1 kg , thus by Newton's Second Law in equation (5y), fy = -10.124 N .
+
+<!-- formula-not-decoded -->
+
+Figure  7  shows  a  more  precise  model  with  the  values determined from video data analysis as the 19 th frame shows the real data and data driven model to match very closely.
+
+## D. Modeling F = k*v and/or k1*v 2 to support the absence of air drag
+
+Expert  students  can  be  challenged  to  extend  their  own learning (MOE,  2009c)  to  model  air resistance and be convinced by the video model and real video that the video's projectile  motion  cannot  be  realistically  assumed  to  be  a motion  with  significant  air  resistance.  The  model  for  air resistance may be expressed as in equation (6) with both = k*v and/or k1*v 2 depending on the  model of air resistance equation assumed.
+
+<!-- image -->
+
+NIE Redesigning Pedagogy: ending eding keptig arming
+
+Conference Dates 30 May - 1 Jane 2011
+
+85 Model Builder
+
+Model:
+
+air drag F = k*v
+
+Parameters
+
+Add
+
+Copy|
+
+Name
+
+m
+
+k
+
+Initial Values
+
+VX
+
+Cut|
+
+1.0
+
+1.01
+
+1.759
+
+2.393
+
+Figure 8. World view of a projectile motion with real data (red) versus the air drag model by Fdrag = k*v by inserting fx = 0k*vx and fy = -10.124 k*vy (yellow) on the left with the model builder values on the right.
+
+<!-- image -->
+
+<!-- formula-not-decoded -->
+
+
+================================================================================
+EXTRACTED ON: 2025-11-23 14:00:30
+================================================================================

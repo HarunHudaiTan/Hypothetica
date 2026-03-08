@@ -97,6 +97,8 @@ class FollowUpAgent(Agent):
             create_chat=False
         )
         self.last_token_count = 0
+        self.last_input_tokens = 0
+        self.last_output_tokens = 0
     
     def generate_questions(self, user_idea: str) -> List[Dict]:
         """
@@ -121,7 +123,10 @@ Remember: Questions should help assess originality by clarifying the problem, me
             
             # Track token usage
             if hasattr(response, 'usage_metadata'):
-                self.last_token_count = response.usage_metadata.total_token_count
+                um = response.usage_metadata
+                self.last_token_count = getattr(um, 'total_token_count', 0) or 0
+                self.last_input_tokens = getattr(um, 'prompt_token_count', 0) or 0
+                self.last_output_tokens = getattr(um, 'candidates_token_count', 0) or 0
             
             # Parse response
             result = json.loads(response.text)
@@ -192,11 +197,13 @@ A: {a}
     
     def get_cost(self) -> float:
         """Calculate cost for the last generation."""
+        if self.last_input_tokens > 0 or self.last_output_tokens > 0:
+            cost = (self.last_input_tokens / 1_000_000) * config.INPUT_TOKEN_PRICE
+            cost += (self.last_output_tokens / 1_000_000) * config.OUTPUT_TOKEN_PRICE
+            return cost
         if self.last_token_count > 0:
-            # Approximate input/output split
             input_tokens = self.last_token_count * 0.7
             output_tokens = self.last_token_count * 0.3
-            
             cost = (input_tokens / 1_000_000) * config.INPUT_TOKEN_PRICE
             cost += (output_tokens / 1_000_000) * config.OUTPUT_TOKEN_PRICE
             return cost

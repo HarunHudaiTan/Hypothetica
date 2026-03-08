@@ -1,0 +1,62 @@
+RESEARCH IDEA: Can AI-generated imaginary languages improve memory retention compared to natural languages?
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: Unforgettable Generalization in Language Models
+
+URL: https://arxiv.org/pdf/2409.02228v1
+
+ABSTRACT:
+When language models (LMs) are trained to forget (or "unlearn'') a skill, how precisely does their behavior change? We study the behavior of transformer LMs in which tasks have been forgotten via fine-tuning on randomized labels. Such LMs learn to generate near-random predictions for individual examples in the "training'' set used for forgetting. Across tasks, however, LMs exhibit extreme variability in whether LM predictions change on examples outside the training set. In some tasks (like entailment classification), forgetting generalizes robustly, and causes models to produce uninformative predictions on new task instances; in other tasks (like physical commonsense reasoning and scientific question answering) forgetting affects only the training examples, and models continue to perform the "forgotten'' task accurately even for examples very similar to those that appeared in the training set. Dataset difficulty is not predictive of whether a behavior can be forgotten; instead, generalization in forgetting is (weakly) predicted by the confidence of LMs' initial task predictions and the variability of LM representations of training data, with low confidence and low variability both associated with greater generalization. Perhaps most surprisingly, random-label forgetting appears to be somewhat insensitive to the contents of the training set: for example, models trained on science questions with random labels continue to answer other science questions accurately, but begin to produce random labels on entailment classification tasks. Finally, we show that even generalizable forgetting is shallow: linear probes trained on LMs' representations can still perform tasks reliably after forgetting. Our results highlight the difficulty and unpredictability of performing targeted skill removal from models via fine-tuning.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## 2 Related work
+
+Due to diverse privacy, security, and ethical concerns, machine unlearning has been conceptualized in many different ways. Early approaches defined unlearning as removing undesirable data from training sets (Cao &amp; Yang, 2015; Bourtoule et al., 2021; Ginart et al., 2019). These approaches often require fundamental changes to model structure and/or training process, which is often infeasible.
+
+Later work relaxed the requirement of removing data from the training set. Instead, models are required to behave similarly to models trained without undesirable data points, or are simply required to stop producing outputs with desirable features. Guo et al. (2020) develop a framework for linear classifiers, and Golatkar et al. (2020a) develop a method that scrubs information from linear probes. Neel et al. (2021); Sekhari et al. (2021); Thudi et al. (2022); Golatkar et al. (2020b; 2021); Mehta et al. (2022) and Chundawat et al. (2023) present theoretical frameworks for comparing an unlearned network to a fully-retrained networks, and they propose optimization-based methods to find unlearned network under additional assumptions like convexity. Foster et al. (2024) propose model editing techniques based on estimating parameter importance using fisher information. Kurmanji et al. (2023) distinguishe between different reasons for forgetting, arguing that distinct purposes like protecting user privacy, resolving confusion, and removing biases require distinct metrics. Graves et al. (2021) argue that selectively removing training data alone is insufficient, and propose a new threat model and techniques to address them.
+
+For language models specifically, approaches to remove specific facts include gradient ascent on undesirable responses (Jang et al., 2023; Yao et al., 2023; Eldan &amp; Russinovich, 2023), prompting with misinformation (Pawelczyk et al., 2023), linearly manipulating model representations (Ilharco et al., 2023; Belrose et al., 2023), non-linearly perturbing model representations (Li et al., 2024), and using new models to teach another model how to forget (Wang et al., 2023).
+
+While some of this prior work has studied generalization (e.g. Li et al., 2024), they study a different kind of generalization: whether model behavior remains the same on non-targeted tasks. By contrast, our work focuses on generalization between instances of a single task.
+
+Outside of research on unlearning, some past work has studied training on incorrect or random labels as a source of information about learning dynamics, for example finding that models often have similar embeddings (Morcos et al., 2018), learn in a similar order (Hacohen et al., 2020) and explaining the order of learning (Hacohen &amp; Weinshall, 2022).
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## 4 Does forgetting generalize?
+
+Figure 2 summarizes the task accuracy without modification, after fine-tuning, and then after running our forgetting procedure. Test accuracy almost always increases after finetuning, although it could decrease slightly as the validation set is not identical to the test set. During the forgetting phase, however, we observe several distinct categories of behavior (1) forget accuracy is very similar to the fine-tuned accuracy, (2) forget accuracy decreases but is still above the pre-trained accuracy, and (3) forget accuracy decreases to below the pretrained accuracy and possibly back to 50%. Case (2) is interesting because it demonstrates asymmetry between the learning and forgetting process, as the model is unable to forget what is has just learned (analogous to hysteresis in physical systems; Ewing, 1882).
+
+Overall, we find that random-label forgetting often fails to generalizably remove the target behavior, but with wide variability across tasks. In general, tasks involving commonsense knowledge reasoning tasks are more resilient to forgetting, whereas lower-level linguistic acceptability and entailment classification tasks are more effectively forgettable.
+
+We also examine cross-task forgetting, where we fine-tune the model on random labels from the training set of one task and then evaluate the model on the test set of another task. As shown in Figure 3, we find that the effectiveness of the forgetting procedure is largely determined by the tasks that the model is evaluated on-not the training task. Another surprising observation is that many tasks are more effectively forgotten when training on randomized labels of other tasks than from training on their own randomized labels. As observed in the individual task evaluation, GLUE tasks focused on specific capabilities are again more susceptible to forgetting in general, whereas commonsense reasoning tasks are more resilient to forgetting. Training on forgetting commonsense reasoning tasks are also generally more effective at triggering forgetting for other tasks.
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## 7 Are 'forgotten' skills truly removed from models?
+
+One further question is if training on random labels really erases models' capabilities or if it only censors the output. To examine this, we train a linear probe on the models hidden states after performing the forgetting procedure. The probes are trained on the training set and evaluated on the test set. ℓ 2 regularization and early stopping on a validation set used to prevent overfitting as the hidden state dimension is often larger than the number of examples. We select the fifth last layer of the model as the hidden state to probe, as we find that the accuracy of probing is mostly comparable for all layers except for the very early layers and the very late layers.
+
+The results are shown in Figure 6. We find that the fine-tuning procedure largely does not influence the probing effectiveness. Thus, this procedure induces at best a shallow forgetting. This is consistent with most work that fine-tuning is often a shallow operation that does not significantly alter the model's capabilities (e.g.; Yadav et al., 2023; Horwitz et al., 2024).
+
+
+================================================================================
+EXTRACTED ON: 2025-11-26 13:53:16
+================================================================================

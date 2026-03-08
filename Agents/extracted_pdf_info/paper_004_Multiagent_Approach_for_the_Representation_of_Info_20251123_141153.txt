@@ -1,0 +1,129 @@
+RESEARCH IDEA: Want to do a ai based domestic relocation assistant
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: Multiagent Approach for the Representation of Information in a Decision Support System
+
+URL: https://arxiv.org/pdf/0803.3501v1
+
+ABSTRACT:
+In an emergency situation, the actors need an assistance allowing them to react swiftly and efficiently. In this prospect, we present in this paper a decision support system that aims to prepare actors in a crisis situation thanks to a decision-making support. The global architecture of this system is presented in the first part. Then we focus on a part of this system which is designed to represent the information of the current situation. This part is composed of a multiagent system that is made of factual agents. Each agent carries a semantic feature and aims to represent a partial part of a situation. The agents develop thanks to their interactions by comparing their semantic features using proximity measures and according to specific ontologies.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## 2 Architecture of the Decision Support System
+
+The role of the decision support system (DSS) is to provide a decision-making support to the actors in order to assist them during a crisis case. The DSS allows also managers to anticipate the occur of potential incidents thanks to a dynamic and a continuous evaluation of the current situation. Evaluation is realised by comparing the current situation with past situations stored in a scenarios base. The latter can be viewed as one part of the knowledge we have on the specific domain.
+
+The DSS is composed of a core and three parts which are connected to it (figure 1):
+
+- A set of user-computer interfaces and an intelligent interface allow the core to communicate with the environment. The intelligent interface controls and manages the access to the core of the authenticated users, filters entries information and provides actors with results emitted by the system;
+- An inside query MAS ensures the interaction between the core and world information. These information represent the knowledge the core need. The knowledge includes the scenarios, that are stored in a scenarios base, the ontologies of the domain and the proximity measures;
+- An outside query MAS has as role to provide the core with information, that are stored in network distributed information systems.
+
+Fig. 1. General Architecture of the DSS
+
+<!-- image -->
+
+The core of the decision support system is made of a MAS which is structured on three layers. The latter contain specific agents that differ in their objectives and their communications way. In a first time, the system describes the semantic of the current situation thanks to data collected from the environment. Then it analyses pertinent information extracted from the scenario. Finally, it provides an evaluation of the current situation and a decision support using a dynamic and incremental case-base reasoning.
+
+The three layers of the core are:
+
+- The lowest layer: factual agents;
+- The intermediate layer: synthesis agents;
+- The highest layer: prediction agents.
+
+Information are coming from the environment in the form of semantic features without a priori knowledge of their importance. The role of the first layer (the lowest one) is to deal with these data thanks to factual agents and let emergence detect some subsets of all the information [7]. More precisely, the set of these agents will enable the appearance of a global behaviour thanks to their interactions and their individual operations. The system will extract thereafter from this behaviour the pertinent information that represent the salient facts of the situation.
+
+The role of the synthesis agents is to deal with the agents emerged from the first layer. Synthesis agents aim to create dynamically factual agents clusters according to their evolutions. Each cluster represents an observed scenario. The set of these scenarios will be compared to past ones in order to deduce their potential consequences.
+
+Finally, the upper layer, will build a continuous and incremental process of recollection for dynamic situations. This layer is composed of prediction agents and has as goal to evaluate the degree of resemblance between the current situation and its associate scenario continuously. Each prediction agent will be associated to a scenario that will bring it closer, from semantic point of view, to other scenarios for which we know already the consequences. The result of this comparison constitutes a support information that can help a manager to make a good decision.
+
+Fig. 2. Architecture of the Core
+
+<!-- image -->
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## 3 Environment Study and Creation of Semantic Features
+
+## 3.1 Situation Formalisation
+
+To formalise a situation means to create a formal system, in an attempt to capture the essential features of the real-world. To realise this, we model the world as a collection of objects, where each one holds some properties. The aim is to define the environment objects following the object paradigm. Therefore, we build a structural and hierarchical form in order to give a meaning to the various relations that may exist between them. The dynamic change of these objects states and more still the interactions that could be entrenched between them will provide us a snapshot description of the environment. In our context, information are decomposed in atomic data where each one is associated to a given object.
+
+## 3.2 Semantic Features
+
+A semantic feature is an elementary piece of information coming from the environment and which represents a fact that occurred in the world. Each semantic feature is related to an object (defined in section 3.1), and allows to define all or a part of this object. A semantic feature has the following form: (key, ( qualification, value ) + ), where key is the described object and ( qualification, value ) + is a set of couples formed by: the qualification of the object and its associated value. As example of a semantic feature related to a phenomenon object: (phenomenon#1, type, fire, location, #4510, time, 9:33). The object described by this semantic feature is phenomenon#1, and has as qualifications: type, location, and time.
+
+The modelling of semantic features makes it possible to obtain a homogeneous structure. This homogeneity is of primary importance because it allows to establish comparisons between these data. The latter are managed by factual agents, where each one carries one semantic feature and of which behaviour depends on the type of this information.
+
+According to FIPA communicative acts [6], the agents must share the same language and vocabulary to communicate. The use of semantic features in communications process implies to define an ontology.
+
+Inside the representation layer (the first layer of the system), agents evolve by comparing their semantic features. These comparisons allow to establish semantic distances between the agents, and are computed thanks to proximity measures.
+
+We distinguish three types of proximities: time proximity, spatial proximity and semantic proximity. The global proximity multiplies these three proximities together. The measurement of a semantic proximity is related to ontologies. Whereas time proximity and spatial proximity are computed according to specific functions.
+
+Proximities computation provides values on [ -1 , 1] and is associated to a scale. The reference value in this scale is 0 that means neutral relation between the two compared semantic features. Otherwise, we can define the scale as follow: 0.4=Quiet Close, 0.7=Close, 0.9=Very Close, 1=Equal. Negative values mirrors positive ones (replacing close by different).
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## 4 Factual Agents
+
+## 4.1 Presentation and Structure of a Factual Agent
+
+Factual agents are hybrid agents, they are both cognitive and reactive agents. They have therefore the following characteristics: reactivity, proactiveness and social ability [14]. Such an agent represents a feature with a semantic character and has also to formulate this character feature, a behaviour [4]. This behaviour ensures the agent activity, proactiveness and communication functions.
+
+The role of a factual agent is to manage the semantic feature that it carries inside the MAS. The agent must develop to acquire a dominating place in its organisation and consequently, to make prevail the semantic category which it represents. For this, the factual agent is designed with an implicit goal that is to gather around it as much friends as possible in order to build a cluster. In other words, the purpose of the agent is to add permanently in its acquaintances network a great number of semantically close agents. The cluster formed by these agents is recognized by the system as a scenario of the current situation and for which it can bring a potential consequence. A cluster is formed only when its agents are enough strong and consequently they are in an advanced state in their automaton. Therefore, the goal of the factual agent is to reach the action state, in which is supreme and its information may be regarded by the system as relevant.
+
+Fig. 3. Structure of a Factual Agent
+
+<!-- image -->
+
+An internal automaton describes the behaviour and defines the actions of the agent. Some indicators and an acquaintances network allow the automaton operation, that means they help the agent to progress inside its automaton and to execute actions in order to reach its goal. These characteristics express the proactiveness of the agent.
+
+The acquaintances network contains the addresses of the friends agents and the enemies agents used to send messages. This network is dynamically constructed and permanently updated. Agents are friends (enemies) if their semantic proximities are strictly positive (negative).
+
+## 4.2 Factual Agent Behaviour
+
+Behavioural Automaton The internal behaviour of a factual agent is described by a generic augmented transition network (ATN). The ATN is made of four states [3] (quoted above) linked by transitions:
+
+- Initialisation state: the agent is created and enters in activities;
+- Deliberation state: the agent searches in its acquaintances allies in order to achieve its goals;
+- Decision state: the agent try to control its enemies to be reinforced;
+- Action state: it is the state-goal of the factual agent, in which the latter demonstrates its strength by acting and liquidating its enemies.
+
+Fig. 4. Generic Automaton of a Factual Agent
+
+<!-- image -->
+
+ATN transitions are stamped by a set of conditions and a sequence of actions. Conditions are defined as thresholds using internal indicators. The agent must validate thus one of its outgoing current state transitions in order to pass to the next state. The actions of the agents may be an enemy aggression or a friend help. The choice of the actions to perform depend both on the type of the agent and its position in the ATN.
+
+Factual Agent Indicators The dynamic measurement of an agent behaviour and its state progression at a given time are given thanks to indicators. These characters are significant parameters that describe the activities variations of each agent and its structural evolution. In other words, the agent state is specified by the set of these significant characters that allow both the description of its current situation and the prediction of its future behaviour [4] (quoted above).
+
+Factual agent has five indicators, which are pseudoPosition (PP), pseudoSpeed (PS), pseudoAcceleration (PA), satisfactory indicator (SI) and constancy indicator (CI) [8]. The 'pseudo' prefix means that these indicators are not a real mathematical speed or acceleration: we chose a constant interval of time of one between two evolutions of semantic features. PP represents the current position of an agent in the agent representation space. PS evaluates the PP evolution speed and PA means the PS evolution estimation. SI is a valuation of the success of a factual agent in reaching and staying in the deliberation state. This indicator measures the satisfaction degree of the agent. Whereas, CI represents the tendency of a given factual agent to transit both from a state to a different state and from a state to the same state. This allows the stability measurement of the agent behaviour.
+
+The compute of these indicators is according to this formulae where valProximity depends on the category of a given application factual agents:
+
+<!-- formula-not-decoded -->
+
+PP, PS and PA represent thresholds that define the conditions of the ATN transitions. The definition of this conditions are specified to a given application. As shown in the previous formulae, only PP is specific. However, PS and PA are generic and are deduced from PP. SI and CI are also independent of the studied domain and are computed according to the agent movement in its ATN.
+
+
+================================================================================
+EXTRACTED ON: 2025-11-23 14:11:53
+================================================================================

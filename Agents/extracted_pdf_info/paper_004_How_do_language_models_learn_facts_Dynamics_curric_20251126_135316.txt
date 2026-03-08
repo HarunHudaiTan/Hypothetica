@@ -1,0 +1,120 @@
+RESEARCH IDEA: Can AI-generated imaginary languages improve memory retention compared to natural languages?
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: How do language models learn facts? Dynamics, curricula and hallucinations
+
+URL: https://arxiv.org/pdf/2503.21676v2
+
+ABSTRACT:
+Large language models accumulate vast knowledge during pre-training, yet the dynamics governing this acquisition remain poorly understood. This work investigates the learning dynamics of language models on a synthetic factual recall task, uncovering three key findings: First, language models learn in three phases, exhibiting a performance plateau before acquiring precise factual knowledge. Mechanistically, this plateau coincides with the formation of attention-based circuits that support recall. Second, the training data distribution significantly impacts learning dynamics, as imbalanced distributions lead to shorter plateaus. Finally, hallucinations emerge simultaneously with knowledge, and integrating new knowledge into the model through fine-tuning is challenging, as it quickly corrupts its existing parametric memories. Our results emphasize the importance of data distribution in knowledge acquisition and suggest novel data scheduling strategies to accelerate neural network training.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## 1. An experimental setup to track knowledge over the course of learning
+
+This study investigates the learning dynamics underlying factual recall and knowledge acquisition in language models. This presents two main methodological challenges: First, we need to isolate the model's knowledge from other abilities. Second, we want to evaluate the models over the course of learning, which requires computationally efficient measurement techniques. Following Allen-Zhu and Li (2023), we train language models on synthetic biographies that feature key properties of datasets used to train large language models. By carefully designing these synthetic biographies, we can attribute the model's ability to predict specific tokens solely to its acquired knowledge and efficiently measure its knowledge through its performance on these tokens. In this section, we first define knowledge and contrast it with memory, then describe our synthetic dataset and introduce the metrics we use to track knowledge during training, and finally, describe training details.
+
+## 1.1. Knowledge, and how it differs from memory
+
+For our analysis, we define knowledge to be the information a model has internally stored about its training data, abstracted from the specific form in which it was encountered. It is important to distinguish it from memorization. While knowledge involves accessing and applying information flexibly across different contexts, memorization is tied to particular training instances. In this view, knowledge can be understood as a form of memorization in a latent semantic space. For instance, knowing that Paris is France's capital represents knowledge, while remembering the exact sentence 'Paris is the capital of France' would constitute memorization. From a practical perspective, this distinction carries significant implications. Memorization can be problematic due to potential data leakage (e.g., Nasr et al., 2023), while knowledge is a more desirable property that enables models to ground their outputs in factual reality, making their responses both accurate and generalizable.
+
+## 1.2. Synthetic biographies as a framework for studying knowledge
+
+An important methodological challenge in our study is to isolate knowledge from other model capabilities. To address this, we adapt the synthetic biography dataset of Allen-Zhu and Li (2023), which offers several appealing properties. First, all facts in the dataset are atomic, meaning no fact can be derived from others, thus allowing us to disambiguate knowledge recall from other abilities like reasoning. Second, it is fully synthetic, which allows for precise control of the data distributional properties, while employing natural language with realistic statistics. For example, sufficient textual variation is crucial for enabling genuine knowledge acquisition rather than mere memorization (AllenZhu and Li, 2023), cf. Figure A in the appendix. Third, and most importantly, previous work has established that relatively small language models trained on this dataset (Allen-Zhu and Li, 2023) store and use knowledge in a similar way to large language models (Geva et al., 2021, 2023; Meng et al., 2022; Nanda et al., 2023b).
+
+We summarize the data generation process in Figure 1. The dataset contains a population of 𝑁 randomly sampled individuals, each with a unique name and six attributes: birthdate, birthplace, university, major, company, and location. To generate a biography, we first sample an individual from the population. For each attribute, we then sample a template from a finite pool, fill it with the individual's information, and concatenate the resulting sentences in random order to form a complete biography. It should be noted that to make the dataset suitable for our study, our template generation and manipulation differ from the original setup. We detail these modifications in the next section and provide additional details in Appendix B.
+
+Figure 1 | Data generation process underlying the synthetic biography dataset we train on. We measure the knowledge stored within these models through the loss they achieve when predicting the attribute tokens, highlighted in blue. See Section 1 for more details.
+
+<!-- image -->
+
+## 1.3. Measuring knowledge at scale
+
+Measuring knowledge in language models typically relies on factual question-answering tasks (Lin et al., 2021). However, this approach is computationally intractable in our setup, as it requires repeatedly fine-tuning models to handle question-answer prompt formats throughout the training process. Our framework offers a simple solution to this challenge: by consistently placing information about the individual and attribute type before the attribute value, we transform each attribute value prediction into a factual recall task. This lets us quantify knowledge via the model's loss and accuracy on predicting attribute value tokens. We denote them as attribute loss and attribute accuracy . Formal definitions are provided in Appendix B. The attribute accuracy metric is arguably more intuitive, as it serves as a proxy for the accuracy with which the model, once fine-tuned, would correctly answer recall questions. However, we focus most of our analysis on the attribute loss due to its greater interpretive power and as it generally exhibits more consistent progression across various scales (Schaeffer et al., 2024).
+
+Two important considerations remain to be solved: how to distinguish knowledge from memorization, and what is a meaningful baseline for the attribute loss. To address the first point, we evaluate models on unseen biographies of previously encountered individuals. We do so by randomly splitting the template pool into training and evaluation templates for each individual, with this split varying across individuals. This ensures that models are evaluated on entirely new biography formulations, thereby ruling out the possibility that strong performance stems from memorization. For the second point, we introduce a theoretical baseline corresponding to the best possible performance achievable by a model with no individual-specific knowledge. Such a model would only know the overall distribution of attribute values, and its loss would be equal to the entropy of the attribute value distribution. We refer to this value as the no knowledge baseline. Any model performing better than this baseline must necessarily have acquired some knowledge about specific individuals in the training distribution.
+
+## 1.4. Language models are trained following standard recipes
+
+While we use synthetic data in our experiments, we keep the architecture and the training protocol as close as possible to standard practices. By default, we train an 8-layer decoder-only Transformer (44M non-embedding parameters) with the same structure as in Hoffmann et al. (2022) using the AdamW optimizer (Loshchilov and Hutter, 2019) and a cosine learning rate schedule without warm-up. We tune the learning rate in all our experiments. Additional details are provided in Appendix B.
+
+Figure 2 | Knowledge acquisition occurs in three phases. (left) In a very short first phase, the model learns generic attribute value statistics. In the second phase, performance plateaus at a level achievable by an ideal model lacking individual-specific knowledge (this corresponds to the no knowledge baseline defined in Section 1.3 and a near-zero knowledge accuracy). This plateau's duration is nearly proportional to the number of individuals (right). Finally, the model learns associations between subjects and attributes: knowledge emerges as the model is trained longer (middle). Results are averaged over 5 seeds ( ± std). See Section 2.1 for details.
+
+<!-- image -->
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## 2. How language models acquire knowledge during learning
+
+Our findings reveal that language models initially learn generic statistics before acquiring individualspecific knowledge. When individuals appear less frequently, such as when the population size grows, performance can plateau for extended periods between these two phases. Mechanistically, we attribute this plateau to the development of attention-based circuits that enable the recall of knowledge stored within the network's parameters and modulate the learning speed of the rest of the model.
+
+## 2.1. The three phases underlying knowledge acquisition
+
+The temporal evolution of the attribute loss (Figure 2) exhibits a consistent three-phase pattern:
+
+1. Initial language understanding. Early on during learning, the network learns the overall attribute value distribution. At the end of this phase, it performs like an optimal model without individual-specific knowledge, matching the no knowledge baseline.
+3. Knowledge emergence. The model finally enters a knowledge acquisition phase, in which it progressively learns associations between individuals and their attributes. Its knowledge accuracy progressively leaves the near-zero regime in this phase: knowledge emerges.
+2. Performance plateaus at the edge of knowledge acquisition. The model's performance then plateaus at the no knowledge baseline. This could be both explained from an optimization argument - the network parameters are at a saddle point of the loss landscape - or from a statistical argument - the model needs to observe multiple biographies from the same individual to discern that attribute values are specific to each individual. The plateau length grows almost linearly with the number of individuals (Figure 2, right panel), supporting the statistical hypothesis.
+
+The pattern described above is robust across a range of hyperparameter configurations. Specifically, qualitative results remain consistent when varying learning rate, weight decay, batch size, number of individuals, model size, and even the type of sequence mixing block (attention-based vs. recurrent), cf. Figure C. This is consistent with the findings of Nichani et al. (2024), who observed a similar pattern in a theoretically tractable version of the task learned by a linear attention layer. These
+
+Figure 3 | The attention-based circuits supporting recall are created during the loss plateau. (left) We design an attention patching experiment, in which we take a snapshot of a reference model at some time during its training, and use its attention patterns as a replacement for the ones of a modified model throughout its training. (middle) The more trained the reference model is, the better its attention patterns are for the modified model, and these changes mainly happen during the plateau. The very beginning of learning is an exception to this trend. This correlates with the fact that, at this time during training, the name tokens (compared to the rest of the text, which contains information about the attribute type) receive reduced attention when the first attribute value token is predicted (cf. right panel). See Section 2.2 for more details.
+
+<!-- image -->
+
+findings suggest that the data structure, particularly the high individual-to-attribute ratio, plays a critical role in driving this multi-phase learning behavior. Gu et al. (2025) found a similar behavior in a setup closely related to ours, and that, below some critical model size, the model does not learn any individual-specific information at all despite extensive training. We additionally discuss connections to existing work studying Transformer learning dynamics through the lens of 𝑁 -grams in Appendix A.
+
+## 2.2. The attention-based circuits supporting recall are created during the loss plateau
+
+Although knowledge retrieval performance remains constant during the plateau phase, we observe the development of attention-based circuits supporting individual-specific attribute recall. We argue that learning is considerably stalled when these circuits are under development, as errors are not properly backpropagated from attribute value tokens to name tokens, explaining the existence of the plateau. The following evidence supports this claim.
+
+Previous work has analyzed how Transformer-based language models solve factual recall tasks similar to the one we are interested in this study. It can be summarized as follows (cf. Figure E for a visual summary). The first attention layers aggregate name tokens together to form a representation of the individual's name at the position of the last name token. This representation serves as a query for subsequent layers, particularly the multi-layer perceptrons, which effectively act as a key-value database (Geva et al., 2021; Meng et al., 2022). Individual-specific knowledge thus typically appears within the final name token's residual stream (Allen-Zhu and Li, 2023; Geva et al., 2023; Nanda et al., 2023b). The final attention layer then selects the relevant information conditioned on the attribute type and makes it available for predicting attribute value tokens when needed (Geva et al., 2023; Nanda et al., 2023b). With this last circuit established, attribute value prediction errors directly backpropagate to relevant tokens, here the name tokens. However, without it, errors are spread across irrelevant tokens, hindering learning efficiency. We therefore hypothesize that the plateau phase corresponds to the formation of these attention-based recall circuits, with learning speed directly linked to their development stage.
+
+A consequence of that hypothesis is that a model with learned attention patterns should learn faster
+
+than one with pre-learning patterns. To test this, we design the following attention patching experiment (Figure 3, left). We first train a reference model and save reference checkpoints from it at various stages of training. We then restart training a model from scratch, but replace the model's attention patterns 1 with those produced from one of the reference checkpoints. This means that all the tokento-token interactions are specified by the reference model and that the modified model only learns token-wise feedforward transformations. We expect the quality of the attention patterns, measured by how easy it is to learn the task with them, provided by the reference model to progressively improve as they are taken closer to the plateau end. This is what we observe empirically (Figure 3, middle), and the plateau disappears when providing the model with learned attention patterns (i.e. post-plateau patterns). Interestingly, the attention patterns acquired early during learning (e.g., at steps 500 and 1k) are significantly worse than the pre-learning ones, likely due to initial focus on predicting the attribute value distribution conditioned on the attribute type only. This attention on attribute type tokens rather than on name tokens slows down learning, as per our argument from the last paragraph.
+
+So far, our results show the formation of an attention-based circuit during the plateau phase, though not necessarily the specific extraction circuit we hypothesized. To investigate this further, we examine the evolution of the network's attention patterns during training for signatures of such a circuit. Specifically , we analyze the attention paid to name tokens (relative to general text tokens containing attribute type information) when predicting the first attribute value token, the primary position testing factual recall. We observe this attention increasing throughout the plateau, after being significantly lower during the initial phase where predictions align with the generic attribute value distribution (Figure 3, right panel). This offers an intuitive explanation for the qualitative differences in attention patterns observed in Figure 3 (middle). A similar analysis for the name tokens grouping circuit, characterized by high attention to name tokens from the last name token in the first layer, reveals its emergence within a few hundred steps. This may be specific to our setup, in which such a circuit is useful to better predict which template comes next. Details of this analysis are provided in Appendix D.2. Together with our attention patching results, this result suggests that the attentionbased extraction circuit responsible for recall develops during the plateau phase, consistent with the findings of Ou et al. (2025). Note that our results do not rule out that other qualitative changes may occur during this phase, and they do not provide any mechanistic insights regarding how models acquire individual-specific knowledge.
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## 4. Hallucinations hinder the integration of new knowledge post-training
+
+This final section examines the challenge of expanding language models' parametric knowledge through post-training procedures like fine-tuning. We find that certain types of hallucinations (overconfident predictions on unseen individuals) emerge simultaneously with knowledge about individuals within the training distribution and can be detected at the population level. These hallucinations significantly impact learning dynamics on new data, requiring numerous training steps to overcome miscalibration, during which pre-existing knowledge is significantly degraded, a phenomenon reminiscent of catastrophic forgetting McCloskey and Cohen (1989). Adding replay of existing knowledge to the fine-tuning data mix only partially mitigates this issue. Overall, our findings offer an explanation for the infrequent use of fine-tuning (Jain et al., 2024; Ovadia et al., 2023) for incorporating new knowledge in the model's parameters.
+
+Figure 5 | Hallucinations hinder the integration of new knowledge post-training. (left) Hallucinations (overconfidence in inaccurate predictions) appear concurrently with the knowledge acquisition, hindering subsequent adaptation to new knowledge. (middle) Fine-tuning on new individuals causes a rapid drop in performance on individuals learned during pre-training, with new knowledge acquisition being a slower process. (right) Incorporating replay of pre-training data partially mitigates the final performance drop, but not the initial decline. Grey dots in the middle and right panels indicate performance at the beginning of fine-tuning. The pre-training (resp. fine-tuning) losses are attribute losses measured on pre-training (resp. fine-tuning) individuals. See Section 4 for details.
+
+<!-- image -->
+
+## 4.1. Models start hallucinating as soon as they acquire knowledge
+
+Before investigating fine-tuning per se, we first analyze the evolution of the model's performance on unseen individuals over the course of (pre-)training, focusing on whether it predicts attribute values following the relation-based distribution, i.e., whether it matches the no-knowledge baseline. We find that the model hallucinates, confidently predicting incorrect attribute values (Figure 5, left), but with lower overall confidence compared to predictions for individuals seen during training (Figure M). Furthermore, hallucinations emerge simultaneously with knowledge acquisition about the training individuals, suggesting they may be a counterpart to accurate predictions in current language models.
+
+## 4.2. A large portion of the pre-training knowledge is erased during early fine-tuning
+
+Given this uncalibrated starting point, fine-tuning on new individuals is expected to be challenging. We observe a rapid collapse in performance on pre-training data during the initial stages of fine-tuning (first few hundred steps), with very little corresponding acquisition of new knowledge (Figure 5, middle). A larger number of fine-tuning individuals intensifies this effect. Extended fine-tuning eventually changes this trend, and the model starts learning about new individuals. Incorporating replay data about pre-training individuals in the fine-tuning set partially mitigates the initial collapse and facilitates the restoration of corrupted knowledge (Figure 5, right). Finally, we do not observe such degradation when fine-tuning on subsets of the pre-training data (see the corresponding analysis in Appendix F.3). These results are consistent with the findings of Gekhman et al. (2024), who found that fine-tuning on new knowledge is slow and leads to hallucinations. We complement our analysis of fine-tuning dynamics with one in which the training distribution changes regularly (Appendix F.5). These experiments confirm the findings reported here, as well as highlight that it becomes easier to learn new individuals as training progresses.
+
+We now turn to explaining this behavior. The first hypothesis we consider is related to attention patterns. Indeed, introducing new individuals may disrupt attention patterns, requiring time to restore recall ability , while keeping parametric knowledge relatively untouched, and further training may restore them. We analyze the network's attention patterns, in both our fine-tuning (Figure O) and switching distribution (Figure X) setups, and find them to be remarkably stable, therefore mostly ruling
+
+out this hypothesis. Our second hypothesis is that introducing novel individuals creates additional key-value pairs that corrupt existing ones when being learned. To test this hypothesis, we train a one hidden layer multi-layer perceptron on a toy associative recall task (Appendix F.4). With such a model, which has no attention layers at all, we are able to reproduce the main qualitative findings of the experiments above, suggesting that changes in the feed-forward associative memories of the model we consider are the main factor explaining the model's behavior. Getting a finer understanding of these dynamics constitutes an interesting future research direction. For example, investigating how introducing independent knowledge topics affects this early catastrophic forgetting could provide some practically relevant insights.
+
+
+================================================================================
+EXTRACTED ON: 2025-11-26 13:53:16
+================================================================================

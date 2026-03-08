@@ -92,6 +92,8 @@ class RealityCheckAgent(Agent):
             create_chat=False
         )
         self.last_token_count = 0
+        self.last_input_tokens = 0
+        self.last_output_tokens = 0
     
     def check_idea(self, user_idea: str) -> Dict:
         """
@@ -116,7 +118,10 @@ Return your assessment as JSON."""
             response = self.generate_text_generation_response(prompt)
             
             if hasattr(response, 'usage_metadata'):
-                self.last_token_count = response.usage_metadata.total_token_count
+                um = response.usage_metadata
+                self.last_token_count = getattr(um, 'total_token_count', 0) or 0
+                self.last_input_tokens = getattr(um, 'prompt_token_count', 0) or 0
+                self.last_output_tokens = getattr(um, 'candidates_token_count', 0) or 0
             
             result = json.loads(response.text)
             
@@ -220,10 +225,13 @@ Return your assessment as JSON."""
     
     def get_cost(self) -> float:
         """Calculate cost for the check."""
+        if self.last_input_tokens > 0 or self.last_output_tokens > 0:
+            cost = (self.last_input_tokens / 1_000_000) * config.INPUT_TOKEN_PRICE
+            cost += (self.last_output_tokens / 1_000_000) * config.OUTPUT_TOKEN_PRICE
+            return cost
         if self.last_token_count > 0:
             input_tokens = self.last_token_count * 0.7
             output_tokens = self.last_token_count * 0.3
-            
             cost = (input_tokens / 1_000_000) * config.INPUT_TOKEN_PRICE
             cost += (output_tokens / 1_000_000) * config.OUTPUT_TOKEN_PRICE
             return cost

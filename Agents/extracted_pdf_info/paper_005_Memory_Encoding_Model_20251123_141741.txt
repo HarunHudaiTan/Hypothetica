@@ -1,0 +1,204 @@
+RESEARCH IDEA: Can AI-generated imaginary languages improve memory retention compared to natural languages?
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: Memory Encoding Model
+
+URL: https://arxiv.org/pdf/2308.01175v1
+
+ABSTRACT:
+We explore a new class of brain encoding model by adding memory-related information as input. Memory is an essential brain mechanism that works alongside visual stimuli. During a vision-memory cognitive task, we found the non-visual brain is largely predictable using previously seen images. Our Memory Encoding Model (Mem) won the Algonauts 2023 visual brain competition even without model ensemble (single model score 66.8, ensemble score 70.8). Our ensemble model without memory input (61.4) can also stand a 3rd place. Furthermore, we observe periodic delayed brain response correlated to 6th-7th prior image, and hippocampus also showed correlated activity timed with this periodicity. We conjuncture that the periodic replay could be related to memory mechanism to enhance the working memory.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## 2. Related Work
+
+Brain encoding model has been actively explored by the computational neuroscience community, highlighting from Kay et al. [13], Naselaris et al. [20], surveyed in [28]. The first step in the fMRI dataset is pre-processing and denoising, [14, 23] use a general linear model to denoise, significantly increase signal-to-noise ratio w.r.t. presented image. Knowlege of brain Biological structure inspired the building of computational models. The early visual brain is doing retinotopy, from which the convolutional neural network was designed [17]. Other works also introduce retinotopy mapping optimized for each voxel [19,25]. Layers in feedforward computer vision models are commonly reported to align with early visual to complex brain regions [26]. Besides single image models, recurrent neural network models is also studied [15] in video tasks.
+
+Metrics and Benchmarks Representation similarity analysis (RSA) [16] has been the most popular metric. Recent works prefer voxel-wise Pearson's r for a better resolution [1, 4, 29]. [18] proposed a metric that measures full response distributions. There is a rising number of competition and benchmarks: the Brain-Score [24] start with primate electrophysiology and extend to various source of data, the Algonauts [4, 9] on human fMRI, the Sensorium [29] on mice calcium imaging. Other large-scale datasets include: the BOLD5000 [2], the HCP 7T MOVIE [27], and the Things initiative [8, 11].
+
+## 3. Memory Encoding Model
+
+This section starts with a straightforward brain encoding model, and the input is only the current image frame. We add a retinotopy-inspired module called RetinaMapper and LayerSelector . Then we inject the conditioning vector into the image backbone by the AdaLN module. Lastly, we add input from memory images using the Compressor Module. An overview of the complete model is in Figure 3.
+
+## 3.1. Straight-forward Model
+
+The goal is to build a model that predicts voxel-wise brain response Y paired with input image X . It's a multitask regression where each voxel is a task. We use a pretrained image backbone model DiNOv2-ViT-B [21] to build a straight-forward model:
+
+<!-- formula-not-decoded -->
+
+M ∈ R H k × W k × D ′ is the feature map of one intermediate layer, ConvBlock is random initialized, h ∈ R 1 × 1 × d . i is the index of a voxel, and each voxel has non-weight sharing linear regression w i and b i . LoRA optimizes attention layer, and MLP in ViT [12]. We found LoRA consistently gives a better score than frozen ViT, and completely unfreeze gives a lower score than frozen.
+
+## 3.2. RetinaMapper and LayerSelector
+
+The motivation is that spatially close voxels have similar functional roles, such as retinotopy mapping and face-selective regions. RetinaMapper and LayerSelector is designed to enforce the input feature h to be unique for each voxel while being constrained by voxel's spatial coordinate p i ∈ R 3 .
+
+RetinaMapper (Figure 4) transforms voxel's spatial coordinate p i into image space 2D coordinate u i ∈ R 2
+
+<!-- formula-not-decoded -->
+
+PE is sinusoidal position encoding, tanh is necessary to make sure u doesn't fall out-of-bound. The learnt RetinaMapper does follow the retinotopy motivation, with the exception of voxels stuck in the top left corner (Figure 4b green). Note that RetinaMapper is only applied to current image and the stuck regions are not predictable by current image (Figure 2b).
+
+LayerSelector (Figure 5) transforms voxel's spatial coordinate p i into ViT backbone layers weights η i ∈ R 4
+
+<!-- formula-not-decoded -->
+
+Layer 2 (x])
+
+Layer 8 (x3)
+
+Imaae Coordinate
+
+Bhucinal Prordinata
+
+Layer 5 (x2)
+
+Layer 11 (x4)
+
+<!-- image -->
+
+Dhucinal Prordinate.
+
+Figure 4. RetinaMapper transform voxel's 3D physical coordinates into 2D latent image feature map space. The feature vector is sampled by linear interpolation at a 2D feature map; the same location is sampled for each hidden channel. (a) Image taken from [31], dots are colored by argmax of the LayerSelector , colors indicate selection of layers. (a) only includes visual brain voxels (nsdgeneral). (b) Retinotopic transformation is learned in end-to-end training without retinotopy supervision. The right side grid on (a) and (b) is the same latent image grid.
+
+softmax makes η i sum to one. Entropy regularization L ent = ∑ 4 j =1 η j log η j is applied to prevent converging to a local minimum in early training phase, j is the index of 4 evenly spaced candidate layers.
+
+After adding RetinaMapper and LayerSelector , the simple model in equation 1 become:
+
+<!-- formula-not-decoded -->
+
+INTP is 2D linear interpolation on latent image grid M j ∈ R H k × W k × D ′ , σ = 0 . 01 is fixed variance to reduce overfitting. ˜ h ∈ R N× d , N is number of voxels. Note that ˇ h j and ˜ h is unique for each voxel. The learnt LayerSelector does follow the motivation that primary visual to complex regrions are matched from shallow to deep layer, with the exception of the first layer (Figure 5b x1). Note that LayerSelector is only applied to current image and the first layer selected regions are not predictable by current image (Figure 2b).
+
+(a) Ret1namapper
+
+(a) Retinamapper
+
+Figure 5. LayerSelector weights and sum feature vectors coming from various backbone layers. (a) x j is output from RetinaMapper thus unique for each voxel, j is index for backbone layer. (b) η showed for each backbone layers, vmax is 1.
+
+<!-- image -->
+
+The same RetinaMapper is used for all layers. The effectiveness of RetinaMapper and LayerSelector is significant in visual brain and especially in primary visual (Table 3).
+
+## 3.3. Adaptive Layer Normalization
+
+Figure 6. The motivation is to inject the non-image conditioning vector c ∈ R d ′ into the image backbone. Following [22], we use the AdaLN module with shift and scale initialized to zero and one. Based on the observation that distribution heterogeneity exists on c for different subject, we made the AdaLN module 'subject-aware':
+
+<!-- formula-not-decoded -->
+
+w s is a unique linear transform for each subject s . MLP is subject-shared.
+
+Figure 6. Adaptive Layer Normalization (AdaLN) module. Image taken from [22]
+
+<!-- image -->
+
+## 3.4. Memory Compressor
+
+Figure 7. The input is both images X and conditioning vectors c from previous scan. Based on the experiment result that previous frame is osculating in a period, we designed the Compressor module to be 'time-aware':
+
+<!-- formula-not-decoded -->
+
+t is the index of previous frames, q t ∈ R D ′ is ViT class token, TE is sinusoidal time embedding.
+
+## 3.5. Training Recipe
+
+Dividing voxels into ROIs loses the potential to aggregate knowledge and collaborate between ROIs. Mixing can also negatively affect individual voxel performance, making learning more challenging [31]. Our random-ROI ensemble recipe aims to gather the benefits of dividing and mixing. We train a zoo of models with different atlas ROI configurations (Table 1). We then average each voxel's prediction from the model zoo.
+
+Inspired by ModelSoup [30], we greedily average the top 10 model checkpoint during training, this make each single model already an 'ensemble'. However, at the time of writing, we do not have experiment evidence to support random-ROI ensemble works better than a naive ensemble that use a fixed atlas.
+
+Figure 7. Previous image compression module. Images are cached to feature vectors, sinusoidal time embedding is concatenated as input, the same MLP (blue) is used for all previous images. Bottom part for T &lt; = -2 is omitted.
+
+<!-- image -->
+
+Table 1. The ensemble recipe train models with various atlas configurations.
+
+| Recipe   | Number of   | Number of   | Number of   | Number of   | Parameters   | Parameters   |
+|----------|-------------|-------------|-------------|-------------|--------------|--------------|
+|          | Atlas       | ROI         | Back- bone  | Voxel       | Back- bone   | Head         |
+| Naive    | 1           | 1           | 1           | N           | D            | N d          |
+| Ensemble | a           | b           | ab          | a N         | ( ab ) D     | a ( N d )    |
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## 4. Experiments
+
+## 4.1. Datasets
+
+NSD [1] features large-scale and high signal-to-noise ratio 7T fMRI scan, the participants are asked to judge if the image was seen in the past. The image is presented for 3 sec followed by 1 sec blank; each run lasts for 300 sec. We use previous images from the same run (including blank) as memory images; each run is padded to the left with blank images. Conditioning vector is extracted as 1. Memory : statistics about when is the current image previously presented. 2. Behavior : button press and reaction time. 3. Time : relative time to the start of the session and the run. ROI for results reporting are HCPMMP1 [10] in fsaverage space. NSD provides hippocampus segmentation in volumetric space.
+
+BOLD5000 [2] use same data pre-processing and denoising pipeline [23] as NSD . However, many complex factors contribute to a lower signal-to-noise ratio, the most obvious difference being a lower scanner field at 3T. Most of BOLD5000 images are not repeatedly presented. The participants are asked to judge if they like the presented image.
+
+Image is presented for 1 sec followed by 9 sec blank, and each run lasts for 370 sec.
+
+## 4.2. Metrics
+
+Noise ceiling is limited to early visual brain. The concept 'noise ceiling' [1] treats current image-unrelated signals as noise. In the GLMsigle denoising pipeline, beta3 preparation actively removes T=0 unrelated signal as 'noise' by using a noise regressor; beta2 does have noise regressor. The noise ceiling is shown to be higher in beta3 than in beta2. However, we found that if previous images are added as input, the prediction score is higher in beta2 than beta3 (Table 5). Our model with memory input masked out shows a prediction score of a similar shape to the noise ceiling (Figure 2a 2b). Our model with memory input shows a score far beyond the noise ceiling in auditory, motor, and frontal areas. However, additional memory input showed little improvement in the early visual cortex (Figure 2d). This suggests noise ceiling on the early visual brain is still an accurate measure of data quality.
+
+Model score boosted by various input. Memory information boosts The model score from 58.82 to 66.80 (Table 2). The increase in prediction power is majorly caused by image input from previous frame (Table 2, Figure 12). Memory information, when was the image seen last time, in conditioning vector only has a minor contribution that is within standard deviation (66.80 vs 67.02, Table 2, Figure 13c). Behavior response input, including current answer, future answer, and reaction time, also shows a significant contribution (66.80 vs 64.92, Table 2, Figure 13b 13d 13e). Time relative to the start of the session has a considerable prediction power when other information is removed (Figure 13a). However, its contribution is low (66.80 vs 66.09, Table 2).
+
+Model score boosted by ensemble and distillation. The random-ROI ensemble recipe boosted the model score from 66.80 to 70.85 (Table 2) when with memory input, 58.82 to 61.39 when without memory input. We also explored model distillation. A distilled model can not perform as well as an ensemble (66.80 vs 70.85). Distillation from a naive recipe has a similar effect to distilling from an ensemble recipe (58.22 vs 58.82).
+
+## 4.3. Memory Replay
+
+Tracker We build 'information tracker' by a prediction model. Each model is a single-subject whole-brain. There are 32 frames, 8 subjects, 2 beta versions, and a Cartesian product 512 models are trained. For fast computation, the model size is restricted.
+
+Periodic delayed response observation It's worth noting that each trial is only 4 sec, the hemodynamic response function (HRF) lasts for 30 sec, and there is a significant overlap in adjacent trials. In the HRF overlap case, we expect to find information related to the previous frame to be monotonic decreasing. However, we found it periodically osculating in periods of 6 to 8 (Figure 8 14a). Furthermore, we found T=-6 more predicted information in hippocampus tail than T=0 (Figure 9 14b). This suggests a read operation is done at T=-6. On the other hand, results in beta2 preparation show a peak at T=-24 to T=-30 (Figure 14c). T=-30 frame is presented 120 sec ago. Replay is not observed in BOLD5000 (Figure 11), invalidating the concern that an error in data preprocessing causes replay.
+
+Memory replay theory Our hypothesis is the following. The hippocampus maintains memory queues (Figure 10), meant to mirror and track information stored in working memory (Figure 1). As information in working memory is overwritten, the hippocampus reads the mirrored memory and sends it to the cortex. Hippocampus maintains both short queues and long queue. Memory is being read from both short and long queues at each time point. In the cortex, image-related memory is generated in the whole brain, distributed across visual, auditory, and motor brain. Current and memory image latent codes are fused and saved to both working memory and hippocampus. This hypothesized mechanism would: 1) increase the amount of information stored in working memory and 2) enhance memory by reciting.
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## 6. Future Work
+
+Denoising We demonstrated results that the current denoising pipeline removes memory-related signal (Table 5). The issue stems from using PCA on low noise ceiling voxels to derive noise regressor. Future work might consider a new way for noise regressor. It also incentivizes removing time-related signals (Figure 13a).
+
+Validate periodic delayed response. To our knowledge, the exact cause of periodic delayed response remains unknown. We suspect it to be: 1) hard to find on noisy data. 2) related to long-term memory tasks. 3) related to large working memory tasks.
+
+A note on data capturing. The brain is a complex machine. Any source of information could lead to a better brain encoding model, even if the information is not perfect, such as un-calibrated eye tracking camera [19] or eye voxels [6].
+
+<!-- image -->
+
+(e) Input: reaction time
+
+Figure 13. Prediction score without image input. Results are single-trial Pearson's r , subject#1 beta3, for other subjects please see online video.
+
+Table 2. Model with various input on the NSD dataset. For images, T = -32 : 0 is all previous 32 frames, T = 0 is the current frame. For Conditions, inputs are engineered from experimental design and behavior response, M : memory related flags and statistics, B : behavior response, T : relative time to the scan session. The same model is trained where deactivated inputs are masked with zeros. Models are trained with the help of distillation from the best ensemble model (public score 70.85). Standard deviation across random seeds is reported in the top row. Private score is single-trial, public score is repetition-averaged.
+
+| Method     | Input Images   |    | Condition   |    | Score Private   | 2           | Public score   |
+|------------|----------------|----|-------------|----|-----------------|-------------|----------------|
+| Model      | Frame          | M  | B           | T  | r ± 0 . 005     | r ± 0 . 005 | ± 1            |
+| Full Mem   | T=-32:0        | ✓  | ✓           | ✓  | 0.398           | 0.180       | 66.80          |
+| w/o time   | T=-32:0        | ✓  | ✓           |    | 0.400           | 0.182       | 66.09          |
+| w/o answer | T=-32:0        | ✓  |             | ✓  | 0.392           | 0.176       | 64.92          |
+| w/o memC   | T=-32:0        |    | ✓           | ✓  | 0.394           | 0.177       | 67.02          |
+| w/o memI   | T=0            | ✓  | ✓           | ✓  | 0.363           | 0.155       | 62.65          |
+| w/o memIC  | T=0            |    | ✓           | ✓  | 0.363           | 0.156       | 62.24          |
+| Baseline   | T=0            |    |             |    | 0.332           | 0.135       | 58.82          |
+
+Table 3. Ablation study on RetinaMapper and LayerSelector . Whole-brain models are trained with all inputs including previous frames and condition vectors. w/o RetinaMapper drops the branch from feature summation. w/o LayerSelector replace it with simply average all layers. Standard deviation across random seeds are reported in the top row. Score is single-trail Pearson's r .
+
+|        | ROI score ( ± 0 . 005)   | ROI score ( ± 0 . 005)   |          |          |
+|--------|--------------------------|--------------------------|----------|----------|
+| Method | Primary Visual           | Visual                   | Auditory | Anterior |
+| Full   | 0.300                    | 0.344                    | 0.188    | 0.248    |
+| w/oRM  | 0.243                    | 0.318                    | 0.191    | 0.256    |
+| w/o LS | 0.287                    | 0.333                    | 0.184    | 0.242    |
+
+
+================================================================================
+EXTRACTED ON: 2025-11-23 14:17:41
+================================================================================

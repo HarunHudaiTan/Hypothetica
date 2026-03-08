@@ -1,0 +1,289 @@
+RESEARCH IDEA: Can AI-generated imaginary languages improve memory retention compared to natural languages?
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: Cognitive Science in the era of Artificial Intelligence: A roadmap for reverse-engineering the infant language-learner
+
+URL: https://arxiv.org/pdf/1607.08723v4
+
+ABSTRACT:
+During their first years of life, infants learn the language(s) of their environment at an amazing speed despite large cross cultural variations in amount and complexity of the available language input. Understanding this simple fact still escapes current cognitive and linguistic theories. Recently, spectacular progress in the engineering science, notably, machine learning and wearable technology, offer the promise of revolutionizing the study of cognitive development. Machine learning offers powerful learning algorithms that can achieve human-like performance on many linguistic tasks. Wearable sensors can capture vast amounts of data, which enable the reconstruction of the sensory experience of infants in their natural environment. The project of 'reverse engineering' language development, i.e., of building an effective system that mimics infant's achievements appears therefore to be within reach. Here, we analyze the conditions under which such a project can contribute to our scientific understanding of early language development. We argue that instead of defining a sub-problem or simplifying the data, computational models should address the full complexity of the learning situation, and take as input the raw sensory signals available to infants. This implies that (1) accessible but privacy-preserving repositories of home data be setup and widely shared, and (2) models be evaluated at different linguistic levels through a benchmark of psycholinguist tests that can be passed by machines and humans alike, (3) linguistically and psychologically plausible learning architectures be scaled up to real data using probabilistic/optimization principles from machine learning. We discuss the feasibility of this approach and present preliminary results.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## 2 Two deep puzzles of early language development
+
+Language development is a theoretically important subfield within the study of human cognitive development for the following three reasons:
+
+First, the linguistic system is uniquely complex : mastering a language implies mastering a combinatorial sound system (phonetics and phonology), an open ended morphologically structured lexicon, and a compositional syntax and semantics (e.g., Jackendo GLYPH&lt;11&gt; , 1997). No other animal communication system uses such a complex multilayered organization (Hauser, Chomsky, &amp; Fitch, 2002). On this basis, it has been claimed that humans have evolved (or acquired through a mutation) an innately specified computational architecture to process language (see Chomsky, 1965; Steedman, 2014).
+
+Second, the overt manifestations of this system are extremely variable across languages and cultures. Language can be expressed through the oral or manual modality. In the oral modality, some languages use only 3 vowels, other more than 20. Consonants inventories vary from 6 to more than 100. Words can be mostly composed of a single syllable (as in Chinese) or long strings of stems and a GLYPH&lt;14&gt; xes (as in Turkish). Semantic roles can be identified through fixed positions within constituents, or be identified through functional morphemes, etc. (see Song, 2010, for a typology of language variation). Evidently, infants acquire the relevant variant through learning, not genetic transmission.
+
+Third, the human language capacity can be viewed as a finite computational system with the ability to generate a (virtual) infinity of utterances. This turns into a learnability problem for infants: on the basis of finite evidence, they have to induce the (virtual) infinity corresponding to their language. As has been discussed since Aristotle, such induction problems do not have a generally valid solution. Therefore, language is simultaneously a human-specific biological trait, a highly variable cultural production, and an apparently intractable learning problem.
+
+Despite these complexities, most infants spontaneously learn their native(s) language(s) in a matter of a few years of immersion in a linguistic environment. The more we know about this simple fact, the more puzzling it appears. Specifically, we outline two deep scientific puzzles that a reverse engineering approach could, in principle help to solve: solving the bootstrapping problem and accounting for developmental trajectories. The first puzzle relates to the ultimate outcome of language learning: the so-called stable state , defined here as the stabilized language competence in the adult. The second puzzle relates to what we know of the intermediate steps in the acquisition process, and their variations as a function of language input. 1
+
+## 2.1 Solving the bootstrapping problem
+
+The stable state is the operational knowledge which enables adults to process a virtual infinity of utterances in their native language. The most articulated description of this stable state has been o GLYPH&lt;11&gt; ered by theoretical linguistics; it is viewed as a grammar comprising several components: phonetics, phonology, morphology, syntax, semantics, pragmatics.
+
+The bootstrapping problem arises from the fact these different components appear interdependent from a learning point of view. For instance, the phoneme inventory of a language is defined through pairs of words that di GLYPH&lt;11&gt; er minimally in sounds (e.g., "light" vs "right"). This would suggest that to learn phonemes, infants need to first learn words. However, from a processing viewpoint, words are recognized through their phonological constituents (e.g., Cutler, 2012), suggesting that infants should learn phonemes before words. Similar paradoxical co-dependency issues have been noted between other linguistic levels (for instance, syntax and semantics: Pinker, 1987, prosody and syntax: Morgan &amp; Demuth, 1996). In other words, in order to learn any one component of the language competence, many others need to be learned first, creating apparent circularities.
+
+1 The two puzzles are not independent as they are two facets of the same phenomenon. In practice, proposals for solving the bootstrapping problem may o GLYPH&lt;11&gt; er insights about the observed trajectories. Vice-versa, data on developmental trajectories may provide more manageable subgoals for the di GLYPH&lt;14&gt; cult task of solving the bootstrapping problem.
+
+The bootstrapping problem is further compounded by the fact that infants do not have to be taught formal linguistics or language courses to learn their native language(s). As in other cases of animal communication, infants spontaneously acquire the language(s) of their community by merely being immersed in that community (Pinker, 1994). Experimental and observational studies have revealed that infants start acquiring elements of their language (phonetics, phonology, lexicon, syntax and semantics) even before they can talk (Jusczyk, 1997; Hollich et al., 2000; Werker &amp; Curtin, 2005), and therefore before parents can give them much feedback about their progress into language learning. This suggests that language learning (at least the initial bootstrapping steps) occurs largely without supervisory feedback . 2
+
+The reverse engineering approach has the potential of solving this puzzle by providing a computational system that can demonstrably bootstrap into language when fed with similar, supervisory poor, inputs 3 .
+
+## 2.2 Accounting for developmental trajectories
+
+In the last forty years, a large body of empirical work has been collected regarding infant's language achievements during their first years of life. This work has only added more puzzlement.
+
+First, given the multi-layered structure of language, one could expect a stage-like developmental tableau where acquisition would proceed as a discrete succession of learning phases organized logically or hierarchically (e.g., building linguistic structure from the low level to the high levels). This is not what is observed (see Figure 1). For instance, infants start di GLYPH&lt;11&gt; erentiating native from foreign consonants and vowels at 6 months, but continue to fine tune their phonetic categories well after the first year of life (e.g., Sundara, Polka, &amp; Genesee, 2006). However, they start learning about the sequential structure of phonemes (phonotactics, see Jusczyk, Friederici, Wessels, Svenkerud, &amp; Jusczyk, 1993) way before they are done acquiring the phoneme inventory (Werker &amp; Tees, 1984). Even before that, they start acquiring the meaning of a small set of common words (e.g. Bergelson &amp; Swingley, 2012). In other words, instead of a stage-like developmental tableau, the evidence shows that acquisition takes places at all levels more or less simultaneously, in a gradual and largely overlapping fashion.
+
+Second, observational studies have revealed considerable variations in the amount of language input to infants across cultures (Shneidman &amp; Goldin-Meadow, 2012) and across socio-economic strata (Hart &amp; Risley, 1995), some of which can exceed an order of magnitude (Weisleder &amp; Fernald, 2013, p. 2146; Cristia, Dupoux, Gurven, &amp; Stieglitz, 2017; see also Supplementary Section S1). These variations do impact language achievement as measured by vocabulary size and syntactic complexity (Ho GLYPH&lt;11&gt; , 2003; Huttenlocher, Waterfall, Vasilyeva, Vevea, &amp; Hedges, 2010; Pan, Rowe, Singer,
+
+&amp; Snow, 2005; Rowe &amp; Goldin-Meadow, 2009, among others), but at least for some markers of language achievement, the di GLYPH&lt;11&gt; erences in outcome are much less extreme than the variations in input. For canonical babbling, for instance, an order of magnitude would mean that some children start to babble at 6 months, and others at 5 years! The observed range is between 6 and 10 months, less than a 1 to 2 ratio. Similarly, reduced range of variations are found for the onset of word production and the onset of word combinations. This suggests a surprising level of resilience in language learning, i.e., some minimal amount of input is su GLYPH&lt;14&gt; cient to trigger certain landmarks.
+
+The reverse engineering approach has the potential of accounting for this otherwise perplexing developmental tableau, and provide quantitative predictions both across linguistic levels (gradual overlapping pattern), and cultural or individual variations in input (resilience).
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## 3 Standard approaches to language development
+
+It is impossible in limited space to do justice to the rich and diverse sets of viewpoints that have been proposed to account for language development. Instead, the next sections will present a non exhaustive selection of four research strands which draw their source of inspiration from a mixture of psycholinguistics, formal linguistics and computer science, and which share some of the explanatory goals of the reverse engineering approach. The argument will be that even though these strands provide important insights into the acquisition process, they still fall short of accounting for the two puzzles presented in Section 2.
+
+## 3.1 Psycholinguistics: Conceptual frameworks
+
+Within developmental psycholinguistics, conceptual frameworks have been proposed to account for key aspects of the bootstrapping problem and developmental trajectories (see Table 1 for a non exhaustive sample).
+
+Specifically adressing the bootstrapping problem, some frameworks build on systematic correlations between linguistic levels, e.g., between syntactic and semantic categories (syntactic bootstrapping: L. Gleitman, 1990; semantic bootstrapping: Grimshaw, 1981; Pinker, 1984), or between prosodic boundaries and syntactic ones (prosodic bootstrapping: Morgan &amp; Demuth, 1996; Christophe, Millotte, Bernal, &amp; Lidz, 2008. Others endorse Chomsky's
+
+2 Even in later acquisitions, the nature, universality and e GLYPH&lt;11&gt; ectiveness of corrective feedback of children's outputs has been debated (see Brown, 1973; Pinker, 1989; Marcus, 1993; Chouinard &amp; Clark, 2003; Saxton, 1997; Clark &amp; Lappin, 2011).
+
+3 A sucessful system may not necessarily have the same architecture of components as described by theoretical linguists. It just needs to behave as humans do, i.e., pass the same behavioral tests. More on this in section 4.3.
+
+Production frequent words
+
+3 Segmentation
+
+2 Proper name of words from
+
+sentences
+
+5 Typical word stress in large
+
+8 Typical vowels
+
+Semantics
+
+Word forms
+
+Prosody
+
+4| Language prosody
+
+Segments
+
+1
+
+2
+
+3
+
+4
+
+5
+
+I vocal play
+
+13
+
+¡es illustrating the time line of infant's language develooment. The left edge of ea
+
+Figure 1 . Sample studies illustrating the time line of infant's language development. The left edge of each box is aligned to the earliest age at which the result has been documented. 1 Tinco GLYPH&lt;11&gt; &amp; Jusczyk, (1999); Bergelson &amp; Swingley, (2012); 2 Mandel et al. (1995); 3 Jusczyk &amp; Aslin (1995) 4 Mehler et al. (1988) 5 Jusczyk et al. (1999) 6 Hirsh-Pasek et al. (1987) 7 Jusczyk et al (1992) 8 Kuhl et al. (1992) 9 Eilers et al. (1979) 10 Jusczyk et al. (1993) 11 Werker &amp; Tees (1984) 12 Mazuka et al. (2011) 13 Stark (1980).
+
+<!-- image -->
+
+(1965) hypothesis that infants are equipped with an innate Language Acquisition Device which constrains the hypothesis space of the learner, enabling acquisition in the presence of scarse or ambiguous input (Crain, 1991; Lidz &amp; Gagliardi, 2015).
+
+Other conceptual frameworks focus on key aspects of developmental trajectories (patterns across ages, across languages, across individuals), o GLYPH&lt;11&gt; ering overarching architectures or scenarios that integrate many empirical results. Among others, the competition model: Bates &amp; MacWhinney, 1987; MacWhinney, 1987 ; WRAPSA: Jusczyk, 1997; the emergentist coalition model: Hollich et al., 2000; PRIMIR: Werker &amp; Curtin, 2005; usage-based theory: Tomasello, 2003. Each of these frameworks propose a collection of mechanisms linked to the linguistic input and / or the social environment of the infant to account for developmental trajectories.
+
+While these conceptual framework are very useful in summarizing and organizing a vast amount of empirical results, and o GLYPH&lt;11&gt; er penetrating insights, they are not specific enough to address our two scientific puzzles. They tend to refer to mechanisms using verbal descriptions ( statistical learning , rule learning , abstraction , grammaticalization , analogy ) or boxes and arrows diagrams. This type of presentation may be intuitive, but also vague. The same description may correspond to many di GLYPH&lt;11&gt; erent computational mechanisms which would yield di GLYPH&lt;11&gt; erent predictions. These frameworks are therefore di GLYPH&lt;14&gt; cult to distinguish from one another empiri- cally, or for the most descriptive ones, impossible to disprove. In addition, because they are not formal, one cannot demonstrate that these models can e GLYPH&lt;11&gt; ectively solve the language bootstrapping problem. Nor do they provide quantitative predictions about the observed resilience in developmental trajectories or their variations as a function of language input at the individual, linguistic or cultural level.
+
+## 3.2 Psycholinguistics: Artificial language learning
+
+Psycholinguists sometimes supplement conceptual frameworks with propositions for specific learning mechanisms which are tested using an artificial language paradigm. As an example, a mechanism based on the tracking of statistical modes in phonetic space has been proposed to underpin phonetic category learning in infancy. It was tested in infants through the presentation of a simplified language (a continuum of syllables between / da / and / ta / ) where the statistical distribution of acoustic tokens was controlled (Maye, Werker, &amp; Gerken, 2002). It was also modeled computationally using unsupervised clustering algorithms and tested using simplified corpora or synthetic data (Vallabha, McClelland, Pons, Werker, &amp; Amano, 2007; McMurray, Aslin, &amp; Toscano, 2009). A similar double-pronged approach (experimental and modeling evidence) has been conducted for other mechanisms: word segmentation based on transition probability (Sa GLYPH&lt;11&gt; ran, Aslin, &amp; Newport, 1996; Daland &amp; Pierrehumbert, 2011), word meaning learning based on cross sit-
+
+Table 1 Non-exhaustive sample of conceptual frameworks accounting for aspects of early language acquisition. (BP: Bootstrapping Problem; DT: Developmental Trajectories)
+
+| Conceptual framework    | Reference                                  | Puzzle addressed (age range)                                                        | Proposed mechanism                                                                                       |
+|-------------------------|--------------------------------------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Semantic Bootstrapping  | Pinker, 1984                               | BP: syntax (production, 18 mo-4 y)                                                  | inductive biases based on syn- tax / semantic correlations                                               |
+| Syntactic Bootstrapping | L. Gleitman, 1990                          | BP: verb semantics (perception, 18 mo-4 y)                                          | inductive biases on syntax / semantic correlations                                                       |
+| Prosodic Bootstrapping  | Morgan &Demuth, 1996                       | BP: word segmentation, part of speech, syntax (perception, 9-18 mo)                 | inductive biases on prosodic / lexicon / syntax correlations                                             |
+| Knowledge-driven LAD    | Lidz &Gagliardi, 2015                      | BP: syntax (perception &produc- tion, 18 mo -8 y)                                   | perceptual intake; Universal Gram- mar; inference engine                                                 |
+| WRAPSA                  | Jusczyk, 1997                              | DT: phonetic categories, word segmentation (perception, 0-12 mo)                    | auditory processing; syllable seg- mentation; attentional weighting; pattern extraction; exemplar theory |
+| PRIMIR                  | Werker &Curtin, 2005                       | DT: phonetic, speaker, phonolog- ical and semantic categories (per- ception, 0-2 y) | examplar theory, statistical cluster- ing, associative learning, attentional dynamic filters             |
+| Competition Model       | Bates & MacWhinney, 1987; MacWhinney, 1987 | DT: syntax (production, 18 mo - 4 y)                                                | competitive learning (avoidance of synonymy)                                                             |
+| Usage-Based Theory      | Tomasello, 2003                            | DT: semantics, syntax (percep- tion &production, 9 mo - 6 y)                        | construction grammar; intention reading; analogy; competitive learn- ing; distributional analysis        |
+
+uational statistics (Yu &amp; Smith, 2007; K. Smith, Smith, &amp; Blythe, 2011; Siskind, 1996), semantic role learning based on syntactic cues (Connor, Fisher, &amp; Roth, 2013), etc.
+
+Although studies with artificial languages are useful to discover candidate learning algorithms which could be incorporated in a global architecture, the algorithms proposed have only been tested on toy or artificial languages; there is therefore no guarantee that they would actually work when faced with realistic corpora that are both very large and very noisy (see 4.1).
+
+## 3.3 Formal linguistics: learnability studies
+
+Even though much of current theoretical linguistics is devoted to the study of the language competence in the stable state, very interesting work has also been conducted in the area of formal models of grammar induction . These models propose algorithms that are provably powerful enough to learn a fragment of grammar given certain assumptions about the input. For instance, Tesar and Smolensky (1998) proposed an algorithm that provided pairs of surface and underlying word forms can learn the phonological grammar (see also Magri, 2015). Similar learnability assumptions and results have been obtained for stress systems (Dresher &amp; Kaye, 1990; Tesar &amp; Smolensky, 2000). For learnability results of syntax, see Clark and Lappin (2011).
+
+These models establish important learnability results, and in particular, demonstrate that under certain hypotheses, a particular class of grammar is learnable. What they do not demonstrate however is that these hypotheses are met for infants. In particular, most grammar induction studies assume that infants have an error-free, adult-like symbolic representation of linguistic entities (e.g., phonemes, phonological features, grammatical categories, etc). Yet, perception is certainly not error-free, and it is not clear that infants have adult-like symbols, and if they do, how they acquired them.
+
+In other words, even though these models are more advanced than psycholinguistic models in formally addressing the e GLYPH&lt;11&gt; ectiveness of the proposed learning algorithms, it is not clear that they are solving the same bootstrapping problem than the one faced by infants. In addition, they typically lack a connection with empirical data on developmental trajectories. 4
+
+## 3.4 Developmental artificial intelligence
+
+The idea of using computational models to shed light on language acquisition is as old as the field of cognitive science itself, and a complete review would be beyond the scope of this paper. We mention some of the landmarks in this field which we refer to as developmental AI , separating three learning subproblems: syntax, lexicon, and speech.
+
+Computational models of syntax learning in infants can be roughly classified into two strands, one that learns from
+
+4 A particular di GLYPH&lt;14&gt; culty of formal models which lack a processing component is to account for the observed discrepancies between the developmental trajectories in perception (e.g. early phonotactic learning in 8-month-olds) and production (slow phonotactic learning in one to 3-year-olds).
+
+strings of words alone, and one that additionally uses a conceptual representation of the utterance meaning. The first strand is illustrated by Kelley (1967). It views grammar induction as a problem of representing the input corpus with a grammar in the most compact fashion, using both a priori constraints on the shape and complexity of the grammars and a measure of fitness of the grammar to the data (see de Marcken, 1996 for a probabilistic view). The first systems used artificial input (generated by a context free grammar) and part-of-speech tags (nouns, verbs, etc.) were provided as side-information. Since then, manual tagging has been replaced by automatic tagging using a variety of approaches (see Christodoulopoulos, Goldwater, &amp; Steedman, 2010 for a review), and artificial datasets have been replaced by naturalistic ones (see D'Ulizia, Ferri, &amp; Grifoni, 2011, for a review). The second strand can be traced back to Siklossy (1968), and makes the radically di GLYPH&lt;11&gt; erent hypothesis that language learning is essentially a translation problem: children are provided with a parallel corpus of speech in an unknown language, and a conceptual representation of the corresponding meaning. The Language Acquisition System (LAS) of Anderson (1975) is a good illustration of this approach. It learns context-free parsers when provided with pairs of representations of meaning (viewed as logical form trees) and sentences (viewed as a string of words, whose meaning are known). Since then, algorithms have been proposed to learn directly the meaning of words (e.g., cross-situational learning, see Siskind, 1996), context-free grammars have been replaced by more powerful ones (e.g. probabilistic Combinatorial Categorical Grammar), and sentence meaning has been replaced by sets of candidate meanings with noise (although still generated from linguistic annotations) (e.g., Kwiatkowski, Goldwater, Zettlemoyer, &amp; Steedman, 2012). Note that both types of models take textual input, and therefore make the (incorrect) assumption that infants are able to represent their input in terms of an error-free segmented string of words.
+
+Computational models of word discovery tackle the problem of segmenting a continuous stream of phonemes into word-like units. One idea is to use distributional properties that distinguish within word and between word phoneme sequences (Harris, 1954; Elman, 1990; Christiansen, Conway, &amp; Curtin, 2005). A second idea is to simultaneously build a lexicon and segment sentences into words (Olivier, 1968; de Marcken, 1996; Goldwater, 2007). These ideas are now frequently combined (Brent, 1996a; M. Johnson, 2008). In addition, segmentation models have been augmented by jointly learning the lexicon and morphological decomposition (M. Johnson, 2008; Botha &amp; Blunsom, 2013), or tackling phonological variation through the use of a noisy channel model (Elsner, Goldwater, &amp; Eisenstein, 2012). Note that all of these studies assume that speech is represented as an error-free string of adult-like phonemes, an assumption which cannot apply to early language learners.
+
+Finally, a few computational model have started to address language learning from raw speech. These have either concerned the discovery of phoneme-sized units, the discovery of words, or both. Several ideas have been proposed to discover phonemes from the speech signal (self organizing maps: Kohonen, 1988; clustering: Pons, Anguera, &amp; Binefa, 2013; auto-encoders: Badino, Canevari, Fadiga, &amp; Metta, 2014; HMMs: Siu, Gish, Chan, Belfield, &amp; Lowe, 2013; etc.). Regarding words, D. K. Roy and Pentland (2002) proposed a model that learn both to segment continuous speech into words and map them to visual categories (through cross situational learning). This was one of the first models to work from a real speech corpus (parents interacting with their infants in a semi-directed fashion), although the model used the output of a supervised phoneme recognizer. The ACORNS project (Boves, Ten Bosch, &amp; Moore, 2007) used raw speech as input to discover candidate words (Ten Bosch &amp; Cranen, 2007, see also Park &amp; Glass, 2008; Muscariello, Gravier, &amp; Bimbot, 2009, etc.), or to learn word-meaning associations (see a review in Räsänen, 2012, and a comprehensive model in Räsänen &amp; Rasilo, 2015), although the speech was collected in the laboratory, not in real life situations.
+
+In sum, developmental AI represents the clearest attempt so far of addressing the full bootstrapping problem. Yet, although one can see a clear progression, from simple models and toy examples, towards more integrative algorithms and more realistic datasets, there is still a large gap between models that learn from speech, which are limited to the discovery or phonemes and word forms, and models that learn syntax and semantics, which only work from textual input. Until this gap is closed, it is not clear how the bootstrapping problem as faced by infants can be solved. The research itself is unfortunately scattered in disjoint segments of the literature, with little sharing in algorithms, evaluation methods and corpora, making it di GLYPH&lt;14&gt; cult to compare the merits of the di GLYPH&lt;11&gt; erent ideas and register progress. Finally, even though most of these studies mention infants as a source of inspiration of the models, they seldom attempt to account for developmental trajectories.
+
+## 3.5 Summing up
+
+Psycholinguistic conceptual frameworks capture important insights about language development but are not specified enough to demonstrably solve the bootstrapping problem nor can they make quantitative predictions. Artificial language experiments yield interesting learning mechanisms aimed at explaining experimental data but not necessarily to scale up to larger or more noisy data. These limitations call for the need to develop e GLYPH&lt;11&gt; ective computational models that work at scale. Both linguistic models and developmental AI attempt to e GLYPH&lt;11&gt; ectively address the bootstrapping problem, but make unrealistic assumptions with respect to the input data (linguistic models take only symbolic input data, and most
+
+erent theoretical approaches to the study of early language acquisition.
+
+Table 2 Summary of di GLYPH&lt;11&gt;
+
+|                             | E GLYPH<11> ective Model   | Realistic Data   | Human / Model Comparison   |
+|-----------------------------|----------------------------|------------------|----------------------------|
+| Conceptual Frameworks       | No (verbal)                | Yes              | No (verbal)                |
+| Artficial Language Learning | Yes (but not scalable)     | No               | Yes                        |
+| Formal Linguistics          | Existence proof            | Idealized        | In the limit               |
+| Developmental AI            | Yes                        | Simplified       | Qualitative / In the limit |
+| Reverse Engineering         | Yes                        | Yes              | Yes                        |
+
+developmental AI models take either symbolic data or simplified inputs). As a result, these models may address a different bootstrapping problem than the one faced by infants. This would call for the need to use realistic data as input for models. Both linguistic models and developmental AI models take as their gold standard description of the stable state in adults. This may be fine when the objective is to explain ultimate attainment (the bootstrapping problem), but does not enable to connect with learning trajectory data. This would call for a direct human-machine comparison , at all ages.
+
+Obiously, the four reviewed research traditions have limits but also address part of the language development puzzles (Table 2). Before examining how the reverse engineering approach could combine the best of these traditions, we examine next with more scrutiny the requirements they have to meet in order to fully address these puzzles.
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## 5 Deep learning to the rescue?
+
+The combination of the first two requirements discussed above, namely, scalable computation and realistic input would have been, up to a recent period a major stumbling block for acheiving a reverse engineering approach. Indeed, for many years, computers were struggling with language processing. It was customary in psycholinguistic courses to mock the dismal performance of automatic dictation or translation systems. All of this started to change with a paper by Hinton and colleagues on speech recognition (Hinton et al., 2012): after years in the making, neural networks were starting to perform better than the dominating technology based on probabilistic models (Gaussian Mixtures, Hidden Markov Model). A few years later, the entire speech processing pipeline has been replaced by neural networks trained endto-end, with performance claimed to achieve human parity on a dictation task (Xiong et al., 2016, but see Saon et al., 2017). In the following, we very briefly review how such systems are constructed before turning on whether they could be used to inform infants language acquisition studies.
+
+## 5.1 The new AI spring
+
+One important characteristics of the new systems is they get rid of the specialized design features of their predecessors, and replace them with generic neural network architectures trained in large annotated corpora. Continuing with the example of speech, specialized audio features are replaced by spectrograms (some systems even work from raw audio input) and phonetic transcriptions and prononciation lexicons are eliminated: systems are trained to directly map speech to orthographic transcriptions, in an end-to-end fashion.
+
+We do not need a phoneme dictionary, nor even the concept of a 'phoneme.' (Hannun et al., 2014).
+
+As it turn out, the basic architectures and many core ideas are not very di GLYPH&lt;11&gt; erent from those proposed in the early days of connectionism. For instance, Figure 2 shows the architecture of Deep Speech 2 (Amodei et al., 2016) a state-of-the-art speech recognition system composed of rather classical elements popularized in the late 80's the (the multi-layer perceptron, backpropagration training, convolutional networks, recurrent networks: Rumelhart &amp; McClelland, 1986; Elman, 1990).
+
+What has changed, though, is the scale of the networks and the volume of data on which they are trained, enabled by tremendous progress in computer hardware and in mathematical optimization techniques (Goodfellow, Bengio, &amp;
+
+9 In animals, before tests can be run, an extensive period of training using reinforcement learning is often necessary, in order for the animal to comply with the protocol. Such procedures are not possible in human infants.
+
+10 A task interface can be viewed as a function which takes as input the internal states of the algorithm generated by the stimuli and delivers a binary or real valued response.
+
+Batch
+
+Normalization
+
+Spectrogram
+
+Jetwork architecture for Deen Speech '
+
+Fully
+
+Connected
+
+Recurrent or
+
+GRU
+
+(Bidirectional)
+
+Figure 2 . Network architecture for Deep Speech 2 (reprinted from Amodei et al. 2016). The input is a spectrogram, the output is a sequence of characters. Each layer incorporate particular patterns of connectivity. Convolutional layers are organized in terms of local patches sharing their connections along the time and / or frequency dimensions. Recurrent layers accumulate activations through time. Fully connected layers do not have any particular topology. Batch normalization is a process by which the activations at each layers are rescaled to be of means 0 and variance 1 over a small set of examples during training.
+
+<!-- image -->
+
+Courville, 2016, for an advanced introduction). As a result, neural networks have grown at a pace slightly faster than Moore's law: the speech processing network in Elman and Zipser (1988) had 8000 parameters; 28 years later, Deep Speech 2 is twelve thousand times larger.
+
+Speech is not the only area where deep learning have shaken the AI landscape: object recognition (Krizhevsky, Sutskever, &amp; Hinton, 2012; He et al., 2015), language translation (Wu et al., 2016; M. Johnson et al., 2016), and speech synthesis (Oord et al., 2016), are all areas where neural networks have displaced by a large margin the previous state-ofthe-art, while approaching human performance. This explosion of research is faciliated by the large distribution of programming frameworks (tensorflow, pytorch, dynet, mxnet, etc.), the open sourcing of datasets and state-of-the-art systems which can be downloaded pre-trained and tested on new inputs.
+
+These successes are generating interest for taking machine learning systems trained on large corpora as quantitative models of cognitive functions. Indeed, despite their a-priori lack of neural or biological plausibility 11 , the performance of these systems show surprising convergences with biological organisms. For instance, a deep neural network trained to recognize artefacts and natural kind categories from images turn out to be good predictors of multi-unit responses of neurons in the Inferior Temporal cortex of primates (e.g., Cadieu et al., 2014; Yamins et al., 2014). There are also surprising divergences such as the strange way in
+
+CTC
+
+which neural networks can be fooled by adversarial examples (Nguyen, Yosinski, &amp; Clune, 2014), and limits such as their inability to perform causal reasoning or display systematic behavior (Lake, Ullman, Tenenbaum, &amp; Gershman, 2016). This gives rise to an exciting area of research applying cognitive psychology or cognitive neuroscience methods to machine learning systems (Kheradpisheh, Ghodrati, Ganjtabesh, &amp; Masquelier, 2016; Cichy, Khosla, Pantazis, Torralba, &amp; Oliva, 2016; Linzen, Dupoux, &amp; Goldberg, 2016; Tsividis, Pouncy, Xu, Tenenbaum, &amp; Gershman, 2017; Lau, Clark, &amp; Lappin, 2017, among others).
+
+The crucial question that we raise here is whether any of these algorithms could be good candidates for modeling langage acquisition?
+
+## 5.2 Does machine learning model human learning?
+
+Statistical learning mechanisms have been claimed to be at the core of language acquisition (Sa GLYPH&lt;11&gt; ran, 2003), so a-priori, there are reasons to be optimistic (Meltzo GLYPH&lt;11&gt; , Kuhl, Movellan, &amp; Sejnowski, 2009). However, there is a fundamental gap between what this term means in cognitive studies and how it is used in machine learning. The big di GLYPH&lt;11&gt; erence is that in machine learning, statistical techniques are used as a convenient way to construct systems, not as models of human acquisition processes.
+
+Interpreted cognitively, machine learning procedures would correspond to a caricature of 19 th century schooling: the learner, initially, a kind of tabula rasa, is relentlessly fed with inputs paired with desired responses, which are annotations of the input provided by a human supervisor. The drill is repeated until the learner gets it right.
+
+This setup is called supervised learning , because for a given input there is only one correct answer. As an example, in speech recognition, the system is trained to associate a speech utterance with it's written transcription. In natural language processing tasks, the system is presented with sequences of words (in ortographic format) as input, and trained to associate each word to a part-of-speech, a semantic role tag, or a co-reference in the text, and so on. This di GLYPH&lt;11&gt; ers in how infants learn language in two important ways.
+
+First, children do not learn their first language by being asked to associate sensory inputs with linguistic tags. Long before they are even exposed to linguistic tags by going to school and learn to read and write, they have acquired what amounts to a fully functional speech recognition and language processing system. They have done so on the basis of sensory input alone, and if there are supervisatory signals from the adults, these are neither unambiguous nor systematic. This moves the problem of language learning in the area
+
+11 In fact, from their inception, neural networks have been heavily influenced by research in neuroscience and psychology, see the review by Hassabis, Kumaran, Summerfield, and Botvinick (2017).
+
+Environment
+
+Child
+
+a
+
+Gad, Cen (t)
+
+Aen
+
+|(t)
+
+adult grammar
+
+Gad &lt;
+
+i psycho- of unsupervised or weakly supervised machine learning: to an input, there is no unique desired output, but rather a probabilistic distribution of outcomes (with relatively unfrequent rewards or punishments) 12 .
+
+The second di GLYPH&lt;11&gt; erence is in the sheer amount of data required by artificial systems compared to infants. For instance, the Deep Speech 2 system described above is trained with over 10000 hours of transcribed speech (plus a few billion words worth of text to provide top-down language statistics). In comparison, a four-year-old child, who admittedly has functional speech recognition abilities, is being spoken to for a total amount varying between 700h and 4000h (corresponding to 8 and 44M words, respectively), depending on the language community (for estimates, see Supplementary Section S1.). This means that Deep Speech 2 requires around 14 times more speech, and 240 times more words than what a four-year old Mayan child get. A recent time allocation study in the Tsimane community (Cristia et al., 2017) shows that the amount of child directed input may even be lower than the Maya yet by a factor of 3 (less than one minute of speech per waking hour). This shows that the human infant is equipped with a learning algorithm which enables him or her to learn language with very scarse data.
+
+## 5.3 Summing up.
+
+Machine learning has made progress to the point that 'cognitive services' (speech recognition, automatic translation, object and face recognition, etc.) are incorporated in everyday life applications. This means that one of the major road block for the reverse engineering approach, i.e. the feasibility of building language processing systems that can deal with realistic input at scale is now lifted. Instead of being locked with simplified data or toy problems, for the fist time, it becomes possible to address the bootstrapping problem in its full complexity, and derive quantitative developmental predictions along the way.
+
+Still, there are challenges ahead; current machine learning systems fail to provide models of infant acquisition, not because they discard or simplify the input, but because they use too much of it, both in sheer quantity and in adding extra inputs that the infant could not possibly get (linguistic labels). What needs to be done, therefore is to adapt some of the existing algorithms or construct new ones, so that they can learn with as few data as infants do. How far are we?
+
+
+================================================================================
+EXTRACTED ON: 2025-11-26 13:53:16
+================================================================================

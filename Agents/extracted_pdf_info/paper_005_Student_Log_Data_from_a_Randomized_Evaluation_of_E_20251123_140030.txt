@@ -1,0 +1,318 @@
+RESEARCH IDEA: Can ultra-long video essays replace traditional textbooks as a primary learning method for university students?
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: Student Log-Data from a Randomized Evaluation of Educational Technology: A Causal Case Study
+
+URL: https://arxiv.org/pdf/1808.02528v3
+
+ABSTRACT:
+Randomized evaluations of educational technology produce log data as a bi-product: highly granular data student and teacher usage. These datasets could shed light on causal mechanisms, effect heterogeneity, or optimal use. However, there are methodological challenges: implementation is not randomized and is only defined for the treatment group, and log datasets have a complex structure. This paper discusses three approaches to help surmount these issues. One approach uses data from the treatment group to estimate the effect of usage on outcomes in an observational study. Another, causal mediation analysis, estimates the role of usage in driving the overall effect. Finally, principal stratification estimates overall effects for groups of students with the same "potential" usage. We analyze hint data from an evaluation of the Cognitive Tutor Algebra I curriculum using these three approaches, with possibly conflicting results: the observational study and mediation analysis suggest that hints reduce posttest scores, while principal stratification finds that treatment effects may be correlated with higher rates of hint requests. We discuss these mixed conclusions and give broader methodological recommendations.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## Student Log-Data from a Randomized Evaluation of Educational Technology: A Causal Case Study
+
+Adam C Sales 1 and John F Pane 2
+
+1
+
+University of Texas, Austin, TX 2 RAND Corporation, Pittsburgh, PA
+
+September 11, 2020
+
+## 1 Introduction
+
+From 2007 through 2010, the RAND corporation conducted one of the first effectiveness trials awarded through competitive grant programs sponsored by the US Department of Education's Institute of Education Sciences. The randomized controlled trial (RCT) was designed to estimate the effect of school-wide adoption of the Cognitive Tutor Algebra I (CTA1) curriculum, whose centerpiece is a computerized 'tutor' that uses cognitive science principles to teach Algebra I [Anderson et al., 1985]. The study [Pane et al., 2014] found no effects in its first year, but in the second year of implementation students in high schools randomized to the CTA1 condition outperformed the control group on the posttest by a fifth of a standard deviation. As educational technology (EdTech) booms, so do RCTs in the mold of the RAND CTA1 study. A recent systematic review [Escueta et al., 2017] cites 29 published reports of RCTs of 'computer assisted learning' programs, all but one of which was published since 2001. We are aware of numerous other such RCTs planned or ongoing.
+
+RCTs are invaluable tools for estimating these programs' efficacy. However, the interventions they study are highly multifaceted and complex. Each classroom, and each student within those classrooms, may use an EdTech application in a different way; presumably, the application's efficacy depends on these usage decisions. Similarly, EdTech applications often include a number of optional features-to what extent do each of these drive the program's effectiveness? The data collected during typical education RCTs-data
+
+on treatment assignments, outcomes, a standard set of demographics, and possibly a pretest-offer limited options for studying treatment effect heterogeneity, and offer no information on how the intervention was implemented.
+
+However, with little extra effort, researchers studying EdTech can gather rich implementation data over the course of an RCT. For instance, the software administrators running the CTA1 RCT gathered computer log data for students in the treatment group. They assembled a dataset that recorded which problems each student worked, along with timestamps, the numbers of hints requested, and the number of errors committed for each problem. Analogous log data is (or may be) collected from other EdTech RCTs. As one example, RAND recently completed an efficacy study of a different algebra tutoring system, ALEKS, and gathered student log data in order to study implementation.
+
+Analysis of log data from EdTech RCTs could, in principle, lead to insights on the relationship between implementation and effectiveness. Using log data, researchers could investigate how the product was actually implemented, as well as what aspects of implementation correlate with higher (or lower) treatment effects, or which features of the program drive its effects. For instance, Sales et al. [2016], Sales and Pane [2019a, 2020] investigated aspects of mastery learning with CTA1. An ongoing research project uses the ALEKS log data to study its instructional material: when students begin working on a particular topic in ALEKS, the system first presents instructional material, followed by problem solving activities, and then, if students are unsuccessful at solving the problems, more instructional material. Some students diligently read the initial instructional material while others skip it and dive directly into problem solving. Is skipping the material a productive strategy for students in terms of learning algebra, or should ALEKS be redesigned to prevent such skipping?
+
+Answering questions like these calls for new statistical tools, which must simultaneously surmount three challenges: first, implementation is not typically randomized, so the relationship between log data and outcomes is likely confounded. Second, log data is only gathered from students assigned to use the intervention, and not from the control group. Third, log datasets have a complex structure-often a large number of granular observations of several types gathered over the course of each student's engagement with the program.
+
+This paper will use log data from the CTA1 study-specifically, data on students' use of hints within the software-to illustrate three approaches to these challenges. We will attempt to answer two related questions: first, what is the role of the availability of hints in driving the overall CTA1 treatment effect? Second, can requesting hints more often lead to a larger treatment effect? The first approach we consider
+
+discards the control group, and analyzes hint-requesting in the treatment group as an observational study, using a matching design [c.f. Rosenbaum, 2002]. The second approach applies the framework of causal mediation analysis [VanderWeele, 2015, Hong, 2015, Imai et al., 2011] to estimate the role of hint-requesting in the overall CTA1 treatment effect. However, since students in the control group were unable to request hints, not all mediational estimands are identified, and estimation methods must be modified. Finally, we conduct a principal stratification analysis [Frangakis and Rubin, 2002] to learn if students requesting hints at different rates experienced different treatment effects.
+
+Our intention is to develop, demonstrate, and contrast these three approaches to modeling log data. A rich, and often polemic, literature surrounds principal stratification and mediation analysis [e.g. Rubin, 2004, VanderWeele, 2011, Pearl, 2011, Mealli and Mattei, 2012, VanderWeele, 2012]. VanderWeele [2008], Jo [2008] and others have given conditions under which certain principal stratification and mediational estimands coincide. Our contribution will build on this literature in two ways: first, by providing a detailed demonstration and comparison of matching, mediation analysis, and principal stratification on the same dataset, and second by focusing on the applicability of these three methods in the specific context of studying implementation data from an randomized experiment studying educational technology.
+
+The following section will provide background for the case-study, describing the CTA1 curriculum, the RAND study, and our focus on hints. The next three sections will present the observational study, causal mediation, and principal stratification, respectively. As it turns out, these analyses appear to give contradictory results-the observational study and mediation analysis estimate a negative effect of requesting hints, while the principal stratification analysis finds that students who requested more hints may have experienced larger overall treatment effects. Section 6 will contrast these findings (including a possible reconciliation), compare the three methods generally, and discuss how they may be applied to data from other educational technology RCTs. Section 7 will conclude.
+
+The R and Stan code used to for all of the analyses in the paper can be found in a github repository, https://github.com/adamSales/logDataCaseStudy .
+
+## 2 Case Study: The Role of Hints in the Cognitive Tutor Effect
+
+## 2.1 The Cognitive Tutor
+
+CTA1 is one of a series of complete mathematics curricula developed by Carnegie Learning, Inc., which include both textbook materials and an automated computer-based Cognitive Tutor [Anderson et al., 1995,
+
+Pane et al., 2014].
+
+The computerized tutor was originally built to test the ACT and ACT-R theories of cognition [Anderson, 2013]. These are elaborate theories that describe, among other things, the necessary components of cognitive skills in, say, mathematics or computer programming, and the process of acquiring those skills. The Algebra I tutor guides students through a sequence of Algebra I problems nested in sections within units, and organized by the specific sets of skills they require. Students move through the curriculum as the tutor's internal learning model determines that they have mastered the requisite skills.
+
+## 2.2 The Role of Hints 1
+
+Students using the Cognitive Tutor Algebra software work algebra problems on a computer. Each problem in the software is associated with a set of skills that the student must master in order to solve the problem. The software also specifies a 'solution path' for each problem-a sequence of actions (such as 'multiply both sides of the equation by 3') students must take in order to solve the problem. If there is more than one way to solve a problem, the software specifies multiple correct solution paths students may follow. As soon as a student errs in working through a problem-that is, departs from one of the solution paths-the software shows the student an error message. This feedback is tailored to the specific mistake, and designed to guide the student back to a correct solution path. Similarly, when a student gets stuck, and is unable to determine the next step in solving the problem, he or she can ask for a hint. Like the error feedback, these hints are tailored to the specific algebra skills corresponding to the next step on the solution path. Thus, hints and error feedback are crucial aspects of the tutor's pedagogy.
+
+There are good reasons to believe that the availability of hints-help on demand-may increase student learning, but there is also reason to be skeptical [See Aleven et al., 2016, for an overview of the theory]. First of all, as, e.g., Anderson et al. [1995] points out, 'if students never receive help of any sort, they are in danger of becoming permanently stuck on some problem' (p. 190). That is, hints give students who are stuck a way to continue working. Hints may also boost learning by 'helping students identify relevant features in problems' [Aleven et al., 2016, p. 6], that is, point students towards aspects of the problem that are 'most important for the goals of learning' [Koedinger et al., 2012, p. 782]. Hints can help improve students' self-awareness and problem-solving strategy, such as by clarifying which skills they have and have not mastered.
+
+Most problems are associated with several hints, arranged in a sequence so that a student who remains
+
+1 This subsection draws heavily on comments from an anonymous reviewer.
+
+stuck after one hint may request another. The last hint in the sequence will show a complete solution to the problem-essentially showing students a worked example, which can be an effective tool for learning [e.g. Sweller and Cooper, 1985].
+
+On the other hand, all of these theoretical mechanisms rely on students to play their part. In order for hints to be instructive, students need to reflect on their content in productive ways. This suggests that hints may be helpful for some students but not for others. In the same vein, hints need to be well-designed in order to be effective [McKendree, 1990], so some hints may be more helpful than others.
+
+Hints may even be harmful: as Koedinger and Aleven [2007] put it (p. 241), 'many lines of research and theory suggest the importance of . . . withholding information from students so that they can exercise, test, or reason toward new knowledge on their own.' Paas and Van Merri¨ enboer [1994] interpret this dilemma in terms of balancing 'cognitive load,' that is, optimally allocating a student's attention to the most relevant aspects of a problem.
+
+The empirical literature on the value of hints in intelligent tutors is mixed [see Goldin et al., 2012, for a summary]. Anderson et al. [1995] compared the performance of students randomly assigned to different versions of the Cognitive Tutor with different feedback structures, and found that students who were able to request hints finished the lesson faster than those who were not, but could not detect an effect on learning. Singh et al. [2011] used a similar design, comparing two versions of the ASSISTments intelligent tutor, one in which hints and immediate error messages were available, and one which did not provide feedback. Students in the feedback condition showed larger gains on a posttest, though it is unclear whether these gains were due to hints or error feedback. Beck et al. [2008] and Goldin et al. [2012], did not randomize hint availability, but instead used statistical models to control for observed confounding. Both papers used students' subsequent performance within the tutor to estimate hint effects. Beck et al. [2008] found conflicting results using different analytical methods to control for confounding. Goldin et al. [2012] investigated two sources of heterogeneity in the effect of a hint request: by student and by the 'level' of the hint (the first, second, or final hint available for a given problem). They found that the effect of asking for a hint varies between students, but on average it is negative for the first two hints requested on a problem, but positive for the final hint.
+
+## 2.3 Measuring Hint Usage in the CTA1 Data
+
+Since the purpose of the CTA1 study was to estimate the overall effect of the CTA1 curriculum-including the associated textbook and recommended classroom practices-access to the full CTA1 curriculum was
+
+randomized, rather than any specific aspect of usage. Effectiveness was measured with a standardized posttest covering a broad range of Algebra I skills. In this regard, the CTA1 study is similar to other large-scale evaluations of educational technology which do not randomize usage but do include a posttest.
+
+The CTA1 study was of a much longer duration than any of the studies of hint effects we are aware of: students had access to the tutor for an entire school year before the posttest. This factor allows for much more data for each student than shorter studies, as well as more variability in the types of problems and contexts in which students may request hints.
+
+In order to align with our research focus, we narrow the type of hint data we model. Since our posttest measured Algebra I skills, we only considered worked problems from the Algebra I curriculum. Next, although Goldin et al. [2012] demonstrated the importance of hint level, our focus is on the overall average effect of requesting any hints; therefore, the variable measuring a student's hint request on a problem was set to one if the student requested any hints on that problem, and zero otherwise.
+
+Lastly, any observational study of hint usage must contend with the fact that students are unlikely to request hints on problems that they already know how to solve. Hence, any measure of hint usage is necessarily also a measure of student ability-students who know more algebra will almost certainly request fewer hints. This leads to two related problems: first, student ability confounds any statistical relationship between hint request frequency and posttest scores. Secondly, a student's decision to request a hint implies both that she found the problem at least somewhat difficult, and that, in this case, she responded to that difficulty by requesting a hint. Our interest is in the second implication, not the first. Conversely, the significance of a student's decision to forgo a hint depends in part on how challenging he or she finds the problem. Hint request frequency combines students' hint requests (or non-requests) from both problems they find challenging and trivial, so is a poor measure of students' disposition to use the hint feature.
+
+Ideally, we would solve this problem by only including data on problem-student pairs in which the problem was challenging to the student. Of course, no direct measure of problem challenge is available. Instead, we considered a problem to be challenging if the student either requested a hint or made an error on that problem. Then, let
+
+| ¯ h i   | # problems on which i requested a hint on which i either requested a hint or made   |
+|---------|-------------------------------------------------------------------------------------|
+
+measure hint frequency.
+
+This measure is inversely related to the ratio of the percentage (of all problems) a student makes an error
+
+without having requested a hint, to the percentage of problems a student requests a hint. 2 Making an error on a problem without having requested a hint reflects a hesitance to request a hint when one might have been warranted (or a careless mistake). ¯ h ignores the class of challenging problems on which students are challenged and figure the answer out (or guess correctly) without requesting a hint. This class of problems is inherently interesting to our question; however, it is unidentified.
+
+## 2.3.1 Dichotomizing Hint Usage
+
+The observational study and mediation analysis below require a dichotomous measurement of hint usage: is a student a high or low hint user? To this end, we dichotomize ¯ h by comparing it to a cutoff value, so that H i = 1 [ ¯ h i &gt;c ] , where 1 [ x ] = 1 if x is true and 0 otherwise.
+
+To choose c , we first fit a modified Rasch mixture model [Rasch, 1993] to hint request data. Specifically, we modeled the probability of at least one hint request in each problem p , worked by student i , in which i requested a hint and/or committed an error, as
+
+<!-- formula-not-decoded -->
+
+where h ip is the event that student i requests at least one hint on problem p , η i is a student parameter, δ s [ p ] is a section-level parameter for s [ p ], the section that problem p was drawn from, and logit -1 ( x ) = { 1+ exp ( -x ) } -1 is the inverse logit function.
+
+Typically, the student parameter η i measures student ability; here, instead, it measures a student's proclivity to request a hint. The typical Rasch model includes a problem-level 'difficulty' parameter; here, it would measure the likelihood an individual problem elicits a hint request. That parameter is important in our context because the specific problems a student works on may influence his or her hint requests. For instance, two students with the same underlying proclivity to request hints η may actually differ in their observed hint requests, because one worked on harder problems than the other. However, in our dataset many problems were worked by very few students, so problem-level parameters would be hard to estimate. Instead, we included the section-level parameter δ s [ p ] , which measures the extent to which students tend to request hints on problems in section s . Ignoring the differences between problems within a section could allow for wider variance in the average problem difficulty each student experiences than is captured by the section level parameters δ s [ p ] . That could, in turn, induce a difference in hint requests between two students
+
+2 Technically, if h is the event that a student requests a hint on a problem and e is the event that the student makes an error, then Pr ( h | h or e ) = 1 / { 1 + Pr ( e and not h ) /Pr ( h ) } .
+
+with similar η or vice-versa, and lead to bias in our estimate of η . Since the Cognitive Tutor selects problems for students based on estimates of their current skill mastery [Fancsali et al., 2020], this possibility is not out of the question.
+
+With even more granular data, (1) could be further elaborated, avoiding this assumption. In the Cognitive Tutor, problems often have multiple parts, and each part offers its own hints. Researchers in possession of data on each part of each worked problem could specify a model at the part-level, instead of at the problemlevel like (1). Perhaps an even better option (suggested by an anonymous reviewer) would incorporate data on the specific skills required to solve each problem. While sections of the tutor differ from each other in the skills they teach, not every problem in each section includes the same set of skills; different problems requiring the same skill set will be similar in difficulty [Goldin et al., 2012, Pavlik Jr et al., 2009, see, e.g.].
+
+In order to dichotomize hint request behavior, we modeled student effects η as
+
+<!-- formula-not-decoded -->
+
+and constrained µ 0 &lt; µ 1 . This mixture model clusters students into two categories: high hint users have η drawn from a normal distribution with mean µ 1 and standard deviation σ 1 , and low hint users have η drawn from a normal distribution with mean µ 0 and standard deviation σ 0 .
+
+Our main parameter of interest here is p 0 , the proportion of students who are low hint users. We estimated p 0 ≈ 0.7, classifying 30% of students as high hint users, so we chose c as the 70th percentile of ¯ h , approximately 0.6. This definition agreed with the model's classification (based on η as opposed to ¯ h ) in approximately 93% of cases.
+
+The Rasch model for hint usage (1), but not the mixture model (2) will play an important role in the principal stratification analysis of Section 5.
+
+## 2.4 Data
+
+[Pane et al., 2014] estimated effects separately in middle schools and high schools in each year of implementation; the only statistically significant treatment effect was in the high school sample in the second year. Since our goal was to better understand the CTA1 treatment effect, we focused our analysis on data from high school students in the second year of the CTA1 trial, for whom the treatment effect was most evident.
+
+We merged data from two sources: computerized log data gathered by Carnegie Learning, and covariate, treatment and outcome data gathered by RAND.
+
+The log data lists the problem name, section, and unit of each problem, the numbers of hints requested and errors committed, and time-stamps. Log data were missing for some students, either because the log files were not retrievable, or because of an imperfect ability to link log data to other student records. Further, log data for sections that were not part of the standard CTA1 Algebra I curriculum and sections worked by fewer than 100 students were omitted from the dataset. 3
+
+To construct our analysis dataset, we first dropped treatment schools with log data missing for 90% or more students. Prior to randomization, schools were stratified into pairs or triples based on baseline covariates, and randomized between treatment and control condition within those randomization blocks. When we dropped a treatment school from our analysis, we also dropped the control schools in its randomization block. Of the remaining 2,390 students, 88% (2,108) had log data. Then, for the sake of simplicity, the treatment students without log data were dropped from the study. 4
+
+All told, the analyses presented here were all based on 2,108 students assigned to the CTA1 condition; the estimation of direct effects in Section 4 and the principal stratification also relied on the 2,918 students assigned to control. Together, the 5,026 students were nested within 116 teachers, in 43 schools across five states.
+
+Table 1 describes the covariates we used, including missingness information, control and treatment means, and standardized differences [c.f. Kalton, 1968] from the final analysis sample. We singly-imputed missing values with the Random Forest routine implemented by the missForest package in R [Stekhoven and Buehlmann, 2012, R Core Team, 2016], which estimated 'out of box' imputation error rates as part of the random forest regression, also shown in Table 1.
+
+3 The principal stratification model was re-run without dropping sections, and after dropping sections worked by fewer than 500 students, with similar results.
+
+4 Including these students in a principal stratification model is straightforward [Sales and Pane, 2019a]. Including subjects with missing log data in a mediation or observational study design can be more problematic [see, e.g. Li and Zhou, 2017].
+
+Table 1: Missingness information, control ('BaU' or 'Business as Usual') and treatment ('CTA1') means, and balance for the covariates included in this study, from the high school year two stratum of CTA1 Effectiveness experiment. Imputation error is percent falsely classified for categorical variables (Race/Ethnicity, Sex, and Special Education) and standardized root mean squared error for Pretest, which is continuous. Analysis done in R via RItools [Bowers et al., 2017].
+
+|           | % Miss.   |   Imp. Err. | Levels                                   | BaU         | CTA1        | Std. Diff.       |
+|-----------|-----------|-------------|------------------------------------------|-------------|-------------|------------------|
+| Grade     | 3%        |        0.01 | 9th > 9th                                | 91% 9%      | 90% 10%     | -0.04 0.04       |
+| ELL       | 4%        |        0.01 | No Yes                                   | 95% 5%      | 96% 4%      | 0.09 -0.09       |
+| FRL       | 29%       |        0.29 | No Yes                                   | 26% 74%     | 27% 73%     | 0.02 -0.02       |
+| Ethnicity | 6%        |        0.23 | White/Asian Black/Multi Hispanic/Nat.Am. | 47% 32% 21% | 52% 26% 22% | 0.16 -0.14 -0.03 |
+| Sex       | 5%        |        0.35 | Female Male                              | 51% 49%     | 49% 51%     | -0.04 0.04       |
+| Sp. Ed.   | 1%        |        0.11 | Typical Sp. Ed. Gifted                   | 87% 8% 5%   | 86% 8% 6%   | -0.00 -0.02 0.03 |
+| Pretest   | 16%       |        0.2  |                                          | -0.33       | -0.36       | -0.05            |
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## 3 An Observational Study Within an Experiment
+
+How does requesting hints within CTA1 affect learning? More precisely, would low hint users have achieved higher posttest scores had they requested hints more often? Would high hint users have achieved higher posttest scores had the requested hints less often?
+
+This section will illustrate an observational study to answer these questions. Generally speaking, the observational study approach discards the control group entirely and uses statistical confounder control (in our case, propensity score matching) to estimate causal effects of a usage parameter on posttest scores. Implementing the method requires data from members of the treatment group: usage (in our case, H ), posttest scores or another outcome of interest, and a set of baseline covariates to control for confounding. Since the control group is not used, identification does not depend on randomization-in fact, this same approach could be (and is) used with non-experimental data. However, outside of a planned experiment, posttest scores may not be available. Our usage variable H is binary, which is necessary for classical propensity score matching; alternative methods are available for usage variable that are continuous [e.g. Hirano and Imbens, 2004], ordered [e.g. Leon and Hedeker, 2005], categorical [e.g. Lopez et al., 2017] or other types. Like all observational studies, it depends on the strong, untestable assumption of no unmeasured
+
+confounding.
+
+The approach we take here, following Rosenbaum [2002], Hansen [2011], and Ho et al. [2007], has three broad steps. In the first, we construct a 'match,' identifying groups of students, some of whom have H = 0 and others with H = 1, but who are otherwise comparable. The hope is that the distribution of H conditional on this match resembles what might have been seen if (counterfactually) H had been randomized within matched groups. Thus we evaluate the success of the match by checking if matched students have similar baseline covariate distributions; if necessary, we may revise match. In the second step, we estimate the average effect of H on posttest scores, by comparing posttest scores between matched students with H = 1 and H = 0. In the third and final step, we account for the possibility of unmeasured confounding in a sensitivity analysis.
+
+The next subsection will give more formal background on propensity score matching, including notation and identification assumptions. Following subsections will illustrate each of the three steps of propensity score matching.
+
+## 3.1 Observational Study: Background
+
+Let Y i represent subject i 's posttest score, and let Z i represent i 's treatment status (i.e. the CTA1 or control group). Following Neyman [1923] and Rubin [1978], let Y i ( Z = 1) be the posttest score student i would achieve were i (perhaps counterfactually) assigned to the treatment condition, and Y i ( Z = 0) the score were i assigned to control. Then the CTA1 treatment effect for student i is Y i ( Z = 1) -Y i ( Z = 0). For students in the treatment group, define potential outcomes Y i ( Z = 1 , H = 1) and Y i ( Z = 1 , H = 0), or Y i ( H = 1) and Y i ( H = 0) for short, corresponding to i 's posttest score were H i = 1 or 0, respectively. Then the effect of H on Y for student i is Y i ( H = 1) -Y i ( H = 0). This structure implicitly assumes 'non-interference,' that one student's treatment assignment Z or hint proclivity H does not affect another student's posttest scores.
+
+Individual treatment effects are (typically) unidentified, since only one of the relevant potential outcomes is ever observed for each subject. For instance, Y ( H = 1) is unobserved for members of the treatment group with H = 0. If Pr ( H i = 1) were known for each i , and bounded away from 1 and 0, (as would be the case if H were randomized) then the average treatment effect (ATE) of H on Y , E [ Y ( H = 1)] -E [ Y ( H = 0)], could be estimated without bias or further assumptions. Of course, the distribution of H i is unknown, and is presumably a function of i 's individual characteristics (which, as we shall see, differed at baseline between those students with H = 1 and those with H = 0).
+
+Let x i represent a vector of baseline covariates for subject i . In our study of hints, x includes indicators for state, school, and classroom, and the variables described in Table 1. Then we assume [c.f. Rosenbaum and Rubin, 1983]:
+
+## Assumption: Strong Ignorability .
+
+<!-- formula-not-decoded -->
+
+that conditional on x , potential outcomes Y ( H = 1) and Y ( H = 0) are independent of realized H . Under strong ignorability, one may compare subjects with identical covariates x to estimate causal effects.
+
+Unfortunately, this sort of exact matching is impossible in our finite sample. Instead, we estimated 'propensity scores' [Rosenbaum and Rubin, 1983]:
+
+<!-- formula-not-decoded -->
+
+the probability of a treatment-group subject requesting frequent hints, conditional on his or her covariate vector x . Rosenbaum and Rubin [1983] shows that conditioning on π is equivalent to conditioning on x . We estimated π using a multilevel logistic regression, using the lme4 package in R [Bates et al., 2015]. The propensity score model was:
+
+<!-- formula-not-decoded -->
+
+where ˜ x is a vector of covariates including the variables in Table 1, missingness indicators for grade, race, sex, and economic disadvantage, and a natural spline with five degrees of freedom for pretest. State, school, and class were each included using normally distributed random intercepts, glyph[epsilon1] state , glyph[epsilon1] school , and glyph[epsilon1] class .
+
+## 3.2 Constructing and Evaluating a Match
+
+We constructed an optimal full matching design [Hansen, 2004] to condition on estimated propensity scores ˆ π using the optmatch package in R [Hansen and Klopfer, 2006]. We matched H = 0 subjects to H = 1 subjects in such a way as to minimize the overall distance between subjects in matched sets in the logittransformed propensity scores, logit (ˆ π ). We constrained the match so that students could only be matched within schools, since schools determine a number of factors that in turn may impact posttest scores, including baseline student characteristics, pedagogical styles, and CTA1 usage patterns [see Israni et al., 2018]. Each
+
+matched set was allowed to contain any positive number of H = 1 and any positive number of H = 0 subjects, resulting in matches of variable size and composition. For instance, one matched set included 44 H = 1 subjects matched to a single H = 0 subject, and another matched 117 H = 0 subjects to a single H = 1 subject.
+
+This strategy allowed every student in the CTA1 arm our dataset to be included in the match. In contrast, many matching studies discard subjects in the data sample with estimated propensity scores close to 1 or 0, focusing on the 'region of common support' [e.g. Caliendo and Kopeinig, 2008, Shadish and Steiner, 2010]. Doing so requires modifying the causal estimand-studies can only estimate the ATE for included subjects and those who resemble them. We chose, instead, to include every subject in order to simplify the mediation analysis in the following section, and validated the match by inspecting covariate balance. This came at the cost of imprecision in estimating the overall ATE, which we discuss in more detail below.
+
+Figure 2 and Table 4 in the online appendix show that matching largely eliminated mean differences in pre-treatment covariates between H = 1 and H = 0 students. The only notable exception is in pretest scores: H = 1 students tended to have slightly higher pretest scores than their matched comparisons with H = 0. The p-value from an omnibus covariate balance test [Hansen and Bowers, 2008] is 0.39.
+
+## 3.3 Estimating the Effects of H on Posttest Scores
+
+Let M i be a categorical variable denoting the matched set that i belongs to. Then we may re-state the ignorability condition with reference to this match [c.f. Sales et al., 2018]:
+
+## Assumption: Matched Ignorability .
+
+<!-- formula-not-decoded -->
+
+Under matched ignorability, the difference of mean outcomes between H = 1 and H = 0 students within each match is unbiased for the average treatment effect for students in that match. In other words, if τ m = Y ( H = 1) -Y ( H = 0) is the average effect in match m , then ˆ τ m = ¯ Y M = m,H =1 -¯ Y M = m,H =0 is an unbiased estimate of τ m , where ¯ Y M = m,H = h is the average observed outcome for subjects in match m with hint level h ∈ { 0 , 1 } .
+
+Weighted means of those estimated treatment effects, of the form
+
+<!-- formula-not-decoded -->
+
+estimate aggregate treatment effects in the sample. To estimate the average effect of H for all subjects, set w m = n 1 m + n 0 m , where n 1 m and n 0 m are the number of H = 1 and H = 0 subjects in match m , respectively. Alternatively, setting w m = n 1 m estimates the the 'treatment on the treated,' or TOT, effect-the average effect of H on those subjects for whom H = 1. Weights w m = (1 /n 1 m +1 /n 0 m ) -1 are 'OLS' or 'precision' [c.f. Schochet et al., 2015]; the estimate using these weights is equal to the coefficient on H from an ordinary least squares (OLS) regression of Y on H and a set of dummy variables for M . Under standard OLS assumptions, precision weights minimize the standard error of the weighted mean estimator.
+
+Table 2 gives treatment effect estimates, standard errors, and confidence intervals under these three weighting schemes. All three sets of standard errors and confidence intervals used the heteroskedasticityrobust 'HC3' sandwich estimator [Zeileis, 2004]. The three estimates all roughly agree that being a high hint user decreases posttest scores by around 0.15 standard deviations. That is, they suggest that requesting hints hurts posttest scores.
+
+The similarity of the three estimates boosts our confidence, if only slightly. The ATE and TOT estimates refer to different groups of students-ATE estimates an average effect for the entire treatment group, whereas TOT estimates an effect for high hint users. Had these been very different, one might wonder why the effect of hint requests varies so much between high and low hint users, and if that suggests selection bias. The OLS estimate downweights matched sets with many more H = 1 than H = 0 students or vice-versa, relative to matched sets with several of both. (Recall that such imbalanced matched sets were the result of the decision to include every subject in the analysis.) It is larger in magnitude and much less noisy than the other two estimates.
+
+Table 2: Estimates, standard errors, and sensitivity analysis of the weighted average effect of hint usage on posttest scores, under different weighting schemes.
+
+|         |          |            | CI            | Sensitivity Intervals   | Sensitivity Intervals   |
+|---------|----------|------------|---------------|-------------------------|-------------------------|
+| Weights | Estimate | Std. Error |               | [Pretest]               | [Ethnicity]             |
+| OLS     | -0.18    | 0.04       | [-0.25,-0.10] | [-0.41,0.06]            | [-0.30,-0.05]           |
+| ATE     | -0.12    | 0.05       | [-0.23,-0.02] | [-0.45,0.20]            | [-0.29,0.04]            |
+| TOT     | -0.14    | 0.06       | [-0.25,-0.03] | [-0.47,0.19]            | [-0.31,0.03]            |
+
+## 3.4 Sensitivity Analysis: Assessing the Role of Unmeasured Confounding
+
+None of these estimates addressed the possibility of confounding from unmeasured covariates; instead, they relied on matched ignorability. To account for the possibility of unmeasured confounding, we conducted a sensitivity analysis following the method of Hosman et al. [2010]. This method imagines a hypothetical
+
+missing covariate U and estimates how the the omission of U alters the estimate and its standard error. The result is a 'sensitivity interval' [c.f. Rosenbaum, 2002] that, with 95% confidence, contains the true effect accounting for both sampling uncertainty and uncertainty due to possible confounding. U is characterized by two sensitivity parameters: ρ 2 is the squared partial correlation between U and Y , after accounting for the observed covariates in the model, and T Z is the t-statistic for the coefficient on U from an ordinary least squares regression of H on U and the observed covariates. These sensitivity parameters may be benchmarked by estimating their counterparts when observed covariates are left out of the model.
+
+The last two columns of Table 2 give sensitivity intervals for each of the three weighted average treatment effects. The column of Table 2 labeled '[Pretest]' accounts for the possible omission of a covariate U that, at most, predicts Y and H as well as do pretest scores. The resulting sensitivity intervals are quite wide, including both large negative effects as well as substantial positive effects. In fact, pretest is the most important of our observed covariates; it is the observed covariate whose omission would cause the most bias. This is unsurprising, since pretests are generally considered to be the most important covariate to measure, and studies that include pretest measures often reproduce experimental estimates [e.g. Cook et al., 2008, 2009]. Therefore, a sensitivity analysis considering an omitted covariate as important as pretest scores may be too pessimistic. On the other hand, it is likely that pretest scores do not fully capture between-student variance in academic ability; that is, there may be important components of prior ability (such as the ability to learn algebra) that are correlated with hint requests and posttest scores but not reflected in pretest scores. Hypothetical measurements of these components could, perhaps, constitute unobserved covariates with similar or greater importance than observed pretest scores.
+
+A more optimistic scenario is reflected in the final column of Table 2. That column gives sensitivity intervals for the omission of a covariate that, at most, predicts Y and H as well as ethnicity dummy variables, the second most important of our observed covariates. These sensitivity intervals are also wide, but the interval corresponding to OLS weights is entirely negative.
+
+The conclusion is that the omission of a confounder as important as ethnicity indicators cannot explain the estimated OLS-weighted ATE. Allowing for the possible omission of such a covariate, the results suggest that requesting a large number of hints hurts students' posttest scores. The size of the effect may be as small as 5% of a standard deviation or as large as 30% of a standard deviation.
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## 6 Comparing Strategies
+
+In the case discussed here, the observational study and mediation approaches appear to give the opposite conclusion from principal stratification-matching and mediation suggest that excessive hint requests hurt students' posttest scores, while principal stratification suggests that students who request more hints may experience higher treatment effects. This section will compare and contrast the three methods in terms of their necessary identification assumptions, their model fitting mechanics, and interpretation of their results.
+
+The fundamental difference between the observational study and mediation approach, on the one hand, and principal stratification on the other, is in the role of H , the intermediate variable. An observational study
+
+or mediation analysis treats H as a causal agent, an intervention or exposure that affects Y . In mediation analysis, it is also an (intermediate) outcome, affected by Z . The approach of principal stratification is quite nearly opposite: H is not an exposure, that 'happens to' subjects, but rather its potential value H (1) is a characteristic of the subjects. Observed H reveals what was there all along.
+
+## 6.1 Causal Identification
+
+Observational studies, and mediation analyses that build on them, require ignorability assumptions such as Strong Ignorability or Matched Ignorability. These may be particularly problematic in our study, since students who are more likely to request hints are also more likely to struggle with the material. We addressed this concern in three ways: first, we focused our attention on the set of problems in the tutor in which students either requested a hint or made an error, second, with propensity score matching, and third with sensitivity analysis. None of these approaches is bulletproof-they each require further assumptions about how students request hints. Eliminating problems in which students showed no signs of struggling is likely to reduce the association between hint requests and underlying academic ability, but not eliminate it. For instance, stronger students may be better able to figure out a difficult problem without access to hints or error feedback than weaker students. Matching depends both on the adequacy of the observed covariates to capture baseline differences between H = 0 and H = 1 students, and the sensitivity analyses we performed assumed that any un-measured covariate would predict H and Y no better than pretest or ethnicity indicators, respectively. These assumptions are impossible to verify from the data at hand; instead, judging their plausibility requires a keen understanding of student practice within the tutor.
+
+Mediation analysis builds on the matching design, and requires the same ignorability assumption; it must additionally overcome the hurdle of the almost complete lack of overlap between hint request behavior in the control group (i.e. zero) and in the treatment group. Under our approach of dichotomizing hint request behavior, mediation analysis is essentially a way to interpret the results of the observational study in the context of the full RCT.
+
+In contrast, no ignorability assumptions are necessary for principal stratification. However, principal stratification estimators require modeling assumptions-most problematically, p ( Y | x , Z = 0 , θ , η (1)) of (7), the model for Y (0) conditional on η (1), x , and parameters θ . While any model specification can, and should, be checked against observed data, this process can only narrow the space of acceptable models, it cannot be used to determine the correct form of p ( Y | x , Z = 0 , θ , η (1)). This is because Y (0) and η (1) are never observed simultaneously. Therefore, it is possible for an analyst to misspecify p ( Y | x , Z = 0 , θ , η (1)), such that
+
+principal effect estimates are severely biased, without being able to detect the model misspecification with the data. That is, the data will typically be unable to distinguish between alternative p ( Y | x , Z = 0 , θ , η (1)) models that lead to qualitatively different conclusions. In practice, we make the untestable assumption that p ( Y | x , Z = 0 , θ , η (1)) is of the same form as p ( Y | x , Z = 1 , θ , η (1)).
+
+An additional contrast of note between matching-based studies and principal stratification relates to transparency. However complex the process of devising a match may be, the resulting design is simple and clear-subjects with H = 1 are compared against matches with H = 0. This transparency may help researchers assess the plausibility of the match, and diagnose potential problems with resulting estimates. Though principal stratification does not depend on ignorability, it does depend on a highly intricate and parametric modeling structure. If any part of the model is sufficiently misspecified, the results may be wrong. Perhaps worse, Feller et al. [2016a] argued that even well-specified models can give severely biased estimates. Extensive model interrogation and checking is necessary for principal stratification analysis, but the complexity of the principal stratification model makes this process particularly difficult. Sales and Pane [2019a] gives some examples of potentially fruitful model checking procedures, which are also carried out in the online supplement.
+
+## 6.2 Results and Interpretation
+
+Our observational study suggested that hint requests have a negative effect: students who requested hints more often than the 70th percentile score lower on the posttest, after controlling for observed covariates. Taken at face value, this suggests that the optimal strategy is to request few, if any, hints. However, this conclusion assumes that there were no omitted confounders. An omitted confounder that is as important as pretest could explain the relationship, but an omitted confounder as important as ethnicity-our second most important covariate-could not (so long as we estimate an OLS-weighted average effect).
+
+Mediation analysis essentially interprets the observational study result in terms of the overall CTA1 treatment effect. Specifically, the analysis in 4 showed that CTA1 affected students' posttest scores in (at least) two opposite ways: by allowing hints, it lowered their posttest scores, but its other mechanisms increased their scores by an even greater amount.
+
+The principal stratification analysis also found a negative correlation between hint requesting and posttest scores. Those students who request more hints are those who need more help of some form, and tend to score lower on the posttest. Fortunately, the principal stratification analysis also suggests (with probability 0.75) that these students may benefit more from CTA1 than their peers who request fewer hints. However,
+
+it is unclear whether their larger treatment effects are due to their higher rate of hint requests, or to some other related characteristic.
+
+Can these three sets of results be reconciled? Does requesting hints help or hurt? Technically, principal stratification has nothing to say about the effect of hintsη (1) is modeled as a student characteristic, not an intervention. (See Jin and Rubin 2008 for a nice discussion of this point.) Still, doesn't the correlation between treatment effects and hint requests suggest that hints may be beneficial? Does that contradict the results in Sections 3 and 4 that hints requests lower students' posttest scores? In fact, the results of the three methods can be reconciled. For instance, it may be that requesting hints indeed lowers test scores-a negative indirect effect-but that those students who are likely to request more hints also tend to experience greater direct effects. That is, it may be that the observational and mediational results are correct-that requesting hints lowers test scores-but that the principal stratification results are also correct-students who request more hints tend to experience higher treatment effects, due to other mechanisms. (Of course, the data are also consistent with the possibilities that the relationship between hint requests and treatment effects is negative, or close to zero, in which case there is less that needs to be explained.)
+
+## 6.3 Choosing Between Methods
+
+The previous discussion suggests three criteria for choosing between the three approaches we've discussed here. First is the question the researcher seeks to answer. In their most straightforward interpretations, principal stratification is a method for examining treatment effect heterogeneity (are students benefiting differently?), whereas mediation analysis is a method for assessing causal mechanisms (is the wide availability of hints in CTA1 beneficial to students?). That said, principal stratification may also shed light on potential causal mechanisms-if, indeed, treatment effects are higher for students who request more hints, then hints may play a role in the tutor's effectiveness.
+
+A second criterion is the researcher's willingness to make ignorability assumptions. A researcher's confidence in her understanding of a data generating process and the quality of observed covariates can translate into confidence about the results of an observational study or mediation analysis. Conversely, researchers unwilling to consider untestable ignorability assumptions will find principal stratification an attractive alternative.
+
+The final criterion is a researcher's comfort with complex statistical models. Researchers who are able and willing to experiment with a range of models for a dataset, and perhaps devise tests of model fit tailored to a specific problem, may be more confident in the fit of a principal stratification model. Researchers who
+
+prefer transparency and non-parametric or semi-parametric analysis may prefer matching studies.
+
+Additional philosophical concerns come in to play as well. For instance, unlike observational studies and principal stratification, mediation analysis depends on strictly counterfactual quantities, such as Y (0 , H (1)), that can never occur. Analogous quantities in principal stratification, such as E [ Y (0) | η (1)] are unobservable, but nevertheless refer to averages of potential outcomes among actual experimental subjects. These concerns are important but beyond the scope of the current paper; for more discussion, see the citations in the introduction.
+
+In summary: there is much to recommend the observational study approach if risks of confounding bias appear limited (due to the availability of high-quality covariates, good reason to believe variation in implementation is random or haphazard, or other factors). A wide variety of straightforward and transparent estimation techniques are available, such as the propensity score matching illustrated here. The result-the ATE of implementation on the outcome-is an intuitive estimand.
+
+When employed, mediation analysis can contextualize the estimated implementation effect from the observational study in terms of the experiment's overall treatment effect, enabling implementation to be interpreted as a causal mechanism.
+
+However, where unobserved confounding is a serious threat, and complex statistical modeling (and model checking) is not a practical barrier, principal stratification may be a better choice because no ignorability assumptions are necessary.
+
+Of course, there are approaches to modeling implementation beyond the three considered here. For instance, principal stratification based on non-parametric bounding [Miratrix et al., 2017] or randomization inference [Nolen and Hudgens, 2011] would avoid the parametric assumptions of model-based principal stratification, as would a standard moderation analysis based on predicted implementation, ˆ η (1) instead of partially observed η (1). We hope that future work will develop these methods, and still others.
+
+
+================================================================================
+EXTRACTED ON: 2025-11-23 14:00:30
+================================================================================

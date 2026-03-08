@@ -1,0 +1,91 @@
+RESEARCH IDEA: Can AI-generated imaginary languages improve memory retention compared to natural languages?
+
+================================================================================
+PAPER INFORMATION
+================================================================================
+
+TITLE: Studies with impossible languages falsify LMs as models of human language
+
+URL: https://arxiv.org/pdf/2511.11389v1
+
+ABSTRACT:
+According to Futrell and Mahowald [arXiv:2501.17047], both infants and language models (LMs) find attested languages easier to learn than impossible languages that have unnatural structures. We review the literature and show that LMs often learn attested and many impossible languages equally well. Difficult to learn impossible languages are simply more complex (or random). LMs are missing human inductive biases that support language acquisition.
+
+================================================================================
+SELECTED HEADINGS AND EXTRACTED CONTENT
+================================================================================
+
+
+------------------------------------------------------------
+SECTION 1
+------------------------------------------------------------
+
+## Studies with impossible languages falsify LMs as models of human language
+
+Jeffrey S. Bowers, School of Psychology and Neuroscience, University of Bristol
+
+Jeff Mitchell, School of Engineering and Informatics, University of Sussex
+
+Commentary on Futrell, R., &amp; Mahowald, K. (in press). How linguistics learned to stop worrying and love the language models. Behavioural and Brain Sciences.
+
+
+------------------------------------------------------------
+SECTION 2
+------------------------------------------------------------
+
+## Abstract
+
+According to Futrell and Mahowald (F&amp;M) , both infants and language models (LMs) find attested languages easier to learn than 'impossible languages' that have unnatural structures. We review the literature and show that LMs often learn attested and many impossible languages equally well.  Difficult to learn impossible languages are simply more complex (or random).  LMs are missing human inductive biases that support language acquisition.
+
+The speed with which infants learn languages is a core challenge for models of human language acquisition.  Chomsky's hypothesis is that humans have an inductive bias, a 'Universal Grammar' (UG), that not only constrains the linguistic structures of all attested languages, but also, allows children to learn quickly.  By contrast, language models (LMs), such as ChatGPT, lack human-like priors, and consequently, they display just the opposite profile, namely, they learn 'impossible languages' that violate UG just as easily as attested ones (Mitchell &amp; Bowers, 2020), and at the same time, require training on many orders of magnitude of more language data compared to children (Bowers, 2025a). According to Chomsky, the ease with which LMs learn impossible languages undermines LMs as theories of human languages.  For instance, Chomsky et al., (2023) write:
+
+'Their deepest flaw is the absence of the most critical capacity of any intelligence: to say not only what is the case… but also what is not the case and what could and could not be the case…
+
+ChatGPT and similar programs are, by design, unlimited in what they can 'learn' (which is to say, memorize); they are incapable of distinguishing the possible from the impossible. Unlike humans, for example, who are endowed with a universal grammar that limits the languages we can learn to those with a certain kind of almost mathematical elegance, these programs learn humanly possible and humanly impossible languages with equal facility' [the underlined text encoded a link to Mitchell and Bowers, 2020].
+
+Since Mitchell and Bowers (2020) there have been several studies that have compared how easily LMs learn attested and impossible languages.  For instance, Kallini et al. (2024) reported two impossible languages that were more difficult to learn than English and concluded that LMs (and humans) do not need any linguistic priors to account for the possible-impossible learning gap. F&amp;M describe this study and cite several others (including Mitchell and Bowers) in a way that suggests that LMs consistently show a human-like difficulty in learning impossible languages, writing:
+
+'Kallini et al. (2024) find that the model learns from real English text consistently faster than these baselines (see also Mitchell and Bowers, 2020; Yang et al., 2025; Xu et al., 2025; Ziv et al., 2025, among others). These results and others show that Transformers and related models have inductive biases that align with human language'.
+
+But this characterisation of the research is mistaken. First consider the Kallini et al study. Although the authors reported two impossible languages that were more difficult to learn, they reported several additional impossible languages were learned almost as easily as English, including one of the impossible languages that Mitchell and Bowers (2020) devised. Furthermore, the impossible language that was the most difficult to learn was composed of random shuffles of words. That is, there was no structure to learn.  The other difficult-to-learn impossible language was composed of deterministic random shuffles, with sentences of different lengths shuffled in different deterministic ways (e.g., all sequences of length 5 were shuffled in one order, sequence of length 6 shuffled in another order, etc.).  In this case, there was something to learn, namely, different random languages for the different sentence lengths.  The observation that it is more difficult to learn multiple compared to a single random language does not challenge Chomsky's point.  More generally, a learning algorithm that performs well on one data type must perform badly on others ('no free lunch theorems'; Wolpert &amp; Macready, 2002). Accordingly, the observation that LMs perform badly on some languages is an unnecessary empirical confirmation of these theorems. In contrast, the success in learning some impossible languages is a falsification of the claim that LMs are an adequate model of human language learning.
+
+The same issue applies to Yang et al. (2025) article that F&amp;M cited.  The authors again assessed LMs on a range of impossible languages, including the same deterministic shuffled languages used by Kallini et al.  And again, the authors found that several impossible languages were easily learned, whereas the random shuffle language were difficult.  And again, the slow learning of the random shuffled language was taken as problematic for Chomsky:
+
+'If LMs function as non-human like pattern recognizers as Chomsky et al. (2023); Moro et al. (2023) argue, they should be able to learn these languages as well as attested ones'.
+
+But again, the observation that it is more difficult to learn multiple different impossible languages (for different sentence lengths) is not surprising on any theory.
+
+The Xu et al. (2025) article that F&amp;M cited varied the plausibility of languages (rather than the impossibility of languages). In this case, the authors found that LMs struggled with some implausible languages, but again, in some cases, the LM found the implausible languages easy to learn.  And with regards to conditions in which LMs struggled, the authors note that there may have been errors in the construction of the materials that weaken the conclusions that can be drawn:
+
+'Thus, it is possible that our findings may be due partially or entirely to increased noise in the counterfactual corpora, rather than inherent differences in learnability between the original and counterfactual grammars'.
+
+It is difficult to take these findings as problematic for Chomsky's thesis.
+
+Finally, the Ziv et al. (2025) article that F&amp;M cite reports several impossible languages that LMs learn just fine, including partially reversed languages (replicating Mitchell and Bowers, 2020). In addition, in another study not cited, Lou et al. (2024) report that LMs can happily learn reversed languages.
+
+So, contrary to the claims of F&amp;M , LMs often learn impossible languages as easily as attested languages.  At same time, LMs require many orders of magnitude more training than infants (e.g., Bowers, 2025a), and a recent attempt to induce a universal grammar in LMs (McCoy &amp; Griffiths, 2025) does not make LMs much more data efficient (Bowers, 2025b). Given all this, the appropriate conclusion is that current LMs learn in just the way one would expect of models that are missing human-like innate biases for language learning.
+
+
+------------------------------------------------------------
+SECTION 3
+------------------------------------------------------------
+
+## References
+
+- Bowers, J. S. (2025a). The successes and failures of artificial neural networks (ANNs) highlight the importance of innate linguistic priors for human language acquisition. Psychological Review. Advance online publication. https://doi.org/10.1037/rev0000595
+- Bowers, J.S. (2025b). Does distilling Bayesian priors into language models support rapid language learning?  Comment on McCoy and Griffiths (2025). PsyArxiv. Preprint. https://doi.org/10.31234/osf.io/zeprf\_v1
+- Chomsky, N. Roberts, I, and Watumull, J. (2023, March 8th). Noam Chomsky: The False Promise of ChatGPT. New York Times. https://www.nytimes.com/2023/03/08/opinion/noam-chomsky-chatgpt-ai.html
+- Futrell, R., &amp; Mahowald, K. (2025). How linguistics learned to stop worrying and love the language models. Behavioural and Brain Sciences.
+- Kallini, J., Papadimitriou, I., Futrell, R., Mahowald, K., &amp; Potts, C. (2024).. Mission: Impossible language models. In Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (V olume 1: Long Papers), pages 1469114714, Bangkok, Thailand. Association for Computational Linguistics
+- Luo, X., Ramscar, M., &amp; Love, B. C. (2024). Beyond Human-Like Processing: Large Language Models Perform Equivalently on Forward and Backward Scientific Text. arXiv preprint arXiv:2411.11061.
+- McCoy, R. T., &amp; Griffiths, T. L. (2025). Modeling rapid language learning by distilling Bayesian priors into artificial neural networks. Nature Communications, 16(1), 4676.
+- Mitchell, J., &amp; Bowers, J. (2020, December). Priorless recurrent networks learn curiously. In Proceedings of the 28th international conference on computational linguistics (pp. 5147-5158).
+- Wolpert, D. H., &amp; Macready, W. G. (2002). No free lunch theorems for optimization. IEEE transactions on evolutionary computation, 1(1), 67-82.
+- Xu, T., Kuribayashi, T., Oseki, Y ., Cotterell, R., and Warstadt, A. (2025). Can language models learn typologically implausible languages? arXiv preprint arXiv:2502.12317.
+- Yang, X., Aoyama, T., Yao, Y., and Wilcox, E. (2025). Anything goes? A crosslinguistic study of (im) possible language learning in LMs. arXiv preprint arXiv:2502.18795
+- Ziv, I., Lan, N., Chemla, E., and Katzir, R. (2025). Large language models as proxies for theories of human linguistic cognition. arXiv preprint arXiv:2502.07687.
+
+
+================================================================================
+EXTRACTED ON: 2025-11-26 13:53:16
+================================================================================
