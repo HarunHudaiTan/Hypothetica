@@ -1,18 +1,25 @@
 # IDE and OS
 /.idea
 .DS_Store
+*.code-workspace
 
-# Environment files
+# Environment files (never commit secrets)
 .env
 .env.local
+.env.*.local
 envfiles/.env
 
-# Python cache
+# Python cache and virtual envs
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
+.venv/
+venv/
+env/
+*.egg-info/
+*.egg
 
 # Backend runtime files
 backend/app/retrieval/sample_papers.jsonl
@@ -20,6 +27,10 @@ backend/app/retrieval/index_dir/
 backend/app/retrieval/.embed_cache/
 backend/**/__pycache__/
 backend/**/*.pyc
+
+# Generated / extracted data (optional: remove if you want to track these)
+Agents/extracted_pdf_info/
+embeddemo/index_dir/
 
 # Data runtime files
 data/chroma_db/
