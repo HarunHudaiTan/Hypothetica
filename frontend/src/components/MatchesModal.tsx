@@ -8,43 +8,44 @@ interface Props {
   onClose: () => void;
 }
 
-interface PaperGroup {
-  paperTitle: string;
-  paperId: string;
-  matches: MatchedSection[];
-}
-
-function groupByPaper(matches: MatchedSection[]): PaperGroup[] {
-  const map = new Map<string, PaperGroup>();
-  for (const m of matches) {
-    const key = m.paper_id || m.paper_title;
-    if (!map.has(key)) {
-      map.set(key, {
-        paperTitle: m.paper_title,
-        paperId: m.paper_id,
-        matches: [],
-      });
-    }
-    map.get(key)!.matches.push(m);
+function getLabelColors(label: string) {
+  switch (label) {
+    case "low":
+      return {
+        bg: "bg-red-50",
+        border: "border-red-400",
+        text: "text-red-900",
+        badge: "bg-red-500",
+        lightBg: "bg-red-100",
+        accent: "#ef4444",
+      };
+    case "medium":
+      return {
+        bg: "bg-amber-50",
+        border: "border-amber-400",
+        text: "text-amber-900",
+        badge: "bg-amber-500",
+        lightBg: "bg-amber-100",
+        accent: "#f59e0b",
+      };
+    default:
+      return {
+        bg: "bg-green-50",
+        border: "border-green-400",
+        text: "text-green-900",
+        badge: "bg-green-500",
+        lightBg: "bg-green-100",
+        accent: "#22c55e",
+      };
   }
-  return Array.from(map.values());
-}
-
-function similarityColor(sim: number): string {
-  if (sim >= 0.7) return "bg-red-100 text-red-700 border-red-200";
-  if (sim >= 0.4) return "bg-amber-100 text-amber-700 border-amber-200";
-  return "bg-green-100 text-green-700 border-green-200";
-}
-
-function similarityBadge(sim: number): string {
-  if (sim >= 0.7) return "bg-red-500";
-  if (sim >= 0.4) return "bg-amber-500";
-  return "bg-green-500";
 }
 
 export default function MatchesModal({ annotation, jobId, onClose }: Props) {
   const [ragMatches, setRagMatches] = useState<MatchedSection[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const colors = getLabelColors(annotation.label);
 
   useEffect(() => {
     let cancelled = false;
@@ -54,7 +55,7 @@ export default function MatchesModal({ annotation, jobId, onClose }: Props) {
         const result = await getSentenceMatches(jobId, annotation.sentence);
         if (!cancelled) setRagMatches(result);
       } catch {
-        // RAG fetch failed, will use linked_sections only
+        // ignore
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -72,190 +73,194 @@ export default function MatchesModal({ annotation, jobId, onClose }: Props) {
     return ragMatches;
   }, [annotation.linked_sections, ragMatches]);
 
-  const paperGroups = useMemo(() => groupByPaper(allMatches), [allMatches]);
+  const currentMatch = allMatches[selectedIndex];
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[85vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-slate-200 bg-slate-50 flex-shrink-0">
-          <div className="flex items-start justify-between">
-            <div className="flex-1 mr-4">
-              <h3 className="text-lg font-semibold text-slate-800">
-                Similarity Analysis
-              </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                Showing which papers have similar content and what specifically
-                overlaps
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50 flex-shrink-0">
+          <div className="flex items-center gap-3">
+            <div
+              className="w-4 h-4 rounded-full"
+              style={{ backgroundColor: colors.accent }}
+            />
+            <div>
+              <h2 className="text-lg font-bold text-slate-800">
+                Evidence Bridge
+              </h2>
+              <p className="text-xs text-slate-500">
+                Your idea ↔ Matching paper passages
               </p>
             </div>
-            <button
-              onClick={onClose}
-              className="text-slate-400 hover:text-slate-600 transition-colors p-1 rounded-lg hover:bg-slate-200"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
           </div>
+          <button
+            onClick={onClose}
+            className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-200 rounded-lg transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto">
-          {/* User sentence */}
-          <div className="px-6 pt-5 pb-4">
-            <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
-              Your Sentence
+        <div className="flex-1 overflow-auto">
+          {loading ? (
+            <div className="flex items-center justify-center py-20">
+              <div className="w-8 h-8 border-3 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+              <span className="ml-3 text-slate-500">Loading evidence...</span>
             </div>
-            <div className="bg-indigo-50 border border-indigo-200 rounded-xl px-5 py-4">
-              <p className="text-sm text-indigo-900 leading-relaxed font-medium">
-                {annotation.sentence}
-              </p>
-              <div className="flex items-center gap-3 mt-3">
-                <span
-                  className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold text-white ${similarityBadge(annotation.overlap_score)}`}
-                >
-                  {Math.round(annotation.overlap_score * 100)}% overlap
-                </span>
-                <span className="text-xs text-slate-400">
-                  Found in {paperGroups.length} paper
-                  {paperGroups.length !== 1 ? "s" : ""}
-                </span>
-              </div>
+          ) : allMatches.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-20 text-slate-400">
+              <span className="text-4xl mb-3">📭</span>
+              <p>No matching passages found for this sentence.</p>
             </div>
-          </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
+              {/* LEFT: User's Sentence */}
+              <div className="p-6 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200">
+                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span className="text-lg">💡</span> Your Sentence
+                </div>
+                
+                <div className={`${colors.bg} border-2 ${colors.border} rounded-xl p-5`}>
+                  <p className={`text-base leading-relaxed font-medium ${colors.text}`}>
+                    "{annotation.sentence}"
+                  </p>
+                  <div className="mt-4 pt-3 border-t border-slate-200/50 flex items-center gap-3">
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold text-white ${colors.badge}`}>
+                      {Math.round(annotation.overlap_score * 100)}% overlap
+                    </span>
+                    <span className="text-xs text-slate-500">
+                      {allMatches.length} match{allMatches.length !== 1 ? "es" : ""}
+                    </span>
+                  </div>
+                </div>
 
-          {/* Matches grouped by paper */}
-          <div className="px-6 pb-6">
-            {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-                <span className="ml-3 text-slate-500">
-                  Loading matching sources...
-                </span>
+                {/* Match selector */}
+                {allMatches.length > 1 && (
+                  <div className="mt-6">
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+                      Select Match ({selectedIndex + 1}/{allMatches.length})
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {allMatches.map((match, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setSelectedIndex(idx)}
+                          className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                            selectedIndex === idx
+                              ? `${colors.badge} text-white shadow-md`
+                              : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-100"
+                          }`}
+                        >
+                          {Math.round(match.similarity * 100)}% • {match.heading?.slice(0, 15) || `#${idx + 1}`}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-            ) : paperGroups.length === 0 ? (
-              <p className="text-center text-slate-400 py-12">
-                No detailed matches found for this sentence.
-              </p>
-            ) : (
-              <div className="space-y-5">
-                {paperGroups.map((group) => (
-                  <PaperMatchGroup
-                    key={group.paperId || group.paperTitle}
-                    group={group}
-                    userSentence={annotation.sentence}
-                  />
-                ))}
+
+              {/* RIGHT: Paper Evidence */}
+              <div className="p-6 bg-white">
+                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span className="text-lg">📄</span> Matching Paper Evidence
+                </div>
+
+                {currentMatch ? (
+                  <div className="space-y-4">
+                    {/* Paper info */}
+                    <div className="bg-slate-100 rounded-xl p-4">
+                      <div className="text-xs text-slate-500 mb-1">From Paper:</div>
+                      <h4 className="text-sm font-bold text-slate-800 leading-snug">
+                        {currentMatch.paper_title || "Unknown Paper"}
+                      </h4>
+                      {currentMatch.heading && (
+                        <div className="mt-2 text-xs text-slate-600">
+                          Section: <span className="font-semibold">{currentMatch.heading}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Similarity bar */}
+                    <div className="flex items-center gap-3">
+                      <div className="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
+                        <div
+                          className="h-full rounded-full transition-all"
+                          style={{
+                            width: `${currentMatch.similarity * 100}%`,
+                            backgroundColor: colors.accent,
+                          }}
+                        />
+                      </div>
+                      <span className={`px-2 py-1 rounded text-xs font-bold text-white ${colors.badge}`}>
+                        {Math.round(currentMatch.similarity * 100)}%
+                      </span>
+                    </div>
+
+                    {/* The actual matching passage from paper */}
+                    <div className={`${colors.lightBg} border-2 ${colors.border} rounded-xl p-5`}>
+                      <div className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: colors.accent }} />
+                        Matching Passage
+                      </div>
+                      {currentMatch.text_snippet ? (
+                        <p className={`text-sm leading-relaxed ${colors.text}`}>
+                          "{currentMatch.text_snippet}"
+                        </p>
+                      ) : (
+                        <p className="text-sm text-slate-400 italic">
+                          No text snippet available. The similarity was detected through semantic analysis.
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Why it matches */}
+                    {currentMatch.reason && (
+                      <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
+                        <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 flex items-center gap-2">
+                          🔗 Why This Matches
+                        </div>
+                        <p className="text-sm text-blue-900 leading-relaxed">
+                          {currentMatch.reason}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <p className="text-slate-400 text-sm">Select a match to view details.</p>
+                )}
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
+
+        {/* Footer navigation */}
+        {allMatches.length > 1 && (
+          <div className="flex items-center justify-between px-6 py-3 border-t border-slate-200 bg-slate-50 flex-shrink-0">
+            <button
+              onClick={() => setSelectedIndex((p) => (p > 0 ? p - 1 : allMatches.length - 1))}
+              className="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-white rounded-lg transition-colors"
+            >
+              ← Previous
+            </button>
+            <span className="text-sm text-slate-500">
+              {selectedIndex + 1} of {allMatches.length}
+            </span>
+            <button
+              onClick={() => setSelectedIndex((p) => (p < allMatches.length - 1 ? p + 1 : 0))}
+              className="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-white rounded-lg transition-colors"
+            >
+              Next →
+            </button>
+          </div>
+        )}
       </div>
-    </div>
-  );
-}
-
-function PaperMatchGroup({
-  group,
-  userSentence: _userSentence,
-}: {
-  group: PaperGroup;
-  userSentence: string;
-}) {
-  const [expanded, setExpanded] = useState(true);
-
-  return (
-    <div className="border border-slate-200 rounded-xl overflow-hidden">
-      {/* Paper header */}
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="w-full bg-slate-50 px-5 py-3 flex items-center justify-between hover:bg-slate-100 transition-colors"
-      >
-        <div className="flex items-center gap-3 min-w-0">
-          <span className="text-base">📄</span>
-          <h4 className="text-sm font-semibold text-slate-800 truncate text-left">
-            {group.paperTitle}
-          </h4>
-        </div>
-        <div className="flex items-center gap-2 flex-shrink-0 ml-3">
-          <span className="text-xs text-slate-500">
-            {group.matches.length} match
-            {group.matches.length !== 1 ? "es" : ""}
-          </span>
-          <svg
-            className={`w-4 h-4 text-slate-400 transition-transform ${expanded ? "rotate-180" : ""}`}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
-      </button>
-
-      {/* Matched passages */}
-      {expanded && (
-        <div className="divide-y divide-slate-100">
-          {group.matches.map((match, i) => (
-            <div key={`${match.chunk_id}-${i}`} className="px-5 py-4">
-              {/* Section heading + similarity badge */}
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-medium text-slate-500">
-                  Section: {match.heading || "Unknown"}
-                </span>
-                <span
-                  className={`px-2 py-0.5 rounded-full text-xs font-semibold border ${similarityColor(match.similarity)}`}
-                >
-                  {Math.round(match.similarity * 100)}% similar
-                </span>
-              </div>
-
-              {/* The similar paper passage */}
-              {match.text_snippet && (
-                <div className="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 mb-3">
-                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
-                    Similar passage from paper
-                  </div>
-                  <p className="text-sm text-slate-700 leading-relaxed italic">
-                    "{match.text_snippet}"
-                  </p>
-                </div>
-              )}
-
-              {/* Explanation of what's similar */}
-              {match.reason && (
-                <div className="bg-amber-50 border border-amber-100 rounded-lg px-4 py-3">
-                  <div className="text-xs font-semibold text-amber-500 uppercase tracking-wider mb-1.5">
-                    What is similar
-                  </div>
-                  <p className="text-sm text-amber-900 leading-relaxed">
-                    {match.reason}
-                  </p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 }
