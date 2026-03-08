@@ -64,6 +64,33 @@ SCORE_YELLOW_MAX = 70   # 40-70 = medium originality
 # 70-100 = high originality
 
 # =============================================================================
+# LIKERT SCALE & AGGREGATION
+# =============================================================================
+# 5-point Likert → 0-1 float mapping
+LIKERT_TO_FLOAT = {1: 0.0, 2: 0.25, 3: 0.5, 4: 0.75, 5: 1.0}
+
+# Criteria weights for computing overall overlap score
+CRITERIA_WEIGHTS = {
+    "problem": 0.3,
+    "method": 0.3,
+    "domain": 0.2,
+    "contribution": 0.2,
+}
+
+SENTENCE_OVERLAP_TOP_K = 2       # Top-K scores to average per sentence (UI annotations)
+CRITERIA_MAX_WEIGHT = 0.6        # Weight given to max score in criteria aggregation (UI display)
+OVERLAP_CURVE_POWER = 1.5        # Exponent for non-linear overlap→originality mapping
+
+# Paper-threat-based scoring (Layer 2)
+PAPER_THREAT_MAX_WEIGHT = 0.5    # In per-paper threat: weight for max criterion vs weighted mean
+GLOBAL_THREAT_MAX_WEIGHT = 0.7   # In global overlap: weight for most threatening paper vs mean
+
+# Categorical guardrails
+GUARDRAIL_CRITICAL_FLOOR = 0.65  # Min overlap when any criterion = Likert 5 (1.0)
+GUARDRAIL_HIGH_COUNT = 2         # Number of criteria >= Likert 4 to trigger high guardrail
+GUARDRAIL_HIGH_FLOOR = 0.50      # Min overlap when GUARDRAIL_HIGH_COUNT criteria >= Likert 4
+
+# =============================================================================
 # CHROMADB CONFIGURATION
 # =============================================================================
 CHROMA_COLLECTION_NAME = "paper_chunks"
