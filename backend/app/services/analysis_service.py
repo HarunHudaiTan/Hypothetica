@@ -16,6 +16,7 @@ from app.agents.reality_check_agent import RealityCheckAgent
 from app.services.paper_search_service import PaperSearchService
 from app.services.paper_processing_service import PaperProcessingService
 from app.services.originality_service import OriginalityService
+from app.services.github_service import GitHubService
 
 logger = logging.getLogger(__name__)
 
@@ -134,6 +135,15 @@ class AnalysisService:
             rc_thread.start()
 
             cls.process_answers(job_id, answers)
+
+            # Launch GitHub pipeline in parallel with arXiv
+            gh_thread = threading.Thread(
+                target=GitHubService.run_github_analysis,
+                args=(job_id, cls._update_progress),
+                daemon=True,
+            )
+            gh_thread.start()
+
             PaperSearchService.search_papers(job_id, cls._update_progress)
             PaperProcessingService.process_papers(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer1_analysis(job_id, cls._update_progress, cls._get_retriever)
@@ -141,6 +151,7 @@ class AnalysisService:
             OriginalityService.generate_comprehensive_report(job_id, cls._update_progress)
 
             rc_thread.join(timeout=10)
+            gh_thread.join(timeout=60)
 
             # Finalize results
             result = job.state.layer2_result
@@ -170,6 +181,9 @@ class AnalysisService:
             results_dict["papers"] = papers_detail
             results_dict["reality_check"] = job.state.reality_check_result
             results_dict["reality_check_warning"] = job.state.reality_check_warning
+            results_dict["github_analysis"] = (
+                job.state.github_result.to_dict() if job.state.github_result else None
+            )
             results_dict["stats"] = cls.get_stats(job_id)
             results_dict["user_idea"] = job.user_idea
             results_dict["enriched_idea"] = job.state.enriched_idea or job.user_idea

@@ -25,6 +25,7 @@ interface AnalysisState {
   realityCheck: { warning: string; result: Record<string, unknown> } | null;
   error: string | null;
   userIdea: string;
+  githubStatus: string;
 }
 
 const DEFAULT_SETTINGS: PipelineSettings = {
@@ -47,6 +48,7 @@ export function useAnalysis() {
     realityCheck: null,
     error: null,
     userIdea: "",
+    githubStatus: "",
   });
 
   const [settings, setSettings] = useState<PipelineSettings>(DEFAULT_SETTINGS);
@@ -72,14 +74,18 @@ export function useAnalysis() {
         jobId,
         (event) => {
           switch (event.type) {
-            case "progress":
+            case "progress": {
+              const msg = (event.data.message as string) ?? "";
+              const prog = (event.data.progress as number) ?? 0;
+              const isGitHub = msg.includes("GitHub") || msg.includes("repositories");
               setState((s) => ({
                 ...s,
-                progress: (event.data.progress as number) ?? s.progress,
-                progressMessage:
-                  (event.data.message as string) ?? s.progressMessage,
+                progress: prog > s.progress ? prog : s.progress,
+                progressMessage: isGitHub ? s.progressMessage : (msg || s.progressMessage),
+                githubStatus: isGitHub ? msg : s.githubStatus,
               }));
               break;
+            }
             case "questions":
               setState((s) => ({
                 ...s,
@@ -165,6 +171,7 @@ export function useAnalysis() {
         jobId: null,
         progress: 0,
         progressMessage: "Starting analysis...",
+        githubStatus: "",
         questions: [],
         results: null,
         error: null,
@@ -225,6 +232,7 @@ export function useAnalysis() {
       realityCheck: null,
       error: null,
       userIdea: "",
+      githubStatus: "",
     });
   }, [cleanup]);
 
