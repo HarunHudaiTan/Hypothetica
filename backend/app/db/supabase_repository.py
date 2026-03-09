@@ -62,6 +62,7 @@ def save_analysis(job_id: str, results: Dict[str, Any]) -> Optional[str]:
             "stats": results.get("stats"),
             "sentence_annotations": results.get("sentence_annotations"),
             "papers": results.get("papers"),
+            "github_analysis": results.get("github_analysis"),
         }
 
         resp = client.table("queries").insert(row).execute()
