@@ -63,3 +63,24 @@ PAPER_SELECTOR_TOP_K = 40
 HEADING_SELECTOR_TEMPERATURE = 0.4
 HEADING_SELECTOR_TOP_P = 0.85
 HEADING_SELECTOR_TOP_K = 40
+
+# =============================================================================
+# GITHUB QUERY AGENT CONFIG
+# =============================================================================
+GITHUB_QUERY_TEMPERATURE = 0.2
+GITHUB_QUERY_TOP_P = 0.8
+GITHUB_QUERY_TOP_K = 30
+
+# =============================================================================
+# REPO RELEVANCE AGENT CONFIG
+# =============================================================================
+REPO_RELEVANCE_TEMPERATURE = 0.2
+REPO_RELEVANCE_TOP_P = 0.8
+REPO_RELEVANCE_TOP_K = 30
+
+# =============================================================================
+# GITHUB SYNTHESIS AGENT CONFIG
+# =============================================================================
+GITHUB_SYNTHESIS_TEMPERATURE = 0.4
+GITHUB_SYNTHESIS_TOP_P = 0.85
+GITHUB_SYNTHESIS_TOP_K = 40

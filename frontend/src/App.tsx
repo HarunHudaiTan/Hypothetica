@@ -94,6 +94,7 @@ export default function App() {
             message={analysis.progressMessage}
             error={analysis.error}
             realityCheck={analysis.realityCheck}
+            githubStatus={analysis.githubStatus}
             onRetry={analysis.reset}
           />
         )}
