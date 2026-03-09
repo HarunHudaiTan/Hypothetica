@@ -160,6 +160,58 @@ class SentenceAnnotation:
         }
 
 
+# =============================================================================
+# GitHub Analysis Models
+# =============================================================================
+
+@dataclass
+class RepoRelevanceResult:
+    """Result of RepoRelevanceAgent analysis for a single GitHub repo."""
+    repo_full_name: str
+    repo_url: str
+    stars: int
+    description: str
+    last_pushed: str
+    topics: List[str] = field(default_factory=list)
+    overlap_score: float = 0.0
+    what_it_covers: str = ""
+    what_it_misses: str = ""
+    verdict: str = "unrelated"  # strong_overlap, partial_overlap, tangential, unrelated
+
+    def to_dict(self) -> dict:
+        return {
+            "repo_full_name": self.repo_full_name,
+            "repo_url": self.repo_url,
+            "stars": self.stars,
+            "description": self.description,
+            "last_pushed": self.last_pushed,
+            "topics": self.topics,
+            "overlap_score": self.overlap_score,
+            "what_it_covers": self.what_it_covers,
+            "what_it_misses": self.what_it_misses,
+            "verdict": self.verdict,
+        }
+
+
+@dataclass
+class GitHubAnalysisResult:
+    """Complete GitHub evidence analysis."""
+    synthesis: str = ""
+    verdict: str = ""  # pursue_as_is, refine_scope, reconsider
+    repos_analyzed: int = 0
+    repos_relevant: int = 0
+    repo_results: List[RepoRelevanceResult] = field(default_factory=list)
+
+    def to_dict(self) -> dict:
+        return {
+            "synthesis": self.synthesis,
+            "verdict": self.verdict,
+            "repos_analyzed": self.repos_analyzed,
+            "repos_relevant": self.repos_relevant,
+            "repo_results": [r.to_dict() for r in self.repo_results],
+        }
+
+
 @dataclass
 class CostBreakdown:
     """
@@ -171,6 +223,7 @@ class CostBreakdown:
     followup: float = 0.0
     keywords: float = 0.0
     reality_check: float = 0.0
+    github: float = 0.0
     total: float = 0.0
     
     def to_dict(self) -> dict:
@@ -183,6 +236,7 @@ class CostBreakdown:
                 "followup": round(self.followup, 4),
                 "keywords": round(self.keywords, 4),
                 "reality_check": round(self.reality_check, 4),
+                "github": round(self.github, 4),
             }
         }
 

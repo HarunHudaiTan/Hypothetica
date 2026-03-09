@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 
 from app.api.schemas.job import JobStatus
 from app.models.paper import Paper
-from app.models.analysis import Layer1Result, Layer2Result, CostBreakdown
+from app.models.analysis import Layer1Result, Layer2Result, CostBreakdown, GitHubAnalysisResult
 
 logger = logging.getLogger(__name__)
 
@@ -31,6 +31,7 @@ class PipelineState:
     cost: CostBreakdown = field(default_factory=CostBreakdown)
     reality_check_result: Dict = field(default_factory=dict)
     reality_check_warning: Optional[str] = None
+    github_result: Optional[GitHubAnalysisResult] = None
     # Pipeline stats
     total_papers_fetched: int = 0
     unique_papers_after_dedup: int = 0

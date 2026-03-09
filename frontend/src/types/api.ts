@@ -60,6 +60,27 @@ export interface PaperDetail {
   criteria_scores?: CriteriaScores;
 }
 
+export interface RepoRelevanceResult {
+  repo_full_name: string;
+  repo_url: string;
+  stars: number;
+  description: string;
+  last_pushed: string;
+  topics: string[];
+  overlap_score: number;
+  what_it_covers: string;
+  what_it_misses: string;
+  verdict: "strong_overlap" | "partial_overlap" | "tangential" | "unrelated";
+}
+
+export interface GitHubAnalysis {
+  synthesis: string;
+  verdict: "pursue_as_is" | "refine_scope" | "reconsider";
+  repos_analyzed: number;
+  repos_relevant: number;
+  repo_results: RepoRelevanceResult[];
+}
+
 export interface CostBreakdown {
   estimated_cost_usd: number;
   breakdown: {
@@ -69,6 +90,7 @@ export interface CostBreakdown {
     followup: number;
     keywords: number;
     reality_check: number;
+    github: number;
   };
 }
 
@@ -82,6 +104,7 @@ export interface AnalysisResults {
   aggregated_criteria: CriteriaScores | null;
   papers_analyzed: number;
   papers?: PaperDetail[];
+  github_analysis?: GitHubAnalysis | null;
   cost: CostBreakdown;
   total_processing_time: number;
   reality_check?: {

@@ -21,6 +21,9 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 SUPABASE_URL = os.getenv("SUPABASE_URL", "https://jqdjzvnqvkwyaiqednyf.supabase.co")
 SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 
+# GitHub
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+
 # =============================================================================
 # MODEL CONFIGURATION
 # =============================================================================
@@ -109,6 +112,16 @@ CHROMA_PERSIST_DIR = None  # None = in-memory for demo
 # =============================================================================
 INPUT_TOKEN_PRICE = 0.30    # $0.30 per 1M input tokens
 OUTPUT_TOKEN_PRICE = 2.50   # $2.50 per 1M output tokens
+
+# =============================================================================
+# GITHUB SEARCH CONFIGURATION
+# =============================================================================
+GITHUB_RESULTS_PER_QUERY = 15      # Results per query from GitHub API
+GITHUB_MIN_STARS = 10               # Minimum stars for a repo to be considered
+GITHUB_MIN_PUSH_YEAR = 2022         # Filter out repos not pushed since this year
+GITHUB_TOP_PER_QUERY = 3            # Top repos to take per query before merging
+GITHUB_MAX_REPOS_TO_ANALYZE = 7     # Max repos sent to RepoRelevanceAgent
+GITHUB_README_PREVIEW_CHARS = 2000  # First N chars of README for LLM analysis
 
 # =============================================================================
 # RAG CONFIGURATION

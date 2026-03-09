@@ -155,6 +155,7 @@ class Layer2Aggregator:
                 + cost_breakdown.layer1
                 + cost_breakdown.layer2
                 + cost_breakdown.reality_check
+                + cost_breakdown.github
             )
 
         return Layer2Result(

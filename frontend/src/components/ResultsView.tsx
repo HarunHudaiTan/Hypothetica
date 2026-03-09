@@ -6,6 +6,7 @@ import SentenceHighlighting from "./SentenceHighlighting";
 import HighlightedIdea from "./HighlightedIdea";
 import MatchesModal from "./MatchesModal";
 import PaperTable from "./PaperTable";
+import GitHubEvidence from "./GitHubEvidence";
 
 interface RealityCheckInfo {
   warning: string | null;
@@ -34,6 +35,9 @@ export default function ResultsView({
     `# Originality Assessment Report\n`,
     `## Score: ${results.global_originality_score}/100\n`,
     `## Summary\n${results.comprehensive_report || results.summary}\n`,
+    ...(results.github_analysis?.synthesis
+      ? [`## GitHub Evidence\n${results.github_analysis.synthesis}\nVerdict: ${results.github_analysis.verdict?.replace(/_/g, " ")}\n`]
+      : []),
     `## Sentence Analysis`,
     ...results.sentence_annotations.map((ann) => {
       const emoji =
@@ -168,6 +172,13 @@ export default function ResultsView({
           </div>
         </div>
       </div>
+
+      {/* GitHub Evidence */}
+      {results.github_analysis && results.github_analysis.synthesis && (
+        <div className="mt-6">
+          <GitHubEvidence analysis={results.github_analysis} />
+        </div>
+      )}
 
       {/* Paper comparison table */}
       {results.papers && results.papers.length > 0 && (
