@@ -1,6 +1,6 @@
 import json
 from dataclasses import dataclass
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 
 from langchain_experimental.graph_transformers.llm import system_prompt
 
@@ -35,6 +35,9 @@ class ReportAnalysisData:
     total_tokens_used: int
     total_cost_usd: float
     processing_time_seconds: float
+    
+    # Search phase funnel tracking
+    search_funnel: Dict[str, Any]
 
 
 class ReportGenerator(Agent):
@@ -73,6 +76,7 @@ Your report MUST follow this structure:
 ### 2. Analysis Methodology
 - **Scoring Framework**: Explain the 4-criteria approach (problem, method, domain, contribution)
 - **Paper Corpus**: Describe the papers analyzed and their relevance to the user's idea
+- **Search Funnel**: Show the complete literature discovery process with transparency
 - **Layer 1 Process**: Describe per-paper analysis methodology
 - **Layer 2 Process**: Explain global aggregation and threat computation
 - **Scoring Formulas**: Detail how scores were calculated (include weights and formulas)
@@ -121,19 +125,25 @@ For each paper analyzed:
 
 ### 6. Interpretation and Recommendations
 
-#### 6.1 What the Scores Tell Us
+#### 6.1 Literature Synthesis
+- **Integrated Findings**: Synthesize key insights across all analyzed papers - DO NOT just list papers one by one, instead identify common themes, methodologies, and findings that appear across multiple papers
+- **Common Themes**: Identify recurring patterns, approaches, and research directions in the literature (e.g., "Most papers use transformer-based approaches", "Several papers focus on evaluation metrics", "Common datasets include...")
+- **Research Gaps**: Highlight what the current literature is missing that the user's idea could address
+- **Positioning Analysis**: How the user's idea fits within the existing research landscape - is it extending, combining, or diverging from existing approaches?
+
+#### 6.2 What the Scores Tell Us
 - **Originality Assessment**: Is the idea novel based on the data?
 - **Risk Areas**: Which aspects have most overlap with existing work?
 - **Strength Areas**: Which aspects are most original?
 - **Confidence Assessment**: How reliable are these conclusions?
 
-#### 6.2 Practical Implications
+#### 6.3 Practical Implications
 - **Research Positioning**: How to position this work relative to existing literature
 - **Key Differentiators**: What makes this approach unique
 - **Potential Challenges**: Areas that may face reviewer scrutiny
 - **Development Focus**: Where to concentrate efforts for maximum impact
 
-#### 6.3 Next Steps
+#### 6.4 Next Steps
 - **Literature Review**: Which papers to study most closely
 - **Methodology Refinement**: How to differentiate from similar approaches
 - **Contribution Framing**: How to emphasize novel aspects
@@ -185,13 +195,21 @@ Before finalizing your report, ensure:
 
 ## IMPORTANT NOTES
 
-- Use only the provided analysis data and paper content - do not generate new scores
-- Explain how each number was derived, not just what it means
-- Reference specific papers, sections, and sentences when making points
-- Quote relevant paper content when explaining overlaps and similarities
-- Maintain scientific objectivity throughout
-- Focus on explaining the analysis process and its implications
-- Help the user understand both the results and their reliability
+- **STRICT DATA ENFORCEMENT**: Use ONLY the exact numbers provided in the analysis data below
+- **NO FABRICATION**: NEVER generate statistics, percentages, or numbers not explicitly provided in the data
+- **SEARCH FUNNEL**: Use ONLY search_funnel data if provided, otherwise state "Search funnel data not available"
+- **PROCESSING TIME**: Use ONLY processing_time_seconds from data (never claim 0.00 unless actual value is 0.00)
+- **TOKEN COUNT**: Use ONLY total_tokens_used from data (never fabricate token numbers)
+- **COST DATA**: Use ONLY total_cost_usd from data
+- **MISSING DATA**: If any data field is missing/empty, state "Data not available" rather than generating values
+- **BE TRANSPARENT**: Show all calculations and explain how each number was derived
+- **REFERENCE EVIDENCE**: Reference specific papers, sections, and sentences when making points
+- **QUOTE CONTENT**: Quote relevant paper content when explaining overlaps and similarities
+- **MAINTAIN OBJECTIVITY**: Maintain scientific objectivity throughout
+- **FOCUS ON EXPLANATION**: Focus on explaining analysis process and its implications
+- **HELP UNDERSTANDING**: Help user understand both the results and their reliability
+
+**VIOLATION CONSEQUENCES**: Any fabricated numbers or statistics will make the report unreliable and break user trust.
 
 Your report should empower the user with a complete understanding of their originality assessment, the methodology behind it, and how to use these insights for their research development.
             """,
@@ -214,8 +232,17 @@ Your report should empower the user with a complete understanding of their origi
         # Build comprehensive analysis context
         analysis_context = self._build_analysis_context(analysis_data)
         
-        # Generate the report using all analysis data
+        # Generate the report using all analysis data with strict data enforcement
         prompt = f"""Based on the complete originality analysis data provided, generate a comprehensive research report that explains the analysis process, results, and implications.
+
+## CRITICAL DATA USAGE REQUIREMENTS:
+- You MUST use ONLY the exact numbers provided in the data below
+- You CANNOT generate any statistics, percentages, or numbers not explicitly provided
+- For search funnel: Use ONLY the search_funnel data if provided, otherwise state "Search funnel data not available"
+- For processing time: Use ONLY processing_time_seconds from data, never claim 0.00 unless it's the actual value
+- For token count: Use ONLY total_tokens_used from data, never fabricate token numbers
+- For costs: Use ONLY total_cost_usd from data
+- If data is missing or empty, state "Data not available" rather than generating values
 
 ## USER'S RESEARCH IDEA
 {analysis_data.user_idea}
@@ -350,6 +377,59 @@ Rubric:
 ### Threshold Configuration
 {thresholds_str}
         """)
+        
+        # Search Funnel Information
+        if hasattr(data, 'search_funnel') and data.search_funnel:
+            context_parts.append("\n## SEARCH PHASE FUNNEL")
+            funnel = data.search_funnel
+            
+            # Use only exact data provided
+            context_parts.append(f"""
+### Literature Discovery Process
+- **Query Variants Generated**: {funnel.get('query_variants_count', 'Not available')}
+- **Total Papers Fetched**: {funnel.get('total_papers_fetched', 'Not available')}
+- **Unique Papers After Deduplication**: {funnel.get('unique_papers_after_dedup', 'Not available')}
+- **Papers After Semantic Search**: {funnel.get('papers_after_rerank', 'Not available')}
+- **Final Papers Selected**: {funnel.get('final_papers_selected', 'Not available')}
+            """)
+            
+            # Only include efficiency rates if raw data is available to calculate them
+            total_fetched = funnel.get('total_papers_fetched')
+            unique_papers = funnel.get('unique_papers_after_dedup')
+            papers_rerank = funnel.get('papers_after_rerank')
+            final_selected = funnel.get('final_papers_selected')
+            
+            if all(x is not None for x in [total_fetched, unique_papers, papers_rerank, final_selected]):
+                context_parts.append("\n### Search Efficiency")
+                
+                # Calculate rates only from real data
+                if total_fetched and unique_papers and total_fetched > 0:
+                    dedup_rate = ((total_fetched - unique_papers) / total_fetched) * 100
+                    context_parts.append(f"- **Deduplication Rate**: {dedup_rate:.1f}%")
+                else:
+                    context_parts.append("- **Deduplication Rate**: Data not available")
+                    
+                if unique_papers and papers_rerank and unique_papers > 0:
+                    semantic_rate = ((unique_papers - papers_rerank) / unique_papers) * 100
+                    context_parts.append(f"- **Semantic Filter Rate**: {semantic_rate:.1f}%")
+                else:
+                    context_parts.append("- **Semantic Filter Rate**: Data not available")
+                    
+                if papers_rerank and final_selected and papers_rerank > 0:
+                    llm_rate = ((papers_rerank - final_selected) / papers_rerank) * 100
+                    context_parts.append(f"- **LLM Selection Rate**: {llm_rate:.1f}%")
+                else:
+                    context_parts.append("- **LLM Selection Rate**: Data not available")
+            
+            # Show query variants only if available
+            query_variants = funnel.get('query_variants', [])
+            if query_variants:
+                context_parts.append("\n### Query Variants Used")
+                for i, variant in enumerate(query_variants[:5], 1):  # Show top 5 variants
+                    context_parts.append(f"**{i}. [{variant.get('type', 'Unknown')}]** {variant.get('query', '')}")
+        else:
+            context_parts.append("\n## SEARCH PHASE FUNNEL")
+            context_parts.append("Search funnel data not available for this analysis.")
         
         # Processing Metadata
         context_parts.append(f"""

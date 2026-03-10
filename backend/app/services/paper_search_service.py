@@ -82,6 +82,35 @@ class PaperSearchService:
 
         job.state.all_papers = search_results_list if isinstance(search_results_list, list) else []
 
+        # Build search funnel data for transparency
+        search_funnel = {
+            'query_variants_count': len(job.state.query_variants),
+            'query_variants': job.state.query_variants,
+            'total_papers_fetched': job.state.total_papers_fetched,
+            'unique_papers_after_dedup': job.state.unique_papers_after_dedup,
+            'papers_after_rerank': job.state.papers_after_rerank,
+            'final_papers_selected': len(selected_papers_data)
+        }
+        
+        # Calculate efficiency rates
+        if job.state.total_papers_fetched > 0:
+            search_funnel['deduplication_rate'] = 1 - (job.state.unique_papers_after_dedup / job.state.total_papers_fetched)
+        else:
+            search_funnel['deduplication_rate'] = 0
+            
+        if job.state.unique_papers_after_dedup > 0:
+            search_funnel['semantic_filter_rate'] = 1 - (job.state.papers_after_rerank / job.state.unique_papers_after_dedup)
+        else:
+            search_funnel['semantic_filter_rate'] = 0
+            
+        if job.state.papers_after_rerank > 0:
+            search_funnel['llm_selection_rate'] = 1 - (len(selected_papers_data) / job.state.papers_after_rerank)
+        else:
+            search_funnel['llm_selection_rate'] = 0
+        
+        # Store funnel data for report generation
+        job.state.search_funnel = search_funnel
+
         # Convert to Paper models
         papers = []
         for i, pd in enumerate(selected_papers_data):
