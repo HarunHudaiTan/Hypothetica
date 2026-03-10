@@ -152,7 +152,8 @@ class OriginalityService:
                 },
                 total_tokens_used=sum(r.tokens_used for r in job.state.layer1_results),
                 total_cost_usd=job.state.cost.total,
-                processing_time_seconds=job.state.layer2_result.total_processing_time
+                processing_time_seconds=job.state.layer2_result.total_processing_time,
+                search_funnel=getattr(job.state, 'search_funnel', {})
             )
 
             # Generate comprehensive report
