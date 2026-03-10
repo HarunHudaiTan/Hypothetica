@@ -5,6 +5,10 @@ interface Props {
   summary?: string;
 }
 
+/**
+ * OriginalityGauge - Displays the originality score with an animated gradient bar.
+ * Shows a red-to-green gradient indicating the originality level (0-100).
+ */
 export default function OriginalityGauge({ score, summary }: Props) {
   const [display, setDisplay] = useState(0);
 
