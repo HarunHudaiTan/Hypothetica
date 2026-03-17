@@ -276,8 +276,8 @@ Key Sections:
         l2 = data.layer2_result
         context_parts.append(f"""
 ## LAYER 2: GLOBAL ORIGINALITY ASSESSMENT
-Final Originality Score: {l2.global_originality_score}/100
-Global Overlap Score: {l2.global_overlap_score:.3f}
+Final Originality Score: {l2.originality_score}/100
+Global Similarity Score: {l2.global_similarity_score:.3f}
 Overall Label: {l2.label.value}
 Papers Analyzed: {l2.papers_analyzed}
 Summary: {l2.summary}
@@ -307,12 +307,12 @@ Green Sentences (High Originality): {green_count}
         for sentence in l2.sentence_annotations:
             emoji = "🔴" if sentence.label == "low" else "🟡" if sentence.label == "medium" else "🟢"
             context_parts.append(f"""
-#### {emoji} Sentence {sentence.index + 1}: {round(sentence.overlap_score * 100)}% Overlap
+#### {emoji} Sentence {sentence.index + 1}: {round(sentence.similarity_score * 100)}% Similarity
 **Original Sentence:** "{sentence.sentence}"
 
 **Analysis:**
 - Originality Score: {sentence.originality_score:.3f}
-- Overlap Score: {sentence.overlap_score:.3f}
+- Similarity Score: {sentence.similarity_score:.3f}
 - Classification: {sentence.label.value}
 
 **Evidence from Papers:**
@@ -338,8 +338,8 @@ Green Sentences (High Originality): {green_count}
             context_parts.append(f"""
 ### Paper {i}: {result.paper_title}
 ArXiv ID: {result.arxiv_id}
-Overall Overlap Score: {result.overall_overlap_score:.3f}
-Originality Threat: {result.originality_threat}
+Idea Similarity Score: {result.idea_similarity_score:.3f}
+Similarity Level: {result.similarity_level}
 Confidence: {result.confidence}
 
 Criteria Scores:

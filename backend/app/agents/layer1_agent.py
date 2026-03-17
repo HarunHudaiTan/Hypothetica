@@ -184,33 +184,43 @@ class Layer1Agent:
             f"→ overall_overlap={overall_overlap:.2f}"
         )
 
-        # Derive confidence / originality_threat from raw Likert scores
+        # Derive confidence / similarity_level from raw Likert scores
         high_count = sum(
             1 for v in criteria_results.values() if v["score"] >= 4
         )
         if high_count >= 3:
-            originality_threat = "high"
+            similarity_level = "high"
             confidence = "high"
         elif high_count >= 1:
-            originality_threat = "moderate"
+            similarity_level = "moderate"
             confidence = "medium"
         else:
-            originality_threat = "low"
+            similarity_level = "low"
             confidence = "medium"
 
-        # Phase 2 — sentence-level analysis anchored to criteria scores
+        # Phase 2 — sentence-level analysis (independent, no anchoring)
         logger.info(f"[Layer1] Phase 2: Sentence analysis for {paper.paper_id} ({len(user_sentences)} sentences)")
         sentence_analyses, sent_tokens, sent_inp, sent_out = self._analyze_sentences(
-            user_idea, user_sentences, paper_text, paper, criteria_results
+            user_idea, user_sentences, paper_text, paper
         )
         self.total_tokens += sent_tokens
         self.total_input_tokens += sent_inp
         self.total_output_tokens += sent_out
 
+        # Phase 3 — filter sentence criteria against paper-level scores
+        sentence_analyses = self._filter_sentence_criteria(sentence_analyses, criteria_results)
+
         for sa in sentence_analyses:
+            sc = sa.sentence_criteria_scores
+            criteria_str = (
+                f"p={self._float_to_likert(sc.problem_similarity)} "
+                f"m={self._float_to_likert(sc.method_similarity)} "
+                f"d={self._float_to_likert(sc.domain_overlap)} "
+                f"c={self._float_to_likert(sc.contribution_similarity)}"
+            ) if sc else "criteria=None"
             logger.info(
-                f"[Layer1]   sentence[{sa.sentence_index}] overlap={sa.overlap_score:.2f} "
-                f"role={sa.sentence_role} matches={len(sa.matched_sections)} "
+                f"[Layer1]   sentence[{sa.sentence_index}] similarity={sa.similarity_score:.2f} "
+                f"{criteria_str} matches={len(sa.matched_sections)} "
                 f"— \"{sa.sentence[:60]}...\""
             )
 
@@ -218,11 +228,11 @@ class Layer1Agent:
             paper_id=paper.paper_id,
             paper_title=paper.title,
             arxiv_id=paper.arxiv_id,
-            overall_overlap_score=overall_overlap,
+            idea_similarity_score=overall_overlap,
             criteria_scores=criteria,
             sentence_analyses=sentence_analyses,
             confidence=confidence,
-            originality_threat=originality_threat,
+            similarity_level=similarity_level,
             tokens_used=self.total_tokens,
         )
 
@@ -331,15 +341,10 @@ Return ONLY valid JSON:
         user_sentences: List[str],
         paper_text: str,
         paper: Paper,
-        criteria_results: Dict[str, Dict],
     ) -> Tuple[List[SentenceAnalysis], int, int, int]:
-        """Sentence-level analysis anchored to the pre-computed criterion scores. Returns (analyses, total_tokens, input_tokens, output_tokens)."""
+        """Independent sentence-level analysis. Returns (analyses, total_tokens, input_tokens, output_tokens)."""
         sentences_text = "\n".join(
             f"[{i}] {sent}" for i, sent in enumerate(user_sentences)
-        )
-        criteria_summary = "\n".join(
-            f"- {name}: {r['score']}/5 — {r['justification'][:120]}"
-            for name, r in criteria_results.items()
         )
 
         prompt = f"""## USER'S RESEARCH IDEA
@@ -351,29 +356,35 @@ Return ONLY valid JSON:
 ## PAPER
 {paper_text}
 
-## CRITERIA SCORES (already computed — use as calibration anchor)
-{criteria_summary}
-
 ## TASK
-For EACH sentence in the user's idea above, provide:
-1. **overlap_score** (integer 1-5): How much this sentence overlaps with paper content.
-2. **role**: One of "contribution", "methodology", "problem", "application", "background", "other".
-3. **matched_sections**: List of overlapping passages from the paper:
+For EACH sentence in the user's idea above, independently evaluate its overlap with the paper on all four criteria.
+
+For each sentence provide:
+1. **problem_score** (integer 1-5): How much this sentence overlaps with the paper's problem/research question.
+2. **method_score** (integer 1-5): How much this sentence overlaps with the paper's methodology/approach.
+3. **domain_score** (integer 1-5): How much this sentence overlaps with the paper's application domain.
+4. **contribution_score** (integer 1-5): How much this sentence overlaps with the paper's contributions.
+5. **matched_sections**: List of overlapping passages from the paper. For each match:
+   - criterion: Which criterion this match is for — one of "problem_similarity", "method_similarity", "domain_overlap", "contribution_similarity".
    - heading: Paper section heading where overlap was found.
    - similar_text: Quote or closely paraphrase the SPECIFIC passage (1-3 sentences). NEVER leave empty.
    - reason: Explain WHAT is similar.
    - similarity: Integer 1-5.
 
-## CONSISTENCY CONSTRAINT
-Sentence scores MUST align with the criteria scores above:
-- If method_similarity is 2, methodology sentences should generally not exceed 3.
-- If contribution_similarity is 4, contribution sentences should generally be 3-5.
+## CONSTRAINTS
+- Score 1 means no overlap on that criterion for this sentence. Score 5 means near-identical.
+- Only include matched_sections entries where similarity >= 3.
+- DO NOT hallucinate paper content — only reference text that appears above.
+- A sentence may score high on one criterion and low on others.
 
 ## OUTPUT FORMAT
 Return ONLY valid JSON:
 {{"sentence_level": [
-    {{"sentence_index": 0, "sentence": "...", "role": "methodology", "overlap_score": 3,
-      "matched_sections": [{{"heading": "...", "similar_text": "...", "reason": "...", "similarity": 3}}]
+    {{"sentence_index": 0,
+      "problem_score": 1, "method_score": 4, "domain_score": 2, "contribution_score": 1,
+      "matched_sections": [
+        {{"criterion": "method_similarity", "heading": "...", "similar_text": "...", "reason": "...", "similarity": 4}}
+      ]
     }}
 ]}}"""
 
@@ -393,7 +404,7 @@ Return ONLY valid JSON:
             fallback = [
                 SentenceAnalysis(
                     sentence=s, sentence_index=i,
-                    overlap_score=0.0, matched_sections=[],
+                    similarity_score=0.0, matched_sections=[],
                 )
                 for i, s in enumerate(user_sentences)
             ]
@@ -423,6 +434,7 @@ Return ONLY valid JSON:
                     text_snippet=m.get("similar_text", ""),
                     similarity=self._likert_to_float(m.get("similarity", 1)),
                     reason=m.get("reason", ""),
+                    criterion=m.get("criterion", ""),
                 )
                 for m in sent_data.get("matched_sections", [])
             ]
@@ -431,15 +443,34 @@ Return ONLY valid JSON:
             if not sentence and idx < len(user_sentences):
                 sentence = user_sentences[idx]
 
+            # Build per-criterion scores for this sentence
+            p = sent_data.get("problem_score", 1)
+            m = sent_data.get("method_score", 1)
+            d = sent_data.get("domain_score", 1)
+            c = sent_data.get("contribution_score", 1)
+            sentence_criteria = CriteriaScores(
+                problem_similarity=self._likert_to_float(p),
+                method_similarity=self._likert_to_float(m),
+                domain_overlap=self._likert_to_float(d),
+                contribution_similarity=self._likert_to_float(c),
+            )
+
+            # Compute overall overlap as weighted avg of sentence criteria
+            w = config.CRITERIA_WEIGHTS
+            overlap = (
+                w["problem"] * sentence_criteria.problem_similarity
+                + w["method"] * sentence_criteria.method_similarity
+                + w["domain"] * sentence_criteria.domain_overlap
+                + w["contribution"] * sentence_criteria.contribution_similarity
+            )
+
             analyses.append(
                 SentenceAnalysis(
                     sentence=sentence,
                     sentence_index=idx,
-                    overlap_score=self._likert_to_float(
-                        sent_data.get("overlap_score", 1)
-                    ),
+                    similarity_score=overlap,
                     matched_sections=matched,
-                    sentence_role=sent_data.get("role", "other"),
+                    sentence_criteria_scores=sentence_criteria,
                 )
             )
 
@@ -450,12 +481,59 @@ Return ONLY valid JSON:
                 analyses.append(
                     SentenceAnalysis(
                         sentence=sent, sentence_index=i,
-                        overlap_score=0.0, matched_sections=[],
+                        similarity_score=0.0, matched_sections=[],
                     )
                 )
 
         analyses.sort(key=lambda x: x.sentence_index)
         return analyses
+
+    def _filter_sentence_criteria(
+        self,
+        sentence_analyses: List[SentenceAnalysis],
+        criteria_results: Dict[str, Dict],
+    ) -> List[SentenceAnalysis]:
+        """
+        Filter sentence criteria against paper-level scores.
+        If sentence criterion score < paper-level score - 1 (Likert tolerance),
+        zero out that criterion so Layer2 ignores it.
+        """
+        paper_likert = {
+            "problem_similarity": criteria_results["problem_similarity"]["score"],
+            "method_similarity": criteria_results["method_similarity"]["score"],
+            "domain_overlap": criteria_results["domain_overlap"]["score"],
+            "contribution_similarity": criteria_results["contribution_similarity"]["score"],
+        }
+
+        for sa in sentence_analyses:
+            if sa.sentence_criteria_scores is None:
+                continue
+
+            sc = sa.sentence_criteria_scores
+            # Convert sentence 0-1 floats back to Likert for comparison
+            sent_likert = {
+                "problem_similarity": self._float_to_likert(sc.problem_similarity),
+                "method_similarity": self._float_to_likert(sc.method_similarity),
+                "domain_overlap": self._float_to_likert(sc.domain_overlap),
+                "contribution_similarity": self._float_to_likert(sc.contribution_similarity),
+            }
+
+            filtered = CriteriaScores(
+                problem_similarity=sc.problem_similarity if sent_likert["problem_similarity"] >= paper_likert["problem_similarity"] - 1 else 0.0,
+                method_similarity=sc.method_similarity if sent_likert["method_similarity"] >= paper_likert["method_similarity"] - 1 else 0.0,
+                domain_overlap=sc.domain_overlap if sent_likert["domain_overlap"] >= paper_likert["domain_overlap"] - 1 else 0.0,
+                contribution_similarity=sc.contribution_similarity if sent_likert["contribution_similarity"] >= paper_likert["contribution_similarity"] - 1 else 0.0,
+            )
+            sa.sentence_criteria_scores = filtered
+
+        return sentence_analyses
+
+    @staticmethod
+    def _float_to_likert(value: float) -> int:
+        """Convert 0-1 float back to Likert integer (1-5)."""
+        reverse = {0.0: 1, 0.25: 2, 0.5: 3, 0.75: 4, 1.0: 5}
+        rounded = round(value * 4) / 4  # snap to nearest 0.25
+        return reverse.get(rounded, 1)
 
     @staticmethod
     def _likert_to_float(value) -> float:
@@ -475,7 +553,7 @@ Return ONLY valid JSON:
             paper_id=paper.paper_id,
             paper_title=paper.title,
             arxiv_id=paper.arxiv_id,
-            overall_overlap_score=0.0,
+            idea_similarity_score=0.0,
             criteria_scores=CriteriaScores(0.0, 0.0, 0.0, 0.0),
             sentence_analyses=[],
         )

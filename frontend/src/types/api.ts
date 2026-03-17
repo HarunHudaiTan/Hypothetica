@@ -28,15 +28,17 @@ export interface MatchedSection {
   text_snippet: string;
   similarity: number;
   reason: string;
+  criterion: string;
 }
 
 export interface SentenceAnnotation {
   index: number;
   sentence: string;
   originality_score: number;
-  overlap_score: number;
+  similarity_score: number;
   label: "high" | "medium" | "low";
   linked_sections: MatchedSection[];
+  criteria_labels: Record<string, "high" | "medium" | "low">;
 }
 
 export interface CriteriaScores {
@@ -56,7 +58,7 @@ export interface PaperDetail {
   authors: string[];
   categories: string[];
   is_processed: boolean;
-  overall_overlap_score?: number;
+  idea_similarity_score?: number;
   criteria_scores?: CriteriaScores;
 }
 
@@ -95,8 +97,8 @@ export interface CostBreakdown {
 }
 
 export interface AnalysisResults {
-  global_originality_score: number;
-  global_overlap_score: number;
+  originality_score: number;
+  global_similarity_score: number;
   label: "high" | "medium" | "low";
   sentence_annotations: SentenceAnnotation[];
   summary: string;

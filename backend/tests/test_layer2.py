@@ -66,9 +66,8 @@ def make_l1_result(
         SentenceAnalysis(
             sentence=f"Sentence {i}",
             sentence_index=i,
-            overlap_score=_likert_to_float(s),
+            similarity_score=_likert_to_float(s),
             matched_sections=[],
-            sentence_role="other",
         )
         for i, s in enumerate(overlaps)
     ]
@@ -77,11 +76,11 @@ def make_l1_result(
         paper_id=paper_id,
         paper_title=title,
         arxiv_id=f"2401.{paper_id}",
-        overall_overlap_score=overall,
+        idea_similarity_score=overall,
         criteria_scores=cs,
         sentence_analyses=sentence_analyses,
         confidence="medium",
-        originality_threat=threat,
+        similarity_level=threat,
     )
 
 
@@ -89,8 +88,8 @@ def print_result(label, result):
     print(f"\n{'=' * 60}")
     print(f"SCENARIO: {label}")
     print(f"{'=' * 60}")
-    print(f"Global originality score: {result.global_originality_score}/100")
-    print(f"Global overlap score:     {result.global_overlap_score:.3f}")
+    print(f"Originality score:        {result.originality_score}/100")
+    print(f"Global similarity score:  {result.global_similarity_score:.3f}")
     print(f"Label:                    {result.label.value}")
     if result.aggregated_criteria:
         ac = result.aggregated_criteria
@@ -196,31 +195,31 @@ if __name__ == "__main__":
     print("\n" + "=" * 60)
     print("SUMMARY TABLE")
     print("=" * 60)
-    print(f"{'Scenario':<50} {'Score':>5} {'Label':>8} {'Overlap':>8}")
-    print("-" * 75)
+    print(f"{'Scenario':<50} {'Score':>5} {'Label':>8} {'Similarity':>10}")
+    print("-" * 77)
     for label, r in all_results:
         short_label = label.split("(")[0].strip()
-        print(f"{short_label:<50} {r.global_originality_score:>5} {r.label.value:>8} {r.global_overlap_score:>8.3f}")
+        print(f"{short_label:<50} {r.originality_score:>5} {r.label.value:>8} {r.global_similarity_score:>10.3f}")
 
     # Sanity checks
     low_r = all_results[0][1]
     threat_r = all_results[1][1]
     mod_r = all_results[2][1]
 
-    assert low_r.global_originality_score > mod_r.global_originality_score, \
+    assert low_r.originality_score > mod_r.originality_score, \
         "All-low should score higher originality than moderate"
-    assert low_r.global_originality_score > threat_r.global_originality_score, \
+    assert low_r.originality_score > threat_r.originality_score, \
         "All-low should score higher originality than one-threatening"
-    assert threat_r.global_originality_score <= 50, \
-        "One very threatening paper should bring originality below 50"
+    assert threat_r.originality_score <= 50, \
+        "One very similar paper should bring originality below 50"
 
     # Guardrail checks
     guardrail_crit = all_results[3][1]
-    assert guardrail_crit.global_overlap_score >= config.GUARDRAIL_CRITICAL_FLOOR, \
+    assert guardrail_crit.global_similarity_score >= config.GUARDRAIL_CRITICAL_FLOOR, \
         f"Critical guardrail should enforce floor of {config.GUARDRAIL_CRITICAL_FLOOR}"
 
     guardrail_high = all_results[4][1]
-    assert guardrail_high.global_overlap_score >= config.GUARDRAIL_HIGH_FLOOR, \
+    assert guardrail_high.global_similarity_score >= config.GUARDRAIL_HIGH_FLOOR, \
         f"High guardrail should enforce floor of {config.GUARDRAIL_HIGH_FLOOR}"
 
     print("\nAll sanity checks passed!")

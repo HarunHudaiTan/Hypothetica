@@ -7,6 +7,13 @@ interface Props {
   jobId: string;
 }
 
+const CRITERION_DISPLAY: Record<string, string> = {
+  problem_similarity: "Problem",
+  method_similarity: "Method",
+  domain_overlap: "Domain",
+  contribution_similarity: "Contribution",
+};
+
 function getLabelStyle(label: string) {
   switch (label) {
     case "low":
@@ -77,7 +84,11 @@ export default function HighlightedIdea({ annotations, jobId }: Props) {
       .finally(() => setLoadingMatches(false));
   }, [selectedAnn, jobId]);
 
+  const hasLowCriteria = (ann: SentenceAnnotation) =>
+    Object.values(ann.criteria_labels ?? {}).some((lbl) => lbl === "low");
+
   const handleSentenceClick = (ann: SentenceAnnotation) => {
+    if (!hasLowCriteria(ann)) return;
     if (selectedAnn?.index === ann.index) {
       setSelectedAnn(null);
     } else {
@@ -96,21 +107,9 @@ export default function HighlightedIdea({ annotations, jobId }: Props) {
           <div className={`text-sm text-slate-700 leading-relaxed ${isExpanded ? "space-y-2" : ""}`}>
             {annotations.map((ann, idx) => {
               const style = getLabelStyle(ann.label);
-              const hasMatches = ann.linked_sections.length > 0;
-              const isClickable = ann.label !== "high" || hasMatches;
+              const isClickable = hasLowCriteria(ann);
               const isSelected = selectedAnn?.index === ann.index;
               const isHovered = hoveredIndex === ann.index;
-
-              if (ann.label === "high" && !hasMatches) {
-                return (
-                  <span
-                    key={idx}
-                    className={`transition-all duration-300 ${isExpanded ? "block py-1 px-2 bg-slate-50 rounded" : "inline"}`}
-                  >
-                    {ann.sentence}{!isExpanded && " "}
-                  </span>
-                );
-              }
 
               return (
                 <span
@@ -118,33 +117,36 @@ export default function HighlightedIdea({ annotations, jobId }: Props) {
                   className={`relative transition-all duration-300 ${isExpanded ? "block" : "inline"}`}
                 >
                   <span
-                    className={`${style.bg} ${style.border} ${style.hoverBg} ${isClickable ? "cursor-pointer" : ""} rounded-sm px-0.5 transition-all ${isSelected ? "ring-2 ring-offset-1 ring-slate-400" : ""} ${isExpanded ? "block py-1.5 px-2" : ""}`}
+                    className={`${isClickable ? "cursor-pointer" : ""} rounded-sm px-0.5 transition-all ${isSelected ? "ring-2 ring-offset-1 ring-slate-400 bg-slate-100" : "hover:bg-slate-100"} ${isExpanded ? "block py-1.5 px-2" : ""}`}
                     onClick={() => isClickable && handleSentenceClick(ann)}
-                    onMouseEnter={() => hasMatches && setHoveredIndex(ann.index)}
+                    onMouseEnter={() => setHoveredIndex(ann.index)}
                     onMouseLeave={() => setHoveredIndex(null)}
-                    title={`${Math.round(ann.overlap_score * 100)}% overlap`}
                   >
                     {ann.sentence}
                   </span>
 
                   {/* Hover preview tooltip */}
-                  {isHovered && !isExpanded && ann.linked_sections[0] && (
+                  {isHovered && !isExpanded && (
                     <div className="absolute left-0 top-full mt-1 z-30 w-72 animate-fadeIn">
                       <div className="bg-white rounded-lg shadow-xl border border-slate-200 p-3">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className={`px-2 py-0.5 rounded text-xs font-bold text-white ${style.badge}`}>
-                            {Math.round(ann.linked_sections[0].similarity * 100)}%
-                          </span>
-                          <span className="text-xs text-slate-500 truncate">
-                            {ann.linked_sections[0].paper_title}
-                          </span>
+                        <div className="flex items-center gap-1 mb-2 flex-wrap">
+                          {Object.entries(ann.criteria_labels ?? {}).map(([criterion, lbl]) => (
+                            <span
+                              key={criterion}
+                              className={`px-2 py-0.5 rounded text-xs font-bold text-white ${
+                                lbl === "low" ? "bg-red-500" : lbl === "medium" ? "bg-amber-500" : "bg-green-500"
+                              }`}
+                            >
+                              {CRITERION_DISPLAY[criterion] ?? criterion}
+                            </span>
+                          ))}
                         </div>
-                        {ann.linked_sections[0].text_snippet && (
+                        {ann.linked_sections[0]?.text_snippet && (
                           <p className="text-xs text-slate-600 line-clamp-2">
                             "{ann.linked_sections[0].text_snippet.slice(0, 150)}..."
                           </p>
                         )}
-                        <p className="text-xs text-slate-400 mt-1">Click to expand</p>
+                        {isClickable && <p className="text-xs text-slate-400 mt-1">Click to expand</p>}
                       </div>
                     </div>
                   )}
@@ -162,14 +164,11 @@ export default function HighlightedIdea({ annotations, jobId }: Props) {
           }`}
         >
           {selectedAnn && selectedStyle && (
-            <div className={`${selectedStyle.panelBg} border ${selectedStyle.panelBorder} rounded-xl p-4 h-full`}>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 h-full">
               {/* Header */}
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <div
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: selectedStyle.accent }}
-                  />
+                  <div className="w-3 h-3 rounded-full bg-slate-400" />
                   <span className="text-xs font-bold text-slate-600 uppercase">
                     Matching Evidence
                   </span>
@@ -185,13 +184,22 @@ export default function HighlightedIdea({ annotations, jobId }: Props) {
               </div>
 
               {/* Selected sentence */}
-              <div className={`${selectedStyle.panelBg} border ${selectedStyle.panelBorder} rounded-lg p-3 mb-3`}>
-                <p className={`text-sm font-medium ${selectedStyle.text}`}>
+              <div className="bg-white border border-slate-200 rounded-lg p-3 mb-3">
+                <p className="text-sm font-medium text-slate-800">
                   "{selectedAnn.sentence}"
                 </p>
-                <span className={`inline-block mt-2 px-2 py-0.5 rounded text-xs font-bold text-white ${selectedStyle.badge}`}>
-                  {Math.round(selectedAnn.overlap_score * 100)}% overlap
-                </span>
+                <div className="flex items-center gap-1 mt-2 flex-wrap">
+                  {Object.entries(selectedAnn.criteria_labels ?? {}).map(([criterion, lbl]) => (
+                    <span
+                      key={criterion}
+                      className={`px-2 py-0.5 rounded text-xs font-bold text-white ${
+                        lbl === "low" ? "bg-red-500" : lbl === "medium" ? "bg-amber-500" : "bg-green-500"
+                      }`}
+                    >
+                      {CRITERION_DISPLAY[criterion] ?? criterion}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Evidence content */}
@@ -209,17 +217,17 @@ export default function HighlightedIdea({ annotations, jobId }: Props) {
                   {/* Match selector if multiple */}
                   {matches.length > 1 && (
                     <div className="flex items-center gap-1 flex-wrap">
-                      {matches.map((_, idx) => (
+                      {matches.map((match, idx) => (
                         <button
                           key={idx}
                           onClick={() => setSelectedMatchIndex(idx)}
-                          className={`w-6 h-6 rounded text-xs font-bold transition-all ${
+                          className={`px-2 py-0.5 rounded text-xs font-bold transition-all ${
                             selectedMatchIndex === idx
-                              ? `${selectedStyle.badge} text-white`
+                              ? "bg-slate-700 text-white"
                               : "bg-white text-slate-600 hover:bg-slate-100"
                           }`}
                         >
-                          {idx + 1}
+                          {match.criterion ? (CRITERION_DISPLAY[match.criterion] ?? match.criterion) : `#${idx + 1}`}
                         </button>
                       ))}
                     </div>
@@ -245,7 +253,7 @@ export default function HighlightedIdea({ annotations, jobId }: Props) {
                       {currentMatch.text_snippet && (
                         <div className="bg-white rounded-lg p-3 border border-slate-200">
                           <div className="text-xs font-bold text-slate-500 mb-1 flex items-center gap-1">
-                            <span className="w-2 h-2 rounded-full" style={{ backgroundColor: selectedStyle.accent }} />
+                            <span className="w-2 h-2 rounded-full bg-slate-400" />
                             Matching Passage
                           </div>
                           <p className="text-xs text-slate-700 leading-relaxed">
@@ -253,22 +261,6 @@ export default function HighlightedIdea({ annotations, jobId }: Props) {
                           </p>
                         </div>
                       )}
-
-                      {/* Similarity */}
-                      <div className="flex items-center gap-2">
-                        <div className="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                          <div
-                            className="h-full rounded-full"
-                            style={{
-                              width: `${currentMatch.similarity * 100}%`,
-                              backgroundColor: selectedStyle.accent,
-                            }}
-                          />
-                        </div>
-                        <span className="text-xs font-bold text-slate-600">
-                          {Math.round(currentMatch.similarity * 100)}%
-                        </span>
-                      </div>
 
                       {/* Reason */}
                       {currentMatch.reason && (

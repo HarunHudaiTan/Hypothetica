@@ -112,8 +112,8 @@ def test_high_overlap():
     paper = make_mock_paper()
     result = agent.analyze_paper(user_idea, user_sentences, paper)
 
-    print(f"\nOverall overlap: {result.overall_overlap_score:.2f}")
-    print(f"Originality threat: {result.originality_threat}")
+    print(f"\nIdea similarity: {result.idea_similarity_score:.2f}")
+    print(f"Similarity level: {result.similarity_level}")
     print(f"Confidence: {result.confidence}")
     print(f"\nCriteria scores:")
     print(f"  problem_similarity:      {result.criteria_scores.problem_similarity:.2f}")
@@ -122,7 +122,7 @@ def test_high_overlap():
     print(f"  contribution_similarity: {result.criteria_scores.contribution_similarity:.2f}")
     print(f"\nSentence analyses:")
     for sa in result.sentence_analyses:
-        print(f"  [{sa.sentence_index}] overlap={sa.overlap_score:.2f} role={sa.sentence_role}")
+        print(f"  [{sa.sentence_index}] similarity={sa.similarity_score:.2f}")
         print(f"      \"{sa.sentence[:80]}...\"")
         for ms in sa.matched_sections[:2]:
             print(f"      -> {ms.heading}: {ms.reason[:80]}")
@@ -151,8 +151,8 @@ def test_low_overlap():
     paper = make_mock_paper()
     result = agent.analyze_paper(user_idea, user_sentences, paper)
 
-    print(f"\nOverall overlap: {result.overall_overlap_score:.2f}")
-    print(f"Originality threat: {result.originality_threat}")
+    print(f"\nIdea similarity: {result.idea_similarity_score:.2f}")
+    print(f"Similarity level: {result.similarity_level}")
     print(f"\nCriteria scores:")
     print(f"  problem_similarity:      {result.criteria_scores.problem_similarity:.2f}")
     print(f"  method_similarity:       {result.criteria_scores.method_similarity:.2f}")
@@ -173,10 +173,10 @@ if __name__ == "__main__":
     print("\n" + "=" * 70)
     print("SUMMARY")
     print("=" * 70)
-    print(f"High overlap scenario: overall={r1.overall_overlap_score:.2f}, threat={r1.originality_threat}")
-    print(f"Low overlap scenario:  overall={r2.overall_overlap_score:.2f}, threat={r2.originality_threat}")
+    print(f"High overlap scenario: overall={r1.idea_similarity_score:.2f}, level={r1.similarity_level}")
+    print(f"Low overlap scenario:  overall={r2.idea_similarity_score:.2f}, level={r2.similarity_level}")
 
     # Sanity check
-    assert r1.overall_overlap_score > r2.overall_overlap_score, \
-        "High overlap scenario should have higher overlap than low overlap scenario!"
+    assert r1.idea_similarity_score > r2.idea_similarity_score, \
+        "High overlap scenario should have higher similarity than low overlap scenario!"
     print("\nSanity check passed.")

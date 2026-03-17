@@ -25,6 +25,7 @@ class MatchedSection:
     text_snippet: str              # Relevant excerpt from chunk
     similarity: float              # Cosine similarity score
     reason: str                    # Why this matches
+    criterion: str = ""            # Which criterion this match belongs to (e.g. "method_similarity")
 
 
 @dataclass
@@ -34,9 +35,9 @@ class SentenceAnalysis:
     """
     sentence: str
     sentence_index: int
-    overlap_score: float           # 0-1 score
+    similarity_score: float        # 0-1 score (weighted avg of criteria, kept for backward compat)
     matched_sections: List[MatchedSection] = field(default_factory=list)
-    sentence_role: str = "other"   # contribution, methodology, problem, application, background, other
+    sentence_criteria_scores: Optional["CriteriaScores"] = None  # Per-criterion scores (0-1) for this sentence
 
 
 @dataclass
@@ -80,15 +81,15 @@ class Layer1Result:
     arxiv_id: str
     
     # Overall scores
-    overall_overlap_score: float   # 0-1, higher = more similar
+    idea_similarity_score: float   # 0-1, higher = more similar
     criteria_scores: CriteriaScores
-    
+
     # Sentence-level analysis
     sentence_analyses: List[SentenceAnalysis] = field(default_factory=list)
 
     # Confidence and threat assessment
     confidence: str = "medium"          # low, medium, high
-    originality_threat: str = "low"     # low, moderate, high
+    similarity_level: str = "low"       # low, moderate, high
 
     # Processing metadata
     tokens_used: int = 0
@@ -99,14 +100,13 @@ class Layer1Result:
             "paper_id": self.paper_id,
             "paper_title": self.paper_title,
             "arxiv_id": self.arxiv_id,
-            "overall_overlap_score": self.overall_overlap_score,
+            "idea_similarity_score": self.idea_similarity_score,
             "criteria_scores": self.criteria_scores.to_dict(),
             "sentence_level": [
                 {
                     "sentence": sa.sentence,
                     "sentence_index": sa.sentence_index,
-                    "overlap_score": sa.overlap_score,
-                    "sentence_role": sa.sentence_role,
+                    "similarity_score": sa.similarity_score,
                     "matched_sections": [
                         {
                             "chunk_id": ms.chunk_id,
@@ -122,7 +122,7 @@ class Layer1Result:
                 for sa in self.sentence_analyses
             ],
             "confidence": self.confidence,
-            "originality_threat": self.originality_threat
+            "similarity_level": self.similarity_level
         }
 
 
@@ -134,17 +134,19 @@ class SentenceAnnotation:
     index: int
     sentence: str
     originality_score: float       # 0-1, higher = MORE original (inverted from overlap)
-    overlap_score: float           # 0-1, higher = more overlap (less original)
+    similarity_score: float        # 0-1, higher = more overlap (less original)
     label: OriginalityLabel
     linked_sections: List[MatchedSection] = field(default_factory=list)
-    
+    criteria_labels: Dict[str, OriginalityLabel] = field(default_factory=dict)  # Per-criterion labels (only passing ones)
+
     def to_dict(self) -> dict:
         return {
             "index": self.index,
             "sentence": self.sentence,
             "originality_score": self.originality_score,
-            "overlap_score": self.overlap_score,
+            "similarity_score": self.similarity_score,
             "label": self.label.value,
+            "criteria_labels": {k: v.value for k, v in self.criteria_labels.items()},
             "linked_sections": [
                 {
                     "chunk_id": ls.chunk_id,
@@ -153,7 +155,8 @@ class SentenceAnnotation:
                     "heading": ls.heading,
                     "text_snippet": ls.text_snippet,
                     "similarity": ls.similarity,
-                    "reason": ls.reason
+                    "reason": ls.reason,
+                    "criterion": ls.criterion,
                 }
                 for ls in self.linked_sections
             ]
@@ -247,8 +250,8 @@ class Layer2Result:
     Complete Layer 2 result - global originality assessment.
     """
     # Global scores
-    global_originality_score: int  # 0-100, higher = more original
-    global_overlap_score: float    # 0-1, average overlap
+    originality_score: int         # 0-100, higher = more original
+    global_similarity_score: float # 0-1, average overlap
     label: OriginalityLabel        # Overall label
     
     # Sentence annotations
@@ -272,8 +275,8 @@ class Layer2Result:
     
     def to_dict(self) -> dict:
         return {
-            "global_originality_score": self.global_originality_score,
-            "global_overlap_score": self.global_overlap_score,
+            "originality_score": self.originality_score,
+            "global_similarity_score": self.global_similarity_score,
             "label": self.label.value,
             "sentence_annotations": [sa.to_dict() for sa in self.sentence_annotations],
             "summary": self.summary,
