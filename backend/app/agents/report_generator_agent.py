@@ -338,7 +338,7 @@ Green Sentences (High Originality): {green_count}
             context_parts.append(f"""
 ### Paper {i}: {result.paper_title}
 ArXiv ID: {result.arxiv_id}
-Idea Similarity Score: {result.idea_similarity_score:.3f}
+Paper Similarity Score: {result.paper_similarity_score:.3f}
 Similarity Level: {result.similarity_level}
 Confidence: {result.confidence}
 

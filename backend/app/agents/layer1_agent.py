@@ -224,11 +224,26 @@ class Layer1Agent:
                 f"— \"{sa.sentence[:60]}...\""
             )
 
+        # Build reason string from per-criterion justifications
+        reason_parts = []
+        criterion_labels = {
+            "problem_similarity": "Problem",
+            "method_similarity": "Method",
+            "domain_overlap": "Domain",
+            "contribution_similarity": "Contribution",
+        }
+        for key, label in criterion_labels.items():
+            j = criteria_results[key].get("justification", "").strip()
+            if j:
+                reason_parts.append(f"{label}: {j}")
+        reason = " | ".join(reason_parts)
+
         result = Layer1Result(
             paper_id=paper.paper_id,
             paper_title=paper.title,
             arxiv_id=paper.arxiv_id,
-            idea_similarity_score=overall_overlap,
+            paper_similarity_score=overall_overlap,
+            reason=reason,
             criteria_scores=criteria,
             sentence_analyses=sentence_analyses,
             confidence=confidence,
@@ -356,24 +371,34 @@ Return ONLY valid JSON:
 ## PAPER
 {paper_text}
 
+## SCORING RUBRICS
+For each sentence, score it on all four criteria using these rubrics (1-5 Likert, higher = MORE overlap):
+
+**problem_score** — {CRITERION_RUBRICS["problem_similarity"]["description"]}
+{CRITERION_RUBRICS["problem_similarity"]["rubric"]}
+
+**method_score** — {CRITERION_RUBRICS["method_similarity"]["description"]}
+{CRITERION_RUBRICS["method_similarity"]["rubric"]}
+
+**domain_score** — {CRITERION_RUBRICS["domain_overlap"]["description"]}
+{CRITERION_RUBRICS["domain_overlap"]["rubric"]}
+
+**contribution_score** — {CRITERION_RUBRICS["contribution_similarity"]["description"]}
+{CRITERION_RUBRICS["contribution_similarity"]["rubric"]}
+
 ## TASK
 For EACH sentence in the user's idea above, independently evaluate its overlap with the paper on all four criteria.
 
 For each sentence provide:
-1. **problem_score** (integer 1-5): How much this sentence overlaps with the paper's problem/research question.
-2. **method_score** (integer 1-5): How much this sentence overlaps with the paper's methodology/approach.
-3. **domain_score** (integer 1-5): How much this sentence overlaps with the paper's application domain.
-4. **contribution_score** (integer 1-5): How much this sentence overlaps with the paper's contributions.
-5. **matched_sections**: List of overlapping passages from the paper. For each match:
-   - criterion: Which criterion this match is for — one of "problem_similarity", "method_similarity", "domain_overlap", "contribution_similarity".
-   - heading: Paper section heading where overlap was found.
-   - similar_text: Quote or closely paraphrase the SPECIFIC passage (1-3 sentences). NEVER leave empty.
-   - reason: Explain WHAT is similar.
-   - similarity: Integer 1-5.
+- **problem_score**, **method_score**, **domain_score**, **contribution_score** (integers 1-5, using rubrics above)
+- **matched_sections**: List of overlapping passages from the paper. For each match include:
+  - criterion: One of "problem_similarity", "method_similarity", "domain_overlap", "contribution_similarity"
+  - heading: Paper section heading where overlap was found
+  - similar_text: Quote or closely paraphrase the SPECIFIC passage (1-3 sentences). NEVER leave empty.
+  - reason: Explain WHAT is similar
+  - similarity: Integer 1-5
 
 ## CONSTRAINTS
-- Score 1 means no overlap on that criterion for this sentence. Score 5 means near-identical.
-- Only include matched_sections entries where similarity >= 3.
 - DO NOT hallucinate paper content — only reference text that appears above.
 - A sentence may score high on one criterion and low on others.
 
@@ -518,13 +543,26 @@ Return ONLY valid JSON:
                 "contribution_similarity": self._float_to_likert(sc.contribution_similarity),
             }
 
+            passing = {
+                "problem_similarity": sent_likert["problem_similarity"] >= paper_likert["problem_similarity"] - 1,
+                "method_similarity": sent_likert["method_similarity"] >= paper_likert["method_similarity"] - 1,
+                "domain_overlap": sent_likert["domain_overlap"] >= paper_likert["domain_overlap"] - 1,
+                "contribution_similarity": sent_likert["contribution_similarity"] >= paper_likert["contribution_similarity"] - 1,
+            }
+
             filtered = CriteriaScores(
-                problem_similarity=sc.problem_similarity if sent_likert["problem_similarity"] >= paper_likert["problem_similarity"] - 1 else 0.0,
-                method_similarity=sc.method_similarity if sent_likert["method_similarity"] >= paper_likert["method_similarity"] - 1 else 0.0,
-                domain_overlap=sc.domain_overlap if sent_likert["domain_overlap"] >= paper_likert["domain_overlap"] - 1 else 0.0,
-                contribution_similarity=sc.contribution_similarity if sent_likert["contribution_similarity"] >= paper_likert["contribution_similarity"] - 1 else 0.0,
+                problem_similarity=sc.problem_similarity if passing["problem_similarity"] else 0.0,
+                method_similarity=sc.method_similarity if passing["method_similarity"] else 0.0,
+                domain_overlap=sc.domain_overlap if passing["domain_overlap"] else 0.0,
+                contribution_similarity=sc.contribution_similarity if passing["contribution_similarity"] else 0.0,
             )
             sa.sentence_criteria_scores = filtered
+
+            # Remove matched_sections for criteria that were zeroed out
+            sa.matched_sections = [
+                ms for ms in sa.matched_sections
+                if passing.get(ms.criterion, False)
+            ]
 
         return sentence_analyses
 
@@ -553,7 +591,7 @@ Return ONLY valid JSON:
             paper_id=paper.paper_id,
             paper_title=paper.title,
             arxiv_id=paper.arxiv_id,
-            idea_similarity_score=0.0,
+            paper_similarity_score=0.0,
             criteria_scores=CriteriaScores(0.0, 0.0, 0.0, 0.0),
             sentence_analyses=[],
         )

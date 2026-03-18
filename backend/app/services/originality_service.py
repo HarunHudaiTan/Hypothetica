@@ -64,7 +64,7 @@ class OriginalityService:
             layer1_cost += agent.get_cost()
 
             logger.info(
-                f"Paper {paper.paper_id} analysis complete: {result.idea_similarity_score:.0%} similarity "
+                f"Paper {paper.paper_id} analysis complete: {result.paper_similarity_score:.0%} similarity "
                 f"(level: {result.similarity_level})"
             )
             logger.info(
@@ -146,9 +146,6 @@ class OriginalityService:
                     "medium_overlap_threshold": config.MEDIUM_OVERLAP_THRESHOLD,
                     "paper_similarity_max_weight": config.PAPER_SIMILARITY_MAX_WEIGHT,
                     "global_similarity_max_weight": config.GLOBAL_SIMILARITY_MAX_WEIGHT,
-                    "guardrail_critical_floor": config.GUARDRAIL_CRITICAL_FLOOR,
-                    "guardrail_high_floor": config.GUARDRAIL_HIGH_FLOOR,
-                    "guardrail_high_count": config.GUARDRAIL_HIGH_COUNT,
                 },
                 total_tokens_used=sum(r.tokens_used for r in job.state.layer1_results),
                 total_cost_usd=job.state.cost.total,

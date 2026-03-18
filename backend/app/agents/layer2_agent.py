@@ -91,10 +91,10 @@ class Layer2Aggregator:
             return self._create_empty_result(user_sentences)
 
         # Step 1: Compute per-paper similarity scores
-        paper_similarity_scores = [
+        paper_similarity_score_list = [
             self._compute_paper_similarity(r) for r in layer1_results
         ]
-        for r, paper_similarity in zip(layer1_results, paper_similarity_scores):
+        for r, paper_similarity in zip(layer1_results, paper_similarity_score_list):
             logger.info(
                 f"[Layer2] Paper similarity — {r.paper_title[:50]}: {paper_similarity:.3f} "
                 f"(p={r.criteria_scores.problem_similarity:.2f} "
@@ -104,17 +104,11 @@ class Layer2Aggregator:
             )
 
         # Step 2: Global similarity from paper similarity scores (worst-case driven)
-        global_similarity = self._compute_global_similarity(paper_similarity_scores)
+        global_similarity = self._compute_global_similarity(paper_similarity_score_list)
         logger.info(
-            f"[Layer2] Global similarity (before guardrails): {global_similarity:.3f} "
-            f"(max_score={max(paper_similarity_scores):.3f}, mean_score={sum(paper_similarity_scores)/len(paper_similarity_scores):.3f})"
+            f"[Layer2] Global similarity: {global_similarity:.3f} "
+            f"(max_score={max(paper_similarity_score_list):.3f}, mean_score={sum(paper_similarity_score_list)/len(paper_similarity_score_list):.3f})"
         )
-
-        # Step 3: Categorical guardrails — may override global_similarity
-        similarity_before = global_similarity
-        global_similarity = self._apply_guardrails(global_similarity, layer1_results)
-        if global_similarity != similarity_before:
-            logger.info(f"[Layer2] Guardrail applied: similarity {similarity_before:.3f} → {global_similarity:.3f}")
 
         # Step 4: Convert to 0-100 originality score
         global_originality = self._overlap_to_originality_score(global_similarity)
@@ -143,7 +137,7 @@ class Layer2Aggregator:
             sentence_annotations=sentence_annotations,
             num_papers=len(layer1_results),
             layer1_results=layer1_results,
-            paper_similarity_scores=paper_similarity_scores,
+            paper_similarity_score_list=paper_similarity_score_list,
         )
 
         # Update cost
@@ -206,61 +200,22 @@ class Layer2Aggregator:
     # ------------------------------------------------------------------
 
     @staticmethod
-    def _compute_global_similarity(paper_similarity_scores: List[float]) -> float:
+    def _compute_global_similarity(paper_similarity_score_list: List[float]) -> float:
         """
         Global similarity = GLOBAL_SIMILARITY_MAX_WEIGHT * max(scores)
                            + (1 - GLOBAL_SIMILARITY_MAX_WEIGHT) * mean(scores)
 
         One very similar paper dominates the final score.
         """
-        if not paper_similarity_scores:
+        if not paper_similarity_score_list:
             return 0.0
         g = config.GLOBAL_SIMILARITY_MAX_WEIGHT
-        return g * max(paper_similarity_scores) + (1 - g) * (sum(paper_similarity_scores) / len(paper_similarity_scores))
+        return g * max(paper_similarity_score_list) + (1 - g) * (sum(paper_similarity_score_list) / len(paper_similarity_score_list))
 
     # ------------------------------------------------------------------
     # Categorical guardrails
     # ------------------------------------------------------------------
 
-    @staticmethod
-    def _apply_guardrails(
-        global_similarity: float,
-        results: List[Layer1Result],
-    ) -> float:
-        """
-        Hard rules that override or cap the computed similarity:
-        - Any criterion = 5 (Likert) on any paper → similarity floor
-        - 2+ criteria >= 4 on a single paper → similarity floor
-        """
-        for r in results:
-            raw_scores = [
-                r.criteria_scores.problem_similarity,
-                r.criteria_scores.method_similarity,
-                r.criteria_scores.domain_overlap,
-                r.criteria_scores.contribution_similarity,
-            ]
-            # Any criterion at max (1.0 = Likert 5)
-            if any(s >= 1.0 for s in raw_scores):
-                floor = config.GUARDRAIL_CRITICAL_FLOOR
-                if global_similarity < floor:
-                    logger.warning(
-                        f"Guardrail: paper '{r.paper_title[:40]}' has a criterion at 5. "
-                        f"Raising global similarity from {global_similarity:.3f} to {floor:.3f}"
-                    )
-                    global_similarity = floor
-
-            # 2+ criteria at >= 0.75 (Likert 4+)
-            high_count = sum(1 for s in raw_scores if s >= 0.75)
-            if high_count >= config.GUARDRAIL_HIGH_COUNT:
-                floor = config.GUARDRAIL_HIGH_FLOOR
-                if global_similarity < floor:
-                    logger.warning(
-                        f"Guardrail: paper '{r.paper_title[:40]}' has {high_count} criteria >= 4. "
-                        f"Raising global similarity from {global_similarity:.3f} to {floor:.3f}"
-                    )
-                    global_similarity = floor
-
-        return min(global_similarity, 1.0)
 
     # ------------------------------------------------------------------
     # Criteria aggregation (for UI display)
@@ -439,7 +394,7 @@ class Layer2Aggregator:
         sentence_annotations: List[SentenceAnnotation],
         num_papers: int,
         layer1_results: List[Layer1Result],
-        paper_similarity_scores: List[float],
+        paper_similarity_score_list: List[float],
     ) -> str:
         self._init_summary_agent()
 
@@ -449,7 +404,7 @@ class Layer2Aggregator:
 
         # Per-paper similarity info
         threat_lines = []
-        for r, t in zip(layer1_results, paper_similarity_scores):
+        for r, t in zip(layer1_results, paper_similarity_score_list):
             threat_lines.append(
                 f"- {r.paper_title[:60]} — similarity: {t:.2f}, similarity_level: {r.similarity_level}"
             )

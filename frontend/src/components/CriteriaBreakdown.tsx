@@ -35,22 +35,25 @@ const CRITERIA = [
   },
 ];
 
-function barColor(originalityPct: number): string {
-  if (originalityPct >= 70) return "bg-green-500";
-  if (originalityPct >= 40) return "bg-amber-500";
-  return "bg-red-500";
+/** Convert 0-1 similarity float → Likert 1-5 */
+function toLikert(similarity: number): number {
+  if (similarity >= 1.0) return 5;
+  if (similarity >= 0.75) return 4;
+  if (similarity >= 0.5) return 3;
+  if (similarity >= 0.25) return 2;
+  return 1;
 }
 
-function labelColor(originalityPct: number): string {
-  if (originalityPct >= 70) return "text-green-600";
-  if (originalityPct >= 40) return "text-amber-600";
-  return "text-red-600";
+function likertColor(likert: number): string {
+  if (likert >= 4) return "text-red-600";
+  if (likert >= 3) return "text-amber-600";
+  return "text-green-600";
 }
 
-function levelText(originalityPct: number): string {
-  if (originalityPct >= 70) return "High originality";
-  if (originalityPct >= 40) return "Moderate";
-  return "Low originality";
+function likertDotColor(likert: number): string {
+  if (likert >= 4) return "bg-red-500";
+  if (likert >= 3) return "bg-amber-500";
+  return "bg-green-500";
 }
 
 export default function CriteriaBreakdown({ criteria }: Props) {
@@ -60,39 +63,35 @@ export default function CriteriaBreakdown({ criteria }: Props) {
         Criteria Breakdown
       </h3>
       <p className="text-xs text-slate-400 mb-4">
-        Aggregated across all analyzed papers. Higher percentage = more original.
+        Aggregated across all analyzed papers. Score = similarity (1 = no overlap, 5 = identical).
       </p>
       <div className="space-y-4">
         {CRITERIA.map(({ key, label, icon, description }) => {
-          const similarity = criteria[key];
-          const originalityPct = Math.round((1 - similarity) * 100);
+          const likert = toLikert(criteria[key]);
 
           return (
             <div key={key}>
-              <div className="flex items-center justify-between mb-1">
+              <div className="flex items-center justify-between mb-1.5">
                 <span className="text-sm font-medium text-slate-700">
                   {icon} {label}
                 </span>
                 <div className="flex items-center gap-2">
-                  <span
-                    className={`text-xs font-semibold ${labelColor(originalityPct)}`}
-                  >
-                    {levelText(originalityPct)}
-                  </span>
-                  <span className="text-sm font-bold text-slate-800">
-                    {originalityPct}%
+                  <div className="flex items-center gap-0.5">
+                    {[1, 2, 3, 4, 5].map((d) => (
+                      <div
+                        key={d}
+                        className={`w-3 h-3 rounded-full transition-colors ${
+                          d <= likert ? likertDotColor(likert) : "bg-slate-200"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className={`text-sm font-bold ${likertColor(likert)}`}>
+                    {likert}/5
                   </span>
                 </div>
               </div>
-              <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden mb-1.5">
-                <div
-                  className={`h-full rounded-full transition-all duration-500 ${barColor(originalityPct)}`}
-                  style={{ width: `${originalityPct}%` }}
-                />
-              </div>
-              <p className="text-xs text-slate-400 leading-snug">
-                {description}
-              </p>
+              <p className="text-xs text-slate-400 leading-snug">{description}</p>
             </div>
           );
         })}

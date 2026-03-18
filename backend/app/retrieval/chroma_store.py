@@ -3,6 +3,7 @@ ChromaDB vector store for paper chunks.
 Handles embedding storage and similarity search.
 """
 import logging
+import threading
 from typing import List, Dict, Optional, Any
 import chromadb
 from chromadb.utils import embedding_functions
@@ -12,6 +13,20 @@ from core import config
 from app.models.paper import Paper, Chunk
 
 logger = logging.getLogger(__name__)
+
+_embedding_model_instance: Optional["SentenceTransformer"] = None
+_embedding_model_lock = threading.Lock()
+
+
+def _get_shared_embedding_model(model_name: str, device: str) -> "SentenceTransformer":
+    """Return a process-wide singleton SentenceTransformer — loads once, reused by all ChromaStore instances."""
+    global _embedding_model_instance
+    if _embedding_model_instance is None:
+        with _embedding_model_lock:
+            if _embedding_model_instance is None:
+                logger.info(f"Loading embedding model (singleton): {model_name} on {device}")
+                _embedding_model_instance = SentenceTransformer(model_name, device=device)
+    return _embedding_model_instance
 
 
 class ChromaStore:
@@ -38,11 +53,9 @@ class ChromaStore:
         self.persist_dir = persist_dir or config.CHROMA_PERSIST_DIR
         self.embedding_model_name = embedding_model or config.EMBEDDING_MODEL
 
-        # Initialize embedding model
-        logger.info(f"Loading embedding model: {self.embedding_model_name}")
-        self.embedding_model = SentenceTransformer(
-            self.embedding_model_name,
-            device=config.EMBEDDING_DEVICE
+        # Use process-wide singleton — avoids reloading ~500MB model per job
+        self.embedding_model = _get_shared_embedding_model(
+            self.embedding_model_name, config.EMBEDDING_DEVICE
         )
 
         # Initialize ChromaDB client

@@ -174,7 +174,8 @@ class AnalysisService:
                     "is_processed": paper.is_processed,
                 }
                 if l1:
-                    entry["idea_similarity_score"] = l1.idea_similarity_score
+                    entry["paper_similarity_score"] = l1.paper_similarity_score
+                    entry["reason"] = l1.reason
                     entry["criteria_scores"] = l1.criteria_scores.to_dict()
                 papers_detail.append(entry)
 

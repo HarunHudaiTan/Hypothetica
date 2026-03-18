@@ -58,7 +58,8 @@ export interface PaperDetail {
   authors: string[];
   categories: string[];
   is_processed: boolean;
-  idea_similarity_score?: number;
+  paper_similarity_score?: number;
+  reason?: string;
   criteria_scores?: CriteriaScores;
 }
 

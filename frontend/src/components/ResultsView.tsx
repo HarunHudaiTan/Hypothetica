@@ -2,7 +2,6 @@ import { useState } from "react";
 import type { AnalysisResults, SentenceAnnotation } from "../types/api";
 import OriginalityGauge from "./OriginalityGauge";
 import CriteriaBreakdown from "./CriteriaBreakdown";
-import SentenceHighlighting from "./SentenceHighlighting";
 import HighlightedIdea from "./HighlightedIdea";
 import MatchesModal from "./MatchesModal";
 import PaperTable from "./PaperTable";
@@ -151,25 +150,11 @@ export default function ResultsView({
           </div>
         </div>
 
-        {/* Right column: Sentence analysis (spans 2 cols) */}
+        {/* Right column: Analyzed Papers (spans 2 cols) */}
         <div className="lg:col-span-2">
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h3 className="text-lg font-semibold text-slate-800">
-                  Your Idea Analysis
-                </h3>
-                <p className="text-xs text-slate-500 mt-1">
-                  Click 🔍 on highlighted sentences to see matching sources
-                </p>
-              </div>
-            </div>
-
-            <SentenceHighlighting
-              annotations={results.sentence_annotations}
-              onSentenceClick={(ann) => setSelectedSentence(ann)}
-            />
-          </div>
+          {results.papers && results.papers.length > 0 && (
+            <PaperTable papers={results.papers} originalityScore={results.originality_score} />
+          )}
         </div>
       </div>
 
@@ -177,13 +162,6 @@ export default function ResultsView({
       {results.github_analysis && results.github_analysis.synthesis && (
         <div className="mt-6">
           <GitHubEvidence analysis={results.github_analysis} />
-        </div>
-      )}
-
-      {/* Paper comparison table */}
-      {results.papers && results.papers.length > 0 && (
-        <div className="mt-6">
-          <PaperTable papers={results.papers} />
         </div>
       )}
 

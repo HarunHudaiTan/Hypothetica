@@ -81,11 +81,14 @@ class Layer1Result:
     arxiv_id: str
     
     # Overall scores
-    idea_similarity_score: float   # 0-1, higher = more similar
+    paper_similarity_score: float   # 0-1, higher = more similar
     criteria_scores: CriteriaScores
 
     # Sentence-level analysis
     sentence_analyses: List[SentenceAnalysis] = field(default_factory=list)
+
+    # Human-readable reason explaining the scores
+    reason: str = ""
 
     # Confidence and threat assessment
     confidence: str = "medium"          # low, medium, high
@@ -100,7 +103,8 @@ class Layer1Result:
             "paper_id": self.paper_id,
             "paper_title": self.paper_title,
             "arxiv_id": self.arxiv_id,
-            "idea_similarity_score": self.idea_similarity_score,
+            "paper_similarity_score": self.paper_similarity_score,
+            "reason": self.reason,
             "criteria_scores": self.criteria_scores.to_dict(),
             "sentence_level": [
                 {
