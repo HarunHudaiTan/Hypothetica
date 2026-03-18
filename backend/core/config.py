@@ -63,10 +63,15 @@ ABSTRACT_SIMILARITY_THRESHOLD = 0.3  # flag sections below this similarity to ab
 # =============================================================================
 # ORIGINALITY THRESHOLDS
 # =============================================================================
-# Sentence-level classification
+# Sentence-level classification (legacy thresholds, kept for fallback)
 HIGH_OVERLAP_THRESHOLD = 0.7    # >= this = RED (low originality)
 MEDIUM_OVERLAP_THRESHOLD = 0.4  # >= this = YELLOW (medium originality)
 # Below MEDIUM_OVERLAP_THRESHOLD = GREEN (high originality)
+
+# Per-criterion sentence labeling (Likert scale)
+SENTENCE_CRITERION_RED_MIN = 4    # Likert 4 or 5 → RED
+SENTENCE_CRITERION_YELLOW_MIN = 3 # Likert 3 → YELLOW
+# Below SENTENCE_CRITERION_YELLOW_MIN → not shown (filtered out)
 
 # Global score ranges (for display)
 SCORE_RED_MAX = 40      # 0-40 = low originality
@@ -92,8 +97,8 @@ CRITERIA_MAX_WEIGHT = 0.6        # Weight given to max score in criteria aggrega
 OVERLAP_CURVE_POWER = 1.5        # Exponent for non-linear overlap→originality mapping
 
 # Paper-threat-based scoring (Layer 2)
-PAPER_THREAT_MAX_WEIGHT = 0.5    # In per-paper threat: weight for max criterion vs weighted mean
-GLOBAL_THREAT_MAX_WEIGHT = 0.7   # In global overlap: weight for most threatening paper vs mean
+PAPER_SIMILARITY_MAX_WEIGHT = 0.5    # In per-paper threat: weight for max criterion vs weighted mean
+GLOBAL_SIMILARITY_MAX_WEIGHT = 0.7   # In global overlap: weight for most threatening paper vs mean
 
 # Categorical guardrails
 GUARDRAIL_CRITICAL_FLOOR = 0.65  # Min overlap when any criterion = Likert 5 (1.0)

@@ -64,8 +64,8 @@ class OriginalityService:
             layer1_cost += agent.get_cost()
 
             logger.info(
-                f"Paper {paper.paper_id} analysis complete: {result.overall_overlap_score:.0%} overlap "
-                f"(threat: {result.originality_threat})"
+                f"Paper {paper.paper_id} analysis complete: {result.idea_similarity_score:.0%} similarity "
+                f"(level: {result.similarity_level})"
             )
             logger.info(
                 f"Criteria scores: problem={result.criteria_scores.problem_similarity:.2f}, "
@@ -113,11 +113,11 @@ class OriginalityService:
         )
         job.state.layer2_result = result
 
-        logger.info(f"Layer 2 aggregation complete: {result.global_originality_score}/100 originality score")
+        logger.info(f"Layer 2 aggregation complete: {result.originality_score}/100 originality score")
         logger.info(f"Final summary: {result.summary[:200]}..." if len(result.summary) > 200 else f"Final summary: {result.summary}")
         logger.info(f"Total analysis cost: ${result.cost.total:.4f}")
 
-        update_progress(job_id, f"Originality score: {result.global_originality_score}/100", 0.98)
+        update_progress(job_id, f"Originality score: {result.originality_score}/100", 0.98)
 
     @classmethod
     def generate_comprehensive_report(cls, job_id: str, update_progress: Callable):
@@ -144,8 +144,8 @@ class OriginalityService:
                 threshold_config={
                     "high_overlap_threshold": config.HIGH_OVERLAP_THRESHOLD,
                     "medium_overlap_threshold": config.MEDIUM_OVERLAP_THRESHOLD,
-                    "paper_threat_max_weight": config.PAPER_THREAT_MAX_WEIGHT,
-                    "global_threat_max_weight": config.GLOBAL_THREAT_MAX_WEIGHT,
+                    "paper_similarity_max_weight": config.PAPER_SIMILARITY_MAX_WEIGHT,
+                    "global_similarity_max_weight": config.GLOBAL_SIMILARITY_MAX_WEIGHT,
                     "guardrail_critical_floor": config.GUARDRAIL_CRITICAL_FLOOR,
                     "guardrail_high_floor": config.GUARDRAIL_HIGH_FLOOR,
                     "guardrail_high_count": config.GUARDRAIL_HIGH_COUNT,

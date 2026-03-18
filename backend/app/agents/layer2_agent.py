@@ -90,37 +90,37 @@ class Layer2Aggregator:
         if not layer1_results:
             return self._create_empty_result(user_sentences)
 
-        # Step 1: Compute per-paper threat scores
-        paper_threats = [
-            self._compute_paper_threat(r) for r in layer1_results
+        # Step 1: Compute per-paper similarity scores
+        paper_similarity_scores = [
+            self._compute_paper_similarity(r) for r in layer1_results
         ]
-        for r, threat in zip(layer1_results, paper_threats):
+        for r, paper_similarity in zip(layer1_results, paper_similarity_scores):
             logger.info(
-                f"[Layer2] Paper threat — {r.paper_title[:50]}: {threat:.3f} "
+                f"[Layer2] Paper similarity — {r.paper_title[:50]}: {paper_similarity:.3f} "
                 f"(p={r.criteria_scores.problem_similarity:.2f} "
                 f"m={r.criteria_scores.method_similarity:.2f} "
                 f"d={r.criteria_scores.domain_overlap:.2f} "
                 f"c={r.criteria_scores.contribution_similarity:.2f})"
             )
 
-        # Step 2: Global overlap from paper threats (worst-case driven)
-        global_overlap = self._compute_global_overlap(paper_threats)
+        # Step 2: Global similarity from paper similarity scores (worst-case driven)
+        global_similarity = self._compute_global_similarity(paper_similarity_scores)
         logger.info(
-            f"[Layer2] Global overlap (before guardrails): {global_overlap:.3f} "
-            f"(max_threat={max(paper_threats):.3f}, mean_threat={sum(paper_threats)/len(paper_threats):.3f})"
+            f"[Layer2] Global similarity (before guardrails): {global_similarity:.3f} "
+            f"(max_score={max(paper_similarity_scores):.3f}, mean_score={sum(paper_similarity_scores)/len(paper_similarity_scores):.3f})"
         )
 
-        # Step 3: Categorical guardrails — may override global_overlap
-        overlap_before = global_overlap
-        global_overlap = self._apply_guardrails(global_overlap, layer1_results)
-        if global_overlap != overlap_before:
-            logger.info(f"[Layer2] Guardrail applied: overlap {overlap_before:.3f} → {global_overlap:.3f}")
+        # Step 3: Categorical guardrails — may override global_similarity
+        similarity_before = global_similarity
+        global_similarity = self._apply_guardrails(global_similarity, layer1_results)
+        if global_similarity != similarity_before:
+            logger.info(f"[Layer2] Guardrail applied: similarity {similarity_before:.3f} → {global_similarity:.3f}")
 
         # Step 4: Convert to 0-100 originality score
-        global_originality = self._overlap_to_originality_score(global_overlap)
+        global_originality = self._overlap_to_originality_score(global_similarity)
         global_label = self._score_to_label(global_originality)
         logger.info(
-            f"[Layer2] Final score: overlap={global_overlap:.3f} → "
+            f"[Layer2] Final score: similarity={global_similarity:.3f} → "
             f"originality={global_originality}/100 → label={global_label.value}"
         )
 
@@ -143,7 +143,7 @@ class Layer2Aggregator:
             sentence_annotations=sentence_annotations,
             num_papers=len(layer1_results),
             layer1_results=layer1_results,
-            paper_threats=paper_threats,
+            paper_similarity_scores=paper_similarity_scores,
         )
 
         # Update cost
@@ -159,8 +159,8 @@ class Layer2Aggregator:
             )
 
         return Layer2Result(
-            global_originality_score=global_originality,
-            global_overlap_score=global_overlap,
+            originality_score=global_originality,
+            global_similarity_score=global_similarity,
             label=global_label,
             sentence_annotations=sentence_annotations,
             summary=summary,
@@ -174,12 +174,12 @@ class Layer2Aggregator:
     # ------------------------------------------------------------------
 
     @staticmethod
-    def _compute_paper_threat(result: Layer1Result) -> float:
+    def _compute_paper_similarity(result: Layer1Result) -> float:
         """
-        Compute how much a single paper threatens the idea's originality.
+        Compute how similar a single paper is to the idea.
 
-        Formula: PAPER_THREAT_MAX_WEIGHT * max(criteria) +
-                 (1 - PAPER_THREAT_MAX_WEIGHT) * weighted_mean(criteria)
+        Formula: PAPER_SIMILARITY_MAX_WEIGHT * max(criteria) +
+                 (1 - PAPER_SIMILARITY_MAX_WEIGHT) * weighted_mean(criteria)
 
         Worst-case driven: if a paper has contribution_similarity=1.0 (Likert 5),
         the max term dominates regardless of other criteria being low.
@@ -198,7 +198,7 @@ class Layer2Aggregator:
             + w["contribution"] * result.criteria_scores.contribution_similarity
         )
         max_score = max(scores)
-        t = config.PAPER_THREAT_MAX_WEIGHT
+        t = config.PAPER_SIMILARITY_MAX_WEIGHT
         return t * max_score + (1 - t) * weighted_mean
 
     # ------------------------------------------------------------------
@@ -206,17 +206,17 @@ class Layer2Aggregator:
     # ------------------------------------------------------------------
 
     @staticmethod
-    def _compute_global_overlap(paper_threats: List[float]) -> float:
+    def _compute_global_similarity(paper_similarity_scores: List[float]) -> float:
         """
-        Global overlap = GLOBAL_THREAT_MAX_WEIGHT * max(threats)
-                        + (1 - GLOBAL_THREAT_MAX_WEIGHT) * mean(threats)
+        Global similarity = GLOBAL_SIMILARITY_MAX_WEIGHT * max(scores)
+                           + (1 - GLOBAL_SIMILARITY_MAX_WEIGHT) * mean(scores)
 
-        One very threatening paper dominates the final score.
+        One very similar paper dominates the final score.
         """
-        if not paper_threats:
+        if not paper_similarity_scores:
             return 0.0
-        g = config.GLOBAL_THREAT_MAX_WEIGHT
-        return g * max(paper_threats) + (1 - g) * (sum(paper_threats) / len(paper_threats))
+        g = config.GLOBAL_SIMILARITY_MAX_WEIGHT
+        return g * max(paper_similarity_scores) + (1 - g) * (sum(paper_similarity_scores) / len(paper_similarity_scores))
 
     # ------------------------------------------------------------------
     # Categorical guardrails
@@ -224,13 +224,13 @@ class Layer2Aggregator:
 
     @staticmethod
     def _apply_guardrails(
-        global_overlap: float,
+        global_similarity: float,
         results: List[Layer1Result],
     ) -> float:
         """
-        Hard rules that override or cap the computed overlap:
-        - Any criterion = 5 (Likert) on any paper → overlap floor
-        - 2+ criteria >= 4 on a single paper → overlap floor
+        Hard rules that override or cap the computed similarity:
+        - Any criterion = 5 (Likert) on any paper → similarity floor
+        - 2+ criteria >= 4 on a single paper → similarity floor
         """
         for r in results:
             raw_scores = [
@@ -242,25 +242,25 @@ class Layer2Aggregator:
             # Any criterion at max (1.0 = Likert 5)
             if any(s >= 1.0 for s in raw_scores):
                 floor = config.GUARDRAIL_CRITICAL_FLOOR
-                if global_overlap < floor:
+                if global_similarity < floor:
                     logger.warning(
                         f"Guardrail: paper '{r.paper_title[:40]}' has a criterion at 5. "
-                        f"Raising global overlap from {global_overlap:.3f} to {floor:.3f}"
+                        f"Raising global similarity from {global_similarity:.3f} to {floor:.3f}"
                     )
-                    global_overlap = floor
+                    global_similarity = floor
 
             # 2+ criteria at >= 0.75 (Likert 4+)
             high_count = sum(1 for s in raw_scores if s >= 0.75)
             if high_count >= config.GUARDRAIL_HIGH_COUNT:
                 floor = config.GUARDRAIL_HIGH_FLOOR
-                if global_overlap < floor:
+                if global_similarity < floor:
                     logger.warning(
                         f"Guardrail: paper '{r.paper_title[:40]}' has {high_count} criteria >= 4. "
-                        f"Raising global overlap from {global_overlap:.3f} to {floor:.3f}"
+                        f"Raising global similarity from {global_similarity:.3f} to {floor:.3f}"
                     )
-                    global_overlap = floor
+                    global_similarity = floor
 
-        return min(global_overlap, 1.0)
+        return min(global_similarity, 1.0)
 
     # ------------------------------------------------------------------
     # Criteria aggregation (for UI display)
@@ -295,50 +295,118 @@ class Layer2Aggregator:
         user_sentences: List[str]
     ) -> List[SentenceAnnotation]:
         """
-        Per-sentence overlap for UI highlighting.
-        Uses top-K averaging across papers, then threshold-based classification.
+        Per-sentence criterion-based annotations for UI highlighting.
+        For each sentence and each criterion, takes max score across all papers.
+        Only criteria that passed the Layer1 filter (score > 0) are considered.
         """
         annotations = []
-        k = config.SENTENCE_OVERLAP_TOP_K
+
+        CRITERIA_KEYS = [
+            "problem_similarity",
+            "method_similarity",
+            "domain_overlap",
+            "contribution_similarity",
+        ]
 
         for idx, sentence in enumerate(user_sentences):
-            overlap_scores = []
-            all_matches = []
+            # Collect per-criterion max scores and best matched_sections across papers
+            criterion_max: Dict[str, float] = {k: 0.0 for k in CRITERIA_KEYS}
+            criterion_best_match: Dict[str, MatchedSection] = {}
 
             for result in results:
                 for sa in result.sentence_analyses:
-                    if sa.sentence_index == idx:
-                        overlap_scores.append(sa.overlap_score)
-                        all_matches.extend(sa.matched_sections)
-                        break
+                    if sa.sentence_index != idx:
+                        continue
+                    if sa.sentence_criteria_scores is None:
+                        continue
 
-            if overlap_scores:
-                top_k = sorted(overlap_scores, reverse=True)[:k]
-                effective_overlap = sum(top_k) / len(top_k)
-            else:
-                effective_overlap = 0.0
+                    sc = sa.sentence_criteria_scores
+                    scores_map = {
+                        "problem_similarity": sc.problem_similarity,
+                        "method_similarity": sc.method_similarity,
+                        "domain_overlap": sc.domain_overlap,
+                        "contribution_similarity": sc.contribution_similarity,
+                    }
 
-            originality = 1.0 - effective_overlap
+                    for criterion_key, score in scores_map.items():
+                        if score <= 0.0:
+                            continue  # filtered out in Layer1
+                        if score > criterion_max[criterion_key]:
+                            criterion_max[criterion_key] = score
+                            # Find the best matched_section for this criterion
+                            best = self._best_match_for_criterion(sa.matched_sections, criterion_key)
+                            if best:
+                                criterion_best_match[criterion_key] = best
+                    break
 
-            if effective_overlap >= config.HIGH_OVERLAP_THRESHOLD:
+            # Build criteria_labels — only criteria that pass the display threshold
+            criteria_labels: Dict[str, OriginalityLabel] = {}
+            linked_sections: List[MatchedSection] = []
+
+            for criterion_key, max_score in criterion_max.items():
+                likert = self._float_to_likert(max_score)
+                if likert >= config.SENTENCE_CRITERION_RED_MIN:
+                    criteria_labels[criterion_key] = OriginalityLabel.LOW
+                    if criterion_key in criterion_best_match:
+                        linked_sections.append(criterion_best_match[criterion_key])
+                elif likert >= config.SENTENCE_CRITERION_YELLOW_MIN:
+                    criteria_labels[criterion_key] = OriginalityLabel.MEDIUM
+                    if criterion_key in criterion_best_match:
+                        linked_sections.append(criterion_best_match[criterion_key])
+                else:
+                    criteria_labels[criterion_key] = OriginalityLabel.HIGH  # green — no overlap
+
+            # Overall label: worst across passing criteria
+            if any(v == OriginalityLabel.LOW for v in criteria_labels.values()):
                 label = OriginalityLabel.LOW
-            elif effective_overlap >= config.MEDIUM_OVERLAP_THRESHOLD:
+            elif any(v == OriginalityLabel.MEDIUM for v in criteria_labels.values()):
                 label = OriginalityLabel.MEDIUM
             else:
                 label = OriginalityLabel.HIGH
 
-            all_matches.sort(key=lambda x: x.similarity, reverse=True)
+            logger.info(
+                f"[Layer2] sentence[{idx}] criteria_max={{{', '.join(f'{k}={v:.2f}(L{self._float_to_likert(v)})' for k, v in criterion_max.items())}}} "
+                f"criteria_labels={{{', '.join(f'{k}={v.value}' for k, v in criteria_labels.items())}}} "
+                f"label={label.value} — \"{sentence[:60]}\""
+            )
+
+            # Compute effective overlap for backward compat fields
+            passing_scores = [s for s in criterion_max.values() if s > 0.0]
+            effective_overlap = max(passing_scores) if passing_scores else 0.0
+            originality = 1.0 - effective_overlap
 
             annotations.append(SentenceAnnotation(
                 index=idx,
                 sentence=sentence,
                 originality_score=originality,
-                overlap_score=effective_overlap,
+                similarity_score=effective_overlap,
                 label=label,
-                linked_sections=all_matches[:5],
+                linked_sections=linked_sections,
+                criteria_labels=criteria_labels,
             ))
 
         return annotations
+
+    @staticmethod
+    def _best_match_for_criterion(
+        matched_sections: List[MatchedSection],
+        criterion_key: str,
+    ) -> Optional[MatchedSection]:
+        """Return the highest-similarity matched_section for a given criterion."""
+        candidates = [m for m in matched_sections if m.criterion == criterion_key]
+        if not candidates:
+            # Fallback: return highest similarity match regardless of criterion
+            candidates = matched_sections
+        if not candidates:
+            return None
+        return max(candidates, key=lambda m: m.similarity)
+
+    @staticmethod
+    def _float_to_likert(value: float) -> int:
+        """Convert 0-1 float to Likert integer (1-5)."""
+        reverse = {0.0: 1, 0.25: 2, 0.5: 3, 0.75: 4, 1.0: 5}
+        rounded = round(value * 4) / 4
+        return reverse.get(rounded, 1)
 
     # ------------------------------------------------------------------
     # Score conversions
@@ -371,7 +439,7 @@ class Layer2Aggregator:
         sentence_annotations: List[SentenceAnnotation],
         num_papers: int,
         layer1_results: List[Layer1Result],
-        paper_threats: List[float],
+        paper_similarity_scores: List[float],
     ) -> str:
         self._init_summary_agent()
 
@@ -379,11 +447,11 @@ class Layer2Aggregator:
         yellow = sum(1 for a in sentence_annotations if a.label == OriginalityLabel.MEDIUM)
         green = sum(1 for a in sentence_annotations if a.label == OriginalityLabel.HIGH)
 
-        # Per-paper threat info
+        # Per-paper similarity info
         threat_lines = []
-        for r, t in zip(layer1_results, paper_threats):
+        for r, t in zip(layer1_results, paper_similarity_scores):
             threat_lines.append(
-                f"- {r.paper_title[:60]} — threat: {t:.2f}, originality_threat: {r.originality_threat}"
+                f"- {r.paper_title[:60]} — similarity: {t:.2f}, similarity_level: {r.similarity_level}"
             )
         threat_block = "\n".join(threat_lines)
 
@@ -464,14 +532,14 @@ Write a 1-2 sentence summary explaining the assessment and giving actionable ins
         annotations = [
             SentenceAnnotation(
                 index=i, sentence=sent,
-                originality_score=1.0, overlap_score=0.0,
+                originality_score=1.0, similarity_score=0.0,
                 label=OriginalityLabel.HIGH, linked_sections=[],
             )
             for i, sent in enumerate(user_sentences)
         ]
         return Layer2Result(
-            global_originality_score=100,
-            global_overlap_score=0.0,
+            originality_score=100,
+            global_similarity_score=0.0,
             label=OriginalityLabel.HIGH,
             sentence_annotations=annotations,
             summary=(

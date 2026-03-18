@@ -6,6 +6,13 @@ interface Props {
   onSentenceClick: (ann: SentenceAnnotation) => void;
 }
 
+const CRITERION_DISPLAY: Record<string, string> = {
+  problem_similarity: "Problem",
+  method_similarity: "Method",
+  domain_overlap: "Domain",
+  contribution_similarity: "Contribution",
+};
+
 const LABEL_STYLES: Record<string, { bg: string; border: string; text: string; hover: string; badge: string }> = {
   high: {
     bg: "bg-green-50",
@@ -42,15 +49,15 @@ export default function SentenceHighlighting({
       <div className="flex items-center justify-center gap-5 mb-4 py-2 bg-slate-50 rounded-lg">
         <span className="flex items-center gap-1.5 text-xs text-slate-600">
           <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
-          High Originality
+          Low overlap (1-2)
         </span>
         <span className="flex items-center gap-1.5 text-xs text-slate-600">
           <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-          Moderate
+          Moderate overlap (3)
         </span>
         <span className="flex items-center gap-1.5 text-xs text-slate-600">
           <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
-          Low Originality
+          High overlap (4-5)
         </span>
       </div>
 
@@ -67,19 +74,26 @@ export default function SentenceHighlighting({
             <div key={ann.index} className="relative">
               {/* Main sentence card */}
               <div
-                className={`flex items-start gap-2 border-l-4 rounded-r-lg px-4 py-3 transition-all ${style.bg} ${style.border} ${style.text} ${isClickable ? `cursor-pointer ${style.hover}` : ""} ${isHovered ? "shadow-md" : ""}`}
+                className={`flex items-start gap-2 border-l-4 border-l-slate-200 rounded-r-lg px-4 py-3 transition-all bg-white hover:bg-slate-50 ${isClickable ? "cursor-pointer" : ""} ${isHovered ? "shadow-md" : ""}`}
                 onClick={() => isClickable && onSentenceClick(ann)}
-                onMouseEnter={() => hasMatches && setHoveredIndex(ann.index)}
+                onMouseEnter={() => setHoveredIndex(ann.index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <p className="flex-1 text-sm leading-relaxed">{ann.sentence}</p>
-                <div className="flex items-center gap-2 flex-shrink-0 mt-0.5">
-                  <span className="text-xs opacity-70 font-medium">
-                    {Math.round(ann.overlap_score * 100)}%
-                  </span>
+                <p className="flex-1 text-sm leading-relaxed text-slate-700">{ann.sentence}</p>
+                <div className="flex items-center gap-1 flex-shrink-0 mt-0.5 flex-wrap justify-end">
+                  {Object.entries(ann.criteria_labels ?? {}).map(([criterion, lbl]) => (
+                    <span
+                      key={criterion}
+                      className={`px-1.5 py-0.5 rounded text-xs font-bold text-white ${
+                        lbl === "low" ? "bg-red-500" : lbl === "medium" ? "bg-amber-500" : "bg-green-500"
+                      }`}
+                    >
+                      {CRITERION_DISPLAY[criterion] ?? criterion}
+                    </span>
+                  ))}
                   {isClickable && (
                     <span
-                      className="text-base opacity-70 hover:opacity-100 transition-opacity"
+                      className="text-base opacity-70 hover:opacity-100 transition-opacity ml-1"
                       title="View matching evidence"
                     >
                       🔍
@@ -89,7 +103,7 @@ export default function SentenceHighlighting({
               </div>
 
               {/* Hover preview of matching evidence */}
-              {isHovered && topMatch && (
+              {isHovered && topMatch && hasMatches && (
                 <div className="absolute left-4 right-4 top-full mt-1 z-20 animate-fadeIn">
                   <div className="bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden">
                     {/* Arrow */}
@@ -98,9 +112,11 @@ export default function SentenceHighlighting({
                     {/* Content */}
                     <div className="relative p-4">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className={`px-2 py-0.5 rounded text-xs font-bold text-white ${style.badge}`}>
-                          {Math.round(topMatch.similarity * 100)}% match
-                        </span>
+                        {topMatch.criterion && (
+                          <span className={`px-2 py-0.5 rounded text-xs font-bold text-white ${style.badge}`}>
+                            {CRITERION_DISPLAY[topMatch.criterion] ?? topMatch.criterion}
+                          </span>
+                        )}
                         <span className="text-xs text-slate-500 truncate flex-1">
                           {topMatch.paper_title}
                         </span>

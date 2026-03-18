@@ -54,3 +54,4 @@ frontend/dist/
 *.bak
 *.swp
 *.tmp
+docs/sentence_level_scoring.md

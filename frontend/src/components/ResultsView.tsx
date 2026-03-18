@@ -33,7 +33,7 @@ export default function ResultsView({
 
   const reportText = [
     `# Originality Assessment Report\n`,
-    `## Score: ${results.global_originality_score}/100\n`,
+    `## Score: ${results.originality_score}/100\n`,
     `## Summary\n${results.comprehensive_report || results.summary}\n`,
     ...(results.github_analysis?.synthesis
       ? [`## GitHub Evidence\n${results.github_analysis.synthesis}\nVerdict: ${results.github_analysis.verdict?.replace(/_/g, " ")}\n`]
@@ -42,7 +42,7 @@ export default function ResultsView({
     ...results.sentence_annotations.map((ann) => {
       const emoji =
         ann.label === "high" ? "🟢" : ann.label === "medium" ? "🟡" : "🔴";
-      return `${emoji} [${Math.round(ann.overlap_score * 100)}% overlap] ${ann.sentence}`;
+      return `${emoji} [${Math.round(ann.similarity_score * 100)}% overlap] ${ann.sentence}`;
     }),
   ].join("\n");
 
@@ -83,7 +83,7 @@ export default function ResultsView({
 
         {/* Originality Gauge with Summary */}
         <OriginalityGauge 
-          score={results.global_originality_score} 
+          score={results.originality_score} 
           summary={results.summary}
         />
       </div>

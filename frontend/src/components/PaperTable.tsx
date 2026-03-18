@@ -21,8 +21,8 @@ export default function PaperTable({ papers }: Props) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const sorted = [...papers]
-    .filter((p) => p.overall_overlap_score !== undefined)
-    .sort((a, b) => (b.overall_overlap_score ?? 0) - (a.overall_overlap_score ?? 0));
+    .filter((p) => p.idea_similarity_score !== undefined)
+    .sort((a, b) => (b.idea_similarity_score ?? 0) - (a.idea_similarity_score ?? 0));
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
@@ -45,7 +45,7 @@ export default function PaperTable({ papers }: Props) {
       {/* Rows */}
       <div className="divide-y divide-slate-100">
         {sorted.map((paper) => {
-          const overlap = paper.overall_overlap_score ?? 0;
+          const overlap = paper.idea_similarity_score ?? 0;
           const pct = Math.round(overlap * 100);
           const isExpanded = expandedId === paper.paper_id;
 

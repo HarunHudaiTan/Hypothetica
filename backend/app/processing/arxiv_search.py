@@ -22,6 +22,14 @@ class ArxivReq:
         # Configurable parameters for retrieval
         self.papers_per_query = 150  # Increased from 10 for high recall
         self.api_delay = 5  # Seconds between API calls (arXiv recommends 3s; 5s safer for 429)
+        self._last_request_time = 0  # Tracks last arXiv request for rate limiting
+
+    def _wait_for_rate_limit(self):
+        """Ensure minimum delay between arXiv requests regardless of call site."""
+        elapsed = time.time() - self._last_request_time
+        if elapsed < self.api_delay:
+            time.sleep(self.api_delay - elapsed)
+        self._last_request_time = time.time()
 
     def search_arxiv(self, terms=None, operator=None, category=None, search_in="all",
                      max_results=10, start=0, sort_by=None, sort_order="descending",
@@ -98,17 +106,26 @@ class ArxivReq:
 
         url = f"http://export.arxiv.org/api/query?{urllib.parse.urlencode(params)}"
 
+        self._wait_for_rate_limit()
         req = urllib.request.Request(url, headers={"User-Agent": ARXIV_USER_AGENT})
         max_retries = 4
         for attempt in range(max_retries):
             try:
-                with urllib.request.urlopen(req, timeout=30) as response:
+                with urllib.request.urlopen(req, timeout=45) as response:
                     return response.read().decode('utf-8')
             except urllib.error.HTTPError as e:
                 if e.code == 429 and attempt < max_retries - 1:
                     wait = (2 ** attempt) * 10  # 10, 20, 40 seconds
                     print(f"  arXiv rate limit (429). Waiting {wait}s before retry {attempt + 1}/{max_retries}...")
                     time.sleep(wait)
+                else:
+                    raise
+            except (urllib.error.URLError, OSError) as e:
+                if attempt < max_retries - 1:
+                    wait = (attempt + 1) * 5  # 5, 10, 15 seconds
+                    print(f"  arXiv request failed ({e}). Waiting {wait}s before retry {attempt + 1}/{max_retries}...")
+                    time.sleep(wait)
+                    self._last_request_time = 0  # Reset so next attempt doesn't add extra delay
                 else:
                     raise
 
@@ -260,9 +277,6 @@ class ArxivReq:
                 if len(papers) < batch_size:
                     break
 
-                # Rate limiting
-                time.sleep(self.api_delay)
-
             except Exception as e:
                 print(f"Error fetching papers for query '{query}': {e}")
                 break
@@ -299,7 +313,6 @@ class ArxivReq:
             }
 
             print(f"  Found {len(papers)} papers")
-            time.sleep(self.api_delay)
 
         return results
 
@@ -409,7 +422,6 @@ class ArxivReq:
         # Step 2: Search arXiv with all variants
         print("\n" + "=" * 60)
         print("Step 2: Searching arXiv...")
-        time.sleep(2)  # Brief pause before first request (helps if recently rate-limited)
         search_results = self.search_multiple_queries(query_variants, papers_per_query)
 
         # Step 3: Deduplicate

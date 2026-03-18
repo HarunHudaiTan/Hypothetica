@@ -8,6 +8,13 @@ interface Props {
   onClose: () => void;
 }
 
+const CRITERION_DISPLAY: Record<string, string> = {
+  problem_similarity: "Problem",
+  method_similarity: "Method",
+  domain_overlap: "Domain",
+  contribution_similarity: "Contribution",
+};
+
 function getLabelColors(label: string) {
   switch (label) {
     case "low":
@@ -131,10 +138,17 @@ export default function MatchesModal({ annotation, jobId, onClose }: Props) {
                   <p className={`text-base leading-relaxed font-medium ${colors.text}`}>
                     "{annotation.sentence}"
                   </p>
-                  <div className="mt-4 pt-3 border-t border-slate-200/50 flex items-center gap-3">
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold text-white ${colors.badge}`}>
-                      {Math.round(annotation.overlap_score * 100)}% overlap
-                    </span>
+                  <div className="mt-4 pt-3 border-t border-slate-200/50 flex items-center gap-2 flex-wrap">
+                    {Object.entries(annotation.criteria_labels ?? {})
+                      .filter(([, lbl]) => lbl !== "high")
+                      .map(([criterion, lbl]) => (
+                        <span
+                          key={criterion}
+                          className={`px-3 py-1 rounded-full text-xs font-bold text-white ${lbl === "low" ? "bg-red-500" : "bg-amber-500"}`}
+                        >
+                          {CRITERION_DISPLAY[criterion] ?? criterion}
+                        </span>
+                      ))}
                     <span className="text-xs text-slate-500">
                       {allMatches.length} match{allMatches.length !== 1 ? "es" : ""}
                     </span>
@@ -158,7 +172,8 @@ export default function MatchesModal({ annotation, jobId, onClose }: Props) {
                               : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-100"
                           }`}
                         >
-                          {Math.round(match.similarity * 100)}% • {match.heading?.slice(0, 15) || `#${idx + 1}`}
+                          {match.criterion ? (CRITERION_DISPLAY[match.criterion] ?? match.criterion) : `#${idx + 1}`}
+                          {" • "}{Math.round(match.similarity * 100)}%
                         </button>
                       ))}
                     </div>
@@ -176,7 +191,14 @@ export default function MatchesModal({ annotation, jobId, onClose }: Props) {
                   <div className="space-y-4">
                     {/* Paper info */}
                     <div className="bg-slate-100 rounded-xl p-4">
-                      <div className="text-xs text-slate-500 mb-1">From Paper:</div>
+                      <div className="flex items-center gap-2 mb-2">
+                        {currentMatch.criterion && (
+                          <span className={`px-2 py-0.5 rounded text-xs font-bold text-white ${colors.badge}`}>
+                            {CRITERION_DISPLAY[currentMatch.criterion] ?? currentMatch.criterion}
+                          </span>
+                        )}
+                        <span className="text-xs text-slate-500">From Paper:</span>
+                      </div>
                       <h4 className="text-sm font-bold text-slate-800 leading-snug">
                         {currentMatch.paper_title || "Unknown Paper"}
                       </h4>
@@ -185,22 +207,6 @@ export default function MatchesModal({ annotation, jobId, onClose }: Props) {
                           Section: <span className="font-semibold">{currentMatch.heading}</span>
                         </div>
                       )}
-                    </div>
-
-                    {/* Similarity bar */}
-                    <div className="flex items-center gap-3">
-                      <div className="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
-                        <div
-                          className="h-full rounded-full transition-all"
-                          style={{
-                            width: `${currentMatch.similarity * 100}%`,
-                            backgroundColor: colors.accent,
-                          }}
-                        />
-                      </div>
-                      <span className={`px-2 py-1 rounded text-xs font-bold text-white ${colors.badge}`}>
-                        {Math.round(currentMatch.similarity * 100)}%
-                      </span>
                     </div>
 
                     {/* The actual matching passage from paper */}
