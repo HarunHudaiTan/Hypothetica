@@ -47,8 +47,26 @@ function Slider({
 }
 
 export default function SettingsPanel({ settings, onChange, disabled }: Props) {
-  const update = (key: keyof PipelineSettings, value: number | boolean) =>
+  const update = (key: keyof PipelineSettings, value: number | boolean | string[]) =>
     onChange({ ...settings, [key]: value });
+
+  const availableSources = [
+    { id: "arxiv", name: "arXiv", description: "Open access preprints and articles" },
+    { id: "semantic_scholar", name: "Semantic Scholar", description: "Academic papers with citations" }
+  ];
+
+  const handleSourceToggle = (sourceId: string) => {
+    const currentSources = settings.paper_sources || [];
+    
+    const newSources = currentSources.includes(sourceId)
+      ? currentSources.filter(s => s !== sourceId)
+      : [...currentSources, sourceId];
+    
+    // Ensure at least one source is selected
+    if (newSources.length > 0) {
+      update("paper_sources", newSources);
+    }
+  };
 
   return (
     <div className="bg-slate-800 border border-slate-700 rounded-xl p-5">
@@ -109,6 +127,47 @@ export default function SettingsPanel({ settings, onChange, disabled }: Props) {
           Use cross-encoder reranking
         </span>
       </label>
+
+      {/* Paper Sources Selection */}
+      <div className="mt-6 pt-6 border-t border-slate-700">
+        <h4 className="text-sm font-semibold text-slate-200 mb-3">
+          Paper Sources
+        </h4>
+        <p className="text-xs text-slate-400 mb-4">
+          Select which academic databases to search for papers
+        </p>
+        
+        <div className="space-y-2">
+          {availableSources.map((source) => (
+            <label
+              key={source.id}
+              className="flex items-start gap-3 p-3 rounded-lg border border-slate-600 hover:bg-slate-700/50 cursor-pointer transition-colors"
+            >
+              <input
+                type="checkbox"
+                checked={(settings.paper_sources || []).includes(source.id)}
+                onChange={() => handleSourceToggle(source.id)}
+                disabled={disabled}
+                className="mt-0.5 rounded border-slate-600 bg-slate-700 text-indigo-500 focus:ring-indigo-500"
+              />
+              <div className="flex-1">
+                <div className="font-medium text-slate-200 text-sm">
+                  {source.name}
+                </div>
+                <div className="text-xs text-slate-400 mt-0.5">
+                  {source.description}
+                </div>
+              </div>
+            </label>
+          ))}
+        </div>
+        
+        {(settings.paper_sources || []).length === 0 && (
+          <p className="text-xs text-amber-400 mt-2">
+            Please select at least one paper source
+          </p>
+        )}
+      </div>
     </div>
   );
 }

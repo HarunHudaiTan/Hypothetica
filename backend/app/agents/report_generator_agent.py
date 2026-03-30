@@ -265,7 +265,7 @@ Please generate a detailed markdown report following the structure specified in 
             context_parts.append(f"""
 ### Paper {i}: {paper.title}
 ArXiv ID: {paper.arxiv_id}
-Categories: {', '.join(paper.categories)}
+Categories: {', '.join(paper.categories) if paper.categories else 'Unknown'}
 Abstract: {paper.abstract}
 
 Key Sections:

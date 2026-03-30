@@ -63,16 +63,26 @@ class Paper:
     A research paper with all its extracted content.
     """
     paper_id: str                    # Internal ID (e.g., "paper_01")
-    arxiv_id: str                    # ArXiv ID (e.g., "2401.12345")
+    arxiv_id: str                    # ArXiv ID (e.g., "2401.12345") - kept for compatibility
     title: str
     abstract: str
-    url: str                         # ArXiv URL
+    url: str                         # Paper URL
     pdf_url: str                     # PDF URL
+    
+    # Source information
+    source: str = "arxiv"            # Source: "arxiv", "semantic_scholar", etc.
+    source_id: str = ""              # Original source ID
     
     # Metadata
     authors: List[str] = field(default_factory=list)
-    categories: List[str] = field(default_factory=list)  # ArXiv categories
+    categories: List[str] = field(default_factory=list)  # Categories/fields of study
     published_date: Optional[str] = None
+    year: Optional[int] = None       # Publication year as integer
+    
+    # Source-specific metadata (optional)
+    venue: Optional[str] = None       # Journal/conference venue
+    citation_count: Optional[int] = None  # Number of citations
+    doi: Optional[str] = None         # DOI if available
     
     # Extracted content
     headings: List[Heading] = field(default_factory=list)

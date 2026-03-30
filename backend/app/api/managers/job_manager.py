@@ -32,6 +32,8 @@ class PipelineState:
     reality_check_result: Dict = field(default_factory=dict)
     reality_check_warning: Optional[str] = None
     github_result: Optional[GitHubAnalysisResult] = None
+    # Paper source configuration
+    paper_sources: List[str] = field(default_factory=lambda: ["arxiv"])  # Default to arxiv only
     # Pipeline stats
     total_papers_fetched: int = 0
     unique_papers_after_dedup: int = 0
@@ -73,6 +75,18 @@ class JobManager:
     def create_job(self, user_idea: str, settings: Dict) -> str:
         job_id = uuid.uuid4().hex[:12]
         job = Job(job_id=job_id, user_idea=user_idea, settings=settings)
+        
+        # Extract paper sources from settings, default to arxiv if not specified
+        paper_sources = settings.get("paper_sources", ["arxiv"])
+        if isinstance(paper_sources, str):
+            paper_sources = [paper_sources]
+        
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.info(f"Creating job with paper_sources: {paper_sources}")
+        
+        job.state.paper_sources = paper_sources
+        
         with self._lock:
             self._jobs[job_id] = job
         return job_id

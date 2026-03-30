@@ -288,7 +288,7 @@ class Layer1Agent:
         return (
             f"Title: {paper.title}\n"
             f"ArXiv ID: {paper.arxiv_id}\n"
-            f"Categories: {', '.join(paper.categories)}\n\n"
+            f"Categories: {', '.join(paper.categories) if paper.categories else 'Unknown'}\n\n"
             f"### ABSTRACT\n{paper.abstract}\n\n"
             f"### EXTRACTED SECTIONS\n"
             f"{sections_text if sections_text else paper_context if paper_context else 'No sections extracted'}"

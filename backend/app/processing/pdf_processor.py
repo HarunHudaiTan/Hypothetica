@@ -36,6 +36,7 @@ class PDFProcessor:
     def process_paper(self, paper: Paper) -> Paper:
         """
         Process a paper's PDF and extract structured content.
+        Source-aware processing with fallback for different paper sources.
         
         Args:
             paper: Paper object with pdf_url set
@@ -43,18 +44,44 @@ class PDFProcessor:
         Returns:
             Paper with markdown_content and headings populated
         """
-        if not paper.pdf_url:
-            paper.processing_error = "No PDF URL provided"
-            return paper
-        
         try:
-            logger.info(f"Processing PDF: {paper.title[:50]}...")
+            logger.info(f"Processing PDF: {paper.title[:50]}... (source: {paper.source})")
             
-            # Convert PDF to markdown
-            markdown = self._convert_to_markdown(paper.pdf_url)
+            # Handle papers without PDF URLs
+            if not paper.pdf_url:
+                if paper.abstract:
+                    # All sources: Use abstract fallback when no PDF URL
+                    logger.info(f"No PDF URL for {paper.paper_id}, using abstract fallback")
+                    markdown = self._create_abstract_fallback(paper)
+                    if markdown:
+                        paper.markdown_content = markdown
+                        paper.headings = self._extract_headings_with_content(markdown, paper.paper_id)
+                        paper.is_processed = True
+                        paper.processed_at = datetime.now()
+                        logger.info(f"Abstract fallback successful for {paper.paper_id}")
+                        return paper
+                else:
+                    # No abstract either: Mark as error
+                    paper.processing_error = "No PDF URL or abstract provided"
+                    return paper
+            
+            # Convert PDF to markdown with source-aware handling
+            markdown = self._convert_to_markdown_with_source(paper)
             if not markdown:
-                paper.processing_error = "Failed to convert PDF to markdown"
-                return paper
+                # PDF conversion failed, try abstract fallback
+                if paper.abstract:
+                    logger.warning(f"PDF conversion failed for {paper.paper_id}, trying abstract fallback")
+                    markdown = self._create_abstract_fallback(paper)
+                    if markdown:
+                        paper.markdown_content = markdown
+                        paper.headings = self._extract_headings_with_content(markdown, paper.paper_id)
+                        paper.is_processed = True
+                        paper.processed_at = datetime.now()
+                        logger.info(f"Abstract fallback successful for {paper.paper_id}")
+                        return paper
+                else:
+                    paper.processing_error = "Failed to convert PDF to markdown and no abstract available"
+                    return paper
             
             paper.markdown_content = markdown
             
@@ -78,20 +105,49 @@ class PDFProcessor:
         """
         Process a single paper with a fresh DocumentConverter.
         Thread-safe: each call uses its own converter to avoid shared state.
+        Source-aware processing with fallback.
         """
-        if not paper.pdf_url:
-            paper.processing_error = "No PDF URL provided"
-            return paper
-        
         try:
-            logger.info(f"Processing PDF: {paper.title[:50]}...")
+            logger.info(f"Processing PDF: {paper.title[:50]}... (source: {paper.source})")
+            
+            # Handle papers without PDF URLs
+            if not paper.pdf_url:
+                if paper.abstract:
+                    # All sources: Use abstract fallback when no PDF URL
+                    logger.info(f"No PDF URL for {paper.paper_id}, using abstract fallback")
+                    markdown = self._create_abstract_fallback(paper)
+                    if markdown:
+                        paper.markdown_content = markdown
+                        paper.headings = self._extract_headings_with_content(markdown, paper.paper_id)
+                        paper.is_processed = True
+                        paper.processed_at = datetime.now()
+                        logger.info(f"Abstract fallback successful for {paper.paper_id}")
+                        return paper
+                else:
+                    # No abstract either: Mark as error
+                    paper.processing_error = "No PDF URL or abstract provided"
+                    return paper
+            
             converter = DocumentConverter()
-            result = converter.convert(paper.pdf_url)
-            markdown = result.document.export_to_markdown()
+            
+            # Source-aware conversion
+            markdown = self._convert_to_markdown_with_converter(paper, converter)
             
             if not markdown:
-                paper.processing_error = "Failed to convert PDF to markdown"
-                return paper
+                # PDF conversion failed, try abstract fallback
+                if paper.abstract:
+                    logger.warning(f"PDF conversion failed for {paper.paper_id}, trying abstract fallback")
+                    markdown = self._create_abstract_fallback(paper)
+                    if markdown:
+                        paper.markdown_content = markdown
+                        paper.headings = self._extract_headings_with_content(markdown, paper.paper_id)
+                        paper.is_processed = True
+                        paper.processed_at = datetime.now()
+                        logger.info(f"Abstract fallback successful for {paper.paper_id}")
+                        return paper
+                else:
+                    paper.processing_error = "Failed to convert PDF to markdown and no abstract available"
+                    return paper
             
             paper.markdown_content = markdown
             headings = self._extract_headings_with_content(markdown, paper.paper_id)
@@ -146,6 +202,7 @@ class PDFProcessor:
     def _convert_to_markdown(self, source: str) -> Optional[str]:
         """
         Convert PDF to markdown using Docling.
+        Legacy method - use _convert_to_markdown_with_source for new code.
         
         Args:
             source: PDF URL or file path
@@ -159,6 +216,170 @@ class PDFProcessor:
         except Exception as e:
             logger.error(f"Docling conversion failed: {e}")
             return None
+    
+    def _convert_to_markdown_with_source(self, paper: Paper) -> Optional[str]:
+        """
+        Convert PDF to markdown with source-aware handling.
+        Different strategies for different paper sources.
+        
+        Args:
+            paper: Paper object with source and pdf_url
+            
+        Returns:
+            Markdown string or None on failure
+        """
+        if paper.source == "arxiv":
+            # ArXiv: Use existing logic (unchanged)
+            return self._convert_to_markdown(paper.pdf_url)
+        
+        elif paper.source == "semantic_scholar":
+            # Semantic Scholar: Try multiple strategies
+            return self._convert_semantic_scholar_pdf(paper)
+        
+        else:
+            # Unknown source: Use default logic
+            return self._convert_to_markdown(paper.pdf_url)
+    
+    def _convert_semantic_scholar_pdf(self, paper: Paper) -> Optional[str]:
+        """
+        Convert Semantic Scholar PDF with multiple fallback strategies.
+        
+        Args:
+            paper: Semantic Scholar paper object
+            
+        Returns:
+            Markdown string or None on failure
+        """
+        pdf_url = paper.pdf_url
+        logger.info(f"Converting Semantic Scholar PDF: {paper.title[:50]}...")
+        
+        # Strategy 1: Try direct conversion
+        try:
+            result = self.converter.convert(pdf_url)
+            markdown = result.document.export_to_markdown()
+            if markdown and len(markdown.strip()) > 100:
+                logger.info(f"Direct conversion successful for {paper.paper_id}")
+                return markdown
+        except Exception as e:
+            logger.warning(f"Direct conversion failed for {paper.paper_id}: {e}")
+        
+        # Strategy 2: Try DOI redirect (if URL is DOI)
+        if "doi.org" in pdf_url:
+            try:
+                logger.info(f"Trying DOI redirect for {paper.paper_id}")
+                result = self.converter.convert(pdf_url)
+                markdown = result.document.export_to_markdown()
+                if markdown and len(markdown.strip()) > 100:
+                    logger.info(f"DOI conversion successful for {paper.paper_id}")
+                    return markdown
+            except Exception as e:
+                logger.warning(f"DOI conversion failed for {paper.paper_id}: {e}")
+        
+        # Strategy 3: Fallback to abstract-only processing
+        logger.warning(f"PDF conversion failed for {paper.paper_id}, falling back to abstract-only")
+        return self._create_abstract_fallback(paper)
+    
+    def _convert_to_markdown_with_converter(self, paper: Paper, converter) -> Optional[str]:
+        """
+        Convert PDF to markdown using a specific converter instance.
+        Source-aware processing with fallback.
+        """
+        if paper.source == "arxiv":
+            # ArXiv: Use existing logic
+            try:
+                result = converter.convert(paper.pdf_url)
+                return result.document.export_to_markdown()
+            except Exception as e:
+                logger.error(f"ArXiv conversion failed: {e}")
+                return None
+        
+        elif paper.source == "semantic_scholar":
+            # Semantic Scholar: Try multiple strategies
+            return self._convert_semantic_scholar_pdf_with_converter(paper, converter)
+        
+        else:
+            # Unknown source: Use default logic
+            try:
+                result = converter.convert(paper.pdf_url)
+                return result.document.export_to_markdown()
+            except Exception as e:
+                logger.error(f"Default conversion failed: {e}")
+                return None
+    
+    def _convert_semantic_scholar_pdf_with_converter(self, paper: Paper, converter) -> Optional[str]:
+        """
+        Convert Semantic Scholar PDF using specific converter with fallback.
+        """
+        pdf_url = paper.pdf_url
+        logger.info(f"Converting Semantic Scholar PDF: {paper.title[:50]}...")
+        
+        # Strategy 1: Try direct conversion
+        try:
+            result = converter.convert(pdf_url)
+            markdown = result.document.export_to_markdown()
+            if markdown and len(markdown.strip()) > 100:
+                logger.info(f"Direct conversion successful for {paper.paper_id}")
+                return markdown
+        except Exception as e:
+            logger.warning(f"Direct conversion failed for {paper.paper_id}: {e}")
+        
+        # Strategy 2: Try DOI redirect
+        if "doi.org" in pdf_url:
+            try:
+                logger.info(f"Trying DOI redirect for {paper.paper_id}")
+                result = converter.convert(pdf_url)
+                markdown = result.document.export_to_markdown()
+                if markdown and len(markdown.strip()) > 100:
+                    logger.info(f"DOI conversion successful for {paper.paper_id}")
+                    return markdown
+            except Exception as e:
+                logger.warning(f"DOI conversion failed for {paper.paper_id}: {e}")
+        
+        # Strategy 3: Fallback to abstract-only
+        logger.warning(f"PDF conversion failed for {paper.paper_id}, falling back to abstract-only")
+        return self._create_abstract_fallback(paper)
+    
+    def _create_abstract_fallback(self, paper: Paper) -> Optional[str]:
+        """
+        Create markdown from abstract when PDF conversion fails.
+        This ensures the paper can still be processed for analysis.
+        
+        Args:
+            paper: Paper object with abstract
+            
+        Returns:
+            Markdown string with abstract content
+        """
+        if not paper.abstract:
+            logger.error(f"No abstract available for fallback processing {paper.paper_id}")
+            return None
+        
+        # Ensure categories is never None
+        if paper.categories is None:
+            paper.categories = []
+        
+        # Create markdown structure from abstract
+        markdown = f"""# {paper.title}
+
+## Abstract
+
+{paper.abstract}
+
+## Authors
+
+{', '.join(paper.authors) if paper.authors else 'Unknown'}
+
+## Source
+
+{paper.source} - {paper.source_id}
+
+## Note
+
+*This paper was processed using abstract-only content due to PDF conversion limitations.*
+"""
+        
+        logger.info(f"Created abstract fallback for {paper.paper_id} ({len(markdown)} chars)")
+        return markdown
     
     def _extract_headings_with_content(
         self,

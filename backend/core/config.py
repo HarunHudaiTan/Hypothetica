@@ -24,6 +24,9 @@ SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 # GitHub
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
+# Semantic Scholar
+SEMANTIC_SCHOLAR_API_KEY = os.getenv("SEMANTIC_SCHOLAR_API_KEY")
+
 # =============================================================================
 # MODEL CONFIGURATION
 # =============================================================================
@@ -117,6 +120,13 @@ CHROMA_PERSIST_DIR = None  # None = in-memory for demo
 # =============================================================================
 INPUT_TOKEN_PRICE = 0.30    # $0.30 per 1M input tokens
 OUTPUT_TOKEN_PRICE = 2.50   # $2.50 per 1M output tokens
+
+# =============================================================================
+# SEMANTIC SCHOLAR SEARCH CONFIGURATION
+# =============================================================================
+SEMANTIC_SCHOLAR_RESULTS_PER_QUERY = 100   # Results per query from Semantic Scholar API
+SEMANTIC_SCHOLAR_API_DELAY = 1.0          # Seconds between API requests
+SEMANTIC_SCHOLAR_MAX_RETRIES = 3          # Max retries for failed requests
 
 # =============================================================================
 # GITHUB SEARCH CONFIGURATION

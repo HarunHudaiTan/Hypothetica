@@ -34,6 +34,7 @@ const DEFAULT_SETTINGS: PipelineSettings = {
   rerank_topk: 20,
   final_papers: 5,
   use_reranker: true,
+  paper_sources: ["arxiv", "semantic_scholar"], // Default to both sources
 };
 
 export function useAnalysis() {

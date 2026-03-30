@@ -46,6 +46,11 @@ app.add_middleware(
 async def start_analysis(req: AnalyzeRequest):
     """Start a new originality analysis job."""
     settings = req.model_dump(exclude={"user_idea"})
+    
+    # Debug logging for paper_sources
+    logger.info(f"API received paper_sources: {settings.get('paper_sources', 'NOT_FOUND')}")
+    logger.info(f"Full settings: {settings}")
+    
     job_id = job_manager.create_job(req.user_idea, settings)
 
     AnalysisService.start_questions_phase(job_id)
