@@ -5,16 +5,19 @@ from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 import json
 import time
+from typing import List, Dict, Any, Optional
 
 from app.agents.query_variant_agent import QueryVariantAgent
+from app.processing.base_paper_source import PaperSource
 
 # arXiv recommends identifying your client; helps avoid rate limiting
 ARXIV_USER_AGENT = "Hypothetica/1.0 (research originality assessment; mailto:support@example.com)"
 
 
-class ArxivReq:
+class ArxivReq(PaperSource):
     """
     ArXiv paper retrieval with high-recall multi-query search and deduplication.
+    Implements PaperSource interface for modular design.
     """
 
     def __init__(self):
@@ -444,3 +447,111 @@ class ArxivReq:
         }
 
         return json.dumps(summary, indent=2)
+
+    def get_paper_details(self, paper_id: str) -> Optional[Dict[str, Any]]:
+        """
+        Get detailed information about a specific arXiv paper.
+        
+        Args:
+            paper_id: arXiv paper ID (e.g., "2301.00001")
+            
+        Returns:
+            Standardized paper dictionary or None if not found
+        """
+        try:
+            # Search for the specific paper by ID
+            xml_result = self.search_arxiv(terms=paper_id, max_results=1)
+            json_result = self.parse_arxiv_xml_to_json(xml_result)
+            papers = json_result.get('papers', [])
+            
+            if papers:
+                return self.standardize_paper_data(papers[0])
+            return None
+            
+        except Exception as e:
+            print(f"Error getting arXiv paper details for {paper_id}: {e}")
+            return None
+
+    def download_pdf(self, paper_id: str) -> Optional[str]:
+        """
+        Download PDF for an arXiv paper.
+        
+        Args:
+            paper_id: arXiv paper ID
+            
+        Returns:
+            Local file path to downloaded PDF or None if unavailable
+        """
+        try:
+            from app.processing.pdf_processor import PDFProcessor
+            processor = PDFProcessor()
+            
+            # Construct PDF URL
+            pdf_url = f"https://arxiv.org/pdf/{paper_id}.pdf"
+            return processor.download_pdf(pdf_url, f"arxiv_{paper_id}")
+            
+        except Exception as e:
+            print(f"Error downloading PDF for {paper_id}: {e}")
+            return None
+
+    def get_source_name(self) -> str:
+        """Return the source name."""
+        return "arxiv"
+
+    def standardize_paper_data(self, raw_paper: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Convert arXiv paper data to standardized format.
+        
+        Args:
+            raw_paper: Raw paper data from arXiv API
+            
+        Returns:
+            Standardized paper dictionary
+        """
+        # Extract year from published date
+        year = None
+        if 'published' in raw_paper:
+            try:
+                year = int(raw_paper['published'][:4])
+            except (ValueError, TypeError):
+                pass
+        
+        # Extract PDF URL
+        pdf_url = None
+        if 'links' in raw_paper:
+            pdf_url = raw_paper['links'].get('pdf')
+        
+        standardized = {
+            "id": f"arxiv_{raw_paper.get('arxiv_id', '')}",
+            "title": raw_paper.get('title', ''),
+            "abstract": raw_paper.get('summary', ''),
+            "authors": raw_paper.get('authors', []),
+            "url": raw_paper.get('links', {}).get('html', ''),
+            "pdf_url": pdf_url,
+            "published_date": raw_paper.get('published', ''),
+            "categories": raw_paper.get('categories', []),
+            "source": self.get_source_name(),
+            "source_id": raw_paper.get('arxiv_id', ''),
+            "year": year,
+            "primary_category": raw_paper.get('primary_category', ''),
+            "journal_ref": raw_paper.get('journal_ref', ''),
+            "doi": raw_paper.get('doi', ''),
+        }
+        
+        return standardized
+
+    def search_papers(self, query: str, max_results: int = 100, **kwargs) -> List[Dict[str, Any]]:
+        """
+        Interface method for PaperSource compatibility.
+        Uses the existing search_with_pagination method.
+        
+        Args:
+            query: Search query string
+            max_results: Maximum number of results to return
+            **kwargs: Additional parameters (ignored for arXiv)
+            
+        Returns:
+            List of standardized paper dictionaries
+        """
+        papers = self.search_with_pagination(query, max_papers=max_results)
+        return [self.standardize_paper_data(paper) for paper in papers]

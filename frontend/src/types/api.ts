@@ -5,6 +5,7 @@ export interface AnalyzeRequest {
   rerank_topk: number;
   final_papers: number;
   use_reranker: boolean;
+  paper_sources: string[];
 }
 
 export interface FollowUpQuestion {
@@ -154,4 +155,5 @@ export interface PipelineSettings {
   rerank_topk: number;
   final_papers: number;
   use_reranker: boolean;
+  paper_sources: string[];
 }

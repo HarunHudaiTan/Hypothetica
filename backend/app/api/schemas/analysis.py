@@ -9,6 +9,7 @@ class AnalyzeRequest(BaseModel):
     rerank_topk: int = Field(default=20, ge=10, le=50)
     final_papers: int = Field(default=5, ge=3, le=10)
     use_reranker: bool = True
+    paper_sources: List[str] = Field(default=["arxiv", "semantic_scholar"])
 
 class AnswersRequest(BaseModel):
     answers: List[str]

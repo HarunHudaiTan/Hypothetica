@@ -155,7 +155,7 @@ class ChromaStore:
                 "heading": heading.text if heading else "",
                 "heading_index": chunk.heading_index,
                 "chunk_index": chunk.chunk_index,
-                "categories": ",".join(paper.categories),
+                "categories": ",".join(paper.categories) if paper.categories else "",
                 "abstract": paper.abstract[:500] if paper.abstract else "",
             })
 

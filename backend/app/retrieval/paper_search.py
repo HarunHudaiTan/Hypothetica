@@ -547,6 +547,60 @@ class QueryWrapper:
             print(f"Error querying index: {e}")
             return []
 
+    def build_index_from_data(self, papers_data: List[Dict[str, Any]], force_rebuild: bool = False) -> int:
+        """
+        Build embedding index from custom paper data instead of file.
+
+        Args:
+            papers_data: List of paper dictionaries
+            force_rebuild: If True, rebuild entire index from scratch
+
+        Returns:
+            Number of papers in index
+        """
+        if not papers_data:
+            print("No papers data provided")
+            return 0
+
+        if force_rebuild and os.path.exists(self.index_dir):
+            print("Force rebuild: removing existing index...")
+            shutil.rmtree(self.index_dir)
+
+        os.makedirs(self.index_dir, exist_ok=True)
+
+        print(f"Building index from custom data: {len(papers_data)} papers")
+
+        # Convert to PaperDoc objects
+        docs = [
+            PaperDoc(
+                id=str(p.get('id', '')),
+                title=str(p.get('title', '')),
+                abstract=str(p.get('abstract', '')),
+                url=p.get('url'),
+                year=p.get('year'),
+                categories=p.get('categories', [])
+            )
+            for p in papers_data
+        ]
+
+        # Filter out papers with missing essential data
+        docs = [d for d in docs if d.title and d.abstract and d.id]
+        print(f"After filtering: {len(docs)} papers with title+abstract+id")
+
+        if not docs:
+            print("No valid papers to index")
+            return 0
+
+        # Build index
+        try:
+            pipeline = self._get_pipeline()
+            indexer, count = pipeline.build(docs)
+            print(f"Successfully built index with {count} papers")
+            return count
+        except Exception as e:
+            print(f"Error building index from data: {e}")
+            raise
+
     def rerank_results(self, query: str, results: List[Dict], topk: int = 30) -> List[Dict]:
         """
         Rerank results using cross-encoder.
@@ -597,7 +651,8 @@ class QueryWrapper:
                          include_scores: bool = True,
                          embedding_topk: int = 100,
                          rerank_topk: int = 30,
-                         force_rebuild: bool = False) -> str:
+                         force_rebuild: bool = False,
+                         papers_data: Optional[List[Dict[str, Any]]] = None) -> str:
         """
         Main search method: build index if needed, search, and rerank.
 
@@ -607,6 +662,7 @@ class QueryWrapper:
             embedding_topk: Number of results from embedding search
             rerank_topk: Number of results after reranking
             force_rebuild: Force rebuild of index
+            papers_data: Optional custom papers data to use instead of default file
 
         Returns:
             JSON string with search results
@@ -619,9 +675,13 @@ class QueryWrapper:
 
         logger.info(f"Searching literature for: {query[:100]}...")
 
-        # Step 1: Build/update index
+        # Step 1: Build/update index with custom data if provided
         try:
-            self.build_index(force_rebuild=force_rebuild)
+            if papers_data:
+                logger.info(f"Using custom papers data with {len(papers_data)} papers")
+                self.build_index_from_data(papers_data, force_rebuild=force_rebuild)
+            else:
+                self.build_index(force_rebuild=force_rebuild)
         except Exception as e:
             logger.error(f"Failed to build index: {e}", exc_info=True)
             raise RuntimeError(f"Index build failed: {e}") from e
