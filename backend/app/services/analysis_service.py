@@ -144,7 +144,7 @@ class AnalysisService:
             )
             gh_thread.start()
 
-            PaperSearchService.search_papers(job_id, cls._update_progress)
+            PaperSearchService.search_papers(job_id, cls._update_progress, job.settings.get("selected_sources"))
             PaperProcessingService.process_papers(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer1_analysis(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer2_analysis(job_id, cls._update_progress)
@@ -164,7 +164,7 @@ class AnalysisService:
                 l1 = next((r for r in job.state.layer1_results if r.paper_id == paper.paper_id), None)
                 entry = {
                     "paper_id": paper.paper_id,
-                    "arxiv_id": paper.arxiv_id,
+                    "arxiv_id": paper.source_id,  # Use source_id instead of arxiv_id
                     "title": paper.title,
                     "abstract": paper.abstract,
                     "url": paper.url,

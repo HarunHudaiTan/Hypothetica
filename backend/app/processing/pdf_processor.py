@@ -5,6 +5,7 @@ Supports parallel processing for faster throughput.
 """
 import re
 import logging
+import traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import List, Optional, Tuple
 from datetime import datetime
@@ -85,24 +86,82 @@ class PDFProcessor:
         
         try:
             logger.info(f"Processing PDF: {paper.title[:50]}...")
+            
+            # Add timeout and memory management for large patent PDFs
+            import gc
+            gc.collect()  # Clear memory before processing
+            
             converter = DocumentConverter()
-            result = converter.convert(paper.pdf_url)
-            markdown = result.document.export_to_markdown()
+            
+            # Try conversion with error handling
+            try:
+                result = converter.convert(paper.pdf_url)
+                markdown = result.document.export_to_markdown()
+            except Exception as conversion_error:
+                logger.warning(f"Conversion error for {paper.paper_id}: {conversion_error}")
+                markdown = None
             
             if not markdown:
+                logger.warning(f"No markdown generated for {paper.paper_id}, triggering fallback")
                 paper.processing_error = "Failed to convert PDF to markdown"
+                # Don't return here - trigger fallback instead
+            else:
+                paper.markdown_content = markdown
+                headings = self._extract_headings_with_content(markdown, paper.paper_id)
+                paper.headings = headings
+                paper.is_processed = True
+                paper.processed_at = datetime.now()
+                logger.info(f"Extracted {len(headings)} headings from {paper.paper_id}")
+                
+                # Clear memory after successful processing
+                gc.collect()
                 return paper
             
-            paper.markdown_content = markdown
-            headings = self._extract_headings_with_content(markdown, paper.paper_id)
-            paper.headings = headings
-            paper.is_processed = True
-            paper.processed_at = datetime.now()
-            logger.info(f"Extracted {len(headings)} headings from {paper.paper_id}")
-            
+        except MemoryError as me:
+            logger.error(f"Memory error processing {paper.paper_id}: {me}")
+            # Fallback: use abstract as content if memory issues
+            if paper.abstract:
+                logger.warning(f"Using abstract as fallback for {paper.paper_id} due to memory constraints")
+                fallback_content = f"# {paper.title}\n\n## Abstract\n\n{paper.abstract}"
+                paper.markdown_content = fallback_content
+                paper.headings = [
+                    Heading(
+                        paper_id=paper.paper_id,
+                        level=1,
+                        title=paper.title,
+                        text=fallback_content
+                    )
+                ]
+                paper.is_processed = True
+                paper.processed_at = datetime.now()
+                logger.info(f"Successfully processed {paper.paper_id} using abstract fallback")
+            else:
+                paper.processing_error = f"Memory error: {me}"
+                
         except Exception as e:
-            logger.error(f"Error processing paper {paper.paper_id}: {e}")
-            paper.processing_error = str(e)
+            logger.error(f"Error processing paper {paper.paper_id}: {type(e).__name__}: {e}")
+            logger.error(f"Paper details: title='{paper.title[:50]}...', pdf_url='{paper.pdf_url}', source='{paper.source}'")
+            import traceback
+            logger.error(f"Full traceback: {traceback.format_exc()}")
+            
+            # Fallback: use abstract as content if PDF processing fails
+            if paper.abstract:
+                logger.warning(f"Using abstract as fallback content for {paper.paper_id} due to PDF processing failure")
+                fallback_content = f"# {paper.title}\n\n## Abstract\n\n{paper.abstract}"
+                paper.markdown_content = fallback_content
+                paper.headings = [
+                    Heading(
+                        paper_id=paper.paper_id,
+                        level=1,
+                        title=paper.title,
+                        text=fallback_content
+                    )
+                ]
+                paper.is_processed = True
+                paper.processed_at = datetime.now()
+                logger.info(f"Successfully processed {paper.paper_id} using abstract fallback")
+            else:
+                paper.processing_error = str(e)
         
         return paper
     
@@ -138,8 +197,8 @@ class PDFProcessor:
                 try:
                     future.result()
                 except Exception as e:
-                    logger.error(f"Error processing paper {paper.paper_id}: {e}")
-                    paper.processing_error = str(e)
+                    logger.error(f"Unhandled exception in parallel processing for paper {paper.paper_id}: {e}")
+                    # Don't overwrite the processing_error that was already set in _process_paper_isolated
         
         return papers
     

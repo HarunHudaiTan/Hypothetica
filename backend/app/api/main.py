@@ -10,12 +10,13 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sse_starlette.sse import EventSourceResponse
 
-from app.api.schemas.analysis import AnalyzeRequest, AnswersRequest
+from app.api.schemas.analysis import AnalyzeRequest, AnswersRequest, PaperSource
 from app.api.schemas.job import JobStatus, JobStatusResponse
 from app.api.schemas.matches import SentenceMatchRequest
 
 from app.api.managers.job_manager import job_manager
 from app.services.analysis_service import AnalysisService
+from app.services.paper_search_service import PaperSearchService
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +46,16 @@ app.add_middleware(
 @app.post("/api/analyze")
 async def start_analysis(req: AnalyzeRequest):
     """Start a new originality analysis job."""
-    settings = req.model_dump(exclude={"user_idea"})
+    # Validate that at least one source is selected
+    if not req.selected_sources:
+        raise HTTPException(400, "At least one paper source must be selected")
+    
+    # Convert enum values to strings for storage
+    selected_sources = [source.value for source in req.selected_sources]
+    
+    settings = req.model_dump(exclude={"user_idea", "selected_sources"})
+    settings["selected_sources"] = selected_sources
+    
     job_id = job_manager.create_job(req.user_idea, settings)
 
     AnalysisService.start_questions_phase(job_id)
@@ -132,6 +142,19 @@ async def get_sentence_matches(job_id: str, req: SentenceMatchRequest):
 
     matches = AnalysisService.get_matches_for_sentence(job_id, req.sentence, top_k=req.top_k)
     return {"matches": matches}
+
+
+@app.get("/api/sources")
+async def get_available_sources():
+    """Get available paper sources and their status."""
+    sources = PaperSearchService.get_available_sources()
+    return {
+        "sources": sources,
+        "all_sources": {
+            "arxiv": {"name": "arXiv", "description": "Academic papers and preprints"},
+            "google_patents": {"name": "Google Patents", "description": "Patents and intellectual property"}
+        }
+    }
 
 
 @app.get("/api/health")

@@ -264,7 +264,8 @@ Please generate a detailed markdown report following the structure specified in 
         for i, paper in enumerate(data.papers, 1):
             context_parts.append(f"""
 ### Paper {i}: {paper.title}
-ArXiv ID: {paper.arxiv_id}
+Source: {paper.source}
+Source ID: {paper.source_id}
 Categories: {', '.join(paper.categories)}
 Abstract: {paper.abstract}
 

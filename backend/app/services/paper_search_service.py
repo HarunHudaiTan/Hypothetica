@@ -1,25 +1,48 @@
 import json
 import logging
-from typing import List, Callable
+from typing import List, Callable, Dict, Any
 
 from app.api.managers.job_manager import job_manager
 from app.models.paper import Paper
 
-from app.processing.arxiv_search import ArxivReq
+from app.processing.base_paper_source import BasePaperSource
+from app.processing.arxiv_client import ArxivClient
+from app.processing.google_patents_client import GooglePatentsClient
 from app.retrieval.paper_search import QueryWrapper
 from app.agents.relevant_paper_selector_agent import RelevantPaperSelectorAgent
+from app.agents.query_variant_agent import QueryVariantAgent
 
 logger = logging.getLogger(__name__)
 
 
 class PaperSearchService:
-    _arxiv_req = ArxivReq()
-    _query_wrapper = QueryWrapper(use_reranker=True)
-    _paper_selector = RelevantPaperSelectorAgent()
+    """Enhanced paper search service supporting multiple sources."""
+    
+    def __init__(self):
+        """Initialize available paper sources."""
+        self.sources: Dict[str, BasePaperSource] = {
+            "arxiv": ArxivClient(),
+            "google_patents": GooglePatentsClient()
+        }
+        # Note: Don't filter out unavailable sources here - we need them for the API
+        
+        self._query_wrapper = QueryWrapper(use_reranker=True)
+        self._paper_selector = RelevantPaperSelectorAgent()
+        self._query_variant_agent = QueryVariantAgent()
 
     @classmethod
-    def search_papers(cls, job_id: str, update_progress: Callable):
-        """Enhanced paper search with high-recall retrieval."""
+    def search_papers(cls, job_id: str, update_progress: Callable, selected_sources: List[str] = None):
+        """
+        Enhanced paper search with multiple source support.
+        
+        Args:
+            job_id: Job identifier
+            update_progress: Progress callback function
+            selected_sources: List of source names to search (default: all available)
+        """
+        # Initialize service instance
+        service = cls()
+        
         job = job_manager.get_job(job_id)
         if not job:
             return
@@ -30,26 +53,88 @@ class PaperSearchService:
         embedding_topk = settings.get("embedding_topk", 100)
         rerank_topk = settings.get("rerank_topk", 20)
         final_papers_count = settings.get("final_papers", 5)
+        
+        # Determine which sources to use
+        selected_sources = selected_sources or list(service.sources.keys())
+        available_sources = [s for s in selected_sources if s in service.sources and service.sources[s].is_available]
+        
+        if not available_sources:
+            logger.error("No available paper sources selected")
+            update_progress(job_id, "Error: No available paper sources", 0.15)
+            return
+        
+        logger.info(f"Searching sources: {available_sources}")
+        update_progress(job_id, f"Generating query variants for {len(available_sources)} source(s)...", 0.15)
+        
+        # Generate query variants for better recall
+        query_variants = service._query_variant_agent.generate_query_variants(idea_for_search)
+        logger.info(f"Generated {len(query_variants)} query variants")
+        
+        update_progress(job_id, f"Searching {len(available_sources)} source(s)...", 0.20)
 
-        update_progress(job_id, "Generating query variants and searching arXiv...", 0.15)
-
-        papers_json = cls._arxiv_req.get_papers(idea_for_search, papers_per_query=papers_per_query)
-        papers_summary = json.loads(papers_json)
-
-        job.state.query_variants = papers_summary.get('query_variants', [])
-        job.state.keywords = [v['query'] for v in job.state.query_variants]
-        job.state.total_papers_fetched = papers_summary.get('total_papers_fetched', 0)
-        job.state.unique_papers_after_dedup = papers_summary.get('unique_papers', 0)
+        # Search papers from all selected sources
+        all_papers = []
+        source_results = {}
+        
+        for source_name in available_sources:
+            source = service.sources[source_name]
+            update_progress(job_id, f"Searching {source_name}...", 0.25)
+            
+            # Use query variants for better coverage
+            source_papers = []
+            for variant in query_variants:
+                variant_query = variant['query']
+                logger.info(f"Searching {source_name} with query: {variant_query}")
+                
+                papers = source.search_papers(variant_query, max_results=papers_per_query // len(query_variants))
+                paper_models = source.convert_to_paper_models(papers, limit=50)  # Limit per variant
+                
+                source_papers.extend(paper_models)
+            
+            # Deduplicate papers within the same source
+            seen_ids = set()
+            unique_papers = []
+            for paper in source_papers:
+                if paper.source_id not in seen_ids:
+                    seen_ids.add(paper.source_id)
+                    # Only include papers that have accessible PDF URLs
+                    # For arXiv, all papers have PDFs. For Google Patents, only some have PDFs.
+                    if paper.source == "arxiv" or (paper.source == "google_patents" and paper.pdf_url):
+                        unique_papers.append(paper)
+                    else:
+                        logger.info(f"Excluding paper {paper.paper_id} ({paper.source}) - no accessible PDF")
+            
+            all_papers.extend(unique_papers)
+            source_results[source_name] = unique_papers
+            
+            # Log PDF filtering results
+            total_before_filter = len(source_papers)
+            total_after_filter = len(unique_papers)
+            if total_before_filter != total_after_filter:
+                excluded_count = total_before_filter - total_after_filter
+                logger.info(f"Filtered out {excluded_count} papers from {source_name} due to missing PDFs")
+            
+            logger.info(f"Found {len(unique_papers)} unique papers from {source_name}")
+            update_progress(job_id, f"Found {len(unique_papers)} papers from {source_name}", 0.30)
+        
+        # Store source information in job state
+        job.state.selected_sources = available_sources
+        job.state.source_results = {source: len(papers) for source, papers in source_results.items()}
+        job.state.total_papers_fetched = len(all_papers)
 
         update_progress(
             job_id,
-            f"Found {job.state.unique_papers_after_dedup} unique papers",
-            0.25
+            f"Found {len(all_papers)} total papers from {len(available_sources)} source(s)",
+            0.35
         )
 
-        update_progress(job_id, "Running semantic search with embeddings + rerank...", 0.30)
+        # Convert all papers to JSONL format for semantic search
+        jsonl_papers = service._convert_papers_to_jsonl(all_papers)
+        service._save_papers_to_jsonl(jsonl_papers)
 
-        search_results = cls._query_wrapper.search_literature(
+        update_progress(job_id, "Running semantic search with embeddings + rerank...", 0.40)
+
+        search_results = service._query_wrapper.search_literature(
             idea_for_search,
             include_scores=True,
             embedding_topk=embedding_topk,
@@ -63,11 +148,11 @@ class PaperSearchService:
             search_results_list = []
         job.state.papers_after_rerank = len(search_results_list)
 
-        update_progress(job_id, f"Semantic search: {embedding_topk} -> {job.state.papers_after_rerank}", 0.40)
+        update_progress(job_id, f"Semantic search: {embedding_topk} -> {job.state.papers_after_rerank}", 0.50)
 
-        update_progress(job_id, f"LLM selecting final {final_papers_count} papers...", 0.45)
+        update_progress(job_id, f"LLM selecting final {final_papers_count} papers...", 0.55)
 
-        selected_json = cls._paper_selector.generate_relevant_paper_selector_response(
+        selected_json = service._paper_selector.generate_relevant_paper_selector_response(
             idea_for_search,
             search_results,
             final_count=final_papers_count
@@ -84,22 +169,16 @@ class PaperSearchService:
 
         # Build search funnel data for transparency
         search_funnel = {
-            'query_variants_count': len(job.state.query_variants),
-            'query_variants': job.state.query_variants,
+            'selected_sources': available_sources,
+            'source_results': job.state.source_results,
             'total_papers_fetched': job.state.total_papers_fetched,
-            'unique_papers_after_dedup': job.state.unique_papers_after_dedup,
             'papers_after_rerank': job.state.papers_after_rerank,
             'final_papers_selected': len(selected_papers_data)
         }
         
         # Calculate efficiency rates
         if job.state.total_papers_fetched > 0:
-            search_funnel['deduplication_rate'] = 1 - (job.state.unique_papers_after_dedup / job.state.total_papers_fetched)
-        else:
-            search_funnel['deduplication_rate'] = 0
-            
-        if job.state.unique_papers_after_dedup > 0:
-            search_funnel['semantic_filter_rate'] = 1 - (job.state.papers_after_rerank / job.state.unique_papers_after_dedup)
+            search_funnel['semantic_filter_rate'] = 1 - (job.state.papers_after_rerank / job.state.total_papers_fetched)
         else:
             search_funnel['semantic_filter_rate'] = 0
             
@@ -111,18 +190,35 @@ class PaperSearchService:
         # Store funnel data for report generation
         job.state.search_funnel = search_funnel
 
-        # Convert to Paper models
+        # Convert LLM selection back to Paper objects
         papers = []
+        
         for i, pd in enumerate(selected_papers_data):
-            arxiv_id = pd.get('id', '')
+            source_id = pd.get('id', '')
+            
+            # Determine source
+            source = "unknown"
+            # Check if this is an arXiv paper
+            if source_id and (source_id.startswith('cs.') or len(source_id.split('.')[0]) == 4 and source_id.split('.')[0].isdigit()):
+                source = "arxiv"
+            # Check if this might be a patent
+            elif 'patent' in pd.get('url', '').lower() or any(keyword in pd.get('title', '').lower() for keyword in ['method', 'system', 'apparatus']):
+                source = "google_patents"
+            
             url = pd.get('url', '')
-            if not url and arxiv_id:
-                url = f"https://arxiv.org/abs/{arxiv_id}"
-            pdf_url = url.replace('/abs/', '/pdf/') if url else f"https://arxiv.org/pdf/{arxiv_id}"
+            if not url and source == "arxiv" and source_id:
+                url = f"https://arxiv.org/abs/{source_id}"
+            pdf_url = url.replace('/abs/', '/pdf/') if url and source == "arxiv" else pd.get('pdf_url')
 
+            # CRITICAL FIX: Only include papers that have PDF URLs
+            if not pdf_url:
+                logger.warning(f"FILTERING OUT paper {i+1} ({source}) - no PDF URL available")
+                continue
+            
             paper = Paper(
                 paper_id=f"paper_{i+1:02d}",
-                arxiv_id=arxiv_id,
+                source=source,
+                source_id=source_id,
                 title=pd.get('title', ''),
                 abstract=pd.get('abstract', ''),
                 url=url,
@@ -133,5 +229,102 @@ class PaperSearchService:
             )
             papers.append(paper)
 
+        # Ensure we have enough papers after filtering, if not, get more from candidates
+        if len(papers) < final_papers_count:
+            logger.warning(f"Only {len(papers)} papers have PDF URLs after filtering. Need {final_papers_count} papers.")
+            # Try to get more papers from the original search results that have PDF URLs
+            additional_papers_needed = final_papers_count - len(papers)
+            logger.info(f"Looking for {additional_papers_needed} additional papers with PDF URLs from search results...")
+            
+            # Get more papers from the original search results that have PDF URLs
+            for result in search_results_list[len(selected_papers_data):]:
+                if len(papers) >= final_papers_count:
+                    break
+                    
+                source_id = result.get('id', '')
+                pdf_url = result.get('pdf_url')
+                
+                if pdf_url:  # Only take papers with PDF URLs
+                    logger.info(f"Adding additional paper with PDF URL: {result.get('title', 'Unknown')[:40]}...")
+                    
+                    # Determine source for additional paper
+                    source = "unknown"
+                    if source_id and (source_id.startswith('cs.') or len(source_id.split('.')[0]) == 4 and source_id.split('.')[0].isdigit()):
+                        source = "arxiv"
+                    elif 'patent' in result.get('url', '').lower():
+                        source = "google_patents"
+                    
+                    url = result.get('url', '')
+                    if not url and source == "arxiv" and source_id:
+                        url = f"https://arxiv.org/abs/{source_id}"
+                    pdf_url_final = url.replace('/abs/', '/pdf/') if url and source == "arxiv" else pdf_url
+                    
+                    additional_paper = Paper(
+                        paper_id=f"paper_{len(papers)+1:02d}",
+                        source=source,
+                        source_id=source_id,
+                        title=result.get('title', ''),
+                        abstract=result.get('abstract', ''),
+                        url=url,
+                        pdf_url=pdf_url_final,
+                        authors=result.get('authors', []),
+                        categories=result.get('categories', []),
+                        published_date=str(result.get('year', '')) if result.get('year') else None
+                    )
+                    papers.append(additional_paper)
+
         job.state.selected_papers = papers
-        update_progress(job_id, f"Selected {len(papers)} papers for detailed analysis", 0.52)
+        logger.info(f"Final selection - {len(papers)} papers, with PDFs: {sum(1 for p in papers if p.pdf_url)}")
+        update_progress(job_id, f"Selected {len(papers)} papers for detailed analysis", 0.60)
+    
+    def _convert_papers_to_jsonl(self, papers: List[Paper]) -> List[Dict[str, Any]]:
+        """Convert Paper models to JSONL format for semantic search."""
+        jsonl_papers = []
+        
+        for paper in papers:
+            year = None
+            if paper.published_date:
+                try:
+                    # Extract year from various date formats
+                    if len(paper.published_date) >= 4:
+                        year = int(paper.published_date[:4])
+                except (ValueError, TypeError):
+                    year = None
+
+            jsonl_entry = {
+                "id": paper.source_id,
+                "title": paper.title,
+                "abstract": paper.abstract,
+                "url": paper.url,
+                "pdf_url": paper.pdf_url,
+                "year": year,
+                "categories": paper.categories,
+                "source": paper.source,
+            }
+
+            jsonl_papers.append(jsonl_entry)
+
+        return jsonl_papers
+    
+    def _save_papers_to_jsonl(self, jsonl_papers: List[Dict[str, Any]], filename: str = None):
+        """Save papers to JSONL file format."""
+        import os
+
+        if filename is None:
+            # Write to same directory where paper_search.py reads from
+            retrieval_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'retrieval')
+            filename = os.path.join(retrieval_dir, "sample_papers.jsonl")
+
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
+
+        with open(filename, 'w', encoding='utf-8') as f:
+            for paper in jsonl_papers:
+                f.write(json.dumps(paper, ensure_ascii=False) + '\n')
+
+        logger.info(f"Saved {len(jsonl_papers)} papers to {filename}")
+    
+    @classmethod
+    def get_available_sources(cls) -> Dict[str, bool]:
+        """Get all available paper sources and their availability status."""
+        service = cls()
+        return {name: source.is_available for name, source in service.sources.items()}

@@ -24,6 +24,9 @@ SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 # GitHub
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
+# SerpApi for Google Patents
+SERPAPI_API_KEY = os.getenv("SERPAPI_API_KEY")
+
 # =============================================================================
 # MODEL CONFIGURATION
 # =============================================================================

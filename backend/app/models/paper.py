@@ -2,7 +2,7 @@
 Data models for papers, headings, and chunks.
 """
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 from datetime import datetime
 
 
@@ -60,19 +60,24 @@ class Heading:
 @dataclass
 class Paper:
     """
-    A research paper with all its extracted content.
+    A research paper or patent with all its extracted content.
+    Source-agnostic design to support arXiv, Google Patents, and future sources.
     """
     paper_id: str                    # Internal ID (e.g., "paper_01")
-    arxiv_id: str                    # ArXiv ID (e.g., "2401.12345")
+    source: str                      # Source name: "arxiv", "google_patents", etc.
+    source_id: str                   # Source-specific ID (arXiv ID, Patent ID, etc.)
     title: str
     abstract: str
-    url: str                         # ArXiv URL
-    pdf_url: str                     # PDF URL
+    url: str                         # Source URL
+    pdf_url: Optional[str] = None    # PDF URL if available
     
-    # Metadata
+    # Common metadata
     authors: List[str] = field(default_factory=list)
-    categories: List[str] = field(default_factory=list)  # ArXiv categories
     published_date: Optional[str] = None
+    
+    # Flexible metadata for source-specific fields
+    categories: List[str] = field(default_factory=list)
+    metadata: Dict[str, Any] = field(default_factory=dict)  # Store source-specific fields
     
     # Extracted content
     headings: List[Heading] = field(default_factory=list)
@@ -112,7 +117,8 @@ class Paper:
                 metadata_list.append({
                     "chunk_id": chunk.chunk_id,
                     "paper_id": self.paper_id,
-                    "arxiv_id": self.arxiv_id,
+                    "source": self.source,
+                    "source_id": self.source_id,
                     "paper_title": self.title,
                     "heading": heading.text,
                     "heading_index": heading.index,
@@ -127,7 +133,8 @@ class Paper:
         """Convert to dictionary for serialization."""
         return {
             "paper_id": self.paper_id,
-            "arxiv_id": self.arxiv_id,
+            "source": self.source,
+            "source_id": self.source_id,
             "title": self.title,
             "abstract": self.abstract,
             "url": self.url,
