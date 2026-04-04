@@ -14,6 +14,7 @@ from docling.document_converter import DocumentConverter
 
 from core import config
 from app.models.paper import Paper, Heading
+from app.processing.patent_post_processor import PatentPostProcessor
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +28,10 @@ class PDFProcessor:
     # Headings to skip (common non-content sections)
     SKIP_HEADINGS = {
         'references', 'bibliography', 'acknowledgments', 'acknowledgements',
-        'appendix', 'appendices', 'supplementary', 'supplemental'
+        'appendix', 'appendices', 'supplementary', 'supplemental',
+        # Patent-specific sections that don't help originality analysis
+        'claims', 'drawings', 'legal events', 'patent citations',
+        'cross-reference to related applications', 'federally sponsored research'
     }
     
     def __init__(self):
@@ -106,6 +110,23 @@ class PDFProcessor:
                 paper.processing_error = "Failed to convert PDF to markdown"
                 # Don't return here - trigger fallback instead
             else:
+                # --- Patent-specific post-processing (arXiv papers skip this) ---
+                if paper.source == "google_patents":
+                    logger.info(f"Running patent post-processor for {paper.paper_id}")
+                    patent_result = PatentPostProcessor.process(markdown, paper.title)
+                    markdown = patent_result.markdown
+
+                    # Store patent processing metadata for downstream warnings
+                    paper.metadata['patent_processing'] = {
+                        'had_non_english': patent_result.had_non_english,
+                        'translated_sections_count': patent_result.translated_sections_count,
+                        'detected_languages': patent_result.detected_languages,
+                        'ocr_artifacts_removed': patent_result.ocr_artifacts_removed,
+                        'headings_normalized': patent_result.headings_normalized,
+                        'warning_message': patent_result.warning_message,
+                    }
+                # ----------------------------------------------------------------
+
                 paper.markdown_content = markdown
                 headings = self._extract_headings_with_content(markdown, paper.paper_id)
                 paper.headings = headings
