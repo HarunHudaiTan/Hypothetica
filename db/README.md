@@ -4,10 +4,10 @@ Analysis queries are persisted to Supabase when using the FastAPI backend (React
 
 ## Setup
 
-1. **Run the migration** in Supabase SQL Editor:
-   - Go to [Supabase Dashboard](https://supabase.com/dashboard/project/jqdjzvnqvkwyaiqednyf/sql)
-   - Copy the contents of `db/migrations/001_create_queries_table.sql`
-   - Paste and run
+1. **Run migrations** in Supabase SQL Editor ([SQL](https://supabase.com/dashboard/project/jqdjzvnqvkwyaiqednyf/sql)), in order:
+   - `db/migrations/001_create_queries_table.sql`
+   - `db/migrations/002_add_github_analysis.sql`
+   - `db/migrations/003_benchmark_layer_outputs.sql` — full Layer 1 / Layer 2 JSON, funnel, and per-source counts
 
 2. **Environment variables** (in `.env`):
    - `SUPABASE_URL` – Project URL (default: https://jqdjzvnqvkwyaiqednyf.supabase.co)

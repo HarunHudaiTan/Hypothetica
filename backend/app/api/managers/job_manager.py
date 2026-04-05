@@ -37,6 +37,10 @@ class PipelineState:
     unique_papers_after_dedup: int = 0
     papers_after_embedding: int = 0
     papers_after_rerank: int = 0
+    # Literature retrieval (multi-source benchmark metadata)
+    selected_sources: List[str] = field(default_factory=list)
+    source_results: Dict[str, int] = field(default_factory=dict)
+    search_funnel: Dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
