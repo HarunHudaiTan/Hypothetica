@@ -12,6 +12,7 @@ python-dotenv>=1.0.0
 
 # Document Processing
 docling>=1.0.0
+deep-translator>=1.11.0
 
 # Web Scraping and HTML Parsing
 beautifulsoup4>=4.12.0

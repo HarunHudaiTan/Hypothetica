@@ -78,7 +78,7 @@ class Layer1Result:
     """
     paper_id: str
     paper_title: str
-    arxiv_id: str
+    arxiv_id: str  # Keep as arxiv_id for backward compatibility, but will store source_id
     
     # Overall scores
     paper_similarity_score: float   # 0-1, higher = more similar

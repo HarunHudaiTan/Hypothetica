@@ -47,6 +47,7 @@ class PaperDoc:
     title: str
     abstract: str
     url: Optional[str] = None
+    pdf_url: Optional[str] = None
     year: Optional[int] = None
     categories: Optional[List[str]] = None
 
@@ -361,6 +362,7 @@ def load_jsonl(path: str) -> List[PaperDoc]:
                 title=obj.get("title", ""),
                 abstract=obj.get("abstract", ""),
                 url=obj.get("url"),
+                pdf_url=obj.get("pdf_url"),
                 year=obj.get("year"),
                 categories=obj.get("categories"),
             ))
@@ -510,6 +512,7 @@ class QueryWrapper:
                 title=p.get('title', ''),
                 abstract=p.get('abstract', ''),
                 url=p.get('url'),
+                pdf_url=p.get('pdf_url'),
                 year=p.get('year'),
                 categories=p.get('categories'),
             )

@@ -36,6 +36,35 @@ class PaperProcessingService:
             max_workers=min(5, num_papers)
         )
 
+        # Check for patent translation warnings and notify user
+        patent_warnings = []
+        for paper in job.state.selected_papers:
+            patent_info = paper.metadata.get('patent_processing', {})
+            warning_msg = patent_info.get('warning_message')
+            if warning_msg:
+                patent_warnings.append({
+                    'paper_id': paper.paper_id,
+                    'title': paper.title,
+                    'warning': warning_msg,
+                    'detected_languages': patent_info.get('detected_languages', []),
+                    'translated_sections': patent_info.get('translated_sections_count', 0),
+                })
+
+        if patent_warnings:
+            logger.warning(
+                f"{len(patent_warnings)} patent paper(s) contained non-English content "
+                f"that was machine-translated"
+            )
+            job.push_event({
+                "type": "patent_translation_warning",
+                "message": (
+                    f"⚠️ {len(patent_warnings)} patent paper(s) contained non-English sections "
+                    f"that were machine-translated to English. Translated text may reduce "
+                    f"embedding accuracy and affect the global originality score."
+                ),
+                "papers": patent_warnings,
+            })
+
         # Phase 2: Sequential chunking + indexing (maintains order for progress)
         for i, paper in enumerate(job.state.selected_papers):
             progress = 0.56 + (0.19 * ((i + 1) / num_papers))
@@ -59,3 +88,4 @@ class PaperProcessingService:
 
         logger.info(f"Processing complete: {processed_count}/{num_papers} papers processed, {total_chunks} total chunks indexed")
         update_progress(job_id, f"Indexed {total_chunks} total chunks from {processed_count} papers", 0.75)
+

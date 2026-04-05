@@ -163,7 +163,7 @@ export function useAnalysis() {
   );
 
   const startNewAnalysis = useCallback(
-    async (userIdea: string) => {
+    async (userIdea: string, selectedSources: string[]) => {
       cleanup();
       setState((s) => ({
         ...s,
@@ -181,6 +181,7 @@ export function useAnalysis() {
       try {
         const { job_id } = await startAnalysis({
           user_idea: userIdea,
+          selected_sources: selectedSources,
           ...settings,
         });
         setState((s) => ({ ...s, jobId: job_id }));

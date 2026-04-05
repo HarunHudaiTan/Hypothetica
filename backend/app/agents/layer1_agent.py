@@ -241,7 +241,7 @@ class Layer1Agent:
         result = Layer1Result(
             paper_id=paper.paper_id,
             paper_title=paper.title,
-            arxiv_id=paper.arxiv_id,
+            arxiv_id=paper.source_id,  # Use source_id instead of arxiv_id
             paper_similarity_score=overall_overlap,
             reason=reason,
             criteria_scores=criteria,
@@ -287,7 +287,8 @@ class Layer1Agent:
 
         return (
             f"Title: {paper.title}\n"
-            f"ArXiv ID: {paper.arxiv_id}\n"
+            f"Source: {paper.source}\n"
+            f"Source ID: {paper.source_id}\n"
             f"Categories: {', '.join(paper.categories)}\n\n"
             f"### ABSTRACT\n{paper.abstract}\n\n"
             f"### EXTRACTED SECTIONS\n"
@@ -590,7 +591,7 @@ Return ONLY valid JSON:
         return Layer1Result(
             paper_id=paper.paper_id,
             paper_title=paper.title,
-            arxiv_id=paper.arxiv_id,
+            arxiv_id=paper.source_id,  # Use source_id instead of arxiv_id
             paper_similarity_score=0.0,
             criteria_scores=CriteriaScores(0.0, 0.0, 0.0, 0.0),
             sentence_analyses=[],

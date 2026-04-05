@@ -1,6 +1,7 @@
 """
 ArXiv API client for searching and retrieving papers.
 Refactored from ArxivReq.py with cleaner interface.
+Implements BasePaperSource interface.
 """
 import urllib.request
 import urllib.parse
@@ -13,11 +14,12 @@ from datetime import datetime, timedelta
 
 from core import config
 from app.models.paper import Paper
+from .base_paper_source import BasePaperSource
 
 logger = logging.getLogger(__name__)
 
 
-class ArxivClient:
+class ArxivClient(BasePaperSource):
     """
     Client for interacting with the arXiv API.
     Handles searching, parsing, and paper selection.
@@ -31,6 +33,41 @@ class ArxivClient:
     }
     
     BASE_URL = "http://export.arxiv.org/api/query"
+    
+    @property
+    def source_name(self) -> str:
+        """Return the name of the paper source."""
+        return "arxiv"
+    
+    @property
+    def is_available(self) -> bool:
+        """Check if the source is properly configured and available."""
+        return True  # arXiv API is always available (no API key needed)
+    
+    def get_paper_details(self, paper_id: str) -> Optional[Dict[str, Any]]:
+        """
+        Get detailed information about a specific arXiv paper.
+        
+        Args:
+            paper_id: arXiv ID (e.g., "2401.12345")
+            
+        Returns:
+            Detailed paper information or None if not found
+        """
+        paper = self.get_paper_by_id(paper_id)
+        if paper:
+            return {
+                'arxiv_id': paper.source_id,
+                'title': paper.title,
+                'abstract': paper.abstract,
+                'authors': paper.authors,
+                'categories': paper.categories,
+                'published_date': paper.published_date,
+                'url': paper.url,
+                'pdf_url': paper.pdf_url,
+                'metadata': paper.metadata
+            }
+        return None
     
     def __init__(self, delay_between_requests: float = 3.0):
         """
@@ -93,6 +130,25 @@ class ArxivClient:
         except Exception as e:
             logger.error(f"ArXiv search failed: {e}")
             return []
+    
+    def search_papers(
+        self,
+        query: str,
+        max_results: int = 10,
+        **kwargs
+    ) -> List[Dict[str, Any]]:
+        """
+        Search arXiv for papers matching a query.
+        
+        Args:
+            query: Search query string
+            max_results: Maximum number of results
+            **kwargs: Additional parameters (ignored for arXiv)
+            
+        Returns:
+            List of paper dictionaries
+        """
+        return self.search(query=query, max_results=max_results, **kwargs)
     
     def search_multiple_keywords(
         self,
@@ -233,7 +289,7 @@ class ArxivClient:
             logger.error(f"Error parsing arXiv entry: {e}")
             return None
     
-    def papers_to_models(
+    def convert_to_paper_models(
         self,
         paper_dicts: List[Dict[str, Any]],
         limit: int = None
@@ -254,14 +310,21 @@ class ArxivClient:
         for i, pd in enumerate(paper_dicts[:limit]):
             paper = Paper(
                 paper_id=f"paper_{i+1:02d}",
-                arxiv_id=pd.get('arxiv_id', ''),
+                source="arxiv",
+                source_id=pd.get('arxiv_id', ''),
                 title=pd.get('title', ''),
                 abstract=pd.get('abstract', ''),
                 url=pd.get('url', ''),
                 pdf_url=pd.get('pdf_url', ''),
                 authors=pd.get('authors', []),
                 categories=pd.get('categories', []),
-                published_date=pd.get('published_date')
+                published_date=pd.get('published_date'),
+                metadata={
+                    'primary_category': pd.get('primary_category'),
+                    'arxiv_comment': pd.get('comment'),
+                    'journal_ref': pd.get('journal_ref'),
+                    'doi': pd.get('doi')
+                }
             )
             papers.append(paper)
         
@@ -292,7 +355,7 @@ class ArxivClient:
             papers = self._parse_response(xml_content)
             
             if papers:
-                return self.papers_to_models(papers, limit=1)[0]
+                return self.convert_to_paper_models(papers, limit=1)[0]
             return None
             
         except Exception as e:

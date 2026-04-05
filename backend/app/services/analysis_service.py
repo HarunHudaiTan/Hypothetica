@@ -144,7 +144,7 @@ class AnalysisService:
             )
             gh_thread.start()
 
-            PaperSearchService.search_papers(job_id, cls._update_progress)
+            PaperSearchService.search_papers(job_id, cls._update_progress, job.settings.get("selected_sources"))
             PaperProcessingService.process_papers(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer1_analysis(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer2_analysis(job_id, cls._update_progress)
@@ -160,11 +160,12 @@ class AnalysisService:
 
             # Enrich with papers detail
             papers_detail = []
+            patent_warnings = []
             for paper in job.state.selected_papers:
                 l1 = next((r for r in job.state.layer1_results if r.paper_id == paper.paper_id), None)
                 entry = {
                     "paper_id": paper.paper_id,
-                    "arxiv_id": paper.arxiv_id,
+                    "arxiv_id": paper.source_id,  # Use source_id instead of arxiv_id
                     "title": paper.title,
                     "abstract": paper.abstract,
                     "url": paper.url,
@@ -177,11 +178,25 @@ class AnalysisService:
                     entry["paper_similarity_score"] = l1.paper_similarity_score
                     entry["reason"] = l1.reason
                     entry["criteria_scores"] = l1.criteria_scores.to_dict()
+
+                # Include patent processing metadata if present
+                patent_info = paper.metadata.get('patent_processing')
+                if patent_info and patent_info.get('warning_message'):
+                    entry["patent_warning"] = patent_info['warning_message']
+                    patent_warnings.append({
+                        "paper_id": paper.paper_id,
+                        "title": paper.title,
+                        "warning": patent_info['warning_message'],
+                        "detected_languages": patent_info.get('detected_languages', []),
+                        "translated_sections": patent_info.get('translated_sections_count', 0),
+                    })
+
                 papers_detail.append(entry)
 
             results_dict["papers"] = papers_detail
             results_dict["reality_check"] = job.state.reality_check_result
             results_dict["reality_check_warning"] = job.state.reality_check_warning
+            results_dict["patent_warnings"] = patent_warnings if patent_warnings else None
             results_dict["github_analysis"] = (
                 job.state.github_result.to_dict() if job.state.github_result else None
             )

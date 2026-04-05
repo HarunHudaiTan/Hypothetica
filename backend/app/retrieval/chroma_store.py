@@ -150,7 +150,7 @@ class ChromaStore:
             metadatas.append({
                 "chunk_id": chunk.chunk_id,
                 "paper_id": paper.paper_id,
-                "arxiv_id": paper.arxiv_id,
+                "arxiv_id": paper.source_id,  # Use source_id instead of arxiv_id
                 "paper_title": paper.title,
                 "heading": heading.text if heading else "",
                 "heading_index": chunk.heading_index,
