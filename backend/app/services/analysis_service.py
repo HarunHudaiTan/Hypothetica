@@ -17,6 +17,7 @@ from app.services.paper_search_service import PaperSearchService
 from app.services.paper_processing_service import PaperProcessingService
 from app.services.originality_service import OriginalityService
 from app.services.github_service import GitHubService
+from app.agents.layer2_agent import Layer2Aggregator
 
 logger = logging.getLogger(__name__)
 
@@ -165,6 +166,8 @@ class AnalysisService:
                 l1 = next((r for r in job.state.layer1_results if r.paper_id == paper.paper_id), None)
                 entry = {
                     "paper_id": paper.paper_id,
+                    "source": paper.source,
+                    "source_id": paper.source_id,
                     "arxiv_id": paper.source_id,  # Use source_id instead of arxiv_id
                     "title": paper.title,
                     "abstract": paper.abstract,
@@ -203,6 +206,40 @@ class AnalysisService:
             results_dict["stats"] = cls.get_stats(job_id)
             results_dict["user_idea"] = job.user_idea
             results_dict["enriched_idea"] = job.state.enriched_idea or job.user_idea
+            results_dict["followup_questions"] = job.state.followup_questions
+            results_dict["followup_answers"] = job.state.followup_answers
+
+            # Full Layer 1 (with literature source per paper) for benchmarks / Supabase
+            layer1_payload = []
+            for r in job.state.layer1_results:
+                paper = next((p for p in job.state.selected_papers if p.paper_id == r.paper_id), None)
+                row = r.to_dict()
+                if paper:
+                    row["literature_source"] = paper.source
+                    row["literature_source_id"] = paper.source_id
+                layer1_payload.append(row)
+            results_dict["layer1_results"] = layer1_payload
+
+            per_paper_threats = [
+                {
+                    "paper_id": r.paper_id,
+                    "paper_title": r.paper_title,
+                    "paper_similarity": Layer2Aggregator._compute_paper_similarity(r),
+                    "criteria_scores": r.criteria_scores.to_dict(),
+                    "literature_source": next(
+                        (p.source for p in job.state.selected_papers if p.paper_id == r.paper_id),
+                        None,
+                    ),
+                }
+                for r in job.state.layer1_results
+            ]
+            layer2_full = dict(result.to_dict())
+            layer2_full["per_paper_threats"] = per_paper_threats
+            results_dict["layer2_full"] = layer2_full
+
+            results_dict["selected_sources"] = list(job.state.selected_sources)
+            results_dict["source_results"] = dict(job.state.source_results)
+            results_dict["search_funnel"] = dict(job.state.search_funnel)
 
             job_manager.set_results(job_id, results_dict)
             cls._update_progress(job_id, "Analysis complete!", 1.0)

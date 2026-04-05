@@ -99,6 +99,29 @@ class Layer1Result:
     processing_time: float = 0.0   # seconds
     
     def to_dict(self) -> dict:
+        def _sentence_row(sa: SentenceAnalysis) -> dict:
+            row = {
+                "sentence": sa.sentence,
+                "sentence_index": sa.sentence_index,
+                "similarity_score": sa.similarity_score,
+                "matched_sections": [
+                    {
+                        "chunk_id": ms.chunk_id,
+                        "paper_id": ms.paper_id,
+                        "paper_title": ms.paper_title,
+                        "heading": ms.heading,
+                        "text_snippet": ms.text_snippet,
+                        "similarity": ms.similarity,
+                        "reason": ms.reason,
+                        "criterion": ms.criterion,
+                    }
+                    for ms in sa.matched_sections
+                ],
+            }
+            if sa.sentence_criteria_scores:
+                row["sentence_criteria_scores"] = sa.sentence_criteria_scores.to_dict()
+            return row
+
         return {
             "paper_id": self.paper_id,
             "paper_title": self.paper_title,
@@ -106,27 +129,11 @@ class Layer1Result:
             "paper_similarity_score": self.paper_similarity_score,
             "reason": self.reason,
             "criteria_scores": self.criteria_scores.to_dict(),
-            "sentence_level": [
-                {
-                    "sentence": sa.sentence,
-                    "sentence_index": sa.sentence_index,
-                    "similarity_score": sa.similarity_score,
-                    "matched_sections": [
-                        {
-                            "chunk_id": ms.chunk_id,
-                            "paper_id": ms.paper_id,
-                            "heading": ms.heading,
-                            "text_snippet": ms.text_snippet,
-                            "similarity": ms.similarity,
-                            "reason": ms.reason
-                        }
-                        for ms in sa.matched_sections
-                    ]
-                }
-                for sa in self.sentence_analyses
-            ],
+            "sentence_level": [_sentence_row(sa) for sa in self.sentence_analyses],
             "confidence": self.confidence,
-            "similarity_level": self.similarity_level
+            "similarity_level": self.similarity_level,
+            "tokens_used": self.tokens_used,
+            "processing_time": self.processing_time,
         }
 
 

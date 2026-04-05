@@ -42,6 +42,8 @@ def save_analysis(job_id: str, results: Dict[str, Any]) -> Optional[str]:
         cost_breakdown = cost.get("breakdown") or {}
         estimated_cost = cost.get("estimated_cost_usd", 0.0)
 
+        gsim = results.get("global_similarity_score")
+
         row = {
             "job_id": job_id,
             "user_idea": results.get("user_idea", ""),
@@ -49,7 +51,9 @@ def save_analysis(job_id: str, results: Dict[str, Any]) -> Optional[str]:
             "followup_questions": results.get("followup_questions"),
             "followup_answers": results.get("followup_answers"),
             "global_originality_score": results.get("originality_score"),
-            "global_similarity_score": results.get("global_similarity_score"),
+            "global_similarity_score": gsim,
+            # Legacy column name from 001 migration — keep in sync for dashboards / old queries
+            "global_overlap_score": results.get("global_overlap_score", gsim),
             "label": results.get("label"),
             "summary": results.get("summary"),
             "aggregated_criteria": results.get("aggregated_criteria"),
@@ -63,6 +67,12 @@ def save_analysis(job_id: str, results: Dict[str, Any]) -> Optional[str]:
             "sentence_annotations": results.get("sentence_annotations"),
             "papers": results.get("papers"),
             "github_analysis": results.get("github_analysis"),
+            "layer1_results": results.get("layer1_results"),
+            "layer2_full": results.get("layer2_full"),
+            "search_funnel": results.get("search_funnel"),
+            "selected_sources": results.get("selected_sources"),
+            "source_results": results.get("source_results"),
+            "patent_warnings": results.get("patent_warnings"),
         }
 
         resp = client.table("queries").insert(row).execute()
