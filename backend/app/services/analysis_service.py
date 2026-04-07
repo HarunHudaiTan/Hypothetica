@@ -10,7 +10,7 @@ from app.api.schemas.job import JobStatus
 from app.retrieval.chroma_store import ChromaStore
 from app.retrieval.retriever import Retriever
 
-from app.agents.followup_agent import FollowUpAgent
+from app.agents.followup_agent import FollowUpAgent, InterviewAgent
 from app.agents.reality_check_agent import RealityCheckAgent
 
 from app.services.paper_search_service import PaperSearchService
@@ -26,6 +26,7 @@ class AnalysisService:
     _followup_agent = FollowUpAgent()
     _reality_check_agent = RealityCheckAgent()
     _retriever_cache: Dict[str, tuple] = {}
+    _interview_agents: Dict[str, InterviewAgent] = {}
 
     @classmethod
     def _get_retriever(cls, job_id: str):
@@ -256,6 +257,139 @@ class AnalysisService:
             job_manager.set_error(job_id, str(e))
         finally:
             cls._retriever_cache.pop(job_id, None)
+            cls._interview_agents.pop(job_id, None)
+
+    # ── Interview (conversational) flow ──────────────────────────────
+
+    @classmethod
+    def _run_interview_start_worker(cls, job_id: str):
+        """Generate the first question for the conversational interview."""
+        try:
+            job = job_manager.get_job(job_id)
+            if not job:
+                return
+
+            cls._update_progress(job_id, "Starting research interview...", 0.05)
+
+            agent = InterviewAgent()
+            cls._interview_agents[job_id] = agent
+
+            result = agent.start_interview(job.user_idea)
+
+            if result["action"] == "ask":
+                question = result["question"]
+                job.state.current_round = 1
+                job_manager.push_chat_message(job_id, {
+                    "role": "ai",
+                    "content": question["question"],
+                    "category": question.get("category"),
+                    "round": 1,
+                })
+                job_manager.update_status(job_id, JobStatus.INTERVIEWING)
+                cls._update_progress(job_id, "Waiting for your response...", 0.06)
+            else:
+                # LLM said done immediately — skip to analysis
+                cls._finalize_interview(job_id)
+        except Exception as e:
+            logger.exception(f"Error starting interview for job {job_id}")
+            job_manager.set_error(job_id, str(e))
+
+    @classmethod
+    def _run_chat_response_worker(cls, job_id: str, user_message: str):
+        """Process a user's chat answer and generate next question or finalize."""
+        try:
+            job = job_manager.get_job(job_id)
+            agent = cls._interview_agents.get(job_id)
+            if not job or not agent:
+                return
+
+            round_num = job.state.current_round
+
+            # Record user message
+            job_manager.push_chat_message(job_id, {
+                "role": "user",
+                "content": user_message,
+                "category": None,
+                "round": round_num,
+            })
+
+            # Hard limit check
+            if round_num >= 3:
+                cls._finalize_interview(job_id)
+                return
+
+            result = agent.continue_interview(user_message)
+
+            if result["action"] == "done":
+                cls._finalize_interview(job_id)
+            else:
+                question = result["question"]
+                job.state.current_round = round_num + 1
+                job_manager.push_chat_message(job_id, {
+                    "role": "ai",
+                    "content": question["question"],
+                    "category": question.get("category"),
+                    "round": round_num + 1,
+                })
+        except Exception as e:
+            logger.exception(f"Error in chat response for job {job_id}")
+            cls._finalize_interview(job_id)
+
+    @classmethod
+    def _finalize_interview(cls, job_id: str):
+        """Collect conversation, enrich idea, start analysis pipeline."""
+        job = job_manager.get_job(job_id)
+        if not job:
+            return
+
+        agent = cls._interview_agents.pop(job_id, None)
+
+        # Build backward-compatible questions/answers lists
+        questions = []
+        answers = []
+        for entry in job.state.conversation_history:
+            if entry["role"] == "ai":
+                questions.append({
+                    "id": len(questions) + 1,
+                    "category": entry.get("category", "general"),
+                    "question": entry["content"],
+                })
+            elif entry["role"] == "user":
+                answers.append(entry["content"])
+
+        job.state.followup_questions = questions
+        job.state.followup_answers = answers
+
+        if agent:
+            job.state.cost.followup = agent.get_cost()
+
+        job_manager.set_interview_complete(job_id)
+
+        # Start the analysis pipeline with collected answers
+        cls.start_analysis_phase(job_id, answers)
+
+    @staticmethod
+    def start_interview_phase(job_id: str):
+        thread = threading.Thread(
+            target=AnalysisService._run_interview_start_worker, args=(job_id,), daemon=True
+        )
+        thread.start()
+
+    @staticmethod
+    def handle_chat_message(job_id: str, message: str):
+        thread = threading.Thread(
+            target=AnalysisService._run_chat_response_worker, args=(job_id, message), daemon=True
+        )
+        thread.start()
+
+    @classmethod
+    def finalize_interview(cls, job_id: str):
+        thread = threading.Thread(
+            target=cls._finalize_interview, args=(job_id,), daemon=True
+        )
+        thread.start()
+
+    # ── Legacy question flow (kept for backward compatibility) ─────
 
     @staticmethod
     def start_questions_phase(job_id: str):

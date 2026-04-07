@@ -10,7 +10,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sse_starlette.sse import EventSourceResponse
 
-from app.api.schemas.analysis import AnalyzeRequest, AnswersRequest, PaperSource
+from app.api.schemas.analysis import AnalyzeRequest, AnswersRequest, ChatMessageRequest, PaperSource
 from app.api.schemas.job import JobStatus, JobStatusResponse
 from app.api.schemas.matches import SentenceMatchRequest
 
@@ -58,7 +58,7 @@ async def start_analysis(req: AnalyzeRequest):
     
     job_id = job_manager.create_job(req.user_idea, settings)
 
-    AnalysisService.start_questions_phase(job_id)
+    AnalysisService.start_interview_phase(job_id)
 
     return {"job_id": job_id}
 
@@ -88,6 +88,10 @@ async def get_status(job_id: str):
 
     if job.results:
         response.stats = job.results.get("stats")
+
+    # Include conversation history for interview reconnection
+    if job.status == JobStatus.INTERVIEWING:
+        response.stats = {"conversation_history": job.state.conversation_history}
 
     return response
 
@@ -120,16 +124,47 @@ async def stream_events(job_id: str):
 
 @app.post("/api/analyze/{job_id}/answers")
 async def submit_answers(job_id: str, req: AnswersRequest):
-    """Submit follow-up answers and start the analysis pipeline."""
+    """Submit follow-up answers and start the analysis pipeline (also used for skip-all)."""
     job = job_manager.get_job(job_id)
     if not job:
         raise HTTPException(404, "Job not found")
 
-    if job.status != JobStatus.WAITING_FOR_ANSWERS:
-        raise HTTPException(400, f"Job is not waiting for answers (status: {job.status.value})")
+    if job.status not in (JobStatus.WAITING_FOR_ANSWERS, JobStatus.INTERVIEWING):
+        raise HTTPException(400, f"Job is not accepting answers (status: {job.status.value})")
 
-    AnalysisService.start_analysis_phase(job_id, req.answers)
+    if job.status == JobStatus.INTERVIEWING:
+        AnalysisService.finalize_interview(job_id)
+    else:
+        AnalysisService.start_analysis_phase(job_id, req.answers)
 
+    return {"status": "processing"}
+
+
+@app.post("/api/analyze/{job_id}/chat")
+async def submit_chat_message(job_id: str, req: ChatMessageRequest):
+    """Send a chat message during the interview phase."""
+    job = job_manager.get_job(job_id)
+    if not job:
+        raise HTTPException(404, "Job not found")
+
+    if job.status != JobStatus.INTERVIEWING:
+        raise HTTPException(400, f"Job is not in interview phase (status: {job.status.value})")
+
+    AnalysisService.handle_chat_message(job_id, req.message)
+    return {"status": "ok"}
+
+
+@app.post("/api/analyze/{job_id}/finalize")
+async def finalize_interview(job_id: str):
+    """End the interview early and start analysis with collected answers."""
+    job = job_manager.get_job(job_id)
+    if not job:
+        raise HTTPException(404, "Job not found")
+
+    if job.status != JobStatus.INTERVIEWING:
+        raise HTTPException(400, f"Job is not in interview phase (status: {job.status.value})")
+
+    AnalysisService.finalize_interview(job_id)
     return {"status": "processing"}
 
 

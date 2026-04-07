@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import type {
   AnalysisResults,
+  ChatMessage,
   FollowUpQuestion,
   JobStatus,
   PipelineSettings,
@@ -8,11 +9,13 @@ import type {
 import {
   startAnalysis,
   submitAnswers,
+  sendChatMessage as apiSendChat,
+  finalizeInterview as apiFinalizeInterview,
   subscribeToEvents,
   getJobStatus,
 } from "../lib/api";
 
-export type AppStep = "input" | "questions" | "processing" | "results";
+export type AppStep = "input" | "interview" | "processing" | "results";
 
 interface AnalysisState {
   step: AppStep;
@@ -21,6 +24,10 @@ interface AnalysisState {
   progress: number;
   progressMessage: string;
   questions: FollowUpQuestion[];
+  chatMessages: ChatMessage[];
+  isAiTyping: boolean;
+  currentRound: number;
+  maxRounds: number;
   results: AnalysisResults | null;
   realityCheck: { warning: string; result: Record<string, unknown> } | null;
   error: string | null;
@@ -36,6 +43,11 @@ const DEFAULT_SETTINGS: PipelineSettings = {
   use_reranker: true,
 };
 
+let msgIdCounter = 0;
+function nextMsgId() {
+  return `msg-${++msgIdCounter}-${Date.now()}`;
+}
+
 export function useAnalysis() {
   const [state, setState] = useState<AnalysisState>({
     step: "input",
@@ -44,6 +56,10 @@ export function useAnalysis() {
     progress: 0,
     progressMessage: "",
     questions: [],
+    chatMessages: [],
+    isAiTyping: true,
+    currentRound: 0,
+    maxRounds: 3,
     results: null,
     realityCheck: null,
     error: null,
@@ -86,10 +102,42 @@ export function useAnalysis() {
               }));
               break;
             }
-            case "questions":
+            case "chat_message": {
+              const role = event.data.role as "ai" | "user";
+              if (role === "ai") {
+                const round = (event.data.round as number) ?? 1;
+                const newMsg: ChatMessage = {
+                  id: nextMsgId(),
+                  role: "ai",
+                  content: (event.data.content as string) ?? "",
+                  category: (event.data.category as string) ?? undefined,
+                  round,
+                  timestamp: Date.now(),
+                };
+                setState((s) => ({
+                  ...s,
+                  step: "interview",
+                  chatMessages: [...s.chatMessages, newMsg],
+                  isAiTyping: false,
+                  currentRound: round,
+                }));
+              }
+              break;
+            }
+            case "interview_complete":
               setState((s) => ({
                 ...s,
-                step: "questions",
+                step: "processing",
+                isAiTyping: false,
+                progress: 0.1,
+                progressMessage: "Processing your answers...",
+              }));
+              break;
+            case "questions":
+              // Legacy fallback — should not fire in interview mode
+              setState((s) => ({
+                ...s,
+                step: "interview",
                 questions:
                   (event.data.questions as FollowUpQuestion[]) ?? s.questions,
               }));
@@ -131,12 +179,26 @@ export function useAnalysis() {
             const next = { ...s, jobStatus: status.status };
             if (status.reality_check) next.realityCheck = status.reality_check;
             if (
-              status.status === "waiting_for_answers" &&
-              status.questions &&
-              s.step !== "questions"
+              status.status === "interviewing" &&
+              s.step !== "interview" &&
+              s.step !== "processing"
             ) {
-              next.step = "questions";
-              next.questions = status.questions;
+              next.step = "interview";
+              // Reconstruct chat from conversation_history if available
+              const history = (status.stats as Record<string, unknown>)?.conversation_history as
+                | Array<Record<string, unknown>>
+                | undefined;
+              if (history && history.length > 0 && s.chatMessages.length === 0) {
+                next.chatMessages = history.map((entry) => ({
+                  id: nextMsgId(),
+                  role: entry.role as "ai" | "user",
+                  content: entry.content as string,
+                  category: (entry.category as string) ?? undefined,
+                  round: (entry.round as number) ?? 1,
+                  timestamp: Date.now(),
+                }));
+                next.isAiTyping = false;
+              }
             }
             if (status.status === "completed" && status.results) {
               next.step = "results";
@@ -165,6 +227,7 @@ export function useAnalysis() {
   const startNewAnalysis = useCallback(
     async (userIdea: string, selectedSources: string[]) => {
       cleanup();
+      msgIdCounter = 0;
       setState((s) => ({
         ...s,
         step: "processing",
@@ -173,6 +236,9 @@ export function useAnalysis() {
         progressMessage: "Starting analysis...",
         githubStatus: "",
         questions: [],
+        chatMessages: [],
+        isAiTyping: true,
+        currentRound: 0,
         results: null,
         error: null,
         userIdea: userIdea,
@@ -196,6 +262,73 @@ export function useAnalysis() {
     },
     [settings, listenToJob, cleanup]
   );
+
+  const sendMessage = useCallback(
+    async (text: string) => {
+      if (!state.jobId) return;
+
+      const userMsg: ChatMessage = {
+        id: nextMsgId(),
+        role: "user",
+        content: text,
+        timestamp: Date.now(),
+      };
+
+      setState((s) => ({
+        ...s,
+        chatMessages: [...s.chatMessages, userMsg],
+        isAiTyping: true,
+      }));
+
+      try {
+        await apiSendChat(state.jobId, text);
+      } catch (e: unknown) {
+        setState((s) => ({
+          ...s,
+          isAiTyping: false,
+          error: e instanceof Error ? e.message : "Failed to send message",
+        }));
+      }
+    },
+    [state.jobId]
+  );
+
+  const skipInterview = useCallback(async () => {
+    if (!state.jobId) return;
+    setState((s) => ({
+      ...s,
+      step: "processing",
+      progress: 0.1,
+      progressMessage: "Skipping interview, starting analysis...",
+    }));
+    try {
+      await submitAnswers(state.jobId, []);
+      listenToJob(state.jobId);
+    } catch (e: unknown) {
+      setState((s) => ({
+        ...s,
+        error: e instanceof Error ? e.message : "Failed to skip interview",
+      }));
+    }
+  }, [state.jobId, listenToJob]);
+
+  const endInterviewEarly = useCallback(async () => {
+    if (!state.jobId) return;
+    setState((s) => ({
+      ...s,
+      step: "processing",
+      progress: 0.1,
+      progressMessage: "Finishing interview, starting analysis...",
+    }));
+    try {
+      await apiFinalizeInterview(state.jobId);
+    } catch (e: unknown) {
+      setState((s) => ({
+        ...s,
+        error: e instanceof Error ? e.message : "Failed to end interview",
+      }));
+    }
+  }, [state.jobId]);
 
   const submitFollowUpAnswers = useCallback(
     async (answers: string[]) => {
@@ -222,6 +355,7 @@ export function useAnalysis() {
 
   const reset = useCallback(() => {
     cleanup();
+    msgIdCounter = 0;
     setState({
       step: "input",
       jobId: null,
@@ -229,6 +363,10 @@ export function useAnalysis() {
       progress: 0,
       progressMessage: "",
       questions: [],
+      chatMessages: [],
+      isAiTyping: true,
+      currentRound: 0,
+      maxRounds: 3,
       results: null,
       realityCheck: null,
       error: null,
@@ -242,6 +380,9 @@ export function useAnalysis() {
     settings,
     setSettings,
     startNewAnalysis,
+    sendMessage,
+    skipInterview,
+    endInterviewEarly,
     submitFollowUpAnswers,
     reset,
   };

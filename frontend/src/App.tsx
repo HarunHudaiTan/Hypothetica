@@ -3,14 +3,14 @@ import { useAnalysis } from "./hooks/useAnalysis";
 import Header from "./components/Header";
 import SettingsPanel from "./components/SettingsPanel";
 import IdeaInput from "./components/IdeaInput";
-import FollowUpQuestions from "./components/FollowUpQuestions";
+import ChatInterview from "./components/ChatInterview";
 import PipelineProgress from "./components/PipelineProgress";
 import ResultsView from "./components/ResultsView";
 
 export default function App() {
   const analysis = useAnalysis();
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const isProcessing = analysis.step === "processing" || analysis.step === "questions";
+  const isProcessing = analysis.step === "processing" || analysis.step === "interview";
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -74,16 +74,16 @@ export default function App() {
           />
         )}
 
-        {/* Step: Follow-up Questions */}
-        {analysis.step === "questions" && analysis.questions.length > 0 && (
-          <FollowUpQuestions
-            questions={analysis.questions}
-            onSubmit={analysis.submitFollowUpAnswers}
-            onSkip={() =>
-              analysis.submitFollowUpAnswers(
-                analysis.questions.map(() => "")
-              )
-            }
+        {/* Step: Research Interview */}
+        {analysis.step === "interview" && (
+          <ChatInterview
+            messages={analysis.chatMessages}
+            isAiTyping={analysis.isAiTyping}
+            currentRound={analysis.currentRound}
+            maxRounds={analysis.maxRounds}
+            onSendMessage={analysis.sendMessage}
+            onSkip={analysis.skipInterview}
+            onEndEarly={analysis.endInterviewEarly}
           />
         )}
 
