@@ -13,6 +13,7 @@ Usage:
     python run_benchmark.py --source arxiv
     python run_benchmark.py --source google_patents
     python run_benchmark.py --metrics-only
+    python run_benchmark.py --upload-only          # backfill Supabase from saved raw results
 """
 
 from __future__ import annotations
@@ -20,11 +21,18 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import time
 from datetime import datetime
 from pathlib import Path
 
 import requests
+from dotenv import load_dotenv
+
+# Load env vars (same lookup order as the backend)
+_root = Path(__file__).resolve().parent.parent
+load_dotenv(_root / "envfiles" / ".env")
+load_dotenv(_root / ".env")
 
 # ---------------------------------------------------------------------------
 # Config
@@ -118,6 +126,128 @@ def normalize_result_blob(blob: dict) -> dict:
     if isinstance(r, dict):
         return r
     return blob
+
+
+# ---------------------------------------------------------------------------
+# Supabase
+# ---------------------------------------------------------------------------
+SUPABASE_URL = os.getenv("SUPABASE_URL", "https://jqdjzvnqvkwyaiqednyf.supabase.co")
+SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+
+_sb_client = None
+
+
+def _get_supabase():
+    global _sb_client
+    if _sb_client is None:
+        if not SUPABASE_KEY:
+            log("WARNING: SUPABASE_SERVICE_ROLE_KEY not set — skipping DB upload")
+            return None
+        from supabase import create_client
+        _sb_client = create_client(SUPABASE_URL, SUPABASE_KEY)
+    return _sb_client
+
+
+def _float_to_likert(value: float) -> int:
+    """0-1 float → Likert 1-5 (same mapping as frontend/backend)."""
+    if value >= 1.0:
+        return 5
+    if value >= 0.75:
+        return 4
+    if value >= 0.5:
+        return 3
+    if value >= 0.25:
+        return 2
+    return 1
+
+
+def upload_benchmark_row(
+    case: dict,
+    result: dict,
+    source_name: str,
+    job_id: str | None = None,
+) -> bool:
+    """Insert one benchmark row into public.benchmark. Returns True on success."""
+    client = _get_supabase()
+    if client is None:
+        return False
+
+    pred_label = extract_predicted_label_benchmark(result)
+    api_label = result.get("label", "")
+
+    agg = result.get("aggregated_criteria") or {}
+    ps = agg.get("problem_similarity")
+    ms = agg.get("method_similarity")
+    do = agg.get("domain_overlap")
+    cs = agg.get("contribution_similarity")
+
+    cost = result.get("cost") or {}
+
+    row = {
+        "case_id": case["case_id"],
+        "source": source_name,
+        "domain": case.get("domain", ""),
+        "idea": case.get("idea", ""),
+        "true_label": case.get("originality_label", ""),
+        "predicted_label": pred_label,
+        "api_label": api_label,
+        "originality_score": result.get("originality_score"),
+        "global_similarity_score": result.get("global_similarity_score"),
+        "likert_problem_similarity": _float_to_likert(ps) if ps is not None else None,
+        "likert_method_similarity": _float_to_likert(ms) if ms is not None else None,
+        "likert_domain_overlap": _float_to_likert(do) if do is not None else None,
+        "likert_contribution_similarity": _float_to_likert(cs) if cs is not None else None,
+        "criteria_problem_similarity": ps,
+        "criteria_method_similarity": ms,
+        "criteria_domain_overlap": do,
+        "criteria_contribution_similarity": cs,
+        "layer1_results": result.get("layer1_results"),
+        "layer2_full": result.get("layer2_full"),
+        "papers": result.get("papers"),
+        "selected_sources": result.get("selected_sources"),
+        "source_results": result.get("source_results"),
+        "search_funnel": result.get("search_funnel"),
+        "stats": result.get("stats"),
+        "sentence_annotations": result.get("sentence_annotations"),
+        "papers_analyzed": result.get("papers_analyzed", 0),
+        "total_processing_time": result.get("total_processing_time"),
+        "cost_breakdown": cost.get("breakdown"),
+        "summary": result.get("summary", ""),
+        "comprehensive_report": result.get("comprehensive_report", ""),
+        "job_id": job_id,
+    }
+
+    try:
+        resp = client.table("benchmark").insert(row).execute()
+        if resp.data:
+            log(f"  ✓ Uploaded {case['case_id']} to Supabase benchmark table")
+            return True
+        log(f"  ✗ Supabase insert returned no data for {case['case_id']}")
+        return False
+    except Exception as e:
+        log(f"  ✗ Supabase insert failed for {case['case_id']}: {e}")
+        return False
+
+
+def upload_all_from_raw(cases: list[dict], raw_dir: Path, source_name: str):
+    """Upload all existing raw results to Supabase (for backfill / --upload-only)."""
+    uploaded = skipped = 0
+    for case in cases:
+        cid = case["case_id"]
+        blob = load_raw(raw_dir, cid)
+        if blob is None:
+            skipped += 1
+            continue
+        result = normalize_result_blob(blob)
+        job_id = None
+        snapshot = blob.get("_job_status_snapshot")
+        if isinstance(snapshot, dict):
+            job_id = snapshot.get("job_id")
+        if upload_benchmark_row(case, result, source_name, job_id=job_id):
+            uploaded += 1
+        else:
+            skipped += 1
+    log(f"Upload complete: {uploaded} uploaded, {skipped} skipped/failed")
 
 
 # ---------------------------------------------------------------------------
@@ -402,7 +532,7 @@ def print_summary(rows: list[dict], source: str):
     print(f"{'=' * 55}\n")
 
 
-def run_source(source_name: str, metrics_only: bool = False):
+def run_source(source_name: str, metrics_only: bool = False, upload_only: bool = False):
     cfg = SOURCE_CONFIG[source_name]
     path = cfg["dataset_json"]
     if not path.exists():
@@ -411,6 +541,11 @@ def run_source(source_name: str, metrics_only: bool = False):
     cases, gold_map = load_dataset_json(path)
     raw_dir = cfg["raw_dir"]
     raw_dir.mkdir(parents=True, exist_ok=True)
+
+    if upload_only:
+        log(f"Uploading existing raw results for {source_name} to Supabase...")
+        upload_all_from_raw(cases, raw_dir, source_name)
+        return
 
     if not metrics_only:
         total = len(cases)
@@ -453,6 +588,11 @@ def run_source(source_name: str, metrics_only: bool = False):
                 pred = extract_predicted_label_benchmark(flat)
                 log(f"  DONE — score={score}  mapped_label={pred}  true={case['originality_label']}")
 
+                upload_benchmark_row(
+                    case, flat, source_name,
+                    job_id=status_payload.get("job_id"),
+                )
+
             time.sleep(DELAY_BETWEEN_JOBS)
 
         log(f"\nJobs: {submitted} completed, {skipped} skipped, {failed} failed")
@@ -469,12 +609,16 @@ def main():
     parser = argparse.ArgumentParser(description="Hypothetica benchmark runner")
     parser.add_argument("--source", choices=["arxiv", "google_patents"])
     parser.add_argument("--metrics-only", action="store_true")
+    parser.add_argument(
+        "--upload-only", action="store_true",
+        help="Upload existing raw results to Supabase benchmark table (no API calls)",
+    )
     args = parser.parse_args()
 
     sources = [args.source] if args.source else ["arxiv", "google_patents"]
 
     for source in sources:
-        run_source(source, metrics_only=args.metrics_only)
+        run_source(source, metrics_only=args.metrics_only, upload_only=args.upload_only)
 
     log("All done.")
 

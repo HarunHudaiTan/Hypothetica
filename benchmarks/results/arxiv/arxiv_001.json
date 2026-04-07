@@ -1,0 +1,985 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "8bbd464a4c98",
+    "status": "completed"
+  },
+  "originality_score": 27,
+  "global_similarity_score": 0.80675,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "medium",
+        "domain_overlap": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+          "heading": "Abstract",
+          "text_snippet": "Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge is that client devices in FL usually have much more limited computation and communication resources compared to servers in a datacenter. To overcome this challenge, we propose PruneFL -- a novel FL approach with adaptive and distributed parameter pruning, which adapts the model size during FL to reduce both communication and computation overhead and minimize the overall training time, while maintaining a similar accuracy as the original model.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper address challenges in federated learning, specifically related to resource-limited edge devices and the need to reduce model size and communication overhead. The paper focuses on adaptive and distributed parameter pruning to achieve this.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+          "heading": "PRUNEFL",
+          "text_snippet": "Our proposed PruneFL approach includes two stages: initial pruning at a selected client and further pruning involving both the server and clients during the FL process. The initial pruning can be done with biased data at a single client that has a relatively high computational capability, and the further pruning stage will 'remove' the bias and refine the model. We use adaptive pruning in both stages.",
+          "similarity": 0.75,
+          "reason": "The user's idea mentions 'structured pruning to reduce local model size before aggregation' on edge clients. The paper describes a two-stage distributed pruning approach, including 'initial pruning at a selected client' and 'further pruning during FL process' involving both server and clients, which aligns with the concept of clients performing pruning before aggregation.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+          "heading": "Abstract",
+          "text_snippet": "Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge is that client devices in FL usually have much more limited computation and communication resources compared to servers in a datacenter.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are explicitly set within the domain of federated learning, specifically targeting edge clients and addressing resource constraints on these devices.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+          "heading": "Abstract",
+          "text_snippet": "FedPhD leverages Hierarchical FL with homogeneity-aware model aggregation and selection policy to tackle data heterogeneity while reducing communication costs. The distributed structured pruning of FedPhD enhances computational efficiency and reduces model storage requirements in clients.",
+          "similarity": 0.5,
+          "reason": "The paper's contribution includes 'distributed structured pruning' to reduce 'model storage requirements in clients' and 'computational efficiency', which aligns with the user's idea of clients using structured pruning to 'reduce local model size before aggregation'. The user's idea also mentions 'aggregation', which is a core part of the paper's contribution regarding 'model aggregation'.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research shows significant overlap in the problem domain, particularly with existing work on federated learning and model pruning. To enhance originality, consider differentiating your approach to the core problem or exploring a novel application domain.",
+  "comprehensive_report": "## Research Originality Assessment Report\n\n### 1. Executive Summary\n\nThis report presents a comprehensive originality assessment of your research idea: \"A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.\" The analysis involved a systematic comparison against a corpus of 5 highly relevant academic papers, evaluating similarities across problem, method, domain, and contribution criteria.\n\nThe final originality score for your idea is **27/100**, indicating a **low originality** level. This score is primarily driven by significant overlap in the problem domain and a moderate degree of similarity in the proposed methods and contributions with existing literature. The \"Domain Overlap\" criterion received the highest similarity score (0.940), suggesting that the application context of your idea is highly congruent with current research. Furthermore, the core mechanism of using structured pruning on edge clients in a federated learning setting is a recurring theme in the analyzed papers.\n\nThe key takeaway is that while your idea combines several established techniques (federated learning, structured pruning, model reconstruction), the specific combination and the 'learned weight interpolation scheme' may not yet present a sufficiently distinct novel contribution in the context of the current literature. To enhance originality, it is crucial to clearly articulate and demonstrate how your proposed interpolation scheme offers a unique advantage or solves a specific, unaddressed problem more effectively than existing approaches.\n\n### 2. Analysis Methodology\n\nThe originality assessment employs a two-layer analytical framework, starting with a detailed per-paper evaluation (Layer 1) and culminating in a global originality score (Layer 2).\n\n**Scoring Framework**: The analysis evaluates originality across four distinct criteria:\n1.  **Problem Similarity**: Assesses how closely your research problem or question aligns with those addressed in existing literature.\n2.  **Method Similarity**: Measures the resemblance of your proposed methodology or approach to methods described in other papers.\n3.  **Domain Overlap**: Quantifies the extent to which your application domain overlaps with those in the literature.\n4.  **Contribution Similarity**: Examines the degree of overlap between your claimed contributions and those of existing work.\n\nEach criterion is scored on a Likert scale from 1 (completely unrelated/different) to 5 (identical/same), as detailed in the \"Scoring Rubrics\" section below.\n\n**Paper Corpus**: The analysis was conducted against a corpus of 5 academic papers. These papers were selected through a rigorous literature discovery process designed to identify the most semantically relevant existing research. The papers are:\n1.  \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (ArXiv: 1909.12326v5)\n2.  \"FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models\" (ArXiv: 2507.06449v1)\n3.  \"Towards Sparsified Federated Neuroimaging Models via Weight Pruning\" (ArXiv: 2208.11669v1)\n4.  \"SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning\" (ArXiv: 2405.09037v2)\n5.  \"Heterogeneous Federated Learning\" (ArXiv: 2008.06767v2)\n\nThese papers were chosen for their direct relevance to federated learning, model pruning, edge devices, and model compression techniques, providing a strong baseline for assessing the originality of your idea.\n\n**Search Funnel**: The literature discovery process aimed for comprehensive coverage and relevance:\n-   **Total Papers Fetched**: 73\n-   **Papers After Semantic Search**: 20\n-   **Final Papers Selected**: 5\nThe process involved an initial broad search, followed by semantic filtering to identify papers most closely aligned with your research idea's core concepts.\n\n**Layer 1 Process**: In Layer 1, each of the 5 selected papers was individually compared against your research idea across the four criteria (problem, method, domain, contribution). This involved a detailed content analysis of the paper's abstract, introduction, methodology, and conclusion sections. Each criterion received a numerical score (1-5) based on the defined rubrics, and an overall \"Paper Similarity Score\" was calculated using weighted averages. A \"Similarity Level\" (High, Moderate, Low) and \"Confidence\" (High, Medium, Low) were also assigned to each paper.\n\n**Layer 2 Process**: Layer 2 aggregates the results from Layer 1 to compute a \"Global Originality Assessment\". This involves:\n1.  **Global Similarity Score**: Calculated as the average of the \"Paper Similarity Scores\" from all analyzed papers.\n2.  **Final Originality Score**: Derived by subtracting the \"Global Similarity Score\" (scaled appropriately) from a perfect score of 100.\n3.  **Overall Label**: Categorizes the final originality score (e.g., \"low\", \"medium\", \"high\") based on predefined thresholds.\n4.  **Aggregated Criteria Scores**: The average score for each of the four criteria across all papers.\n\n**Scoring Formulas**:\nThe \"Paper Similarity Score\" for each paper is calculated as a weighted average of its individual criterion scores:\n`Paper Similarity Score = (Problem Score * 0.3) + (Method Score * 0.3) + (Domain Score * 0.2) + (Contribution Score * 0.2)`\n(Note: Scores are normalized to a 0-1 range before aggregation for interpretation, where 1 represents maximum similarity).\n\nThe \"Global Similarity Score\" is the average of the individual \"Paper Similarity Scores\".\nThe \"Final Originality Score\" is computed as: `100 - (Global Similarity Score * 100)`.\n\n**Thresholds**:\n-   **High Overlap Threshold**: 0.7 (Paper Similarity Score or Global Similarity Score above this indicates high overlap)\n-   **Medium Overlap Threshold**: 0.4 (Scores between 0.4 and 0.7 indicate moderate overlap)\n-   **Paper Similarity Max Weight**: 0.5 (This value, when exceeded by a paper's similarity score, contributes to a 'moderate' or 'high' similarity level)\n-   **Global Similarity Max Weight**: 0.7 (This value, when exceeded by the global similarity score, contributes to an 'overall label' of 'low originality')\n\nThese thresholds define the categorical guardrails for interpreting the numerical scores and assigning overall originality labels.\n\n### 3. Detailed Results Analysis\n\n#### 3.1 Global Originality Assessment\n-   **Final Score**: **27/100** - This score indicates that your research idea has low originality when compared against the current literature. A score of 27 suggests a substantial overlap with existing concepts, methodologies, or problem domains, implying that significant differentiation or novel contribution is required to establish its unique value.\n-   **Overlap Score**: **0.807** - This score is the average similarity of your idea to the analyzed papers, calculated as `(0.675 + 0.625 + 0.575 + 0.625 + 0.350) / 5 = 0.57`. The provided `Global Similarity Score: 0.807` seems to be derived from a different internal calculation, potentially scaling the raw average. Based on the provided data, the average of individual paper similarity scores is 0.57. If the `Global Similarity Score` is 0.807, then `Final Originality Score = 100 - (0.807 * 100) = 19.3`. However, the report states `Final Originality Score: 27/100`. Assuming `Final Originality Score = 100 - (Global Similarity Score * 100)` and given the final score is 27, the `Global Similarity Score` used for this calculation would be `(100 - 27) / 100 = 0.73`. There is a discrepancy between the calculated average of paper similarity scores (0.57) and the reported `Global Similarity Score` (0.807) and the `Final Originality Score` (27). For the purpose of this report, I will use the provided `Global Similarity Score: 0.807` and `Final Originality Score: 27/100` as the authoritative values, acknowledging the discrepancy in intermediate calculation if a simple average was expected. The `Global Similarity Score` of 0.807 is above the `high_overlap_threshold` of 0.7, indicating a high degree of overlap with the existing literature.\n-   **Confidence Level**: **Medium** - This indicates that while the analysis is thorough and based on relevant literature, there might be nuances in your idea not fully captured by the current dataset or the explicit phrasing of your idea. Further clarification or refinement of your idea could potentially alter this assessment.\n-   **Papers Analyzed**: **5** - This number provides context for the result reliability. While 5 papers offer a solid foundation, a broader literature review could potentially uncover more diverse perspectives or highly specific novel contributions, or further confirm the existing overlaps.\n\n#### 3.2 Criteria Breakdown\n\n-   **Problem Similarity**: **0.730**\n    -   **Explanation**: This score is the average of the Problem Similarity scores across all 5 papers (`(0.750 + 0.750 + 0.750 + 0.750 + 0.500) / 5 = 0.70`). The reported `Aggregated Score: 0.730` is slightly higher, indicating a weighted average or a different aggregation method was used. This high score indicates a significant overlap in the research problem addressed. Many existing works already focus on the challenges of federated learning, especially concerning communication overhead and efficiency on edge devices.\n    -   **Highest Scoring Paper**: \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (0.750) and \"FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models\" (0.750) and \"Towards Sparsified Federated Neuroimaging Models via Weight Pruning\" (0.750) and \"SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning\" (0.750).\n    -   **Methodology**: This criterion was evaluated by comparing your stated problem (federated learning, edge clients, reducing model size, server reconstruction) against the problem statements, objectives, and motivations presented in the abstracts and introductions of the analyzed papers.\n    -   **Interpretation**: The high Problem Similarity score suggests that the fundamental challenges your idea aims to solve are largely shared with existing research. To improve originality, consider reframing the problem to highlight a specific, niche, or under-addressed aspect that your framework uniquely targets.\n\n-   **Method Similarity**: **0.460**\n    -   **Explanation**: This score is the average of the Method Similarity scores across all 5 papers (`(0.500 + 0.500 + 0.500 + 0.500 + 0.000) / 5 = 0.40`). The reported `Aggregated Score: 0.460` is slightly higher, indicating a weighted average or a different aggregation method was used. This indicates a moderate overlap in the methodologies. While the combination of \"structured pruning\" and a \"learned weight interpolation scheme\" might have some novelty, the individual components or similar combinations are present in the literature.\n    -   **Highest Scoring Paper**: \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (0.500) and \"FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models\" (0.500) and \"Towards Sparsified Federated Neuroimaging Models via Weight Pruning\" (0.500) and \"SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning\" (0.500).\n    -   **Methodology**: This criterion compared the algorithmic components of your idea (structured pruning, learned weight interpolation, server reconstruction) with the techniques described in the \"Methodology\" and \"Algorithm\" sections of the papers.\n    -   **Interpretation**: The moderate Method Similarity implies that while the core idea of pruning on clients is common, your specific \"learned weight interpolation scheme\" could be a differentiator. However, its novelty needs to be explicitly articulated and contrasted with existing aggregation or reconstruction methods beyond standard FedAvg.\n\n-   **Domain Overlap**: **0.940**\n    -   **Explanation**: This score is the average of the Domain Overlap scores across all 5 papers (`(1.000 + 0.750 + 0.500 + 1.000 + 1.000) / 5 = 0.85`). The reported `Aggregated Score: 0.940` is higher, indicating a weighted average or a different aggregation method was used. This is the highest similarity score among all criteria, indicating that your research operates within a very well-established application domain. Federated learning, especially on edge devices, is a highly active research area.\n    -   **Highest Scoring Paper**: \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (1.000) and \"SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning\" (1.000) and \"Heterogeneous Federated Learning\" (1.000).\n    -   **Methodology**: This criterion assessed the general field and specific application context (e.g., federated learning, edge computing, model compression) against the domains described in the papers.\n    -   **Interpretation**: The near-perfect Domain Overlap score suggests that the general field of your research is highly saturated. While this isn't necessarily a weakness, it means your novelty must come from very specific problem formulations or methodological advancements rather than the broad application area itself.\n\n-   **Contribution Similarity**: **0.440**\n    -   **Explanation**: This score is the average of the Contribution Similarity scores across all 5 papers (`(0.500 + 0.500 + 0.500 + 0.250 + 0.000) / 5 = 0.35`). The reported `Aggregated Score: 0.440` is higher, indicating a weighted average or a different aggregation method was used. This score indicates a moderate overlap in the claimed contributions. Many papers aim to improve efficiency, reduce communication costs, and maintain accuracy in federated learning through model compression.\n    -   **Highest Scoring Paper**: \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (0.500) and \"FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models\" (0.500) and \"Towards Sparsified Federated Neuroimaging Models via Weight Pruning\" (0.500).\n    -   **Methodology**: This criterion compared the stated advantages and anticipated impacts of your framework with the explicit contributions highlighted in the abstracts and conclusion sections of the analyzed papers.\n    -   **Interpretation**: The moderate Contribution Similarity suggests that while some of your anticipated benefits might be shared with existing work, there is potential to carve out a unique contribution by emphasizing the specific advantages of your \"learned weight interpolation scheme\" in the context of full-capacity model reconstruction.\n\n#### 3.3 Paper-by-Paper Analysis\n\n**Paper 1: Model Pruning Enables Efficient Federated Learning on Edge Devices** (ArXiv:1909.12326v5)\n-   **Overall Overlap**: **0.675** - Calculated as `(0.750 * 0.3) + (0.500 * 0.3) + (1.000 * 0.2) + (0.500 * 0.2) = 0.225 + 0.150 + 0.200 + 0.100 = 0.675`.\n-   **Threat Level**: **Moderate** - This paper presents a significant overlap with your idea, particularly in the problem domain and general approach.\n-   **Criteria Scores**: Problem [0.750], Method [0.500], Domain [1.000], Contribution [0.500]\n-   **Key Findings**: This paper proposes PruneFL, a federated learning approach with adaptive and distributed parameter pruning to reduce communication and computation overhead on edge devices. This directly aligns with your idea's core components: federated learning, edge clients, and pruning to reduce model size.\n-   **Content Analysis**:\n    -   **Abstract**: Explicitly mentions \"Federated learning (FL) allows model training from local data collected by edge/mobile devices... A challenge is that client devices in FL usually have much more limited computation and communication resources... we propose PruneFL -- a novel FL approach with adaptive and distributed parameter pruning, which adapts the model size during FL to reduce both communication and computation overhead...\". This strongly overlaps with your problem statement.\n    -   **PRUNEFL section**: Describes \"initial pruning at a selected client and further pruning involving both the server and clients during the FL process,\" which is a direct parallel to \"edge clients use structured pruning to reduce local model size before aggregation.\"\n-   **Sentence-Level Insights**: Your core sentence \"A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation...\" directly echoes the objectives and methods described in this paper's abstract and methodology sections.\n\n**Paper 2: FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models** (ArXiv:2507.06449v1)\n-   **Overall Overlap**: **0.625** - Calculated as `(0.750 * 0.3) + (0.500 * 0.3) + (0.750 * 0.2) + (0.500 * 0.2) = 0.225 + 0.150 + 0.150 + 0.100 = 0.625`.\n-   **Threat Level**: **Moderate** - This paper also shares significant common ground, especially in the problem of efficient federated learning and the use of structured pruning.\n-   **Criteria Scores**: Problem [0.750], Method [0.500], Domain [0.750], Contribution [0.500]\n-   **Key Findings**: FedPhD proposes an efficient FL framework for Diffusion Models, leveraging hierarchical FL and structured pruning to reduce communication costs and model storage on clients. The use of \"distributed structured pruning\" on clients to enhance efficiency is a direct overlap.\n-   **Content Analysis**:\n    -   **Abstract**: \"Federated Learning (FL)... high communication costs and data heterogeneity persist... we introduce a novel approach, FedPhD... leverages Hierarchical FL... The distributed structured pruning of FedPhD enhances computational efficiency and reduces model storage requirements in clients.\" This clearly aligns with your problem and method.\n    -   **Structured Pruning for DMs section**: States \"Structured pruning removes entire groups... ensuring better CPU/GPU compatibility and more efficient model deployment... FedPhD overcomes this by integrating dependency-aware pruning during decentralized training.\" This directly supports the method similarity.\n-   **Sentence-Level Insights**: The phrase \"edge clients use structured pruning to reduce local model size before aggregation\" in your idea is highly similar to FedPhD's approach of \"distributed structured pruning... reduces model storage requirements in clients.\"\n\n**Paper 3: Towards Sparsified Federated Neuroimaging Models via Weight Pruning** (ArXiv:2208.11669v1)\n-   **Overall Overlap**: **0.575** - Calculated as `(0.750 * 0.3) + (0.500 * 0.3) + (0.500 * 0.2) + (0.500 * 0.2) = 0.225 + 0.150 + 0.100 + 0.100 = 0.575`.\n-   **Threat Level**: **Moderate** - This paper reinforces the commonality of the problem and the use of pruning in federated settings, even if the specific domain (neuroimaging) differs.\n-   **Criteria Scores**: Problem [0.750], Method [0.500], Domain [0.500], Contribution [0.500]\n-   **Key Findings**: This paper explores model pruning during federated training to reduce communication costs, demonstrating that models can be pruned heavily without affecting performance, even with heterogeneous data. The core problem of reducing communication costs in FL via pruning is a strong overlap.\n-   **Content Analysis**:\n    -   **Abstract**: \"Federated training of large deep neural networks can often be restrictive due to the increasing costs of communicating the updates with increasing model sizes. Various model pruning techniques have been designed... Combining centralized pruning techniques with federated training seems intuitive for reducing communication costs -- by pruning the model parameters right before the communication step.\" This directly matches your problem and part of your method.\n    -   **Model Pruning section**: Discusses \"weight magnitude-based pruning approach\" and \"gradual parameters pruning during training is more effective than one-shot pruning at the end. Our federated pruning approach exploits this observation.\"\n-   **Sentence-Level Insights**: Your idea's focus on \"reducing local model size before aggregation\" aligns with this paper's approach of \"pruning the model parameters right before the communication step\" to reduce communication costs.\n\n**Paper 4: SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning** (ArXiv:2405.09037v2)\n-   **Overall Overlap**: **0.625** - Calculated as `(0.750 * 0.3) + (0.500 * 0.3) + (1.000 * 0.2) + (0.250 * 0.2) = 0.225 + 0.150 + 0.200 + 0.050 = 0.625`.\n-   **Threat Level**: **Moderate** - This paper presents a very similar problem setup and domain, with methods focused on sparse subnetworks for efficiency in FL.\n-   **Criteria Scores**: Problem [0.750], Method [0.500], Domain [1.000], Contribution [0.250]\n-   **Key Findings**: SSFL proposes a single-shot sparse federated learning framework that discovers a globally shared sparse subnetwork at initialization. It emphasizes communication efficiency by training and communicating only sparse model weights. This is highly aligned with your idea's objectives.\n-   **Content Analysis**:\n    -   **Abstract**: \"Salient Sparse Federated Learning (SSFL), a streamlined approach for sparse federated learning with efficient communication. SSFL identifies a sparse subnetwork prior to training... Only the sparse model weights are trained and communicated each round between the clients and the server.\" This directly addresses the problem of efficient FL through sparsity on clients.\n    -   **The SSFL Process section**: Describes \"Local Saliency Estimation\" and \"Sparse Federated Training,\" where \"all operations restricted to the masked subnetwork.\" This aligns with the \"structured pruning to reduce local model size\" aspect.\n-   **Sentence-Level Insights**: The emphasis on \"sparse federated learning with efficient communication\" and \"sparse model weights are trained and communicated each round between the clients and the server\" in SSFL strongly parallels your idea's goal of reducing local model size before aggregation.\n\n**Paper 5: Heterogeneous Federated Learning** (ArXiv:2008.06767v2)\n-   **Overall Overlap**: **0.350** - Calculated as `(0.500 * 0.3) + (0.000 * 0.3) + (1.000 * 0.2) + (0.000 * 0.2) = 0.150 + 0.000 + 0.200 + 0.000 = 0.350`.\n-   **Threat Level**: **Moderate** - While the domain overlap is high, the method and contribution similarity are very low, making the overall overlap moderate.\n-   **Criteria Scores**: Problem [0.500], Method [0.000], Domain [1.000], Contribution [0.000]\n-   **Key Findings**: This paper focuses on addressing structural misalignment in federated model fusion due to chaotic information distribution, proposing a feature-oriented regulation method (Ψ-Net) for structure-information alignment. While it deals with heterogeneity in FL, its method (Ψ-Net for feature allocation and grouped-shared parameter averaging) is distinct from pruning and learned interpolation.\n-   **Content Analysis**:\n    -   **Abstract**: \"Federated learning learns from scattered data by fusing collaborative models from local nodes. However, due to chaotic information distribution, the model fusion may suffer from structural misalignment with regard to unmatched parameters.\" This aligns with the general FL problem but diverges in the specific type of heterogeneity.\n    -   **Ψ-Net Structure Implementation section**: Details a \"group-convolution based Ψ-Net structure as a regulation for feature allocation\" and \"grouped-shared parameter averaging,\" which is fundamentally different from pruning and weight interpolation.\n-   **Sentence-Level Insights**: While this paper shares the broad \"federated learning framework\" domain, its specific approach to handling \"structural misalignment\" through Ψ-Net and grouped-shared parameters is entirely different from your proposed \"structured pruning\" and \"learned weight interpolation scheme.\"\n\n### 4. Sentence-Level Analysis\n\nThe sentence-level analysis provides fine-grained insights into the originality of specific phrases within your research idea.\n\n-   **Red Sentences (Low Originality)**: 1 sentence\n    -   **Explanation**: This sentence contains phrases or concepts that are highly similar or identical to those found in the existing literature. It represents the core overlap identified in the analysis.\n    -   **Critical Overlaps**: The description of \"A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation\" is a concept widely discussed and implemented in the analyzed papers.\n-   **Yellow Sentences (Medium Originality)**: 0 sentences\n    -   **Explanation**: No sentences were categorized as having medium originality, suggesting a clear distinction between highly overlapping and potentially novel elements.\n-   **Green Sentences (High Originality)**: 0 sentences\n    -   **Explanation**: No sentences were identified as having high originality, indicating that the current phrasing of your idea, at a sentence level, does not yet articulate a completely novel concept or approach distinct from existing work.\n\n#### Detailed Sentence Analysis with Evidence\n\n**🔴 Sentence 1: 100% Similarity**\n**Original Sentence:** \"A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.\"\n\n**Analysis:**\n-   Originality Score: 0.000\n-   Similarity Score: 1.000\n-   Classification: low\n\n**Evidence from Papers:**\n-   **Match 1: Model Pruning Enables Efficient Federated Learning on Edge Devices**\n    -   **Section:** Abstract\n    -   **Similarity:** 50%\n    -   **Reason:** Both the user's idea and the paper address challenges in federated learning, specifically related to resource-limited edge devices and the need to reduce model size and communication overhead. The paper focuses on adaptive and distributed parameter pruning to achieve this.\n    -   **Evidence Snippet:** \"Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge...\"\n-   **Match 2: Model Pruning Enables Efficient Federated Learning on Edge Devices**\n    -   **Section:** PRUNEFL\n    -   **Similarity:** 75%\n    -   **Reason:** The user's idea mentions 'structured pruning to reduce local model size before aggregation' on edge clients. The paper describes a two-stage distributed pruning approach, including 'initial pruning at a selected client' and 'further pruning during FL process' involving both server and clients, which aligns with the concept of clients performing pruning before aggregation.\n    -   **Evidence Snippet:** \"Our proposed PruneFL approach includes two stages: initial pruning at a selected client and further pruning involving both the server and clients during the FL process. The initial pruning can be done...\"\n-   **Match 3: Model Pruning Enables Efficient Federated Learning on Edge Devices**\n    -   **Section:** Abstract\n    -   **Similarity:** 100%\n    -   **Reason:** Both the user's idea and the paper are explicitly set within the domain of federated learning, specifically targeting edge clients and addressing resource constraints on these devices.\n    -   **Evidence Snippet:** \"Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge...\"\n\nThe high similarity of this core sentence indicates that the combination of federated learning, client-side pruning for model size reduction, and aggregation is a well-explored area. The specific novelty, if any, lies in the \"learned weight interpolation scheme instead of standard FedAvg,\" which needs further elaboration to be distinguished from existing aggregation or reconstruction methods.\n\n### 5. Methodology Transparency\n\n**Scoring Rubrics (1-5 Likert Scale)**\n\n#### Problem Similarity\nDescription: How similar is the research problem or question?\nRubric:\n1 = Completely unrelated question. The paper addresses a fundamentally different research gap.\n2 = Loosely related area but a clearly distinct research question with different goals.\n3 = Same broad topic, but different specific problem or different angle on the problem.\n4 = Very similar problem statement, differing only in scope, constraints, or minor framing.\n5 = Same problem, same framing. The paper asks essentially the same question.\n\n#### Method Similarity\nDescription: How similar is the proposed method or approach?\nRubric:\n1 = Completely different techniques. No methodological overlap whatsoever.\n2 = Methods share a broad category (e.g., both use deep learning) but differ in architecture, training, and application.\n3 = Same general method family with meaningful differences in design, components, or pipeline.\n4 = Very similar methodology; differences are incremental (e.g., a different loss function or minor architectural tweak).\n5 = Identical methodology with the same implementation approach. Only trivial differences if any.\n\n#### Domain Overlap\nDescription: How much do the application domains overlap?\nRubric:\n1 = Different fields entirely (e.g., NLP vs. robotics).\n2 = Related disciplines but different application contexts (e.g., both in healthcare but radiology vs. genomics).\n3 = Same discipline, different sub-area or application target.\n4 = Same sub-area with closely related application targets.\n5 = Same specific application area, same data type, same target population or system.\n\n#### Contribution Similarity\nDescription: How similar are the claimed contributions?\nRubric:\n1 = Unrelated contributions addressing different gaps.\n2 = Contributions in the same general direction but clearly different claims.\n3 = Partial overlap: some contributions are related, others are distinct.\n4 = Most contributions overlap, with only minor novel additions in the user's idea.\n5 = Same claims and results. The paper already demonstrates what the user proposes to contribute.\n\n**Weight Configuration**:\nThe impact of each criterion on the overall similarity score is determined by its assigned weight:\n-   **Problem**: 0.3 (30% of the total score)\n-   **Method**: 0.3 (30% of the total score)\n-   **Domain**: 0.2 (20% of the total score)\n-   **Contribution**: 0.2 (20% of the total score)\n\nThese weights reflect a prioritization, with Problem and Method being the most critical factors for determining originality, followed by Domain and Contribution.\n\n**Guardrail Rules**:\n-   `high_overlap_threshold`: 0.7\n-   `medium_overlap_threshold`: 0.4\n-   `paper_similarity_max_weight`: 0.5\n-   `global_similarity_max_weight`: 0.7\n\nThese thresholds define the boundaries for classifying overlap levels. For instance, a paper with a `Paper Similarity Score` above 0.7 is considered to have \"high\" overlap, while a `Global Similarity Score` above 0.7 typically leads to an \"overall label\" of \"low originality.\" The `paper_similarity_max_weight` and `global_similarity_max_weight` are internal parameters used to further influence the classification logic, ensuring that high individual paper overlaps or a high global average are appropriately flagged.\n\n**Cost Analysis**:\n-   Total Tokens Used: 258,264\n-   Total Cost: $0.0987\nThis breakdown indicates the computational resources consumed during the analysis, reflecting the token processing for understanding and comparing your idea with the literature.\n\n**Processing Time**:\n-   Processing Time: 0.00 seconds\nThis indicates the speed and efficiency of the analysis process.\n\n### 6. Interpretation and Recommendations\n\n#### 6.1 Literature Synthesis\n\nThe analyzed literature reveals a strong and active research focus on efficient federated learning, particularly addressing the challenges of resource-constrained edge devices and high communication costs.\n\n**Common Themes**:\n-   **Client-side Model Compression**: Papers like \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (PruneFL), \"FedPhD\", and \"SSFL\" all extensively explore methods for reducing model size on client devices. Pruning (both structured and unstructured) is a dominant technique, often applied before aggregation or at initialization.\n-   **Communication Efficiency**: A primary motivation across almost all papers is to reduce communication overhead in FL environments. This is achieved through model compression, sparse updates, or hierarchical aggregation.\n-   **Handling Heterogeneity**: Several papers, including \"Heterogeneous Federated Learning\" and \"FedPhD,\" acknowledge and propose solutions for data and model heterogeneity in FL, although their specific approaches might differ.\n-   **Adaptive/Dynamic Pruning**: PruneFL and similar works employ adaptive pruning strategies that adjust model size during the FL process, aiming for optimal accuracy-efficiency trade-offs. SSFL, in contrast, focuses on one-shot mask generation at initialization.\n-   **Beyond FedAvg**: While FedAvg is the baseline, many papers propose alternative aggregation or learning schemes (e.g., FedPhD's homogeneity-aware aggregation, Ψ-Net's grouped-shared parameter averaging) to address specific FL challenges.\n\n**Research Gaps**:\nWhile client-side pruning is common, the explicit mention of \"the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg\" presents a potential area for differentiation. Most pruning-based FL methods either maintain a sparse global model or focus on aggregating sparse updates, rather than explicitly reconstructing a *full-capacity* model on the server via a *learned interpolation*. The novelty would lie in:\n1.  **The specific \"learned weight interpolation scheme\"**: What learning algorithm is used? What information does it leverage? How does it outperform simple re-densification or other reconstruction methods?\n2.  **The rationale for \"full-capacity model reconstruction\"**: Why is a full-capacity model desirable on the server, and how does this scheme achieve it effectively despite client-side pruning? What are the benefits over maintaining a sparse global model?\n\n**Positioning Analysis**:\nYour idea *extends* existing work by combining client-side structured pruning (a well-established technique for efficiency) with a novel server-side reconstruction mechanism. It *diverges* from standard FedAvg by proposing a \"learned weight interpolation scheme.\" The challenge is that the \"structured pruning to reduce local model size before aggregation\" part is a direct theme in multiple papers (PruneFL, FedPhD, SSFL). The \"learned weight interpolation scheme\" is the primary potential differentiator, but its details are not elaborated in the initial idea, making a full assessment of its novelty difficult.\n\n#### 6.2 What the Scores Tell Us\n\n-   **Originality Assessment**: The **Final Originality Score of 27/100** and the **Overall Label of \"low\"** suggest that your idea, as currently formulated, has substantial overlap with existing research. The core components are well-explored, indicating a need for clearer articulation of novelty.\n-   **Risk Areas**: The **Domain Overlap (0.940)** and **Problem Similarity (0.730)** are the highest, signaling that the general field and the problems you aim to solve are highly competitive. Reviewers will likely look for very specific, demonstrable improvements or a unique angle. The commonality of client-side pruning also poses a risk of being perceived as incremental.\n-   **Strength Areas**: The `Method Similarity (0.460)` and `Contribution Similarity (0.440)` are comparatively lower than the Domain and Problem scores. This suggests that the \"learned weight interpolation scheme\" is the most promising element for establishing novelty. If this scheme is genuinely novel and offers significant advantages, it can be the core strength. \"Heterogeneous Federated Learning\" (Paper 5) had a 0.000 Method and Contribution similarity, indicating that your idea is not similar to all FL approaches, which is a good sign.\n-   **Confidence Assessment**: The **Medium Confidence Level** indicates that while the analysis is robust, the brevity of your initial research idea means there might be finer points of your approach that were not fully captured. A more detailed description, particularly of the \"learned weight interpolation scheme,\" could refine the originality assessment.\n\n#### 6.3 Practical Implications\n\n-   **Research Positioning**: You should position your work as an advancement in efficient federated learning that specifically addresses the trade-off between client-side model compression and server-side model capacity. Emphasize how your learned interpolation scheme uniquely enables the server to reconstruct a *full-capacity* model, rather than just aggregating sparse updates or maintaining a compressed global model.\n-   **Key Differentiators**: The \"learned weight interpolation scheme\" is your critical differentiator. Focus on:\n    -   What kind of learning algorithm is it? (e.g., meta-learning, reinforcement learning, a specific neural network architecture?)\n    -   What input does it take (e.g., pruned client models, their masks, auxiliary data)?\n    -   How does it effectively \"interpolate\" to reconstruct missing weights or connections in a full-capacity model?\n    -   What are its advantages over existing methods for re-densification or aggregation of sparse models?\n-   **Potential Challenges**: Reviewers will likely scrutinize the true novelty and effectiveness of the \"learned weight interpolation scheme.\" They will compare it against existing aggregation methods for sparse models and demand clear evidence of its superiority in terms of accuracy, convergence, and computational overhead for reconstruction. The overhead of learning and applying this interpolation scheme must be justified.\n-   **Development Focus**: Concentrate your efforts on developing and rigorously evaluating the \"learned weight interpolation scheme.\" This involves:\n    -   Defining its architecture and learning objective.\n    -   Demonstrating its ability to reconstruct high-quality full-capacity models from pruned client updates.\n    -   Quantifying its performance benefits (e.g., accuracy, convergence speed, robustness to heterogeneity) compared to standard FedAvg and other sparse FL aggregation techniques.\n    -   Analyzing its computational and communication overhead on the server.\n\n#### 6.4 Next Steps\n\n-   **Literature Review**: Deeply study \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (PruneFL), \"FedPhD\", and \"SSFL.\" Understand their exact pruning mechanisms, aggregation strategies, and how they handle the server-side model. This will help you articulate precise differences. Pay particular attention to how these papers handle the *server's view* of the model after client-side pruning.\n-   **Methodology Refinement**:\n    -   **Elaborate on \"Learned Weight Interpolation\"**: Provide concrete details. Is it a neural network? A statistical model? How does it \"learn\"? What data does it use? How does it handle the structural information of pruned models?\n    -   **Justify \"Full-Capacity Model\"**: Explain why reconstructing a full-capacity model on the server is a superior goal compared to maintaining a sparse global model, especially if clients are resource-constrained.\n    -   **Comparison Points**: Identify specific existing aggregation/reconstruction methods that your learned interpolation scheme will directly compete with and aim to outperform.\n-   **Contribution Framing**: Reframe your contributions to explicitly highlight the novelty of the \"learned weight interpolation scheme\" and its unique benefits. For example: \"We propose the first federated learning framework that combines client-side structured pruning with a novel, learned weight interpolation scheme to enable server-side reconstruction of full-capacity models, addressing X challenge more effectively than existing sparse FL aggregation methods.\"\n-   **Validation Strategy**: Plan experiments that specifically demonstrate:\n    -   The effectiveness of your interpolation scheme in reconstructing high-quality models.\n    -   The performance gains (accuracy, convergence) of your full framework compared to state-of-the-art sparse FL methods and standard FedAvg.\n    -   The efficiency benefits (communication reduction) while maintaining or improving accuracy.\n\n### 7. Limitations and Considerations\n\n-   **Analysis Scope**: This analysis focused on the initial, concise description of your research idea. Nuances, specific implementation details, or innovative aspects not explicitly mentioned may not have been fully captured. The analysis is limited to the 5 most relevant papers identified by the search funnel. A broader search might reveal additional related work or different angles.\n-   **Data Limitations**: The originality assessment relies on the abstracts, introductions, and key sections of the identified papers. A full in-depth review of every paper's complete methodology and experimental results was not performed at this stage.\n-   **Methodology Constraints**: The scoring rubric provides a structured way to compare ideas, but human interpretation is inherently involved in assigning scores. The \"Medium\" confidence level acknowledges this potential for subjective interpretation.\n-   **Interpretation Caveats**: The scores represent a snapshot based on the current literature and your idea's current formulation. The \"learned weight interpolation scheme\" is the most abstract part of your idea, and its true originality cannot be fully ascertained without more concrete details.\n-   **Recommendation**: To address these limitations, consider providing a more detailed \"problem statement,\" \"proposed methodology,\" and \"expected contributions\" for a more granular and confident originality assessment. Furthermore, a deeper dive into the specific mechanisms of the \"learned weight interpolation scheme\" is paramount for distinguishing your work.",
+  "aggregated_criteria": {
+    "problem_similarity": 0.73,
+    "method_similarity": 0.46,
+    "domain_overlap": 0.94,
+    "contribution_similarity": 0.43999999999999995
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0987,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0943,
+      "layer2": 0.0003,
+      "followup": 0.0007,
+      "keywords": 0.0,
+      "reality_check": 0.0019,
+      "github": 0.0016
+    }
+  },
+  "total_processing_time": 185.31304478645325,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "1909.12326v5",
+      "arxiv_id": "1909.12326v5",
+      "title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+      "abstract": "Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge is that client devices in FL usually have much more limited computation and communication resources compared to servers in a datacenter. To overcome this challenge, we propose PruneFL -- a novel FL approach with adaptive and distributed parameter pruning, which adapts the model size during FL to reduce both communication and computation overhead and minimize the overall training time, while maintaining a similar accuracy as the original model. PruneFL includes initial pruning at a selected client and further pruning as part of the FL process. The model size is adapted during this process, which includes maximizing the approximate empirical risk reduction divided by the time of one FL round. Our experiments with various datasets on edge devices (e.g., Raspberry Pi) show that: (i) we significantly reduce the training time compared to conventional FL and various other pruning-based methods; (ii) the pruned model with automatically determined size converges to an accuracy that is very similar to the original model, and it is also a lottery ticket of the original model.",
+      "url": "https://arxiv.org/abs/1909.12326v5",
+      "pdf_url": "https://arxiv.org/pdf/1909.12326v5",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.DC",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The user's idea aims to solve challenges in federated learning with model compression, such as communication overhead and accuracy drop. The paper 'Model Pruning Enables Efficient Federated Learning on Edge Devices' explicitly states its goal to 'overcome this challenge' of 'limited computation and communication resources' in FL by proposing PruneFL to 'reduce both communication and computation overhead and minimize the overall training time, while maintaining a similar accuracy as the original model.' This indicates a very similar problem statement, differing mainly in the specific technical approach rather than the core problem addressed. | Method: The paper proposes PruneFL, a federated learning framework that uses adaptive and distributed parameter pruning to reduce model size on edge devices. This aligns with the user's idea of edge clients using structured pruning to reduce local model size. However, the paper's server-side aggregation uses a modified FedAvg with importance measure aggregation and model reconfiguration based on empirical risk reduction, rather than the user's specified 'learned weight interpolation scheme' for full-capacity model reconstruction. | Domain: Both the user's research idea and the paper focus on federated learning frameworks for edge devices. The paper explicitly mentions 'edge/mobile devices' and 'Raspberry Pi' as target platforms, which aligns perfectly with the user's focus on 'edge clients'. Both aim to reduce model size and communication overhead in this specific application domain. | Contribution: The paper 'PruneFL' proposes a federated learning framework with adaptive and distributed parameter pruning to reduce model size on edge devices, which partially overlaps with the user's idea of using structured pruning on clients. However, the paper uses a standard FedAvg for aggregation and does not mention a 'learned weight interpolation scheme' for server-side reconstruction, which is a distinct component of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2507.06449v1",
+      "arxiv_id": "2507.06449v1",
+      "title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+      "abstract": "Federated Learning (FL), as a distributed learning paradigm, trains models over distributed clients' data. FL is particularly beneficial for distributed training of Diffusion Models (DMs), which are high-quality image generators that require diverse data. However, challenges such as high communication costs and data heterogeneity persist in training DMs similar to training Transformers and Convolutional Neural Networks. Limited research has addressed these issues in FL environments. To address this gap and challenges, we introduce a novel approach, FedPhD, designed to efficiently train DMs in FL environments. FedPhD leverages Hierarchical FL with homogeneity-aware model aggregation and selection policy to tackle data heterogeneity while reducing communication costs. The distributed structured pruning of FedPhD enhances computational efficiency and reduces model storage requirements in clients. Our experiments across multiple datasets demonstrate that FedPhD achieves high model performance regarding Fréchet Inception Distance (FID) scores while reducing communication costs by up to $88\\%$. FedPhD outperforms baseline methods achieving at least a $34\\%$ improvement in FID, while utilizing only $56\\%$ of the total computation and communication resources.",
+      "url": "https://arxiv.org/abs/2507.06449v1",
+      "pdf_url": "https://arxiv.org/pdf/2507.06449v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.DC"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.625,
+      "reason": "Problem: The user's idea aims to solve challenges in federated learning with model compression, such as reducing local model size and communication overhead. The paper, FedPhD, explicitly states its goal is to address 'high communication costs and data heterogeneity' in Federated Learning by 'reducing model size and enhancing computational and communication efficiency' through structured pruning. This indicates a very similar problem statement, differing primarily in the specific application domain (Diffusion Models in the paper). | Method: The paper proposes a federated learning framework that uses structured pruning on clients, which aligns with the user's idea of edge clients using structured pruning. However, the server-side reconstruction differs significantly; the paper uses 'homogeneity-aware model aggregation and selection policy' instead of a 'learned weight interpolation scheme' for reconstructing a full-capacity model. | Domain: The user's idea is a federated learning framework, and the paper 'FedPhD' also proposes a federated learning framework. Both specifically address model compression (structured pruning in both cases) within this context. The paper focuses on Diffusion Models for image generation, which is a specific application area within machine learning, closely related to the general scope of federated learning frameworks. | Contribution: The user's idea proposes client-side structured pruning and server-side learned weight interpolation for full-capacity model reconstruction. The paper, FedPhD, also utilizes structured pruning on clients to reduce model size and communication costs (Abstract, 'The distributed structured pruning of FedPhD enhances computational efficiency and reduces model storage requirements in clients.'). However, the paper uses 'homogeneity-aware model aggregation and selection policy' (Abstract) instead of a 'learned weight interpolation scheme' for server-side reconstruction, indicating a partial overlap in contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "2208.11669v1",
+      "arxiv_id": "2208.11669v1",
+      "title": "Towards Sparsified Federated Neuroimaging Models via Weight Pruning",
+      "abstract": "Federated training of large deep neural networks can often be restrictive due to the increasing costs of communicating the updates with increasing model sizes. Various model pruning techniques have been designed in centralized settings to reduce inference times. Combining centralized pruning techniques with federated training seems intuitive for reducing communication costs -- by pruning the model parameters right before the communication step. Moreover, such a progressive model pruning approach during training can also reduce training times/costs. To this end, we propose FedSparsify, which performs model pruning during federated training. In our experiments in centralized and federated settings on the brain age prediction task (estimating a person's age from their brain MRI), we demonstrate that models can be pruned up to 95% sparsity without affecting performance even in challenging federated learning environments with highly heterogeneous data distributions. One surprising benefit of model pruning is improved model privacy. We demonstrate that models with high sparsity are less susceptible to membership inference attacks, a type of privacy attack.",
+      "url": "https://arxiv.org/abs/2208.11669v1",
+      "pdf_url": "https://arxiv.org/pdf/2208.11669v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.CR",
+        "eess.IV",
+        "q-bio.QM"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.575,
+      "reason": "Problem: The paper addresses a very similar problem to the user's idea, focusing on reducing communication costs in federated learning through model pruning. The abstract states, 'Federated training of large deep neural networks can often be restrictive due to the increasing costs of communicating the updates with increasing model sizes,' which directly aligns with the user's implicit problem of communication overhead. Both the user's idea and the paper propose using pruning on clients (or local models) to achieve this goal. | Method: The paper proposes a federated learning framework where clients use weight magnitude-based pruning to reduce model size before aggregation, and the server aggregates these pruned models using FedAvg. This aligns with the user's idea of clients using structured pruning to reduce local model size before aggregation. However, the paper does not mention a 'learned weight interpolation scheme' for server-side reconstruction, instead relying on standard FedAvg for aggregation and then pruning the global model, which is a meaningful difference from the user's idea. | Domain: The user's idea is a general federated learning framework, while the paper focuses on 'Neuroimaging Learning Environments' and the 'Brain Age Prediction Task' using 3D-CNN models on MRI scans. Both are in the machine learning/deep learning domain, but the paper specifies a particular application area (neuroimaging) that is not mentioned in the user's general idea. | Contribution: The paper 'Towards Sparsified Federated Neuroimaging Models via Weight Pruning' proposes FedSparsify, which performs model pruning during federated training to reduce communication costs and improve privacy. This aligns with the user's idea of edge clients using structured pruning to reduce local model size before aggregation. However, the user's idea also includes a 'learned weight interpolation scheme' for server-side reconstruction of a full-capacity model, which is not present in the paper's description of FedSparsify, where the server aggregates and sends a sparsified global model.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2405.09037v2",
+      "arxiv_id": "2405.09037v2",
+      "title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+      "abstract": "In this work, we propose Salient Sparse Federated Learning (SSFL), a streamlined approach for sparse federated learning with efficient communication. SSFL identifies a sparse subnetwork prior to training, leveraging parameter saliency scores computed separately on local client data in non-IID scenarios, and then aggregated, to determine a global mask. Only the sparse model weights are trained and communicated each round between the clients and the server. On standard benchmarks including CIFAR-10, CIFAR-100, and Tiny-ImageNet, SSFL consistently improves the accuracy sparsity trade off, achieving more than 20\\% relative error reduction on CIFAR-10 compared to the strongest sparse baseline, while reducing communication costs by $2 \\times$ relative to dense FL. Finally, in a real-world federated learning deployment, SSFL delivers over $2.3 \\times$ faster communication time, underscoring its practical efficiency.",
+      "url": "https://arxiv.org/abs/2405.09037v2",
+      "pdf_url": "https://arxiv.org/pdf/2405.09037v2",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.DC"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.625,
+      "reason": "Problem: The user's research idea aims to reduce local model size and communication overhead in federated learning. The paper addresses a very similar problem, stating its goal is to solve 'a fundamental open problem in sparse and efficient FL: how can one identify a performant, static sparse subnetwork at initialization using only private, non-IID data across clients with minimal communication and no auxiliary dataset?' and highlights 'communication bottlenecks' as a key challenge. Both focus on efficient federated learning through model compression to reduce communication. | Method: The user's idea proposes structured pruning on clients and a learned weight interpolation scheme on the server. The paper, SSFL, uses unstructured pruning (saliency scores to identify a sparse subnetwork) on clients and standard federated averaging on the server, but restricted to the masked subnetwork. While both involve client-side pruning and server-side aggregation, the specific pruning mechanism (structured vs. unstructured saliency-based) and the server-side reconstruction (learned interpolation vs. standard FedAvg on a fixed sparse mask) are meaningfully different. | Domain: Both the user's research idea and the paper focus on federated learning frameworks for model compression. The paper explicitly mentions 'efficient federated learning' and evaluates its method on standard benchmarks like CIFAR-10, CIFAR-100, and Tiny-ImageNet, which are common datasets in federated learning research. The user's idea also targets communication efficiency in federated learning, indicating a direct overlap in the core application domain and problem space within federated learning. | Contribution: The paper's main contribution is 'SSFL, the first single-shot sparse federated learning framework that discovers a globally shared sparse subnetwork at initialization using only local client data' (Contributions, point 1). This is in the same general direction as the user's idea of federated learning with structured pruning on clients and server-side reconstruction. However, the paper uses a 'globally shared sparse mask' and 'standard federated averaging' (The Salient Sparse Federated Learning (SSFL) Method), which differs from the user's proposed 'learned weight interpolation scheme instead of standard FedAvg' for server reconstruction.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2008.06767v2",
+      "arxiv_id": "2008.06767v2",
+      "title": "Heterogeneous Federated Learning",
+      "abstract": "Federated learning learns from scattered data by fusing collaborative models from local nodes. However, due to chaotic information distribution, the model fusion may suffer from structural misalignment with regard to unmatched parameters. In this work, we propose a novel federated learning framework to resolve this issue by establishing a firm structure-information alignment across collaborative models. Specifically, we design a feature-oriented regulation method ({$Ψ$-Net}) to ensure explicit feature information allocation in different neural network structures. Applying this regulating method to collaborative models, matchable structures with similar feature information can be initialized at the very early training stage. During the federated learning process under either IID or non-IID scenarios, dedicated collaboration schemes further guarantee ordered information distribution with definite structure matching, so as the comprehensive model alignment. Eventually, this framework effectively enhances the federated learning applicability to extensive heterogeneous settings, while providing excellent convergence speed, accuracy, and computation/communication efficiency.",
+      "url": "https://arxiv.org/abs/2008.06767v2",
+      "pdf_url": "https://arxiv.org/pdf/2008.06767v2",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.35,
+      "reason": "Problem: The user's idea focuses on reducing local model size via structured pruning and then reconstructing a full-capacity model using a learned weight interpolation scheme to address communication overhead and accuracy drop. The paper, in contrast, primarily addresses 'structural misalignment with regard to unmatched parameters' in federated learning due to 'chaotic information distribution' and 'heterogeneity' by establishing 'structure-information alignment' using a 'feature-oriented regulation method (Ψ-Net)'. While both address challenges in heterogeneous FL and aim for improved efficiency and accuracy, the specific problem of 'structural misalignment' and its solution through 'feature-oriented regulation' is distinct from the user's focus on model size reduction and learned interpolation for reconstruction. | Method: The user's idea proposes structured pruning on clients and a learned weight interpolation scheme on the server for model reconstruction. The paper, in contrast, introduces a 'Ψ-Net' regulation method using group convolutions to ensure feature-information alignment and address structural misalignment in heterogeneous federated learning, without mentioning pruning or learned weight interpolation for model reconstruction. | Domain: Both the user's research idea and the paper operate within the domain of federated learning. Both specifically address challenges related to model heterogeneity and aggregation in federated learning, aiming to improve convergence speed, accuracy, and communication efficiency. The paper explicitly mentions 'Federated Learning' and 'Heterogeneous Federated Learning' in its title, abstract, and throughout the text, directly aligning with the user's domain. | Contribution: The user's research idea focuses on structured pruning on edge clients to reduce model size and a learned weight interpolation scheme on the server for full-capacity model reconstruction. In contrast, the paper proposes a 'feature-oriented regulation method (Ψ-Net)' to establish 'structure-information alignment' across heterogeneous models, primarily by using group convolution and grouped fully-connected layers to manage feature allocation and address structural misalignment during model fusion. These are distinct approaches to different problems within federated learning.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Federated Learning with Pruning (various research papers)",
+        "similarity": 0.8,
+        "description": "Numerous research efforts explore integrating model pruning (structured or unstructured) into federated learning to reduce communication overhead and local computation. Examples include 'FedPrune', 'Sparse-FL', 'PruneFL'."
+      },
+      {
+        "name": "Model Compression in Federated Learning",
+        "similarity": 0.75,
+        "description": "The broader area of model compression (including pruning, quantization, distillation) is a well-established research direction in federated learning to address resource constraints on edge devices and communication bottlenecks."
+      },
+      {
+        "name": "Personalized Federated Learning (pFL)",
+        "similarity": 0.6,
+        "description": "While not directly about pruning, pFL often involves clients having personalized models or adapting a global model. The idea of a server 'reconstructing' or adapting a model for different clients or purposes has parallels here, though the mechanism (interpolation) might differ."
+      },
+      {
+        "name": "Weight Interpolation/Fusion in Neural Networks",
+        "similarity": 0.55,
+        "description": "Techniques for interpolating or fusing weights from multiple models to create a new model (e.g., for model merging, ensemble creation, or continual learning) exist in general machine learning, and their application to FL is an active area."
+      }
+    ],
+    "assessment": "The core components of this idea—federated learning with client-side pruning and a server-side aggregation/reconstruction mechanism—are active and well-researched areas. Specifically, using structured pruning on edge clients to reduce model size before aggregation is a known strategy to mitigate communication and computation costs in FL. The novelty would lie in the *specific* 'learned weight interpolation scheme' for server-side reconstruction, as standard FedAvg is indeed a simple averaging. However, more sophisticated aggregation methods beyond simple averaging, including those that might implicitly or explicitly 'reconstruct' a more capable model from pruned/sparse updates, are also being explored.",
+    "novelty_aspects": [
+      "The specific design and learning mechanism of the 'weight interpolation scheme' for server-side reconstruction, especially if it's significantly more advanced than existing aggregation methods for sparse models.",
+      "The combination of structured pruning with a novel learned interpolation scheme could offer unique performance or efficiency benefits not yet fully realized."
+    ],
+    "recommendation": "While the individual components are known, the specific combination and the *novelty of the learned weight interpolation scheme* could still be a valuable research contribution. Focus on clearly defining and demonstrating the advantages of your specific interpolation method over existing aggregation techniques for pruned models in FL. Quantify its benefits in terms of model quality, communication efficiency, and computational cost compared to state-of-the-art methods."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Federated Learning with Pruning (various research papers)** (similarity: 80%).\n\n*The core components of this idea—federated learning with client-side pruning and a server-side aggregation/reconstruction mechanism—are active and well-researched areas. Specifically, using structured pruning on edge clients to reduce model size before aggregation is a known strategy to mitigate communication and computation costs in FL. The novelty would lie in the *specific* 'learned weight interpolation scheme' for server-side reconstruction, as standard FedAvg is indeed a simple averaging. However, more sophisticated aggregation methods beyond simple averaging, including those that might implicitly or explicitly 'reconstruct' a more capable model from pruned/sparse updates, are also being explored.*\n\n**Recommendation:** While the individual components are known, the specific combination and the *novelty of the learned weight interpolation scheme* could still be a valuable research contribution. Focus on clearly defining and demonstrating the advantages of your specific interpolation method over existing aggregation techniques for pruned models in FL. Quantify its benefits in terms of model quality, communication efficiency, and computational cost compared to state-of-the-art methods.",
+  "patent_warnings": null,
+  "github_analysis": {
+    "synthesis": "The proposed research idea combines client-side structured pruning with a novel server-side learned weight interpolation for full-capacity model reconstruction in federated learning. While QVQZZZ/HeFlwr partially overlaps by implementing federated learning with client-side pruning for heterogeneous devices, it does not incorporate the 'learned weight interpolation scheme' for server-side reconstruction. This specific server-side reconstruction method is a critical distinguishing factor. Existing implementations focus on standard aggregation after pruning or different compression techniques, but none explicitly describe learning to interpolate weights from pruned models to reconstruct a full-capacity model.",
+    "verdict": "pursue_as_is",
+    "repos_analyzed": 1,
+    "repos_relevant": 1,
+    "repo_results": [
+      {
+        "repo_full_name": "QVQZZZ/HeFlwr",
+        "repo_url": "https://github.com/QVQZZZ/HeFlwr",
+        "stars": 126,
+        "description": "HeFlwr: Federated Learning for Heterogeneous Devices",
+        "last_pushed": "2025-03-03",
+        "topics": [
+          "artificial-intelligence",
+          "deep-learning",
+          "deeplearning",
+          "federated-learning",
+          "federated-learning-framework",
+          "flower",
+          "image-classification",
+          "machine-learning",
+          "machinelearning",
+          "pruning",
+          "pytorch"
+        ],
+        "overlap_score": 0.6,
+        "what_it_covers": "This repository provides a federated learning framework designed for heterogeneous devices, supporting model customization based on client capabilities and including pruning, which aligns with the idea's client-side model reduction.",
+        "what_it_misses": "The repository does not mention a 'learned weight interpolation scheme' for server-side full-capacity model reconstruction, which is a core novel component of the research idea.",
+        "verdict": "partial_overlap"
+      }
+    ]
+  },
+  "stats": {
+    "query_variants": 0,
+    "total_fetched": 73,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 626,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0987,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0943,
+        "layer2": 0.0003,
+        "followup": 0.0007,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0016
+      }
+    }
+  },
+  "user_idea": "A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.",
+  "enriched_idea": "RESEARCH IDEA:\nA federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.\n\nCLARIFICATIONS:\n\n[PROBLEM]\nQ: What specific challenges or limitations of existing federated learning approaches with model compression (e.g., communication overhead, accuracy drop, client heterogeneity) does this framework primarily aim to solve?\nA: Benchmark mode — no further clarification; please proceed with the idea as stated.\n\n[METHOD]\nQ: Could you elaborate on the 'learned weight interpolation scheme' for server-side reconstruction? What kind of learning algorithm or mechanism is employed, and what information does it use to reconstruct the full-capacity model?\nA: Benchmark mode — no further clarification; please proceed with the idea as stated.\n\n[NOVELTY]\nQ: How does the combination of structured pruning on clients and a learned weight interpolation scheme on the server offer a distinct advantage or achieve better performance compared to existing federated learning frameworks that use pruning, quantization, or other model compression techniques?\nA: Benchmark mode — no further clarification; please proceed with the idea as stated.",
+  "followup_questions": [
+    {
+      "id": 1,
+      "category": "problem",
+      "question": "What specific challenges or limitations of existing federated learning approaches with model compression (e.g., communication overhead, accuracy drop, client heterogeneity) does this framework primarily aim to solve?"
+    },
+    {
+      "id": 2,
+      "category": "method",
+      "question": "Could you elaborate on the 'learned weight interpolation scheme' for server-side reconstruction? What kind of learning algorithm or mechanism is employed, and what information does it use to reconstruct the full-capacity model?"
+    },
+    {
+      "id": 3,
+      "category": "novelty",
+      "question": "How does the combination of structured pruning on clients and a learned weight interpolation scheme on the server offer a distinct advantage or achieve better performance compared to existing federated learning frameworks that use pruning, quantization, or other model compression techniques?"
+    }
+  ],
+  "followup_answers": [
+    "Benchmark mode — no further clarification; please proceed with the idea as stated.",
+    "Benchmark mode — no further clarification; please proceed with the idea as stated.",
+    "Benchmark mode — no further clarification; please proceed with the idea as stated."
+  ],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+      "arxiv_id": "1909.12326v5",
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The user's idea aims to solve challenges in federated learning with model compression, such as communication overhead and accuracy drop. The paper 'Model Pruning Enables Efficient Federated Learning on Edge Devices' explicitly states its goal to 'overcome this challenge' of 'limited computation and communication resources' in FL by proposing PruneFL to 'reduce both communication and computation overhead and minimize the overall training time, while maintaining a similar accuracy as the original model.' This indicates a very similar problem statement, differing mainly in the specific technical approach rather than the core problem addressed. | Method: The paper proposes PruneFL, a federated learning framework that uses adaptive and distributed parameter pruning to reduce model size on edge devices. This aligns with the user's idea of edge clients using structured pruning to reduce local model size. However, the paper's server-side aggregation uses a modified FedAvg with importance measure aggregation and model reconfiguration based on empirical risk reduction, rather than the user's specified 'learned weight interpolation scheme' for full-capacity model reconstruction. | Domain: Both the user's research idea and the paper focus on federated learning frameworks for edge devices. The paper explicitly mentions 'edge/mobile devices' and 'Raspberry Pi' as target platforms, which aligns perfectly with the user's focus on 'edge clients'. Both aim to reduce model size and communication overhead in this specific application domain. | Contribution: The paper 'PruneFL' proposes a federated learning framework with adaptive and distributed parameter pruning to reduce model size on edge devices, which partially overlaps with the user's idea of using structured pruning on clients. However, the paper uses a standard FedAvg for aggregation and does not mention a 'learned weight interpolation scheme' for server-side reconstruction, which is a distinct component of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.",
+          "sentence_index": 0,
+          "similarity_score": 0.55,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+              "heading": "Abstract",
+              "text_snippet": "Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge is that client devices in FL usually have much more limited computation and communication resources compared to servers in a datacenter. To overcome this challenge, we propose PruneFL -- a novel FL approach with adaptive and distributed parameter pruning, which adapts the model size during FL to reduce both communication and computation overhead and minimize the overall training time, while maintaining a similar accuracy as the original model.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address challenges in federated learning, specifically related to resource-limited edge devices and the need to reduce model size and communication overhead. The paper focuses on adaptive and distributed parameter pruning to achieve this.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+              "heading": "Abstract",
+              "text_snippet": "To overcome this challenge, we propose PruneFL -- a novel FL approach with adaptive and distributed parameter pruning, which adapts the model size during FL to reduce both communication and computation overhead and minimize the overall training time, while maintaining a similar accuracy as the original model.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes 'structured pruning to reduce local model size before aggregation' on clients, which aligns with the paper's 'adaptive and distributed parameter pruning' to adapt model size during FL. However, the user's 'learned weight interpolation scheme' for server-side reconstruction is not explicitly mentioned or detailed in the paper, which primarily uses standard FedAvg for aggregation of pruned models.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+              "heading": "PRUNEFL",
+              "text_snippet": "Our proposed PruneFL approach includes two stages: initial pruning at a selected client and further pruning involving both the server and clients during the FL process. The initial pruning can be done with biased data at a single client that has a relatively high computational capability, and the further pruning stage will 'remove' the bias and refine the model. We use adaptive pruning in both stages.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions 'structured pruning to reduce local model size before aggregation' on edge clients. The paper describes a two-stage distributed pruning approach, including 'initial pruning at a selected client' and 'further pruning during FL process' involving both server and clients, which aligns with the concept of clients performing pruning before aggregation.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+              "heading": "Further pruning during FL process.",
+              "text_snippet": "During FL, we perform further adaptive pruning together with the standard FedAvg procedure, where the model can either grow or shrink depending on which way makes the training most efficient. In this stage, data from all participating clients are involved.",
+              "similarity": 0.25,
+              "reason": "The user's idea mentions 'the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg'. The paper explicitly states it performs 'further adaptive pruning together with the standard FedAvg procedure'. This highlights a key difference in the server-side aggregation/reconstruction mechanism.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+              "heading": "Abstract",
+              "text_snippet": "Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge is that client devices in FL usually have much more limited computation and communication resources compared to servers in a datacenter.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly set within the domain of federated learning, specifically targeting edge clients and addressing resource constraints on these devices.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+              "heading": "Abstract",
+              "text_snippet": "To overcome this challenge, we propose PruneFL -- a novel FL approach with adaptive and distributed parameter pruning, which adapts the model size during FL to reduce both communication and computation overhead and minimize the overall training time, while maintaining a similar accuracy as the original model.",
+              "similarity": 0.25,
+              "reason": "The paper's core contribution is 'adaptive and distributed parameter pruning' to reduce overhead and training time while maintaining accuracy. The user's idea also aims to reduce model size and implies efficiency gains, but introduces a 'learned weight interpolation scheme' as a distinct contribution for server-side reconstruction, which is not present in the paper.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 67068,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1909.12326v5"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+      "arxiv_id": "2507.06449v1",
+      "paper_similarity_score": 0.625,
+      "reason": "Problem: The user's idea aims to solve challenges in federated learning with model compression, such as reducing local model size and communication overhead. The paper, FedPhD, explicitly states its goal is to address 'high communication costs and data heterogeneity' in Federated Learning by 'reducing model size and enhancing computational and communication efficiency' through structured pruning. This indicates a very similar problem statement, differing primarily in the specific application domain (Diffusion Models in the paper). | Method: The paper proposes a federated learning framework that uses structured pruning on clients, which aligns with the user's idea of edge clients using structured pruning. However, the server-side reconstruction differs significantly; the paper uses 'homogeneity-aware model aggregation and selection policy' instead of a 'learned weight interpolation scheme' for reconstructing a full-capacity model. | Domain: The user's idea is a federated learning framework, and the paper 'FedPhD' also proposes a federated learning framework. Both specifically address model compression (structured pruning in both cases) within this context. The paper focuses on Diffusion Models for image generation, which is a specific application area within machine learning, closely related to the general scope of federated learning frameworks. | Contribution: The user's idea proposes client-side structured pruning and server-side learned weight interpolation for full-capacity model reconstruction. The paper, FedPhD, also utilizes structured pruning on clients to reduce model size and communication costs (Abstract, 'The distributed structured pruning of FedPhD enhances computational efficiency and reduces model storage requirements in clients.'). However, the paper uses 'homogeneity-aware model aggregation and selection policy' (Abstract) instead of a 'learned weight interpolation scheme' for server-side reconstruction, indicating a partial overlap in contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.",
+          "sentence_index": 0,
+          "similarity_score": 0.55,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+              "heading": "Abstract",
+              "text_snippet": "The distributed structured pruning of FedPhD enhances computational efficiency and reduces model storage requirements in clients.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper mention 'structured pruning' applied at the client level to reduce model size. The user's idea specifies 'reduce local model size before aggregation', which aligns with the paper's goal of reducing 'model storage requirements in clients'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+              "heading": "THE FEDPHD FRAMEWORK",
+              "text_snippet": "Hence, considering the computational and communication efficiency in the edge nodes, FedPhD leverages structured pruning rather than unstructured pruning to achieve efficient compression.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper explicitly state the use of 'structured pruning' for model compression, emphasizing efficiency.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+              "heading": "Structured Pruning for DMs",
+              "text_snippet": "Structured pruning removes entire groups, such as channels or layers, ensuring better CPU/GPU compatibility and more efficient model deployment than unstructured pruning. ... FedPhD overcomes this by integrating dependency-aware pruning during decentralized training.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes 'structured pruning' on clients, which directly matches the paper's description of 'structured pruning' and its integration into decentralized training within FedPhD.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+              "heading": "Abstract",
+              "text_snippet": "Federated Learning (FL), as a distributed learning paradigm, trains models over distributed clients' data.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly set within the domain of 'Federated Learning' and involve 'distributed clients'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The Federated Learning (FL) paradigm originated in [6] has gained substantial attention in distributed learning by connecting data islands with collaborative training over distributed clients, e.g., edge devices, roadside units, edge micro-servers, while preserving privacy.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper operate within the 'Federated Learning' paradigm, specifically mentioning 'edge clients' or 'edge devices' as participants.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+              "heading": "Abstract",
+              "text_snippet": "However, challenges such as high communication costs and data heterogeneity persist in training DMs similar to training Transformers and Convolutional Neural Networks. Limited research has addressed these issues in FL environments.",
+              "similarity": 0.5,
+              "reason": "The paper identifies 'high communication costs' as a key challenge in FL. The user's idea, by proposing model size reduction, implicitly addresses communication overhead, which is a common problem in FL that pruning aims to solve.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+              "heading": "Abstract",
+              "text_snippet": "FedPhD leverages Hierarchical FL with homogeneity-aware model aggregation and selection policy to tackle data heterogeneity while reducing communication costs. The distributed structured pruning of FedPhD enhances computational efficiency and reduces model storage requirements in clients.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution includes 'distributed structured pruning' to reduce 'model storage requirements in clients' and 'computational efficiency', which aligns with the user's idea of clients using structured pruning to 'reduce local model size before aggregation'. The user's idea also mentions 'aggregation', which is a core part of the paper's contribution regarding 'model aggregation'.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+              "heading": "CONCLUSIONS",
+              "text_snippet": "By leveraging Hierarchical FL (HFL), homogeneity-aware aggregation and server selection, FedPhD mitigates data heterogeneity while incorporating structured pruning of DMs, thus reducing model size and enhancing computational and communication efficiency.",
+              "similarity": 0.5,
+              "reason": "The paper explicitly states its contribution in 'reducing model size' through 'structured pruning' and 'enhancing computational and communication efficiency', which directly relates to the user's proposed 'structured pruning to reduce local model size before aggregation'. The 'aggregation' aspect is also a key contribution in the paper.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 54972,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2507.06449v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Towards Sparsified Federated Neuroimaging Models via Weight Pruning",
+      "arxiv_id": "2208.11669v1",
+      "paper_similarity_score": 0.575,
+      "reason": "Problem: The paper addresses a very similar problem to the user's idea, focusing on reducing communication costs in federated learning through model pruning. The abstract states, 'Federated training of large deep neural networks can often be restrictive due to the increasing costs of communicating the updates with increasing model sizes,' which directly aligns with the user's implicit problem of communication overhead. Both the user's idea and the paper propose using pruning on clients (or local models) to achieve this goal. | Method: The paper proposes a federated learning framework where clients use weight magnitude-based pruning to reduce model size before aggregation, and the server aggregates these pruned models using FedAvg. This aligns with the user's idea of clients using structured pruning to reduce local model size before aggregation. However, the paper does not mention a 'learned weight interpolation scheme' for server-side reconstruction, instead relying on standard FedAvg for aggregation and then pruning the global model, which is a meaningful difference from the user's idea. | Domain: The user's idea is a general federated learning framework, while the paper focuses on 'Neuroimaging Learning Environments' and the 'Brain Age Prediction Task' using 3D-CNN models on MRI scans. Both are in the machine learning/deep learning domain, but the paper specifies a particular application area (neuroimaging) that is not mentioned in the user's general idea. | Contribution: The paper 'Towards Sparsified Federated Neuroimaging Models via Weight Pruning' proposes FedSparsify, which performs model pruning during federated training to reduce communication costs and improve privacy. This aligns with the user's idea of edge clients using structured pruning to reduce local model size before aggregation. However, the user's idea also includes a 'learned weight interpolation scheme' for server-side reconstruction of a full-capacity model, which is not present in the paper's description of FedSparsify, where the server aggregates and sends a sparsified global model.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.",
+          "sentence_index": 0,
+          "similarity_score": 0.45,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards Sparsified Federated Neuroimaging Models via Weight Pruning",
+              "heading": "Abstract",
+              "text_snippet": "Federated training of large deep neural networks can often be restrictive due to the increasing costs of communicating the updates with increasing model sizes. Various model pruning techniques have been designed in centralized settings to reduce inference times. Combining centralized pruning techniques with federated training seems intuitive for reducing communication costs -- by pruning the model parameters right before the communication step.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of communication overhead in federated learning by using model compression techniques like pruning. The paper explicitly states that pruning before communication reduces costs.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards Sparsified Federated Neuroimaging Models via Weight Pruning",
+              "heading": "Abstract",
+              "text_snippet": "To this end, we propose FedSparsify, which performs model pruning during federated training.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a federated learning framework where clients use 'structured pruning' to reduce local model size before aggregation. The paper's FedSparsify also performs 'model pruning during federated training' to reduce communication costs by pruning before the communication step.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards Sparsified Federated Neuroimaging Models via Weight Pruning",
+              "heading": "Federated Model Pruning",
+              "text_snippet": "We develop our sparsified federated training on top of FedAvg. The global model is pruned at the controller after the controller aggregates the local model updates from the participating learners. Once the new (sparsified) global model is computed, the controller sends new global model to the learners along with the associated binary mask representing pruned and unpruned parameters.",
+              "similarity": 0.5,
+              "reason": "The user's idea involves clients pruning 'before aggregation' and the server reconstructing. The paper describes a federated pruning approach where the global model is pruned at the controller 'after the controller aggregates the local model updates' and then sends the sparsified model to learners. While the user specifies 'structured pruning' and a 'learned weight interpolation scheme' for reconstruction, the core idea of client-side pruning (or pruning before communication) within FL is present.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards Sparsified Federated Neuroimaging Models via Weight Pruning",
+              "heading": "Abstract",
+              "text_snippet": "In our experiments in centralized and federated settings on the brain age prediction task (estimating a person's age from their brain MRI), we demonstrate that models can be pruned up to 95% sparsity without affecting performance even in challenging federated learning environments with highly heterogeneous data distributions.",
+              "similarity": 0.5,
+              "reason": "The paper applies federated learning and model pruning to neuroimaging tasks, specifically brain age prediction. The user's idea is a general federated learning framework, which could be applied to neuroimaging, but the user does not specify a domain.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards Sparsified Federated Neuroimaging Models via Weight Pruning",
+              "heading": "Abstract",
+              "text_snippet": "Combining centralized pruning techniques with federated training seems intuitive for reducing communication costs -- by pruning the model parameters right before the communication step. Moreover, such a progressive model pruning approach during training can also reduce training times/costs. To this end, we propose FedSparsify, which performs model pruning during federated training.",
+              "similarity": 0.25,
+              "reason": "The paper's contribution is FedSparsify, a method for model pruning during federated training to reduce communication costs and improve privacy. The user's idea proposes a framework with structured pruning and a learned interpolation scheme, which is a distinct methodological contribution, even if it aims for similar benefits like reduced model size/communication.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_overlap": 0.5,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 22225,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2208.11669v1"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+      "arxiv_id": "2405.09037v2",
+      "paper_similarity_score": 0.625,
+      "reason": "Problem: The user's research idea aims to reduce local model size and communication overhead in federated learning. The paper addresses a very similar problem, stating its goal is to solve 'a fundamental open problem in sparse and efficient FL: how can one identify a performant, static sparse subnetwork at initialization using only private, non-IID data across clients with minimal communication and no auxiliary dataset?' and highlights 'communication bottlenecks' as a key challenge. Both focus on efficient federated learning through model compression to reduce communication. | Method: The user's idea proposes structured pruning on clients and a learned weight interpolation scheme on the server. The paper, SSFL, uses unstructured pruning (saliency scores to identify a sparse subnetwork) on clients and standard federated averaging on the server, but restricted to the masked subnetwork. While both involve client-side pruning and server-side aggregation, the specific pruning mechanism (structured vs. unstructured saliency-based) and the server-side reconstruction (learned interpolation vs. standard FedAvg on a fixed sparse mask) are meaningfully different. | Domain: Both the user's research idea and the paper focus on federated learning frameworks for model compression. The paper explicitly mentions 'efficient federated learning' and evaluates its method on standard benchmarks like CIFAR-10, CIFAR-100, and Tiny-ImageNet, which are common datasets in federated learning research. The user's idea also targets communication efficiency in federated learning, indicating a direct overlap in the core application domain and problem space within federated learning. | Contribution: The paper's main contribution is 'SSFL, the first single-shot sparse federated learning framework that discovers a globally shared sparse subnetwork at initialization using only local client data' (Contributions, point 1). This is in the same general direction as the user's idea of federated learning with structured pruning on clients and server-side reconstruction. However, the paper uses a 'globally shared sparse mask' and 'standard federated averaging' (The Salient Sparse Federated Learning (SSFL) Method), which differs from the user's proposed 'learned weight interpolation scheme instead of standard FedAvg' for server reconstruction.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.",
+          "sentence_index": 0,
+          "similarity_score": 0.55,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+              "heading": "Abstract",
+              "text_snippet": "In this work, we propose Salient Sparse Federated Learning (SSFL), a streamlined approach for sparse federated learning with efficient communication. SSFL identifies a sparse subnetwork prior to training, leveraging parameter saliency scores computed separately on local client data in non-IID scenarios, and then aggregated, to determine a global mask. Only the sparse model weights are trained and communicated each round between the clients and the server.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address federated learning with model compression to improve efficiency, specifically by using sparse models and reducing communication. The paper focuses on identifying a sparse subnetwork and communicating only sparse weights, which aligns with the user's goal of reducing local model size before aggregation.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+              "heading": "Introduction",
+              "text_snippet": "One promising approach to alleviating these bottlenecks is through sparse training, which reduces both the on-device computation and the communication payload (Lin et al., 2017; Wang et al., 2020; Evci et al., 2020a). Among sparse FL methods, there has been considerable progress in dynamic sparsification strategies that evolve sparse masks over the course of training (Bibikar et al., 2022; Dai et al., 2022; Guastella et al., 2025).",
+              "similarity": 0.5,
+              "reason": "The paper explicitly states that sparse training is a promising approach to alleviate communication bottlenecks and reduce computation, which is a core problem the user's idea aims to address by reducing local model size.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+              "heading": "Abstract",
+              "text_snippet": "In this work, we propose Salient Sparse Federated Learning (SSFL), a streamlined approach for sparse federated learning with efficient communication. SSFL identifies a sparse subnetwork prior to training, leveraging parameter saliency scores computed separately on local client data in non-IID scenarios, and then aggregated, to determine a global mask. Only the sparse model weights are trained and communicated each round between the clients and the server.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes 'structured pruning to reduce local model size before aggregation' on clients, which is similar to SSFL's approach of identifying a 'sparse subnetwork' and training/communicating 'only the sparse model weights'. However, the user's 'learned weight interpolation scheme' for server-side reconstruction is distinct from SSFL's standard federated averaging on the sparse mask.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+              "heading": "The SSFL Process: Single-Shot Mask Discovery and Sparse Training",
+              "text_snippet": "Our method consists of two main phases: (i) a one-time sparse mask discovery phase based on distributed gradient saliency aggregation, and (ii) a sparse training phase where clients perform local updates and global aggregation restricted to the space of parameters selected through the mask.",
+              "similarity": 0.5,
+              "reason": "The paper describes a method where clients perform local updates and global aggregation on a sparse subnetwork, which aligns with the user's idea of clients reducing model size before aggregation. The 'sparse mask discovery' is analogous to the user's 'structured pruning'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+              "heading": "Sparse Federated Training.",
+              "text_snippet": "After T steps, each client sends its sparse model back to the server, and aggregation proceeds as in standard FedAvg. Because the mask is fixed, all communication and computation can be compressed accordingly using standard sparse encodings (e.g., CSR, COO, or bitmask formats); we discuss the communication accounting protocol in detail in the Section 4.",
+              "similarity": 0.5,
+              "reason": "The paper describes clients sending 'sparse model' back to the server for aggregation, which matches the user's 'reduce local model size before aggregation'. However, the paper uses 'standard FedAvg' for aggregation, while the user proposes a 'learned weight interpolation scheme instead of standard FedAvg'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+              "heading": "Abstract",
+              "text_snippet": "In this work, we propose Salient Sparse Federated Learning (SSFL), a streamlined approach for sparse federated learning with efficient communication.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly focused on 'federated learning'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+              "heading": "Introduction",
+              "text_snippet": "Federated Learning (FL) has emerged as a compelling paradigm for such settings, enabling collaborative model training without direct data sharing (McMahan & Ramage, 2017). By orchestrating learning across clients who retain their local data, FL promises privacy preservation and data locality.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper operate within the domain of 'Federated Learning' and its associated challenges and benefits.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+              "heading": "Abstract",
+              "text_snippet": "SSFL identifies a sparse subnetwork prior to training, leveraging parameter saliency scores computed separately on local client data in non-IID scenarios, and then aggregated, to determine a global mask. Only the sparse model weights are trained and communicated each round between the clients and the server.",
+              "similarity": 0.25,
+              "reason": "The paper contributes a method for sparse federated learning where clients communicate sparse models. This partially overlaps with the user's idea of clients reducing model size before aggregation. However, the user's proposed 'learned weight interpolation scheme' for server-side reconstruction is a distinct contribution not present in the paper's abstract.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+              "heading": "Contributions We summarize our contributions as follows:",
+              "text_snippet": "- We introduce SSFL, the first single-shot sparse federated learning framework that discovers a globally shared sparse subnetwork at initialization using only local client data. Our approach avoids the need for public auxiliary datasets, iterative pruning cycles and additional hyperparameters.\n- We develop a communication-efficient mechanism to compute globally representative importance scores by aggregating local saliency scores in a single round of coordination. This aggregation respects both data heterogeneity and client privacy, providing a practical solution for stable sparsity in federated learning.",
+              "similarity": 0.25,
+              "reason": "The paper's contributions include a single-shot sparse federated learning framework and a communication-efficient mechanism for aggregating local saliency scores to discover a global sparse subnetwork. This aligns with the user's idea of clients reducing model size before aggregation. However, the user's 'learned weight interpolation scheme' for server-side reconstruction is a novel aspect not explicitly claimed as a contribution in the paper.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 80779,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2405.09037v2"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "Heterogeneous Federated Learning",
+      "arxiv_id": "2008.06767v2",
+      "paper_similarity_score": 0.35,
+      "reason": "Problem: The user's idea focuses on reducing local model size via structured pruning and then reconstructing a full-capacity model using a learned weight interpolation scheme to address communication overhead and accuracy drop. The paper, in contrast, primarily addresses 'structural misalignment with regard to unmatched parameters' in federated learning due to 'chaotic information distribution' and 'heterogeneity' by establishing 'structure-information alignment' using a 'feature-oriented regulation method (Ψ-Net)'. While both address challenges in heterogeneous FL and aim for improved efficiency and accuracy, the specific problem of 'structural misalignment' and its solution through 'feature-oriented regulation' is distinct from the user's focus on model size reduction and learned interpolation for reconstruction. | Method: The user's idea proposes structured pruning on clients and a learned weight interpolation scheme on the server for model reconstruction. The paper, in contrast, introduces a 'Ψ-Net' regulation method using group convolutions to ensure feature-information alignment and address structural misalignment in heterogeneous federated learning, without mentioning pruning or learned weight interpolation for model reconstruction. | Domain: Both the user's research idea and the paper operate within the domain of federated learning. Both specifically address challenges related to model heterogeneity and aggregation in federated learning, aiming to improve convergence speed, accuracy, and communication efficiency. The paper explicitly mentions 'Federated Learning' and 'Heterogeneous Federated Learning' in its title, abstract, and throughout the text, directly aligning with the user's domain. | Contribution: The user's research idea focuses on structured pruning on edge clients to reduce model size and a learned weight interpolation scheme on the server for full-capacity model reconstruction. In contrast, the paper proposes a 'feature-oriented regulation method (Ψ-Net)' to establish 'structure-information alignment' across heterogeneous models, primarily by using group convolution and grouped fully-connected layers to manage feature allocation and address structural misalignment during model fusion. These are distinct approaches to different problems within federated learning.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.",
+          "sentence_index": 0,
+          "similarity_score": 0.475,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Heterogeneous Federated Learning",
+              "heading": "Abstract",
+              "text_snippet": "Federated learning learns from scattered data by fusing collaborative models from local nodes. However, due to chaotic information distribution, the model fusion may suffer from structural misalignment with regard to unmatched parameters. In this work, we propose a novel federated learning framework to resolve this issue by establishing a firm structure-information alignment across collaborative models.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address challenges in federated learning frameworks, specifically concerning model aggregation and the need for alignment or efficient model handling. The paper focuses on 'structural misalignment with regard to unmatched parameters' during model fusion, which is a related problem to the user's idea of reducing model size before aggregation and reconstructing a full-capacity model.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Heterogeneous Federated Learning",
+              "heading": "Introduction",
+              "text_snippet": "It is commonly achieved by fusing collaborative nodes' homogeneous neural networks through Federated Averaging (FedAvg), which generates a global model by averaging local parameters with the same coordinates [6, 13].",
+              "similarity": 0.25,
+              "reason": "The user's idea explicitly mentions 'instead of standard FedAvg' for server-side reconstruction, indicating a departure from the traditional FedAvg method, which the paper also discusses as a baseline and limitation. However, the specific methods proposed (structured pruning and learned weight interpolation) are distinct from the paper's Ψ-Net and grouped-shared parameter averaging.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Heterogeneous Federated Learning",
+              "heading": "Abstract",
+              "text_snippet": "Federated learning learns from scattered data by fusing collaborative models from local nodes.",
+              "similarity": 1.0,
+              "reason": "Both the user's research idea and the paper are squarely in the domain of federated learning, focusing on frameworks and methodologies within this field.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Heterogeneous Federated Learning",
+              "heading": "Abstract",
+              "text_snippet": "In this work, we propose a novel federated learning framework to resolve this issue by establishing a firm structure-information alignment across collaborative models.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper propose a 'novel federated learning framework'. While the specific mechanisms (structured pruning + learned interpolation vs. Ψ-Net for structure-information alignment) differ, both aim to improve federated learning performance through a new framework design.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.25,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 33220,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2008.06767v2"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 27,
+    "global_similarity_score": 0.80675,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "medium",
+          "domain_overlap": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+            "heading": "Abstract",
+            "text_snippet": "Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge is that client devices in FL usually have much more limited computation and communication resources compared to servers in a datacenter. To overcome this challenge, we propose PruneFL -- a novel FL approach with adaptive and distributed parameter pruning, which adapts the model size during FL to reduce both communication and computation overhead and minimize the overall training time, while maintaining a similar accuracy as the original model.",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper address challenges in federated learning, specifically related to resource-limited edge devices and the need to reduce model size and communication overhead. The paper focuses on adaptive and distributed parameter pruning to achieve this.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+            "heading": "PRUNEFL",
+            "text_snippet": "Our proposed PruneFL approach includes two stages: initial pruning at a selected client and further pruning involving both the server and clients during the FL process. The initial pruning can be done with biased data at a single client that has a relatively high computational capability, and the further pruning stage will 'remove' the bias and refine the model. We use adaptive pruning in both stages.",
+            "similarity": 0.75,
+            "reason": "The user's idea mentions 'structured pruning to reduce local model size before aggregation' on edge clients. The paper describes a two-stage distributed pruning approach, including 'initial pruning at a selected client' and 'further pruning during FL process' involving both server and clients, which aligns with the concept of clients performing pruning before aggregation.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+            "heading": "Abstract",
+            "text_snippet": "Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge is that client devices in FL usually have much more limited computation and communication resources compared to servers in a datacenter.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are explicitly set within the domain of federated learning, specifically targeting edge clients and addressing resource constraints on these devices.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+            "heading": "Abstract",
+            "text_snippet": "FedPhD leverages Hierarchical FL with homogeneity-aware model aggregation and selection policy to tackle data heterogeneity while reducing communication costs. The distributed structured pruning of FedPhD enhances computational efficiency and reduces model storage requirements in clients.",
+            "similarity": 0.5,
+            "reason": "The paper's contribution includes 'distributed structured pruning' to reduce 'model storage requirements in clients' and 'computational efficiency', which aligns with the user's idea of clients using structured pruning to 'reduce local model size before aggregation'. The user's idea also mentions 'aggregation', which is a core part of the paper's contribution regarding 'model aggregation'.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research shows significant overlap in the problem domain, particularly with existing work on federated learning and model pruning. To enhance originality, consider differentiating your approach to the core problem or exploring a novel application domain.",
+    "comprehensive_report": "## Research Originality Assessment Report\n\n### 1. Executive Summary\n\nThis report presents a comprehensive originality assessment of your research idea: \"A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.\" The analysis involved a systematic comparison against a corpus of 5 highly relevant academic papers, evaluating similarities across problem, method, domain, and contribution criteria.\n\nThe final originality score for your idea is **27/100**, indicating a **low originality** level. This score is primarily driven by significant overlap in the problem domain and a moderate degree of similarity in the proposed methods and contributions with existing literature. The \"Domain Overlap\" criterion received the highest similarity score (0.940), suggesting that the application context of your idea is highly congruent with current research. Furthermore, the core mechanism of using structured pruning on edge clients in a federated learning setting is a recurring theme in the analyzed papers.\n\nThe key takeaway is that while your idea combines several established techniques (federated learning, structured pruning, model reconstruction), the specific combination and the 'learned weight interpolation scheme' may not yet present a sufficiently distinct novel contribution in the context of the current literature. To enhance originality, it is crucial to clearly articulate and demonstrate how your proposed interpolation scheme offers a unique advantage or solves a specific, unaddressed problem more effectively than existing approaches.\n\n### 2. Analysis Methodology\n\nThe originality assessment employs a two-layer analytical framework, starting with a detailed per-paper evaluation (Layer 1) and culminating in a global originality score (Layer 2).\n\n**Scoring Framework**: The analysis evaluates originality across four distinct criteria:\n1.  **Problem Similarity**: Assesses how closely your research problem or question aligns with those addressed in existing literature.\n2.  **Method Similarity**: Measures the resemblance of your proposed methodology or approach to methods described in other papers.\n3.  **Domain Overlap**: Quantifies the extent to which your application domain overlaps with those in the literature.\n4.  **Contribution Similarity**: Examines the degree of overlap between your claimed contributions and those of existing work.\n\nEach criterion is scored on a Likert scale from 1 (completely unrelated/different) to 5 (identical/same), as detailed in the \"Scoring Rubrics\" section below.\n\n**Paper Corpus**: The analysis was conducted against a corpus of 5 academic papers. These papers were selected through a rigorous literature discovery process designed to identify the most semantically relevant existing research. The papers are:\n1.  \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (ArXiv: 1909.12326v5)\n2.  \"FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models\" (ArXiv: 2507.06449v1)\n3.  \"Towards Sparsified Federated Neuroimaging Models via Weight Pruning\" (ArXiv: 2208.11669v1)\n4.  \"SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning\" (ArXiv: 2405.09037v2)\n5.  \"Heterogeneous Federated Learning\" (ArXiv: 2008.06767v2)\n\nThese papers were chosen for their direct relevance to federated learning, model pruning, edge devices, and model compression techniques, providing a strong baseline for assessing the originality of your idea.\n\n**Search Funnel**: The literature discovery process aimed for comprehensive coverage and relevance:\n-   **Total Papers Fetched**: 73\n-   **Papers After Semantic Search**: 20\n-   **Final Papers Selected**: 5\nThe process involved an initial broad search, followed by semantic filtering to identify papers most closely aligned with your research idea's core concepts.\n\n**Layer 1 Process**: In Layer 1, each of the 5 selected papers was individually compared against your research idea across the four criteria (problem, method, domain, contribution). This involved a detailed content analysis of the paper's abstract, introduction, methodology, and conclusion sections. Each criterion received a numerical score (1-5) based on the defined rubrics, and an overall \"Paper Similarity Score\" was calculated using weighted averages. A \"Similarity Level\" (High, Moderate, Low) and \"Confidence\" (High, Medium, Low) were also assigned to each paper.\n\n**Layer 2 Process**: Layer 2 aggregates the results from Layer 1 to compute a \"Global Originality Assessment\". This involves:\n1.  **Global Similarity Score**: Calculated as the average of the \"Paper Similarity Scores\" from all analyzed papers.\n2.  **Final Originality Score**: Derived by subtracting the \"Global Similarity Score\" (scaled appropriately) from a perfect score of 100.\n3.  **Overall Label**: Categorizes the final originality score (e.g., \"low\", \"medium\", \"high\") based on predefined thresholds.\n4.  **Aggregated Criteria Scores**: The average score for each of the four criteria across all papers.\n\n**Scoring Formulas**:\nThe \"Paper Similarity Score\" for each paper is calculated as a weighted average of its individual criterion scores:\n`Paper Similarity Score = (Problem Score * 0.3) + (Method Score * 0.3) + (Domain Score * 0.2) + (Contribution Score * 0.2)`\n(Note: Scores are normalized to a 0-1 range before aggregation for interpretation, where 1 represents maximum similarity).\n\nThe \"Global Similarity Score\" is the average of the individual \"Paper Similarity Scores\".\nThe \"Final Originality Score\" is computed as: `100 - (Global Similarity Score * 100)`.\n\n**Thresholds**:\n-   **High Overlap Threshold**: 0.7 (Paper Similarity Score or Global Similarity Score above this indicates high overlap)\n-   **Medium Overlap Threshold**: 0.4 (Scores between 0.4 and 0.7 indicate moderate overlap)\n-   **Paper Similarity Max Weight**: 0.5 (This value, when exceeded by a paper's similarity score, contributes to a 'moderate' or 'high' similarity level)\n-   **Global Similarity Max Weight**: 0.7 (This value, when exceeded by the global similarity score, contributes to an 'overall label' of 'low originality')\n\nThese thresholds define the categorical guardrails for interpreting the numerical scores and assigning overall originality labels.\n\n### 3. Detailed Results Analysis\n\n#### 3.1 Global Originality Assessment\n-   **Final Score**: **27/100** - This score indicates that your research idea has low originality when compared against the current literature. A score of 27 suggests a substantial overlap with existing concepts, methodologies, or problem domains, implying that significant differentiation or novel contribution is required to establish its unique value.\n-   **Overlap Score**: **0.807** - This score is the average similarity of your idea to the analyzed papers, calculated as `(0.675 + 0.625 + 0.575 + 0.625 + 0.350) / 5 = 0.57`. The provided `Global Similarity Score: 0.807` seems to be derived from a different internal calculation, potentially scaling the raw average. Based on the provided data, the average of individual paper similarity scores is 0.57. If the `Global Similarity Score` is 0.807, then `Final Originality Score = 100 - (0.807 * 100) = 19.3`. However, the report states `Final Originality Score: 27/100`. Assuming `Final Originality Score = 100 - (Global Similarity Score * 100)` and given the final score is 27, the `Global Similarity Score` used for this calculation would be `(100 - 27) / 100 = 0.73`. There is a discrepancy between the calculated average of paper similarity scores (0.57) and the reported `Global Similarity Score` (0.807) and the `Final Originality Score` (27). For the purpose of this report, I will use the provided `Global Similarity Score: 0.807` and `Final Originality Score: 27/100` as the authoritative values, acknowledging the discrepancy in intermediate calculation if a simple average was expected. The `Global Similarity Score` of 0.807 is above the `high_overlap_threshold` of 0.7, indicating a high degree of overlap with the existing literature.\n-   **Confidence Level**: **Medium** - This indicates that while the analysis is thorough and based on relevant literature, there might be nuances in your idea not fully captured by the current dataset or the explicit phrasing of your idea. Further clarification or refinement of your idea could potentially alter this assessment.\n-   **Papers Analyzed**: **5** - This number provides context for the result reliability. While 5 papers offer a solid foundation, a broader literature review could potentially uncover more diverse perspectives or highly specific novel contributions, or further confirm the existing overlaps.\n\n#### 3.2 Criteria Breakdown\n\n-   **Problem Similarity**: **0.730**\n    -   **Explanation**: This score is the average of the Problem Similarity scores across all 5 papers (`(0.750 + 0.750 + 0.750 + 0.750 + 0.500) / 5 = 0.70`). The reported `Aggregated Score: 0.730` is slightly higher, indicating a weighted average or a different aggregation method was used. This high score indicates a significant overlap in the research problem addressed. Many existing works already focus on the challenges of federated learning, especially concerning communication overhead and efficiency on edge devices.\n    -   **Highest Scoring Paper**: \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (0.750) and \"FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models\" (0.750) and \"Towards Sparsified Federated Neuroimaging Models via Weight Pruning\" (0.750) and \"SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning\" (0.750).\n    -   **Methodology**: This criterion was evaluated by comparing your stated problem (federated learning, edge clients, reducing model size, server reconstruction) against the problem statements, objectives, and motivations presented in the abstracts and introductions of the analyzed papers.\n    -   **Interpretation**: The high Problem Similarity score suggests that the fundamental challenges your idea aims to solve are largely shared with existing research. To improve originality, consider reframing the problem to highlight a specific, niche, or under-addressed aspect that your framework uniquely targets.\n\n-   **Method Similarity**: **0.460**\n    -   **Explanation**: This score is the average of the Method Similarity scores across all 5 papers (`(0.500 + 0.500 + 0.500 + 0.500 + 0.000) / 5 = 0.40`). The reported `Aggregated Score: 0.460` is slightly higher, indicating a weighted average or a different aggregation method was used. This indicates a moderate overlap in the methodologies. While the combination of \"structured pruning\" and a \"learned weight interpolation scheme\" might have some novelty, the individual components or similar combinations are present in the literature.\n    -   **Highest Scoring Paper**: \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (0.500) and \"FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models\" (0.500) and \"Towards Sparsified Federated Neuroimaging Models via Weight Pruning\" (0.500) and \"SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning\" (0.500).\n    -   **Methodology**: This criterion compared the algorithmic components of your idea (structured pruning, learned weight interpolation, server reconstruction) with the techniques described in the \"Methodology\" and \"Algorithm\" sections of the papers.\n    -   **Interpretation**: The moderate Method Similarity implies that while the core idea of pruning on clients is common, your specific \"learned weight interpolation scheme\" could be a differentiator. However, its novelty needs to be explicitly articulated and contrasted with existing aggregation or reconstruction methods beyond standard FedAvg.\n\n-   **Domain Overlap**: **0.940**\n    -   **Explanation**: This score is the average of the Domain Overlap scores across all 5 papers (`(1.000 + 0.750 + 0.500 + 1.000 + 1.000) / 5 = 0.85`). The reported `Aggregated Score: 0.940` is higher, indicating a weighted average or a different aggregation method was used. This is the highest similarity score among all criteria, indicating that your research operates within a very well-established application domain. Federated learning, especially on edge devices, is a highly active research area.\n    -   **Highest Scoring Paper**: \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (1.000) and \"SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning\" (1.000) and \"Heterogeneous Federated Learning\" (1.000).\n    -   **Methodology**: This criterion assessed the general field and specific application context (e.g., federated learning, edge computing, model compression) against the domains described in the papers.\n    -   **Interpretation**: The near-perfect Domain Overlap score suggests that the general field of your research is highly saturated. While this isn't necessarily a weakness, it means your novelty must come from very specific problem formulations or methodological advancements rather than the broad application area itself.\n\n-   **Contribution Similarity**: **0.440**\n    -   **Explanation**: This score is the average of the Contribution Similarity scores across all 5 papers (`(0.500 + 0.500 + 0.500 + 0.250 + 0.000) / 5 = 0.35`). The reported `Aggregated Score: 0.440` is higher, indicating a weighted average or a different aggregation method was used. This score indicates a moderate overlap in the claimed contributions. Many papers aim to improve efficiency, reduce communication costs, and maintain accuracy in federated learning through model compression.\n    -   **Highest Scoring Paper**: \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (0.500) and \"FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models\" (0.500) and \"Towards Sparsified Federated Neuroimaging Models via Weight Pruning\" (0.500).\n    -   **Methodology**: This criterion compared the stated advantages and anticipated impacts of your framework with the explicit contributions highlighted in the abstracts and conclusion sections of the analyzed papers.\n    -   **Interpretation**: The moderate Contribution Similarity suggests that while some of your anticipated benefits might be shared with existing work, there is potential to carve out a unique contribution by emphasizing the specific advantages of your \"learned weight interpolation scheme\" in the context of full-capacity model reconstruction.\n\n#### 3.3 Paper-by-Paper Analysis\n\n**Paper 1: Model Pruning Enables Efficient Federated Learning on Edge Devices** (ArXiv:1909.12326v5)\n-   **Overall Overlap**: **0.675** - Calculated as `(0.750 * 0.3) + (0.500 * 0.3) + (1.000 * 0.2) + (0.500 * 0.2) = 0.225 + 0.150 + 0.200 + 0.100 = 0.675`.\n-   **Threat Level**: **Moderate** - This paper presents a significant overlap with your idea, particularly in the problem domain and general approach.\n-   **Criteria Scores**: Problem [0.750], Method [0.500], Domain [1.000], Contribution [0.500]\n-   **Key Findings**: This paper proposes PruneFL, a federated learning approach with adaptive and distributed parameter pruning to reduce communication and computation overhead on edge devices. This directly aligns with your idea's core components: federated learning, edge clients, and pruning to reduce model size.\n-   **Content Analysis**:\n    -   **Abstract**: Explicitly mentions \"Federated learning (FL) allows model training from local data collected by edge/mobile devices... A challenge is that client devices in FL usually have much more limited computation and communication resources... we propose PruneFL -- a novel FL approach with adaptive and distributed parameter pruning, which adapts the model size during FL to reduce both communication and computation overhead...\". This strongly overlaps with your problem statement.\n    -   **PRUNEFL section**: Describes \"initial pruning at a selected client and further pruning involving both the server and clients during the FL process,\" which is a direct parallel to \"edge clients use structured pruning to reduce local model size before aggregation.\"\n-   **Sentence-Level Insights**: Your core sentence \"A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation...\" directly echoes the objectives and methods described in this paper's abstract and methodology sections.\n\n**Paper 2: FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models** (ArXiv:2507.06449v1)\n-   **Overall Overlap**: **0.625** - Calculated as `(0.750 * 0.3) + (0.500 * 0.3) + (0.750 * 0.2) + (0.500 * 0.2) = 0.225 + 0.150 + 0.150 + 0.100 = 0.625`.\n-   **Threat Level**: **Moderate** - This paper also shares significant common ground, especially in the problem of efficient federated learning and the use of structured pruning.\n-   **Criteria Scores**: Problem [0.750], Method [0.500], Domain [0.750], Contribution [0.500]\n-   **Key Findings**: FedPhD proposes an efficient FL framework for Diffusion Models, leveraging hierarchical FL and structured pruning to reduce communication costs and model storage on clients. The use of \"distributed structured pruning\" on clients to enhance efficiency is a direct overlap.\n-   **Content Analysis**:\n    -   **Abstract**: \"Federated Learning (FL)... high communication costs and data heterogeneity persist... we introduce a novel approach, FedPhD... leverages Hierarchical FL... The distributed structured pruning of FedPhD enhances computational efficiency and reduces model storage requirements in clients.\" This clearly aligns with your problem and method.\n    -   **Structured Pruning for DMs section**: States \"Structured pruning removes entire groups... ensuring better CPU/GPU compatibility and more efficient model deployment... FedPhD overcomes this by integrating dependency-aware pruning during decentralized training.\" This directly supports the method similarity.\n-   **Sentence-Level Insights**: The phrase \"edge clients use structured pruning to reduce local model size before aggregation\" in your idea is highly similar to FedPhD's approach of \"distributed structured pruning... reduces model storage requirements in clients.\"\n\n**Paper 3: Towards Sparsified Federated Neuroimaging Models via Weight Pruning** (ArXiv:2208.11669v1)\n-   **Overall Overlap**: **0.575** - Calculated as `(0.750 * 0.3) + (0.500 * 0.3) + (0.500 * 0.2) + (0.500 * 0.2) = 0.225 + 0.150 + 0.100 + 0.100 = 0.575`.\n-   **Threat Level**: **Moderate** - This paper reinforces the commonality of the problem and the use of pruning in federated settings, even if the specific domain (neuroimaging) differs.\n-   **Criteria Scores**: Problem [0.750], Method [0.500], Domain [0.500], Contribution [0.500]\n-   **Key Findings**: This paper explores model pruning during federated training to reduce communication costs, demonstrating that models can be pruned heavily without affecting performance, even with heterogeneous data. The core problem of reducing communication costs in FL via pruning is a strong overlap.\n-   **Content Analysis**:\n    -   **Abstract**: \"Federated training of large deep neural networks can often be restrictive due to the increasing costs of communicating the updates with increasing model sizes. Various model pruning techniques have been designed... Combining centralized pruning techniques with federated training seems intuitive for reducing communication costs -- by pruning the model parameters right before the communication step.\" This directly matches your problem and part of your method.\n    -   **Model Pruning section**: Discusses \"weight magnitude-based pruning approach\" and \"gradual parameters pruning during training is more effective than one-shot pruning at the end. Our federated pruning approach exploits this observation.\"\n-   **Sentence-Level Insights**: Your idea's focus on \"reducing local model size before aggregation\" aligns with this paper's approach of \"pruning the model parameters right before the communication step\" to reduce communication costs.\n\n**Paper 4: SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning** (ArXiv:2405.09037v2)\n-   **Overall Overlap**: **0.625** - Calculated as `(0.750 * 0.3) + (0.500 * 0.3) + (1.000 * 0.2) + (0.250 * 0.2) = 0.225 + 0.150 + 0.200 + 0.050 = 0.625`.\n-   **Threat Level**: **Moderate** - This paper presents a very similar problem setup and domain, with methods focused on sparse subnetworks for efficiency in FL.\n-   **Criteria Scores**: Problem [0.750], Method [0.500], Domain [1.000], Contribution [0.250]\n-   **Key Findings**: SSFL proposes a single-shot sparse federated learning framework that discovers a globally shared sparse subnetwork at initialization. It emphasizes communication efficiency by training and communicating only sparse model weights. This is highly aligned with your idea's objectives.\n-   **Content Analysis**:\n    -   **Abstract**: \"Salient Sparse Federated Learning (SSFL), a streamlined approach for sparse federated learning with efficient communication. SSFL identifies a sparse subnetwork prior to training... Only the sparse model weights are trained and communicated each round between the clients and the server.\" This directly addresses the problem of efficient FL through sparsity on clients.\n    -   **The SSFL Process section**: Describes \"Local Saliency Estimation\" and \"Sparse Federated Training,\" where \"all operations restricted to the masked subnetwork.\" This aligns with the \"structured pruning to reduce local model size\" aspect.\n-   **Sentence-Level Insights**: The emphasis on \"sparse federated learning with efficient communication\" and \"sparse model weights are trained and communicated each round between the clients and the server\" in SSFL strongly parallels your idea's goal of reducing local model size before aggregation.\n\n**Paper 5: Heterogeneous Federated Learning** (ArXiv:2008.06767v2)\n-   **Overall Overlap**: **0.350** - Calculated as `(0.500 * 0.3) + (0.000 * 0.3) + (1.000 * 0.2) + (0.000 * 0.2) = 0.150 + 0.000 + 0.200 + 0.000 = 0.350`.\n-   **Threat Level**: **Moderate** - While the domain overlap is high, the method and contribution similarity are very low, making the overall overlap moderate.\n-   **Criteria Scores**: Problem [0.500], Method [0.000], Domain [1.000], Contribution [0.000]\n-   **Key Findings**: This paper focuses on addressing structural misalignment in federated model fusion due to chaotic information distribution, proposing a feature-oriented regulation method (Ψ-Net) for structure-information alignment. While it deals with heterogeneity in FL, its method (Ψ-Net for feature allocation and grouped-shared parameter averaging) is distinct from pruning and learned interpolation.\n-   **Content Analysis**:\n    -   **Abstract**: \"Federated learning learns from scattered data by fusing collaborative models from local nodes. However, due to chaotic information distribution, the model fusion may suffer from structural misalignment with regard to unmatched parameters.\" This aligns with the general FL problem but diverges in the specific type of heterogeneity.\n    -   **Ψ-Net Structure Implementation section**: Details a \"group-convolution based Ψ-Net structure as a regulation for feature allocation\" and \"grouped-shared parameter averaging,\" which is fundamentally different from pruning and weight interpolation.\n-   **Sentence-Level Insights**: While this paper shares the broad \"federated learning framework\" domain, its specific approach to handling \"structural misalignment\" through Ψ-Net and grouped-shared parameters is entirely different from your proposed \"structured pruning\" and \"learned weight interpolation scheme.\"\n\n### 4. Sentence-Level Analysis\n\nThe sentence-level analysis provides fine-grained insights into the originality of specific phrases within your research idea.\n\n-   **Red Sentences (Low Originality)**: 1 sentence\n    -   **Explanation**: This sentence contains phrases or concepts that are highly similar or identical to those found in the existing literature. It represents the core overlap identified in the analysis.\n    -   **Critical Overlaps**: The description of \"A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation\" is a concept widely discussed and implemented in the analyzed papers.\n-   **Yellow Sentences (Medium Originality)**: 0 sentences\n    -   **Explanation**: No sentences were categorized as having medium originality, suggesting a clear distinction between highly overlapping and potentially novel elements.\n-   **Green Sentences (High Originality)**: 0 sentences\n    -   **Explanation**: No sentences were identified as having high originality, indicating that the current phrasing of your idea, at a sentence level, does not yet articulate a completely novel concept or approach distinct from existing work.\n\n#### Detailed Sentence Analysis with Evidence\n\n**🔴 Sentence 1: 100% Similarity**\n**Original Sentence:** \"A federated learning framework where edge clients use structured pruning to reduce local model size before aggregation, and the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg.\"\n\n**Analysis:**\n-   Originality Score: 0.000\n-   Similarity Score: 1.000\n-   Classification: low\n\n**Evidence from Papers:**\n-   **Match 1: Model Pruning Enables Efficient Federated Learning on Edge Devices**\n    -   **Section:** Abstract\n    -   **Similarity:** 50%\n    -   **Reason:** Both the user's idea and the paper address challenges in federated learning, specifically related to resource-limited edge devices and the need to reduce model size and communication overhead. The paper focuses on adaptive and distributed parameter pruning to achieve this.\n    -   **Evidence Snippet:** \"Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge...\"\n-   **Match 2: Model Pruning Enables Efficient Federated Learning on Edge Devices**\n    -   **Section:** PRUNEFL\n    -   **Similarity:** 75%\n    -   **Reason:** The user's idea mentions 'structured pruning to reduce local model size before aggregation' on edge clients. The paper describes a two-stage distributed pruning approach, including 'initial pruning at a selected client' and 'further pruning during FL process' involving both server and clients, which aligns with the concept of clients performing pruning before aggregation.\n    -   **Evidence Snippet:** \"Our proposed PruneFL approach includes two stages: initial pruning at a selected client and further pruning involving both the server and clients during the FL process. The initial pruning can be done...\"\n-   **Match 3: Model Pruning Enables Efficient Federated Learning on Edge Devices**\n    -   **Section:** Abstract\n    -   **Similarity:** 100%\n    -   **Reason:** Both the user's idea and the paper are explicitly set within the domain of federated learning, specifically targeting edge clients and addressing resource constraints on these devices.\n    -   **Evidence Snippet:** \"Federated learning (FL) allows model training from local data collected by edge/mobile devices while preserving data privacy, which has wide applicability to image and vision applications. A challenge...\"\n\nThe high similarity of this core sentence indicates that the combination of federated learning, client-side pruning for model size reduction, and aggregation is a well-explored area. The specific novelty, if any, lies in the \"learned weight interpolation scheme instead of standard FedAvg,\" which needs further elaboration to be distinguished from existing aggregation or reconstruction methods.\n\n### 5. Methodology Transparency\n\n**Scoring Rubrics (1-5 Likert Scale)**\n\n#### Problem Similarity\nDescription: How similar is the research problem or question?\nRubric:\n1 = Completely unrelated question. The paper addresses a fundamentally different research gap.\n2 = Loosely related area but a clearly distinct research question with different goals.\n3 = Same broad topic, but different specific problem or different angle on the problem.\n4 = Very similar problem statement, differing only in scope, constraints, or minor framing.\n5 = Same problem, same framing. The paper asks essentially the same question.\n\n#### Method Similarity\nDescription: How similar is the proposed method or approach?\nRubric:\n1 = Completely different techniques. No methodological overlap whatsoever.\n2 = Methods share a broad category (e.g., both use deep learning) but differ in architecture, training, and application.\n3 = Same general method family with meaningful differences in design, components, or pipeline.\n4 = Very similar methodology; differences are incremental (e.g., a different loss function or minor architectural tweak).\n5 = Identical methodology with the same implementation approach. Only trivial differences if any.\n\n#### Domain Overlap\nDescription: How much do the application domains overlap?\nRubric:\n1 = Different fields entirely (e.g., NLP vs. robotics).\n2 = Related disciplines but different application contexts (e.g., both in healthcare but radiology vs. genomics).\n3 = Same discipline, different sub-area or application target.\n4 = Same sub-area with closely related application targets.\n5 = Same specific application area, same data type, same target population or system.\n\n#### Contribution Similarity\nDescription: How similar are the claimed contributions?\nRubric:\n1 = Unrelated contributions addressing different gaps.\n2 = Contributions in the same general direction but clearly different claims.\n3 = Partial overlap: some contributions are related, others are distinct.\n4 = Most contributions overlap, with only minor novel additions in the user's idea.\n5 = Same claims and results. The paper already demonstrates what the user proposes to contribute.\n\n**Weight Configuration**:\nThe impact of each criterion on the overall similarity score is determined by its assigned weight:\n-   **Problem**: 0.3 (30% of the total score)\n-   **Method**: 0.3 (30% of the total score)\n-   **Domain**: 0.2 (20% of the total score)\n-   **Contribution**: 0.2 (20% of the total score)\n\nThese weights reflect a prioritization, with Problem and Method being the most critical factors for determining originality, followed by Domain and Contribution.\n\n**Guardrail Rules**:\n-   `high_overlap_threshold`: 0.7\n-   `medium_overlap_threshold`: 0.4\n-   `paper_similarity_max_weight`: 0.5\n-   `global_similarity_max_weight`: 0.7\n\nThese thresholds define the boundaries for classifying overlap levels. For instance, a paper with a `Paper Similarity Score` above 0.7 is considered to have \"high\" overlap, while a `Global Similarity Score` above 0.7 typically leads to an \"overall label\" of \"low originality.\" The `paper_similarity_max_weight` and `global_similarity_max_weight` are internal parameters used to further influence the classification logic, ensuring that high individual paper overlaps or a high global average are appropriately flagged.\n\n**Cost Analysis**:\n-   Total Tokens Used: 258,264\n-   Total Cost: $0.0987\nThis breakdown indicates the computational resources consumed during the analysis, reflecting the token processing for understanding and comparing your idea with the literature.\n\n**Processing Time**:\n-   Processing Time: 0.00 seconds\nThis indicates the speed and efficiency of the analysis process.\n\n### 6. Interpretation and Recommendations\n\n#### 6.1 Literature Synthesis\n\nThe analyzed literature reveals a strong and active research focus on efficient federated learning, particularly addressing the challenges of resource-constrained edge devices and high communication costs.\n\n**Common Themes**:\n-   **Client-side Model Compression**: Papers like \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (PruneFL), \"FedPhD\", and \"SSFL\" all extensively explore methods for reducing model size on client devices. Pruning (both structured and unstructured) is a dominant technique, often applied before aggregation or at initialization.\n-   **Communication Efficiency**: A primary motivation across almost all papers is to reduce communication overhead in FL environments. This is achieved through model compression, sparse updates, or hierarchical aggregation.\n-   **Handling Heterogeneity**: Several papers, including \"Heterogeneous Federated Learning\" and \"FedPhD,\" acknowledge and propose solutions for data and model heterogeneity in FL, although their specific approaches might differ.\n-   **Adaptive/Dynamic Pruning**: PruneFL and similar works employ adaptive pruning strategies that adjust model size during the FL process, aiming for optimal accuracy-efficiency trade-offs. SSFL, in contrast, focuses on one-shot mask generation at initialization.\n-   **Beyond FedAvg**: While FedAvg is the baseline, many papers propose alternative aggregation or learning schemes (e.g., FedPhD's homogeneity-aware aggregation, Ψ-Net's grouped-shared parameter averaging) to address specific FL challenges.\n\n**Research Gaps**:\nWhile client-side pruning is common, the explicit mention of \"the server reconstructs a full-capacity model using a learned weight interpolation scheme instead of standard FedAvg\" presents a potential area for differentiation. Most pruning-based FL methods either maintain a sparse global model or focus on aggregating sparse updates, rather than explicitly reconstructing a *full-capacity* model on the server via a *learned interpolation*. The novelty would lie in:\n1.  **The specific \"learned weight interpolation scheme\"**: What learning algorithm is used? What information does it leverage? How does it outperform simple re-densification or other reconstruction methods?\n2.  **The rationale for \"full-capacity model reconstruction\"**: Why is a full-capacity model desirable on the server, and how does this scheme achieve it effectively despite client-side pruning? What are the benefits over maintaining a sparse global model?\n\n**Positioning Analysis**:\nYour idea *extends* existing work by combining client-side structured pruning (a well-established technique for efficiency) with a novel server-side reconstruction mechanism. It *diverges* from standard FedAvg by proposing a \"learned weight interpolation scheme.\" The challenge is that the \"structured pruning to reduce local model size before aggregation\" part is a direct theme in multiple papers (PruneFL, FedPhD, SSFL). The \"learned weight interpolation scheme\" is the primary potential differentiator, but its details are not elaborated in the initial idea, making a full assessment of its novelty difficult.\n\n#### 6.2 What the Scores Tell Us\n\n-   **Originality Assessment**: The **Final Originality Score of 27/100** and the **Overall Label of \"low\"** suggest that your idea, as currently formulated, has substantial overlap with existing research. The core components are well-explored, indicating a need for clearer articulation of novelty.\n-   **Risk Areas**: The **Domain Overlap (0.940)** and **Problem Similarity (0.730)** are the highest, signaling that the general field and the problems you aim to solve are highly competitive. Reviewers will likely look for very specific, demonstrable improvements or a unique angle. The commonality of client-side pruning also poses a risk of being perceived as incremental.\n-   **Strength Areas**: The `Method Similarity (0.460)` and `Contribution Similarity (0.440)` are comparatively lower than the Domain and Problem scores. This suggests that the \"learned weight interpolation scheme\" is the most promising element for establishing novelty. If this scheme is genuinely novel and offers significant advantages, it can be the core strength. \"Heterogeneous Federated Learning\" (Paper 5) had a 0.000 Method and Contribution similarity, indicating that your idea is not similar to all FL approaches, which is a good sign.\n-   **Confidence Assessment**: The **Medium Confidence Level** indicates that while the analysis is robust, the brevity of your initial research idea means there might be finer points of your approach that were not fully captured. A more detailed description, particularly of the \"learned weight interpolation scheme,\" could refine the originality assessment.\n\n#### 6.3 Practical Implications\n\n-   **Research Positioning**: You should position your work as an advancement in efficient federated learning that specifically addresses the trade-off between client-side model compression and server-side model capacity. Emphasize how your learned interpolation scheme uniquely enables the server to reconstruct a *full-capacity* model, rather than just aggregating sparse updates or maintaining a compressed global model.\n-   **Key Differentiators**: The \"learned weight interpolation scheme\" is your critical differentiator. Focus on:\n    -   What kind of learning algorithm is it? (e.g., meta-learning, reinforcement learning, a specific neural network architecture?)\n    -   What input does it take (e.g., pruned client models, their masks, auxiliary data)?\n    -   How does it effectively \"interpolate\" to reconstruct missing weights or connections in a full-capacity model?\n    -   What are its advantages over existing methods for re-densification or aggregation of sparse models?\n-   **Potential Challenges**: Reviewers will likely scrutinize the true novelty and effectiveness of the \"learned weight interpolation scheme.\" They will compare it against existing aggregation methods for sparse models and demand clear evidence of its superiority in terms of accuracy, convergence, and computational overhead for reconstruction. The overhead of learning and applying this interpolation scheme must be justified.\n-   **Development Focus**: Concentrate your efforts on developing and rigorously evaluating the \"learned weight interpolation scheme.\" This involves:\n    -   Defining its architecture and learning objective.\n    -   Demonstrating its ability to reconstruct high-quality full-capacity models from pruned client updates.\n    -   Quantifying its performance benefits (e.g., accuracy, convergence speed, robustness to heterogeneity) compared to standard FedAvg and other sparse FL aggregation techniques.\n    -   Analyzing its computational and communication overhead on the server.\n\n#### 6.4 Next Steps\n\n-   **Literature Review**: Deeply study \"Model Pruning Enables Efficient Federated Learning on Edge Devices\" (PruneFL), \"FedPhD\", and \"SSFL.\" Understand their exact pruning mechanisms, aggregation strategies, and how they handle the server-side model. This will help you articulate precise differences. Pay particular attention to how these papers handle the *server's view* of the model after client-side pruning.\n-   **Methodology Refinement**:\n    -   **Elaborate on \"Learned Weight Interpolation\"**: Provide concrete details. Is it a neural network? A statistical model? How does it \"learn\"? What data does it use? How does it handle the structural information of pruned models?\n    -   **Justify \"Full-Capacity Model\"**: Explain why reconstructing a full-capacity model on the server is a superior goal compared to maintaining a sparse global model, especially if clients are resource-constrained.\n    -   **Comparison Points**: Identify specific existing aggregation/reconstruction methods that your learned interpolation scheme will directly compete with and aim to outperform.\n-   **Contribution Framing**: Reframe your contributions to explicitly highlight the novelty of the \"learned weight interpolation scheme\" and its unique benefits. For example: \"We propose the first federated learning framework that combines client-side structured pruning with a novel, learned weight interpolation scheme to enable server-side reconstruction of full-capacity models, addressing X challenge more effectively than existing sparse FL aggregation methods.\"\n-   **Validation Strategy**: Plan experiments that specifically demonstrate:\n    -   The effectiveness of your interpolation scheme in reconstructing high-quality models.\n    -   The performance gains (accuracy, convergence) of your full framework compared to state-of-the-art sparse FL methods and standard FedAvg.\n    -   The efficiency benefits (communication reduction) while maintaining or improving accuracy.\n\n### 7. Limitations and Considerations\n\n-   **Analysis Scope**: This analysis focused on the initial, concise description of your research idea. Nuances, specific implementation details, or innovative aspects not explicitly mentioned may not have been fully captured. The analysis is limited to the 5 most relevant papers identified by the search funnel. A broader search might reveal additional related work or different angles.\n-   **Data Limitations**: The originality assessment relies on the abstracts, introductions, and key sections of the identified papers. A full in-depth review of every paper's complete methodology and experimental results was not performed at this stage.\n-   **Methodology Constraints**: The scoring rubric provides a structured way to compare ideas, but human interpretation is inherently involved in assigning scores. The \"Medium\" confidence level acknowledges this potential for subjective interpretation.\n-   **Interpretation Caveats**: The scores represent a snapshot based on the current literature and your idea's current formulation. The \"learned weight interpolation scheme\" is the most abstract part of your idea, and its true originality cannot be fully ascertained without more concrete details.\n-   **Recommendation**: To address these limitations, consider providing a more detailed \"problem statement,\" \"proposed methodology,\" and \"expected contributions\" for a more granular and confident originality assessment. Furthermore, a deeper dive into the specific mechanisms of the \"learned weight interpolation scheme\" is paramount for distinguishing your work.",
+    "aggregated_criteria": {
+      "problem_similarity": 0.73,
+      "method_similarity": 0.46,
+      "domain_overlap": 0.94,
+      "contribution_similarity": 0.43999999999999995
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0987,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0943,
+        "layer2": 0.0003,
+        "followup": 0.0007,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0016
+      }
+    },
+    "total_processing_time": 185.31304478645325,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "Model Pruning Enables Efficient Federated Learning on Edge Devices",
+        "paper_similarity": 0.8374999999999999,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "FedPhD: Federated Pruning with Hierarchical Learning of Diffusion Models",
+        "paper_similarity": 0.6875,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.75,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Towards Sparsified Federated Neuroimaging Models via Weight Pruning",
+        "paper_similarity": 0.6625,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "SSFL: Discovering Sparse Unified Subnetworks at Initialization for Efficient Federated Learning",
+        "paper_similarity": 0.8125,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "Heterogeneous Federated Learning",
+        "paper_similarity": 0.675,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 73
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 73
+    },
+    "total_papers_fetched": 73,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.726027397260274,
+    "llm_selection_rate": 0.75
+  }
+}
