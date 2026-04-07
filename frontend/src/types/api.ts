@@ -25,9 +25,19 @@ export interface FollowUpQuestion {
   category: string;
 }
 
+export interface ChatMessage {
+  id: string;
+  role: "ai" | "user";
+  content: string;
+  category?: string;
+  round?: number;
+  timestamp: number;
+}
+
 export type JobStatus =
   | "generating_questions"
   | "waiting_for_answers"
+  | "interviewing"
   | "processing"
   | "completed"
   | "error";

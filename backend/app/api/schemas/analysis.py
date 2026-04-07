@@ -34,3 +34,6 @@ class AnalyzeRequest(BaseModel):
 
 class AnswersRequest(BaseModel):
     answers: List[str]
+
+class ChatMessageRequest(BaseModel):
+    message: str = Field(..., min_length=1)
