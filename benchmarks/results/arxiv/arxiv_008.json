@@ -1,0 +1,931 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "90353600d83f",
+    "status": "completed"
+  },
+  "originality_score": 5,
+  "global_similarity_score": 0.9609999999999999,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits, improving the student's feature representations.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+          "heading": "Abstract",
+          "text_snippet": "Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models.",
+          "similarity": 0.75,
+          "reason": "The paper explicitly states that intermediate layer knowledge distillation improves standard KD, which only targets output, aligning with the user's problem of enhancing student feature representations beyond just final output logits.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "Knowledge Distillation with Deep Supervision",
+          "heading": "ABSTRACT",
+          "text_snippet": "To address this issue, we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers.",
+          "similarity": 1.0,
+          "reason": "The user's method explicitly states using 'intermediate layer activations' and 'final output logits' from a 'large teacher model' to 'supervise a smaller student model'. The paper's DSKD method 'fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers', which directly corresponds to the user's description.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+          "heading": "Abstract",
+          "text_snippet": "Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models.",
+          "similarity": 1.0,
+          "reason": "The paper focuses on knowledge distillation, specifically for 'large pre-trained language models', which aligns with the general domain of the user's research idea involving 'a large teacher model' and 'a smaller student model' in a machine learning context.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "Knowledge Distillation with Deep Supervision",
+          "heading": "ABSTRACT",
+          "text_snippet": "To address this issue, we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers. A loss-based weight allocation strategy is developed in DSKD to adaptively balance the learning process of each shallow layer, so as to further improve the student performance.",
+          "similarity": 1.0,
+          "reason": "The user's idea proposes a knowledge distillation method using intermediate layer activations and final output logits to supervise a student model, improving its feature representations. The paper's DSKD method directly implements this by utilizing 'class predictions and feature maps of the teacher model to supervise the training of shallow student layers' to 'further improve the student performance', which includes improving feature representations.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea shows very low originality, with significant overlap in problem, method, domain, and contribution across all analyzed papers, particularly in the area of knowledge distillation. To improve originality, consider a completely different problem formulation or a novel application domain that significantly diverges from existing knowledge distillation techniques.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 1.0,
+    "method_similarity": 0.75,
+    "domain_overlap": 0.98,
+    "contribution_similarity": 1.0
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0825,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0804,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0018,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 128.93310117721558,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2109.10164v2",
+      "arxiv_id": "2109.10164v2",
+      "title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+      "abstract": "Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models. However, intermediate layer distillation suffers from excessive computational burdens and engineering efforts required for setting up a proper layer mapping. To address these problems, we propose a RAndom Intermediate Layer Knowledge Distillation (RAIL-KD) approach in which, intermediate layers from the teacher model are selected randomly to be distilled into the intermediate layers of the student model. This randomized selection enforce that: all teacher layers are taken into account in the training process, while reducing the computational cost of intermediate layer distillation. Also, we show that it act as a regularizer for improving the generalizability of the student model. We perform extensive experiments on GLUE tasks as well as on out-of-domain test sets. We show that our proposed RAIL-KD approach outperforms other state-of-the-art intermediate layer KD methods considerably in both performance and training-time.",
+      "url": "https://arxiv.org/abs/2109.10164v2",
+      "pdf_url": "https://arxiv.org/pdf/2109.10164v2",
+      "authors": [],
+      "categories": [
+        "cs.CL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea describes a knowledge distillation method using intermediate layer activations in addition to final output logits to supervise a student model. The paper's abstract explicitly states, 'Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models,' directly addressing the same problem of enhancing knowledge transfer beyond just output logits by leveraging intermediate layers. | Method: The paper proposes a knowledge distillation method that uses intermediate layer activations to supervise a smaller student model, in addition to the final output logits, which directly aligns with the user's research idea. The core methodology of using intermediate layer supervision is identical, with the main difference being the 'random intermediate layer mapping' strategy (RAIL-KD) for selecting which teacher layers to distill, which is an incremental tweak to an existing method family (Intermediate Layer Distillation, ILD). | Domain: The user's research idea describes a knowledge distillation method for improving a student model's feature representations using intermediate layer activations and final output logits. The paper directly addresses this by proposing 'RAndom Intermediate Layer Knowledge Distillation (RAIL-KD)' which 'targets the output of teacher and student models' and uses 'intermediate layers from the teacher model are selected randomly to be distilled into the intermediate layers of the student model', explicitly matching the core components of the user's idea. | Contribution: The user's research idea proposes a knowledge distillation method using intermediate layer activations in addition to final output logits to supervise a smaller student model. The paper's core contribution, RAIL-KD, is precisely this: it introduces a method where 'intermediate layers from the teacher model are selected randomly to be distilled into the intermediate layers of the student model' in conjunction with the 'original KD loss L_KD, which is used to distill the knowledge from the output logits of the teacher model T to the output logits of the student model S_θ'.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2202.07846v2",
+      "arxiv_id": "2202.07846v2",
+      "title": "Knowledge Distillation with Deep Supervision",
+      "abstract": "Knowledge distillation aims to enhance the performance of a lightweight student model by exploiting the knowledge from a pre-trained cumbersome teacher model. However, in the traditional knowledge distillation, teacher predictions are only used to provide the supervisory signal for the last layer of the student model, which may result in those shallow student layers lacking accurate training guidance in the layer-by-layer back propagation and thus hinders effective knowledge transfer. To address this issue, we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers. A loss-based weight allocation strategy is developed in DSKD to adaptively balance the learning process of each shallow layer, so as to further improve the student performance. Extensive experiments on CIFAR-100 and TinyImageNet with various teacher-student models show significantly performance, confirming the effectiveness of our proposed method. Code is available at: $\\href{https://github.com/luoshiya/DSKD}{https://github.com/luoshiya/DSKD}$",
+      "url": "https://arxiv.org/abs/2202.07846v2",
+      "pdf_url": "https://arxiv.org/pdf/2202.07846v2",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea describes a knowledge distillation method using intermediate layer activations and final output logits to supervise a student model for improved feature representations. The paper's abstract states, 'we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers,' directly addressing the same problem of improving student feature representations through intermediate layer supervision in addition to final output supervision. | Method: The paper proposes Deeply-Supervised Knowledge Distillation (DSKD) which uses a large teacher model's intermediate layer activations (feature maps) to supervise a smaller student model, in addition to the final output logits. This directly aligns with the user's research idea. The differences are incremental, such as the specific design of auxiliary classifiers and a loss-based weight allocation strategy, which are refinements within the core idea. | Domain: The user's research idea is about a knowledge distillation method. The paper is titled \"Knowledge Distillation with Deep Supervision\" and explicitly states its aim to \"enhance the performance of a lightweight student model by exploiting the knowledge from a pre-trained cumbersome teacher model,\" which is the core application domain of knowledge distillation. Both the idea and the paper are focused on improving student model feature representations through intermediate layer supervision in knowledge distillation. | Contribution: The user's research idea proposes using a large teacher model's intermediate layer activations to supervise a smaller student model, in addition to final output logits, to improve the student's feature representations. The paper's abstract states, \"we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers.\" This directly matches the user's idea of using both intermediate layer activations (feature maps) and final output logits (class predictions) for supervision to improve student feature representations.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "2502.04499v2",
+      "arxiv_id": "2502.04499v2",
+      "title": "Revisiting Intermediate-Layer Matching in Knowledge Distillation: Layer-Selection Strategy Doesn't Matter (Much)",
+      "abstract": "Knowledge distillation (KD) is a popular method of transferring knowledge from a large \"teacher\" model to a small \"student\" model. Previous work has explored various layer-selection strategies (e.g., forward matching and in-order random matching) for intermediate-layer matching in KD, where a student layer is forced to resemble a certain teacher layer. In this work, we revisit such layer-selection strategies and observe an intriguing phenomenon that layer-selection strategy does not matter (much) in intermediate-layer matching -- even seemingly nonsensical matching strategies such as reverse matching still result in surprisingly good student performance. We provide an interpretation for this phenomenon by examining the angles between teacher layers viewed from the student's perspective. Our work sheds light on KD practice, as layer-selection strategies may not be the main focus of KD system design, and vanilla forward matching works well in most setups.",
+      "url": "https://arxiv.org/abs/2502.04499v2",
+      "pdf_url": "https://arxiv.org/pdf/2502.04499v2",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea describes a knowledge distillation method using intermediate layer activations in addition to final output logits. The paper directly addresses 'intermediate-layer matching in KD, where a student layer is forced to resemble a certain teacher layer,' and explicitly states that 'intermediate-layer matching distills the teacher's hidden states (i.e., intermediate layers) to the student,' providing 'additional supervisory signals.' This aligns perfectly with the user's proposed method. | Method: The paper directly addresses the user's research idea of using a large teacher model's intermediate layer activations to supervise a smaller student model, in addition to final output logits. The paper focuses on 'intermediate-layer matching' and explicitly states, 'Intermediate-layer matching distills the teacher's hidden states (i.e., intermediate layers) to the student... This approach often involves minimizing the distance between the student's and teacher's hidden states.' The core methodology is identical, with the paper exploring different 'layer-selection strategies' within this established method, which are incremental differences. | Domain: The user's idea is about knowledge distillation for improving feature representations. The paper focuses on 'intermediate-layer matching in KD, where a student layer is forced to resemble a certain teacher layer' and 'distills the teacher's hidden states (i.e., intermediate layers) to the student, thus providing additional supervisory signals.' This directly overlaps with the user's idea of using intermediate layer activations to supervise the student model. | Contribution: The user's research idea proposes a knowledge distillation method using intermediate layer activations in addition to final output logits. The paper directly addresses this by stating, 'Intermediate-layer matching distills the teacher's hidden states (i.e., intermediate layers) to the student... This approach often involves minimizing the distance between the student's and teacher's hidden states... The intermediate-layer matching loss is combined with the predictor's KL loss by L = L KL + λ L hid.' This demonstrates that the paper already implements and evaluates the core contribution proposed by the user.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2103.13811v1",
+      "arxiv_id": "2103.13811v1",
+      "title": "Student Network Learning via Evolutionary Knowledge Distillation",
+      "abstract": "Knowledge distillation provides an effective way to transfer knowledge via teacher-student learning, where most existing distillation approaches apply a fixed pre-trained model as teacher to supervise the learning of student network. This manner usually brings in a big capability gap between teacher and student networks during learning. Recent researches have observed that a small teacher-student capability gap can facilitate knowledge transfer. Inspired by that, we propose an evolutionary knowledge distillation approach to improve the transfer effectiveness of teacher knowledge. Instead of a fixed pre-trained teacher, an evolutionary teacher is learned online and consistently transfers intermediate knowledge to supervise student network learning on-the-fly. To enhance intermediate knowledge representation and mimicking, several simple guided modules are introduced between corresponding teacher-student blocks. In this way, the student can simultaneously obtain rich internal knowledge and capture its growth process, leading to effective student network learning. Extensive experiments clearly demonstrate the effectiveness of our approach as well as good adaptability in the low-resolution and few-sample visual recognition scenarios.",
+      "url": "https://arxiv.org/abs/2103.13811v1",
+      "pdf_url": "https://arxiv.org/pdf/2103.13811v1",
+      "authors": [],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.875,
+      "reason": "Problem: The user's research idea describes a knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits. The paper addresses the same problem, stating, 'Instead of a fixed pre-trained teacher, an evolutionary teacher is learned online and consistently transfers intermediate knowledge to supervise student network learning on-the-fly. To enhance intermediate knowledge representation and mimicking, several simple guided modules are introduced between corresponding teacher-student blocks.' This directly aligns with the user's idea of using intermediate layer activations for supervision to improve student feature representations. | Method: The paper proposes a knowledge distillation method that uses intermediate layer activations to supervise a smaller student model, in addition to final output logits, which is highly similar to the user's idea. Specifically, the paper states, \"an evolutionary teacher is learned online and consistently transfers intermediate knowledge to supervise student network learning on-the-fly\" and \"several simple guided modules are introduced between corresponding teacher-student blocks\" to enhance intermediate knowledge representation and mimicking. The core difference is the 'evolutionary teacher' aspect, where the teacher is learned online rather than being a fixed pre-trained model, which is an incremental difference within the same methodological framework. | Domain: The user's idea is a general knowledge distillation method. The paper focuses on knowledge distillation for visual recognition tasks, specifically image classification and face recognition, as evidenced by sections like 'Extensive experiments clearly demonstrate the effectiveness of our approach as well as good adaptability in the low-resolution and few-sample visual recognition scenarios' and experiments on datasets like CIFAR10, CIFAR100, and Tiny-ImageNet. This represents a closely related application target within the same discipline of machine learning. | Contribution: The user's research idea proposes a knowledge distillation method using intermediate layer activations and final output logits to supervise a smaller student model. The paper explicitly states, 'Instead of a fixed pre-trained teacher, an evolutionary teacher is learned online and consistently transfers intermediate knowledge to supervise student network learning on-the-fly. To enhance intermediate knowledge representation and mimicking, several simple guided modules are introduced between corresponding teacher-student blocks.' This directly matches the user's idea of using intermediate layer activations (intermediate knowledge/feature representations) in addition to final output logits (implied by 'supervise student network learning') from a teacher model to improve a student model.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "1812.00660v1",
+      "arxiv_id": "1812.00660v1",
+      "title": "Knowledge Distillation with Feature Maps for Image Classification",
+      "abstract": "The model reduction problem that eases the computation costs and latency of complex deep learning architectures has received an increasing number of investigations owing to its importance in model deployment. One promising method is knowledge distillation (KD), which creates a fast-to-execute student model to mimic a large teacher network. In this paper, we propose a method, called KDFM (Knowledge Distillation with Feature Maps), which improves the effectiveness of KD by learning the feature maps from the teacher network. Two major techniques used in KDFM are shared classifier and generative adversarial network. Experimental results show that KDFM can use a four layers CNN to mimic DenseNet-40 and use MobileNet to mimic DenseNet-100. Both student networks have less than 1\\% accuracy loss comparing to their teacher models for CIFAR-100 datasets. The student networks are 2-6 times faster than their teacher models for inference, and the model size of MobileNet is less than half of DenseNet-100's.",
+      "url": "https://arxiv.org/abs/1812.00660v1",
+      "pdf_url": "https://arxiv.org/pdf/1812.00660v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea describes 'A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits'. The paper proposes KDFM, which 'improves the effectiveness of KD by learning the feature maps from the teacher network' and explicitly states that Romero & Bengio [27] proposed FITNET, which 'extends the idea of KD by using 'intermediate-level hints' from the hidden layers of the teacher network to guide the student networks' in addition to 'soft target' (logits). This directly aligns with the user's idea of using intermediate layer activations (feature maps/hints) and final output logits for supervision. | Method: The paper proposes KDFM, a knowledge distillation method that explicitly learns 'feature maps from the teacher network' in addition to using 'soft target' (logits), which directly aligns with the user's idea of using 'intermediate layer activations' and 'final output logits' for supervision. The paper cites Romero & Bengio [27] who 'proposed FITNET... by using 'intermediate-level hints' from the hidden layers of the teacher network to guide the student networks', indicating that the core idea of using intermediate layers is not entirely novel but KDFM builds upon it with a GAN-based approach. | Domain: The user's research idea is a knowledge distillation method for improving student model feature representations. The paper, titled 'Knowledge Distillation with Feature Maps for Image Classification,' directly addresses knowledge distillation and explicitly states its application to 'image classification' tasks, using datasets like CIFAR-100 and ImageNet. This represents a direct overlap in the specific application domain. | Contribution: The user's research idea proposes using a large teacher model's intermediate layer activations to supervise a smaller student model, in addition to final output logits. The paper 'Knowledge Distillation with Feature Maps for Image Classification' explicitly states in its abstract that it 'improves the effectiveness of KD by learning the feature maps from the teacher network' and in the 'Knowledge Distillation' section, it references Romero & Bengio [27] who 'proposed FITNET, which extends the idea of KD by using 'intermediate-level hints' from the hidden layers of the teacher network to guide the student networks.' The paper's KDFM method also uses a 'generator G' to produce 'feature maps from the input images' which are then discriminated against the 'real feature map, generated by the teacher network,' alongside a knowledge distillation loss that includes soft targets (logits). This directly aligns with the user's idea of using intermediate layer activations (feature maps) and final output logits for supervision.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "FitNets (Zagoruyko & Komodakis, 2016)",
+        "similarity": 0.95,
+        "description": "This paper explicitly proposes using intermediate feature maps (attention maps) from a teacher to supervise a student model, which is a direct match to the idea."
+      },
+      {
+        "name": "Knowledge Distillation Survey Papers",
+        "similarity": 0.9,
+        "description": "Many survey papers on knowledge distillation categorize and discuss various methods, including 'feature-based' or 'intermediate representation-based' distillation, indicating it's a well-established sub-area."
+      },
+      {
+        "name": "Hinton et al. (2015) - Distilling the Knowledge in a Neural Network",
+        "similarity": 0.7,
+        "description": "While the seminal Hinton paper primarily focuses on logit distillation, it laid the groundwork, and subsequent research quickly expanded to intermediate layers."
+      },
+      {
+        "name": "Attention Transfer (AT) (Zagoruyko & Komodakis, 2017)",
+        "similarity": 0.95,
+        "description": "A follow-up to FitNets, explicitly using attention maps from intermediate layers for distillation."
+      },
+      {
+        "name": "Review of Knowledge Distillation Methods (Gou et al., 2021)",
+        "similarity": 0.9,
+        "description": "This review paper extensively covers 'feature-based knowledge distillation' as a major category, detailing methods that use intermediate layer activations."
+      }
+    ],
+    "assessment": "The idea of using intermediate layer activations from a teacher model to supervise a student model, in addition to final output logits, is a well-established and widely researched area within knowledge distillation. This approach is commonly referred to as 'feature-based knowledge distillation' or 'intermediate representation distillation.' Several prominent research papers and methods, such as FitNets and Attention Transfer, have explored and demonstrated the effectiveness of this technique since the mid-2010s. It is a standard technique used to improve the student's feature representations and overall performance.",
+    "novelty_aspects": [],
+    "recommendation": "This specific method of knowledge distillation is not novel. To pursue research in this area, you would need to identify a very specific, underexplored aspect, such as a novel way of defining the 'similarity' between intermediate features, a new loss function, an application to a unique domain, or a method to dynamically select which intermediate layers to supervise. Simply using intermediate activations is a known technique."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **FitNets (Zagoruyko & Komodakis, 2016)** (similarity: 95%).\n\n*The idea of using intermediate layer activations from a teacher model to supervise a student model, in addition to final output logits, is a well-established and widely researched area within knowledge distillation. This approach is commonly referred to as 'feature-based knowledge distillation' or 'intermediate representation distillation.' Several prominent research papers and methods, such as FitNets and Attention Transfer, have explored and demonstrated the effectiveness of this technique since the mid-2010s. It is a standard technique used to improve the student's feature representations and overall performance.*\n\n**Recommendation:** This specific method of knowledge distillation is not novel. To pursue research in this area, you would need to identify a very specific, underexplored aspect, such as a novel way of defining the 'similarity' between intermediate features, a new loss function, an application to a unique domain, or a method to dynamically select which intermediate layers to supervise. Simply using intermediate activations is a known technique.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 113,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 425,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0825,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0804,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits, improving the student's feature representations.",
+  "enriched_idea": "RESEARCH IDEA:\nA knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits, improving the student's feature representations.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+      "arxiv_id": "2109.10164v2",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea describes a knowledge distillation method using intermediate layer activations in addition to final output logits to supervise a student model. The paper's abstract explicitly states, 'Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models,' directly addressing the same problem of enhancing knowledge transfer beyond just output logits by leveraging intermediate layers. | Method: The paper proposes a knowledge distillation method that uses intermediate layer activations to supervise a smaller student model, in addition to the final output logits, which directly aligns with the user's research idea. The core methodology of using intermediate layer supervision is identical, with the main difference being the 'random intermediate layer mapping' strategy (RAIL-KD) for selecting which teacher layers to distill, which is an incremental tweak to an existing method family (Intermediate Layer Distillation, ILD). | Domain: The user's research idea describes a knowledge distillation method for improving a student model's feature representations using intermediate layer activations and final output logits. The paper directly addresses this by proposing 'RAndom Intermediate Layer Knowledge Distillation (RAIL-KD)' which 'targets the output of teacher and student models' and uses 'intermediate layers from the teacher model are selected randomly to be distilled into the intermediate layers of the student model', explicitly matching the core components of the user's idea. | Contribution: The user's research idea proposes a knowledge distillation method using intermediate layer activations in addition to final output logits to supervise a smaller student model. The paper's core contribution, RAIL-KD, is precisely this: it introduces a method where 'intermediate layers from the teacher model are selected randomly to be distilled into the intermediate layers of the student model' in conjunction with the 'original KD loss L_KD, which is used to distill the knowledge from the output logits of the teacher model T to the output logits of the student model S_θ'.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits, improving the student's feature representations.",
+          "sentence_index": 0,
+          "similarity_score": 0.7999999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+              "heading": "Abstract",
+              "text_snippet": "Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states that intermediate layer knowledge distillation improves standard KD, which only targets output, aligning with the user's problem of enhancing student feature representations beyond just final output logits.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+              "heading": "Abstract",
+              "text_snippet": "Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes using a large teacher model's intermediate layer activations to supervise a smaller student model, in addition to final output logits. The paper's abstract directly mentions 'Intermediate layer knowledge distillation (KD)' and that the standard KD technique 'only targets the output of teacher and student models', indicating a shared methodological approach of using intermediate layers alongside output logits.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+              "heading": "Introduction",
+              "text_snippet": "KD, which is the main focus of this work, is a neural model compression approach that involves training a small student model with the guidance of a large pre-trained teacher model. In the original KD technique (Buciluˇ a et al., 2006; Hinton et al., 2014; Turc et al., 2019), the teacher output predictions are used as soft labels for supervising the training of the student. There has been several attempts in the literature to reduce the teacherstudent performance gap by leveraging data augmentation (Fu et al., 2020; Li et al., 2021; Jiao et al., 2019), adversarial training (Zaharia et al., 2021; Rashid et al., 2020, 2021), and intermediate layer distillation (ILD) (Wang et al., 2020b,a; Ji et al., 2021; Passban et al., 2021).",
+              "similarity": 1.0,
+              "reason": "The user's idea describes a knowledge distillation method using a large teacher and smaller student, supervising with intermediate layer activations and final output logits. The paper's introduction defines KD as training a small student with a large teacher, mentions the original KD using teacher output predictions (logits), and highlights 'intermediate layer distillation (ILD)' as a technique to reduce the teacher-student performance gap, directly matching the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+              "heading": "Training Loss",
+              "text_snippet": "The intermediate representation distillation loss L RAIL-KD is combined with the original KD loss L KD, which is used to distill the knowledge from the output logits of the teacher model T to the output logits of the student model S θ , and the original cross-entropy loss L CE. The total loss function for training the student model is: where λ 1 , λ 2 , and λ 3 are hyper-parameters of our model to minimize the total loss, and λ 1 + λ 2 + λ 3 = 1 .",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states that its intermediate representation distillation loss is combined with the original KD loss, which distills knowledge from output logits, directly matching the user's method of using intermediate layer activations 'in addition to the final output logits'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+              "heading": "Abstract",
+              "text_snippet": "Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models.",
+              "similarity": 1.0,
+              "reason": "The paper focuses on knowledge distillation, specifically for 'large pre-trained language models', which aligns with the general domain of the user's research idea involving 'a large teacher model' and 'a smaller student model' in a machine learning context.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+              "heading": "Abstract",
+              "text_snippet": "Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models. ... Also, we show that it act as a regularizer for improving the generalizability of the student model.",
+              "similarity": 0.75,
+              "reason": "The user's idea aims at 'improving the student's feature representations'. The paper states that intermediate layer KD 'can improve the standard KD technique' and 'act as a regularizer for improving the generalizability of the student model', which implies an improvement in the student's learning and representations.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 46955,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2109.10164v2"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Knowledge Distillation with Deep Supervision",
+      "arxiv_id": "2202.07846v2",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea describes a knowledge distillation method using intermediate layer activations and final output logits to supervise a student model for improved feature representations. The paper's abstract states, 'we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers,' directly addressing the same problem of improving student feature representations through intermediate layer supervision in addition to final output supervision. | Method: The paper proposes Deeply-Supervised Knowledge Distillation (DSKD) which uses a large teacher model's intermediate layer activations (feature maps) to supervise a smaller student model, in addition to the final output logits. This directly aligns with the user's research idea. The differences are incremental, such as the specific design of auxiliary classifiers and a loss-based weight allocation strategy, which are refinements within the core idea. | Domain: The user's research idea is about a knowledge distillation method. The paper is titled \"Knowledge Distillation with Deep Supervision\" and explicitly states its aim to \"enhance the performance of a lightweight student model by exploiting the knowledge from a pre-trained cumbersome teacher model,\" which is the core application domain of knowledge distillation. Both the idea and the paper are focused on improving student model feature representations through intermediate layer supervision in knowledge distillation. | Contribution: The user's research idea proposes using a large teacher model's intermediate layer activations to supervise a smaller student model, in addition to final output logits, to improve the student's feature representations. The paper's abstract states, \"we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers.\" This directly matches the user's idea of using both intermediate layer activations (feature maps) and final output logits (class predictions) for supervision to improve student feature representations.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits, improving the student's feature representations.",
+          "sentence_index": 0,
+          "similarity_score": 0.9249999999999998,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Knowledge Distillation with Deep Supervision",
+              "heading": "ABSTRACT",
+              "text_snippet": "However, in the traditional knowledge distillation, teacher predictions are only used to provide the supervisory signal for the last layer of the student model, which may result in those shallow student layers lacking accurate training guidance in the layer-by-layer back propagation and thus hinders effective knowledge transfer. To address this issue, we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers.",
+              "similarity": 0.75,
+              "reason": "The user's idea addresses the problem of improving student feature representations by using intermediate layer activations, which directly aligns with the paper's stated problem of shallow student layers lacking accurate training guidance and its solution of utilizing feature maps to supervise shallow student layers.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Knowledge Distillation with Deep Supervision",
+              "heading": "ABSTRACT",
+              "text_snippet": "To address this issue, we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers.",
+              "similarity": 1.0,
+              "reason": "The user's method explicitly states using 'intermediate layer activations' and 'final output logits' from a 'large teacher model' to 'supervise a smaller student model'. The paper's DSKD method 'fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers', which directly corresponds to the user's description.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Knowledge Distillation with Deep Supervision",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Since hierarchical concepts contained in intermediate feature maps are beneficial for knowledge transfer [11]-[14], we also leverage the teacher feature maps, besides class predictions, as another knowledge source to supervise the student training from the last layer to shallow layers.",
+              "similarity": 1.0,
+              "reason": "The user's method of using 'intermediate layer activations' and 'final output logits' from the teacher to supervise the student is directly mirrored by the paper's approach of leveraging 'teacher feature maps, besides class predictions, as another knowledge source to supervise the student training from the last layer to shallow layers'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Knowledge Distillation with Deep Supervision",
+              "heading": "The Loss of Feature Maps",
+              "text_snippet": "Besides class predictions, feature maps can also help improve the student model performance [11]-[13]. Thus, we take feature maps of the last teacher layer F T as another learning target. ... We then generalize the above loss function by involving shallow layers in the learning of teacher feature maps and define the shallow layer loss as follows.",
+              "similarity": 1.0,
+              "reason": "The user's method involves using 'intermediate layer activations' (feature maps) in addition to 'final output logits' (class predictions) for supervision. The paper explicitly describes using 'feature maps of the last teacher layer' and generalizing this to involve 'shallow layers in the learning of teacher feature maps', alongside class predictions.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Knowledge Distillation with Deep Supervision",
+              "heading": "ABSTRACT",
+              "text_snippet": "Knowledge distillation aims to enhance the performance of a lightweight student model by exploiting the knowledge from a pre-trained cumbersome teacher model.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely in the domain of knowledge distillation, specifically aiming to improve a smaller student model using a larger teacher model.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Knowledge Distillation with Deep Supervision",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The recently proposed knowledge distillation (KD) technique provides a possible solution to this problem by training a small student model to mimic the performance of a large teacher model [5], [6].",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on knowledge distillation, involving a large teacher model and a smaller student model.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Knowledge Distillation with Deep Supervision",
+              "heading": "ABSTRACT",
+              "text_snippet": "To address this issue, we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers. A loss-based weight allocation strategy is developed in DSKD to adaptively balance the learning process of each shallow layer, so as to further improve the student performance.",
+              "similarity": 1.0,
+              "reason": "The user's idea proposes a knowledge distillation method using intermediate layer activations and final output logits to supervise a student model, improving its feature representations. The paper's DSKD method directly implements this by utilizing 'class predictions and feature maps of the teacher model to supervise the training of shallow student layers' to 'further improve the student performance', which includes improving feature representations.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Knowledge Distillation with Deep Supervision",
+              "heading": "INTRODUCTION",
+              "text_snippet": "- We propose a novel technique to further improve the final performance by employing multiple auxiliary classifiers attached to various shallow layers of the student to learn the teacher knowledge. - Since hierarchical concepts contained in intermediate feature maps are beneficial for knowledge transfer [11]-[14], we also leverage the teacher feature maps, besides class predictions, as another knowledge source to supervise the student training from the last layer to shallow layers.",
+              "similarity": 1.0,
+              "reason": "The user's proposed method of using intermediate layer activations and final output logits to supervise a smaller student model to improve feature representations is a core contribution of the paper, which describes leveraging 'teacher feature maps, besides class predictions, as another knowledge source to supervise the student training from the last layer to shallow layers' to 'further improve the final performance'.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 1.0,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 1.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 48103,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2202.07846v2"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Revisiting Intermediate-Layer Matching in Knowledge Distillation: Layer-Selection Strategy Doesn't Matter (Much)",
+      "arxiv_id": "2502.04499v2",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea describes a knowledge distillation method using intermediate layer activations in addition to final output logits. The paper directly addresses 'intermediate-layer matching in KD, where a student layer is forced to resemble a certain teacher layer,' and explicitly states that 'intermediate-layer matching distills the teacher's hidden states (i.e., intermediate layers) to the student,' providing 'additional supervisory signals.' This aligns perfectly with the user's proposed method. | Method: The paper directly addresses the user's research idea of using a large teacher model's intermediate layer activations to supervise a smaller student model, in addition to final output logits. The paper focuses on 'intermediate-layer matching' and explicitly states, 'Intermediate-layer matching distills the teacher's hidden states (i.e., intermediate layers) to the student... This approach often involves minimizing the distance between the student's and teacher's hidden states.' The core methodology is identical, with the paper exploring different 'layer-selection strategies' within this established method, which are incremental differences. | Domain: The user's idea is about knowledge distillation for improving feature representations. The paper focuses on 'intermediate-layer matching in KD, where a student layer is forced to resemble a certain teacher layer' and 'distills the teacher's hidden states (i.e., intermediate layers) to the student, thus providing additional supervisory signals.' This directly overlaps with the user's idea of using intermediate layer activations to supervise the student model. | Contribution: The user's research idea proposes a knowledge distillation method using intermediate layer activations in addition to final output logits. The paper directly addresses this by stating, 'Intermediate-layer matching distills the teacher's hidden states (i.e., intermediate layers) to the student... This approach often involves minimizing the distance between the student's and teacher's hidden states... The intermediate-layer matching loss is combined with the predictor's KL loss by L = L KL + λ L hid.' This demonstrates that the paper already implements and evaluates the core contribution proposed by the user.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits, improving the student's feature representations.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Revisiting Intermediate-Layer Matching in Knowledge Distillation: Layer-Selection Strategy Doesn't Matter (Much)",
+              "heading": "Abstract",
+              "text_snippet": "Knowledge distillation (KD) is a popular method of transferring knowledge from a large \"teacher\" model to a small \"student\" model. Previous work has explored various layer-selection strategies (e.g., forward matching and in-order random matching) for intermediate-layer matching in KD, where a student layer is forced to resemble a certain teacher layer.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions using 'intermediate layer activations' and 'final output logits' for supervision, which directly aligns with the 'intermediate-layer matching' and 'prediction matching' (implied by 'final output logits') methods discussed in the paper as common KD approaches.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Revisiting Intermediate-Layer Matching in Knowledge Distillation: Layer-Selection Strategy Doesn't Matter (Much)",
+              "heading": "Introduction",
+              "text_snippet": "Common KD approaches can be generally divided into two categories: prediction matching and intermediate-layer matching. Matching the prediction is usually mandatory, as it informs the student of the task to solve. Intermediate-layer matching distills the teacher's hidden states (i.e., intermediate layers) to the student (Sun et al., 2019; Jiao et al., 2020; Gromov et al., 2025).",
+              "similarity": 0.75,
+              "reason": "The user's idea describes a method that combines intermediate layer activations and final output logits for supervision, which directly corresponds to the two main categories of KD approaches (prediction matching and intermediate-layer matching) detailed in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Revisiting Intermediate-Layer Matching in Knowledge Distillation: Layer-Selection Strategy Doesn't Matter (Much)",
+              "heading": "Background and Related Work",
+              "text_snippet": "Regarding intermediate-layer matching, it distills the teacher's hidden states, thus providing additional supervisory signals to the student (Sun et al., 2019; Wen et al., 2025). Traditionally, this is achieved by matching the student's and teacher's activations (Sun et al., 2019; Sanh et al., 2019).",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes using 'intermediate layer activations' to supervise the student model, which is a core component of 'intermediate-layer matching' and specifically 'matching activations' as described in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Revisiting Intermediate-Layer Matching in Knowledge Distillation: Layer-Selection Strategy Doesn't Matter (Much)",
+              "heading": "Abstract",
+              "text_snippet": "Knowledge distillation (KD) is a popular method of transferring knowledge from a large \"teacher\" model to a small \"student\" model.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely within the domain of knowledge distillation, specifically focusing on transferring knowledge from a large teacher model to a smaller student model.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 32407,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2502.04499v2"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Student Network Learning via Evolutionary Knowledge Distillation",
+      "arxiv_id": "2103.13811v1",
+      "paper_similarity_score": 0.875,
+      "reason": "Problem: The user's research idea describes a knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits. The paper addresses the same problem, stating, 'Instead of a fixed pre-trained teacher, an evolutionary teacher is learned online and consistently transfers intermediate knowledge to supervise student network learning on-the-fly. To enhance intermediate knowledge representation and mimicking, several simple guided modules are introduced between corresponding teacher-student blocks.' This directly aligns with the user's idea of using intermediate layer activations for supervision to improve student feature representations. | Method: The paper proposes a knowledge distillation method that uses intermediate layer activations to supervise a smaller student model, in addition to final output logits, which is highly similar to the user's idea. Specifically, the paper states, \"an evolutionary teacher is learned online and consistently transfers intermediate knowledge to supervise student network learning on-the-fly\" and \"several simple guided modules are introduced between corresponding teacher-student blocks\" to enhance intermediate knowledge representation and mimicking. The core difference is the 'evolutionary teacher' aspect, where the teacher is learned online rather than being a fixed pre-trained model, which is an incremental difference within the same methodological framework. | Domain: The user's idea is a general knowledge distillation method. The paper focuses on knowledge distillation for visual recognition tasks, specifically image classification and face recognition, as evidenced by sections like 'Extensive experiments clearly demonstrate the effectiveness of our approach as well as good adaptability in the low-resolution and few-sample visual recognition scenarios' and experiments on datasets like CIFAR10, CIFAR100, and Tiny-ImageNet. This represents a closely related application target within the same discipline of machine learning. | Contribution: The user's research idea proposes a knowledge distillation method using intermediate layer activations and final output logits to supervise a smaller student model. The paper explicitly states, 'Instead of a fixed pre-trained teacher, an evolutionary teacher is learned online and consistently transfers intermediate knowledge to supervise student network learning on-the-fly. To enhance intermediate knowledge representation and mimicking, several simple guided modules are introduced between corresponding teacher-student blocks.' This directly matches the user's idea of using intermediate layer activations (intermediate knowledge/feature representations) in addition to final output logits (implied by 'supervise student network learning') from a teacher model to improve a student model.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits, improving the student's feature representations.",
+          "sentence_index": 0,
+          "similarity_score": 0.675,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Student Network Learning via Evolutionary Knowledge Distillation",
+              "heading": "Abstract",
+              "text_snippet": "Instead of a fixed pre-trained teacher, an evolutionary teacher is learned online and consistently transfers intermediate knowledge to supervise student network learning on-the-fly. To enhance intermediate knowledge representation and mimicking, several simple guided modules are introduced between corresponding teacher-student blocks.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes using 'intermediate layer activations' for supervision, which directly aligns with the paper's mention of 'intermediate knowledge' and 'guided modules... introduced between corresponding teacher-student blocks' to enhance 'intermediate knowledge representation and mimicking'. The paper also mentions 'final output logits' implicitly through 'soften probabilities' in Algorithm 1.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Student Network Learning via Evolutionary Knowledge Distillation",
+              "heading": "THE PROPOSED APPROACH",
+              "text_snippet": "in order to utilize the intermediate knowledge, we improve bottleneck module [43], [44] to form some guided module pairs that are applied to assist the representation and transfer of knowledge. For each corresponding block between teacher and student stream, a guided module pair is inserted to make distillation process effective and efficient within stream and cross stream.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly states using 'intermediate layer activations' to supervise the student model. The paper details the use of 'guided module pairs' between 'corresponding teacher-student blocks' to utilize and transfer 'intermediate knowledge'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Student Network Learning via Evolutionary Knowledge Distillation",
+              "heading": "Evolutionary Distillation",
+              "text_snippet": "For within-stream distillation, deeper classifiers provide supervision to help the learning of shallow classifiers, which can improve the ability of the stream itself to represent knowledge. Cross-stream distillation can improve knowledge transfer from the evolutionary teacher to student. The guided modules can help facilitate knowledge representation and transfer.",
+              "similarity": 0.75,
+              "reason": "The user's idea focuses on using intermediate layer activations for supervision. The paper describes 'within-stream distillation' and 'cross-stream distillation' where 'deeper classifiers provide supervision to help the learning of shallow classifiers' and 'guided modules can help facilitate knowledge representation and transfer', directly relating to intermediate layer supervision.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Student Network Learning via Evolutionary Knowledge Distillation",
+              "heading": "Abstract",
+              "text_snippet": "Extensive experiments clearly demonstrate the effectiveness of our approach as well as good adaptability in the low-resolution and few-sample visual recognition scenarios.",
+              "similarity": 0.75,
+              "reason": "The paper's experiments are conducted in 'visual recognition scenarios', which is a common domain for knowledge distillation methods, aligning with the general domain of the user's idea.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Student Network Learning via Evolutionary Knowledge Distillation",
+              "heading": "Experimental Settings",
+              "text_snippet": "To verify the effectiveness and adaptability of our EKD approach, we conduct experiments on five benchmarks, including CIFAR10 [52], CIFAR100 [52], Tiny-ImageNet [53], UMDFaces [54] and UCCS [55].",
+              "similarity": 0.75,
+              "reason": "The paper explicitly lists image classification datasets (CIFAR10, CIFAR100, Tiny-ImageNet) and face recognition datasets (UMDFaces, UCCS) as its experimental domains, which are typical applications for knowledge distillation methods like the one proposed by the user.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Student Network Learning via Evolutionary Knowledge Distillation",
+              "heading": "Abstract",
+              "text_snippet": "Instead of a fixed pre-trained teacher, an evolutionary teacher is learned online and consistently transfers intermediate knowledge to supervise student network learning on-the-fly. To enhance intermediate knowledge representation and mimicking, several simple guided modules are introduced between corresponding teacher-student blocks. In this way, the student can simultaneously obtain rich internal knowledge and capture its growth process, leading to effective student network learning.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes using intermediate layer activations to improve the student's feature representations. The paper's contribution includes transferring 'intermediate knowledge' and introducing 'guided modules' to enhance 'intermediate knowledge representation and mimicking', leading to 'effective student network learning' and the student obtaining 'rich internal knowledge', which directly relates to improving feature representations.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Student Network Learning via Evolutionary Knowledge Distillation",
+              "heading": "CONCLUSION",
+              "text_snippet": "What's more, through the introduction of some simple guided module pairs between corresponding teacher-student blocks, the efficiency of intermediate knowledge representation is improved. We believe this evolutionary knowledge transfer manner and simple guided mechanism are very promising in knowledge distillation community.",
+              "similarity": 0.75,
+              "reason": "The user's idea aims to improve the student's feature representations by using intermediate layer activations. The paper claims to improve 'the efficiency of intermediate knowledge representation' through 'guided module pairs', which directly contributes to better feature representations for the student.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 46081,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2103.13811v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "Knowledge Distillation with Feature Maps for Image Classification",
+      "arxiv_id": "1812.00660v1",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea describes 'A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits'. The paper proposes KDFM, which 'improves the effectiveness of KD by learning the feature maps from the teacher network' and explicitly states that Romero & Bengio [27] proposed FITNET, which 'extends the idea of KD by using 'intermediate-level hints' from the hidden layers of the teacher network to guide the student networks' in addition to 'soft target' (logits). This directly aligns with the user's idea of using intermediate layer activations (feature maps/hints) and final output logits for supervision. | Method: The paper proposes KDFM, a knowledge distillation method that explicitly learns 'feature maps from the teacher network' in addition to using 'soft target' (logits), which directly aligns with the user's idea of using 'intermediate layer activations' and 'final output logits' for supervision. The paper cites Romero & Bengio [27] who 'proposed FITNET... by using 'intermediate-level hints' from the hidden layers of the teacher network to guide the student networks', indicating that the core idea of using intermediate layers is not entirely novel but KDFM builds upon it with a GAN-based approach. | Domain: The user's research idea is a knowledge distillation method for improving student model feature representations. The paper, titled 'Knowledge Distillation with Feature Maps for Image Classification,' directly addresses knowledge distillation and explicitly states its application to 'image classification' tasks, using datasets like CIFAR-100 and ImageNet. This represents a direct overlap in the specific application domain. | Contribution: The user's research idea proposes using a large teacher model's intermediate layer activations to supervise a smaller student model, in addition to final output logits. The paper 'Knowledge Distillation with Feature Maps for Image Classification' explicitly states in its abstract that it 'improves the effectiveness of KD by learning the feature maps from the teacher network' and in the 'Knowledge Distillation' section, it references Romero & Bengio [27] who 'proposed FITNET, which extends the idea of KD by using 'intermediate-level hints' from the hidden layers of the teacher network to guide the student networks.' The paper's KDFM method also uses a 'generator G' to produce 'feature maps from the input images' which are then discriminated against the 'real feature map, generated by the teacher network,' alongside a knowledge distillation loss that includes soft targets (logits). This directly aligns with the user's idea of using intermediate layer activations (feature maps) and final output logits for supervision.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits, improving the student's feature representations.",
+          "sentence_index": 0,
+          "similarity_score": 0.7999999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Knowledge Distillation with Feature Maps for Image Classification",
+              "heading": "Abstract",
+              "text_snippet": "One promising method is knowledge distillation (KD), which creates a fast-to-execute student model to mimic a large teacher network.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of knowledge distillation where a smaller student model mimics a larger teacher network.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Knowledge Distillation with Feature Maps for Image Classification",
+              "heading": "Abstract",
+              "text_snippet": "In this paper, we propose a method, called KDFM (Knowledge Distillation with Feature Maps), which improves the effectiveness of KD by learning the feature maps from the teacher network.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes using intermediate layer activations (feature representations) from the teacher to supervise the student. The paper's KDFM method explicitly learns 'feature maps' from the teacher network, which are a form of intermediate layer activations.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Knowledge Distillation with Feature Maps for Image Classification",
+              "heading": "Introduction",
+              "text_snippet": "Romero & Bengio [27] extended the idea of KD and proposed FITNET. They trained thinner and deeper student networks by the 'intermediate-level hint', which is from the hidden layers of the teacher network, and the 'soft target' to learn the teacher network.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions using intermediate layer activations in addition to final output logits. This directly aligns with the FITNET method discussed in the paper, which uses 'intermediate-level hint' from hidden layers and 'soft target' (logits). The paper's KDFM also uses feature maps and knowledge distillation loss (which involves logits).",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Knowledge Distillation with Feature Maps for Image Classification",
+              "heading": "Knowledge Distillation",
+              "text_snippet": "Romero & Bengio [27] proposed FITNET, which extends the idea of KD by using 'intermediate-level hints' from the hidden layers of the teacher network to guide the student networks. They train thinner and deeper student networks to learn the intermediate representations and the soft target of the teacher network.",
+              "similarity": 1.0,
+              "reason": "This section explicitly details FITNET, which uses 'intermediate-level hints' from hidden layers and 'soft target' (logits) to guide student networks, directly matching the user's proposed method of using intermediate layer activations and final output logits.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Knowledge Distillation with Feature Maps for Image Classification",
+              "heading": "The Design of KDFM",
+              "text_snippet": "The knowledge distillation loss in KDFM is defined as below: ... the value z is the logits from the teacher network, H refers to cross-entropy, and λ is a hyper-parameter, 0 < λ < 1, controlling the ratio of L H and L S .",
+              "similarity": 0.75,
+              "reason": "The paper's KDFM method uses a knowledge distillation loss that involves logits from the teacher network, aligning with the 'final output logits' part of the user's idea. Additionally, KDFM learns 'feature maps' from the teacher, which are intermediate layer activations.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Knowledge Distillation with Feature Maps for Image Classification",
+              "heading": "Abstract",
+              "text_snippet": "The model reduction problem that eases the computation costs and latency of complex deep learning architectures has received an increasing number of investigations owing to its importance in model deployment. One promising method is knowledge distillation (KD), which creates a fast-to-execute student model to mimic a large teacher network.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are firmly within the domain of deep learning, specifically focusing on model compression and knowledge distillation for deep neural networks.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Knowledge Distillation with Feature Maps for Image Classification",
+              "heading": "Abstract",
+              "text_snippet": "In this paper, we propose a method, called KDFM (Knowledge Distillation with Feature Maps), which improves the effectiveness of KD by learning the feature maps from the teacher network.",
+              "similarity": 0.75,
+              "reason": "The paper's KDFM method aims to improve KD by learning feature maps (intermediate representations), which is a core part of the user's proposed contribution to improve student's feature representations. The user's idea also includes the use of final output logits, which is a standard KD component.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 30056,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1812.00660v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 5,
+    "global_similarity_score": 0.9609999999999999,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A knowledge distillation method where a large teacher model's intermediate layer activations are used to supervise a smaller student model, in addition to the final output logits, improving the student's feature representations.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+            "heading": "Abstract",
+            "text_snippet": "Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models.",
+            "similarity": 0.75,
+            "reason": "The paper explicitly states that intermediate layer knowledge distillation improves standard KD, which only targets output, aligning with the user's problem of enhancing student feature representations beyond just final output logits.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "Knowledge Distillation with Deep Supervision",
+            "heading": "ABSTRACT",
+            "text_snippet": "To address this issue, we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers.",
+            "similarity": 1.0,
+            "reason": "The user's method explicitly states using 'intermediate layer activations' and 'final output logits' from a 'large teacher model' to 'supervise a smaller student model'. The paper's DSKD method 'fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers', which directly corresponds to the user's description.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+            "heading": "Abstract",
+            "text_snippet": "Intermediate layer knowledge distillation (KD) can improve the standard KD technique (which only targets the output of teacher and student models) especially over large pre-trained language models.",
+            "similarity": 1.0,
+            "reason": "The paper focuses on knowledge distillation, specifically for 'large pre-trained language models', which aligns with the general domain of the user's research idea involving 'a large teacher model' and 'a smaller student model' in a machine learning context.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "Knowledge Distillation with Deep Supervision",
+            "heading": "ABSTRACT",
+            "text_snippet": "To address this issue, we propose Deeply-Supervised Knowledge Distillation (DSKD), which fully utilizes class predictions and feature maps of the teacher model to supervise the training of shallow student layers. A loss-based weight allocation strategy is developed in DSKD to adaptively balance the learning process of each shallow layer, so as to further improve the student performance.",
+            "similarity": 1.0,
+            "reason": "The user's idea proposes a knowledge distillation method using intermediate layer activations and final output logits to supervise a student model, improving its feature representations. The paper's DSKD method directly implements this by utilizing 'class predictions and feature maps of the teacher model to supervise the training of shallow student layers' to 'further improve the student performance', which includes improving feature representations.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea shows very low originality, with significant overlap in problem, method, domain, and contribution across all analyzed papers, particularly in the area of knowledge distillation. To improve originality, consider a completely different problem formulation or a novel application domain that significantly diverges from existing knowledge distillation techniques.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 1.0,
+      "method_similarity": 0.75,
+      "domain_overlap": 0.98,
+      "contribution_similarity": 1.0
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0825,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0804,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 128.93310117721558,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "RAIL-KD: RAndom Intermediate Layer Mapping for Knowledge Distillation",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Knowledge Distillation with Deep Supervision",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Revisiting Intermediate-Layer Matching in Knowledge Distillation: Layer-Selection Strategy Doesn't Matter (Much)",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Student Network Learning via Evolutionary Knowledge Distillation",
+        "paper_similarity": 0.9375,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 0.75,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "Knowledge Distillation with Feature Maps for Image Classification",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 113
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 113
+    },
+    "total_papers_fetched": 113,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.8230088495575221,
+    "llm_selection_rate": 0.75
+  }
+}

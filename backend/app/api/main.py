@@ -58,7 +58,11 @@ async def start_analysis(req: AnalyzeRequest):
     
     job_id = job_manager.create_job(req.user_idea, settings)
 
-    AnalysisService.start_questions_phase(job_id)
+    if settings.get("benchmark_mode"):
+        # Skip questions entirely — go straight to analysis with no answers
+        AnalysisService.start_analysis_phase(job_id, [])
+    else:
+        AnalysisService.start_questions_phase(job_id)
 
     return {"job_id": job_id}
 

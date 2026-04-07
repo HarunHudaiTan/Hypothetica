@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pip install certifi -q)",
+      "Bash(python -c \"import certifi; print\\(certifi.where\\(\\)\\)\")",
+      "Bash(python -c \"import docling; print\\(docling.__version__\\)\")",
+      "Bash(python -c \"from docling.document_converter import DocumentConverter; help\\(DocumentConverter.convert\\)\")",
+      "Bash(nvidia-smi:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "WebSearch",
+      "WebFetch(domain:info.arxiv.org)",
+      "WebFetch(domain:groups.google.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}

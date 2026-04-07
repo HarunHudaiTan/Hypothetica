@@ -1,0 +1,960 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "e1c1b6f9789d",
+    "status": "completed"
+  },
+  "originality_score": 30,
+  "global_similarity_score": 0.7865,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+          "heading": "ABSTRACT",
+          "text_snippet": "Multimodal protein language models deliver strong performance on mutation-effect prediction, but training such models from scratch demands substantial computational resources. In this paper, we propose a fine-tuning framework called InstructPLM-mu and try to answer a question: Can multimodal fine-tuning of a pretrained, sequence-only protein language model match the performance of models trained end-to-end?",
+          "similarity": 0.5,
+          "reason": "The paper addresses the problem of protein mutation prediction and the effectiveness of fine-tuning pre-trained models for this task. While the user's idea specifies antibiotic resistance, the core problem of predicting mutation effects using fine-tuned PLMs is similar.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+          "heading": "ABSTRACT",
+          "text_snippet": "Surprisingly, our experiments show that fine-tuning ESM2 with structural inputs can reach performance comparable to ESM3.",
+          "similarity": 1.0,
+          "reason": "The user's idea explicitly mentions 'Fine-tuning a pre-trained protein language model (ESM-2)' which is directly aligned with the paper's core methodology of fine-tuning ESM2.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+          "heading": "INTRODUCTION",
+          "text_snippet": "During natural evolution, mutations inevitably arise in protein sequences. While most are random, their long-term persistence is shaped by selective pressures that favor variants better adapted to their environments (Hie et al., 2024). Changes at specific residues can significantly impact a protein's folding stability, functional fitness, or biochemical activity (Parthiban et al., 2006; Wang et al., 2020; Boehr et al., 2009; Sonaglioni et al., 2024; Albanese et al., 2025).",
+          "similarity": 0.75,
+          "reason": "The paper discusses protein mutations and their impact on protein function, which is a broader domain that includes the user's specific application of antibiotic resistance mutations in bacterial proteins.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+          "heading": "ABSTRACT",
+          "text_snippet": "Multimodal protein language models deliver strong performance on mutation-effect prediction, but training such models from scratch demands substantial computational resources. In this paper, we propose a fine-tuning framework called InstructPLM-mu and try to answer a question: Can multimodal fine-tuning of a pretrained, sequence-only protein language model match the performance of models trained end-to-end? Surprisingly, our experiments show that fine-tuning ESM2 with structural inputs can reach performance comparable to ESM3.",
+          "similarity": 0.5,
+          "reason": "The paper's contribution is demonstrating the effectiveness of fine-tuning ESM2 for protein mutation prediction. The user's idea proposes to do exactly this, but for a specific application (antibiotic resistance), suggesting a partial overlap in the general contribution of showing the utility of fine-tuning ESM2 for mutation prediction.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research shows low originality, particularly in the proposed contribution and problem formulation, which significantly overlap with existing work. To enhance originality, consider differentiating your specific contribution and refining how your problem formulation deviates from current approaches in protein language model fine-tuning and stability prediction.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.69,
+    "method_similarity": 0.6699999999999999,
+    "domain_overlap": 0.5,
+    "contribution_similarity": 0.8799999999999999
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0844,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0822,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0019,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 324.1647193431854,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2510.03370v3",
+      "arxiv_id": "2510.03370v3",
+      "title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+      "abstract": "Multimodal protein language models deliver strong performance on mutation-effect prediction, but training such models from scratch demands substantial computational resources. In this paper, we propose a fine-tuning framework called InstructPLM-mu and try to answer a question: \\textit{Can multimodal fine-tuning of a pretrained, sequence-only protein language model match the performance of models trained end-to-end? } Surprisingly, our experiments show that fine-tuning ESM2 with structural inputs can reach performance comparable to ESM3. To understand how this is achieved, we systematically compare three different feature-fusion designs and fine-tuning recipes. Our results reveal that both the fusion method and the tuning strategy strongly affect final accuracy, indicating that the fine-tuning process is not trivial. We hope this work offers practical guidance for injecting structure into pretrained protein language models and motivates further research on better fusion mechanisms and fine-tuning protocols.",
+      "url": "http://arxiv.org/abs/2510.03370v3",
+      "pdf_url": "http://arxiv.org/pdf/2510.03370v3",
+      "authors": [],
+      "categories": [
+        "q-bio.QM",
+        "cs.AI",
+        "cs.CE"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The paper addresses the problem of protein mutation prediction in general, aiming to predict the effect of mutations on various protein functions (activity, binding, expression, fitness, stability). While the user's idea is a specific instance of protein mutation prediction (predicting antibiotic resistance mutations), the paper's scope is broader and does not specifically focus on antibiotic resistance. | Method: Both the user's idea and the paper propose fine-tuning a pre-trained protein language model (ESM-2) for protein mutation prediction. However, the paper specifically focuses on incorporating structural inputs into ESM-2 through various multimodal fusion strategies (Cross Attention, Channel-wise Concat, Token-wise Concat) and different fine-tuning recipes (Full Fine-tune, LoRA + Adapters, Adapter-only), which is a meaningful design difference compared to the user's more general idea of fine-tuning on antibiotic resistance mutations. | Domain: The user's idea focuses on predicting antibiotic resistance mutations in bacterial proteins, a specific medical application. The paper, while broadly addressing protein mutation prediction and using protein language models (ESM-2), evaluates its methods on general functional categories like 'activity,' 'binding,' 'expression,' 'fitness,' and 'stability' across various proteins (ProteinGYM benchmark), without specific mention of antibiotic resistance or bacterial proteins. Thus, it's the same discipline (computational biology/bioinformatics) but a different, more general application target. | Contribution: The paper's contribution is fine-tuning ESM-2 for general protein mutation prediction, evaluating different fusion strategies and fine-tuning recipes on the ProteinGym benchmark (Table 2). The user's idea is more specific, focusing on predicting antibiotic resistance mutations. While both involve fine-tuning ESM-2 for mutation prediction, the specific application domain (antibiotic resistance) and the type of labeled dataset (antibiotic resistance mutations) in the user's idea are distinct from the general functional categories (activity, binding, expression, fitness, stability) explored in the paper.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2405.06729v1",
+      "arxiv_id": "2405.06729v1",
+      "title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+      "abstract": "Protein Language Models (PLMs) have emerged as performant and scalable tools for predicting the functional impact and clinical significance of protein-coding variants, but they still lag experimental accuracy. Here, we present a novel fine-tuning approach to improve the performance of PLMs with experimental maps of variant effects from Deep Mutational Scanning (DMS) assays using a Normalised Log-odds Ratio (NLR) head. We find consistent improvements in a held-out protein test set, and on independent DMS and clinical variant annotation benchmarks from ProteinGym and ClinVar. These findings demonstrate that DMS is a promising source of sequence diversity and supervised training data for improving the performance of PLMs for variant effect prediction.",
+      "url": "http://arxiv.org/abs/2405.06729v1",
+      "pdf_url": "http://arxiv.org/pdf/2405.06729v1",
+      "authors": [],
+      "categories": [
+        "q-bio.GN",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.675,
+      "reason": "Problem: The user's idea focuses on predicting antibiotic resistance mutations in bacterial proteins. The paper addresses the broader problem of predicting the functional impact and clinical significance of protein-coding variants, specifically using Deep Mutational Scanning (DMS) data to improve variant effect prediction in general, including human genetic variants. While both involve fine-tuning PLMs for variant effect prediction, the specific application domain (antibiotic resistance vs. general functional/clinical impact) and target organisms (bacterial vs. primarily human/viral) differ. | Method: The paper's method is very similar to the user's idea. Both fine-tune a pre-trained protein language model (ESM-2 is explicitly mentioned as a benchmarked model in the paper) on labeled mutational data to predict variant effects. The paper's 'Normalised Log-odds Ratio (NLR)' fine-tuning approach, which includes fine-tuning encoder blocks and the masked language modeling head, aligns closely with the user's general idea of fine-tuning ESM-2 for mutation effect prediction. | Domain: The user's idea focuses on predicting antibiotic resistance mutations in bacterial proteins, which is a specific application within microbiology/infectious disease. The paper, while also predicting variant effects in proteins using PLMs, primarily focuses on 'functional impact and clinical significance of protein-coding variants' in human proteins (e.g., 'human genetic variants', 'human diseases', 'ClinVar pathogenicity classification'). This represents the same discipline (computational biology/bioinformatics) but a different sub-area or application target (bacterial antibiotic resistance vs. human disease pathogenicity). | Contribution: The paper's core contribution is 'fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction' using a 'Normalised Log-odds Ratio (NLR) head' on DMS data. This directly aligns with the user's idea of 'Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.' The paper explicitly mentions using ESM models (including ESM-2) and fine-tuning them for variant effect prediction, which encompasses the prediction of resistance mutations.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "2312.04019v1",
+      "arxiv_id": "2312.04019v1",
+      "title": "Efficiently Predicting Protein Stability Changes Upon Single-point Mutation with Large Language Models",
+      "abstract": "Predicting protein stability changes induced by single-point mutations has been a persistent challenge over the years, attracting immense interest from numerous researchers. The ability to precisely predict protein thermostability is pivotal for various subfields and applications in biochemistry, including drug development, protein evolution analysis, and enzyme synthesis. Despite the proposition of multiple methodologies aimed at addressing this issue, few approaches have successfully achieved optimal performance coupled with high computational efficiency. Two principal hurdles contribute to the existing challenges in this domain. The first is the complexity of extracting and aggregating sufficiently representative features from proteins. The second refers to the limited availability of experimental data for protein mutation analysis, further complicating the comprehensive evaluation of model performance on unseen data samples. With the advent of Large Language Models(LLM), such as the ESM models in protein research, profound interpretation of protein features is now accessibly aided by enormous training data. Therefore, LLMs are indeed to facilitate a wide range of protein research. In our study, we introduce an ESM-assisted efficient approach that integrates protein sequence and structural features to predict the thermostability changes in protein upon single-point mutations. Furthermore, we have curated a dataset meticulously designed to preclude data leakage, corresponding to two extensively employed test datasets, to facilitate a more equitable model comparison.",
+      "url": "http://arxiv.org/abs/2312.04019v1",
+      "pdf_url": "http://arxiv.org/pdf/2312.04019v1",
+      "authors": [],
+      "categories": [
+        "q-bio.BM",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The user's idea focuses on predicting antibiotic resistance mutations, a specific functional outcome. The paper, however, addresses the broader problem of predicting protein stability changes (thermostability) upon single-point mutations, which is a related but distinct property. While both use ESM models and single-point mutations, the ultimate predictive target differs. | Method: Both the user's idea and the paper utilize a pre-trained protein language model (ESM-2) and fine-tuning on a labeled dataset to predict mutation effects. However, the paper focuses on predicting protein stability changes (ΔΔG) using an ESM-assisted Continuous Graph Convolutional Network that integrates sequence and structural features, whereas the user's idea specifically targets antibiotic resistance prediction, implying a different downstream task and potentially a different labeled dataset for fine-tuning. | Domain: Both the user's idea and the paper are in the domain of protein language models and predicting the effects of single-point mutations. However, the paper focuses on predicting 'protein stability changes' (thermostability), while the user's idea specifically targets 'antibiotic resistance mutations'. These are different application targets within the same broader discipline of protein engineering/bioinformatics. | Contribution: The paper's contribution is an \"ESM-assisted efficient approach that integrates protein sequence and structural features to predict the thermostability changes in protein upon single-point mutations.\" This partially overlaps with the user's idea of fine-tuning ESM-2 on antibiotic resistance mutations to predict resistance, as both use ESM models for single-point mutation prediction. However, the paper focuses on protein stability (thermostability, ∆∆G), while the user's idea specifically targets antibiotic resistance, which is a distinct biological outcome.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2510.20943v1",
+      "arxiv_id": "2510.20943v1",
+      "title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+      "abstract": "Protein mutations can have profound effects on biological function, making accurate prediction of property changes critical for drug discovery, protein engineering, and precision medicine. Current approaches rely on fine-tuning protein-specific transformers for individual datasets, but struggle with cross-dataset generalization due to heterogeneous experimental conditions and limited target domain data. We introduce two key innovations: (1) the first application of Model-Agnostic Meta-Learning (MAML) to protein mutation property prediction, and (2) a novel mutation encoding strategy using separator tokens to directly incorporate mutations into sequence context. We build upon transformer architectures integrating them with MAML to enable rapid adaptation to new tasks through minimal gradient steps rather than learning dataset-specific patterns. Our mutation encoding addresses the critical limitation where standard transformers treat mutation positions as unknown tokens, significantly degrading performance. Evaluation across three diverse protein mutation datasets (functional fitness, thermal stability, and solubility) demonstrates significant advantages over traditional fine-tuning. In cross-task evaluation, our meta-learning approach achieves 29% better accuracy for functional fitness with 65% less training time, and 94% better accuracy for solubility with 55% faster training. The framework maintains consistent training efficiency regardless of dataset size, making it particularly valuable for industrial applications and early-stage protein design where experimental data is limited. This work establishes a systematic application of meta-learning to protein mutation analysis and introduces an effective mutation encoding strategy, offering transformative methodology for cross-domain generalization in protein engineering.",
+      "url": "http://arxiv.org/abs/2510.20943v1",
+      "pdf_url": "http://arxiv.org/pdf/2510.20943v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.575,
+      "reason": "Problem: The user's idea aims to predict if a point mutation confers antibiotic resistance, which is a specific type of 'functional fitness' prediction. The paper addresses the broader problem of 'protein mutation property prediction' across various properties including 'functional fitness,' which directly encompasses the user's problem. The paper's goal of predicting 'property changes critical for drug discovery, protein engineering, and precision medicine' is highly aligned with the application of predicting antibiotic resistance. | Method: Both the user's idea and the paper utilize transformer-based protein language models (the paper uses ProtBERT, a BERT-based model, while the user specifies ESM-2) and fine-tuning for protein mutation property prediction. However, the paper introduces significant methodological differences by applying Model-Agnostic Meta-Learning (MAML) for cross-task generalization and a novel Enhanced Encoding strategy for mutations, which are not mentioned in the user's idea of simply 'fine-tuning' ESM-2. | Domain: The user's idea focuses on predicting antibiotic resistance mutations, which is a specific application within protein mutation property prediction. The paper evaluates 'functional fitness, thermal stability, and solubility' of protein mutations, which are related but distinct properties. While both are in the domain of protein mutation analysis, the specific application targets differ. | Contribution: The user's idea focuses on fine-tuning ESM-2 for antibiotic resistance prediction. The paper's primary contributions are the application of MAML to protein mutation property prediction and a novel mutation encoding strategy, using ProtBERT as the backbone. While both involve fine-tuning transformer models for protein mutation prediction, the specific model (ESM-2 vs. ProtBERT), the meta-learning approach, and the explicit target property (antibiotic resistance vs. functional fitness, thermal stability, solubility) are distinct, leading to partial overlap in the general domain but different claimed innovations.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2410.08355v3",
+      "arxiv_id": "2410.08355v3",
+      "title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+      "abstract": "Predicting the biophysical and functional properties of proteins is essential for in silico protein design. Machine learning has emerged as a promising technique for such prediction tasks. However, the relative scarcity of in vitro annotations means that these models often have little, or no, specific data on the desired fitness prediction task. As a result of limited data, protein language models (PLMs) are typically trained on general protein sequence modeling tasks, and then fine-tuned, or applied zero-shot, to protein fitness prediction. When no task data is available, the models make strong assumptions about the correlation between the protein sequence likelihood and fitness scores. In contrast, we propose meta-learning over a distribution of standard fitness prediction tasks, and demonstrate positive transfer to unseen fitness prediction tasks. Our method, called Metalic (Meta-Learning In-Context), uses in-context learning and fine-tuning, when data is available, to adapt to new tasks. Crucially, fine-tuning enables considerable generalization, even though it is not accounted for during meta-training. Our fine-tuned models achieve strong results with 18 times fewer parameters than state-of-the-art models. Moreover, our method sets a new state-of-the-art in low-data settings on ProteinGym, an established fitness-prediction benchmark. Due to data scarcity, we believe meta-learning will play a pivotal role in advancing protein engineering.",
+      "url": "http://arxiv.org/abs/2410.08355v3",
+      "pdf_url": "http://arxiv.org/pdf/2410.08355v3",
+      "authors": [],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.675,
+      "reason": "Problem: The user's research idea focuses on predicting antibiotic resistance mutations using a fine-tuned protein language model. The paper addresses the very similar problem of \"Predicting the biophysical and functional properties of proteins\" and specifically \"protein fitness prediction\" from amino acid sequences, which includes predicting the effect of mutations. The paper uses ESM2, a pre-trained protein language model, and fine-tuning on labeled fitness data, which aligns closely with the user's proposed methodology for a specific type of protein property (antibiotic resistance). | Method: Both the user's idea and the paper utilize a pre-trained protein language model (ESM-2) and fine-tuning for protein property prediction. However, the paper introduces a meta-learning approach (Metalic) over a distribution of tasks, combining in-context learning and fine-tuning, which is a significant methodological difference from a direct fine-tuning approach on a single task as described in the user's idea. | Domain: The user's idea focuses on predicting antibiotic resistance mutations, a specific protein function. The paper, 'Metalic: Meta-Learning In-Context with Protein Language Models,' addresses the broader domain of 'predicting the biophysical and functional properties of proteins' and 'protein fitness prediction' using the ProteinGym benchmark, which includes 'deep mutational scans.' While both involve protein function prediction and mutations, the paper's scope is general protein fitness, whereas the user's idea is a specific application within that domain (antibiotic resistance). | Contribution: The user's research idea proposes fine-tuning ESM-2 on antibiotic resistance mutations to predict resistance. The paper 'Metalic' explicitly uses ESM2-8M as a pre-trained protein language model and fine-tunes it on protein fitness prediction tasks, including 'deep mutational scans' from the ProteinGym benchmark which measure properties on proteins differing by mutations. The paper's core contribution of meta-learning and fine-tuning PLMs for fitness prediction directly addresses the user's proposed methodology and goal, demonstrating the same claims and results in a broader context.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 1.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "ESM-2 fine-tuning for protein function prediction",
+        "similarity": 0.9,
+        "description": "ESM-2 and similar protein language models are commonly fine-tuned on labeled datasets for various protein function prediction tasks, including mutation effect prediction, stability, binding, etc. This is a standard application of these models."
+      },
+      {
+        "name": "Computational prediction of antibiotic resistance mutations",
+        "similarity": 0.85,
+        "description": "Numerous research efforts and tools exist to predict antibiotic resistance mutations using various computational methods, including machine learning, structural modeling, and sequence analysis. While not all use ESM-2 specifically, the general problem space is well-explored."
+      },
+      {
+        "name": "DeepMind's AlphaFold/ESM-Fold and related work",
+        "similarity": 0.7,
+        "description": "While AlphaFold focuses on structure prediction, the underlying principles of learning from protein sequences to infer properties are related. ESM-2 itself is a product of this broader research area in protein language models."
+      },
+      {
+        "name": "Drug resistance prediction tools (e.g., for HIV, TB)",
+        "similarity": 0.75,
+        "description": "There are existing computational tools and databases specifically designed to predict drug resistance mutations for various pathogens, often using sequence data and machine learning. The application domain is well-established."
+      }
+    ],
+    "assessment": "The core idea of fine-tuning a pre-trained protein language model (like ESM-2) on a labeled dataset to predict a specific protein property (antibiotic resistance conferred by a mutation) is a well-established and active area of research. ESM-2 is designed for such fine-tuning tasks, and predicting mutation effects, including those related to drug resistance, is a common application of these models. While the specific combination of 'ESM-2 + antibiotic resistance mutations + point mutation prediction' might not have an identical, widely-marketed product, the methodology and problem space are not novel in academic research.",
+    "novelty_aspects": [
+      "The specific dataset used for fine-tuning could be novel if it's uniquely curated or significantly larger/more diverse than existing ones.",
+      "The specific architecture or training regimen for fine-tuning, if it deviates significantly from standard practices, could offer novelty.",
+      "The performance achieved (e.g., accuracy, generalizability across different bacterial species/antibiotic classes) could be novel if it significantly surpasses existing methods."
+    ],
+    "recommendation": "While the general approach is not novel, there is still significant value in achieving superior performance or addressing specific gaps. Focus on demonstrating a significant improvement over existing methods, perhaps by curating a unique and high-quality dataset, developing novel fine-tuning strategies, or showing robust generalization across diverse bacterial species and antibiotic classes. Clearly articulate what makes your specific implementation or results stand out from the existing body of work."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **ESM-2 fine-tuning for protein function prediction** (similarity: 90%).\n\n*The core idea of fine-tuning a pre-trained protein language model (like ESM-2) on a labeled dataset to predict a specific protein property (antibiotic resistance conferred by a mutation) is a well-established and active area of research. ESM-2 is designed for such fine-tuning tasks, and predicting mutation effects, including those related to drug resistance, is a common application of these models. While the specific combination of 'ESM-2 + antibiotic resistance mutations + point mutation prediction' might not have an identical, widely-marketed product, the methodology and problem space are not novel in academic research.*\n\n**Recommendation:** While the general approach is not novel, there is still significant value in achieving superior performance or addressing specific gaps. Focus on demonstrating a significant improvement over existing methods, perhaps by curating a unique and high-quality dataset, developing novel fine-tuning strategies, or showing robust generalization across diverse bacterial species and antibiotic classes. Clearly articulate what makes your specific implementation or results stand out from the existing body of work.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 106,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 487,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0844,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0822,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+  "enriched_idea": "RESEARCH IDEA:\nFine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+      "arxiv_id": "2510.03370v3",
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The paper addresses the problem of protein mutation prediction in general, aiming to predict the effect of mutations on various protein functions (activity, binding, expression, fitness, stability). While the user's idea is a specific instance of protein mutation prediction (predicting antibiotic resistance mutations), the paper's scope is broader and does not specifically focus on antibiotic resistance. | Method: Both the user's idea and the paper propose fine-tuning a pre-trained protein language model (ESM-2) for protein mutation prediction. However, the paper specifically focuses on incorporating structural inputs into ESM-2 through various multimodal fusion strategies (Cross Attention, Channel-wise Concat, Token-wise Concat) and different fine-tuning recipes (Full Fine-tune, LoRA + Adapters, Adapter-only), which is a meaningful design difference compared to the user's more general idea of fine-tuning on antibiotic resistance mutations. | Domain: The user's idea focuses on predicting antibiotic resistance mutations in bacterial proteins, a specific medical application. The paper, while broadly addressing protein mutation prediction and using protein language models (ESM-2), evaluates its methods on general functional categories like 'activity,' 'binding,' 'expression,' 'fitness,' and 'stability' across various proteins (ProteinGYM benchmark), without specific mention of antibiotic resistance or bacterial proteins. Thus, it's the same discipline (computational biology/bioinformatics) but a different, more general application target. | Contribution: The paper's contribution is fine-tuning ESM-2 for general protein mutation prediction, evaluating different fusion strategies and fine-tuning recipes on the ProteinGym benchmark (Table 2). The user's idea is more specific, focusing on predicting antibiotic resistance mutations. While both involve fine-tuning ESM-2 for mutation prediction, the specific application domain (antibiotic resistance) and the type of labeled dataset (antibiotic resistance mutations) in the user's idea are distinct from the general functional categories (activity, binding, expression, fitness, stability) explored in the paper.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.7,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+              "heading": "ABSTRACT",
+              "text_snippet": "Multimodal protein language models deliver strong performance on mutation-effect prediction, but training such models from scratch demands substantial computational resources. In this paper, we propose a fine-tuning framework called InstructPLM-mu and try to answer a question: Can multimodal fine-tuning of a pretrained, sequence-only protein language model match the performance of models trained end-to-end?",
+              "similarity": 0.5,
+              "reason": "The paper addresses the problem of protein mutation prediction and the effectiveness of fine-tuning pre-trained models for this task. While the user's idea specifies antibiotic resistance, the core problem of predicting mutation effects using fine-tuned PLMs is similar.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+              "heading": "ABSTRACT",
+              "text_snippet": "Surprisingly, our experiments show that fine-tuning ESM2 with structural inputs can reach performance comparable to ESM3.",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions 'Fine-tuning a pre-trained protein language model (ESM-2)' which is directly aligned with the paper's core methodology of fine-tuning ESM2.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Among these, multimodal protein language models (PLMs) have demonstrated strong generalization capabilities, leveraging large-scale unlabeled protein sequences to capture evolutionary and biochemical constraints without explicit supervision (Notin et al., 2023). However, training multimodal protein language models from scratch typically demands substantial computational resources and large-scale annotated datasets, making such approaches impractical for many researchers (Su et al., 2024). Inspired by recent advances in vision-language models, several studies have explored the use of pretrained",
+              "similarity": 1.0,
+              "reason": "The user's idea of 'Fine-tuning a pre-trained protein language model (ESM-2)' is a direct methodological overlap with the paper's approach to leverage pre-trained PLMs due to the challenges of training from scratch.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+              "heading": "PROTEIN MUTATION PREDICTION",
+              "text_snippet": "Deep learning has opened new directions: models like ESM-1v(Meier et al., 2021) predict mutation effects from large-scale sequence data, while structure-aware methods such as ProSST(Li et al., 2024b) and Pythia(Sun et al., 2025) further improve accuracy by incorporating structural information. Benchmarking efforts such as ProteinGym (Notin et al., 2023) have underscored the power of pretrained PLMs in protein modeling.",
+              "similarity": 0.75,
+              "reason": "The paper discusses using PLMs like ESM-1v for predicting mutation effects, which aligns with the user's proposed method of using a protein language model (ESM-2) for mutation prediction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+              "heading": "DISCUSSION",
+              "text_snippet": "In this paper, we show that multimodal fine-tuning of pretrained protein language models is a practical, effective way to bring structural information into PLMs. Specifically, we introduce InstructPLM-mu and evaluate three fusion designs, including Cross Attention, Channel-wise Concat, and Token-wise Concat. Our experiments demonstrate that multimodal fine-tuning consistently improves zero-shot mutation prediction over sequence-only baselines, and is competitive with several stronger multimodal methods trained from scratch.",
+              "similarity": 1.0,
+              "reason": "The paper's discussion explicitly states its focus on 'multimodal fine-tuning of pretrained protein language models' and its effectiveness for 'mutation prediction', which is the core of the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+              "heading": "INTRODUCTION",
+              "text_snippet": "During natural evolution, mutations inevitably arise in protein sequences. While most are random, their long-term persistence is shaped by selective pressures that favor variants better adapted to their environments (Hie et al., 2024). Changes at specific residues can significantly impact a protein's folding stability, functional fitness, or biochemical activity (Parthiban et al., 2006; Wang et al., 2020; Boehr et al., 2009; Sonaglioni et al., 2024; Albanese et al., 2025).",
+              "similarity": 0.75,
+              "reason": "The paper discusses protein mutations and their impact on protein function, which is a broader domain that includes the user's specific application of antibiotic resistance mutations in bacterial proteins.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+              "heading": "PROTEIN MUTATION PREDICTION",
+              "text_snippet": "Protein mutation prediction is central to understanding protein function and guiding protein engineering.",
+              "similarity": 0.75,
+              "reason": "The paper's domain is protein mutation prediction, which directly encompasses the user's specific application of predicting antibiotic resistance mutations.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+              "heading": "ABSTRACT",
+              "text_snippet": "Multimodal protein language models deliver strong performance on mutation-effect prediction, but training such models from scratch demands substantial computational resources. In this paper, we propose a fine-tuning framework called InstructPLM-mu and try to answer a question: Can multimodal fine-tuning of a pretrained, sequence-only protein language model match the performance of models trained end-to-end? Surprisingly, our experiments show that fine-tuning ESM2 with structural inputs can reach performance comparable to ESM3.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is demonstrating the effectiveness of fine-tuning ESM2 for protein mutation prediction. The user's idea proposes to do exactly this, but for a specific application (antibiotic resistance), suggesting a partial overlap in the general contribution of showing the utility of fine-tuning ESM2 for mutation prediction.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+              "heading": "DISCUSSION",
+              "text_snippet": "In this paper, we show that multimodal fine-tuning of pretrained protein language models is a practical, effective way to bring structural information into PLMs. Specifically, we introduce InstructPLM-mu and evaluate three fusion designs, including Cross Attention, Channel-wise Concat, and Token-wise Concat. Our experiments demonstrate that multimodal fine-tuning consistently improves zero-shot mutation prediction over sequence-only baselines, and is competitive with several stronger multimodal methods trained from scratch.",
+              "similarity": 0.5,
+              "reason": "The paper's main contribution is showing that fine-tuning pre-trained PLMs is effective for mutation prediction. The user's idea aims to apply this to a specific problem, which would be a similar type of contribution (demonstrating effectiveness) but in a different context.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 1.0,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 43794,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2510.03370v3"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+      "arxiv_id": "2405.06729v1",
+      "paper_similarity_score": 0.675,
+      "reason": "Problem: The user's idea focuses on predicting antibiotic resistance mutations in bacterial proteins. The paper addresses the broader problem of predicting the functional impact and clinical significance of protein-coding variants, specifically using Deep Mutational Scanning (DMS) data to improve variant effect prediction in general, including human genetic variants. While both involve fine-tuning PLMs for variant effect prediction, the specific application domain (antibiotic resistance vs. general functional/clinical impact) and target organisms (bacterial vs. primarily human/viral) differ. | Method: The paper's method is very similar to the user's idea. Both fine-tune a pre-trained protein language model (ESM-2 is explicitly mentioned as a benchmarked model in the paper) on labeled mutational data to predict variant effects. The paper's 'Normalised Log-odds Ratio (NLR)' fine-tuning approach, which includes fine-tuning encoder blocks and the masked language modeling head, aligns closely with the user's general idea of fine-tuning ESM-2 for mutation effect prediction. | Domain: The user's idea focuses on predicting antibiotic resistance mutations in bacterial proteins, which is a specific application within microbiology/infectious disease. The paper, while also predicting variant effects in proteins using PLMs, primarily focuses on 'functional impact and clinical significance of protein-coding variants' in human proteins (e.g., 'human genetic variants', 'human diseases', 'ClinVar pathogenicity classification'). This represents the same discipline (computational biology/bioinformatics) but a different sub-area or application target (bacterial antibiotic resistance vs. human disease pathogenicity). | Contribution: The paper's core contribution is 'fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction' using a 'Normalised Log-odds Ratio (NLR) head' on DMS data. This directly aligns with the user's idea of 'Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.' The paper explicitly mentions using ESM models (including ESM-2) and fine-tuning them for variant effect prediction, which encompasses the prediction of resistance mutations.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.575,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+              "heading": "ABSTRACT",
+              "text_snippet": "Here, we present a novel fine-tuning approach to improve the performance of PLMs with experimental maps of variant effects from Deep Mutational Scanning (DMS) assays using a Normalised Log-odds Ratio (NLR) head.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose fine-tuning a protein language model. The paper specifically mentions a 'novel fine-tuning approach' for PLMs.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+              "heading": "BACKGROUND",
+              "text_snippet": "The Evolutionary Scale Modelling (ESM) family of PLMs (Rives et al., 2021; Meier et al., 2021; Lin et al., 2023b) pre-trained with masked language modelling on the UniRef database (UniProt Consortium, 2023) demonstrated the ability to encode functional and structural patterns crucial for variant effect and structural predictions. ... The success of PLMs in zero-shot variant effect predictions has led to the use of fine-tuning approaches to improve performance on specific tasks, including protein stability (Umerenkov et al., 2023), pathogenicity (Lin et al., 2023a), protein-protein interactions (Sledzieski et al., 2023), secondary structure and sub-cellular location (Schmirler et al., 2023), and protein fitness (Rives et al., 2021; Hsu et al., 2022; Jagota et al., 2023).",
+              "similarity": 0.75,
+              "reason": "The user explicitly mentions 'ESM-2' as the pre-trained protein language model, which is a specific model within the 'ESM family of PLMs' discussed in the paper. The paper also discusses fine-tuning PLMs for various tasks.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+              "heading": "NORMALISED LOG-ODDS RATIO",
+              "text_snippet": "Encoder : We chose ESM as our baseline models and initialised the encoder weights from their corresponding checkpoints. ... We used ESM-1v (esm1v t33 650M UR90S [1-5]) for most experiments but also benchmarked NLR when using ESM-2 (esm2 t33 650M UR50D) and ESM-1b (esm1b t33 650M UR50S) as pre-trained models.",
+              "similarity": 1.0,
+              "reason": "The user's idea specifically names 'ESM-2' as the protein language model to be fine-tuned, and the paper explicitly states that they 'benchmarked NLR when using ESM-2' as a pre-trained model.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+              "heading": "ABSTRACT",
+              "text_snippet": "Protein Language Models (PLMs) have emerged as performant and scalable tools for predicting the functional impact and clinical significance of protein-coding variants, but they still lag experimental accuracy.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are concerned with predicting the impact of protein variants. The user focuses on 'antibiotic resistance mutations' and 'point mutation in a bacterial protein' conferring resistance, which is a specific type of 'functional impact' of 'protein-coding variants'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Missense variants are the most common type of coding variant, causing single amino acid changes in proteins that can have a wide range of consequences, from severe disease-causing protein function disruptions to no significant effect. Predicting the impact of missense mutations on protein function and the downstream clinical consequences remains a crucial challenge (Karczewski et al., 2020).",
+              "similarity": 0.75,
+              "reason": "The user's idea focuses on predicting the effect of a 'point mutation' which is synonymous with a missense variant (single amino acid change). The paper identifies 'predicting the impact of missense mutations on protein function' as a crucial challenge.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+              "heading": "ABSTRACT",
+              "text_snippet": "Protein Language Models (PLMs) have emerged as performant and scalable tools for predicting the functional impact and clinical significance of protein-coding variants, but they still lag experimental accuracy.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper operate within the domain of protein variant effect prediction. The user's specific application is antibiotic resistance, which is a functional impact of protein variants.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Predicting the impact of missense mutations on protein function and the downstream clinical consequences remains a crucial challenge (Karczewski et al., 2020).",
+              "similarity": 0.75,
+              "reason": "The user's idea is about predicting the functional impact of mutations (antibiotic resistance), which aligns with the paper's focus on 'predicting the impact of missense mutations on protein function'.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 37005,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2405.06729v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Efficiently Predicting Protein Stability Changes Upon Single-point Mutation with Large Language Models",
+      "arxiv_id": "2312.04019v1",
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The user's idea focuses on predicting antibiotic resistance mutations, a specific functional outcome. The paper, however, addresses the broader problem of predicting protein stability changes (thermostability) upon single-point mutations, which is a related but distinct property. While both use ESM models and single-point mutations, the ultimate predictive target differs. | Method: Both the user's idea and the paper utilize a pre-trained protein language model (ESM-2) and fine-tuning on a labeled dataset to predict mutation effects. However, the paper focuses on predicting protein stability changes (ΔΔG) using an ESM-assisted Continuous Graph Convolutional Network that integrates sequence and structural features, whereas the user's idea specifically targets antibiotic resistance prediction, implying a different downstream task and potentially a different labeled dataset for fine-tuning. | Domain: Both the user's idea and the paper are in the domain of protein language models and predicting the effects of single-point mutations. However, the paper focuses on predicting 'protein stability changes' (thermostability), while the user's idea specifically targets 'antibiotic resistance mutations'. These are different application targets within the same broader discipline of protein engineering/bioinformatics. | Contribution: The paper's contribution is an \"ESM-assisted efficient approach that integrates protein sequence and structural features to predict the thermostability changes in protein upon single-point mutations.\" This partially overlaps with the user's idea of fine-tuning ESM-2 on antibiotic resistance mutations to predict resistance, as both use ESM models for single-point mutation prediction. However, the paper focuses on protein stability (thermostability, ∆∆G), while the user's idea specifically targets antibiotic resistance, which is a distinct biological outcome.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Efficiently Predicting Protein Stability Changes Upon Single-point Mutation with Large Language Models",
+              "heading": "Abstract",
+              "text_snippet": "Predicting protein stability changes induced by single-point mutations has been a persistent challenge over the years, attracting immense interest from numerous researchers.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of predicting the effects of single-point mutations in proteins. The user focuses on antibiotic resistance, while the paper focuses on stability changes, which is a related but distinct specific problem.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Efficiently Predicting Protein Stability Changes Upon Single-point Mutation with Large Language Models",
+              "heading": "Abstract",
+              "text_snippet": "With the advent of Large Language Models(LLM), such as the ESM models in protein research, profound interpretation of protein features is now accessibly aided by enormous training data. Therefore, LLMs are indeed to facilitate a wide range of protein research. In our study, we introduce an ESM-assisted efficient approach that integrates protein sequence and structural features to predict the thermostability changes in protein upon single-point mutations.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'Fine-tuning a pre-trained protein language model (ESM-2)', which directly aligns with the paper's use of 'Large Language Models(LLM), such as the ESM models in protein research' and 'ESM-assisted efficient approach'. The core methodology of using ESM models for protein mutation prediction is very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Efficiently Predicting Protein Stability Changes Upon Single-point Mutation with Large Language Models",
+              "heading": "Model Details",
+              "text_snippet": "Also, we have added the sequential embedding from the ESM-2 650M UR50D model to our input, enhancing our feature extraction capabilities.",
+              "similarity": 1.0,
+              "reason": "The user's idea specifically names 'ESM-2', which is directly mentioned in the paper as 'ESM-2 650M UR50D model' used for sequential embedding.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Efficiently Predicting Protein Stability Changes Upon Single-point Mutation with Large Language Models",
+              "heading": "Abstract",
+              "text_snippet": "Predicting protein stability changes induced by single-point mutations has been a persistent challenge over the years, attracting immense interest from numerous researchers. The ability to precisely predict protein thermostability is pivotal for various subfields and applications in biochemistry, including drug development, protein evolution analysis, and enzyme synthesis.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper operate within the domain of protein research and the effects of mutations. The paper mentions 'drug development' as an application, which is broadly related to the user's focus on 'antibiotic resistance mutations'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Efficiently Predicting Protein Stability Changes Upon Single-point Mutation with Large Language Models",
+              "heading": "Abstract",
+              "text_snippet": "In our study, we introduce an ESM-assisted efficient approach that integrates protein sequence and structural features to predict the thermostability changes in protein upon single-point mutations.",
+              "similarity": 0.5,
+              "reason": "The user proposes to predict whether a point mutation confers resistance, using ESM-2. The paper's contribution is an 'ESM-assisted efficient approach... to predict the thermostability changes in protein upon single-point mutations'. Both involve using ESM for predicting mutation effects, but the specific outcome predicted (resistance vs. thermostability) differs.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 36501,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2312.04019v1"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+      "arxiv_id": "2510.20943v1",
+      "paper_similarity_score": 0.575,
+      "reason": "Problem: The user's idea aims to predict if a point mutation confers antibiotic resistance, which is a specific type of 'functional fitness' prediction. The paper addresses the broader problem of 'protein mutation property prediction' across various properties including 'functional fitness,' which directly encompasses the user's problem. The paper's goal of predicting 'property changes critical for drug discovery, protein engineering, and precision medicine' is highly aligned with the application of predicting antibiotic resistance. | Method: Both the user's idea and the paper utilize transformer-based protein language models (the paper uses ProtBERT, a BERT-based model, while the user specifies ESM-2) and fine-tuning for protein mutation property prediction. However, the paper introduces significant methodological differences by applying Model-Agnostic Meta-Learning (MAML) for cross-task generalization and a novel Enhanced Encoding strategy for mutations, which are not mentioned in the user's idea of simply 'fine-tuning' ESM-2. | Domain: The user's idea focuses on predicting antibiotic resistance mutations, which is a specific application within protein mutation property prediction. The paper evaluates 'functional fitness, thermal stability, and solubility' of protein mutations, which are related but distinct properties. While both are in the domain of protein mutation analysis, the specific application targets differ. | Contribution: The user's idea focuses on fine-tuning ESM-2 for antibiotic resistance prediction. The paper's primary contributions are the application of MAML to protein mutation property prediction and a novel mutation encoding strategy, using ProtBERT as the backbone. While both involve fine-tuning transformer models for protein mutation prediction, the specific model (ESM-2 vs. ProtBERT), the meta-learning approach, and the explicit target property (antibiotic resistance vs. functional fitness, thermal stability, solubility) are distinct, leading to partial overlap in the general domain but different claimed innovations.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+              "heading": "Abstract",
+              "text_snippet": "Protein mutations can have profound effects on biological function, making accurate prediction of property changes critical for drug discovery, protein engineering, and precision medicine.",
+              "similarity": 0.5,
+              "reason": "The paper addresses the general problem of predicting protein mutation properties, which aligns with the user's goal of predicting resistance conferred by point mutations. While the user's problem is specific to antibiotic resistance, it falls under the broader umbrella of predicting functional changes due to mutations.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+              "heading": "Introduction",
+              "text_snippet": "Given this intricate relationship, mutations - defined as alterations to amino acid sequences - can have profound effects on protein structure and function. ... Understanding mutation effects is essential for precision medicine, therapeutic design, and protein engineering.",
+              "similarity": 0.5,
+              "reason": "The paper discusses the importance of understanding mutation effects on protein function, which is a broader problem that encompasses the user's specific interest in antibiotic resistance mutations.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+              "heading": "Abstract",
+              "text_snippet": "Current approaches rely on fine-tuning protein-specific transformers for individual datasets, but struggle with cross-dataset generalization due to heterogeneous experimental conditions and limited target domain data.",
+              "similarity": 0.75,
+              "reason": "The user explicitly mentions 'fine-tuning a pre-trained protein language model (ESM-2)', which directly aligns with the 'fine-tuning protein-specific transformers' mentioned in the paper as a current approach.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+              "heading": "Implementation Framework",
+              "text_snippet": "We utilize ProtBERT (built over BERT) as our transformer backbone, which was then domain-adapted through supervised fine-tuning on our compiled Change in Gibbs Free Energy (ddG) dataset. This domain adaptation provides a foundation of protein property understanding that both the conventional supervised fine-tuning and our meta-learning framework builds upon.",
+              "similarity": 0.75,
+              "reason": "The user's idea of 'fine-tuning a pre-trained protein language model' is a core method discussed and utilized in the paper, specifically with ProtBERT as the backbone. ESM-2 is a specific model, but the general approach of fine-tuning a pre-trained protein language model is very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+              "heading": "Abstract",
+              "text_snippet": "Protein mutations can have profound effects on biological function, making accurate prediction of property changes critical for drug discovery, protein engineering, and precision medicine.",
+              "similarity": 0.75,
+              "reason": "The user's domain of 'antibiotic resistance mutations in a bacterial protein' falls under the broader domain of 'protein mutations' and their 'biological function' and 'property changes' relevant to 'drug discovery' and 'protein engineering' as discussed in the paper.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+              "heading": "Introduction",
+              "text_snippet": "Given this intricate relationship, mutations - defined as alterations to amino acid sequences - can have profound effects on protein structure and function. ... Understanding mutation effects is essential for precision medicine, therapeutic design, and protein engineering.",
+              "similarity": 0.75,
+              "reason": "The paper's focus on protein mutations and their effects on function is directly relevant to the user's specific application of antibiotic resistance, which is a functional change due to mutation.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+              "heading": "Abstract",
+              "text_snippet": "Protein mutations can have profound effects on biological function, making accurate prediction of property changes critical for drug discovery, protein engineering, and precision medicine.",
+              "similarity": 0.5,
+              "reason": "The user's idea contributes to predicting a specific type of protein property change (antibiotic resistance), which aligns with the paper's general goal of 'accurate prediction of property changes' for drug discovery and protein engineering.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+              "heading": "Conclusion",
+              "text_snippet": "This study introduces a meta-learning framework that advances protein mutation property prediction through two complementary innovations. Our primary contribution: the first systematic application of Model-Agnostic Meta-Learning (MAML) to protein mutation analysis-provides a principled framework for cross-dataset generalization that fundamentally transforms how models learn from heterogeneous experimental data.",
+              "similarity": 0.5,
+              "reason": "While the paper's main contribution is meta-learning, it also discusses and improves upon the 'fine-tuning' approach that the user proposes. The user's contribution is a specific application of a method that the paper evaluates and builds upon.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 34622,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2510.20943v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+      "arxiv_id": "2410.08355v3",
+      "paper_similarity_score": 0.675,
+      "reason": "Problem: The user's research idea focuses on predicting antibiotic resistance mutations using a fine-tuned protein language model. The paper addresses the very similar problem of \"Predicting the biophysical and functional properties of proteins\" and specifically \"protein fitness prediction\" from amino acid sequences, which includes predicting the effect of mutations. The paper uses ESM2, a pre-trained protein language model, and fine-tuning on labeled fitness data, which aligns closely with the user's proposed methodology for a specific type of protein property (antibiotic resistance). | Method: Both the user's idea and the paper utilize a pre-trained protein language model (ESM-2) and fine-tuning for protein property prediction. However, the paper introduces a meta-learning approach (Metalic) over a distribution of tasks, combining in-context learning and fine-tuning, which is a significant methodological difference from a direct fine-tuning approach on a single task as described in the user's idea. | Domain: The user's idea focuses on predicting antibiotic resistance mutations, a specific protein function. The paper, 'Metalic: Meta-Learning In-Context with Protein Language Models,' addresses the broader domain of 'predicting the biophysical and functional properties of proteins' and 'protein fitness prediction' using the ProteinGym benchmark, which includes 'deep mutational scans.' While both involve protein function prediction and mutations, the paper's scope is general protein fitness, whereas the user's idea is a specific application within that domain (antibiotic resistance). | Contribution: The user's research idea proposes fine-tuning ESM-2 on antibiotic resistance mutations to predict resistance. The paper 'Metalic' explicitly uses ESM2-8M as a pre-trained protein language model and fine-tunes it on protein fitness prediction tasks, including 'deep mutational scans' from the ProteinGym benchmark which measure properties on proteins differing by mutations. The paper's core contribution of meta-learning and fine-tuning PLMs for fitness prediction directly addresses the user's proposed methodology and goal, demonstrating the same claims and results in a broader context.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "ABSTRACT",
+              "text_snippet": "As a result of limited data, protein language models (PLMs) are typically trained on general protein sequence modeling tasks, and then fine-tuned, or applied zero-shot, to protein fitness prediction.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'Fine-tuning a pre-trained protein language model (ESM-2)', which directly aligns with the paper's description of fine-tuning PLMs for protein fitness prediction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "METALI C",
+              "text_snippet": "Protein sequences in both the support and query set are converted to per-residue embeddings using a pre-trained PLM; in our case we take the third layer of ESM2-8M (Lin et al., 2022).",
+              "similarity": 1.0,
+              "reason": "The user specifies 'ESM-2' as the pre-trained protein language model, and the paper explicitly states using 'ESM2-8M' as the pre-trained PLM for embeddings.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "ABSTRACT",
+              "text_snippet": "Predicting the biophysical and functional properties of proteins is essential for in silico protein design. Machine learning has emerged as a promising technique for such prediction tasks.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to 'predict whether a point mutation in a bacterial protein confers resistance', which is a specific type of functional property prediction. The paper broadly discusses predicting 'biophysical and functional properties of proteins' and 'protein fitness prediction'. While the specific target (antibiotic resistance) differs, the general problem of predicting protein function/fitness from sequence is shared.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The accurate prediction of functional and biophysical properties of proteins, collectively referred to here as fitness, is a critical challenge in the physical sciences with far-reaching implications for medical research, agriculture, and drug discovery. For example, fitness prediction can be used to optimize properties such as the binding affinity of a monoclonal antibody therapy to its target or the thermostability of enzymes functioning at high temperatures.",
+              "similarity": 0.5,
+              "reason": "The user's goal of predicting antibiotic resistance is a specific instance of predicting 'functional properties of proteins' or 'protein fitness', which the paper identifies as a critical challenge with implications for medical research and drug discovery.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The accurate prediction of functional and biophysical properties of proteins, collectively referred to here as fitness, is a critical challenge in the physical sciences with far-reaching implications for medical research, agriculture, and drug discovery.",
+              "similarity": 0.75,
+              "reason": "The user's idea focuses on antibiotic resistance, which falls under 'medical research' and 'drug discovery', domains explicitly mentioned in the paper as benefiting from protein fitness prediction.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "EXPERIMENTS",
+              "text_snippet": "In our experiments, we focus on ProteinGym deep mutational scans. Each task in ProteinGym each measures one property on a set of proteins that all differ by one amino acid, or multiple amino acids, from a reference wild-type protein.",
+              "similarity": 0.75,
+              "reason": "The user's idea involves predicting 'a point mutation in a bacterial protein', which aligns with the paper's focus on 'deep mutational scans' and tasks where proteins 'differ by one amino acid' (single-mutant tasks).",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 58826,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2410.08355v3"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 30,
+    "global_similarity_score": 0.7865,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+            "heading": "ABSTRACT",
+            "text_snippet": "Multimodal protein language models deliver strong performance on mutation-effect prediction, but training such models from scratch demands substantial computational resources. In this paper, we propose a fine-tuning framework called InstructPLM-mu and try to answer a question: Can multimodal fine-tuning of a pretrained, sequence-only protein language model match the performance of models trained end-to-end?",
+            "similarity": 0.5,
+            "reason": "The paper addresses the problem of protein mutation prediction and the effectiveness of fine-tuning pre-trained models for this task. While the user's idea specifies antibiotic resistance, the core problem of predicting mutation effects using fine-tuned PLMs is similar.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+            "heading": "ABSTRACT",
+            "text_snippet": "Surprisingly, our experiments show that fine-tuning ESM2 with structural inputs can reach performance comparable to ESM3.",
+            "similarity": 1.0,
+            "reason": "The user's idea explicitly mentions 'Fine-tuning a pre-trained protein language model (ESM-2)' which is directly aligned with the paper's core methodology of fine-tuning ESM2.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+            "heading": "INTRODUCTION",
+            "text_snippet": "During natural evolution, mutations inevitably arise in protein sequences. While most are random, their long-term persistence is shaped by selective pressures that favor variants better adapted to their environments (Hie et al., 2024). Changes at specific residues can significantly impact a protein's folding stability, functional fitness, or biochemical activity (Parthiban et al., 2006; Wang et al., 2020; Boehr et al., 2009; Sonaglioni et al., 2024; Albanese et al., 2025).",
+            "similarity": 0.75,
+            "reason": "The paper discusses protein mutations and their impact on protein function, which is a broader domain that includes the user's specific application of antibiotic resistance mutations in bacterial proteins.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+            "heading": "ABSTRACT",
+            "text_snippet": "Multimodal protein language models deliver strong performance on mutation-effect prediction, but training such models from scratch demands substantial computational resources. In this paper, we propose a fine-tuning framework called InstructPLM-mu and try to answer a question: Can multimodal fine-tuning of a pretrained, sequence-only protein language model match the performance of models trained end-to-end? Surprisingly, our experiments show that fine-tuning ESM2 with structural inputs can reach performance comparable to ESM3.",
+            "similarity": 0.5,
+            "reason": "The paper's contribution is demonstrating the effectiveness of fine-tuning ESM2 for protein mutation prediction. The user's idea proposes to do exactly this, but for a specific application (antibiotic resistance), suggesting a partial overlap in the general contribution of showing the utility of fine-tuning ESM2 for mutation prediction.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research shows low originality, particularly in the proposed contribution and problem formulation, which significantly overlap with existing work. To enhance originality, consider differentiating your specific contribution and refining how your problem formulation deviates from current approaches in protein language model fine-tuning and stability prediction.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.69,
+      "method_similarity": 0.6699999999999999,
+      "domain_overlap": 0.5,
+      "contribution_similarity": 0.8799999999999999
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0844,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0822,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 324.1647193431854,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "InstructPLM-mu: 1-Hour Fine-Tuning of ESM2 Beats ESM3 in Protein Mutation Predictions",
+        "paper_similarity": 0.5,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+        "paper_similarity": 0.8375,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.75,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Efficiently Predicting Protein Stability Changes Upon Single-point Mutation with Large Language Models",
+        "paper_similarity": 0.5,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Meta-Learning for Cross-Task Generalization in Protein Mutation Property Prediction",
+        "paper_similarity": 0.6625,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+        "paper_similarity": 0.8375,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 106
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 106
+    },
+    "total_papers_fetched": 106,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.8113207547169812,
+    "llm_selection_rate": 0.75
+  }
+}

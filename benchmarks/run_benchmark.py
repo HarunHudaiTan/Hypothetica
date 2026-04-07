@@ -38,8 +38,8 @@ load_dotenv(_root / ".env")
 # Config
 # ---------------------------------------------------------------------------
 API_BASE = "http://localhost:8005"
-DELAY_BETWEEN_JOBS = 8
-POLL_INTERVAL = 5
+DELAY_BETWEEN_JOBS = 5
+POLL_INTERVAL = 2
 QUESTIONS_TIMEOUT = 120
 JOB_TIMEOUT = 600
 K_VALUES = [3, 5, 10]
@@ -258,6 +258,7 @@ def post_analyze(idea: str, source: str) -> str | None:
     payload = {
         "user_idea": idea,
         "selected_sources": [source],
+        "benchmark_mode": True,
     }
     try:
         r = requests.post(f"{API_BASE}/api/analyze", json=payload, timeout=30)
@@ -334,16 +335,7 @@ def run_one_case(idea: str, api_source: str) -> dict | None:
     if not job_id:
         return None
 
-    questions = wait_for_questions(job_id)
-    if questions is None:
-        return None
-
-    answers = [
-        "Benchmark mode — no further clarification; please proceed with the idea as stated."
-    ] * len(questions)
-    if not post_answers(job_id, answers):
-        return None
-
+    # benchmark_mode=True skips questions — job goes straight to processing
     return poll_until_done(job_id)
 
 

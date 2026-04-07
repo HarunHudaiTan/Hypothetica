@@ -10,7 +10,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import List, Optional, Tuple
 from datetime import datetime
 
-from docling.document_converter import DocumentConverter
+from docling.document_converter import DocumentConverter, PdfFormatOption
+from docling.datamodel.pipeline_options import PdfPipelineOptions
+from docling.datamodel.base_models import InputFormat
 
 from core import config
 from app.models.paper import Paper, Heading
@@ -35,8 +37,11 @@ class PDFProcessor:
     }
     
     def __init__(self):
-        """Initialize PDF processor with Docling converter."""
-        self.converter = DocumentConverter()
+        """Initialize PDF processor with Docling converter (OCR disabled for text-based PDFs)."""
+        _pipeline_opts = PdfPipelineOptions(do_ocr=False)
+        self.converter = DocumentConverter(
+            format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=_pipeline_opts)}
+        )
     
     def process_paper(self, paper: Paper) -> Paper:
         """
@@ -95,11 +100,37 @@ class PDFProcessor:
             import gc
             gc.collect()  # Clear memory before processing
             
-            converter = DocumentConverter()
-            
-            # Try conversion with error handling
+            is_patent = paper.source == "google_patents"
+
+            # OCR disabled for both arXiv and Google Patents.
+            # - arXiv: LaTeX-compiled PDFs always have embedded text.
+            # - Google Patents: Google pre-OCRs all patents, text is embedded.
+            #   force_backend_text bypasses Docling's layout model and reads
+            #   the embedded text layer directly — faster and no bad_alloc OOM.
+            #
+            # To re-enable OCR for patents uncomment the block below and set
+            # do_ocr=is_patent, remove force_backend_text, and restore page_range.
+            #
+            # -- OCR block (disabled) --
+            # _pipeline_opts = PdfPipelineOptions(do_ocr=is_patent)
+            # if is_patent:
+            #     convert_kwargs["page_range"] = (1, 20)  # bad_alloc seen at page 14
+            # --------------------------
+
+            _pipeline_opts = PdfPipelineOptions(do_ocr=False, force_backend_text=is_patent)
+            converter = DocumentConverter(
+                format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=_pipeline_opts)}
+            )
+
+            convert_kwargs = {"raises_on_error": False}
+            if is_patent:
+                convert_kwargs["page_range"] = (1, 30)
+
             try:
-                result = converter.convert(paper.pdf_url)
+                result = converter.convert(
+                    paper.pdf_url,
+                    **convert_kwargs,
+                )
                 markdown = result.document.export_to_markdown()
             except Exception as conversion_error:
                 logger.warning(f"Conversion error for {paper.paper_id}: {conversion_error}")
@@ -204,7 +235,7 @@ class PDFProcessor:
         """
         if not papers:
             return papers
-        
+
         workers = min(max_workers, len(papers))
         logger.info(f"Processing {len(papers)} PDFs in parallel (max_workers={workers})")
         

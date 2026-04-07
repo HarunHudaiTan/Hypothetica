@@ -16,6 +16,10 @@ class AnalyzeRequest(BaseModel):
     selected_sources: List[PaperSource] = Field(
         description="List of paper sources to use. At least one source must be selected."
     )
+    benchmark_mode: bool = Field(
+        default=False,
+        description="Skip follow-up questions, GitHub analysis, and report generation for faster batch runs."
+    )
 
 class AnswersRequest(BaseModel):
     answers: List[str]

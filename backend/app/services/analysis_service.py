@@ -100,9 +100,10 @@ class AnalysisService:
         job = job_manager.get_job(job_id)
         if not job: return
 
-        cls._update_progress(job_id, "Processing your answers...", 0.10)
-
         job.state.followup_answers = answers
+        job.state.user_sentences = cls._split_into_sentences(job.user_idea)
+
+        cls._update_progress(job_id, "Processing your answers...", 0.10)
 
         enriched = cls._followup_agent.enrich_idea_with_answers(
             job.user_idea,
@@ -110,7 +111,6 @@ class AnalysisService:
             answers
         )
         job.state.enriched_idea = enriched
-        job.state.user_sentences = cls._split_into_sentences(job.user_idea)
 
         cls._update_progress(job_id, "Idea enriched with clarifications", 0.12)
 
@@ -131,28 +131,35 @@ class AnalysisService:
             job_manager.update_status(job_id, JobStatus.PROCESSING)
             start_time = time.time()
 
+            benchmark_mode = job.settings.get("benchmark_mode", False)
+
             # Parallel reality check
             rc_thread = threading.Thread(target=cls.run_reality_check, args=(job_id,), daemon=True)
             rc_thread.start()
 
             cls.process_answers(job_id, answers)
 
-            # Launch GitHub pipeline in parallel with arXiv
-            gh_thread = threading.Thread(
-                target=GitHubService.run_github_analysis,
-                args=(job_id, cls._update_progress),
-                daemon=True,
-            )
-            gh_thread.start()
+            # Launch GitHub pipeline in parallel (skipped in benchmark mode)
+            if not benchmark_mode:
+                gh_thread = threading.Thread(
+                    target=GitHubService.run_github_analysis,
+                    args=(job_id, cls._update_progress),
+                    daemon=True,
+                )
+                gh_thread.start()
 
             PaperSearchService.search_papers(job_id, cls._update_progress, job.settings.get("selected_sources"))
             PaperProcessingService.process_papers(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer1_analysis(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer2_analysis(job_id, cls._update_progress)
-            OriginalityService.generate_comprehensive_report(job_id, cls._update_progress)
+
+            # Skip comprehensive report in benchmark mode (not used in metrics)
+            if not benchmark_mode:
+                OriginalityService.generate_comprehensive_report(job_id, cls._update_progress)
 
             rc_thread.join(timeout=10)
-            gh_thread.join(timeout=60)
+            if not benchmark_mode:
+                gh_thread.join(timeout=60)
 
             # Finalize results
             result = job.state.layer2_result

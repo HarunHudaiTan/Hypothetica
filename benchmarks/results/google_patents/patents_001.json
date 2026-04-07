@@ -1,0 +1,820 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "8e04fd8d827d",
+    "status": "completed"
+  },
+  "originality_score": 69,
+  "global_similarity_score": 0.4505,
+  "label": "medium",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted to the aggregation server.",
+      "originality_score": 0.25,
+      "similarity_score": 0.75,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+          "heading": "发明内容",
+          "text_snippet": "[Translated from CJK] [0007] The federated learning cloud is partially replaced by a group of end users (end users) who use applications through which they collect data, train, calculate and evaluate data stored in the devices on which these applications run. No data leaves the device on which it is stored and calculated. The device later joins the data globally by sending 'derived insights' (technically a bunch of tensors) to the computing cloud, where all these derived insights are averaged. Devices then receive updated matrices from the computing cloud that can improve the local predictions of these devices. Improved local predictions Derived insights are again improved as updates. With federated learning, edge devices can send potentially de-identified updates to the model without having to bear the burden of sending the entire raw data in order to update the model. Therefore, joint learning greatly reduces the hidden",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper address the problem of performing federated learning on edge devices and transmitting updates to a central server. The paper focuses on privacy and efficiency by sending 'derived insights' (tensors/gradients) instead of raw data, which aligns with the user's goal of transmitting 'gradient summaries'.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_03",
+          "paper_title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+          "heading": "Description",
+          "text_snippet": "Embodiments of this presentation relate to an all memristor neuromorphic MAC accelerator that can be entirely analog, which can employ nonvolatile passive memristor synapses for row - to - column coupling, and spik ing active - memristor neurons for generating input and out put signals. Embodiments of this presentation naturally utilize a spike domain data representation analogous to mammal brains. Embodiments of this presentation employ a fully analog neuromorphic architecture and a spike - domain data representation for in - memory MAC acceleration.",
+          "similarity": 1.0,
+          "reason": "The user's idea proposes a 'hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted'. The paper describes an 'all memristor neuromorphic MAC accelerator that can be entirely analog' and utilizes a 'spike domain data representation' for 'in-memory MAC acceleration', showing strong methodological overlap in the use of analog neuromorphic hardware and spike encoding.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+          "heading": "背景技术",
+          "text_snippet": "[Translated from CJK] [0003] The period from 2013 to 2016 was the era of renewed interest in machine learning technology, followed by the era of deep learning technology, spanning 2016 to 2019. 2019 leads us to the next in-depth research into intelligent and/or neuromorphic computing, namely federated learning technology.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper discuss federated learning technology, indicating a strong overlap in the general domain.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+          "heading": "发明内容",
+          "text_snippet": "[Translated from CJK] [0007] The federated learning cloud is partially replaced by a group of end users (end users) who use applications through which they collect data, train, calculate and evaluate data stored in the devices on which these applications run. No data leaves the device on which it is stored and calculated. The device later joins the data globally by sending 'derived insights' (technically a bunch of tensors) to the computing cloud, where all these derived insights are averaged. Devices then receive updated matrices from the computing cloud that can improve the local predictions of these devices. Improved local predictions Derived insights are again improved as updates. With federated learning, edge devices can send potentially de-identified updates to the model without having to bear the burden of sending the entire raw data in order to update the model. Therefore, joint learning greatly reduces the hidden",
+          "similarity": 0.5,
+          "reason": "The paper's contribution of reducing privacy issues by sending 'encrypted, scrambled data gradient' from devices in federated learning is related to the user's idea of transmitting 'digital spike-encoded gradient summaries' to an aggregation server. Both aim to enable federated learning while managing data transmission from devices.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research shows moderate originality, with some overlap in problem formulation and domain. To enhance originality, consider further differentiating your problem's specific context or the unique aspects of your application domain.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.42,
+    "method_similarity": 0.38,
+    "domain_overlap": 0.43999999999999995,
+    "contribution_similarity": 0.4
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.04,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0378,
+      "layer2": 0.0002,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.002,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 342.55011463165283,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "google_patents",
+      "source_id": "patent/JP2023060820A/en",
+      "arxiv_id": "patent/JP2023060820A/en",
+      "title": "Deep Neural Network Optimization System for Machine Learning Model Scaling",
+      "abstract": "A device, method, and program for optimizing a machine learning model are provided. Kind Code: A1 In a joint optimization framework using sparse distillation, an apparatus for sparse distillation of machine learning models distills knowledge of a supernet into subnets during a single machine …",
+      "url": "https://patents.google.com/patent/JP2023060820A/en",
+      "pdf_url": "https://patentimages.storage.googleapis.com/70/3d/ce/dadfe0fb94ec0d/JP2023060820A.pdf",
+      "authors": [],
+      "categories": [],
+      "is_processed": true,
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's research idea focuses on hardware-software co-design for on-device federated learning using neuromorphic chips for analog gradient computation and spike-encoded transmission. The paper, titled 'Deep Neural Network Optimization System for Machine Learning Model Scaling,' discusses optimizing machine learning models through sparse distillation and various neural network types. There is no mention of federated learning, on-device computation, neuromorphic chips, analog computation, or spike-encoded gradient summaries in the provided text, indicating a completely different research problem. | Method: The user's idea proposes a hardware-software co-design for federated learning using a custom neuromorphic chip for analog gradient computation and spike-encoded transmission. The paper, 'Deep Neural Network Optimization System for Machine Learning Model Scaling,' focuses on sparse distillation of machine learning models and various neural network types, including Spiking Neural Networks (SNN). While SNNs are mentioned, there is no evidence of federated learning, hardware-software co-design, analog computation, or spike-encoded gradient summaries for transmission, which are core to the user's method. | Domain: The user's research idea focuses on federated learning with neuromorphic chips for on-device gradient computation. The paper, titled 'Deep Neural Network Optimization System for Machine Learning Model Scaling,' discusses optimizing machine learning models, including various neural network types like Spiking Neural Networks (SNNs) and deep neural networks (DNNs). While both deal with machine learning and neural networks, the paper's primary focus is on model optimization and scaling through sparse distillation, rather than the specific federated learning setup or the hardware-software co-design for analog gradient computation described in the user's idea. | Contribution: The paper focuses on optimizing deep neural networks through sparse distillation and knowledge distillation, as indicated by the abstract and claims like \"Spa0üs¸uY O u(T fBg iS Fre0ü Mwa0ük 100, j̲h°[f Ò model Spa0üs¸ uY for Å n102 is a single j̲h°[f Ò }ô epo\". While it mentions various neural network types including \"SPIKING N N (SN N)\", it does not describe a hardware-software co-design for on-device federated learning with analog computation on neuromorphic chips, which is the core of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "patent_warning": "This patent contained 159 section(s) in CJK that were machine-translated to English. Translated text may reduce embedding accuracy and affect the global originality score. 160 OCR artifacts were cleaned up, which may indicate lower-quality text extraction."
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "google_patents",
+      "source_id": "patent/CN111680798A/en",
+      "arxiv_id": "patent/CN111680798A/en",
+      "title": "Joint learning model system and method, apparatus, and computer-readable …",
+      "abstract": "Joint learning model systems and methods, apparatus, and computer-readable storage media disclose methods and systems for healthcare applications with joint learning models. A system for joint learning includes a plurality of edge devices of an end user, one or more joint learners to update a …",
+      "url": "https://patents.google.com/patent/CN111680798A/en",
+      "pdf_url": "https://patentimages.storage.googleapis.com/a7/aa/46/870b8a43a710d2/CN111680798A.pdf",
+      "authors": [],
+      "categories": [],
+      "is_processed": true,
+      "paper_similarity_score": 0.39999999999999997,
+      "reason": "Problem: The paper addresses the broad topic of federated learning, specifically focusing on privacy, security, and efficiency concerns in healthcare applications by sending 'derived insights' (tensors) instead of raw data. While the user's idea also involves federated learning and efficiency, it specifically proposes a hardware-software co-design with a custom neuromorphic chip for analog gradient computation and spike-encoded summaries, which is a different specific problem and approach than what is detailed in the paper. | Method: Both the user's idea and the paper propose federated learning. The paper describes a system where 'derived insights' (tensors) are sent to a computing cloud for averaging, and updated matrices are sent back to edge devices. This aligns with the federated learning paradigm of local computation and aggregated updates. However, the paper does not specify a custom neuromorphic chip, analog domain computation, or spike-encoded gradient summaries, which are key methodological aspects of the user's idea. | Domain: The user's research idea focuses on a hardware-software co-design for federated learning, implying a domain in computer architecture and machine learning systems. The paper, while discussing federated learning, explicitly states its application in 'healthcare applications' and 'clinical trials' (e.g., 'A system for joint learning includes a plurality of edge devices of an end user, one or more joint learners to update a … for healthcare applications'). While both are in machine learning, the specific application contexts differ significantly. | Contribution: The paper describes a federated learning system that uses edge devices and a central cloud, where 'derived insights' (tensors) are sent to the cloud for aggregation and model updates are sent back to devices. While it mentions 'neuromorphic computing' as a future direction (paragraph [0003]) and 'tensor accelerator chips' (paragraph [0085]), it does not propose or describe a custom neuromorphic chip tile performing local gradient computation in the analog domain or transmitting spike-encoded gradient summaries, which are key aspects of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.25,
+        "contribution_similarity": 0.25
+      },
+      "patent_warning": "This patent contained 201 section(s) in CJK, Cyrillic that were machine-translated to English. Translated text may reduce embedding accuracy and affect the global originality score. 13 OCR artifacts were cleaned up, which may indicate lower-quality text extraction."
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "google_patents",
+      "source_id": "patent/US20200356847A1/en",
+      "arxiv_id": "patent/US20200356847A1/en",
+      "title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+      "abstract": "A circuit for multiplying a number N of first operands each by a corresponding second operand, and for adding the products of the multiplications, with N≥2; the circuit comprising: N input conductors; N programmable conductance circuits connected each between one of the input conductors and at …",
+      "url": "https://patents.google.com/patent/US20200356847A1/en",
+      "pdf_url": "https://patentimages.storage.googleapis.com/57/99/ac/35ee0c35cf8a8c/US20200356847A1.pdf",
+      "authors": [],
+      "categories": [],
+      "is_processed": true,
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The paper focuses on developing 'Transistorless all-memristor neuromorphic circuits for in-memory computing' to perform 'Multiply-ACcumulate (MAC) arithmetic operations' and 'Vector-Matrix Multiplication (VMM) operations in a parallel fashion'. While this involves a custom neuromorphic chip and analog computation, it does not explicitly address federated learning or the transmission of 'spike-encoded gradient summaries to the aggregation server', which are key components of the user's research idea. | Method: The paper describes an all-memristor neuromorphic MAC accelerator that uses spike-domain data representation for in-memory computing, where local computations (multiplication and accumulation) are performed in an analog fashion using memristor crossbar arrays. This aligns with the user's idea of a custom neuromorphic chip performing local gradient computation in the analog domain with spike-encoded data. However, the paper does not explicitly mention federated learning or the transmission of 'gradient summaries' to an aggregation server, focusing instead on the in-memory computing aspect of a single chip. | Domain: The user's idea focuses on federated learning, a distributed machine learning paradigm. The paper describes a neuromorphic circuit for in-memory computing, specifically for Multiply-ACcumulate (MAC) operations in convolutional neural networks (CNNs). While both involve neuromorphic hardware and machine learning, the paper's application is general in-memory computing for CNNs, which is a different sub-area than the distributed, privacy-preserving federated learning context of the user's idea. | Contribution: The paper describes a neuromorphic circuit for in-memory computing using memristors that performs Multiply-ACcumulate (MAC) operations in an analog domain with spike-encoded inputs and outputs, which aligns with the user's idea of a custom neuromorphic chip performing local gradient computation in the analog domain with spike-encoded summaries. However, the paper does not explicitly mention federated learning or the transmission of gradient summaries to an aggregation server, which is a key component of the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "patent_warning": "20 OCR artifacts were cleaned up, which may indicate lower-quality text extraction."
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "google_patents",
+      "source_id": "patent/NL2029288A/en",
+      "arxiv_id": "patent/NL2029288A/en",
+      "title": "Model-assisted deep reinforcement learning based scheduling in wireless …",
+      "abstract": "In one embodiment, an apparatus of an access point (AP) node of a network includes an interconnect interface to connect the apparatus to one or more components of the AP node and a processor to: access scheduling requests from a plurality of devices, select a subset of the devices for scheduling …",
+      "url": "https://patents.google.com/patent/NL2029288A/en",
+      "pdf_url": "https://patentimages.storage.googleapis.com/dc/d5/00/fbc73d2c7d2138/NL2029288A.pdf",
+      "authors": [],
+      "categories": [],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on hardware-software co-design for on-device federated learning using a custom neuromorphic chip for analog gradient computation. In contrast, the paper's abstract describes an apparatus for scheduling in wireless networks, which is a fundamentally different problem. There is no overlap in the research problems addressed. | Method: The user's research idea proposes a hardware-software co-design for federated learning using a custom neuromorphic chip for analog gradient computation. The provided paper abstract describes an apparatus of an access point node with a processor to access scheduling requests and select devices for scheduling. There is no mention of federated learning, neuromorphic chips, analog computation, or gradient transmission in the paper's abstract, indicating completely different methodologies. | Domain: The user's research idea is in the domain of hardware-software co-design for on-device federated learning using neuromorphic chips. The provided paper abstract discusses 'Model-assisted deep reinforcement learning based scheduling in wireless…' for an 'access point (AP) node of a network'. These are entirely different application domains, with no apparent overlap in specific technologies or application contexts. | Contribution: The user's research idea focuses on hardware-software co-design for on-device federated learning using neuromorphic chips for analog gradient computation. The provided paper abstract, 'Model-assisted deep reinforcement learning based scheduling in wireless…', describes an apparatus within an access point for scheduling devices, which is unrelated to federated learning, neuromorphic computing, or analog gradient computation.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "google_patents",
+      "source_id": "patent/JP7691334B2/en",
+      "arxiv_id": "patent/JP7691334B2/en",
+      "title": "On-device activity recognition",
+      "abstract": "1. A method comprising: receiving, by one or more processors of a user-wearable computing device, motion data corresponding to movements of the user sensed by one or more motion sensors and generated by the one or more motion sensors; and performing, by the one or more processors, an on-device …",
+      "url": "https://patents.google.com/patent/JP7691334B2/en",
+      "pdf_url": "https://patentimages.storage.googleapis.com/5b/66/f4/5efde2b3139008/JP7691334B2.pdf",
+      "authors": [],
+      "categories": [],
+      "is_processed": true,
+      "paper_similarity_score": 0.3,
+      "reason": "Problem: The paper focuses on 'on-device activity recognition' using motion data from wearable devices, which involves local processing of sensor data. While it mentions 'on-device' processing and 'neural network' training, it does not explicitly address federated learning, custom neuromorphic chips, or analog gradient computation, which are core to the user's research idea. The broad topic of on-device machine learning is similar, but the specific problem of federated learning with specialized hardware is not directly addressed. | Method: The user's research idea proposes a hardware-software co-design for federated learning using a custom neuromorphic chip for analog gradient computation and spike-encoded transmission. The paper describes a method for on-device activity recognition using motion data and neural networks, with a focus on privacy-preserving training. There is no mention of federated learning, neuromorphic chips, analog computation, or spike-encoded gradients in the provided paper content, indicating completely different techniques. | Domain: The user's research idea is in the domain of federated learning with custom neuromorphic hardware for on-device computation. The paper focuses on 'On-device activity recognition' using motion data from wearable computing devices. While both involve 'on-device' processing and machine learning, the specific application targets (federated learning with neuromorphic chips vs. activity recognition on wearables) represent different sub-areas within the broader domain of edge AI/ML. | Contribution: The paper describes on-device activity recognition using neural networks and motion data, with a focus on privacy-preserving training. While it mentions 'on-device' processing and 'neural networks,' it does not describe federated learning, custom neuromorphic chips, analog domain computation, or spike-encoded gradient summaries, which are key components of the user's research idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "patent_warning": "This patent contained 195 section(s) in CJK that were machine-translated to English. Translated text may reduce embedding accuracy and affect the global originality score. 156 OCR artifacts were cleaned up, which may indicate lower-quality text extraction."
+    }
+  ],
+  "reality_check": {
+    "already_exists": false,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Federated Learning (General)",
+        "similarity": 0.7,
+        "description": "The overarching concept of federated learning, where models are trained on decentralized data, is a well-established research area and has commercial applications (e.g., Google's Gboard)."
+      },
+      {
+        "name": "Neuromorphic Computing",
+        "similarity": 0.6,
+        "description": "Neuromorphic chips (e.g., IBM TrueNorth, Intel Loihi) exist and are designed for energy-efficient, brain-inspired computation, often using analog or mixed-signal approaches for neural network inference/training."
+      },
+      {
+        "name": "Analog AI/In-memory Computing",
+        "similarity": 0.65,
+        "description": "Research and prototypes exist for performing neural network computations (including gradient calculations) in the analog domain, often using memristors or other non-volatile memory technologies, to improve energy efficiency."
+      },
+      {
+        "name": "Spiking Neural Networks (SNNs)",
+        "similarity": 0.55,
+        "description": "SNNs are a type of neural network that communicate using discrete spikes, often implemented on neuromorphic hardware. Encoding information (like gradients) as spikes is a known concept in SNN research."
+      },
+      {
+        "name": "On-device AI/Edge AI",
+        "similarity": 0.75,
+        "description": "Performing AI computations directly on edge devices (smartphones, IoT devices) to reduce latency and improve privacy is a major trend and research area."
+      }
+    ],
+    "assessment": "While all individual components (federated learning, neuromorphic computing, analog gradient computation, spike encoding) are active and well-known research areas, their specific integration as described is likely novel. The combination of a custom neuromorphic chip *tile* for *local gradient computation in the analog domain* specifically for federated learning, with *digital spike-encoded gradient summaries* for transmission, represents a highly specialized and potentially novel co-design approach. Existing federated learning often uses standard digital hardware, and while neuromorphic chips exist, their specific application to *analog gradient computation* for *federated learning gradient summaries* in a co-design context is not a widely commercialized or fully solved problem.",
+    "novelty_aspects": [
+      "Specific hardware-software co-design for federated learning leveraging neuromorphic architecture.",
+      "Performing *local gradient computation* entirely in the *analog domain* on a custom neuromorphic chip tile.",
+      "Transmission of *digital spike-encoded gradient summaries* specifically for federated aggregation.",
+      "The integrated system-level design combining these specific elements for energy-efficient, privacy-preserving federated learning."
+    ],
+    "recommendation": "This idea shows significant potential for novelty, particularly in the specific integration and hardware-software co-design. Focus on demonstrating the energy efficiency and privacy benefits compared to existing federated learning approaches using conventional digital hardware. Research existing patents and academic papers that combine neuromorphic computing with federated learning to ensure no direct overlap. Consider prototyping this specific architecture."
+  },
+  "reality_check_warning": null,
+  "patent_warnings": [
+    {
+      "paper_id": "paper_01",
+      "title": "Deep Neural Network Optimization System for Machine Learning Model Scaling",
+      "warning": "This patent contained 159 section(s) in CJK that were machine-translated to English. Translated text may reduce embedding accuracy and affect the global originality score. 160 OCR artifacts were cleaned up, which may indicate lower-quality text extraction.",
+      "detected_languages": [
+        "CJK"
+      ],
+      "translated_sections": 159
+    },
+    {
+      "paper_id": "paper_02",
+      "title": "Joint learning model system and method, apparatus, and computer-readable …",
+      "warning": "This patent contained 201 section(s) in CJK, Cyrillic that were machine-translated to English. Translated text may reduce embedding accuracy and affect the global originality score. 13 OCR artifacts were cleaned up, which may indicate lower-quality text extraction.",
+      "detected_languages": [
+        "CJK",
+        "Cyrillic"
+      ],
+      "translated_sections": 201
+    },
+    {
+      "paper_id": "paper_03",
+      "title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+      "warning": "20 OCR artifacts were cleaned up, which may indicate lower-quality text extraction.",
+      "detected_languages": [],
+      "translated_sections": 0
+    },
+    {
+      "paper_id": "paper_05",
+      "title": "On-device activity recognition",
+      "warning": "This patent contained 195 section(s) in CJK that were machine-translated to English. Translated text may reduce embedding accuracy and affect the global originality score. 156 OCR artifacts were cleaned up, which may indicate lower-quality text extraction.",
+      "detected_languages": [
+        "CJK"
+      ],
+      "translated_sections": 195
+    }
+  ],
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 101,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 809,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.04,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0378,
+        "layer2": 0.0002,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.002,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted to the aggregation server.",
+  "enriched_idea": "RESEARCH IDEA:\nA hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted to the aggregation server.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "Deep Neural Network Optimization System for Machine Learning Model Scaling",
+      "arxiv_id": "patent/JP2023060820A/en",
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's research idea focuses on hardware-software co-design for on-device federated learning using neuromorphic chips for analog gradient computation and spike-encoded transmission. The paper, titled 'Deep Neural Network Optimization System for Machine Learning Model Scaling,' discusses optimizing machine learning models through sparse distillation and various neural network types. There is no mention of federated learning, on-device computation, neuromorphic chips, analog computation, or spike-encoded gradient summaries in the provided text, indicating a completely different research problem. | Method: The user's idea proposes a hardware-software co-design for federated learning using a custom neuromorphic chip for analog gradient computation and spike-encoded transmission. The paper, 'Deep Neural Network Optimization System for Machine Learning Model Scaling,' focuses on sparse distillation of machine learning models and various neural network types, including Spiking Neural Networks (SNN). While SNNs are mentioned, there is no evidence of federated learning, hardware-software co-design, analog computation, or spike-encoded gradient summaries for transmission, which are core to the user's method. | Domain: The user's research idea focuses on federated learning with neuromorphic chips for on-device gradient computation. The paper, titled 'Deep Neural Network Optimization System for Machine Learning Model Scaling,' discusses optimizing machine learning models, including various neural network types like Spiking Neural Networks (SNNs) and deep neural networks (DNNs). While both deal with machine learning and neural networks, the paper's primary focus is on model optimization and scaling through sparse distillation, rather than the specific federated learning setup or the hardware-software co-design for analog gradient computation described in the user's idea. | Contribution: The paper focuses on optimizing deep neural networks through sparse distillation and knowledge distillation, as indicated by the abstract and claims like \"Spa0üs¸uY O u(T fBg iS Fre0ü Mwa0ük 100, j̲h°[f Ò model Spa0üs¸ uY for Å n102 is a single j̲h°[f Ò }ô epo\". While it mentions various neural network types including \"SPIKING N N (SN N)\", it does not describe a hardware-software co-design for on-device federated learning with analog computation on neuromorphic chips, which is the core of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted to the aggregation server.",
+          "sentence_index": 0,
+          "similarity_score": 0.37499999999999994,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deep Neural Network Optimization System for Machine Learning Model Scaling",
+              "heading": "【vzf のT yð】 j̲h°[f Òモデル0ûスケ0üリングのためのディ0üプ0ûニュ0üラル0ûネットワ0üクg  iS シス テム",
+              "text_snippet": "[Translated from CJK] 【²L】j̲h°[f Ò model g iS Å n, e¹lÕSÊ and program cÐO.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'neuromorphic chip' and 'analog domain' for computation, while the paper discusses 'deep neural network' and 'machine learning model optimization'. Both are in the realm of neural networks and machine learning, but the user's idea specifies a hardware-software co-design with neuromorphic aspects, which is a more specific method than the general 'deep neural network optimization system' in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deep Neural Network Optimization System for Machine Learning Model Scaling",
+              "heading": "【 xbžVó】Vó１",
+              "text_snippet": "[Translated from CJK] j ̲ h ° [f Ò (M L) Model spa 0 ü spa ¸ u Y for Å n, and: single M L } ô epoch , spa 0 ü spa 0 ü net w å X to subnet w å X ¸ u Y (K D) Mechanism; R M Pulling from a subnet and spacing ¸ u Y Pulling from a subnet 0 ü ning 0 û Mechanism;",
+              "similarity": 0.25,
+              "reason": "The user's idea involves 'local gradient computation' and 'gradient summaries transmitted to the aggregation server', which implies a distributed or federated learning setup. The paper discusses 'sparse distillation' and 'supernet into subnets', which are optimization techniques for machine learning models, but not explicitly federated learning or the specific hardware-software co-design proposed by the user.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deep Neural Network Optimization System for Machine Learning Model Scaling",
+              "heading": "【 Š Ë l B ˜ ７ 】",
+              "text_snippet": "[Translated from CJK] Ë l B 1 ÿ 2 ÿ 3 ÿ 4 ÿ 5 ÿ S È is 3's O U or 1 in 's Å n, R M M L model is, depth 0 ü ü N N (D N N), 0 ü de 0 û Fowa 0 ü de N N (F F N), Di 0 ü pu F N N (D F F N), u s mi ¼ mi N N (C N N), Di 0 ü pu C N N (D C N), u s mi ¼ mi N N (D N N ) , m ñ \\ d O á ̲ õ N N , Pa 0 ü Se ption N N , Graph N N , Recurrent N N (R N N) , w w í g Memory ( L S T M ) Algorithm , Ge 0 ü To N Ø Ki Recurrent 0 û UNIT (GRU), ECO 0 ü 0 û STE 0 û TO 0 û NET 0 û KU (ES N), SPIKING N N (SN N), DIP 0 ü 0 û STACKING 0 û NET D S N , MARK OFF 0 û CHECK 0 ü , PA 0 ü SEPTION N N , e u [ þ v u b NET W 0 ü KU (G A N), TRANSFORM 0 ü MA 0 ü, SELF 0 Attention (S A ) Mechanism, x ºs v N N , Bayesian 0 û Network 0 ü Ku (B N) ), Bayesian N N (B N N), mñ\\d B N N (D B N N), Dynamic B N (D B N), BOLT MAN 0 û MACHINE (R B M), HOP FI 0 û R UD 0 û NET WA 0 Ü KU, U S MI ¼ MI ñ \\ d O á ̲ õ NET WATCH 0 Ü KU (C D B N), LINEAR 0 Dynamical 0 û System (LDS), Switching LDS (S LDS), Optical N N (O N N), One of them N å N is T + n 0 ü ral 0 û network 0 ü k (N N), Å n.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'neuromorphic chip' and 'spike-encoded gradient summaries', which aligns with 'SPIKING N N (SN N)' listed in the paper as a type of ML model. This indicates a shared methodological component related to spiking neural networks, although the user's idea is more specific about the hardware-software co-design and federated learning context.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deep Neural Network Optimization System for Machine Learning Model Scaling",
+              "heading": "【vzf のT yð】 j̲h°[f Òモデル0ûスケ0üリングのためのディ0üプ0ûニュ0üラル0ûネットワ0üクg  iS シス テム",
+              "text_snippet": "[Translated from CJK] 【²L】j̲h°[f Ò model g iS Å n, e¹lÕSÊ and program cÐO.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are within the domain of machine learning and neural networks. The user specifies 'on-device federated learning' and 'neuromorphic chip', while the paper focuses on 'deep neural network optimization system for machine learning model scaling'. These are related but distinct sub-areas within the broader machine learning domain.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.25,
+            "method_similarity": 0.5,
+            "domain_overlap": 0.5,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14785,
+      "processing_time": 0.0,
+      "literature_source": "google_patents",
+      "literature_source_id": "patent/JP2023060820A/en"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+      "arxiv_id": "patent/CN111680798A/en",
+      "paper_similarity_score": 0.39999999999999997,
+      "reason": "Problem: The paper addresses the broad topic of federated learning, specifically focusing on privacy, security, and efficiency concerns in healthcare applications by sending 'derived insights' (tensors) instead of raw data. While the user's idea also involves federated learning and efficiency, it specifically proposes a hardware-software co-design with a custom neuromorphic chip for analog gradient computation and spike-encoded summaries, which is a different specific problem and approach than what is detailed in the paper. | Method: Both the user's idea and the paper propose federated learning. The paper describes a system where 'derived insights' (tensors) are sent to a computing cloud for averaging, and updated matrices are sent back to edge devices. This aligns with the federated learning paradigm of local computation and aggregated updates. However, the paper does not specify a custom neuromorphic chip, analog domain computation, or spike-encoded gradient summaries, which are key methodological aspects of the user's idea. | Domain: The user's research idea focuses on a hardware-software co-design for federated learning, implying a domain in computer architecture and machine learning systems. The paper, while discussing federated learning, explicitly states its application in 'healthcare applications' and 'clinical trials' (e.g., 'A system for joint learning includes a plurality of edge devices of an end user, one or more joint learners to update a … for healthcare applications'). While both are in machine learning, the specific application contexts differ significantly. | Contribution: The paper describes a federated learning system that uses edge devices and a central cloud, where 'derived insights' (tensors) are sent to the cloud for aggregation and model updates are sent back to devices. While it mentions 'neuromorphic computing' as a future direction (paragraph [0003]) and 'tensor accelerator chips' (paragraph [0085]), it does not propose or describe a custom neuromorphic chip tile performing local gradient computation in the analog domain or transmitting spike-encoded gradient summaries, which are key aspects of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.25,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted to the aggregation server.",
+          "sentence_index": 0,
+          "similarity_score": 0.55,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+              "heading": "背景技术",
+              "text_snippet": "[Translated from CJK] [0003] The period from 2013 to 2016 was the era of renewed interest in machine learning technology, followed by the era of deep learning technology, spanning 2016 to 2019. 2019 leads us to the next in-depth research into intelligent and/or neuromorphic computing, namely federated learning technology.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper discuss federated learning technology, indicating a strong overlap in the general domain.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+              "heading": "发明内容",
+              "text_snippet": "[Translated from CJK] [0007] The federated learning cloud is partially replaced by a group of end users (end users) who use applications through which they collect data, train, calculate and evaluate data stored in the devices on which these applications run. No data leaves the device on which it is stored and calculated. The device later joins the data globally by sending 'derived insights' (technically a bunch of tensors) to the computing cloud, where all these derived insights are averaged. Devices then receive updated matrices from the computing cloud that can improve the local predictions of these devices. Improved local predictions Derived insights are again improved as updates. With federated learning, edge devices can send potentially de-identified updates to the model without having to bear the burden of sending the entire raw data in order to update the model. Therefore, joint learning greatly reduces the hidden",
+              "similarity": 0.75,
+              "reason": "The paper extensively discusses federated learning on edge devices, which aligns with the 'on-device federated learning' aspect of the user's idea.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+              "heading": "联合学习模型系统和方法、 装置和计算机可读存储介质",
+              "text_snippet": "[Translated from CJK] privacy issues because the data never leaves these devices, only the encrypted, scrambled data gradient leaves the device. Federated learning further greatly reduces ownership concerns because end users can be allowed to opt in or out of sharing updates created on the device. Federated learning further greatly reduces security concerns because the entire system as a whole has no single point of failure, and hackers cannot attack millions of phones individually.",
+              "similarity": 0.5,
+              "reason": "The paper mentions 'data gradient leaves the device', which is conceptually related to the user's idea of transmitting 'gradient summaries'. While the user specifies 'analog domain' and 'spike-encoded', the core concept of transmitting gradients from devices in federated learning is shared.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+              "heading": "联合学习模型系统和方法、 装置和计算机可读存储介质",
+              "text_snippet": "[Translated from CJK] [0008] Fundamentally, a simple algorithm is based on a process model to implement the increasingly complex skills and inner workings of a machine. First, define the cost function, i.e. how the network solves the problem it wants to minimize. Second, run the network once to see how it works in terms of the cost function. Third, adjust the connection values ​​and run the network again. Fourth, the difference between the two results is the direction or slope of the network movement between the two trials. This process is called gradient. Fifth, if the slope is downhill, the connections change in the downhill direction, and if the slope is uphill, the connections change in the opposite direction. Repeat steps three through five until there is no improvement in any direction. This means that the gradient descent system is optimized and reaches the optimal limit of the system, also called a local minimum. To get rid of local minima, stochastic gradient descent is used to randomly change the values. Eventually, after digging through the calculation range multiple times to get the correct gradient, a deeper or even global minimum can be obtained.",
+              "similarity": 0.5,
+              "reason": "The paper describes the process of 'gradient' calculation and 'gradient descent' in machine learning, which is a fundamental part of 'local gradient computation' mentioned in the user's idea. However, the user's idea specifies 'custom neuromorphic chip tile' and 'analog domain' which are not present in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+              "heading": "发明内容",
+              "text_snippet": "[Translated from CJK] [0007] The federated learning cloud is partially replaced by a group of end users (end users) who use applications through which they collect data, train, calculate and evaluate data stored in the devices on which these applications run. No data leaves the device on which it is stored and calculated. The device later joins the data globally by sending 'derived insights' (technically a bunch of tensors) to the computing cloud, where all these derived insights are averaged. Devices then receive updated matrices from the computing cloud that can improve the local predictions of these devices. Improved local predictions Derived insights are again improved as updates. With federated learning, edge devices can send potentially de-identified updates to the model without having to bear the burden of sending the entire raw data in order to update the model. Therefore, joint learning greatly reduces the hidden",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of performing federated learning on edge devices and transmitting updates to a central server. The paper focuses on privacy and efficiency by sending 'derived insights' (tensors/gradients) instead of raw data, which aligns with the user's goal of transmitting 'gradient summaries'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+              "heading": "发明内容",
+              "text_snippet": "[Translated from CJK] [0007] The federated learning cloud is partially replaced by a group of end users (end users) who use applications through which they collect data, train, calculate and evaluate data stored in the devices on which these applications run. No data leaves the device on which it is stored and calculated. The device later joins the data globally by sending 'derived insights' (technically a bunch of tensors) to the computing cloud, where all these derived insights are averaged. Devices then receive updated matrices from the computing cloud that can improve the local predictions of these devices. Improved local predictions Derived insights are again improved as updates. With federated learning, edge devices can send potentially de-identified updates to the model without having to bear the burden of sending the entire raw data in order to update the model. Therefore, joint learning greatly reduces the hidden",
+              "similarity": 0.5,
+              "reason": "The paper's contribution of reducing privacy issues by sending 'encrypted, scrambled data gradient' from devices in federated learning is related to the user's idea of transmitting 'digital spike-encoded gradient summaries' to an aggregation server. Both aim to enable federated learning while managing data transmission from devices.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 24753,
+      "processing_time": 0.0,
+      "literature_source": "google_patents",
+      "literature_source_id": "patent/CN111680798A/en"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+      "arxiv_id": "patent/US20200356847A1/en",
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The paper focuses on developing 'Transistorless all-memristor neuromorphic circuits for in-memory computing' to perform 'Multiply-ACcumulate (MAC) arithmetic operations' and 'Vector-Matrix Multiplication (VMM) operations in a parallel fashion'. While this involves a custom neuromorphic chip and analog computation, it does not explicitly address federated learning or the transmission of 'spike-encoded gradient summaries to the aggregation server', which are key components of the user's research idea. | Method: The paper describes an all-memristor neuromorphic MAC accelerator that uses spike-domain data representation for in-memory computing, where local computations (multiplication and accumulation) are performed in an analog fashion using memristor crossbar arrays. This aligns with the user's idea of a custom neuromorphic chip performing local gradient computation in the analog domain with spike-encoded data. However, the paper does not explicitly mention federated learning or the transmission of 'gradient summaries' to an aggregation server, focusing instead on the in-memory computing aspect of a single chip. | Domain: The user's idea focuses on federated learning, a distributed machine learning paradigm. The paper describes a neuromorphic circuit for in-memory computing, specifically for Multiply-ACcumulate (MAC) operations in convolutional neural networks (CNNs). While both involve neuromorphic hardware and machine learning, the paper's application is general in-memory computing for CNNs, which is a different sub-area than the distributed, privacy-preserving federated learning context of the user's idea. | Contribution: The paper describes a neuromorphic circuit for in-memory computing using memristors that performs Multiply-ACcumulate (MAC) operations in an analog domain with spike-encoded inputs and outputs, which aligns with the user's idea of a custom neuromorphic chip performing local gradient computation in the analog domain with spike-encoded summaries. However, the paper does not explicitly mention federated learning or the transmission of gradient summaries to an aggregation server, which is a key component of the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted to the aggregation server.",
+          "sentence_index": 0,
+          "similarity_score": 0.32499999999999996,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+              "heading": "ABSTRACT",
+              "text_snippet": "A circuit for multiplying a number N of first operands each by a corresponding second operand, and for adding the products of the multiplications, with N≥2; the circuit comprising: N input conductors; N programmable conductance circuits connected each between one of the input conductors and at …",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a custom neuromorphic chip tile for local gradient computation in the analog domain. The paper describes a circuit for multiply-accumulate operations using programmable conductance circuits, which aligns with the concept of analog computation within a neuromorphic context.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+              "heading": "Background",
+              "text_snippet": "Passive memristors operating in analog domain are well suited for implementing the massive MAC arithmetic operations required in convolutional neural networks (CNNs) and other in-memory computing (IMC) application scenarios. ... Thereby the MAC computation (aka dot-product or inner-product opera tion) ... can be achieved. With many bit lines in parallel, MAC computations on each bit line are performed at the same time, thereby VMM operations ... can be realized in an analog and parallel fashion.",
+              "similarity": 0.75,
+              "reason": "The user's idea specifies 'local gradient computation in the analog domain' using a 'neuromorphic chip tile'. The paper details how passive memristors can perform MAC operations in the analog domain, which are fundamental to neural network computations like gradient calculation, and describes this as an 'in-memory computing' application.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+              "heading": "Summary",
+              "text_snippet": "Embodiments of this presentation comprise methods for calculating a multiplication - accumulation operation comprising supplying a crossbar array made of program mable conductance circuits , programmed as a function of first operands , with input spike - train encoded second oper ands. ... Concept 5. A method to perform multiply - accumu late arithmetic operations , the method comprising : encoding data into a plurality of trains of spike pulses ; supplying each train of spike pulses to an input active - memristor neuron ; ... wherein the output active - memristor neuron converts the current sum into a train of spike pulses encoding the multiply - accumulate operations , and optionally decoding data from the train of spike pulses from the output active - memristor neuron.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions 'digital spike-encoded gradient summaries'. The paper explicitly discusses methods for multiply-accumulate operations using 'input spike-train encoded second operands' and an 'output active-memristor neuron converts the current sum into a train of spike pulses encoding the multiply-accumulate operations', which aligns with the concept of spike-encoded data for computation and transmission.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+              "heading": "Description",
+              "text_snippet": "Embodiments of this presentation relate to an all memristor neuromorphic MAC accelerator that can be entirely analog, which can employ nonvolatile passive memristor synapses for row - to - column coupling, and spik ing active - memristor neurons for generating input and out put signals. Embodiments of this presentation naturally utilize a spike domain data representation analogous to mammal brains. Embodiments of this presentation employ a fully analog neuromorphic architecture and a spike - domain data representation for in - memory MAC acceleration.",
+              "similarity": 1.0,
+              "reason": "The user's idea proposes a 'hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted'. The paper describes an 'all memristor neuromorphic MAC accelerator that can be entirely analog' and utilizes a 'spike domain data representation' for 'in-memory MAC acceleration', showing strong methodological overlap in the use of analog neuromorphic hardware and spike encoding.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+              "heading": "Background",
+              "text_snippet": "Passive memristors operating in analog domain are well suited for implementing the massive MAC arithmetic operations required in convolutional neural networks (CNNs) and other in-memory computing (IMC) application scenarios.",
+              "similarity": 0.5,
+              "reason": "The user's idea is about 'on-device federated learning' which involves neural networks. The paper discusses the suitability of its analog memristor technology for 'convolutional neural networks (CNNs)' and 'in-memory computing', indicating a shared broader domain of neural network hardware acceleration.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 16497,
+      "processing_time": 0.0,
+      "literature_source": "google_patents",
+      "literature_source_id": "patent/US20200356847A1/en"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Model-assisted deep reinforcement learning based scheduling in wireless …",
+      "arxiv_id": "patent/NL2029288A/en",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on hardware-software co-design for on-device federated learning using a custom neuromorphic chip for analog gradient computation. In contrast, the paper's abstract describes an apparatus for scheduling in wireless networks, which is a fundamentally different problem. There is no overlap in the research problems addressed. | Method: The user's research idea proposes a hardware-software co-design for federated learning using a custom neuromorphic chip for analog gradient computation. The provided paper abstract describes an apparatus of an access point node with a processor to access scheduling requests and select devices for scheduling. There is no mention of federated learning, neuromorphic chips, analog computation, or gradient transmission in the paper's abstract, indicating completely different methodologies. | Domain: The user's research idea is in the domain of hardware-software co-design for on-device federated learning using neuromorphic chips. The provided paper abstract discusses 'Model-assisted deep reinforcement learning based scheduling in wireless…' for an 'access point (AP) node of a network'. These are entirely different application domains, with no apparent overlap in specific technologies or application contexts. | Contribution: The user's research idea focuses on hardware-software co-design for on-device federated learning using neuromorphic chips for analog gradient computation. The provided paper abstract, 'Model-assisted deep reinforcement learning based scheduling in wireless…', describes an apparatus within an access point for scheduling devices, which is unrelated to federated learning, neuromorphic computing, or analog gradient computation.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted to the aggregation server.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_overlap": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 3447,
+      "processing_time": 0.0,
+      "literature_source": "google_patents",
+      "literature_source_id": "patent/NL2029288A/en"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "On-device activity recognition",
+      "arxiv_id": "patent/JP7691334B2/en",
+      "paper_similarity_score": 0.3,
+      "reason": "Problem: The paper focuses on 'on-device activity recognition' using motion data from wearable devices, which involves local processing of sensor data. While it mentions 'on-device' processing and 'neural network' training, it does not explicitly address federated learning, custom neuromorphic chips, or analog gradient computation, which are core to the user's research idea. The broad topic of on-device machine learning is similar, but the specific problem of federated learning with specialized hardware is not directly addressed. | Method: The user's research idea proposes a hardware-software co-design for federated learning using a custom neuromorphic chip for analog gradient computation and spike-encoded transmission. The paper describes a method for on-device activity recognition using motion data and neural networks, with a focus on privacy-preserving training. There is no mention of federated learning, neuromorphic chips, analog computation, or spike-encoded gradients in the provided paper content, indicating completely different techniques. | Domain: The user's research idea is in the domain of federated learning with custom neuromorphic hardware for on-device computation. The paper focuses on 'On-device activity recognition' using motion data from wearable computing devices. While both involve 'on-device' processing and machine learning, the specific application targets (federated learning with neuromorphic chips vs. activity recognition on wearables) represent different sub-areas within the broader domain of edge AI/ML. | Contribution: The paper describes on-device activity recognition using neural networks and motion data, with a focus on privacy-preserving training. While it mentions 'on-device' processing and 'neural networks,' it does not describe federated learning, custom neuromorphic chips, analog domain computation, or spike-encoded gradient summaries, which are key components of the user's research idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted to the aggregation server.",
+          "sentence_index": 0,
+          "similarity_score": 0.175,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "On-device activity recognition",
+              "heading": "ABSTRACT",
+              "text_snippet": "A method comprising: receiving, by one or more processors of a user-wearable computing device, motion data corresponding to movements of the user sensed by one or more motion sensors and generated by the one or more motion sensors; and performing, by the one or more processors, an on-device …",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper mention 'on-device' processing. The paper focuses on 'on-device activity recognition' on a 'user-wearable computing device', which is a specific type of 'on-device' system, creating a partial domain overlap.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "On-device activity recognition",
+              "heading": "【 Š Ë l B ˜ ７ 】",
+              "text_snippet": "R M One N å N processors are installed in a wearable computer with R M computing device. The RM motion data 0ü which is u b by one NåN motion sensor is S×Oá, and the RM motion data 0ü which is u b by one NåN motion sensor is the RM wearable computing device's R Õ In [ þ ̲ Ü ru , Ë l B 1 ÿ ^ 6 e ¹ l Õ .",
+              "similarity": 0.5,
+              "reason": "The paper explicitly discusses 'wearable computer with R M computing device' and 'on-device' processing, which aligns with the 'on-device' aspect of the user's idea, although the specific application (federated learning vs. activity recognition) differs.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "On-device activity recognition",
+              "heading": "【 Š Ë l B ˜ ９ 】",
+              "text_snippet": "If we consider T + one N å N processor with memory and one N å N processor, R M one N å N processor is a w å by one N å N module sensor. At the same time, R M 1 N å N À ü motion sensor u b u b 0 ü motion data S×Oá, ] î R privacy 0 ü 1 N å N new 0 ü u (put it)",
+              "similarity": 0.25,
+              "reason": "The paper mentions 'processor' and 'new neural network', which broadly relates to the 'neuromorphic chip' and 'federated learning' aspects of the user's idea, as both involve neural computation on a processor. However, the specific type of chip (neuromorphic) and learning paradigm (federated, analog domain, spike-encoded gradients) are distinct.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_overlap": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14164,
+      "processing_time": 0.0,
+      "literature_source": "google_patents",
+      "literature_source_id": "patent/JP7691334B2/en"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 69,
+    "global_similarity_score": 0.4505,
+    "label": "medium",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted to the aggregation server.",
+        "originality_score": 0.25,
+        "similarity_score": 0.75,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+            "heading": "发明内容",
+            "text_snippet": "[Translated from CJK] [0007] The federated learning cloud is partially replaced by a group of end users (end users) who use applications through which they collect data, train, calculate and evaluate data stored in the devices on which these applications run. No data leaves the device on which it is stored and calculated. The device later joins the data globally by sending 'derived insights' (technically a bunch of tensors) to the computing cloud, where all these derived insights are averaged. Devices then receive updated matrices from the computing cloud that can improve the local predictions of these devices. Improved local predictions Derived insights are again improved as updates. With federated learning, edge devices can send potentially de-identified updates to the model without having to bear the burden of sending the entire raw data in order to update the model. Therefore, joint learning greatly reduces the hidden",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper address the problem of performing federated learning on edge devices and transmitting updates to a central server. The paper focuses on privacy and efficiency by sending 'derived insights' (tensors/gradients) instead of raw data, which aligns with the user's goal of transmitting 'gradient summaries'.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_03",
+            "paper_title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+            "heading": "Description",
+            "text_snippet": "Embodiments of this presentation relate to an all memristor neuromorphic MAC accelerator that can be entirely analog, which can employ nonvolatile passive memristor synapses for row - to - column coupling, and spik ing active - memristor neurons for generating input and out put signals. Embodiments of this presentation naturally utilize a spike domain data representation analogous to mammal brains. Embodiments of this presentation employ a fully analog neuromorphic architecture and a spike - domain data representation for in - memory MAC acceleration.",
+            "similarity": 1.0,
+            "reason": "The user's idea proposes a 'hardware-software co-design for on-device federated learning where a custom neuromorphic chip tile performs local gradient computation in the analog domain, and only digital spike-encoded gradient summaries are transmitted'. The paper describes an 'all memristor neuromorphic MAC accelerator that can be entirely analog' and utilizes a 'spike domain data representation' for 'in-memory MAC acceleration', showing strong methodological overlap in the use of analog neuromorphic hardware and spike encoding.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+            "heading": "背景技术",
+            "text_snippet": "[Translated from CJK] [0003] The period from 2013 to 2016 was the era of renewed interest in machine learning technology, followed by the era of deep learning technology, spanning 2016 to 2019. 2019 leads us to the next in-depth research into intelligent and/or neuromorphic computing, namely federated learning technology.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper discuss federated learning technology, indicating a strong overlap in the general domain.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+            "heading": "发明内容",
+            "text_snippet": "[Translated from CJK] [0007] The federated learning cloud is partially replaced by a group of end users (end users) who use applications through which they collect data, train, calculate and evaluate data stored in the devices on which these applications run. No data leaves the device on which it is stored and calculated. The device later joins the data globally by sending 'derived insights' (technically a bunch of tensors) to the computing cloud, where all these derived insights are averaged. Devices then receive updated matrices from the computing cloud that can improve the local predictions of these devices. Improved local predictions Derived insights are again improved as updates. With federated learning, edge devices can send potentially de-identified updates to the model without having to bear the burden of sending the entire raw data in order to update the model. Therefore, joint learning greatly reduces the hidden",
+            "similarity": 0.5,
+            "reason": "The paper's contribution of reducing privacy issues by sending 'encrypted, scrambled data gradient' from devices in federated learning is related to the user's idea of transmitting 'digital spike-encoded gradient summaries' to an aggregation server. Both aim to enable federated learning while managing data transmission from devices.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research shows moderate originality, with some overlap in problem formulation and domain. To enhance originality, consider further differentiating your problem's specific context or the unique aspects of your application domain.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.42,
+      "method_similarity": 0.38,
+      "domain_overlap": 0.43999999999999995,
+      "contribution_similarity": 0.4
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.04,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0378,
+        "layer2": 0.0002,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.002,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 342.55011463165283,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "Deep Neural Network Optimization System for Machine Learning Model Scaling",
+        "paper_similarity": 0.325,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "google_patents"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Joint learning model system and method, apparatus, and computer-readable …",
+        "paper_similarity": 0.44999999999999996,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.25,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "google_patents"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Transistorless all-memristor neuromorphic circuits for in-memory computing",
+        "paper_similarity": 0.5,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "google_patents"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Model-assisted deep reinforcement learning based scheduling in wireless …",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_overlap": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "google_patents"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "On-device activity recognition",
+        "paper_similarity": 0.4,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "google_patents"
+      }
+    ]
+  },
+  "selected_sources": [
+    "google_patents"
+  ],
+  "source_results": {
+    "google_patents": 101
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "google_patents"
+    ],
+    "source_results": {
+      "google_patents": 101
+    },
+    "total_papers_fetched": 101,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.801980198019802,
+    "llm_selection_rate": 0.75
+  }
+}
