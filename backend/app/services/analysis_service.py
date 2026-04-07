@@ -31,7 +31,7 @@ class AnalysisService:
     def _get_retriever(cls, job_id: str):
         """Helper to get ChromaStore and Retriever, cached per job."""
         if job_id not in cls._retriever_cache:
-            store = ChromaStore()
+            store = ChromaStore(collection_name=f"paper_chunks_{job_id}")
             cls._retriever_cache[job_id] = (store, Retriever(store))
         return cls._retriever_cache[job_id]
 

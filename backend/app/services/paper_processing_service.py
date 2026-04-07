@@ -33,7 +33,7 @@ class PaperProcessingService:
         update_progress(job_id, "Processing PDFs in parallel...", 0.56)
         cls._pdf_processor.process_papers_parallel(
             job.state.selected_papers,
-            max_workers=min(5, num_papers)
+            max_workers=1  # >1 causes MPS heap corruption on Apple Silicon (docling thread safety)
         )
 
         # Check for patent translation warnings and notify user
