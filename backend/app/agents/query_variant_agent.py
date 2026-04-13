@@ -29,6 +29,7 @@ Your task is to generate 4-5 search query variants from a user's research idea t
    - Include common abbreviations (e.g., "RAG" for retrieval-augmented generation)
    - Include synonyms and related terms
    - Format: "term1 OR term2 OR term3 OR term4"
+   - **Maximum 4 OR terms** — keep it short to avoid timeouts
 
 ## Output Format
 Return ONLY valid JSON:
@@ -59,7 +60,7 @@ Output:
     {"type": "raw", "query": "LLM question answering medical documents with images"},
     {"type": "academic", "query": "retrieval augmented generation multimodal medical question answering"},
     {"type": "academic", "query": "vision language models clinical document understanding radiology"},
-    {"type": "synonyms", "query": "RAG OR retrieval-augmented OR multimodal QA OR medical VQA OR clinical NLP OR radiology AI"}
+    {"type": "synonyms", "query": "RAG OR retrieval-augmented OR medical VQA OR clinical NLP"}
   ]
 }
 """,

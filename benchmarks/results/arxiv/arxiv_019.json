@@ -1,0 +1,980 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "afcc7b4c1d29",
+    "status": "completed"
+  },
+  "originality_score": 12,
+  "global_similarity_score": 0.9137500000000001,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_03",
+          "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+          "heading": "Abstract",
+          "text_snippet": "This paper presents VLAI, a transformer-based model that predicts software vulnerability severity levels directly from text descriptions.",
+          "similarity": 0.75,
+          "reason": "The user's idea aims to classify vulnerability severity, which directly aligns with the paper's problem of predicting software vulnerability severity levels from text descriptions.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+          "heading": "Abstract",
+          "text_snippet": "This paper presents a novel Vulnerability Report Classifier that leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports from the National Vulnerability Database (NVD).",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper propose using BERT for vulnerability classification. The paper specifies multi-label classification of CVE reports, while the user specifies fine-tuning BERT on security forum text and CVE descriptions.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+          "heading": "Abstract",
+          "text_snippet": "The rapid increase in cybersecurity vulnerabilities necessitates automated tools for analyzing and classifying vulnerability reports. This paper presents a novel Vulnerability Report Classifier that leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports from the National Vulnerability Database (NVD).",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are explicitly focused on cybersecurity, specifically the analysis and classification of vulnerability reports, including CVE descriptions.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_03",
+          "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+          "heading": "Abstract",
+          "text_snippet": "This paper presents VLAI, a transformer-based model that predicts software vulnerability severity levels directly from text descriptions. Built on RoBERTa, VLAI is fine-tuned on over 600,000 real-world vulnerabilities and achieves over 82% accuracy in predicting severity categories, enabling faster and more consistent triage ahead of manual CVSS scoring.",
+          "similarity": 0.75,
+          "reason": "The paper's contribution of automatically classifying vulnerability severity from text descriptions is a direct overlap with the user's proposed contribution. The user also adds 'extract affected software components' which is a distinct, but related, additional contribution.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea shows very low originality, with significant overlap in problem, domain, and contribution across all analyzed papers, particularly in automated vulnerability analysis using BERT-based models. To improve originality, consider exploring a novel application domain or a fundamentally different methodological approach to vulnerability characterization.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.92,
+    "method_similarity": 0.6699999999999999,
+    "domain_overlap": 1.0,
+    "contribution_similarity": 0.94
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0823,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.08,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0021,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 336.2406542301178,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2503.20831v1",
+      "arxiv_id": "2503.20831v1",
+      "title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+      "abstract": "The rapid increase in cybersecurity vulnerabilities necessitates automated tools for analyzing and classifying vulnerability reports. This paper presents a novel Vulnerability Report Classifier that leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports from the National Vulnerability Database (NVD). The classifier predicts both the severity (Low, Medium, High, Critical) and vulnerability types (e.g., Buffer Overflow, XSS) from textual descriptions. We introduce a custom training pipeline using a combined loss function-Cross-Entropy for severity and Binary Cross-Entropy with Logits for types-integrated into a Hugging Face Trainer subclass. Experiments on recent NVD data demonstrate promising results, with decreasing evaluation loss across epochs. The system is deployed via a REST API and a Streamlit UI, enabling real-time vulnerability analysis. This work contributes a scalable, open-source solution for cybersecurity practitioners to automate vulnerability triage.",
+      "url": "http://arxiv.org/abs/2503.20831v1",
+      "pdf_url": "http://arxiv.org/pdf/2503.20831v1",
+      "authors": [],
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper addresses the problem of automatically classifying vulnerability severity and vulnerability types from unstructured bug reports (CVE reports), which is very similar to the user's idea of classifying vulnerability severity and extracting affected software components from unstructured bug reports. Both leverage BERT for this task. The primary difference is the paper's focus on 'vulnerability types' (e.g., Buffer Overflow, XSS) versus the user's 'affected software components' for extraction, and the paper's specific training data (NVD CVE descriptions) versus the user's broader 'security forum text and CVE descriptions'. | Method: Both the user's idea and the paper propose using BERT fine-tuned for classifying vulnerability severity from unstructured text. The paper explicitly states it 'leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports' and 'predicts both the severity (Low, Medium, High, Critical) and vulnerability types'. The primary difference is the user's idea specifies 'security forum text and CVE descriptions' as training data, while the paper uses 'CVE reports from the National Vulnerability Database (NVD)' and 'CWE identifiers' for types, and also extracts 'affected software components' which the paper does not explicitly mention as an output. | Domain: Both the user's idea and the paper operate within the cybersecurity domain, specifically focusing on vulnerability analysis. The paper explicitly states its application to 'Vulnerability Classification' and 'automating vulnerability triage' using 'CVE reports from the National Vulnerability Database (NVD)', which directly aligns with the user's goal of classifying vulnerability severity and extracting information from 'unstructured bug reports' (CVE descriptions). | Contribution: The paper's core contribution is a 'Vulnerability Report Classifier that leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports' and 'predicts both the severity (Low, Medium, High, Critical) and vulnerability types (e.g., Buffer Overflow, XSS) from textual descriptions.' This directly matches the user's idea of 'Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports,' with the paper demonstrating the classification of severity and types from CVE descriptions, which is a key part of extracting affected software components.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2108.06590v1",
+      "arxiv_id": "2108.06590v1",
+      "title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+      "abstract": "Public security vulnerability reports (e.g., CVE reports) play an important role in the maintenance of computer and network systems. Security companies and administrators rely on information from these reports to prioritize tasks on developing and deploying patches to their customers. Since these reports are unstructured texts, automatic information extraction (IE) can help scale up the processing by converting the unstructured reports to structured forms, e.g., software names and versions and vulnerability types. Existing works on automated IE for security vulnerability reports often rely on a large number of labeled training samples. However, creating massive labeled training set is both expensive and time consuming. In this work, for the first time, we propose to investigate this problem where only a small number of labeled training samples are available. In particular, we investigate the performance of fine-tuning several state-of-the-art pre-trained language models on our small training dataset. The results show that with pre-trained language models and carefully tuned hyperparameters, we have reached or slightly outperformed the state-of-the-art system on this task. Consistent with previous two-step process of first fine-tuning on main category and then transfer learning to others as in [7], if otherwise following our proposed approach, the number of required labeled samples substantially decrease in both stages: 90% reduction in fine-tuning from 5758 to 576,and 88.8% reduction in transfer learning with 64 labeled samples per category. Our experiments thus demonstrate the effectiveness of few-sample learning on NER for security vulnerability report. This result opens up multiple research opportunities for few-sample learning for security vulnerability reports, which is discussed in the paper. Code: https://github.com/guanqun-yang/FewVulnerability.",
+      "url": "http://arxiv.org/abs/2108.06590v1",
+      "pdf_url": "http://arxiv.org/pdf/2108.06590v1",
+      "authors": [],
+      "categories": [
+        "cs.CL",
+        "cs.CR",
+        "cs.SE"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.7749999999999999,
+      "reason": "Problem: The user's idea aims to classify vulnerability severity and extract affected software components from unstructured bug reports. The paper addresses the problem of 'automatic information extraction (IE)' from 'unstructured security vulnerability reports (e.g., CVE reports)' to convert them to 'structured forms, e.g., software names and versions and vulnerability types'. While the user explicitly mentions 'vulnerability severity classification' which is not a primary output of the paper's NER task, the core problem of extracting 'affected software components' (software names and versions) from 'unstructured bug reports' (security vulnerability reports/CVE reports) is very similar, differing mainly in the additional task of severity classification and the paper's focus on few-sample learning. | Method: Both the user's idea and the paper propose fine-tuning BERT for information extraction from security vulnerability reports. However, the paper focuses on Named Entity Recognition (NER) for software names and versions using a few-sample learning approach, while the user's idea specifies classifying vulnerability severity and extracting affected software components, implying a broader scope beyond just NER and potentially different output structures or tasks (classification vs. extraction). | Domain: Both the user's research idea and the paper operate within the specific application domain of security vulnerability reports. The paper explicitly states its focus on 'public security vulnerability reports (e.g., CVE reports)' and 'unstructured vulnerability reports' for 'automatic information extraction' of 'software names and versions' (SN and SV), which directly aligns with the user's goal of classifying severity and extracting affected software components from 'unstructured bug reports' using 'CVE descriptions'. | Contribution: The paper's core contribution is investigating 'few-sample named entity recognition (NER) for public security vulnerability reports' by 'leveraging fine-tuning of three pre-trained language models (BERT, RoBERTa, Electra)' to 'match the performance of prior art with much less labeled training data' for extracting 'software names and software versions'. This directly aligns with the user's idea of 'Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports', as the paper explicitly uses CVE data and extracts software names and versions, which are 'affected software components'.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "2507.03607v1",
+      "arxiv_id": "2507.03607v1",
+      "title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+      "abstract": "This paper presents VLAI, a transformer-based model that predicts software vulnerability severity levels directly from text descriptions. Built on RoBERTa, VLAI is fine-tuned on over 600,000 real-world vulnerabilities and achieves over 82% accuracy in predicting severity categories, enabling faster and more consistent triage ahead of manual CVSS scoring. The model and dataset are open-source and integrated into the Vulnerability-Lookup service.",
+      "url": "http://arxiv.org/abs/2507.03607v1",
+      "pdf_url": "http://arxiv.org/pdf/2507.03607v1",
+      "authors": [],
+      "categories": [
+        "cs.CR"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.725,
+      "reason": "Problem: The paper addresses the problem of \"predicting software vulnerability severity levels directly from text descriptions,\" which is very similar to the user's idea of \"automatically classify vulnerability severity...from unstructured bug reports.\" Both aim to classify severity from text. The paper differs by not explicitly mentioning the extraction of affected software components, which is part of the user's idea. | Method: Both the user's idea and the paper propose using a transformer-based model (BERT vs. RoBERTa) fine-tuned on vulnerability text to classify severity. However, the paper's method focuses solely on severity classification and does not include the extraction of affected software components, which is a distinct task in the user's idea. The paper also uses a different dataset composition and training pipeline, though both leverage large-scale vulnerability descriptions. | Domain: The user's idea focuses on classifying vulnerability severity and extracting affected software components from bug reports using BERT fine-tuned on security forum text and CVE descriptions. The paper presents VLAI, a RoBERTa-based model (a BERT variant) that predicts software vulnerability severity levels directly from text descriptions, fine-tuned on real-world vulnerabilities and integrated into a vulnerability lookup service. Both the user's idea and the paper are in the same specific application area (vulnerability severity classification), use similar data types (text descriptions of vulnerabilities), and target the same problem (automating assessment from unstructured text). | Contribution: The paper's primary contribution is a RoBERTa-based model (VLAI) for automated vulnerability severity classification from text descriptions, which directly overlaps with the user's idea of 'automatically classify vulnerability severity' using a BERT-based model. The paper also mentions 'associated CPEs (affected product identifiers)' in its dataset generation, which is related to the user's idea of 'extract affected software components', although the paper does not explicitly claim this as a contribution or provide results for it.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2309.03040v1",
+      "arxiv_id": "2309.03040v1",
+      "title": "Automated CVE Analysis for Threat Prioritization and Impact Prediction",
+      "abstract": "The Common Vulnerabilities and Exposures (CVE) are pivotal information for proactive cybersecurity measures, including service patching, security hardening, and more. However, CVEs typically offer low-level, product-oriented descriptions of publicly disclosed cybersecurity vulnerabilities, often lacking the essential attack semantic information required for comprehensive weakness characterization and threat impact estimation. This critical insight is essential for CVE prioritization and the identification of potential countermeasures, particularly when dealing with a large number of CVEs. Current industry practices involve manual evaluation of CVEs to assess their attack severities using the Common Vulnerability Scoring System (CVSS) and mapping them to Common Weakness Enumeration (CWE) for potential mitigation identification. Unfortunately, this manual analysis presents a major bottleneck in the vulnerability analysis process, leading to slowdowns in proactive cybersecurity efforts and the potential for inaccuracies due to human errors. In this research, we introduce our novel predictive model and tool (called CVEDrill) which revolutionizes CVE analysis and threat prioritization. CVEDrill accurately estimates the CVSS vector for precise threat mitigation and priority ranking and seamlessly automates the classification of CVEs into the appropriate CWE hierarchy classes. By harnessing CVEDrill, organizations can now implement cybersecurity countermeasure mitigation with unparalleled accuracy and timeliness, surpassing in this domain the capabilities of state-of-the-art tools like ChaptGPT.",
+      "url": "http://arxiv.org/abs/2309.03040v1",
+      "pdf_url": "http://arxiv.org/pdf/2309.03040v1",
+      "authors": [],
+      "categories": [
+        "cs.CR",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea is to classify vulnerability severity and extract affected software components from unstructured bug reports using BERT. The paper addresses the problem of automating CVE analysis for threat prioritization and impact prediction, which involves estimating CVSS vectors (vulnerability severity) and classifying CVEs into CWE hierarchy classes (related to affected components/weaknesses) from unstructured CVE descriptions. Both the user's idea and the paper aim to automate the classification of vulnerability severity and extraction of related information from unstructured text, using similar methodologies (BERT fine-tuning on security-related text). | Method: The paper's method uses SecureBERT, a domain-specific language model built on RoBERTa (a derivative of BERT), fine-tuned for cybersecurity tasks, and incorporates a TF-IDF module to address imbalanced data for CVSS prediction and hierarchical CWE classification. While both the user's idea and the paper utilize BERT fine-tuning and CVE descriptions for classification, the paper's specific use of SecureBERT, its integration of TF-IDF, and its hierarchical classification approach for CWEs introduce meaningful differences in design and components compared to a general BERT fine-tuning on security forum text and CVE descriptions. | Domain: The paper's application domain is highly similar to the user's research idea. Both focus on cybersecurity, specifically the automated classification of vulnerability severity (CVSS prediction) and the extraction of affected software components (CWE classification) from unstructured text descriptions of vulnerabilities (CVEs). The paper explicitly states its goal to \"automate the predicting the core metrics composing the CVSS scores, and classification to CWE for any new and unexplored CVE solely by analyzing its unstructured text description,\" which directly aligns with the user's idea. | Contribution: The paper's contributions directly align with the user's research idea. The paper introduces 'CVEDrill' which 'revolutionizes CVE analysis and threat prioritization' by 'accurately estimat[ing] the CVSS vector' and 'seamlessly automat[ing] the classification of CVEs into the appropriate CWE hierarchy classes' using a 'domain-specific language model' called SecureBERT, which is 'built on top of the RoBERTa [11], a derivative of BERT, which has been retrained on a large number of cy[bersecurity data].' This directly matches the user's proposal of 'Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.'",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "1909.13693v1",
+      "arxiv_id": "1909.13693v1",
+      "title": "Automated Characterization of Software Vulnerabilities",
+      "abstract": "Preventing vulnerability exploits is a critical software maintenance task, and software engineers often rely on Common Vulnerability and Exposure (CVEs) reports for information about vulnerable systems and libraries. These reports include descriptions, disclosure sources, and manually-populated vulnerability characteristics such as root cause from the NIST Vulnerability Description Ontology (VDO). This information needs to be complete and accurate so stakeholders of affected products can prevent and react to exploits of the reported vulnerabilities. However, characterizing each report requires significant time and expertise which can lead to inaccurate or incomplete reports. This directly impacts stakeholders ability to quickly and correctly maintain their affected systems. In this study, we demonstrate that VDO characteristics can be automatically detected from the textual descriptions included in CVE reports. We evaluated the performance of 6 classification algorithms with a dataset of 365 vulnerability descriptions, each mapped to 1 of 19 characteristics from the VDO. This work demonstrates that it is feasible to train classification techniques to accurately characterize vulnerabilities from their descriptions. All 6 classifiers evaluated produced accurate results, and the Support Vector Machine classifier was the best-performing individual classifier. Automating the vulnerability characterization process is a step towards ensuring stakeholders have the necessary data to effectively maintain their systems.",
+      "url": "http://arxiv.org/abs/1909.13693v1",
+      "pdf_url": "http://arxiv.org/pdf/1909.13693v1",
+      "authors": [],
+      "categories": [
+        "cs.SE"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The paper addresses the problem of automatically characterizing software vulnerabilities from textual descriptions in CVE reports, which is very similar to the user's idea of classifying vulnerability severity and extracting affected software components from unstructured bug reports using BERT fine-tuned on security forum text and CVE descriptions. Both aim to extract structured information from unstructured vulnerability text, differing mainly in the specific types of information extracted (VDO characteristics vs. severity/affected components) and the specific NLP models used. | Method: Both the user's idea and the paper utilize text classification for vulnerability analysis. The paper uses traditional machine learning classifiers (SVM, Naive Bayes, Decision Tree, Random Forest, AdaBoost-SVM, Majority Vote) with TF-IDF features on CVE descriptions to classify VDO characteristics. The user's idea proposes fine-tuning BERT, a transformer-based deep learning model, on a broader dataset including security forum text and CVE descriptions, for different tasks (severity classification and component extraction), indicating a meaningful difference in the core model and data sources. | Domain: Both the user's idea and the paper operate within the domain of software vulnerability analysis, specifically focusing on classifying vulnerability characteristics from textual descriptions. The paper explicitly states its goal is to \"automatically detect VDO characteristics from the textual descriptions included in CVE reports,\" which directly aligns with the user's idea of classifying vulnerability severity and extracting affected software components from unstructured bug reports (CVE descriptions being a primary source for such reports). | Contribution: The paper focuses on automatically classifying vulnerability characteristics from CVE descriptions using various classification algorithms (SVM, Majority Vote) and the NIST VDO. The user's idea also involves classifying vulnerability severity and extracting affected software components from unstructured bug reports, which partially overlaps with the paper's goal of characterizing vulnerabilities from CVEs. However, the user's idea specifies using BERT fine-tuned on security forum text and CVE descriptions, and explicitly mentions 'extracting affected software components' and 'vulnerability severity' as specific outputs, which are not directly claimed as contributions or demonstrated results in the paper beyond general 'characterization'.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Vulnerability Management Platforms (e.g., Tenable, Qualys, Rapid7)",
+        "similarity": 0.6,
+        "description": "These platforms ingest vulnerability data, including CVEs, and often use various techniques to classify severity and identify affected assets, though their primary input is often structured scan data rather than unstructured bug reports. They do perform severity classification and asset mapping."
+      },
+      {
+        "name": "Natural Language Processing (NLP) for Vulnerability Analysis Research",
+        "similarity": 0.8,
+        "description": "Numerous research papers and projects have explored using NLP, including BERT and its variants, for tasks like vulnerability detection, severity prediction, and information extraction from security texts (e.g., bug reports, security advisories, CVEs). Examples include works by researchers like Meng et al., Li et al., and others focusing on automated vulnerability assessment using ML/NLP."
+      },
+      {
+        "name": "CVE-BERT (research project)",
+        "similarity": 0.9,
+        "description": "Specific research projects have already fine-tuned BERT on CVE descriptions and related security texts for tasks like vulnerability type classification, severity prediction, and even generating CVE descriptions. While not a commercial product, the core methodology of fine-tuning BERT on security data for classification and extraction is a known research area."
+      },
+      {
+        "name": "Security Information and Event Management (SIEM) / Security Orchestration, Automation and Response (SOAR) platforms",
+        "similarity": 0.5,
+        "description": "While not directly focused on unstructured bug reports, these platforms often use NLP and machine learning to process security logs, alerts, and threat intelligence to identify threats and classify their severity, which shares conceptual similarities with classifying vulnerability severity."
+      }
+    ],
+    "assessment": "The core idea of using BERT, fine-tuned on security-specific text (like forum discussions and CVEs), to automatically classify vulnerability severity and extract affected software components from unstructured bug reports is a well-established and actively researched area within cybersecurity and NLP. Many academic papers and some commercial tools (though perhaps not with this exact BERT-centric approach for unstructured bug reports) already tackle parts or all of this problem. The novelty would lie in the specific implementation, the quality of the fine-tuning data, and the performance achieved, rather than the fundamental concept itself.",
+    "novelty_aspects": [
+      "Specific dataset used for fine-tuning (e.g., a unique collection of security forum text and bug reports)",
+      "Novel architecture or combination of BERT with other models for improved performance",
+      "Integration into a specific workflow or product that addresses a niche not fully covered by existing solutions",
+      "Achieving significantly higher accuracy or efficiency than current state-of-the-art methods"
+    ],
+    "recommendation": "While the general concept is not novel, there is still room for innovation. Focus on demonstrating superior performance (accuracy, speed, robustness) compared to existing research and tools. Consider a very specific niche of bug reports (e.g., for a particular software ecosystem) or a unique combination of NLP techniques that yields a tangible advantage. Clearly articulate what makes your approach better or different from existing solutions and research."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Vulnerability Management Platforms (e.g., Tenable, Qualys, Rapid7)** (similarity: 60%).\n\n*The core idea of using BERT, fine-tuned on security-specific text (like forum discussions and CVEs), to automatically classify vulnerability severity and extract affected software components from unstructured bug reports is a well-established and actively researched area within cybersecurity and NLP. Many academic papers and some commercial tools (though perhaps not with this exact BERT-centric approach for unstructured bug reports) already tackle parts or all of this problem. The novelty would lie in the specific implementation, the quality of the fine-tuning data, and the performance achieved, rather than the fundamental concept itself.*\n\n**Recommendation:** While the general concept is not novel, there is still room for innovation. Focus on demonstrating superior performance (accuracy, speed, robustness) compared to existing research and tools. Consider a very specific niche of bug reports (e.g., for a particular software ecosystem) or a unique combination of NLP techniques that yields a tangible advantage. Clearly articulate what makes your approach better or different from existing solutions and research.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 125,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 517,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0823,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.08,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0021,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.",
+  "enriched_idea": "RESEARCH IDEA:\nUsing BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+      "arxiv_id": "2503.20831v1",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper addresses the problem of automatically classifying vulnerability severity and vulnerability types from unstructured bug reports (CVE reports), which is very similar to the user's idea of classifying vulnerability severity and extracting affected software components from unstructured bug reports. Both leverage BERT for this task. The primary difference is the paper's focus on 'vulnerability types' (e.g., Buffer Overflow, XSS) versus the user's 'affected software components' for extraction, and the paper's specific training data (NVD CVE descriptions) versus the user's broader 'security forum text and CVE descriptions'. | Method: Both the user's idea and the paper propose using BERT fine-tuned for classifying vulnerability severity from unstructured text. The paper explicitly states it 'leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports' and 'predicts both the severity (Low, Medium, High, Critical) and vulnerability types'. The primary difference is the user's idea specifies 'security forum text and CVE descriptions' as training data, while the paper uses 'CVE reports from the National Vulnerability Database (NVD)' and 'CWE identifiers' for types, and also extracts 'affected software components' which the paper does not explicitly mention as an output. | Domain: Both the user's idea and the paper operate within the cybersecurity domain, specifically focusing on vulnerability analysis. The paper explicitly states its application to 'Vulnerability Classification' and 'automating vulnerability triage' using 'CVE reports from the National Vulnerability Database (NVD)', which directly aligns with the user's goal of classifying vulnerability severity and extracting information from 'unstructured bug reports' (CVE descriptions). | Contribution: The paper's core contribution is a 'Vulnerability Report Classifier that leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports' and 'predicts both the severity (Low, Medium, High, Critical) and vulnerability types (e.g., Buffer Overflow, XSS) from textual descriptions.' This directly matches the user's idea of 'Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports,' with the paper demonstrating the classification of severity and types from CVE descriptions, which is a key part of extracting affected software components.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+              "heading": "Abstract",
+              "text_snippet": "The classifier predicts both the severity (Low, Medium, High, Critical) and vulnerability types (e.g., Buffer Overflow, XSS) from textual descriptions.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to classify vulnerability severity from textual descriptions. The user's idea also includes extracting affected software components, which is a related but distinct task from the paper's focus on vulnerability types.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+              "heading": "INTRODUCTION",
+              "text_snippet": "This enables it to simultaneously determine a vulnerability's severity-categorized as Low , Medium , High , or Critical -and identify multiple applicable vulnerability types, such as Buffer Overflow , CrossSite Scripting , or Remote Code Execution , from a single textual description.",
+              "similarity": 0.5,
+              "reason": "The paper explicitly states its goal of simultaneously determining vulnerability severity and identifying multiple vulnerability types from textual descriptions, which aligns with the user's goal of classifying severity and extracting components from unstructured bug reports.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+              "heading": "Abstract",
+              "text_snippet": "This paper presents a novel Vulnerability Report Classifier that leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports from the National Vulnerability Database (NVD).",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose using BERT for vulnerability classification. The paper specifies multi-label classification of CVE reports, while the user specifies fine-tuning BERT on security forum text and CVE descriptions.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+              "heading": "Model Architecture",
+              "text_snippet": "The classifier's architecture is built upon the bert-base-uncased model, a transformer-based architecture with 12 layers, 768 hidden units, and 110 million parameters, pre-trained on a large corpus of general text to capture contextual relationships. This base model is adapted for the specific task of vulnerability classification by appending a custom classification head tailored to the dual objectives of severity and type prediction.",
+              "similarity": 0.75,
+              "reason": "Both the user and the paper propose using BERT, specifically fine-tuning it for vulnerability classification. The paper details a custom classification head for dual objectives (severity and type prediction), which is a similar approach to the user's idea of classifying severity and extracting components.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+              "heading": "Abstract",
+              "text_snippet": "The rapid increase in cybersecurity vulnerabilities necessitates automated tools for analyzing and classifying vulnerability reports. This paper presents a novel Vulnerability Report Classifier that leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports from the National Vulnerability Database (NVD).",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly focused on cybersecurity, specifically the analysis and classification of vulnerability reports, including CVE descriptions.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Each year, thousands of new vulnerabilities are identified and cataloged, with repositories like the National Vulnerability Database (NVD) serving as critical resources for tracking these threats. These vulnerabilities, encapsulated in Common Vulnerabilities and Exposures (CVE) reports, vary widely in their potential impact...",
+              "similarity": 1.0,
+              "reason": "The user's idea mentions 'CVE descriptions' and 'unstructured bug reports', which directly aligns with the paper's domain of analyzing 'CVE reports' and 'vulnerabilities' from the 'National Vulnerability Database (NVD)'.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 35688,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2503.20831v1"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+      "arxiv_id": "2108.06590v1",
+      "paper_similarity_score": 0.7749999999999999,
+      "reason": "Problem: The user's idea aims to classify vulnerability severity and extract affected software components from unstructured bug reports. The paper addresses the problem of 'automatic information extraction (IE)' from 'unstructured security vulnerability reports (e.g., CVE reports)' to convert them to 'structured forms, e.g., software names and versions and vulnerability types'. While the user explicitly mentions 'vulnerability severity classification' which is not a primary output of the paper's NER task, the core problem of extracting 'affected software components' (software names and versions) from 'unstructured bug reports' (security vulnerability reports/CVE reports) is very similar, differing mainly in the additional task of severity classification and the paper's focus on few-sample learning. | Method: Both the user's idea and the paper propose fine-tuning BERT for information extraction from security vulnerability reports. However, the paper focuses on Named Entity Recognition (NER) for software names and versions using a few-sample learning approach, while the user's idea specifies classifying vulnerability severity and extracting affected software components, implying a broader scope beyond just NER and potentially different output structures or tasks (classification vs. extraction). | Domain: Both the user's research idea and the paper operate within the specific application domain of security vulnerability reports. The paper explicitly states its focus on 'public security vulnerability reports (e.g., CVE reports)' and 'unstructured vulnerability reports' for 'automatic information extraction' of 'software names and versions' (SN and SV), which directly aligns with the user's goal of classifying severity and extracting affected software components from 'unstructured bug reports' using 'CVE descriptions'. | Contribution: The paper's core contribution is investigating 'few-sample named entity recognition (NER) for public security vulnerability reports' by 'leveraging fine-tuning of three pre-trained language models (BERT, RoBERTa, Electra)' to 'match the performance of prior art with much less labeled training data' for extracting 'software names and software versions'. This directly aligns with the user's idea of 'Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports', as the paper explicitly uses CVE data and extracts software names and versions, which are 'affected software components'.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+              "heading": "Abstract",
+              "text_snippet": "Since these reports are unstructured texts, automatic information extraction (IE) can help scale up the processing by converting the unstructured reports to structured forms, e.g., software names and versions and vulnerability types.",
+              "similarity": 0.5,
+              "reason": "The paper addresses information extraction from unstructured vulnerability reports to convert them into structured forms, which is related to classifying severity and extracting components from unstructured bug reports, though the specific output (severity vs. software names/versions) differs.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+              "heading": "Information Extraction in Public Vulnerability Database",
+              "text_snippet": "Yamamoto et al. try to estimate the severity of vulnerability from the descriptions of CVE reports [43]. They also propose to improve the estimation accuracy by incorporating the relative importance of reports across different years.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions classifying vulnerability severity, which is a problem discussed in the related work section of the paper.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+              "heading": "Named Entity Recognition for Vulnerability Reports",
+              "text_snippet": "In this paper, we focus on the VIEM dataset from [8], which contains 13 categories of vulnerabilities and two types of named entities: software name and software version. That is, the tag set Y is instantiated as { SN , SV , O } , where SN , SV , O refer to software name, software version, and non-entities, respectively.",
+              "similarity": 0.75,
+              "reason": "The paper focuses on extracting 'software name' and 'software version' as named entities from vulnerability reports, which directly aligns with the user's goal of extracting 'affected software components'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+              "heading": "Fine-Tuning Pre-trained Language Models with Hundreds of Training Labels",
+              "text_snippet": "We investigate three models out of all: bert-large-cased , roberta-large , and electra-base-discriminator . BERT was the first pre-trained language model that achieved great performance compared to prior art; RoBERTa and Electra are among the top-ranked language models on the GLUE leaderboard as of Jan 2021 7 . For BERT, we choose the cased version bert-large-cased rather than the uncased counterpart (i.e. bert-large-uncased ) as token casings could be informative for the identification of software names ( SN ).",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions 'Using BERT fine-tuned', and the paper extensively discusses and uses BERT (specifically 'bert-large-cased') as a fine-tuned pre-trained language model for its tasks.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+              "heading": "Fine-Tuning Pre-trained Language Models with Hundreds of Training Labels",
+              "text_snippet": "Fine-Tuning on the memc Category Following the experimental protocol of VIEM system [8], the PLM in our system is first fine-tuned on the vulnerability category of memc (short for 'memory corruption') as, from the statistics of the dataset shown in Table 2, this category suffers less from data imbalance described in section 2; fine-tuning on this category could therefore best help PLMs learn representations specific to computer security domain.",
+              "similarity": 0.75,
+              "reason": "The user proposes 'BERT fine-tuned on security forum text and CVE descriptions'. The paper describes fine-tuning PLMs on a dataset derived from CVE and security forums, specifically mentioning fine-tuning on a vulnerability category to learn representations specific to the computer security domain.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+              "heading": "Abstract",
+              "text_snippet": "Public security vulnerability reports (e.g., CVE reports) play an important role in the maintenance of computer and network systems. Security companies and administrators rely on information from these reports to prioritize tasks on developing and deploying patches to their customers.",
+              "similarity": 1.0,
+              "reason": "The user's idea is explicitly about 'vulnerability severity' and 'bug reports' in the context of 'security', which directly aligns with the paper's focus on 'security vulnerability reports' and 'CVE reports'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+              "heading": "Introduction",
+              "text_snippet": "To allow the tracking and management of security vulnerabilities, people have created public security vulnerability reports and store them in vulnerability databases for reference. For example, the Common Vulnerabilities and Exposures (CVE) database is created and maintained by MITRE 1 ; the National Vulnerability Database (NVD) is another database maintained by the U.S. government.",
+              "similarity": 1.0,
+              "reason": "The user's idea mentions 'security forum text and CVE descriptions' and 'unstructured bug reports', which are precisely the types of data and domain (security vulnerabilities, CVE database) that the paper addresses.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+              "heading": "Datasets",
+              "text_snippet": "We experiment on the VIEM dataset provided by [8]. This dataset is collected from the public vulnerability databases Common Vulnerabilities and Exposure (CVE) and numerous security forums. The goal of this dataset is to identify vulnerable software names and software versions.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states its dataset is collected from 'Common Vulnerabilities and Exposure (CVE) and numerous security forums', which directly matches the user's proposed data sources.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 48559,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2108.06590v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+      "arxiv_id": "2507.03607v1",
+      "paper_similarity_score": 0.725,
+      "reason": "Problem: The paper addresses the problem of \"predicting software vulnerability severity levels directly from text descriptions,\" which is very similar to the user's idea of \"automatically classify vulnerability severity...from unstructured bug reports.\" Both aim to classify severity from text. The paper differs by not explicitly mentioning the extraction of affected software components, which is part of the user's idea. | Method: Both the user's idea and the paper propose using a transformer-based model (BERT vs. RoBERTa) fine-tuned on vulnerability text to classify severity. However, the paper's method focuses solely on severity classification and does not include the extraction of affected software components, which is a distinct task in the user's idea. The paper also uses a different dataset composition and training pipeline, though both leverage large-scale vulnerability descriptions. | Domain: The user's idea focuses on classifying vulnerability severity and extracting affected software components from bug reports using BERT fine-tuned on security forum text and CVE descriptions. The paper presents VLAI, a RoBERTa-based model (a BERT variant) that predicts software vulnerability severity levels directly from text descriptions, fine-tuned on real-world vulnerabilities and integrated into a vulnerability lookup service. Both the user's idea and the paper are in the same specific application area (vulnerability severity classification), use similar data types (text descriptions of vulnerabilities), and target the same problem (automating assessment from unstructured text). | Contribution: The paper's primary contribution is a RoBERTa-based model (VLAI) for automated vulnerability severity classification from text descriptions, which directly overlaps with the user's idea of 'automatically classify vulnerability severity' using a BERT-based model. The paper also mentions 'associated CPEs (affected product identifiers)' in its dataset generation, which is related to the user's idea of 'extract affected software components', although the paper does not explicitly claim this as a contribution or provide results for it.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.",
+          "sentence_index": 0,
+          "similarity_score": 0.7999999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Abstract",
+              "text_snippet": "This paper presents VLAI, a transformer-based model that predicts software vulnerability severity levels directly from text descriptions.",
+              "similarity": 0.75,
+              "reason": "The user's idea aims to classify vulnerability severity, which directly aligns with the paper's problem of predicting software vulnerability severity levels from text descriptions.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Introduction",
+              "text_snippet": "To bridge this gap, we present VLAI (Vulnerability Lookup AI) - an NLP model that predicts a vulnerability's severity directly from its description, before any official score is available.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states its goal is to predict vulnerability severity from descriptions, which is a core part of the user's research idea.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Introduction",
+              "text_snippet": "Our approach leverages a fine-tuned RoBERTa transformer [10] to classify vulnerability descriptions into severity categories, enabling security analysts to obtain an immediate estimated severity (the 'VLAI score') based solely on the description.",
+              "similarity": 0.75,
+              "reason": "The user proposes 'Using BERT fine-tuned' while the paper uses 'fine-tuned RoBERTa transformer' for classification. Both are transformer-based models fine-tuned for a similar task.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Related Work",
+              "text_snippet": "Shahid et al. (2021) [13] used BERT-based classifiers (in a system called CVSS-BERT) to determine the full CVSS vector from a description, and reported that the computed severity scores were very close to the actual scores assigned by human experts.",
+              "similarity": 0.75,
+              "reason": "The paper mentions related work using 'BERT-based classifiers' for severity determination, showing the method is established in the domain and closely related to the user's proposed BERT fine-tuning.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Model and Training",
+              "text_snippet": "The model uses RoBERTa-base [10] with a softmax classification head. Training [1] uses 512-token max sequence length, AdamW optimizer, and 5 epochs. We fine-tune the model using a standard cross-entropy loss on this 4-class classification task.",
+              "similarity": 0.75,
+              "reason": "The paper details fine-tuning a transformer model (RoBERTa) for classification, which is very similar to the user's 'BERT fine-tuned' approach for classification.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Abstract",
+              "text_snippet": "This paper presents VLAI, a transformer-based model that predicts software vulnerability severity levels directly from text descriptions.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper operate within the domain of software vulnerability analysis and classification.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Introduction",
+              "text_snippet": "Thousands of new software vulnerabilities are disclosed every year, often initially with only a brief textual description and without an official severity score. Security experts later analyze these vulnerabilities and assign severity ratings using standards like the Common Vulnerability Scoring System (CVSS).",
+              "similarity": 1.0,
+              "reason": "The paper's context of software vulnerabilities, their descriptions, and severity scoring directly matches the user's domain.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Dataset",
+              "text_snippet": "The CIRCL/vulnerability-scores dataset [4] [11] is a comprehensive collection of vulnerability descriptions and their associated severity scores. It compiles data from multiple respected sources in the security community, providing a rich and diverse training corpus. The current sources are: CVE Program (enriched with data from vulnrichment and Fraunhofer FKIE), GitHub Security Advisories, PySec advisories, CSAF feeds from Red Hat, CISCO and CISA.",
+              "similarity": 1.0,
+              "reason": "The paper's use of CVE Program data and security advisories for training aligns with the user's mention of 'CVE descriptions' and 'unstructured bug reports' (which can be analogous to security advisories).",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Abstract",
+              "text_snippet": "This paper presents VLAI, a transformer-based model that predicts software vulnerability severity levels directly from text descriptions. Built on RoBERTa, VLAI is fine-tuned on over 600,000 real-world vulnerabilities and achieves over 82% accuracy in predicting severity categories, enabling faster and more consistent triage ahead of manual CVSS scoring.",
+              "similarity": 0.75,
+              "reason": "The paper's contribution of automatically classifying vulnerability severity from text descriptions is a direct overlap with the user's proposed contribution. The user also adds 'extract affected software components' which is a distinct, but related, additional contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+              "heading": "Conclusion",
+              "text_snippet": "We have presented the design and implementation of VLAI, an automated vulnerability severity scoring model built on NLP techniques. By fine-tuning a RoBERTa transformer on a large, up-to-date dataset of vulnerability descriptions and scores, we achieved accurate classification of vulnerabilities into standard severity categories.",
+              "similarity": 0.75,
+              "reason": "The paper's conclusion reiterates the achievement of accurate classification of vulnerability severity, which is a primary goal of the user's idea.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 25991,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2507.03607v1"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Automated CVE Analysis for Threat Prioritization and Impact Prediction",
+      "arxiv_id": "2309.03040v1",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea is to classify vulnerability severity and extract affected software components from unstructured bug reports using BERT. The paper addresses the problem of automating CVE analysis for threat prioritization and impact prediction, which involves estimating CVSS vectors (vulnerability severity) and classifying CVEs into CWE hierarchy classes (related to affected components/weaknesses) from unstructured CVE descriptions. Both the user's idea and the paper aim to automate the classification of vulnerability severity and extraction of related information from unstructured text, using similar methodologies (BERT fine-tuning on security-related text). | Method: The paper's method uses SecureBERT, a domain-specific language model built on RoBERTa (a derivative of BERT), fine-tuned for cybersecurity tasks, and incorporates a TF-IDF module to address imbalanced data for CVSS prediction and hierarchical CWE classification. While both the user's idea and the paper utilize BERT fine-tuning and CVE descriptions for classification, the paper's specific use of SecureBERT, its integration of TF-IDF, and its hierarchical classification approach for CWEs introduce meaningful differences in design and components compared to a general BERT fine-tuning on security forum text and CVE descriptions. | Domain: The paper's application domain is highly similar to the user's research idea. Both focus on cybersecurity, specifically the automated classification of vulnerability severity (CVSS prediction) and the extraction of affected software components (CWE classification) from unstructured text descriptions of vulnerabilities (CVEs). The paper explicitly states its goal to \"automate the predicting the core metrics composing the CVSS scores, and classification to CWE for any new and unexplored CVE solely by analyzing its unstructured text description,\" which directly aligns with the user's idea. | Contribution: The paper's contributions directly align with the user's research idea. The paper introduces 'CVEDrill' which 'revolutionizes CVE analysis and threat prioritization' by 'accurately estimat[ing] the CVSS vector' and 'seamlessly automat[ing] the classification of CVEs into the appropriate CWE hierarchy classes' using a 'domain-specific language model' called SecureBERT, which is 'built on top of the RoBERTa [11], a derivative of BERT, which has been retrained on a large number of cy[bersecurity data].' This directly matches the user's proposal of 'Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.'",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Automated CVE Analysis for Threat Prioritization and Impact Prediction",
+              "heading": "SecureBERT: A Domain-Specific Language Model",
+              "text_snippet": "BERT(Bidirectional Encoder Representations from Transformers) [8] is a transformer-based neural network technique for natural language processing pre-training. BERT allows the language model to learn word context based on surrounding words rather than just the word that immediately precedes or follows it. SecureBERT [3] is a cybersecurity domain-specific language model built on top of the RoBERTa [11], a derivative of BERT, which has been retrained on a large number of cy",
+              "similarity": 0.75,
+              "reason": "The user proposes 'Using BERT fine-tuned on security forum text and CVE descriptions', and the paper discusses 'SecureBERT', a BERT derivative retrained on cybersecurity data, indicating a very similar foundational method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Automated CVE Analysis for Threat Prioritization and Impact Prediction",
+              "heading": "Methodology",
+              "text_snippet": "We incorporated the pre-trained SecureBERT model [3] as the foundational framework, and introduced an additional TF-IDF module to address the issue of imbalanced data. In this architectural design, the CVE description is tokenized using SecureBERT's BPE tokenizer [5], then processed through the transformer layers.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states using a pre-trained SecureBERT model (a BERT derivative) and processing CVE descriptions, which directly aligns with the user's proposed method of using BERT fine-tuned on CVE descriptions.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Automated CVE Analysis for Threat Prioritization and Impact Prediction",
+              "heading": "ABSTRACT",
+              "text_snippet": "The Common Vulnerabilities and Exposures (CVE) are pivotal information for proactive cybersecurity measures, including service patching, security hardening, and more. However, CVEs typically offer low-level, product-oriented descriptions of publicly disclosed cybersecurity vulnerabilities, often lacking the essential attack semantic information required for comprehensive weakness characterization and threat impact estimation.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on analyzing Common Vulnerabilities and Exposures (CVEs) and cybersecurity vulnerabilities.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Automated CVE Analysis for Threat Prioritization and Impact Prediction",
+              "heading": "Introduction",
+              "text_snippet": "The CVE (Common Vulnerabilities and Exposures) system plays a crucial role in the cybersecurity community by facilitating the disclosure and sharing of software and hardware vulnerabilities with the potential for cyberattacks [6]. CVEs provide concise descriptions of vulnerabilities, aiding security professionals in understanding their nature.",
+              "similarity": 1.0,
+              "reason": "The core domain of both the user's idea and the paper is cybersecurity, specifically dealing with CVEs and software vulnerabilities.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Automated CVE Analysis for Threat Prioritization and Impact Prediction",
+              "heading": "SecureBERT: A Domain-Specific Language Model",
+              "text_snippet": "However, certain domains, such as cybersecurity, are indeed highly sensitive, dealing with the processing of critical data and any error in the process may expose the entire infrastructure to cyber threats, and therefore, automated processing of cybersecurity text requires a robust and reliable framework trained on domain-specific corpora.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly discusses the cybersecurity domain and the need for domain-specific models, matching the user's focus on security forum text and CVE descriptions.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 57137,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2309.03040v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "Automated Characterization of Software Vulnerabilities",
+      "arxiv_id": "1909.13693v1",
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The paper addresses the problem of automatically characterizing software vulnerabilities from textual descriptions in CVE reports, which is very similar to the user's idea of classifying vulnerability severity and extracting affected software components from unstructured bug reports using BERT fine-tuned on security forum text and CVE descriptions. Both aim to extract structured information from unstructured vulnerability text, differing mainly in the specific types of information extracted (VDO characteristics vs. severity/affected components) and the specific NLP models used. | Method: Both the user's idea and the paper utilize text classification for vulnerability analysis. The paper uses traditional machine learning classifiers (SVM, Naive Bayes, Decision Tree, Random Forest, AdaBoost-SVM, Majority Vote) with TF-IDF features on CVE descriptions to classify VDO characteristics. The user's idea proposes fine-tuning BERT, a transformer-based deep learning model, on a broader dataset including security forum text and CVE descriptions, for different tasks (severity classification and component extraction), indicating a meaningful difference in the core model and data sources. | Domain: Both the user's idea and the paper operate within the domain of software vulnerability analysis, specifically focusing on classifying vulnerability characteristics from textual descriptions. The paper explicitly states its goal is to \"automatically detect VDO characteristics from the textual descriptions included in CVE reports,\" which directly aligns with the user's idea of classifying vulnerability severity and extracting affected software components from unstructured bug reports (CVE descriptions being a primary source for such reports). | Contribution: The paper focuses on automatically classifying vulnerability characteristics from CVE descriptions using various classification algorithms (SVM, Majority Vote) and the NIST VDO. The user's idea also involves classifying vulnerability severity and extracting affected software components from unstructured bug reports, which partially overlaps with the paper's goal of characterizing vulnerabilities from CVEs. However, the user's idea specifies using BERT fine-tuned on security forum text and CVE descriptions, and explicitly mentions 'extracting affected software components' and 'vulnerability severity' as specific outputs, which are not directly claimed as contributions or demonstrated results in the paper beyond general 'characterization'.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.",
+          "sentence_index": 0,
+          "similarity_score": 0.6,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Automated Characterization of Software Vulnerabilities",
+              "heading": "Abstract",
+              "text_snippet": "In this study, we demonstrate that VDO characteristics can be automatically detected from the textual descriptions included in CVE reports. This work demonstrates that it is feasible to train classification techniques to accurately characterize vulnerabilities from their descriptions.",
+              "similarity": 0.5,
+              "reason": "The paper focuses on automatically characterizing vulnerabilities from CVE descriptions, which is related to classifying vulnerability severity and extracting affected components from bug reports. Both aim to automate information extraction from unstructured text related to vulnerabilities.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Automated Characterization of Software Vulnerabilities",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Characterizing software vulnerabilities is a critical step in identifying the root cause of the vulnerability, understanding its consequences, attack mechanisms and appropriate mitigation techniques. A vulnerability characterization is an important property for making informed decisions to fix or mitigate the vulnerability.",
+              "similarity": 0.5,
+              "reason": "The paper discusses the importance of characterizing vulnerabilities to understand their consequences and mitigation, which aligns with the user's goal of classifying severity and extracting affected components to address bug reports.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Automated Characterization of Software Vulnerabilities",
+              "heading": "AUTOMATED CHARACTERIZATION OF VULNERABILITY REPORTS",
+              "text_snippet": "Towards the goal of automating the vulnerability characterization process, we developed an approach that applies natural language processing (NLP), information retrieval (IR), and supervised machine learning techniques to train a classifier to analyze CVE reports and automatically infer their VDO characteristics.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper propose using NLP and supervised machine learning (classification) on vulnerability-related text (CVE descriptions, bug reports) to automate characterization/classification tasks. The user specifies BERT, while the paper uses other classification algorithms.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Automated Characterization of Software Vulnerabilities",
+              "heading": "Training Data Preparation",
+              "text_snippet": "Before the training data can be provided as input to the classification algorithms, it must be pre-processed . This is a necessary step in the natural language processing (NLP) data pipeline which cleans the text data and converts it to a numerical representation for use in classic machine learning algorithms.",
+              "similarity": 0.5,
+              "reason": "Both approaches involve natural language processing (NLP) and machine learning for text classification. The paper details preprocessing steps for text data before classification, which is a common component of such methods, including those using BERT.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Automated Characterization of Software Vulnerabilities",
+              "heading": "Abstract",
+              "text_snippet": "Preventing vulnerability exploits is a critical software maintenance task, and software engineers often rely on Common Vulnerability and Exposure (CVEs) reports for information about vulnerable systems and libraries.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper operate within the domain of software vulnerabilities, specifically using CVE descriptions and bug reports to understand and classify vulnerability information.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Automated Characterization of Software Vulnerabilities",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The standardized source for vulnerability data are Common Vulnerability and Exposure (CVE) reports, stored in the online and publicly available National Vulnerability Database [2] maintained by the National Institute of Standards and Technology (NIST).",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions CVE descriptions, which is a core data source and domain focus for the paper.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Automated Characterization of Software Vulnerabilities",
+              "heading": "Abstract",
+              "text_snippet": "In this study, we demonstrate that VDO characteristics can be automatically detected from the textual descriptions included in CVE reports. This work demonstrates that it is feasible to train classification techniques to accurately characterize vulnerabilities from their descriptions.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is demonstrating the feasibility of automatically characterizing vulnerabilities from text using classification. The user's idea proposes to classify severity and extract components, which are specific types of characterization, aligning with the general goal of automated characterization.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Automated Characterization of Software Vulnerabilities",
+              "heading": "CONCLUSIONS & NEXT STEPS",
+              "text_snippet": "This study was motivated by the existing challenges is maintaining vulnerability reports. We evaluated an approach towards automating the process of identifying characteristics for vulnerabilities using their descriptions.",
+              "similarity": 0.5,
+              "reason": "Both the paper and the user's idea aim to automate aspects of vulnerability analysis from textual descriptions to improve vulnerability management. The paper focuses on VDO characteristics, while the user specifies severity and affected components.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 28718,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1909.13693v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 12,
+    "global_similarity_score": 0.9137500000000001,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Using BERT fine-tuned on security forum text and CVE descriptions to automatically classify vulnerability severity and extract affected software components from unstructured bug reports.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_03",
+            "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+            "heading": "Abstract",
+            "text_snippet": "This paper presents VLAI, a transformer-based model that predicts software vulnerability severity levels directly from text descriptions.",
+            "similarity": 0.75,
+            "reason": "The user's idea aims to classify vulnerability severity, which directly aligns with the paper's problem of predicting software vulnerability severity levels from text descriptions.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+            "heading": "Abstract",
+            "text_snippet": "This paper presents a novel Vulnerability Report Classifier that leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports from the National Vulnerability Database (NVD).",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper propose using BERT for vulnerability classification. The paper specifies multi-label classification of CVE reports, while the user specifies fine-tuning BERT on security forum text and CVE descriptions.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+            "heading": "Abstract",
+            "text_snippet": "The rapid increase in cybersecurity vulnerabilities necessitates automated tools for analyzing and classifying vulnerability reports. This paper presents a novel Vulnerability Report Classifier that leverages the BERT (Bidirectional Encoder Representations from Transformers) model to perform multi-label classification of Common Vulnerabilities and Exposures (CVE) reports from the National Vulnerability Database (NVD).",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are explicitly focused on cybersecurity, specifically the analysis and classification of vulnerability reports, including CVE descriptions.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_03",
+            "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+            "heading": "Abstract",
+            "text_snippet": "This paper presents VLAI, a transformer-based model that predicts software vulnerability severity levels directly from text descriptions. Built on RoBERTa, VLAI is fine-tuned on over 600,000 real-world vulnerabilities and achieves over 82% accuracy in predicting severity categories, enabling faster and more consistent triage ahead of manual CVSS scoring.",
+            "similarity": 0.75,
+            "reason": "The paper's contribution of automatically classifying vulnerability severity from text descriptions is a direct overlap with the user's proposed contribution. The user also adds 'extract affected software components' which is a distinct, but related, additional contribution.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea shows very low originality, with significant overlap in problem, domain, and contribution across all analyzed papers, particularly in automated vulnerability analysis using BERT-based models. To improve originality, consider exploring a novel application domain or a fundamentally different methodological approach to vulnerability characterization.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.92,
+      "method_similarity": 0.6699999999999999,
+      "domain_overlap": 1.0,
+      "contribution_similarity": 0.94
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0823,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.08,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0021,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 336.2406542301178,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "Advancing Vulnerability Classification with BERT: A Multi-Objective Learning Model",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+        "paper_similarity": 0.8875,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "VLAI: A RoBERTa-Based Model for Automated Vulnerability Severity Classification",
+        "paper_similarity": 0.8625,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.75
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Automated CVE Analysis for Threat Prioritization and Impact Prediction",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "Automated Characterization of Software Vulnerabilities",
+        "paper_similarity": 0.8374999999999999,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 125
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 125
+    },
+    "total_papers_fetched": 125,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.84,
+    "llm_selection_rate": 0.75
+  }
+}

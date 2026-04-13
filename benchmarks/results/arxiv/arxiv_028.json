@@ -1,0 +1,1050 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "e52cc5c052cb",
+    "status": "completed"
+  },
+  "originality_score": 19,
+  "global_similarity_score": 0.865,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+          "heading": "Abstract",
+          "text_snippet": "By testing seven machine learning models for formation energy on stability predictions using the Materials Project database of DFT calculations for 85,014 unique chemical compositions, we show that while formation energies can indeed be predicted well, all compositional models perform poorly on predicting the stability of compounds, making them considerably less useful than DFT for the discovery and design of new solids.",
+          "similarity": 0.75,
+          "reason": "The paper explicitly states its focus on stability predictions of compounds using machine learning models and the Materials Project database, which directly aligns with the user's problem of predicting thermodynamic stability of inorganic compounds.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_03",
+          "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+          "heading": "ABSTRACT",
+          "text_snippet": "Crystal graph convolutional neural networks (CGCNN), materials graph network (MEGNet) and random forests are trained on the Materials Project database that contains the results of high-throughput DFT predictions. For random forests, we use a stochastic method to select nearly one hundred relevant descriptors based on chemical composition and crystal structure.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper explicitly mention using a 'random forest model' and 'compositional and structural descriptors' from the 'Materials Project' database.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+          "heading": "Abstract",
+          "text_snippet": "By testing seven machine learning models for formation energy on stability predictions using the Materials Project database of DFT calculations for 85,014 unique chemical compositions, we show that while formation energies can indeed be predicted well, all compositional models perform poorly on predicting the stability of compounds, making them considerably less useful than DFT for the discovery and design of new solids.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are focused on predicting the stability of inorganic compounds using data from the Materials Project.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+          "heading": "Abstract",
+          "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+          "similarity": 0.75,
+          "reason": "The paper's core contribution is developing ML models to predict thermodynamic stability of inorganic compounds (perovskite oxides), which directly aligns with the user's proposed contribution.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research shows low originality, with significant overlap in problem formulation, domain, and contribution with existing work on predicting compound stability. To increase originality, consider differentiating your methodology or focusing on a novel application within material prediction.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.8799999999999999,
+    "method_similarity": 0.69,
+    "domain_overlap": 0.8799999999999999,
+    "contribution_similarity": 0.84
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0863,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0839,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0021,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 301.3620436191559,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2001.10591v2",
+      "arxiv_id": "2001.10591v2",
+      "title": "A critical examination of compound stability predictions from machine-learned formation energies",
+      "abstract": "Machine learning has emerged as a novel tool for the efficient prediction of materials properties, and claims have been made that machine-learned models for the formation energy of compounds can approach the accuracy of Density Functional Theory (DFT). The models tested in this work include five recently published compositional models, a baseline model using stoichiometry alone, and a structural model. By testing seven machine learning models for formation energy on stability predictions using the Materials Project database of DFT calculations for 85,014 unique chemical compositions, we show that while formation energies can indeed be predicted well, all compositional models perform poorly on predicting the stability of compounds, making them considerably less useful than DFT for the discovery and design of new solids. Most critically, in sparse chemical spaces where few stoichiometries have stable compounds, only the structural model is capable of efficiently detecting which materials are stable. The non-incremental improvement of structural models compared with compositional models is noteworthy and encourages the use of structural models for materials discovery, with the constraint that for any new composition, the ground-state structure is not known a priori. This work demonstrates that accurate predictions of formation energy do not imply accurate predictions of stability, emphasizing the importance of assessing model performance on stability predictions, for which we provide a set of publicly available tests.",
+      "url": "http://arxiv.org/abs/2001.10591v2",
+      "pdf_url": "http://arxiv.org/pdf/2001.10591v2",
+      "authors": [],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "physics.comp-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea is to predict whether an inorganic compound will be thermodynamically stable using a random forest model trained on compositional and structural descriptors from the Materials Project. The paper directly addresses this by examining 'compound stability predictions from machine-learned formation energies' using the 'Materials Project database' and evaluating 'compositional models' and a 'structural model' (CGCNN) for their ability to 'predicting the stability of compounds'. | Method: The user's idea proposes a random forest model trained on compositional and structural descriptors to predict thermodynamic stability. The paper evaluates several machine learning models, including compositional models (some using gradient-boosted regression trees like XGBoost, which is a random forest variant) and a structural model (CGCNN). While the paper does not explicitly use a 'random forest' model with both compositional and structural descriptors in the same model, it examines the use of compositional models (some of which are tree-based) and a structural model (CGCNN) for predicting formation energy and subsequently stability from the Materials Project database, showing a meaningful overlap in the general method family and data source, but with differences in the specific model proposed by the user (random forest with combined descriptors) versus the models evaluated in the paper (separate compositional and structural models, or different ML architectures). | Domain: The user's research idea is to predict thermodynamic stability of inorganic compounds using a random forest model trained on compositional and structural descriptors from the Materials Project. The paper directly addresses this by examining 'compound stability predictions from machine-learned formation energies' using the 'Materials Project database of DFT calculations' and evaluating 'compositional models' and a 'structural model' for predicting stability. Both the user's idea and the paper focus on the same specific application area (thermodynamic stability of inorganic compounds), use the same data source (Materials Project), and consider similar types of descriptors (compositional and structural). | Contribution: The paper directly addresses the user's research idea by examining 'compound stability predictions from machine-learned formation energies' using 'compositional and structural descriptors' and the 'Materials Project database'. It specifically evaluates various machine learning models, including a 'structural model' (CGCNN), to predict 'whether a given inorganic compound will be thermodynamically stable', which is the core of the user's proposal. The paper's 'Revisiting stability predictions with a structural representation' section and its findings on CGCNN's performance directly demonstrate the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "1806.01038v1",
+      "arxiv_id": "1806.01038v1",
+      "title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+      "abstract": "Perovskite materials have become ubiquitous in many technologically relevant applications, ranging from catalysts in solid oxide fuel cells to light absorbing layers in solar photovoltaics. The thermodynamic phase stability is a key parameter that broadly governs whether the material is expected to be synthesizable, and whether it may degrade under certain operating conditions. Phase stability can be calculated using Density Functional Theory (DFT), but the significant computational cost makes such calculation potentially prohibitive when screening large numbers of possible compounds. In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies. The phase stability was determined using convex hull analysis, with the energy above the convex hull (Ehull) providing a direct measure of the stability. We generated a set of 791 features based on elemental property data to correlate with the Ehull value of each perovskite compound. For classification, the extra trees algorithm achieved the best prediction accuracy of 0.93 (+/- 0.02), with an F1 score of 0.88 (+/- 0.03). For regression, leave-out 20% cross-validation tests with kernel ridge regression achieved the minimal root mean square error (RMSE) of 28.5 (+/- 7.5) meV/atom between cross-validation predicted Ehull values and DFT calculations, with the mean absolute error (MAE) in cross-validation energies of 16.7 (+/- 2.3) meV/atom. We further validated our model by predicting the stability of compounds not present in the training set and demonstrated our machine learning models are a fast and effective means of obtaining qualitatively useful guidance for a wide-range of perovskite oxide stability, potentially impacting materials design choices in a variety of technological applications.",
+      "url": "http://arxiv.org/abs/1806.01038v1",
+      "pdf_url": "http://arxiv.org/pdf/1806.01038v1",
+      "authors": [],
+      "categories": [
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper directly addresses the problem of predicting the thermodynamic stability of inorganic compounds, specifically perovskite oxides, using machine learning models. The user's idea is to predict 'whether a given inorganic compound will be thermodynamically stable' using a random forest model and descriptors from the Materials Project. The paper's abstract states, 'we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides' and uses 'convex hull analysis, with the energy above the convex hull (Ehull) providing a direct measure of the stability,' which aligns perfectly with the user's research idea. | Method: Both the user's idea and the paper utilize machine learning models to predict thermodynamic stability of inorganic compounds. The user specifies a 'random forest model' while the paper uses 'extra trees algorithm' for classification and 'kernel ridge regression' for regression, which are related but distinct machine learning algorithms within the broader ensemble learning and kernel methods families, respectively. The paper also details feature generation based on 'elemental property data' which aligns with the user's 'compositional and structural descriptors'. | Domain: The user's research idea is to predict the thermodynamic stability of inorganic compounds using a random forest model trained on compositional and structural descriptors from the Materials Project. The paper evaluates 'Predicting the thermodynamic stability of perovskite oxides using machine learning models' using a dataset of DFT-calculated perovskite oxide energies from the Materials Project, and employs an 'extra trees algorithm' (a type of random forest) for classification of stability. Both the user's idea and the paper focus on predicting thermodynamic stability of inorganic compounds using machine learning and data from the Materials Project, with the paper specifically addressing a subset of inorganic compounds (perovskite oxides) and using a highly similar model type. | Contribution: The paper directly addresses the user's research idea by developing 'machine learning models to predict the thermodynamic phase stability of perovskite oxides' using a 'dataset of more than 1900 DFT-calculated perovskite oxide energies' and specifically mentions using the 'extra trees algorithm' for classification, which is a type of random forest model. The paper's goal is to predict 'whether the material is expected to be synthesizable', which aligns with predicting thermodynamic stability.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "2111.14712v4",
+      "arxiv_id": "2111.14712v4",
+      "title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+      "abstract": "Magnetic materials are crucial components of many technologies that could drive the ecological transition, including electric motors, wind turbine generators and magnetic refrigeration systems. Discovering materials with large magnetic moments is therefore an increasing priority. Here, using state-of-the-art machine learning methods, we scan the Inorganic Crystal Structure Database (ICSD) of hundreds of thousands of existing materials to find those that are ferromagnetic and have large magnetic moments. Crystal graph convolutional neural networks (CGCNN), materials graph network (MEGNet) and random forests are trained on the Materials Project database that contains the results of high-throughput DFT predictions. For random forests, we use a stochastic method to select nearly one hundred relevant descriptors based on chemical composition and crystal structure. This gives results that are comparable to those of neural networks. The comparison between these different machine learning approaches gives an estimate of the errors for our predictions on the ICSD database. Validating our final predictions by comparisons with available experimental data, we found 15 materials that are likely to have large magnetic moments and have not been yet studied experimentally.",
+      "url": "http://arxiv.org/abs/2111.14712v4",
+      "pdf_url": "http://arxiv.org/pdf/2111.14712v4",
+      "authors": [],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.525,
+      "reason": "Problem: The user's research idea aims to predict whether an inorganic compound will be thermodynamically stable. The paper, however, focuses on predicting 'whether a given inorganic compound will be thermodynamically stable' and 'large magnetic moment materials' and 'ferromagnetic and have large magnetic moments'. While both use random forests and Materials Project data for inorganic compounds, the specific property being predicted (thermodynamic stability vs. magnetic moment/ferromagnetism) is different. | Method: The paper uses a random forest model trained on compositional and structural descriptors from the Materials Project, which is very similar to the user's idea. Both aim to predict a material property using random forests and the Materials Project database with similar descriptor types. The main difference is the specific property being predicted (magnetic moment vs. thermodynamic stability). | Domain: The user's idea focuses on predicting thermodynamic stability of inorganic compounds, while the paper predicts large magnetic moment materials. Both are within materials science and use the Materials Project database with compositional and structural descriptors, but they target different material properties and applications (thermodynamic stability vs. magnetic properties for applications like magnetic refrigeration). | Contribution: The paper focuses on predicting large magnetic moment materials, while the user's idea is to predict thermodynamic stability. Although both use random forest models trained on compositional and structural descriptors from the Materials Project, the specific property being predicted (magnetic moment vs. thermodynamic stability) and thus the claimed contribution are different.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2512.05895v2",
+      "arxiv_id": "2512.05895v2",
+      "title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+      "abstract": "Predicting the glass-forming ability (GFA) of chemical compositions remains a fundamental challenge in materials science, especially for oxide glasses with broad compositional diversity. Traditional empirical and thermodynamic approaches often fail to capture the complex, nonlinear factors governing vitrification. In this study, we applied two ensemble machine learning algorithms-Random Forest (RF) and Extreme Gradient Boosting (XGB)-to the glass_ternary_hipt dataset to predict the GFA of ternary oxide glasses directly from composition-derived descriptors. Both models achieved excellent predictive accuracy (R^2 > 0.92, MAE < 0.04), confirming that GFA is learnable from compositional features alone. Feature importance analysis revealed that electronegativity variance, atomic size mismatch, and valence electron descriptors are the most influential factors, while cohesive energy and ionic radius provided secondary contributions. These chemically interpretable features align with established theories of glass formation, thereby bridging predictive performance with physical understanding. The novelty of this work lies in systematically extending ML-based predictive modeling to ternary oxide glasses, a class less studied compared to metallic and binary systems. Our results demonstrate that ensemble learning not only enables accurate GFA prediction but also provides actionable insights for designing new glass compositions with enhanced stability.",
+      "url": "http://arxiv.org/abs/2512.05895v2",
+      "pdf_url": "http://arxiv.org/pdf/2512.05895v2",
+      "authors": [],
+      "categories": [
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.575,
+      "reason": "Problem: The user's idea aims to predict thermodynamic stability for inorganic compounds, while the paper predicts glass-forming ability (GFA) for ternary oxide glasses. While both use machine learning to predict a material property related to stability from compositional descriptors, the specific property (thermodynamic stability vs. GFA) and material class (general inorganic compounds vs. ternary oxide glasses) are distinct, representing different specific problems within the broader topic of materials informatics. | Method: Both the user's idea and the paper propose using a Random Forest model. The user specifies training on 'compositional and structural descriptors' from the Materials Project, while the paper uses 'composition-derived descriptors' (e.g., electronegativity variance, atomic size mismatch) from the 'glass_ternary_hipt dataset' (which is from the matminer package, often used with Materials Project data). The core machine learning technique and the type of input features are very similar. | Domain: Both the user's idea and the paper are in the domain of materials science, specifically using machine learning for materials prediction. However, the user's idea focuses on predicting thermodynamic stability of inorganic compounds, while the paper predicts glass-forming ability (GFA) of ternary oxide glasses, which are different specific application targets within materials science. | Contribution: The paper and the user's idea both propose using a Random Forest model with compositional descriptors to predict a material property. However, the paper focuses on predicting 'glass-forming ability' in 'ternary oxide glasses' using the 'glass_ternary_hipt dataset', while the user's idea aims to predict 'thermodynamic stability' of 'inorganic compounds' using data from the 'Materials Project'. While the methodology (RF, compositional descriptors) is similar, the specific prediction target and material system differ.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2602.12109v1",
+      "arxiv_id": "2602.12109v1",
+      "title": "A critical assessment of bonding descriptors for predicting materials properties",
+      "abstract": "Most machine learning models for materials science rely on descriptors based on materials compositions and structures, even though the chemical bond has been proven to be a valuable concept for predicting materials properties. Over the years, various theoretical frameworks have been developed to characterize bonding in solid-state materials. However, integrating bonding information from these frameworks into machine learning pipelines at scale has been limited by the lack of a systematically generated and validated database. Recent advances in high-throughput bonding analysis workflows have addressed this issue, and our previously computed Quantum-Chemical Bonding Database for Solid-State Materials was extended to include approximately 13,000 materials. This database is then used to derive a new set of quantum-chemical bonding descriptors. A systematic assessment is performed using statistical significance tests to evaluate how the inclusion of these descriptors influences the performance of machine-learning models that otherwise rely solely on structure- and composition-derived features. Models are built to predict elastic, vibrational, and thermodynamic properties typically associated with chemical bonding in materials. The results demonstrate that incorporating quantum-chemical bonding descriptors not only improves predictive performance but also helps identify intuitive expressions for properties such as the projected force constant and lattice thermal conductivity via symbolic regression.",
+      "url": "http://arxiv.org/abs/2602.12109v1",
+      "pdf_url": "http://arxiv.org/pdf/2602.12109v1",
+      "authors": [],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "physics.chem-ph",
+        "physics.comp-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.45,
+      "reason": "Problem: The user's idea is to predict thermodynamic stability using a random forest model trained on compositional and structural descriptors. The paper evaluates the influence of quantum-chemical bonding descriptors on machine learning models for various material properties, including some thermodynamic properties (e.g., Helmholtz energy, vibrational entropy, heat capacity). While both involve machine learning for material properties and use compositional/structural descriptors, the paper's primary problem is assessing the *impact of bonding descriptors* on a *range of properties*, whereas the user's focus is specifically on predicting *thermodynamic stability*. | Method: Both the user's idea and the paper utilize machine learning models, specifically Random Forest, and rely on compositional and structural descriptors for inorganic compounds. However, the paper's primary focus is on assessing the impact of novel quantum-chemical bonding descriptors (LOBSTER) in addition to conventional Matminer descriptors, and it evaluates a broader range of material properties beyond just thermodynamic stability, such as elastic and vibrational properties. The user's idea is more narrowly focused on predicting thermodynamic stability using a random forest model trained on compositional and structural descriptors from the Materials Project. | Domain: The user's research idea focuses on predicting thermodynamic stability of inorganic compounds using a random forest model. The paper evaluates bonding descriptors for predicting various materials properties, including 'thermodynamic properties' such as Helmholtz energy, vibrational entropy, internal energy, and heat capacity. While both are in materials science and use machine learning for property prediction, the paper's scope for thermodynamic properties is broader and it explicitly states that 'Our statistical bonding descriptors rank relatively low for thermodynamic properties,' suggesting a different focus or less success in this specific sub-area compared to the user's direct aim. | Contribution: The user's idea focuses on predicting thermodynamic stability using a random forest model with compositional and structural descriptors from the Materials Project. The paper, while using compositional and structural descriptors from the Materials Project and Random Forest models, primarily assesses the influence of *quantum-chemical bonding descriptors* on predicting various material properties, including some thermodynamic properties (e.g., Helmholtz energy, vibrational entropy, heat capacity), but explicitly states that for these thermodynamic properties, their bonding descriptors 'rank relatively low' and are 'unlikely to improve predictive accuracy'. The paper's core contribution is the assessment of these novel bonding descriptors, not the prediction of thermodynamic stability itself, and it finds them less relevant for the thermodynamic properties it does examine.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "Materials Project",
+        "similarity": 0.95,
+        "description": "The Materials Project itself provides calculated thermodynamic stability data (e.g., formation energies, Pourbaix diagrams) for a vast number of inorganic compounds. Their data is often used as ground truth for ML models."
+      },
+      {
+        "name": "Matminer / Magpie",
+        "similarity": 0.9,
+        "description": "Matminer is a Python library developed by the Materials Project team and others, specifically designed for materials data mining. It includes tools for generating compositional and structural descriptors (like those from Magpie) that are commonly used in ML models for materials properties. Magpie (Materials Agnostic Platform for Informatics and Engineering) is a well-known set of elemental property-based descriptors."
+      },
+      {
+        "name": "Numerous research papers on ML for materials stability",
+        "similarity": 0.99,
+        "description": "There is a very extensive body of research applying machine learning (including random forests, support vector machines, neural networks, etc.) to predict materials properties, including thermodynamic stability, using descriptors derived from composition and structure. Many of these studies explicitly use data from the Materials Project. For example, 'Machine learning for materials discovery and design' by T. Mueller et al. (2016) and 'Machine learning predictions of new inorganic materials from the Materials Project' by J. H. Lee et al. (2016) are early examples, and the field has grown significantly since."
+      },
+      {
+        "name": "AFLOW (Automatic Flow for Materials Discovery)",
+        "similarity": 0.8,
+        "description": "AFLOW is another high-throughput computational materials science platform that provides similar data and has also been used as a data source for ML models predicting stability and other properties."
+      }
+    ],
+    "assessment": "The idea of using a random forest model trained on compositional and structural descriptors from the Materials Project to predict thermodynamic stability is a well-established and actively researched area within computational materials science and materials informatics. This approach has been widely explored and published in numerous academic papers, and tools exist (like Matminer) to facilitate such research. The Materials Project itself is a primary data source for such endeavors and often provides the 'ground truth' for stability calculations.",
+    "novelty_aspects": [
+      "Specific novel descriptor sets not yet explored",
+      "Novel feature engineering techniques",
+      "Comparison of random forest performance against more advanced models (e.g., deep learning) for this specific task, if not exhaustively done for a particular material class",
+      "Application to a very specific, underexplored class of materials where existing models might not perform optimally"
+    ],
+    "recommendation": "While the general approach is not novel, there is still scope for original contributions. To make this research novel, you would need to identify a specific gap. For example, focus on: 1) Developing entirely new, highly effective descriptors that outperform existing ones, 2) Applying this methodology to a very specific, challenging class of materials where current models struggle, 3) Integrating this prediction into a larger, more complex materials design workflow, or 4) Performing a rigorous comparative study of various ML models (including random forests) with a focus on interpretability or uncertainty quantification for stability prediction."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Materials Project** (similarity: 95%).\n\n*The idea of using a random forest model trained on compositional and structural descriptors from the Materials Project to predict thermodynamic stability is a well-established and actively researched area within computational materials science and materials informatics. This approach has been widely explored and published in numerous academic papers, and tools exist (like Matminer) to facilitate such research. The Materials Project itself is a primary data source for such endeavors and often provides the 'ground truth' for stability calculations.*\n\n**Recommendation:** While the general approach is not novel, there is still scope for original contributions. To make this research novel, you would need to identify a specific gap. For example, focus on: 1) Developing entirely new, highly effective descriptors that outperform existing ones, 2) Applying this methodology to a very specific, challenging class of materials where current models struggle, 3) Integrating this prediction into a larger, more complex materials design workflow, or 4) Performing a rigorous comparative study of various ML models (including random forests) with a focus on interpretability or uncertainty quantification for stability prediction.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 109,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 645,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0863,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0839,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0021,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+  "enriched_idea": "RESEARCH IDEA:\nA random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+      "arxiv_id": "2001.10591v2",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea is to predict whether an inorganic compound will be thermodynamically stable using a random forest model trained on compositional and structural descriptors from the Materials Project. The paper directly addresses this by examining 'compound stability predictions from machine-learned formation energies' using the 'Materials Project database' and evaluating 'compositional models' and a 'structural model' (CGCNN) for their ability to 'predicting the stability of compounds'. | Method: The user's idea proposes a random forest model trained on compositional and structural descriptors to predict thermodynamic stability. The paper evaluates several machine learning models, including compositional models (some using gradient-boosted regression trees like XGBoost, which is a random forest variant) and a structural model (CGCNN). While the paper does not explicitly use a 'random forest' model with both compositional and structural descriptors in the same model, it examines the use of compositional models (some of which are tree-based) and a structural model (CGCNN) for predicting formation energy and subsequently stability from the Materials Project database, showing a meaningful overlap in the general method family and data source, but with differences in the specific model proposed by the user (random forest with combined descriptors) versus the models evaluated in the paper (separate compositional and structural models, or different ML architectures). | Domain: The user's research idea is to predict thermodynamic stability of inorganic compounds using a random forest model trained on compositional and structural descriptors from the Materials Project. The paper directly addresses this by examining 'compound stability predictions from machine-learned formation energies' using the 'Materials Project database of DFT calculations' and evaluating 'compositional models' and a 'structural model' for predicting stability. Both the user's idea and the paper focus on the same specific application area (thermodynamic stability of inorganic compounds), use the same data source (Materials Project), and consider similar types of descriptors (compositional and structural). | Contribution: The paper directly addresses the user's research idea by examining 'compound stability predictions from machine-learned formation energies' using 'compositional and structural descriptors' and the 'Materials Project database'. It specifically evaluates various machine learning models, including a 'structural model' (CGCNN), to predict 'whether a given inorganic compound will be thermodynamically stable', which is the core of the user's proposal. The paper's 'Revisiting stability predictions with a structural representation' section and its findings on CGCNN's performance directly demonstrate the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.7499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+              "heading": "Abstract",
+              "text_snippet": "By testing seven machine learning models for formation energy on stability predictions using the Materials Project database of DFT calculations for 85,014 unique chemical compositions, we show that while formation energies can indeed be predicted well, all compositional models perform poorly on predicting the stability of compounds, making them considerably less useful than DFT for the discovery and design of new solids.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states its focus on stability predictions of compounds using machine learning models and the Materials Project database, which directly aligns with the user's problem of predicting thermodynamic stability of inorganic compounds.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+              "heading": "Introduction",
+              "text_snippet": "In this work, we closely examine whether recently published machine learning models for formation energy are capable of distinguishing the relative stability of chemically similar materials and provide a roadmap for doing the same for future models.",
+              "similarity": 0.75,
+              "reason": "The paper's introduction reiterates the core problem of using machine learning models to distinguish the relative stability of materials, which is the user's stated goal.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+              "heading": "Learning formation energy from chemical composition",
+              "text_snippet": "Each of these compositional representations were trained using gradientboosted regression trees (XGBoost 30 ).",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'random forest model', which is a type of ensemble learning method similar to the 'gradient-boosted regression trees (XGBoost)' mentioned in the paper for compositional models.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+              "heading": "CGCNN training",
+              "text_snippet": "We used a nested five-fold cross-validation to train the CGCNN 25 model for the MP Δ H f dataset.",
+              "similarity": 0.5,
+              "reason": "The user's idea implies training a model, and the paper details training procedures for various models, including cross-validation, which is a common machine learning practice.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+              "heading": "Abstract",
+              "text_snippet": "By testing seven machine learning models for formation energy on stability predictions using the Materials Project database of DFT calculations for 85,014 unique chemical compositions, we show that while formation energies can indeed be predicted well, all compositional models perform poorly on predicting the stability of compounds, making them considerably less useful than DFT for the discovery and design of new solids.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on predicting the stability of inorganic compounds using data from the Materials Project.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+              "heading": "Materials Project data",
+              "text_snippet": "All entries in the Materials Project (MP) 9 database were queried on July 26, 2019 using the Materials Project API. 47 This produced 85,014 unique non-elemental chemical formulas. For each chemical formula, we obtained the formation energy per atom, Δ H f , for all structures having that formula, and used the most negative (ground-state) Δ H f for training the models and obtaining Δ H d by the convex hull construction.",
+              "similarity": 1.0,
+              "reason": "The user explicitly mentions using 'compositional and structural descriptors from the Materials Project' for their model, which is the primary data source and domain for the paper's analysis.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 50024,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2001.10591v2"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+      "arxiv_id": "1806.01038v1",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper directly addresses the problem of predicting the thermodynamic stability of inorganic compounds, specifically perovskite oxides, using machine learning models. The user's idea is to predict 'whether a given inorganic compound will be thermodynamically stable' using a random forest model and descriptors from the Materials Project. The paper's abstract states, 'we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides' and uses 'convex hull analysis, with the energy above the convex hull (Ehull) providing a direct measure of the stability,' which aligns perfectly with the user's research idea. | Method: Both the user's idea and the paper utilize machine learning models to predict thermodynamic stability of inorganic compounds. The user specifies a 'random forest model' while the paper uses 'extra trees algorithm' for classification and 'kernel ridge regression' for regression, which are related but distinct machine learning algorithms within the broader ensemble learning and kernel methods families, respectively. The paper also details feature generation based on 'elemental property data' which aligns with the user's 'compositional and structural descriptors'. | Domain: The user's research idea is to predict the thermodynamic stability of inorganic compounds using a random forest model trained on compositional and structural descriptors from the Materials Project. The paper evaluates 'Predicting the thermodynamic stability of perovskite oxides using machine learning models' using a dataset of DFT-calculated perovskite oxide energies from the Materials Project, and employs an 'extra trees algorithm' (a type of random forest) for classification of stability. Both the user's idea and the paper focus on predicting thermodynamic stability of inorganic compounds using machine learning and data from the Materials Project, with the paper specifically addressing a subset of inorganic compounds (perovskite oxides) and using a highly similar model type. | Contribution: The paper directly addresses the user's research idea by developing 'machine learning models to predict the thermodynamic phase stability of perovskite oxides' using a 'dataset of more than 1900 DFT-calculated perovskite oxide energies' and specifically mentions using the 'extra trees algorithm' for classification, which is a type of random forest model. The paper's goal is to predict 'whether the material is expected to be synthesizable', which aligns with predicting thermodynamic stability.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.75,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Abstract",
+              "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper aim to predict thermodynamic stability using machine learning models. The paper specifies 'perovskite oxides' while the user's idea is 'inorganic compound', which is a broader category but the core problem is very similar.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "text_snippet": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "similarity": 1.0,
+              "reason": "The title of the paper directly reflects the problem of predicting thermodynamic stability using machine learning, which is central to the user's idea.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Abstract",
+              "text_snippet": "For classification, the extra trees algorithm achieved the best prediction accuracy of 0.93 (+/- 0.02), with an F1 score of 0.88 (+/- 0.03).",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'random forest model'. Extra trees is an ensemble learning method similar to random forests, making the methodological approach very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Classification of Stable/Unstable perovskites",
+              "text_snippet": "We tested five classifiers, including: logistic regression, support vector machines, decision tree, neural network and extra trees. These classifiers were fit using the training dataset with the best 70 features obtained from feature selection (see Sec. 3.1 ).",
+              "similarity": 0.75,
+              "reason": "The paper explicitly uses 'extra trees' as a classifier, which is a very close relative to 'random forest' proposed by the user. Both are ensemble tree-based methods.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Dataset and feature generation",
+              "text_snippet": "The training dataset was comprised of 1929 perovskite oxide compositions from the work of Jacobs, et al.[2] These perovskite materials were simulated using DFT methods, and the stability of each compound was analyzed using the Pymatgen toolkit and all DFT-calculated materials present in the Materials Project online database as of December 2016.[22]",
+              "similarity": 1.0,
+              "reason": "The user's idea specifies 'compositional and structural descriptors from the Materials Project' and the paper explicitly states its dataset was derived from 'DFT-calculated materials present in the Materials Project online database'. Both use data from the Materials Project for inorganic compounds.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Abstract",
+              "text_snippet": "We developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.75,
+              "reason": "The paper focuses on 'perovskite oxides' which are a type of 'inorganic compound', and the user's idea targets 'inorganic compound'. The domain is very similar, with the user's idea being slightly broader.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Abstract",
+              "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.75,
+              "reason": "The paper's core contribution is developing ML models to predict thermodynamic stability of inorganic compounds (perovskite oxides), which directly aligns with the user's proposed contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Conclusion",
+              "text_snippet": "In this work, we used machine learning algorithms to predict the stability of perovskite oxides. Our machine learning models were trained on a DFT-calculated dataset consisting of 1929 compounds, and proved to be a promising tool to successfully predict Ehull values within typical DFT calculation errors.",
+              "similarity": 0.75,
+              "reason": "The paper concludes by stating its success in predicting stability of perovskite oxides using ML, which is the exact aim of the user's research idea.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 52714,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1806.01038v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+      "arxiv_id": "2111.14712v4",
+      "paper_similarity_score": 0.525,
+      "reason": "Problem: The user's research idea aims to predict whether an inorganic compound will be thermodynamically stable. The paper, however, focuses on predicting 'whether a given inorganic compound will be thermodynamically stable' and 'large magnetic moment materials' and 'ferromagnetic and have large magnetic moments'. While both use random forests and Materials Project data for inorganic compounds, the specific property being predicted (thermodynamic stability vs. magnetic moment/ferromagnetism) is different. | Method: The paper uses a random forest model trained on compositional and structural descriptors from the Materials Project, which is very similar to the user's idea. Both aim to predict a material property using random forests and the Materials Project database with similar descriptor types. The main difference is the specific property being predicted (magnetic moment vs. thermodynamic stability). | Domain: The user's idea focuses on predicting thermodynamic stability of inorganic compounds, while the paper predicts large magnetic moment materials. Both are within materials science and use the Materials Project database with compositional and structural descriptors, but they target different material properties and applications (thermodynamic stability vs. magnetic properties for applications like magnetic refrigeration). | Contribution: The paper focuses on predicting large magnetic moment materials, while the user's idea is to predict thermodynamic stability. Although both use random forest models trained on compositional and structural descriptors from the Materials Project, the specific property being predicted (magnetic moment vs. thermodynamic stability) and thus the claimed contribution are different.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.65,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "heading": "ABSTRACT",
+              "text_snippet": "Crystal graph convolutional neural networks (CGCNN), materials graph network (MEGNet) and random forests are trained on the Materials Project database that contains the results of high-throughput DFT predictions. For random forests, we use a stochastic method to select nearly one hundred relevant descriptors based on chemical composition and crystal structure.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper explicitly mention using a 'random forest model' and 'compositional and structural descriptors' from the 'Materials Project' database.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "heading": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "text_snippet": "Crystal graph convolutional neural networks (CGCNN), materials graph network (MEGNet) and random forests are trained on the Materials Project database that contains the results of high-throughput DFT predictions. For random forests, we use a stochastic method to select nearly one hundred relevant descriptors based on chemical composition and crystal structure.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper explicitly mention using a 'random forest model' and 'compositional and structural descriptors' from the 'Materials Project' database.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "heading": "Random Forests",
+              "text_snippet": "The random forest [29] is a tree-based machine learning algorithm that has been widely used for materials property prediction [4-6]. The model takes descriptors handcrafted for each sample material as input. The algorithm achieves much better performance if descriptors are well adapted to the task. The properties found in both Materials Project and ICSD, such as density and crystal structure, can be employed in our case. Inspired by other works [30, 31], most of the descriptors are obtained from the chemical formula of the materials: starting from atomic properties, such as the ground-state magnetic moment, the electronegativity, the atomic mass or the ground state d-shell electrons, we compute the mean value, the maximum value or the standard deviation of each of these properties to form descriptors. A number of descriptors are also obtained from the crystal structure, for example the number of sites in the unit cell or bond lengths.",
+              "similarity": 1.0,
+              "reason": "The paper details the use of 'random forests' for 'materials property prediction' and describes generating 'descriptors' from 'chemical formula' (compositional) and 'crystal structure' (structural), aligning perfectly with the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "heading": "Materials Project",
+              "text_snippet": "The training data used in this work comes from the Materials Project dataset (V2020.06) [8]. It is one of the largest datasets obtained from high-throughput DFT calculations and has become standard in machine learning based materials studies. Materials Project comprises stochiometric crystalline materials, and provides their chemical composition, relaxed structures and a number of properties such as the formation energy, the energy above hull, the band structure and the spontaneous unit cell magnetization.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper use the 'Materials Project' dataset, which contains 'chemical composition' and 'relaxed structures' (structural descriptors) for 'crystalline materials' (inorganic compounds).",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "heading": "ABSTRACT",
+              "text_snippet": "Here, using state-of-the-art machine learning methods, we scan the Inorganic Crystal Structure Database (ICSD) of hundreds of thousands of existing materials to find those that are ferromagnetic and have large magnetic moments. Crystal graph convolutional neural networks (CGCNN), materials graph network (MEGNet) and random forests are trained on the Materials Project database that contains the results of high-throughput DFT predictions.",
+              "similarity": 0.5,
+              "reason": "The paper uses machine learning (including random forests) on the Materials Project to predict material properties, specifically magnetic moments. While the user's idea focuses on 'thermodynamic stability', both are predicting properties of 'inorganic compounds' using similar data sources and methods.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "heading": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "text_snippet": "Here, using state-of-the-art machine learning methods, we scan the Inorganic Crystal Structure Database (ICSD) of hundreds of thousands of existing materials to find those that are ferromagnetic and have large magnetic moments. Crystal graph convolutional neural networks (CGCNN), materials graph network (MEGNet) and random forests are trained on the Materials Project database that contains the results of high-throughput DFT predictions.",
+              "similarity": 0.5,
+              "reason": "The paper uses machine learning (including random forests) on the Materials Project to predict material properties, specifically magnetic moments. While the user's idea focuses on 'thermodynamic stability', both are predicting properties of 'inorganic compounds' using similar data sources and methods.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "heading": "INTRODUCTION",
+              "text_snippet": "In recent years, materials informatics and machine learning methods have been introduced in the search for materials with specific properties, such as hightemperature superconductors [1], photovoltaics [2], radiation detector materials [3] and metallic glasses [4].",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper operate within the domain of 'materials informatics and machine learning methods' for 'materials property prediction'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+              "heading": "Materials Project",
+              "text_snippet": "Materials Project comprises stochiometric crystalline materials, and provides their chemical composition, relaxed structures and a number of properties such as the formation energy, the energy above hull, the band structure and the spontaneous unit cell magnetization. To our knowledge, this last property in Materials Project has not been used yet for machine learning applications. Our first objective is to determine whether or not the magnetization is a property that can be modeled properly with machine learning algorithms.",
+              "similarity": 0.25,
+              "reason": "The paper aims to predict magnetic properties, while the user's idea aims to predict 'thermodynamic stability'. Both are predicting properties of inorganic compounds using machine learning on the Materials Project, but the specific property being predicted is different.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 1.0,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 37026,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2111.14712v4"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+      "arxiv_id": "2512.05895v2",
+      "paper_similarity_score": 0.575,
+      "reason": "Problem: The user's idea aims to predict thermodynamic stability for inorganic compounds, while the paper predicts glass-forming ability (GFA) for ternary oxide glasses. While both use machine learning to predict a material property related to stability from compositional descriptors, the specific property (thermodynamic stability vs. GFA) and material class (general inorganic compounds vs. ternary oxide glasses) are distinct, representing different specific problems within the broader topic of materials informatics. | Method: Both the user's idea and the paper propose using a Random Forest model. The user specifies training on 'compositional and structural descriptors' from the Materials Project, while the paper uses 'composition-derived descriptors' (e.g., electronegativity variance, atomic size mismatch) from the 'glass_ternary_hipt dataset' (which is from the matminer package, often used with Materials Project data). The core machine learning technique and the type of input features are very similar. | Domain: Both the user's idea and the paper are in the domain of materials science, specifically using machine learning for materials prediction. However, the user's idea focuses on predicting thermodynamic stability of inorganic compounds, while the paper predicts glass-forming ability (GFA) of ternary oxide glasses, which are different specific application targets within materials science. | Contribution: The paper and the user's idea both propose using a Random Forest model with compositional descriptors to predict a material property. However, the paper focuses on predicting 'glass-forming ability' in 'ternary oxide glasses' using the 'glass_ternary_hipt dataset', while the user's idea aims to predict 'thermodynamic stability' of 'inorganic compounds' using data from the 'Materials Project'. While the methodology (RF, compositional descriptors) is similar, the specific prediction target and material system differ.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.575,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+              "heading": "Abstract",
+              "text_snippet": "In this study, we applied two ensemble machine learning algorithms-Random Forest (RF) and Extreme Gradient Boosting (XGB)-to the glass_ternary_hipt dataset to predict the GFA of ternary oxide glasses directly from composition-derived descriptors.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper explicitly mention using a 'random forest model' and 'compositional descriptors' for prediction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+              "heading": "Methodology",
+              "text_snippet": "Each composition was futurized using the Element Property featurizer with the \"magpie\" preset, generating descriptors such as atomic radius, electronegativity, valence electron configuration, and cohesive energy.",
+              "similarity": 0.5,
+              "reason": "The paper uses 'composition-derived descriptors' which aligns with the user's 'compositional descriptors'. The user also mentions 'structural descriptors', which the paper does not explicitly use but acknowledges as a potential future direction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+              "heading": "Machine Learning Models",
+              "text_snippet": "Random Forest (RF): An ensemble of 300 decision trees, providing a robust baseline model.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper specify using a 'Random Forest' model.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+              "heading": "Abstract",
+              "text_snippet": "Predicting the glass-forming ability (GFA) of chemical compositions remains a fundamental challenge in materials science, especially for oxide glasses with broad compositional diversity.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are within the domain of 'materials science' and deal with 'inorganic compounds' (user) or 'oxide glasses' (paper), which are a type of inorganic compound.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+              "heading": "Introduction",
+              "text_snippet": "Despite their significance, predicting whether a composition will vitrify upon cooling-its glass-forming ability (GFA)-remains one of the longstanding challenges in materials science [7].",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are focused on predicting properties of materials, specifically related to stability (thermodynamic stability for user, glass-forming ability for paper).",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+              "heading": "Abstract",
+              "text_snippet": "Predicting the glass-forming ability (GFA) of chemical compositions remains a fundamental challenge in materials science, especially for oxide glasses with broad compositional diversity.",
+              "similarity": 0.5,
+              "reason": "The user's problem is predicting 'thermodynamic stability' of inorganic compounds, while the paper predicts 'glass-forming ability'. Both are related to the stability of materials, but GFA is a specific type of stability related to vitrification, whereas thermodynamic stability is a broader concept.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+              "heading": "Introduction",
+              "text_snippet": "Despite their significance, predicting whether a composition will vitrify upon cooling-its glass-forming ability (GFA)-remains one of the longstanding challenges in materials science [7].",
+              "similarity": 0.5,
+              "reason": "Both the user and the paper aim to predict a material property related to its stability or formation, but the specific property (thermodynamic stability vs. glass-forming ability) differs.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+              "heading": "Abstract",
+              "text_snippet": "Our results demonstrate that ensemble learning not only enables accurate GFA prediction but also provides actionable insights for designing new glass compositions with enhanced stability.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to predict a material property (thermodynamic stability vs. glass-forming ability) using machine learning to aid in materials design. The paper's 'enhanced stability' is a general goal that aligns with the user's 'thermodynamically stable'.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+              "heading": "Conclusion",
+              "text_snippet": "This dual achievement of predictive accuracy and physical interpretability establishes ML as a reliable framework for guiding the design of novel oxide glasses.",
+              "similarity": 0.5,
+              "reason": "Both works aim to use ML for prediction to guide materials design. The user's goal of predicting 'thermodynamically stable' compounds directly contributes to designing new materials, similar to the paper's goal of designing 'novel oxide glasses'.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.5,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 19936,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2512.05895v2"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+      "arxiv_id": "2602.12109v1",
+      "paper_similarity_score": 0.45,
+      "reason": "Problem: The user's idea is to predict thermodynamic stability using a random forest model trained on compositional and structural descriptors. The paper evaluates the influence of quantum-chemical bonding descriptors on machine learning models for various material properties, including some thermodynamic properties (e.g., Helmholtz energy, vibrational entropy, heat capacity). While both involve machine learning for material properties and use compositional/structural descriptors, the paper's primary problem is assessing the *impact of bonding descriptors* on a *range of properties*, whereas the user's focus is specifically on predicting *thermodynamic stability*. | Method: Both the user's idea and the paper utilize machine learning models, specifically Random Forest, and rely on compositional and structural descriptors for inorganic compounds. However, the paper's primary focus is on assessing the impact of novel quantum-chemical bonding descriptors (LOBSTER) in addition to conventional Matminer descriptors, and it evaluates a broader range of material properties beyond just thermodynamic stability, such as elastic and vibrational properties. The user's idea is more narrowly focused on predicting thermodynamic stability using a random forest model trained on compositional and structural descriptors from the Materials Project. | Domain: The user's research idea focuses on predicting thermodynamic stability of inorganic compounds using a random forest model. The paper evaluates bonding descriptors for predicting various materials properties, including 'thermodynamic properties' such as Helmholtz energy, vibrational entropy, internal energy, and heat capacity. While both are in materials science and use machine learning for property prediction, the paper's scope for thermodynamic properties is broader and it explicitly states that 'Our statistical bonding descriptors rank relatively low for thermodynamic properties,' suggesting a different focus or less success in this specific sub-area compared to the user's direct aim. | Contribution: The user's idea focuses on predicting thermodynamic stability using a random forest model with compositional and structural descriptors from the Materials Project. The paper, while using compositional and structural descriptors from the Materials Project and Random Forest models, primarily assesses the influence of *quantum-chemical bonding descriptors* on predicting various material properties, including some thermodynamic properties (e.g., Helmholtz energy, vibrational entropy, heat capacity), but explicitly states that for these thermodynamic properties, their bonding descriptors 'rank relatively low' and are 'unlikely to improve predictive accuracy'. The paper's core contribution is the assessment of these novel bonding descriptors, not the prediction of thermodynamic stability itself, and it finds them less relevant for the thermodynamic properties it does examine.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "ABSTRACT",
+              "text_snippet": "Models are built to predict elastic, vibrational, and thermodynamic properties typically associated with chemical bonding in materials.",
+              "similarity": 0.5,
+              "reason": "The paper builds models to predict thermodynamic properties, which aligns with the user's goal of predicting thermodynamic stability. While the user's idea is specifically about 'stability', the paper's 'thermodynamic properties' is a closely related, broader category.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "Results and Discussions",
+              "text_snippet": "Our statistical bonding descriptors rank relatively low for thermodynamic properties. These include Helmholtz energy (H 25, H 305, H 705), vibrational entropy (S 25, S 305, S 705), internal energy (U 25, U 305, U 705), and heat capacity (Cv 25, Cv 305, Cv 705), with the subscripts denoting temperatures of 25 K, 305 K, and 705 K.",
+              "similarity": 0.5,
+              "reason": "The paper explicitly discusses predicting various thermodynamic properties, which is the overarching goal of the user's research idea, even if the specific target (stability) is not identical.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "Vibrational and Thermodynamic Properties",
+              "text_snippet": "To compute the thermodynamic properties, we use only database entries labeled as dynamically stable (i.e., free of imaginary modes), yielding a total of 1,245 data points.",
+              "similarity": 0.75,
+              "reason": "The paper computes thermodynamic properties and explicitly mentions using 'dynamically stable' entries, which directly relates to the user's interest in 'thermodynamically stable' compounds.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "ABSTRACT",
+              "text_snippet": "Most machine learning models for materials science rely on descriptors based on materials compositions and structures, even though the chemical bond has been proven to be a valuable concept for predicting materials properties.",
+              "similarity": 0.75,
+              "reason": "The paper discusses machine learning models for materials science that use compositional and structural descriptors, which is a core component of the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "Model training and evaluation",
+              "text_snippet": "For model training, we use Random Forest (RF) and MODNet [57, 65] as machine learning model architectures, both of which are well-suited for the typical dataset sizes in our study.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states the use of a 'Random Forest' model, which is the exact model type proposed by the user.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "Descriptors",
+              "text_snippet": "The conventional descriptors derived from structures and compositions are generated using the Matminer2023Featurizer preset from the MODNet package [57, 65], which serves as a convenient wrapper providing access to nearly all implementations available in the Matminer package. This featurizer comprises a diverse set of structure- and composition-based features that have demonstrated strong predictive performance in previous studies using MODNet models.",
+              "similarity": 1.0,
+              "reason": "The paper uses 'compositional and structural descriptors' from 'Matminer', which directly matches the user's proposed input features.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "Introduction",
+              "text_snippet": "As part of the current study, we have further extended this database, which now includes bonding properties for approximately 13,000 materials from the Materials Project.[38]",
+              "similarity": 1.0,
+              "reason": "The paper uses data from the 'Materials Project', which is the specified data source for the user's idea.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "ABSTRACT",
+              "text_snippet": "Most machine learning models for materials science rely on descriptors based on materials compositions and structures, even though the chemical bond has been proven to be a valuable concept for predicting materials properties.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are firmly within the domain of 'materials science' and specifically focus on 'inorganic compounds' (implied by 'materials science' and 'solid-state materials' in the paper).",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "Introduction",
+              "text_snippet": "Machine learning algorithms are now widely used in data-driven materials discovery, both in forward and inverse design approaches.[1, 2, 3] In the context of forward design, where the main goal is to predict material properties based on structure or composition as input, the performance of the employed machine learning algorithms depends to a large extent on how well the materials are represented.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on 'data-driven materials discovery' and predicting 'material properties' using machine learning, specifically for 'inorganic compounds'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "Introduction",
+              "text_snippet": "As part of the current study, we have further extended this database, which now includes bonding properties for approximately 13,000 materials from the Materials Project.[38]",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper utilize data from the 'Materials Project', indicating a direct overlap in the specific data source and, by extension, the type of materials studied (inorganic compounds).",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "ABSTRACT",
+              "text_snippet": "A systematic assessment is performed using statistical significance tests to evaluate how the inclusion of these descriptors influences the performance of machine-learning models that otherwise rely solely on structure- and composition-derived features. Models are built to predict elastic, vibrational, and thermodynamic properties typically associated with chemical bonding in materials.",
+              "similarity": 0.5,
+              "reason": "The paper assesses the performance of ML models for predicting thermodynamic properties using compositional and structural descriptors, which is a key aspect of the user's proposed contribution. While the user's idea is to 'predict stability', the paper's work on 'thermodynamic properties' is a very close parallel.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "Results and Discussions",
+              "text_snippet": "Our statistical bonding descriptors rank relatively low for thermodynamic properties. These include Helmholtz energy (H 25, H 305, H 705), vibrational entropy (S 25, S 305, S 705), internal energy (U 25, U 305, U 705), and heat capacity (Cv 25, Cv 305, Cv 705), with the subscripts denoting temperatures of 25 K, 305 K, and 705 K. Instead, we find that average bond length, geometry-based local environment descriptors, and element-based properties, such as atomic weight and covalent radius, are more informative. This suggests that incorporating quantum-chemical bonding descriptors, at least in their current form, into machine learning models for these thermodynamic properties is unlikely to improve predictive accuracy.",
+              "similarity": 0.75,
+              "reason": "The paper directly addresses the prediction of thermodynamic properties using descriptors, and even provides a finding that certain descriptors are 'unlikely to improve predictive accuracy' for these properties. This directly relates to the user's goal of predicting thermodynamic stability, as the paper's findings would inform or potentially preempt such a contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+              "heading": "Conclusion",
+              "text_snippet": "In contrast, global, averaged thermodynamic properties, such as heat capacity or vibrational entropy, show little benefit from these descriptors, as they depend more on overall structural averages than on directional bonding details.",
+              "similarity": 0.75,
+              "reason": "The paper concludes on the effectiveness of descriptors for 'thermodynamic properties', which is directly relevant to the user's aim of predicting 'thermodynamic stability'. The paper's finding that these properties show 'little benefit' from certain descriptors is a direct contribution to the problem the user is addressing.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 50337,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2602.12109v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 19,
+    "global_similarity_score": 0.865,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+            "heading": "Abstract",
+            "text_snippet": "By testing seven machine learning models for formation energy on stability predictions using the Materials Project database of DFT calculations for 85,014 unique chemical compositions, we show that while formation energies can indeed be predicted well, all compositional models perform poorly on predicting the stability of compounds, making them considerably less useful than DFT for the discovery and design of new solids.",
+            "similarity": 0.75,
+            "reason": "The paper explicitly states its focus on stability predictions of compounds using machine learning models and the Materials Project database, which directly aligns with the user's problem of predicting thermodynamic stability of inorganic compounds.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_03",
+            "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+            "heading": "ABSTRACT",
+            "text_snippet": "Crystal graph convolutional neural networks (CGCNN), materials graph network (MEGNet) and random forests are trained on the Materials Project database that contains the results of high-throughput DFT predictions. For random forests, we use a stochastic method to select nearly one hundred relevant descriptors based on chemical composition and crystal structure.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper explicitly mention using a 'random forest model' and 'compositional and structural descriptors' from the 'Materials Project' database.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+            "heading": "Abstract",
+            "text_snippet": "By testing seven machine learning models for formation energy on stability predictions using the Materials Project database of DFT calculations for 85,014 unique chemical compositions, we show that while formation energies can indeed be predicted well, all compositional models perform poorly on predicting the stability of compounds, making them considerably less useful than DFT for the discovery and design of new solids.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are focused on predicting the stability of inorganic compounds using data from the Materials Project.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+            "heading": "Abstract",
+            "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+            "similarity": 0.75,
+            "reason": "The paper's core contribution is developing ML models to predict thermodynamic stability of inorganic compounds (perovskite oxides), which directly aligns with the user's proposed contribution.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research shows low originality, with significant overlap in problem formulation, domain, and contribution with existing work on predicting compound stability. To increase originality, consider differentiating your methodology or focusing on a novel application within material prediction.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.8799999999999999,
+      "method_similarity": 0.69,
+      "domain_overlap": 0.8799999999999999,
+      "contribution_similarity": 0.84
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0863,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0839,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0021,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 301.3620436191559,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "A critical examination of compound stability predictions from machine-learned formation energies",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Prediction of Large Magnetic Moment Materials With Graph Neural Networks and Random Forests",
+        "paper_similarity": 0.6375,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.75,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "A Machine Learning Framework for Predicting Glass-Forming Ability in Ternary Alloy Systems",
+        "paper_similarity": 0.6625,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.75,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "A critical assessment of bonding descriptors for predicting materials properties",
+        "paper_similarity": 0.475,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 109
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 109
+    },
+    "total_papers_fetched": 109,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.8165137614678899,
+    "llm_selection_rate": 0.75
+  }
+}

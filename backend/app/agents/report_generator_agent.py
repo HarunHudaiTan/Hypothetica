@@ -284,10 +284,7 @@ Papers Analyzed: {l2.papers_analyzed}
 Summary: {l2.summary}
 
 Aggregated Criteria Scores:
-- Problem Similarity: {l2.aggregated_criteria.problem_similarity:.3f}
-- Method Similarity: {l2.aggregated_criteria.method_similarity:.3f}
-- Domain Overlap: {l2.aggregated_criteria.domain_overlap:.3f}
-- Contribution Similarity: {l2.aggregated_criteria.contribution_similarity:.3f}
+{self._format_aggregated_criteria(l2.aggregated_criteria)}
         """)
         
         # Sentence Annotations
@@ -442,6 +439,16 @@ Processing Time: {data.processing_time_seconds:.2f} seconds
         
         return "\n".join(context_parts)
     
+    def _format_aggregated_criteria(self, criteria) -> str:
+        if criteria is None:
+            return "- No papers analyzed — criteria scores not available"
+        return (
+            f"- Problem Similarity: {criteria.problem_similarity:.3f}\n"
+            f"- Method Similarity: {criteria.method_similarity:.3f}\n"
+            f"- Domain Overlap: {criteria.domain_overlap:.3f}\n"
+            f"- Contribution Similarity: {criteria.contribution_similarity:.3f}"
+        )
+
     def _format_paper_sections(self, paper: Paper) -> str:
         """Format paper sections for context display."""
         sections_text = ""

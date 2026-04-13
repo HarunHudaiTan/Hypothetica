@@ -1,0 +1,994 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "f1840d16207b",
+    "status": "completed"
+  },
+  "originality_score": 13,
+  "global_similarity_score": 0.90625,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+          "heading": "Abstract",
+          "text_snippet": "Drug-drug interactions (DDIs) remain a major source of preventable harm, and many clinically important mechanisms are still unknown.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper address the problem of predicting drug-drug interactions (DDIs). The user's idea focuses on a prediction model, which aligns with the paper's goal of addressing unknown DDI mechanisms.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+          "heading": "Introduction",
+          "text_snippet": "Researchers have used electronic health record (EHR) data, a rich source for recording drug side effects, to screen DDIs; however, signals mined from EHRs are noisy, temporal, and cohort-dependent, and often transfer poorly across sites and timeframes.",
+          "similarity": 0.75,
+          "reason": "The user's idea explicitly mentions using patient electronic health records to construct co-prescription networks. The paper also discusses and uses EHR data for DDI prediction, acknowledging its challenges.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+          "heading": "Abstract",
+          "text_snippet": "Drug-drug interactions (DDIs) remain a major source of preventable harm, and many clinically important mechanisms are still unknown.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are squarely in the domain of drug-drug interaction prediction, a specific area within pharmacology and healthcare.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+          "heading": "Conclusions",
+          "text_snippet": "In this manuscript, SVM-based classification methods were developed to predict whether a drug combination of arbitrary orders is likely to induce adverse drug reactions. Novel kernels over drug combinations of arbitrary orders were developed for such classification. These kernels were constructed from various single-drug information including drug co-medication patterns, and compare drug combination similarities based on single drugs they have and the relations among the single drugs. Specifically, a novel kernel over drug combinations of arbitrary orders was developed based on graph matching over drug combination graphs.",
+          "similarity": 0.75,
+          "reason": "The paper's conclusions highlight the development of SVM-based classification methods using novel kernels constructed from drug co-medication patterns and graph matching for DDI prediction. This closely aligns with the user's proposed 'graph-based drug-drug interaction prediction model' that uses 'co-prescription networks' and 'real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings'. The core ideas of using graph-based methods and real-world prescription data for DDI prediction are already demonstrated as contributions in the paper.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea shows very low originality, with high overlap in problem, domain, and contribution with existing work on drug-drug interaction prediction. To improve originality, significantly differentiate your problem formulation and proposed contributions from current literature.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.96,
+    "method_similarity": 0.48,
+    "domain_overlap": 1.0,
+    "contribution_similarity": 0.84
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0896,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0876,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0017,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 345.5028462409973,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2511.06662v1",
+      "arxiv_id": "2511.06662v1",
+      "title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+      "abstract": "Drug-drug interactions (DDIs) remain a major source of preventable harm, and many clinically important mechanisms are still unknown. Existing models either rely on pharmacologic knowledge graphs (KGs), which fail on unseen drugs, or on electronic health records (EHRs), which are noisy, temporal, and site-dependent. We introduce, to our knowledge, the first system that conditions KG relation scoring on patient-level EHR context and distills that reasoning into an EHR-only model for zero-shot inference. A fusion \"Teacher\" learns mechanism-specific relations for drug pairs represented in both sources, while a distilled \"Student\" generalizes to new or rarely used drugs without KG access at inference. Both operate under a shared ontology (set) of pharmacologic mechanisms (drug relations) to produce interpretable, auditable alerts rather than opaque risk scores. Trained on a multi-institution EHR corpus paired with a curated DrugBank DDI graph, and evaluated using a clinically aligned, decision-focused protocol with leakage-safe negatives that avoid artificially easy pairs, the system maintains precision across multi-institutuion test data, produces mechanism-specific, clinically consistent predictions, reduces false alerts (higher precision) at comparable overall detection performance (F1), and misses fewer true interactions compared to prior methods. Case studies further show zero-shot identification of clinically recognized CYP-mediated and pharmacodynamic mechanisms for drugs absent from the KG, supporting real-world use in clinical decision support and pharmacovigilance.",
+      "url": "http://arxiv.org/abs/2511.06662v1",
+      "pdf_url": "http://arxiv.org/pdf/2511.06662v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "q-bio.QM"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea is 'A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.' The paper's core problem is 'predicting potentially new drug interactions' and it introduces 'the first DDI framework that injects EHR context into knowledge-graph relation scoring and, within the same system, distills KG structure into an EHR-only model for zero-shot use.' Both aim to predict drug-drug interactions using EHR data, with the paper explicitly mentioning 'EHRs' and 'patient-level EHR context' for DDI prediction, aligning perfectly with the user's idea. | Method: The user's idea proposes a graph-based model using co-prescription networks from EHRs with real-world prescription patterns as weak supervision. The paper uses a dual-pathway fusion model, combining a pharmacologic knowledge graph (KG) with EHRs, and distills this into an EHR-only model for zero-shot inference. While both approaches use graph-based methods and EHRs for DDI prediction, the paper's explicit use of a pre-existing KG and a teacher-student distillation framework introduces meaningful differences compared to the user's idea of constructing co-prescription networks from EHRs and using prescription patterns as weak supervision. | Domain: The user's research idea is a 'graph-based drug-drug interaction prediction model that uses patient electronic health records'. The paper's title is 'Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions' and its abstract states it introduces 'the first system that conditions KG relation scoring on patient-level EHR context and distills that reasoning into an EHR-only model for zero-shot inference'. Both the idea and the paper are focused on drug-drug interaction prediction using EHRs, with the paper explicitly mentioning the use of a 'curated DrugBank DDI graph' which aligns with the 'graph-based' aspect of the user's idea. | Contribution: The paper's core contribution is a 'graph-based drug-drug interaction prediction model that uses patient electronic health records' (EHRs) to 'condition KG relation scoring on patient-level EHR context' and 'distill that reasoning into an EHR-only model for zero-shot inference,' which directly aligns with the user's idea of a 'graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals.' The paper explicitly uses EHRs to derive drug embeddings and integrate them with a knowledge graph, achieving the proposed goal of leveraging real-world patient data for DDI prediction, including for unseen drugs.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "1902.08675v1",
+      "arxiv_id": "1902.08675v1",
+      "title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+      "abstract": "Background: The problem of predicting whether a drug combination of arbitrary orders is likely to induce adverse drug reactions is considered in this manuscript. Methods: Novel kernels over drug combinations of arbitrary orders are developed within support vector machines for the prediction. Graph matching methods are used in the novel kernels to measure the similarities among drug combinations, in which drug co-medication patterns are leveraged to measure single drug similarities. Results: The experimental results on a real-world dataset demonstrated that the new kernels achieve an area under the curve (AUC) value 0.912 for the prediction problem. Conclusions: The new methods with drug co-medication based single drug similarities can accurately predict whether a drug combination is likely to induce adverse drug reactions of interest.\n  Keywords: drug-drug interaction prediction; drug combination similarity; co-medication; graph matching",
+      "url": "http://arxiv.org/abs/1902.08675v1",
+      "pdf_url": "http://arxiv.org/pdf/1902.08675v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper addresses the problem of 'predicting whether a drug combination of arbitrary orders is likely to induce adverse drug reactions', which is essentially the same as the user's idea of a 'drug-drug interaction prediction model'. Both focus on predicting interactions/reactions for drug combinations, framed as a prediction problem. | Method: The paper proposes a graph-based drug-drug interaction prediction model using graph matching and co-medication patterns to measure single drug similarities, which aligns with the user's idea of a graph-based model using co-prescription networks. However, the paper uses kernel methods within SVMs and explicitly constructs complete graphs for drug combinations, whereas the user's idea mentions 'learning drug compatibility embeddings' which implies a potentially different learning paradigm (e.g., neural networks for embeddings) and network construction method (co-prescription networks vs. complete graphs for combinations). | Domain: Both the user's research idea and the paper focus on 'drug-drug interaction prediction'. The paper explicitly states its goal is 'predicting whether a drug combination of arbitrary orders is likely to induce adverse drug reactions', which directly aligns with the user's idea. Both also leverage 'co-medication patterns' from 'real-world' data (FAERS in the paper) to inform drug compatibility. | Contribution: The paper directly addresses the user's idea of a graph-based drug-drug interaction prediction model using co-prescription networks. It explicitly states, \"Novel kernels over drug combinations of arbitrary orders are developed within support vector machines for the prediction. Graph matching methods are used in the novel kernels to measure the similarities among drug combinations, in which drug co-medication patterns are leveraged to measure single drug similarities,\" which aligns perfectly with the user's concept of treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "1903.04571v2",
+      "arxiv_id": "1903.04571v2",
+      "title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+      "abstract": "Drug-drug interactions are preventable causes of medical injuries and often result in doctor and emergency room visits. Computational techniques can be used to predict potential drug-drug interactions. We approach the drug-drug interaction prediction problem as a link prediction problem and present two novel methods for drug-drug interaction prediction based on artificial neural networks and factor propagation over graph nodes: adjacency matrix factorization (AMF) and adjacency matrix factorization with propagation (AMFP). We conduct a retrospective analysis by training our models on a previous release of the DrugBank database with 1,141 drugs and 45,296 drug-drug interactions and evaluate the results on a later version of DrugBank with 1,440 drugs and 248,146 drug-drug interactions. Additionally, we perform a holdout analysis using DrugBank. We report an area under the receiver operating characteristic curve score of 0.807 and 0.990 for the retrospective and holdout analyses respectively. Finally, we create an ensemble-based classifier using AMF, AMFP, and existing link prediction methods and obtain an area under the receiver operating characteristic curve of 0.814 and 0.991 for the retrospective and the holdout analyses. We demonstrate that AMF and AMFP provide state of the art results compared to existing methods and that the ensemble-based classifier improves the performance by combining various predictors. These results suggest that AMF, AMFP, and the proposed ensemble-based classifier can provide important information during drug development and regarding drug prescription given only partial or noisy data. These methods can also be used to solve other link prediction problems. Drug embeddings (compressed representations) created when training our models using the interaction network have been made public.",
+      "url": "http://arxiv.org/abs/1903.04571v2",
+      "pdf_url": "http://arxiv.org/pdf/1903.04571v2",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "q-bio.QM",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.7499999999999999,
+      "reason": "Problem: The paper addresses the problem of 'drug-drug interaction prediction' as a 'link prediction problem' in a graph, which is identical to the user's research idea. Both aim to predict potential drug-drug interactions using graph-based methods. The paper explicitly states, 'We approach the drug-drug interaction prediction problem as a link prediction problem'. | Method: Both the user's idea and the paper propose graph-based drug-drug interaction prediction models. The paper uses adjacency matrix factorization (AMF) and propagation (AMFP) on a drug interaction network from DrugBank, treating known interactions as direct supervision. In contrast, the user's idea specifically mentions constructing co-prescription networks from patient electronic health records and using real-world prescription patterns as 'weak supervision signals' for learning drug compatibility embeddings, which represents a meaningful difference in the data source and supervision approach. | Domain: Both the user's research idea and the paper focus on 'drug-drug interaction prediction models' using 'graph-based' approaches. The paper explicitly states its goal is 'in silico drug-drug interaction prediction' and frames it as a 'link prediction problem' in a 'drug interaction network', directly matching the core application domain and methodology of the user's idea. | Contribution: The paper's contribution is a graph-based drug-drug interaction prediction model (AMF, AMFP) that uses an interaction network (known DDIs) to learn drug embeddings, which partially overlaps with the user's idea of a graph-based DDI model. However, the paper does not explicitly mention using patient electronic health records or co-prescription networks, nor does it treat real-world prescription patterns as weak supervision signals, which are key aspects of the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2507.09173v1",
+      "arxiv_id": "2507.09173v1",
+      "title": "Towards Interpretable Drug-Drug Interaction Prediction: A Graph-Based Approach with Molecular and Network-Level Explanations",
+      "abstract": "Drug-drug interactions (DDIs) represent a critical challenge in pharmacology, often leading to adverse drug reactions with significant implications for patient safety and healthcare outcomes. While graph-based methods have achieved strong predictive performance, most approaches treat drug pairs independently, overlooking the complex, context-dependent interactions unique to drug pairs. Additionally, these models struggle to integrate biological interaction networks and molecular-level structures to provide meaningful mechanistic insights. In this study, we propose MolecBioNet, a novel graph-based framework that integrates molecular and biomedical knowledge for robust and interpretable DDI prediction. By modeling drug pairs as unified entities, MolecBioNet captures both macro-level biological interactions and micro-level molecular influences, offering a comprehensive perspective on DDIs. The framework extracts local subgraphs from biomedical knowledge graphs and constructs hierarchical interaction graphs from molecular representations, leveraging classical graph neural network methods to learn multi-scale representations of drug pairs. To enhance accuracy and interpretability, MolecBioNet introduces two domain-specific pooling strategies: context-aware subgraph pooling (CASPool), which emphasizes biologically relevant entities, and attention-guided influence pooling (AGIPool), which prioritizes influential molecular substructures. The framework further employs mutual information minimization regularization to enhance information diversity during embedding fusion. Experimental results demonstrate that MolecBioNet outperforms state-of-the-art methods in DDI prediction, while ablation studies and embedding visualizations further validate the advantages of unified drug pair modeling and multi-scale knowledge integration.",
+      "url": "http://arxiv.org/abs/2507.09173v1",
+      "pdf_url": "http://arxiv.org/pdf/2507.09173v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "q-bio.MN"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.7,
+      "reason": "Problem: The user's research idea focuses on a 'graph-based drug-drug interaction prediction model'. The paper's abstract states, 'In this study, we propose MolecBioNet, a novel graph-based framework that integrates molecular and biomedical knowledge for robust and interpretable DDI prediction.' Both the user's idea and the paper are directly addressing the problem of drug-drug interaction prediction using graph-based methods. | Method: Both the user's idea and the paper propose graph-based models for drug-drug interaction prediction. The paper uses a 'task-specific Biomedical Knowledge Graph' and 'substructure-level molecular graphs' to learn multi-scale representations, which aligns with the user's idea of a graph-based model. However, the user's idea specifically mentions using 'patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals,' which is a distinct data source and supervision strategy not explicitly detailed in the paper's methodology for graph construction or learning. | Domain: Both the user's research idea and the paper focus on 'Drug-drug interaction prediction' using 'graph-based' models. The paper explicitly states its goal is to 'predict the type of interaction that may occur when two drugs are co-administered,' which directly aligns with the user's idea of learning 'drug compatibility embeddings'. | Contribution: The paper 'Towards Interpretable Drug-Drug Interaction Prediction: A Graph-Based Approach with Molecular and Network-Level Explanations' proposes a graph-based DDI prediction model that integrates molecular and biomedical knowledge graphs, using 'macro-level biological interactions and micro-level molecular influences' for interpretability. While both the user's idea and the paper focus on graph-based DDI prediction, the user's idea specifically mentions using 'patient electronic health records to construct co-prescription networks' and 'real-world prescription patterns as weak supervision signals', which is not explicitly addressed in the paper's methodology of constructing a 'task-specific Biomedical Knowledge Graph' and 'substructure-level molecular graph' from existing databases.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2408.15310v1",
+      "arxiv_id": "2408.15310v1",
+      "title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+      "abstract": "Recent studies suggest that drug-drug interaction (DDI) prediction via computational approaches has significant importance for understanding the functions and co-prescriptions of multiple drugs. However, the existing silico DDI prediction methods either ignore the potential interactions among drug-drug pairs (DDPs), or fail to explicitly model and fuse the multi-scale drug feature representations for better prediction. In this study, we propose RGDA-DDI, a residual graph attention network (residual-GAT) and dual-attention based framework for drug-drug interaction prediction. A residual-GAT module is introduced to simultaneously learn multi-scale feature representations from drugs and DDPs. In addition, a dual-attention based feature fusion block is constructed to learn local joint interaction representations. A series of evaluation metrics demonstrate that the RGDA-DDI significantly improved DDI prediction performance on two public benchmark datasets, which provides a new insight into drug development.",
+      "url": "http://arxiv.org/abs/2408.15310v1",
+      "pdf_url": "http://arxiv.org/pdf/2408.15310v1",
+      "authors": [],
+      "categories": [
+        "q-bio.MN",
+        "cs.CE",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.475,
+      "reason": "Problem: The paper addresses the problem of 'drug-drug interaction (DDI) prediction via computational approaches' and aims to 'predict whether there is an interaction between a pair of drugs (d_i, d_j) or not'. This is the same broad topic as the user's idea. However, the paper does not mention using 'patient electronic health records' or 'co-prescription networks' as a source of 'weak supervision signals', instead relying on 'biomedical knowledge graphs' constructed from datasets like DrugBank and KEGG. | Method: Both the user's idea and the paper propose graph-based drug-drug interaction prediction models. However, the paper focuses on using a residual graph attention network and dual-attention mechanism with biomedical knowledge graphs (BKGs) constructed from public datasets like DrugBank and KEGG, while the user's idea specifically mentions constructing co-prescription networks from patient electronic health records and using real-world prescription patterns as weak supervision signals, which is a distinct data source and supervision approach not detailed in the paper. | Domain: Both the user's research idea and the paper focus on 'drug-drug interaction prediction models'. The paper explicitly states its goal is 'drug-drug interaction (DDI) prediction' and uses 'drug-drug pairs (DDPs)' as a core concept, directly aligning with the user's stated application domain. | Contribution: The paper proposes a graph-based DDI prediction model using a residual graph attention network and dual-attention for feature learning from biomedical knowledge graphs (BKGs). While both the user's idea and the paper focus on graph-based DDI prediction, the paper does not mention using patient electronic health records or co-prescription networks, nor does it treat real-world prescription patterns as weak supervision signals, which are key aspects of the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.25
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.9,
+    "existing_examples": [
+      {
+        "name": "Drug-Drug Interaction (DDI) Prediction Research",
+        "similarity": 0.95,
+        "description": "Numerous research efforts focus on DDI prediction using various data sources and machine learning techniques. Graph-based methods are a significant sub-area."
+      },
+      {
+        "name": "Graph Neural Networks (GNNs) for Drug Discovery/Interaction",
+        "similarity": 0.85,
+        "description": "GNNs are widely applied in cheminformatics and drug discovery, including for predicting interactions, by modeling drugs and their relationships as graphs. This often involves constructing networks from various data sources."
+      },
+      {
+        "name": "EHR-based DDI Prediction",
+        "similarity": 0.8,
+        "description": "Many studies leverage Electronic Health Records (EHRs) to identify DDIs, often by analyzing co-prescription patterns, adverse event reporting, or other clinical data. These patterns are frequently used as implicit or weak supervision."
+      },
+      {
+        "name": "Weak Supervision in Machine Learning for Healthcare",
+        "similarity": 0.75,
+        "description": "The concept of using readily available, noisy, or indirect signals (like co-prescription patterns) as 'weak supervision' to train models is a well-established technique in machine learning, particularly in domains where labeled data is scarce, such as healthcare."
+      }
+    ],
+    "assessment": "The core idea of using a graph-based model for drug-drug interaction prediction, leveraging patient electronic health records to build co-prescription networks, and treating these patterns as weak supervision, is a well-established and actively researched area in bioinformatics, medical informatics, and machine learning for healthcare. There are numerous academic papers and research projects that explore various facets of this approach, often combining graph neural networks, EHR data, and different forms of weak supervision or unsupervised learning to infer drug compatibility or predict adverse DDIs.",
+    "novelty_aspects": [
+      "Specific novel graph construction techniques from EHRs",
+      "Unique embedding learning architectures for drug compatibility",
+      "Novel weak supervision signal definitions or integration methods",
+      "Application to a specific, under-researched drug class or patient population"
+    ],
+    "recommendation": "While the general concept exists, the novelty would lie in the specific technical details of your implementation. Focus on what makes your 'graph construction,' 'weak supervision signal definition,' or 'embedding learning architecture' unique and superior to existing methods. Clearly articulate the specific problem your model solves that current models do not, or how it achieves significantly better performance on a relevant benchmark."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Drug-Drug Interaction (DDI) Prediction Research** (similarity: 95%).\n\n*The core idea of using a graph-based model for drug-drug interaction prediction, leveraging patient electronic health records to build co-prescription networks, and treating these patterns as weak supervision, is a well-established and actively researched area in bioinformatics, medical informatics, and machine learning for healthcare. There are numerous academic papers and research projects that explore various facets of this approach, often combining graph neural networks, EHR data, and different forms of weak supervision or unsupervised learning to infer drug compatibility or predict adverse DDIs.*\n\n**Recommendation:** While the general concept exists, the novelty would lie in the specific technical details of your implementation. Focus on what makes your 'graph construction,' 'weak supervision signal definition,' or 'embedding learning architecture' unique and superior to existing methods. Clearly articulate the specific problem your model solves that current models do not, or how it achieves significantly better performance on a relevant benchmark.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 106,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 510,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0896,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0876,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0017,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+  "enriched_idea": "RESEARCH IDEA:\nA graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+      "arxiv_id": "2511.06662v1",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea is 'A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.' The paper's core problem is 'predicting potentially new drug interactions' and it introduces 'the first DDI framework that injects EHR context into knowledge-graph relation scoring and, within the same system, distills KG structure into an EHR-only model for zero-shot use.' Both aim to predict drug-drug interactions using EHR data, with the paper explicitly mentioning 'EHRs' and 'patient-level EHR context' for DDI prediction, aligning perfectly with the user's idea. | Method: The user's idea proposes a graph-based model using co-prescription networks from EHRs with real-world prescription patterns as weak supervision. The paper uses a dual-pathway fusion model, combining a pharmacologic knowledge graph (KG) with EHRs, and distills this into an EHR-only model for zero-shot inference. While both approaches use graph-based methods and EHRs for DDI prediction, the paper's explicit use of a pre-existing KG and a teacher-student distillation framework introduces meaningful differences compared to the user's idea of constructing co-prescription networks from EHRs and using prescription patterns as weak supervision. | Domain: The user's research idea is a 'graph-based drug-drug interaction prediction model that uses patient electronic health records'. The paper's title is 'Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions' and its abstract states it introduces 'the first system that conditions KG relation scoring on patient-level EHR context and distills that reasoning into an EHR-only model for zero-shot inference'. Both the idea and the paper are focused on drug-drug interaction prediction using EHRs, with the paper explicitly mentioning the use of a 'curated DrugBank DDI graph' which aligns with the 'graph-based' aspect of the user's idea. | Contribution: The paper's core contribution is a 'graph-based drug-drug interaction prediction model that uses patient electronic health records' (EHRs) to 'condition KG relation scoring on patient-level EHR context' and 'distill that reasoning into an EHR-only model for zero-shot inference,' which directly aligns with the user's idea of a 'graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals.' The paper explicitly uses EHRs to derive drug embeddings and integrate them with a knowledge graph, achieving the proposed goal of leveraging real-world patient data for DDI prediction, including for unseen drugs.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.7499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+              "heading": "Abstract",
+              "text_snippet": "Drug-drug interactions (DDIs) remain a major source of preventable harm, and many clinically important mechanisms are still unknown.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of predicting drug-drug interactions (DDIs). The user's idea focuses on a prediction model, which aligns with the paper's goal of addressing unknown DDI mechanisms.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+              "heading": "Introduction",
+              "text_snippet": "Drug-drug interactions (DDIs) can cause serious adverse reactions and pose a significant challenge to healthcare. In recent years, many unknown DDIs are emerging and predicting potentially new drug interactions has attracted increasing attention.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper aim to predict drug-drug interactions, highlighting the importance of this problem in healthcare.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+              "heading": "Abstract",
+              "text_snippet": "Existing models either rely on pharmacologic knowledge graphs (KGs), which fail on unseen drugs, or on electronic health records (EHRs), which are noisy, temporal, and site-dependent.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes using patient electronic health records (EHRs) to construct networks, which is a method discussed and utilized by the paper, although the paper also integrates knowledge graphs.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+              "heading": "Introduction",
+              "text_snippet": "Researchers have used electronic health record (EHR) data, a rich source for recording drug side effects, to screen DDIs; however, signals mined from EHRs are noisy, temporal, and cohort-dependent, and often transfer poorly across sites and timeframes.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions using patient electronic health records to construct co-prescription networks. The paper also discusses and uses EHR data for DDI prediction, acknowledging its challenges.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+              "heading": "Clinical objective and framework",
+              "text_snippet": "KG-only methods interpolate among seen drugs but falter without edges, while EHR-only methods capture bedside context but are noisy and cohortdependent. We propose a KG-EHR teacher-student framework: a Fusion Module mixes KG and aggregated per-drug EHR embeddings derived from RETAIN (Choi et al., 2016) (Appendix C) on overlapped drugs, and a distilled EHR-only student, an MLP on the same pairwise EHR features, handles drugs without KG access while preserving mechanism behavior.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a 'graph-based' model and uses 'co-prescription networks' from EHRs. The paper also uses EHRs to derive 'per-drug EHR embeddings' and discusses 'EHR-only methods' and a 'KG-EHR teacher-student framework' which involves graph-based components and EHRs.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+              "heading": "Abstract",
+              "text_snippet": "Drug-drug interactions (DDIs) remain a major source of preventable harm, and many clinically important mechanisms are still unknown.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely in the domain of drug-drug interaction prediction, a specific area within pharmacology and healthcare.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+              "heading": "Introduction",
+              "text_snippet": "Drug-drug interactions (DDIs) can cause serious adverse reactions and pose a significant challenge to healthcare.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on predicting drug-drug interactions, which is a direct application within the healthcare domain.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 29499,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2511.06662v1"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+      "arxiv_id": "1902.08675v1",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper addresses the problem of 'predicting whether a drug combination of arbitrary orders is likely to induce adverse drug reactions', which is essentially the same as the user's idea of a 'drug-drug interaction prediction model'. Both focus on predicting interactions/reactions for drug combinations, framed as a prediction problem. | Method: The paper proposes a graph-based drug-drug interaction prediction model using graph matching and co-medication patterns to measure single drug similarities, which aligns with the user's idea of a graph-based model using co-prescription networks. However, the paper uses kernel methods within SVMs and explicitly constructs complete graphs for drug combinations, whereas the user's idea mentions 'learning drug compatibility embeddings' which implies a potentially different learning paradigm (e.g., neural networks for embeddings) and network construction method (co-prescription networks vs. complete graphs for combinations). | Domain: Both the user's research idea and the paper focus on 'drug-drug interaction prediction'. The paper explicitly states its goal is 'predicting whether a drug combination of arbitrary orders is likely to induce adverse drug reactions', which directly aligns with the user's idea. Both also leverage 'co-medication patterns' from 'real-world' data (FAERS in the paper) to inform drug compatibility. | Contribution: The paper directly addresses the user's idea of a graph-based drug-drug interaction prediction model using co-prescription networks. It explicitly states, \"Novel kernels over drug combinations of arbitrary orders are developed within support vector machines for the prediction. Graph matching methods are used in the novel kernels to measure the similarities among drug combinations, in which drug co-medication patterns are leveraged to measure single drug similarities,\" which aligns perfectly with the user's concept of treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.7999999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Abstract",
+              "text_snippet": "Background: The problem of predicting whether a drug combination of arbitrary orders is likely to induce adverse drug reactions is considered in this manuscript.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of predicting drug-drug interactions (DDIs) or adverse drug reactions (ADRs) from drug combinations.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Introduction",
+              "text_snippet": "In this manuscript, novel approaches to predicting whether high-order drug combinations are likely to induce ADRs are presented.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper aim to predict adverse outcomes from drug combinations.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Methods",
+              "text_snippet": "We formulate the problem of predicting whether highorder drug combinations induce a particular ADR as a binary classification problem, and solve the classification problem within the framework of kernel methods and support vector machines (SVMs).",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a 'graph-based drug-drug interaction prediction model', which aligns with the paper's use of graph matching and kernel methods for classification.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Graph matching",
+              "text_snippet": "Graph matching is to find the optimal vertex correspondence between two graphs [11, 12].",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions a 'graph-based' model, and the paper extensively uses 'graph matching' methods for drug combination similarity.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Drug combination kernels from graph matching",
+              "text_snippet": "We formulate the problem of comparing drug combination similarities through matching drug combination graphs, and develop a graph-matching based kernel for drug combination similarities.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a 'graph-based' model, and the paper uses 'graph matching' to compare drug combinations, which is a core methodological overlap.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "SDS based on co-medications",
+              "text_snippet": "We develop a new approach to measuring the SDS between two drugs by looking at whether they are often involved in co-medications with similar other drugs, respectively. ... Such data-driven co-medication based SDSs have a potential advantage over SDS 2d in that they leverage the signals from ADRs information directly that may not be captured or explained by drug 2D structures or other features on individual drugs.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions 'co-prescription networks' and 'real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings'. The paper uses 'co-medication patterns' to measure 'single drug similarities (SDS cm)', which are then used in the kernels for prediction, aligning with the concept of learning drug compatibility from prescription patterns.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Abstract",
+              "text_snippet": "Background: The problem of predicting whether a drug combination of arbitrary orders is likely to induce adverse drug reactions is considered in this manuscript.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on drug-drug interaction prediction and adverse drug reactions, placing them in the same specific application area.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Introduction",
+              "text_snippet": "Drug-Drug Interactions (DDIs) and the associated Adverse Drug Reactions (ADRs) represent a consistent detriment to the public health in the United States.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on drug-drug interaction prediction and adverse drug reactions, placing them in the same specific application area.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Background",
+              "text_snippet": "Existing methods either extract DDI pairs mentioned in medical literature or Electronic Health Records (EHRs) [4], or predict/score DDI pairs from various drug/target information [7].",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions using 'patient electronic health records', which the paper also identifies as a source for DDI studies.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Materials",
+              "text_snippet": "We extract high-order drug combinations from FDA Adverse Event Reporting System (FAERS) [26]. We use myopathy as the ADR of particular interest, and extract 64,892 case (myopathy) events, in which patients report myopathy after taking multiple drugs, and 1,475,840 control (non-myopathy) events, in which patients do not report myopathy after taking drugs.",
+              "similarity": 1.0,
+              "reason": "The paper uses real-world patient data (FAERS, which is a type of electronic health record) to extract drug combinations and their associated ADRs, directly aligning with the user's proposed use of 'patient electronic health records' for DDI prediction.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+              "heading": "Conclusions",
+              "text_snippet": "In this manuscript, SVM-based classification methods were developed to predict whether a drug combination of arbitrary orders is likely to induce adverse drug reactions. Novel kernels over drug combinations of arbitrary orders were developed for such classification. These kernels were constructed from various single-drug information including drug co-medication patterns, and compare drug combination similarities based on single drugs they have and the relations among the single drugs. Specifically, a novel kernel over drug combinations of arbitrary orders was developed based on graph matching over drug combination graphs.",
+              "similarity": 0.75,
+              "reason": "The paper's conclusions highlight the development of SVM-based classification methods using novel kernels constructed from drug co-medication patterns and graph matching for DDI prediction. This closely aligns with the user's proposed 'graph-based drug-drug interaction prediction model' that uses 'co-prescription networks' and 'real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings'. The core ideas of using graph-based methods and real-world prescription data for DDI prediction are already demonstrated as contributions in the paper.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 57413,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1902.08675v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+      "arxiv_id": "1903.04571v2",
+      "paper_similarity_score": 0.7499999999999999,
+      "reason": "Problem: The paper addresses the problem of 'drug-drug interaction prediction' as a 'link prediction problem' in a graph, which is identical to the user's research idea. Both aim to predict potential drug-drug interactions using graph-based methods. The paper explicitly states, 'We approach the drug-drug interaction prediction problem as a link prediction problem'. | Method: Both the user's idea and the paper propose graph-based drug-drug interaction prediction models. The paper uses adjacency matrix factorization (AMF) and propagation (AMFP) on a drug interaction network from DrugBank, treating known interactions as direct supervision. In contrast, the user's idea specifically mentions constructing co-prescription networks from patient electronic health records and using real-world prescription patterns as 'weak supervision signals' for learning drug compatibility embeddings, which represents a meaningful difference in the data source and supervision approach. | Domain: Both the user's research idea and the paper focus on 'drug-drug interaction prediction models' using 'graph-based' approaches. The paper explicitly states its goal is 'in silico drug-drug interaction prediction' and frames it as a 'link prediction problem' in a 'drug interaction network', directly matching the core application domain and methodology of the user's idea. | Contribution: The paper's contribution is a graph-based drug-drug interaction prediction model (AMF, AMFP) that uses an interaction network (known DDIs) to learn drug embeddings, which partially overlaps with the user's idea of a graph-based DDI model. However, the paper does not explicitly mention using patient electronic health records or co-prescription networks, nor does it treat real-world prescription patterns as weak supervision signals, which are key aspects of the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.6,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+              "heading": "Abstract",
+              "text_snippet": "We approach the drug-drug interaction prediction problem as a link prediction problem and present two novel methods for drug-drug interaction prediction based on artificial neural networks and factor propagation over graph nodes: adjacency matrix factorization (AMF) and adjacency matrix factorization with propagation (AMFP).",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'graph-based drug-drug interaction prediction model' and 'learning drug compatibility embeddings'. The paper also uses graph-based methods (AMF, AMFP) for DDI prediction and explicitly mentions 'Drug embeddings (compressed representations) created when training our models using the interaction network have been made public.' The user's mention of 'co-prescription networks' and 'weak supervision signals' introduces a different data source and learning paradigm.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+              "heading": "Problem formulation",
+              "text_snippet": "We approach the drug-drug interaction prediction problem as a link prediction problem. Suppose we have an undirected drug interaction network G = ( V, E ) in which each edge e = ( u, i ) ∈ E represents an interaction between drugs u and i .",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper utilize a graph-based approach for DDI prediction, where drugs are nodes and interactions are links. The user's 'co-prescription networks' are a type of graph, aligning with the paper's 'drug interaction network'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+              "heading": "Adjacency matrix factorization",
+              "text_snippet": "The method is based on optimizing the latent factors of each drug in the network; the latent factor is an k -dimensional vector. ... Drug embeddings (compressed representations) created when training our models using the interaction network have been made public.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions 'learning drug compatibility embeddings', which directly corresponds to the paper's use of 'latent factors' or 'drug embeddings' as compressed representations of drugs within the interaction network.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+              "heading": "Abstract",
+              "text_snippet": "Drug-drug interactions are preventable causes of medical injuries and often result in doctor and emergency room visits. Computational techniques can be used to predict potential drug-drug interactions.",
+              "similarity": 1.0,
+              "reason": "Both the user's research idea and the paper are squarely focused on the domain of drug-drug interaction prediction, which is a specific area within medical informatics and pharmacology.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+              "heading": "Introduction",
+              "text_snippet": "Adverse drug events are often preventable causes of medical injuries, and adverse drug reactions (ADRs) are estimated to be the fourth leading cause of death in the U.S., ahead of pulmonary disease, diabetes, AIDS, pneumonia, accidents, and automobile fatalities [1]. ... DDI prediction during the clinical experiments conducted in order to approve a new drug is difficult [7].",
+              "similarity": 1.0,
+              "reason": "The core application domain of both the user's idea and the paper is the prediction of drug-drug interactions to mitigate adverse drug events and improve drug safety, which is a critical problem in healthcare.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+              "heading": "Abstract",
+              "text_snippet": "Computational techniques can be used to predict potential drug-drug interactions. We approach the drug-drug interaction prediction problem as a link prediction problem and present two novel methods for drug-drug interaction prediction based on artificial neural networks and factor propagation over graph nodes: adjacency matrix factorization (AMF) and adjacency matrix factorization with propagation (AMFP).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to contribute a method for drug-drug interaction prediction. The paper presents specific novel methods (AMF, AMFP) and the user proposes a 'graph-based drug-drug interaction prediction model'. While the specific methodology differs (co-prescription networks vs. DrugBank interaction networks), the overarching contribution of a predictive model for DDIs is shared.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+              "heading": "Conclusion",
+              "text_snippet": "In this paper, we designed two methods for drug-drug interaction prediction based on a novel matrix factorization technique designed for adjacency matrices and developed useful in silico models to predict new drug interactions.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'graph-based drug-drug interaction prediction model', which aligns with the paper's contribution of 'in silico models to predict new drug interactions'. Both aim to provide a predictive tool for DDIs.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 52582,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1903.04571v2"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Towards Interpretable Drug-Drug Interaction Prediction: A Graph-Based Approach with Molecular and Network-Level Explanations",
+      "arxiv_id": "2507.09173v1",
+      "paper_similarity_score": 0.7,
+      "reason": "Problem: The user's research idea focuses on a 'graph-based drug-drug interaction prediction model'. The paper's abstract states, 'In this study, we propose MolecBioNet, a novel graph-based framework that integrates molecular and biomedical knowledge for robust and interpretable DDI prediction.' Both the user's idea and the paper are directly addressing the problem of drug-drug interaction prediction using graph-based methods. | Method: Both the user's idea and the paper propose graph-based models for drug-drug interaction prediction. The paper uses a 'task-specific Biomedical Knowledge Graph' and 'substructure-level molecular graphs' to learn multi-scale representations, which aligns with the user's idea of a graph-based model. However, the user's idea specifically mentions using 'patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals,' which is a distinct data source and supervision strategy not explicitly detailed in the paper's methodology for graph construction or learning. | Domain: Both the user's research idea and the paper focus on 'Drug-drug interaction prediction' using 'graph-based' models. The paper explicitly states its goal is to 'predict the type of interaction that may occur when two drugs are co-administered,' which directly aligns with the user's idea of learning 'drug compatibility embeddings'. | Contribution: The paper 'Towards Interpretable Drug-Drug Interaction Prediction: A Graph-Based Approach with Molecular and Network-Level Explanations' proposes a graph-based DDI prediction model that integrates molecular and biomedical knowledge graphs, using 'macro-level biological interactions and micro-level molecular influences' for interpretability. While both the user's idea and the paper focus on graph-based DDI prediction, the user's idea specifically mentions using 'patient electronic health records to construct co-prescription networks' and 'real-world prescription patterns as weak supervision signals', which is not explicitly addressed in the paper's methodology of constructing a 'task-specific Biomedical Knowledge Graph' and 'substructure-level molecular graph' from existing databases.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Towards Interpretable Drug-Drug Interaction Prediction: A Graph-Based Approach with Molecular and Network-Level Explanations",
+              "heading": "Abstract",
+              "text_snippet": "In this study, we propose MolecBioNet, a novel graph-based framework that integrates molecular and biomedical knowledge for robust and interpretable DDI prediction. By modeling drug pairs as unified entities, MolecBioNet captures both macro-level biological interactions and micro-level molecular influences, offering a comprehensive perspective on DDIs. The framework extracts local subgraphs from biomedical knowledge graphs and constructs hierarchical interaction graphs from molecular representations, leveraging classical graph neural network methods to learn multi-scale representations of drug pairs.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a 'graph-based drug-drug interaction prediction model' that constructs 'co-prescription networks' and learns 'drug compatibility embeddings'. The paper also uses a 'graph-based framework' for DDI prediction, modeling 'drug pairs as unified entities', extracting 'local subgraphs from biomedical knowledge graphs', and leveraging 'graph neural network methods to learn multi-scale representations of drug pairs'. The core methodology of using graph-based models and learning embeddings for DDI prediction is very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Towards Interpretable Drug-Drug Interaction Prediction: A Graph-Based Approach with Molecular and Network-Level Explanations",
+              "heading": "tsBKG-Based Subgraph Representation",
+              "text_snippet": "To infer DDIs, we treat each drug pair as a unified entity and analyze its contextual dependencies within the biomedical knowledge graph (G_BKG), capturing the macro-scale influences of other entities such as proteins and diseases. These influences propagate through the connections in the graph and diminish with increasing distance from the drug pair [56]. Hence, we focus on the k-hop enclosing subgraph centered on the drug pair to focus on the most contextually relevant region while balancing computational efficiency and the inclusion of meaningful connections.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions constructing 'co-prescription networks' and learning 'drug compatibility embeddings'. The paper explicitly discusses treating 'each drug pair as a unified entity' and analyzing its 'contextual dependencies within the biomedical knowledge graph' by extracting 'k-hop enclosing subgraphs'. This shows a very similar approach to representing drug interactions within a network for prediction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Towards Interpretable Drug-Drug Interaction Prediction: A Graph-Based Approach with Molecular and Network-Level Explanations",
+              "heading": "Abstract",
+              "text_snippet": "Drug-drug interactions (DDIs) represent a critical challenge in pharmacology, often leading to adverse drug reactions with significant implications for patient safety and healthcare outcomes.",
+              "similarity": 1.0,
+              "reason": "Both the user's research idea and the paper are focused on the domain of drug-drug interaction (DDI) prediction, which is a specific application area within pharmacology and healthcare.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Towards Interpretable Drug-Drug Interaction Prediction: A Graph-Based Approach with Molecular and Network-Level Explanations",
+              "heading": "Abstract",
+              "text_snippet": "In this study, we propose MolecBioNet, a novel graph-based framework that integrates molecular and biomedical knowledge for robust and interpretable DDI prediction. By modeling drug pairs as unified entities, MolecBioNet captures both macro-level biological interactions and micro-level molecular influences, offering a comprehensive perspective on DDIs.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'graph-based drug-drug interaction prediction model' to learn 'drug compatibility embeddings'. The paper's contribution is a 'graph-based framework' for 'DDI prediction' that models 'drug pairs as unified entities' and learns 'multi-scale representations of drug pairs'. While the user specifies 'patient electronic health records' and 'weak supervision signals', the core contribution of a graph-based model for DDI prediction and learning embeddings is shared.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 56087,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2507.09173v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+      "arxiv_id": "2408.15310v1",
+      "paper_similarity_score": 0.475,
+      "reason": "Problem: The paper addresses the problem of 'drug-drug interaction (DDI) prediction via computational approaches' and aims to 'predict whether there is an interaction between a pair of drugs (d_i, d_j) or not'. This is the same broad topic as the user's idea. However, the paper does not mention using 'patient electronic health records' or 'co-prescription networks' as a source of 'weak supervision signals', instead relying on 'biomedical knowledge graphs' constructed from datasets like DrugBank and KEGG. | Method: Both the user's idea and the paper propose graph-based drug-drug interaction prediction models. However, the paper focuses on using a residual graph attention network and dual-attention mechanism with biomedical knowledge graphs (BKGs) constructed from public datasets like DrugBank and KEGG, while the user's idea specifically mentions constructing co-prescription networks from patient electronic health records and using real-world prescription patterns as weak supervision signals, which is a distinct data source and supervision approach not detailed in the paper. | Domain: Both the user's research idea and the paper focus on 'drug-drug interaction prediction models'. The paper explicitly states its goal is 'drug-drug interaction (DDI) prediction' and uses 'drug-drug pairs (DDPs)' as a core concept, directly aligning with the user's stated application domain. | Contribution: The paper proposes a graph-based DDI prediction model using a residual graph attention network and dual-attention for feature learning from biomedical knowledge graphs (BKGs). While both the user's idea and the paper focus on graph-based DDI prediction, the paper does not mention using patient electronic health records or co-prescription networks, nor does it treat real-world prescription patterns as weak supervision signals, which are key aspects of the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.6,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+              "heading": "Abstract",
+              "text_snippet": "Recent studies suggest that drug-drug interaction (DDI) prediction via computational approaches has significant importance for understanding the functions and co-prescriptions of multiple drugs.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of drug-drug interaction (DDI) prediction using computational approaches. The user's idea specifies a graph-based model, which aligns with the paper's use of graph attention networks.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+              "heading": "Introduction",
+              "text_snippet": "Drug-drug interaction (DDI) prediction plays an important role in modern biomedical and pharmaceutical research, as it is common for a patient to take multiple drugs at the same time, which provides therapeutic benefits but at the same time increases the potential risk of drug combination incompatibility [1]. Precision prediction of DDIs is still a very challenging task because of the large number of drug-drug pairs (DDPs).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper identify DDI prediction as an important and challenging problem due to the complexity of drug combinations.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+              "heading": "Abstract",
+              "text_snippet": "In this study, we propose RGDA-DDI, a residual graph attention network (residual-GAT) and dual-attention based framework for drug-drug interaction prediction.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'graph-based drug-drug interaction prediction model', which broadly aligns with the paper's 'residual graph attention network' framework for DDI prediction. Both use graph-based methods.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+              "heading": "Graph attention network",
+              "text_snippet": "The graph attention networks (GAT) [17] combines attention mechanisms [18] and graph convolutional networks (GCN) [19], which utilize an attention-based aggregator to generate attention weights over all neighbors of a node for feature learning.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'graph-based' and 'learning drug compatibility embeddings', which is a core component of graph attention networks used in the paper for feature learning and DDI prediction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+              "heading": "Overall framework of RGDA-DDI",
+              "text_snippet": "The proposed RGDA-DDI is a combination of a series of residual GAT blocks and a global residual concatenation for drug feature representation, which learns drug substructures from multi-scale feature aggregation and predicts DDIs via dual-attention blocks of all substructures of two drugs.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'graph-based' model for 'learning drug compatibility embeddings', which is a similar goal to the paper's RGDA-DDI framework that learns 'drug feature representation' and 'predicts DDIs via dual-attention blocks'. The user's mention of 'co-prescription networks' and 'weak supervision signals' introduces specific methodological differences not explicitly in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+              "heading": "Abstract",
+              "text_snippet": "Recent studies suggest that drug-drug interaction (DDI) prediction via computational approaches has significant importance for understanding the functions and co-prescriptions of multiple drugs.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on the domain of drug-drug interaction prediction.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+              "heading": "Introduction",
+              "text_snippet": "Drug-drug interaction (DDI) prediction plays an important role in modern biomedical and pharmaceutical research, as it is common for a patient to take multiple drugs at the same time, which provides therapeutic benefits but at the same time increases the potential risk of drug combination incompatibility [1].",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper operate within the biomedical and pharmaceutical research domain, specifically addressing DDI prediction.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+              "heading": "Abstract",
+              "text_snippet": "In this study, we propose RGDA-DDI, a residual graph attention network (residual-GAT) and dual-attention based framework for drug-drug interaction prediction.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to contribute a model for drug-drug interaction prediction. The user's idea specifies using 'patient electronic health records to construct co-prescription networks' and 'real-world prescription patterns as weak supervision signals', which are specific contributions not explicitly detailed in the paper's abstract but align with the general goal of improving DDI prediction.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+              "heading": "Conclution",
+              "text_snippet": "In this study, we proposed a novel drug-drug interaction prediction framework named RGDA-DDI. RGDA-DDI can adaptively learn and integrate multi-scale drug feature representation, and a dual-attention block is designed to grasp the key features that contribute to the positive predictions.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper propose a novel framework for DDI prediction. The user's idea specifies a particular approach to network construction and supervision ('co-prescription networks', 'weak supervision signals'), which represents a distinct aspect of their proposed contribution compared to the paper's focus on multi-scale feature representation and dual-attention blocks.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 29012,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2408.15310v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 13,
+    "global_similarity_score": 0.90625,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+            "heading": "Abstract",
+            "text_snippet": "Drug-drug interactions (DDIs) remain a major source of preventable harm, and many clinically important mechanisms are still unknown.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper address the problem of predicting drug-drug interactions (DDIs). The user's idea focuses on a prediction model, which aligns with the paper's goal of addressing unknown DDI mechanisms.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+            "heading": "Introduction",
+            "text_snippet": "Researchers have used electronic health record (EHR) data, a rich source for recording drug side effects, to screen DDIs; however, signals mined from EHRs are noisy, temporal, and cohort-dependent, and often transfer poorly across sites and timeframes.",
+            "similarity": 0.75,
+            "reason": "The user's idea explicitly mentions using patient electronic health records to construct co-prescription networks. The paper also discusses and uses EHR data for DDI prediction, acknowledging its challenges.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+            "heading": "Abstract",
+            "text_snippet": "Drug-drug interactions (DDIs) remain a major source of preventable harm, and many clinically important mechanisms are still unknown.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are squarely in the domain of drug-drug interaction prediction, a specific area within pharmacology and healthcare.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+            "heading": "Conclusions",
+            "text_snippet": "In this manuscript, SVM-based classification methods were developed to predict whether a drug combination of arbitrary orders is likely to induce adverse drug reactions. Novel kernels over drug combinations of arbitrary orders were developed for such classification. These kernels were constructed from various single-drug information including drug co-medication patterns, and compare drug combination similarities based on single drugs they have and the relations among the single drugs. Specifically, a novel kernel over drug combinations of arbitrary orders was developed based on graph matching over drug combination graphs.",
+            "similarity": 0.75,
+            "reason": "The paper's conclusions highlight the development of SVM-based classification methods using novel kernels constructed from drug co-medication patterns and graph matching for DDI prediction. This closely aligns with the user's proposed 'graph-based drug-drug interaction prediction model' that uses 'co-prescription networks' and 'real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings'. The core ideas of using graph-based methods and real-world prescription data for DDI prediction are already demonstrated as contributions in the paper.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea shows very low originality, with high overlap in problem, domain, and contribution with existing work on drug-drug interaction prediction. To improve originality, significantly differentiate your problem formulation and proposed contributions from current literature.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.96,
+      "method_similarity": 0.48,
+      "domain_overlap": 1.0,
+      "contribution_similarity": 0.84
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0896,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0876,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0017,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 345.5028462409973,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "Dual-Pathway Fusion of EHRs and Knowledge Graphs for Predicting Unseen Drug-Drug Interactions",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Drug-drug interaction prediction based on co-medication patterns and graph matching",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Detecting drug-drug interactions using artificial neural networks and classic graph similarity measures",
+        "paper_similarity": 0.875,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Towards Interpretable Drug-Drug Interaction Prediction: A Graph-Based Approach with Molecular and Network-Level Explanations",
+        "paper_similarity": 0.85,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "RGDA-DDI: Residual graph attention network and dual-attention based framework for drug-drug interaction prediction",
+        "paper_similarity": 0.7375,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 106
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 106
+    },
+    "total_papers_fetched": 106,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.8113207547169812,
+    "llm_selection_rate": 0.75
+  }
+}

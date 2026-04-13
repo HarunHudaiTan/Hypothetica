@@ -1,0 +1,1004 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "deeb7967c9b4",
+    "status": "completed"
+  },
+  "originality_score": 8,
+  "global_similarity_score": 0.9444999999999999,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+          "heading": "ABSTRACT",
+          "text_snippet": "thus there is an urgent need for real-time detection of AI-generated speech for DeepFake Voice Conversion. Presenting as a binary classification problem of whether the speech is real or AI-generated...",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper identify the need for real-time detection of AI-generated speech (deepfake audio) and frame it as a binary classification problem to distinguish between real and AI-generated speech.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+          "heading": "ABSTRACT",
+          "text_snippet": "In particular, the draw input audio is first transformed into various spectrograms using three transformation methods of Short-time Fourier Transform (STFT), Constant-Q Transform (CQT), Wavelet Transform (WT) combined with different auditory-based filters of Mel, Gammatone, linear filters (LF), and discrete cosine transform (DCT). Given the spectrograms, we evaluate a wide range of classification models based on three deep learning approaches.",
+          "similarity": 0.75,
+          "reason": "The user proposes training a binary classifier on spectrogram features, which directly aligns with the paper's methodology of transforming audio into spectrograms and then using classification models.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+          "heading": "ABSTRACT",
+          "text_snippet": "In this paper, we propose a deep learning based system for the task of deepfake audio detection.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are focused on the specific application domain of deepfake audio detection.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+          "heading": "ABSTRACT",
+          "text_snippet": "thus there is an urgent need for real-time detection of AI-generated speech for DeepFake Voice Conversion. ... Following the training of 208 individual machine learning models over 10-fold cross validation, it is found that the Extreme Gradient Boosting model can achieve an average classification accuracy of 99.3% and can classify speech in real-time, at around 0.004 milliseconds given one second of speech.",
+          "similarity": 0.75,
+          "reason": "The paper already demonstrates a system that detects AI-generated speech in real-time using machine learning, achieving high accuracy and fast inference times, which directly overlaps with the user's proposed contribution.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea shows very low originality, with significant overlap in problem, domain, and contribution with existing work on real-time deepfake audio detection. To improve originality, consider exploring a novel application domain or a fundamentally different detection methodology.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.96,
+    "method_similarity": 0.6699999999999999,
+    "domain_overlap": 1.0,
+    "contribution_similarity": 0.94
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0812,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0793,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0016,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 410.9784564971924,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2407.01777v1",
+      "arxiv_id": "2407.01777v1",
+      "title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+      "abstract": "In this paper, we propose a deep learning based system for the task of deepfake audio detection. In particular, the draw input audio is first transformed into various spectrograms using three transformation methods of Short-time Fourier Transform (STFT), Constant-Q Transform (CQT), Wavelet Transform (WT) combined with different auditory-based filters of Mel, Gammatone, linear filters (LF), and discrete cosine transform (DCT). Given the spectrograms, we evaluate a wide range of classification models based on three deep learning approaches. The first approach is to train directly the spectrograms using our proposed baseline models of CNN-based model (CNN-baseline), RNN-based model (RNN-baseline), C-RNN model (C-RNN baseline). Meanwhile, the second approach is transfer learning from computer vision models such as ResNet-18, MobileNet-V3, EfficientNet-B0, DenseNet-121, SuffleNet-V2, Swint, Convnext-Tiny, GoogLeNet, MNASsnet, RegNet. In the third approach, we leverage the state-of-the-art audio pre-trained models of Whisper, Seamless, Speechbrain, and Pyannote to extract audio embeddings from the input spectrograms. Then, the audio embeddings are explored by a Multilayer perceptron (MLP) model to detect the fake or real audio samples. Finally, high-performance deep learning models from these approaches are fused to achieve the best performance. We evaluated our proposed models on ASVspoof 2019 benchmark dataset. Our best ensemble model achieved an Equal Error Rate (EER) of 0.03, which is highly competitive to top-performing systems in the ASVspoofing 2019 challenge. Experimental results also highlight the potential of selective spectrograms and deep learning approaches to enhance the task of audio deepfake detection.",
+      "url": "http://arxiv.org/abs/2407.01777v1",
+      "pdf_url": "http://arxiv.org/pdf/2407.01777v1",
+      "authors": [],
+      "categories": [
+        "cs.SD",
+        "cs.AI",
+        "eess.AS"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is 'A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.' The paper's abstract states, 'In this paper, we propose a deep learning based system for the task of deepfake audio detection.' The 'PROPOSED DEEP LEARNING BASED SYSTEMS' section further clarifies, 'the draw input audio recordings are first split into 2-second segments... Next, the 2-second audio segments are transformed into spectrograms. Finally, the spectrograms are explored by back-end deep learning models to detect real or fake audio segments.' This directly matches the user's problem of detecting deepfake audio using spectrogram features from short audio segments with a binary classifier. | Method: Both the user's idea and the paper propose a system for deepfake audio detection using spectrogram features and a binary classifier. The paper explicitly states, \"the draw input audio is first transformed into various spectrograms... Given the spectrograms, we evaluate a wide range of classification models based on three deep learning approaches.\" The user's idea also specifies \"training a binary classifier on spectrogram features extracted from short audio segments.\" The main difference is the paper's extensive exploration of various spectrogram types, deep learning architectures, and ensemble methods, which are more detailed than the user's general 'binary classifier' but still fall under the same core methodological approach. | Domain: Both the user's research idea and the paper focus on the specific application domain of 'deepfake audio detection'. The user's idea specifies 'real-time voice calls' and the paper discusses 'voice-activated module in an IoS system, such as smart home devices, voice banking, home automation systems, and virtual assistants', indicating a shared application context for detecting deepfake audio in interactive voice systems. | Contribution: The paper's proposed system directly addresses the user's research idea by detecting deepfake audio using spectrogram features and various deep learning classifiers. Specifically, the paper states, \"the draw input audio is first transformed into various spectrograms... Then, the audio embeddings are explored by a Multilayer perceptron (MLP) model to detect the fake or real audio samples,\" which aligns perfectly with the user's idea of training a binary classifier on spectrogram features to distinguish synthesized from genuine speech.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2308.12734v1",
+      "arxiv_id": "2308.12734v1",
+      "title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+      "abstract": "There are growing implications surrounding generative AI in the speech domain that enable voice cloning and real-time voice conversion from one individual to another. This technology poses a significant ethical threat and could lead to breaches of privacy and misrepresentation, thus there is an urgent need for real-time detection of AI-generated speech for DeepFake Voice Conversion. To address the above emerging issues, the DEEP-VOICE dataset is generated in this study, comprised of real human speech from eight well-known figures and their speech converted to one another using Retrieval-based Voice Conversion. Presenting as a binary classification problem of whether the speech is real or AI-generated, statistical analysis of temporal audio features through t-testing reveals that there are significantly different distributions. Hyperparameter optimisation is implemented for machine learning models to identify the source of speech. Following the training of 208 individual machine learning models over 10-fold cross validation, it is found that the Extreme Gradient Boosting model can achieve an average classification accuracy of 99.3% and can classify speech in real-time, at around 0.004 milliseconds given one second of speech. All data generated for this study is released publicly for future research on AI speech detection.",
+      "url": "http://arxiv.org/abs/2308.12734v1",
+      "pdf_url": "http://arxiv.org/pdf/2308.12734v1",
+      "authors": [],
+      "categories": [
+        "cs.SD",
+        "cs.CL",
+        "cs.HC",
+        "cs.LG",
+        "eess.AS"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper addresses the problem of 'real-time detection of AI-generated speech for DeepFake Voice Conversion' and aims to 'detect Synthetic Speech in real-time and inform the end-user accordingly.' This is essentially the same problem as the user's idea: 'A system that detects deepfake audio in real-time voice calls... distinguishing synthesized from genuine speech.' | Method: Both the user's idea and the paper propose a system for real-time deepfake audio detection using a binary classifier. The user specifies 'spectrogram features extracted from short audio segments' while the paper extracts 26 temporal audio features, including Chromagram, Spectral Centroid, and MFCCs, from '1-second of audio signal'. While both use feature extraction and binary classification, the specific features and the underlying models (e.g., XGBoost in the paper vs. an unspecified binary classifier for the user) represent meaningful differences in design within the same general method family. | Domain: The user's idea is a 'system that detects deepfake audio in real-time voice calls' and the paper's title is 'Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion'. Both explicitly target the real-time detection of deepfake audio/AI-generated speech in voice call/conversion contexts. The paper's introduction also states its models 'could be used, for example, to provide a warning system for individuals on phonecalls or in conference calls'. | Contribution: The paper's contributions directly align with the user's research idea. The paper explicitly states its goal is \"real-time detection of AI-generated speech for DeepFake Voice Conversion\" and demonstrates a system that \"can classify speech in real-time, at around 0.004 milliseconds given one second of speech\" using machine learning models trained on extracted audio features, which is precisely what the user proposes.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "2403.11778v1",
+      "arxiv_id": "2403.11778v1",
+      "title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+      "abstract": "Deepfake audio poses a rising threat in communication platforms, necessitating real-time detection for audio stream integrity. Unlike traditional non-real-time approaches, this study assesses the viability of employing static deepfake audio detection models in real-time communication platforms. An executable software is developed for cross-platform compatibility, enabling real-time execution. Two deepfake audio detection models based on Resnet and LCNN architectures are implemented using the ASVspoof 2019 dataset, achieving benchmark performances compared to ASVspoof 2019 challenge baselines. The study proposes strategies and frameworks for enhancing these models, paving the way for real-time deepfake audio detection in communication platforms. This work contributes to the advancement of audio stream security, ensuring robust detection capabilities in dynamic, real-time communication scenarios.",
+      "url": "http://arxiv.org/abs/2403.11778v1",
+      "pdf_url": "http://arxiv.org/pdf/2403.11778v1",
+      "authors": [],
+      "categories": [
+        "cs.SD",
+        "cs.CR",
+        "cs.LG",
+        "eess.AS"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is 'A system that detects deepfake audio in real-time voice calls'. The paper's title is 'Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms' and its abstract states it 'assesses the viability of employing static deepfake audio detection models in real-time communication platforms'. Both explicitly address the problem of real-time deepfake audio detection in communication scenarios. | Method: Both the user's idea and the paper propose a system that detects deepfake audio in real-time voice calls using a binary classifier trained on spectrogram features. The paper explicitly states, \"Ultimately, mel-spectrogram features are selected for the LA model, while power-spectrogram features are chosen for the PA model,\" and mentions training models (Resnet and LCNN) to distinguish between real and fake voices, which aligns with the user's concept of a binary classifier. | Domain: Both the user's research idea and the paper focus on the same specific application area: detecting deepfake audio in real-time voice calls/communication platforms. The paper explicitly states its aim to develop a 'real-time deepfake audio detection system for communication platforms' and tests it in 'Teams meeting sessions', which directly aligns with the user's idea of 'real-time voice calls'. | Contribution: The paper's abstract states, \"This study assesses the viability of employing static deepfake audio detection models in real-time communication platforms.\" It further details the implementation of \"Two deepfake audio detection models based on Resnet and LCNN architectures... achieving benchmark performances.\" The methodology section explicitly mentions, \"Evaluation of the static deepfake models in real-time detection scenarios is carried out during our daily group meeting sessions on Microsoft Teams.\" This directly aligns with the user's idea of a system that detects deepfake audio in real-time voice calls using a classifier trained on audio features.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2208.01214v1",
+      "arxiv_id": "2208.01214v1",
+      "title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+      "abstract": "Recently, pioneer research works have proposed a large number of acoustic features (log power spectrogram, linear frequency cepstral coefficients, constant Q cepstral coefficients, etc.) for audio deepfake detection, obtaining good performance, and showing that different subbands have different contributions to audio deepfake detection. However, this lacks an explanation of the specific information in the subband, and these features also lose information such as phase. Inspired by the mechanism of synthetic speech, the fundamental frequency (F0) information is used to improve the quality of synthetic speech, while the F0 of synthetic speech is still too average, which differs significantly from that of real speech. It is expected that F0 can be used as important information to discriminate between bonafide and fake speech, while this information cannot be used directly due to the irregular distribution of F0. Insteadly, the frequency band containing most of F0 is selected as the input feature. Meanwhile, to make full use of the phase and full-band information, we also propose to use real and imaginary spectrogram features as complementary input features and model the disjoint subbands separately. Finally, the results of F0, real and imaginary spectrogram features are fused. Experimental results on the ASVspoof 2019 LA dataset show that our proposed system is very effective for the audio deepfake detection task, achieving an equivalent error rate (EER) of 0.43%, which surpasses almost all systems.",
+      "url": "http://arxiv.org/abs/2208.01214v1",
+      "pdf_url": "http://arxiv.org/pdf/2208.01214v1",
+      "authors": [],
+      "categories": [
+        "cs.SD",
+        "cs.LG",
+        "eess.AS"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea focuses on a system that detects deepfake audio, which is precisely the problem addressed by the paper. The paper's abstract explicitly states its purpose: \"our proposed system is very effective for the audio deepfake detection task.\" Both the user's idea and the paper aim to distinguish synthesized from genuine speech. | Method: Both the user's idea and the paper propose using spectrogram features and a classifier for deepfake audio detection. The user's idea specifies a 'binary classifier on spectrogram features extracted from short audio segments,' while the paper uses 'F0 information and real plus imaginary spectrogram features' and 'squeeze-and-excitation ResNet (SENet) [8] is applied as the classifier of different subbands,' with a two-stage fusion. While both use spectrograms and classification, the paper's specific feature extraction (F0, real/imaginary spectrograms, subband modeling) and fusion approach introduce meaningful differences beyond a simple binary classifier on general spectrogram features. | Domain: The user's idea is a system that detects deepfake audio, and the paper's title is 'Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features'. Both explicitly target 'audio deepfake detection'. The paper also mentions 'real-time voice calls' implicitly through its focus on 'spoofing attacks' against 'automatic speaker verification (ASV)' systems, which are often used in real-time scenarios. | Contribution: The user's idea proposes a system that detects deepfake audio by training a binary classifier on spectrogram features. The paper's core contribution is an 'audio deepfake detection method based on the F0 subband' which uses 'real and imaginary spectrogram features as complementary input features' and fuses them, achieving 'very effective' results. This directly matches the user's proposed system and methodology, including the use of spectrogram features and a classifier for deepfake detection.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2402.18085v4",
+      "arxiv_id": "2402.18085v4",
+      "title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+      "abstract": "The rise of AI voice-cloning technology, particularly audio Real-time Deepfakes (RTDFs), has intensified social engineering attacks by enabling real-time voice impersonation that bypasses conventional enrollment-based authentication. This technology represents an existential threat to phone-based authentication systems, while total identity fraud losses reached $43 billion. Unlike traditional robocalls, these personalized AI-generated voice attacks target high-value accounts and circumvent existing defensive measures, creating an urgent cybersecurity challenge. To address this, we propose PITCH, a robust challenge-response method to detect and tag interactive deepfake audio calls. We developed a comprehensive taxonomy of audio challenges based on the human auditory system, linguistics, and environmental factors, yielding 20 prospective challenges. Testing against leading voice-cloning systems using a novel dataset (18,600 original and 1.6 million deepfake samples from 100 users), PITCH's challenges enhanced machine detection capabilities to 88.7% AUROC score, enabling us to identify 10 highly-effective challenges.\n  For human evaluation, we filtered a challenging, balanced subset on which human evaluators independently achieved 72.6% accuracy, while machines scored 87.7%. Recognizing that call environments require human control, we developed a novel human-AI collaborative system that tags suspicious calls as \"Deepfake-likely.\" Contrary to prior findings, we discovered that integrating human intuition with machine precision offers complementary advantages, giving users maximum control while boosting detection accuracy to 84.5%. This significant improvement situates PITCH's potential as an AI-assisted pre-screener for verifying calls, offering an adaptable approach to combat real-time voice-cloning attacks while maintaining human decision authority.",
+      "url": "http://arxiv.org/abs/2402.18085v4",
+      "pdf_url": "http://arxiv.org/pdf/2402.18085v4",
+      "authors": [],
+      "categories": [
+        "cs.SD",
+        "cs.CR",
+        "eess.AS"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.475,
+      "reason": "Problem: The user's idea focuses on a system that detects deepfake audio in real-time voice calls using a binary classifier on spectrogram features. The paper 'PITCH' also addresses the detection of real-time deepfake audio calls, but its core approach is a challenge-response method to amplify artifacts for detection, rather than solely relying on a binary classifier on spectrogram features. While both aim to detect real-time deepfakes, the paper's specific problem framing involves enhancing detection through challenges and human-AI collaboration, which is a different angle than the user's proposed method. | Method: The user's idea proposes a system that detects deepfake audio using a binary classifier trained on spectrogram features. The paper, PITCH, uses a challenge-response method to detect deepfakes, where challenges are designed to amplify artifacts for detection. While the paper does utilize Wav2Vec2 models as binary classifiers for 'Challenge Compliance' and mentions traditional deepfake detectors using MFCC/LFCC features, its core methodology is a challenge-response framework, which is distinct from the user's direct classification approach based solely on spectrogram features from short audio segments. | Domain: Both the user's research idea and the paper focus on detecting deepfake audio in real-time voice calls. The paper explicitly states its goal is to \"detect interactive deepfake audio calls in real-world authentication scenarios\" and addresses the \"rise of AI voice-cloning technology, particularly audio Real-time Deepfakes (RTDFs)\" in phone-based authentication systems, directly matching the user's specified application domain. | Contribution: The user's idea focuses on a real-time deepfake audio detection system using a binary classifier on spectrogram features. The paper 'PITCH' proposes a challenge-response method to detect deepfake audio calls, which is a different approach, although it does use machine detection capabilities (Wav2Vec2 model) as part of its framework. The core contribution of PITCH is the challenge-response mechanism and human-AI collaboration, not solely a real-time classifier on spectrogram features.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.25
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.9,
+    "existing_examples": [
+      {
+        "name": "Deepfake Audio Detection Research",
+        "similarity": 0.9,
+        "description": "Numerous academic and industry research papers and projects focus on deepfake audio detection using machine learning, including binary classifiers on spectrograms. Examples include work from Google, Microsoft, and various university research groups (e.g., ASVspoof challenges)."
+      },
+      {
+        "name": "Voice Biometrics/Authentication Systems",
+        "similarity": 0.7,
+        "description": "While primarily for identity verification, many advanced voice biometric systems incorporate liveness detection or anti-spoofing measures that can detect synthesized speech, often using similar feature extraction and classification techniques."
+      },
+      {
+        "name": "Commercial Anti-Spoofing Solutions",
+        "similarity": 0.8,
+        "description": "Companies like Pindrop, ID R&D, and Nuance offer anti-spoofing and fraud detection solutions for voice channels that aim to detect synthetic voices, although real-time deepfake detection is an evolving area."
+      }
+    ],
+    "assessment": "The core idea of detecting deepfake audio in real-time using a binary classifier on spectrogram features is a well-established and actively researched area. There are numerous academic papers, open-source projects, and commercial solutions that employ similar methodologies. The ASVspoof challenge series, for instance, has been a major driver in this field since 2015, specifically focusing on logical access (LA) and physical access (PA) spoofing, which includes synthesized speech (deepfakes).",
+    "novelty_aspects": [
+      "Specific novel feature engineering or deep learning architectures for the classifier.",
+      "Unique dataset for training that addresses specific types of deepfakes or languages.",
+      "Integration into a specific real-time communication platform with minimal latency.",
+      "Achieving significantly higher accuracy or robustness against adversarial attacks than current state-of-the-art."
+    ],
+    "recommendation": "While the general concept exists, there is still room for innovation. Focus on a specific niche or a significant improvement. For example, can you achieve superior real-time performance, detect a new class of deepfakes, or integrate it seamlessly into a challenging environment? Review recent ASVspoof challenge winners and state-of-the-art papers to identify gaps or areas for improvement."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Deepfake Audio Detection Research** (similarity: 90%).\n\n*The core idea of detecting deepfake audio in real-time using a binary classifier on spectrogram features is a well-established and actively researched area. There are numerous academic papers, open-source projects, and commercial solutions that employ similar methodologies. The ASVspoof challenge series, for instance, has been a major driver in this field since 2015, specifically focusing on logical access (LA) and physical access (PA) spoofing, which includes synthesized speech (deepfakes).*\n\n**Recommendation:** While the general concept exists, there is still room for innovation. Focus on a specific niche or a significant improvement. For example, can you achieve superior real-time performance, detect a new class of deepfakes, or integrate it seamlessly into a challenging environment? Review recent ASVspoof challenge winners and state-of-the-art papers to identify gaps or areas for improvement.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 104,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 476,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0812,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0793,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0016,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.",
+  "enriched_idea": "RESEARCH IDEA:\nA system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+      "arxiv_id": "2407.01777v1",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is 'A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.' The paper's abstract states, 'In this paper, we propose a deep learning based system for the task of deepfake audio detection.' The 'PROPOSED DEEP LEARNING BASED SYSTEMS' section further clarifies, 'the draw input audio recordings are first split into 2-second segments... Next, the 2-second audio segments are transformed into spectrograms. Finally, the spectrograms are explored by back-end deep learning models to detect real or fake audio segments.' This directly matches the user's problem of detecting deepfake audio using spectrogram features from short audio segments with a binary classifier. | Method: Both the user's idea and the paper propose a system for deepfake audio detection using spectrogram features and a binary classifier. The paper explicitly states, \"the draw input audio is first transformed into various spectrograms... Given the spectrograms, we evaluate a wide range of classification models based on three deep learning approaches.\" The user's idea also specifies \"training a binary classifier on spectrogram features extracted from short audio segments.\" The main difference is the paper's extensive exploration of various spectrogram types, deep learning architectures, and ensemble methods, which are more detailed than the user's general 'binary classifier' but still fall under the same core methodological approach. | Domain: Both the user's research idea and the paper focus on the specific application domain of 'deepfake audio detection'. The user's idea specifies 'real-time voice calls' and the paper discusses 'voice-activated module in an IoS system, such as smart home devices, voice banking, home automation systems, and virtual assistants', indicating a shared application context for detecting deepfake audio in interactive voice systems. | Contribution: The paper's proposed system directly addresses the user's research idea by detecting deepfake audio using spectrogram features and various deep learning classifiers. Specifically, the paper states, \"the draw input audio is first transformed into various spectrograms... Then, the audio embeddings are explored by a Multilayer perceptron (MLP) model to detect the fake or real audio samples,\" which aligns perfectly with the user's idea of training a binary classifier on spectrogram features to distinguish synthesized from genuine speech.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.",
+          "sentence_index": 0,
+          "similarity_score": 0.7499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this paper, we propose a deep learning based system for the task of deepfake audio detection.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the core problem of deepfake audio detection.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Consequently, the detection of audio deepfakes has become a crucial area of research, drawing considerable attention from the research community.",
+              "similarity": 0.75,
+              "reason": "Both identify deepfake audio detection as a critical research problem.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In particular, the draw input audio is first transformed into various spectrograms using three transformation methods of Short-time Fourier Transform (STFT), Constant-Q Transform (CQT), Wavelet Transform (WT) combined with different auditory-based filters of Mel, Gammatone, linear filters (LF), and discrete cosine transform (DCT). Given the spectrograms, we evaluate a wide range of classification models based on three deep learning approaches.",
+              "similarity": 0.75,
+              "reason": "The user proposes training a binary classifier on spectrogram features, which directly aligns with the paper's methodology of transforming audio into spectrograms and then using classification models.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+              "heading": "PROPOSED DEEP LEARNING BASED SYSTEMS",
+              "text_snippet": "The high-level architecture of proposed deep learning based system for audio deepfake detection, which is denoted in Fig. 1, comprises two main parts: front-end spectrogram-based feature extraction and back-end deep learning model for classification. In particular, the draw input audio recordings are first split into 2-second segments. This segment length generally provides sufficient context to capture important features and allows faster training and inference for applications requiring real-time detection. Next, the 2-second audio segments are transformed into spectrograms. Finally, the spectrograms are explored by back-end deep learning models to detect real or fake audio segments.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly details a system that extracts spectrogram features from audio segments and uses deep learning models for classification, which is very similar to the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+              "heading": "Spectrogram-based Feature Extraction",
+              "text_snippet": "Fig. 2 presents how 6 different spectrograms are generated in this paper. In particular, 6 spectrograms are generated from three transformation methods of Short-time Fourier Transform (STFT), Constant-Q Transform (CQT), Wavelet Transform (WT).",
+              "similarity": 0.75,
+              "reason": "The paper details the extraction of spectrogram features, which is a key component of the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this paper, we propose a deep learning based system for the task of deepfake audio detection.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on the specific application domain of deepfake audio detection.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+              "heading": "INTRODUCTION",
+              "text_snippet": "However, with the advancement of deep learning technologies, the emergence of spoofing speech attacks, commonly referred to as 'Deepfake', has become more prevalent. These attacks involve various AI-based speech synthesis techniques (e.g., Speech to Text [3], Voice Conversion [3], Scene Fake [4], Emotion Fake [5]), posing significant threats to the integrity and authenticity of voice-activated systems. Consequently, the detection of audio deepfakes has become a crucial area of research, drawing considerable attention from the research community.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly concerned with detecting deepfake audio, which is the exact same application domain.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 26666,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2407.01777v1"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+      "arxiv_id": "2308.12734v1",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper addresses the problem of 'real-time detection of AI-generated speech for DeepFake Voice Conversion' and aims to 'detect Synthetic Speech in real-time and inform the end-user accordingly.' This is essentially the same problem as the user's idea: 'A system that detects deepfake audio in real-time voice calls... distinguishing synthesized from genuine speech.' | Method: Both the user's idea and the paper propose a system for real-time deepfake audio detection using a binary classifier. The user specifies 'spectrogram features extracted from short audio segments' while the paper extracts 26 temporal audio features, including Chromagram, Spectral Centroid, and MFCCs, from '1-second of audio signal'. While both use feature extraction and binary classification, the specific features and the underlying models (e.g., XGBoost in the paper vs. an unspecified binary classifier for the user) represent meaningful differences in design within the same general method family. | Domain: The user's idea is a 'system that detects deepfake audio in real-time voice calls' and the paper's title is 'Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion'. Both explicitly target the real-time detection of deepfake audio/AI-generated speech in voice call/conversion contexts. The paper's introduction also states its models 'could be used, for example, to provide a warning system for individuals on phonecalls or in conference calls'. | Contribution: The paper's contributions directly align with the user's research idea. The paper explicitly states its goal is \"real-time detection of AI-generated speech for DeepFake Voice Conversion\" and demonstrates a system that \"can classify speech in real-time, at around 0.004 milliseconds given one second of speech\" using machine learning models trained on extracted audio features, which is precisely what the user proposes.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.",
+          "sentence_index": 0,
+          "similarity_score": 0.8749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "ABSTRACT",
+              "text_snippet": "thus there is an urgent need for real-time detection of AI-generated speech for DeepFake Voice Conversion. Presenting as a binary classification problem of whether the speech is real or AI-generated...",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper identify the need for real-time detection of AI-generated speech (deepfake audio) and frame it as a binary classification problem to distinguish between real and AI-generated speech.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "Introduction",
+              "text_snippet": "The real-time models presented by this study are important for real-world use, and could be used, for example, to provide a warning system for individuals on phonecalls or in conference calls, where a synthetic voice may be part of the conversation with nefarious aims.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states the problem of detecting synthetic voices in real-time during phone calls or conference calls, which directly aligns with the user's 'real-time voice calls' aspect.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "Method",
+              "text_snippet": "The research question for this study is how to detect Synthetic Speech in real-time and inform the end-user accordingly. The source audio, such as a phone or conference call, is processed and classified. If the audio is predicted to contain AI-generated speech, the end user is notified.",
+              "similarity": 1.0,
+              "reason": "The paper's research question and described use case perfectly match the user's problem statement of detecting deepfake audio in real-time voice calls.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "ABSTRACT",
+              "text_snippet": "Presenting as a binary classification problem of whether the speech is real or AI-generated, statistical analysis of temporal audio features through t-testing reveals that there are significantly different distributions. Hyperparameter optimisation is implemented for machine learning models to identify the source of speech.",
+              "similarity": 0.75,
+              "reason": "The paper uses machine learning models for binary classification of speech (real vs. AI-generated) based on extracted audio features, which is very similar to the user's proposed method of training a binary classifier.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "Data Collection and Preprocessing",
+              "text_snippet": "The aforementioned style conversion process is performed on each of the audio tracks gathered and cropped from Table 1, and features are extracted for every 1-second of audio signal. In total, 26 features are extracted. Further information about the feature extraction can be found in [22]. Those features include the Chromagram, which can be calculated from the Short-Time Fourier Transform X of a signal at frame m and frequency bin k : and then normalising the Chroma Bands which are spectrogram bins into, also known as chroma bands. From this, the Spectral Centroid SC can then be calculated, which is the location of the centre of mass in the spectrum:",
+              "similarity": 0.75,
+              "reason": "The paper extracts features from short audio segments (1-second blocks) and mentions Chromagram, which is derived from the Short-Time Fourier Transform (STFT), a basis for spectrograms. This aligns closely with 'spectrogram features extracted from short audio segments'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "Machine Learning Model",
+              "text_snippet": "Following the feature extraction from each 1-second block of audio, this study then implements a range of various ML models. The goal of the models is to perform binary classification of the speech, learning whether the audio is speech spoken naturally by a human being, or has been, tampered with by retrieval-based voice conversion.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states its method involves feature extraction from 1-second audio blocks and then using ML models for binary classification to distinguish natural human speech from tampered/converted speech, which is very similar to the user's 'training a binary classifier... distinguishing synthesized from genuine speech'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "ABSTRACT",
+              "text_snippet": "There are growing implications surrounding generative AI in the speech domain that enable voice cloning and real-time voice conversion from one individual to another. This technology poses a significant ethical threat and could lead to breaches of privacy and misrepresentation, thus there is an urgent need for real-time detection of AI-generated speech for DeepFake Voice Conversion.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on the domain of detecting deepfake audio/AI-generated speech, specifically in real-time voice communication contexts.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "Introduction",
+              "text_snippet": "The ability to clone an individual's speech and use it during an online or phone call is no longer science fiction, and is possible using consumer-level computing technology. ... The real-time models presented by this study are important for real-world use, and could be used, for example, to provide a warning system for individuals on phonecalls or in conference calls, where a synthetic voice may be part of the conversation with nefarious aims.",
+              "similarity": 1.0,
+              "reason": "The paper directly addresses the application domain of real-time detection during online or phone calls, which is identical to the user's 'real-time voice calls'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "ABSTRACT",
+              "text_snippet": "thus there is an urgent need for real-time detection of AI-generated speech for DeepFake Voice Conversion. ... Following the training of 208 individual machine learning models over 10-fold cross validation, it is found that the Extreme Gradient Boosting model can achieve an average classification accuracy of 99.3% and can classify speech in real-time, at around 0.004 milliseconds given one second of speech.",
+              "similarity": 0.75,
+              "reason": "The paper already demonstrates a system that detects AI-generated speech in real-time using machine learning, achieving high accuracy and fast inference times, which directly overlaps with the user's proposed contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+              "heading": "Conclusion and Future Work",
+              "text_snippet": "This study has addressed some of the growing security implications with generative AI, specifically, those surrounding spoofing with AI-generated human speech. Given the rapidly increasing quality of these systems, it is important that systems should provide transparency in real-time as to the legitimacy of a human voice within a conference or phonecall. ... and finally the optimisation of machine learning models which can predict the legitimacy of speech in real-time.",
+              "similarity": 0.75,
+              "reason": "The paper concludes by stating its contribution is the optimization of ML models that can predict speech legitimacy in real-time, which is the core contribution proposed by the user's idea.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 1.0,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 38156,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2308.12734v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+      "arxiv_id": "2403.11778v1",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is 'A system that detects deepfake audio in real-time voice calls'. The paper's title is 'Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms' and its abstract states it 'assesses the viability of employing static deepfake audio detection models in real-time communication platforms'. Both explicitly address the problem of real-time deepfake audio detection in communication scenarios. | Method: Both the user's idea and the paper propose a system that detects deepfake audio in real-time voice calls using a binary classifier trained on spectrogram features. The paper explicitly states, \"Ultimately, mel-spectrogram features are selected for the LA model, while power-spectrogram features are chosen for the PA model,\" and mentions training models (Resnet and LCNN) to distinguish between real and fake voices, which aligns with the user's concept of a binary classifier. | Domain: Both the user's research idea and the paper focus on the same specific application area: detecting deepfake audio in real-time voice calls/communication platforms. The paper explicitly states its aim to develop a 'real-time deepfake audio detection system for communication platforms' and tests it in 'Teams meeting sessions', which directly aligns with the user's idea of 'real-time voice calls'. | Contribution: The paper's abstract states, \"This study assesses the viability of employing static deepfake audio detection models in real-time communication platforms.\" It further details the implementation of \"Two deepfake audio detection models based on Resnet and LCNN architectures... achieving benchmark performances.\" The methodology section explicitly mentions, \"Evaluation of the static deepfake models in real-time detection scenarios is carried out during our daily group meeting sessions on Microsoft Teams.\" This directly aligns with the user's idea of a system that detects deepfake audio in real-time voice calls using a classifier trained on audio features.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.",
+          "sentence_index": 0,
+          "similarity_score": 0.8749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+              "heading": "ABSTRACT",
+              "text_snippet": "Deepfake audio poses a rising threat in communication platforms, necessitating real-time detection for audio stream integrity. Unlike traditional non-real-time approaches, this study assesses the viability of employing static deepfake audio detection models in real-time communication platforms.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper identify the problem of detecting deepfake audio in real-time communication platforms.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+              "heading": "Introduction",
+              "text_snippet": "Despite the promising strides in recent developments pertaining to deepfake audio detection and countermeasure strategies, it is noteworthy that a significant portion of these solutions has been conceived and assessed within the confines of static audio recordings. ... It is important to acknowledge that these static deepfake audio models may not consistently exhibit robust performance when deployed in real-time scenarios, such as continuous audio streams coming from applications on a source computer device or similar scenarios in communication platforms.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states the problem of static deepfake audio models not performing robustly in real-time communication scenarios, which aligns with the user's goal of a real-time detection system.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+              "heading": "Model pipeline and Training",
+              "text_snippet": "Raw audio samples undergo preprocessing in the feature extraction unit, extracting compressed and information-rich audio feature representations. ... Ultimately, mel-spectrogram features are selected for the LA model, while power-spectrogram features are chosen for the PA model. ... In the detection phase, a threshold value, corresponding to the minimum EER computed using the validation dataset, is applied to the probability score from the model. This threshold aids in identifying whether a given audio sample is classified as real or fake.",
+              "similarity": 0.75,
+              "reason": "The paper describes extracting spectrogram features (mel-spectrogram and power-spectrogram) from audio samples and using a classifier (implied by probability score and threshold) to distinguish real/fake, which is very similar to the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+              "heading": "Methodology",
+              "text_snippet": "Two static deepfake detection models are initially implemented, utilizing Resnet [11] and LCNN [12] architectures. These models are trained on the ASVspoof 2019 challenge dataset [7].",
+              "similarity": 0.5,
+              "reason": "The paper uses deep learning models (Resnet, LCNN) which are types of binary classifiers, trained on a dataset to distinguish deepfake audio. While the user specifies 'binary classifier' generally, the paper's approach is a concrete example.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+              "heading": "ABSTRACT",
+              "text_snippet": "Deepfake audio poses a rising threat in communication platforms, necessitating real-time detection for audio stream integrity. ... This work contributes to the advancement of audio stream security, ensuring robust detection capabilities in dynamic, real-time communication scenarios.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper explicitly target 'real-time voice calls' and 'communication platforms' for deepfake audio detection.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+              "heading": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+              "text_snippet": "Consider, for instance, a Teams group call within an organization, which represents the latter case. ... For real-time testing of our models in a communication platform, a new dataset was curated using actual Teams meeting sessions.",
+              "similarity": 1.0,
+              "reason": "The paper specifically mentions 'real-time voice calls' and 'communication platforms' (e.g., Teams group calls) as the application domain, which directly matches the user's idea.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+              "heading": "ABSTRACT",
+              "text_snippet": "This study assesses the viability of employing static deepfake audio detection models in real-time communication platforms. An executable software is developed for cross-platform compatibility, enabling real-time execution. ... The study proposes strategies and frameworks for enhancing these models, paving the way for real-time deepfake audio detection in communication platforms.",
+              "similarity": 0.75,
+              "reason": "The paper's contribution includes assessing and developing systems for real-time deepfake audio detection in communication platforms, which is the core contribution of the user's idea. The paper also discusses strategies for enhancing these models, indicating ongoing work in this area.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+              "heading": "Conclusion",
+              "text_snippet": "This study aimed to develop a real-time deepfake audio detection system for communication platforms. ... The study recommends future work to focus on developing an efficient deepfake audio detection model for real-time prediction in communication platforms.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states its aim to develop a real-time deepfake audio detection system for communication platforms and recommends future work in this area, directly aligning with the user's proposed contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 1.0,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 27057,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2403.11778v1"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+      "arxiv_id": "2208.01214v1",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea focuses on a system that detects deepfake audio, which is precisely the problem addressed by the paper. The paper's abstract explicitly states its purpose: \"our proposed system is very effective for the audio deepfake detection task.\" Both the user's idea and the paper aim to distinguish synthesized from genuine speech. | Method: Both the user's idea and the paper propose using spectrogram features and a classifier for deepfake audio detection. The user's idea specifies a 'binary classifier on spectrogram features extracted from short audio segments,' while the paper uses 'F0 information and real plus imaginary spectrogram features' and 'squeeze-and-excitation ResNet (SENet) [8] is applied as the classifier of different subbands,' with a two-stage fusion. While both use spectrograms and classification, the paper's specific feature extraction (F0, real/imaginary spectrograms, subband modeling) and fusion approach introduce meaningful differences beyond a simple binary classifier on general spectrogram features. | Domain: The user's idea is a system that detects deepfake audio, and the paper's title is 'Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features'. Both explicitly target 'audio deepfake detection'. The paper also mentions 'real-time voice calls' implicitly through its focus on 'spoofing attacks' against 'automatic speaker verification (ASV)' systems, which are often used in real-time scenarios. | Contribution: The user's idea proposes a system that detects deepfake audio by training a binary classifier on spectrogram features. The paper's core contribution is an 'audio deepfake detection method based on the F0 subband' which uses 'real and imaginary spectrogram features as complementary input features' and fuses them, achieving 'very effective' results. This directly matches the user's proposed system and methodology, including the use of spectrogram features and a classifier for deepfake detection.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.",
+          "sentence_index": 0,
+          "similarity_score": 0.7499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+              "heading": "ABSTRACT",
+              "text_snippet": "Recently, pioneer research works have proposed a large number of acoustic features (log power spectrogram, linear frequency cepstral coefficients, constant Q cepstral coefficients, etc.) for audio deepfake detection, obtaining good performance, and showing that different subbands have different contributions to audio deepfake detection.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of audio deepfake detection.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Recent spoofing attacks can easily fool existing ASV systems, which requires more advanced audio deepfake detection systems.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper aim to develop systems for audio deepfake detection.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+              "heading": "ABSTRACT",
+              "text_snippet": "Meanwhile, to make full use of the phase and full-band information, we also propose to use real and imaginary spectrogram features as complementary input features and model the disjoint subbands separately.",
+              "similarity": 0.75,
+              "reason": "The user proposes using spectrogram features, which aligns with the paper's use of real and imaginary spectrogram features.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+              "heading": "F0 subband",
+              "text_snippet": "The proposed F0 subband is based on the LPS. Firstly, the time domain raw waveform x [ 𝑘 ] is converted into time-frequency (T-F) domain by short-time Fourier transformation (STFT).",
+              "similarity": 0.75,
+              "reason": "The paper explicitly uses spectrograms (LPS, which is log power spectrogram) derived from audio segments, similar to the user's mention of 'spectrogram features extracted from short audio segments'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+              "heading": "F0, imaginary and real spectrogram subbands fusion",
+              "text_snippet": "Inspired by [38], the squeeze-and-excitation ResNet (SENet) [8] is applied as the classifier of different subbands. Those different subbands are fed into each SENet to obtain their scores.",
+              "similarity": 0.5,
+              "reason": "The user proposes training a 'binary classifier', and the paper uses SENet as a classifier for deepfake detection.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+              "heading": "ABSTRACT",
+              "text_snippet": "Experimental results on the ASVspoof 2019 LA dataset show that our proposed system is very effective for the audio deepfake detection task, achieving an equivalent error rate (EER) of 0.43%, which surpasses almost all systems.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on the specific domain of audio deepfake detection.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+              "heading": "INTRODUCTION",
+              "text_snippet": "To increase the security of the ASV system and reduce the risk of spoofing attacks, the ASVspoof challenge has been successfully held in 2015 [32], 2017 [10] , 2019 [28] and 2021 [34]. And then the first Audio Deep Synthesis Detection Challenge (ADD 2022) [37] was also successfully held. To improve the performance of the audio deepfake detection system, some researchers divided the whole frequency band into different subbands and explored the impact of different frequency bands on the audio deepfake detection task.",
+              "similarity": 1.0,
+              "reason": "The paper extensively discusses the audio deepfake detection task and related challenges, directly aligning with the user's domain.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 46043,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2208.01214v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+      "arxiv_id": "2402.18085v4",
+      "paper_similarity_score": 0.475,
+      "reason": "Problem: The user's idea focuses on a system that detects deepfake audio in real-time voice calls using a binary classifier on spectrogram features. The paper 'PITCH' also addresses the detection of real-time deepfake audio calls, but its core approach is a challenge-response method to amplify artifacts for detection, rather than solely relying on a binary classifier on spectrogram features. While both aim to detect real-time deepfakes, the paper's specific problem framing involves enhancing detection through challenges and human-AI collaboration, which is a different angle than the user's proposed method. | Method: The user's idea proposes a system that detects deepfake audio using a binary classifier trained on spectrogram features. The paper, PITCH, uses a challenge-response method to detect deepfakes, where challenges are designed to amplify artifacts for detection. While the paper does utilize Wav2Vec2 models as binary classifiers for 'Challenge Compliance' and mentions traditional deepfake detectors using MFCC/LFCC features, its core methodology is a challenge-response framework, which is distinct from the user's direct classification approach based solely on spectrogram features from short audio segments. | Domain: Both the user's research idea and the paper focus on detecting deepfake audio in real-time voice calls. The paper explicitly states its goal is to \"detect interactive deepfake audio calls in real-world authentication scenarios\" and addresses the \"rise of AI voice-cloning technology, particularly audio Real-time Deepfakes (RTDFs)\" in phone-based authentication systems, directly matching the user's specified application domain. | Contribution: The user's idea focuses on a real-time deepfake audio detection system using a binary classifier on spectrogram features. The paper 'PITCH' proposes a challenge-response method to detect deepfake audio calls, which is a different approach, although it does use machine detection capabilities (Wav2Vec2 model) as part of its framework. The core contribution of PITCH is the challenge-response mechanism and human-AI collaboration, not solely a real-time classifier on spectrogram features.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.",
+          "sentence_index": 0,
+          "similarity_score": 0.55,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+              "heading": "Introduction",
+              "text_snippet": "Recent advancements in AI-generated voice cloning have blurred the line between authentic and fabricated speech [5, 18, 20, 42, 44]. This technological leap has particularly significant implications with the emergence of tools capable of generating convincing speech in real-time, fueling AI-generated impersonation scams. Such capabilities expose a critical vulnerability in billions of calls across contact centers, raising an urgent question: How can one ascertain the authenticity of a caller in an age where synthetic voices are indistinguishable from real ones?",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of detecting deepfake audio, specifically in real-time voice calls, due to the rise of AI voice cloning technology.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+              "heading": "Abstract",
+              "text_snippet": "The rise of AI voice-cloning technology, particularly audio Real-time Deepfakes (RTDFs), has intensified social engineering attacks by enabling real-time voice impersonation that bypasses conventional enrollment-based authentication. This technology represents an existential threat to phone-based authentication systems, while total identity fraud losses reached $43 billion.",
+              "similarity": 0.5,
+              "reason": "The paper explicitly states the problem of detecting real-time deepfake audio in phone-based authentication systems, which aligns with the user's goal of detecting deepfake audio in real-time voice calls.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+              "heading": "Deepfake Detection.",
+              "text_snippet": "Numerous techniques exist for detecting static audio deepfakes based on diverse artifacts, such as vocal tract estimation [6], Mel-frequency cepstral coefficients (MFCC) [1], nonsemantic features [19] and vocoder fingerprints [11].",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes using 'spectrogram features' for detection. While the paper's primary method is challenge-response, it mentions 'Mel-frequency cepstral coefficients (MFCC)' as a feature used in traditional deepfake detection, which are derived from spectrograms. This indicates a shared underlying feature extraction concept, though the overall detection approach differs.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+              "heading": "RQ1. Machine Evaluation",
+              "text_snippet": "We based each classifier on a fine-tuned Wav2Vec2 model [3]. We chose Wav2Vec2 as the feature backbone, as it was pretrained on 50,000 hours of unlabeled speech and provided superior performance against MFCC, LFCC or Mel Spectrogram-based classifiers.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes training a binary classifier. The paper also uses binary classifiers for challenge compliance detection, specifically fine-tuning Wav2Vec2 models. While the paper states Wav2Vec2 outperformed Mel Spectrogram-based classifiers, it acknowledges spectrograms as a feature type for classification, indicating a shared general approach to classification.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+              "heading": "Introduction",
+              "text_snippet": "This technological leap has particularly significant implications with the emergence of tools capable of generating convincing speech in real-time, fueling AI-generated impersonation scams. Such capabilities expose a critical vulnerability in billions of calls across contact centers, raising an urgent question: How can one ascertain the authenticity of a caller in an age where synthetic voices are indistinguishable from real ones?",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are directly focused on detecting deepfake audio in 'real-time voice calls' or 'phone-based authentication systems' and 'contact centers', indicating a complete overlap in the application domain.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+              "heading": "Abstract",
+              "text_snippet": "The rise of AI voice-cloning technology, particularly audio Real-time Deepfakes (RTDFs), has intensified social engineering attacks by enabling real-time voice impersonation that bypasses conventional enrollment-based authentication. This technology represents an existential threat to phone-based authentication systems, while total identity fraud losses reached $43 billion.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly targets 'Real-time Deepfakes (RTDFs)' and 'phone-based authentication systems', which perfectly matches the user's focus on 'real-time voice calls' for deepfake audio detection.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+              "heading": "Abstract",
+              "text_snippet": "To address this, we propose PITCH, a robust challenge-response method to detect and tag interactive deepfake audio calls. We developed a comprehensive taxonomy of audio challenges based on the human auditory system, linguistics, and environmental factors, yielding 20 prospective challenges.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes 'A system that detects deepfake audio in real-time voice calls'. While the paper also detects deepfake audio in real-time calls, its core contribution is a 'challenge-response method' and a 'taxonomy of audio challenges', which is a different approach than a direct binary classifier on spectrogram features.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 58266,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2402.18085v4"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 8,
+    "global_similarity_score": 0.9444999999999999,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A system that detects deepfake audio in real-time voice calls by training a binary classifier on spectrogram features extracted from short audio segments, distinguishing synthesized from genuine speech.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+            "heading": "ABSTRACT",
+            "text_snippet": "thus there is an urgent need for real-time detection of AI-generated speech for DeepFake Voice Conversion. Presenting as a binary classification problem of whether the speech is real or AI-generated...",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper identify the need for real-time detection of AI-generated speech (deepfake audio) and frame it as a binary classification problem to distinguish between real and AI-generated speech.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+            "heading": "ABSTRACT",
+            "text_snippet": "In particular, the draw input audio is first transformed into various spectrograms using three transformation methods of Short-time Fourier Transform (STFT), Constant-Q Transform (CQT), Wavelet Transform (WT) combined with different auditory-based filters of Mel, Gammatone, linear filters (LF), and discrete cosine transform (DCT). Given the spectrograms, we evaluate a wide range of classification models based on three deep learning approaches.",
+            "similarity": 0.75,
+            "reason": "The user proposes training a binary classifier on spectrogram features, which directly aligns with the paper's methodology of transforming audio into spectrograms and then using classification models.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+            "heading": "ABSTRACT",
+            "text_snippet": "In this paper, we propose a deep learning based system for the task of deepfake audio detection.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are focused on the specific application domain of deepfake audio detection.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+            "heading": "ABSTRACT",
+            "text_snippet": "thus there is an urgent need for real-time detection of AI-generated speech for DeepFake Voice Conversion. ... Following the training of 208 individual machine learning models over 10-fold cross validation, it is found that the Extreme Gradient Boosting model can achieve an average classification accuracy of 99.3% and can classify speech in real-time, at around 0.004 milliseconds given one second of speech.",
+            "similarity": 0.75,
+            "reason": "The paper already demonstrates a system that detects AI-generated speech in real-time using machine learning, achieving high accuracy and fast inference times, which directly overlaps with the user's proposed contribution.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea shows very low originality, with significant overlap in problem, domain, and contribution with existing work on real-time deepfake audio detection. To improve originality, consider exploring a novel application domain or a fundamentally different detection methodology.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.96,
+      "method_similarity": 0.6699999999999999,
+      "domain_overlap": 1.0,
+      "contribution_similarity": 0.94
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0812,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0793,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0016,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 410.9784564971924,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "Deepfake Audio Detection Using Spectrogram-based Feature and Ensemble of Deep Learning Models",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Real-time Detection of AI-Generated Speech for DeepFake Voice Conversion",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Towards the Development of a Real-Time Deepfake Audio Detection System in Communication Platforms",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Audio Deepfake Detection Based on a Combination of F0 Information and Real Plus Imaginary Spectrogram Features",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "PITCH: AI-assisted Tagging of Deepfake Audio Calls using Challenge-Response",
+        "paper_similarity": 0.7375,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 104
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 104
+    },
+    "total_papers_fetched": 104,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.8076923076923077,
+    "llm_selection_rate": 0.75
+  }
+}

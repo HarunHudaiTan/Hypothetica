@@ -1,0 +1,1105 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "72e92178a531",
+    "status": "completed"
+  },
+  "originality_score": 12,
+  "global_similarity_score": 0.91225,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A phishing URL detection system that uses a character-level CNN to extract features from the URL string and combines them with WHOIS metadata features through a late-fusion MLP.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_03",
+          "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+          "heading": "ABSTRACT",
+          "text_snippet": "To address these challenges, we propose URLNet, an end-to-end deep learning framework to learn a nonlinear URL embedding for Malicious URL Detection directly from the URL.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper address the problem of 'Malicious URL Detection' or 'phishing URL detection system', which are essentially the same problem.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+          "heading": "Character-level CNN Model",
+          "text_snippet": "The character-level CNN handles the URL strings as collections of character indices. This model architecture has the capability to learn character-level patterns indicative of phishing attempts, such as character substitutions, unusual domain structure, and suspicious path patterns.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper explicitly mention using a 'character-level CNN' for URL strings to extract features.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+          "heading": "ABSTRACT",
+          "text_snippet": "In actuality, phishing attacks remain one of the most prevalent cybersecurity risks in existence today, with malevolent actors constantly changing their strategies to successfully trick users. This paper presents an AI model for a phishing detection system that uses an ensemble approach to combine character-level Convolutional Neural Networks (CNN) and LightGBM with engineered features.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are squarely in the domain of 'phishing URL detection' and 'cybersecurity'.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_02",
+          "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+          "heading": "ABSTRACT",
+          "text_snippet": "In this paper we propose the eXpose neural network, which uses a deep learning approach we have developed to take generic, raw short character strings as input (a common case for security inputs, which include artifacts like potentially malicious URLs, file paths, named pipes, named mutexes, and registry keys), and learns to simultaneously extract features and classify using character-level embeddings and convolutional neural network. In addition to completely automating the feature design and extraction process, eXpose outperforms manual feature extraction based baselines on all of the intrusion detection problems we tested it on, yielding a 5%-10% detection rate gain at 0.1% false positive rate compared to these baselines.",
+          "similarity": 0.5,
+          "reason": "The paper's contribution includes using a character-level CNN for malicious URL detection and feature extraction. The user's idea proposes the same core method for feature extraction from URLs. However, the user's idea also includes combining with WHOIS metadata, which is a distinct aspect not fully covered by the paper's primary contribution of relying 'solely on URL input strings'.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea shows very low originality, with significant overlap in problem, domain, and contribution with existing phishing detection systems. To improve originality, focus on differentiating your core methodology, as this shows the most potential for novelty.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.98,
+    "method_similarity": 0.5,
+    "domain_overlap": 1.0,
+    "contribution_similarity": 0.86
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0838,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0817,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0018,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 139.70532059669495,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2512.16717v1",
+      "arxiv_id": "2512.16717v1",
+      "title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+      "abstract": "In actuality, phishing attacks remain one of the most prevalent cybersecurity risks in existence today, with malevolent actors constantly changing their strategies to successfully trick users. This paper presents an AI model for a phishing detection system that uses an ensemble approach to combine character-level Convolutional Neural Networks (CNN) and LightGBM with engineered features. Our system uses a character-level CNN to extract sequential features after extracting 36 lexical, structural, and domain-based features from the URLs. On a test dataset of 19,873 URLs, the ensemble model achieves an accuracy of 99.819 percent, precision of 100 percent, recall of 99.635 percent, and ROC-AUC of 99.947 percent. Through a FastAPI-based service with an intuitive user interface, the suggested system has been utilised to offer real-time detection. In contrast, the results demonstrate that the suggested solution performs better than individual models; LightGBM contributes 40 percent and character-CNN contributes 60 percent to the final prediction. The suggested method maintains extremely low false positive rates while doing a good job of identifying contemporary phishing techniques. Index Terms - Phishing detection, machine learning, deep learning, CNN, ensemble methods, cybersecurity, URL analysis",
+      "url": "http://arxiv.org/abs/2512.16717v1",
+      "pdf_url": "http://arxiv.org/pdf/2512.16717v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.CR"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea is a 'phishing URL detection system,' and the paper's title is 'Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering.' Both aim to detect phishing URLs, addressing the same core problem of identifying malicious URLs. | Method: The paper uses a character-level CNN to extract sequential features from URLs, which aligns with the user's idea. However, instead of combining with WHOIS metadata features through a late-fusion MLP, the paper combines the CNN features with 36 engineered lexical, structural, and domain-based features using LightGBM in an ensemble approach, which is a significant difference in the feature set and fusion mechanism. | Domain: Both the user's research idea and the paper focus on the same specific application area: phishing URL detection. Both use URL strings as the primary data type for feature extraction, and the target system is a detection system for phishing attacks. | Contribution: The paper's core contribution is an AI model for a phishing detection system that uses an ensemble approach combining a character-level CNN and LightGBM with engineered features. This directly matches the user's idea of a phishing URL detection system using a character-level CNN for URL string features and combining them with WHOIS metadata features (which are a type of engineered feature) through a late-fusion MLP (LightGBM serves a similar function in combining features). The paper explicitly states, \"Our system uses a character-level CNN to extract sequential features after extracting 36 lexical, structural, and domain-based features from the URLs,\" and describes an \"ensemble approach to combine character-level Convolutional Neural Networks (CNN) and LightGBM with engineered features.\"",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "1702.08568v1",
+      "arxiv_id": "1702.08568v1",
+      "title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+      "abstract": "For years security machine learning research has promised to obviate the need for signature based detection by automatically learning to detect indicators of attack. Unfortunately, this vision hasn't come to fruition: in fact, developing and maintaining today's security machine learning systems can require engineering resources that are comparable to that of signature-based detection systems, due in part to the need to develop and continuously tune the \"features\" these machine learning systems look at as attacks evolve. Deep learning, a subfield of machine learning, promises to change this by operating on raw input signals and automating the process of feature design and extraction. In this paper we propose the eXpose neural network, which uses a deep learning approach we have developed to take generic, raw short character strings as input (a common case for security inputs, which include artifacts like potentially malicious URLs, file paths, named pipes, named mutexes, and registry keys), and learns to simultaneously extract features and classify using character-level embeddings and convolutional neural network. In addition to completely automating the feature design and extraction process, eXpose outperforms manual feature extraction based baselines on all of the intrusion detection problems we tested it on, yielding a 5%-10% detection rate gain at 0.1% false positive rate compared to these baselines.",
+      "url": "http://arxiv.org/abs/1702.08568v1",
+      "pdf_url": "http://arxiv.org/pdf/1702.08568v1",
+      "authors": [],
+      "categories": [
+        "cs.CR",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The user's idea focuses on 'A phishing URL detection system'. The paper's abstract states, 'In this paper we propose the eXpose neural network... to take generic, raw short character strings as input (a common case for security inputs, which include artifacts like potentially malicious URLs...)' and the introduction further clarifies, 'In this paper, we demonstrate eXpose's ability to detect malicious URLs, malicious file paths, and malicious registry keys.' This indicates a very similar problem statement, with the paper addressing malicious URL detection as one of its primary tasks. | Method: Both the user's idea and the paper propose a phishing URL detection system using a character-level CNN to extract features from the URL string. However, the paper's method, eXpose, relies solely on URL input strings and uses a dense neural network for classification, whereas the user's idea specifies combining URL features with WHOIS metadata features through a late-fusion MLP, indicating a different multi-modal approach not present in the paper. | Domain: The user's research idea is a phishing URL detection system. The paper explicitly states its application to 'detect malicious URLs' and dedicates a significant portion of its evaluation and results to this specific problem, as seen in sections like 'Results' and 'Table 1. Numbers of artifacts in our research datasets' which includes 'URLs' as a task. This indicates a direct and specific overlap in the application domain. | Contribution: The paper's primary contribution is a character-level CNN for feature extraction from raw strings (including URLs) and classification, which directly overlaps with the user's idea of using a character-level CNN for URL features. However, the user's idea explicitly includes combining these features with WHOIS metadata through a late-fusion MLP, a component not present in the paper's 'eXpose' model which 'relies solely on URL input strings' and does not mention WHOIS metadata.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "1802.03162v2",
+      "arxiv_id": "1802.03162v2",
+      "title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+      "abstract": "Malicious URLs host unsolicited content and are used to perpetrate cybercrimes. It is imperative to detect them in a timely manner. Traditionally, this is done through the usage of blacklists, which cannot be exhaustive, and cannot detect newly generated malicious URLs. To address this, recent years have witnessed several efforts to perform Malicious URL Detection using Machine Learning. The most popular and scalable approaches use lexical properties of the URL string by extracting Bag-of-words like features, followed by applying machine learning models such as SVMs. There are also other features designed by experts to improve the prediction performance of the model. These approaches suffer from several limitations: (i) Inability to effectively capture semantic meaning and sequential patterns in URL strings; (ii) Requiring substantial manual feature engineering; and (iii) Inability to handle unseen features and generalize to test data. To address these challenges, we propose URLNet, an end-to-end deep learning framework to learn a nonlinear URL embedding for Malicious URL Detection directly from the URL. Specifically, we apply Convolutional Neural Networks to both characters and words of the URL String to learn the URL embedding in a jointly optimized framework. This approach allows the model to capture several types of semantic information, which was not possible by the existing models. We also propose advanced word-embeddings to solve the problem of too many rare words observed in this task. We conduct extensive experiments on a large-scale dataset and show a significant performance gain over existing methods. We also conduct ablation studies to evaluate the performance of various components of URLNet.",
+      "url": "http://arxiv.org/abs/1802.03162v2",
+      "pdf_url": "http://arxiv.org/pdf/1802.03162v2",
+      "authors": [],
+      "categories": [
+        "cs.CR",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.7499999999999999,
+      "reason": "Problem: The paper addresses the problem of 'Malicious URL Detection' and 'Phishing URL Detection' is a specific type of malicious URL detection. The paper's abstract states, 'Malicious URLs host unsolicited content and are used to perpetrate cybercrimes. It is imperative to detect them in a timely manner.' This directly aligns with the user's research idea of a phishing URL detection system, as phishing is a form of cybercrime perpetrated via malicious URLs. | Method: The paper proposes URLNet, which uses character-level CNNs to extract features from URL strings, similar to the user's idea. However, the paper combines these with word-level CNNs in a jointly optimized framework, rather than WHOIS metadata features through a late-fusion MLP as specified in the user's idea. While both use character-level CNNs for URL string feature extraction, the other feature sources and fusion mechanisms differ significantly. | Domain: Both the user's research idea and the paper focus on 'phishing URL detection' and 'Malicious URL Detection' respectively, which are the same specific application area. Both aim to classify URLs as malicious or benign, using the URL string as primary data. The paper explicitly states its goal is to 'classify a given URL as malicious or not' and addresses 'Malicious URL Detection'. | Contribution: The paper 'URLNet' proposes a phishing URL detection system using character-level and word-level CNNs to learn URL embeddings, which aligns with the user's idea of using a character-level CNN for URL string features. However, the user's idea explicitly includes combining these features with WHOIS metadata features through a late-fusion MLP, which is not a claimed contribution of the 'URLNet' paper, as it focuses primarily on lexical features and deep learning for representation learning from the URL string itself, and mentions host-based features (including WHOIS) as 'related work' but not as part of its proposed URLNet architecture or contributions.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2404.17960v1",
+      "arxiv_id": "2404.17960v1",
+      "title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+      "abstract": "Cybersecurity is one of the global issues because of the extensive dependence on cyber systems of individuals, industries, and organizations. Among the cyber attacks, phishing is increasing tremendously and affecting the global economy. Therefore, this phenomenon highlights the vital need for enhancing user awareness and robust support at both individual and organizational levels. Phishing URL identification is the best way to address the problem. Various machine learning and deep learning methods have been proposed to automate the detection of phishing URLs. However, these approaches often need more convincing accuracy and rely on datasets consisting of limited samples. Furthermore, these black box intelligent models decision to detect suspicious URLs needs proper explanation to understand the features affecting the output. To address the issues, we propose a 1D Convolutional Neural Network (CNN) and trained the model with extensive features and a substantial amount of data. The proposed model outperforms existing works by attaining an accuracy of 99.85%. Additionally, our explainability analysis highlights certain features that significantly contribute to identifying the phishing URL.",
+      "url": "http://arxiv.org/abs/2404.17960v1",
+      "pdf_url": "http://arxiv.org/pdf/2404.17960v1",
+      "authors": [],
+      "categories": [
+        "cs.CR",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.7499999999999999,
+      "reason": "Problem: The user's research idea is a 'phishing URL detection system.' The paper's abstract states, 'Phishing URL identification is the best way to address the problem,' and the introduction mentions, 'In this paper, we focus on creating an intelligent real-time phishing web page detection system.' Both the user's idea and the paper address the exact same core problem of detecting phishing URLs. | Method: The user's idea proposes a character-level CNN for URL features combined with WHOIS metadata via late-fusion MLP. The paper uses a 1D CNN for URL feature extraction, but it extracts 21 'categorical and numerical features' from the URLs rather than character-level features, and it does not mention the use of WHOIS metadata or a late-fusion MLP. While both use CNNs for URL-based phishing detection, the specific feature extraction (character-level vs. engineered features) and the absence of WHOIS metadata and late-fusion MLP in the paper represent meaningful differences. | Domain: Both the user's research idea and the paper focus on the same specific application area: phishing URL detection. Both use URL strings as the primary data type for feature extraction and aim to identify phishing websites, which constitutes the same target system. | Contribution: The paper proposes a 1D Convolutional Neural Network (CNN) for phishing URL detection, which aligns with the user's idea of using a character-level CNN to extract features from the URL string. However, the paper's methodology focuses on extracting 21 features from URLs using custom functions and regular expressions, which are then fed into the CNN, rather than a character-level CNN directly processing the URL string. Furthermore, the paper does not mention combining these features with WHOIS metadata features through a late-fusion MLP, which is a distinct component of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2011.04412v2",
+      "arxiv_id": "2011.04412v2",
+      "title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+      "abstract": "Phishing websites distribute unsolicited content and are frequently used to commit email and internet fraud; detecting them before any user information is submitted is critical. Several efforts have been made to detect these phishing websites in recent years. Most existing approaches use hand-crafted lexical and statistical features from a website's textual content to train classification models to detect phishing web pages. However, these phishing detection approaches have a few challenges, including 1) the tediousness of extracting hand-crafted features, which require specialized domain knowledge to determine which features are useful for a particular platform; and 2) the difficulties encountered by models built on hand-crafted features to capture the semantic patterns in words and characters in URL and HTML content. To address these challenges, this paper proposes WebPhish, an end-to-end deep neural network trained using embedded raw URLs and HTML content to detect website phishing attacks. First, the proposed model automatically employs an embedding technique to extract the corresponding characters into homologous dense vectors. Then, the concatenation layer merges the URL and HTML embedding matrices. Following that, Convolutional layers are used to model its semantic dependencies. Extensive experiments were conducted with real-world phishing data, which yielded an accuracy of 98.1\\%, showing that WebPhish outperforms baseline detection approaches in identifying phishing pages.",
+      "url": "http://arxiv.org/abs/2011.04412v2",
+      "pdf_url": "http://arxiv.org/pdf/2011.04412v2",
+      "authors": [],
+      "categories": [
+        "cs.CR"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.7999999999999999,
+      "reason": "Problem: The paper addresses the problem of 'phishing URL detection' and 'detecting phishing web pages', which is identical to the user's research idea. Both aim to classify URLs as legitimate or phishing. The paper's abstract explicitly states, 'this paper proposes WebPhish, an end-to-end deep neural network trained using embedded raw URLs and HTML content to detect website phishing attacks.' | Method: The user's idea proposes a character-level CNN for URL features combined with WHOIS metadata via a late-fusion MLP. The paper, WebPhish, uses character-level embeddings for URLs and word-level embeddings for HTML content, concatenates them, and then processes them through convolutional layers followed by fully connected layers. While both use character-level CNN for URLs and a fusion approach, the paper's fusion is earlier (concatenation of embeddings) and uses HTML content instead of WHOIS metadata, representing a meaningful difference in design and components. | Domain: The user's research idea is a 'phishing URL detection system'. The paper's title is 'Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics' and its abstract explicitly states it 'proposes WebPhish, an end-to-end deep neural network trained using embedded raw URLs and HTML content to detect website phishing attacks'. Both the user's idea and the paper are focused on the exact same specific application area of phishing detection, using the same data type (URLs and associated web content). | Contribution: The paper's proposed WebPhish model uses a character-level embedding for URLs and word-level embedding for HTML content, which are then concatenated and fed into convolutional layers, followed by fully connected layers for classification (Abstract, Figure 1, The Proposed Model). This closely aligns with the user's idea of a phishing URL detection system using a character-level CNN for URL features and combining them with other features (HTML content in the paper) through a late-fusion MLP (Fully Connected Layer in the paper). The primary difference is the paper's use of HTML content instead of WHOIS metadata.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "PhishTank / Google Safe Browsing / Microsoft SmartScreen",
+        "similarity": 0.7,
+        "description": "These are well-known services that detect and block phishing URLs, often using a combination of blacklists, heuristics, and machine learning. While the exact ML architecture might differ, the goal and some feature types (like URL string analysis) are common."
+      },
+      {
+        "name": "Numerous academic papers on phishing detection (e.g., 'Phishing URL Detection using Deep Learning' by Al-Sarem et al., 'Detecting Phishing Websites Using Deep Learning' by Rao et al.)",
+        "similarity": 0.9,
+        "description": "Many research papers have explored using deep learning for phishing detection. Specifically, character-level CNNs for URL feature extraction are a known technique in NLP and have been applied to URL analysis. Combining URL features with WHOIS data is also a common approach in the literature for enhancing detection accuracy. Late fusion (or similar ensemble/hybrid approaches) of different feature sets is a standard machine learning practice."
+      },
+      {
+        "name": "Commercial cybersecurity products (e.g., Proofpoint, Mimecast, Cisco Umbrella)",
+        "similarity": 0.75,
+        "description": "These products incorporate advanced threat detection, including phishing URL analysis, often leveraging various machine learning models and diverse feature sets, which would likely include URL string characteristics and domain metadata."
+      }
+    ],
+    "assessment": "The core idea of using a character-level CNN for URL string feature extraction combined with WHOIS metadata and a late-fusion MLP for phishing detection is a well-established and actively researched area in cybersecurity and machine learning. Many academic papers have proposed and evaluated similar architectures, and commercial products already implement sophisticated multi-feature, multi-model approaches for phishing detection. While the *specific* architecture (e.g., exact CNN layers, MLP structure, precise fusion point) might be unique, the fundamental components and methodology are not novel.",
+    "novelty_aspects": [
+      "Specific architectural choices (e.g., number of CNN layers, filter sizes, MLP hidden units, activation functions)",
+      "Unique dataset for training/evaluation",
+      "Novel feature engineering from WHOIS data beyond standard fields",
+      "Potential for superior performance metrics compared to existing state-of-the-art"
+    ],
+    "recommendation": "While the general approach is not novel, there's always room for improvement in performance, efficiency, or robustness. Focus on demonstrating a significant advancement over existing state-of-the-art methods. This could involve achieving higher accuracy, lower false positive rates, better generalization to new phishing attacks, or more efficient real-time detection. Clearly articulate what makes your specific implementation superior to existing research and commercial solutions."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **PhishTank / Google Safe Browsing / Microsoft SmartScreen** (similarity: 70%).\n\n*The core idea of using a character-level CNN for URL string feature extraction combined with WHOIS metadata and a late-fusion MLP for phishing detection is a well-established and actively researched area in cybersecurity and machine learning. Many academic papers have proposed and evaluated similar architectures, and commercial products already implement sophisticated multi-feature, multi-model approaches for phishing detection. While the *specific* architecture (e.g., exact CNN layers, MLP structure, precise fusion point) might be unique, the fundamental components and methodology are not novel.*\n\n**Recommendation:** While the general approach is not novel, there's always room for improvement in performance, efficiency, or robustness. Focus on demonstrating a significant advancement over existing state-of-the-art methods. This could involve achieving higher accuracy, lower false positive rates, better generalization to new phishing attacks, or more efficient real-time detection. Clearly articulate what makes your specific implementation superior to existing research and commercial solutions.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 94,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 506,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0838,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0817,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A phishing URL detection system that uses a character-level CNN to extract features from the URL string and combines them with WHOIS metadata features through a late-fusion MLP.",
+  "enriched_idea": "RESEARCH IDEA:\nA phishing URL detection system that uses a character-level CNN to extract features from the URL string and combines them with WHOIS metadata features through a late-fusion MLP.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+      "arxiv_id": "2512.16717v1",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's research idea is a 'phishing URL detection system,' and the paper's title is 'Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering.' Both aim to detect phishing URLs, addressing the same core problem of identifying malicious URLs. | Method: The paper uses a character-level CNN to extract sequential features from URLs, which aligns with the user's idea. However, instead of combining with WHOIS metadata features through a late-fusion MLP, the paper combines the CNN features with 36 engineered lexical, structural, and domain-based features using LightGBM in an ensemble approach, which is a significant difference in the feature set and fusion mechanism. | Domain: Both the user's research idea and the paper focus on the same specific application area: phishing URL detection. Both use URL strings as the primary data type for feature extraction, and the target system is a detection system for phishing attacks. | Contribution: The paper's core contribution is an AI model for a phishing detection system that uses an ensemble approach combining a character-level CNN and LightGBM with engineered features. This directly matches the user's idea of a phishing URL detection system using a character-level CNN for URL string features and combining them with WHOIS metadata features (which are a type of engineered feature) through a late-fusion MLP (LightGBM serves a similar function in combining features). The paper explicitly states, \"Our system uses a character-level CNN to extract sequential features after extracting 36 lexical, structural, and domain-based features from the URLs,\" and describes an \"ensemble approach to combine character-level Convolutional Neural Networks (CNN) and LightGBM with engineered features.\"",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A phishing URL detection system that uses a character-level CNN to extract features from the URL string and combines them with WHOIS metadata features through a late-fusion MLP.",
+          "sentence_index": 0,
+          "similarity_score": 0.7499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+              "heading": "ABSTRACT",
+              "text_snippet": "This paper presents an AI model for a phishing detection system that uses an ensemble approach to combine character-level Convolutional Neural Networks (CNN) and LightGBM with engineered features.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of phishing URL detection. The paper explicitly states its goal is a 'phishing detection system'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Hence, the research domain of detecting phishing URLs has been gaining immense importance not only in terms of securing sensitive information but also in terms of protecting users and organizations from financial loss and reputation damage.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are focused on the problem of detecting phishing URLs.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+              "heading": "ABSTRACT",
+              "text_snippet": "Our system uses a character-level CNN to extract sequential features after extracting 36 lexical, structural, and domain-based features from the URLs.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a 'character-level CNN to extract features from the URL string', which directly matches the paper's use of a 'character-level CNN to extract sequential features from the URLs'. The paper also mentions 'extracting 36 lexical, structural, and domain-based features', which are types of metadata features.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+              "heading": "System Architecture",
+              "text_snippet": "Character-level CNN : It takes raw URL strings as input and captures sequential patterns and character-level anomalies. Feature-based LightGBM : Uses engineered features to capture lexical, structural and domain characteristics.",
+              "similarity": 0.75,
+              "reason": "The user's idea uses a 'character-level CNN to extract features from the URL string' and combines them with 'WHOIS metadata features'. The paper uses a 'Character-level CNN' for raw URL strings and 'Feature-based LightGBM' using 'engineered features to capture lexical, structural and domain characteristics'. While the paper uses LightGBM and the user proposes an MLP, both combine character-level features with other engineered features.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+              "heading": "Character-level CNN Model",
+              "text_snippet": "The character-level CNN handles the URL strings as collections of character indices. This model architecture has the capability to learn character-level patterns indicative of phishing attempts, such as character substitutions, unusual domain structure, and suspicious path patterns.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper explicitly mention using a 'character-level CNN' for URL strings to extract features.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+              "heading": "Ensemble Strategy",
+              "text_snippet": "Our ensemble combines both models using a weighted average approach: (1) Where P ensemble is the final prediction probability, w CNN = 0 . 6 and w LGB = 0 . 4 are the optimised weights, and PCNN and P LGB are the individual model predictions.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'late-fusion MLP' for combining features. The paper uses an 'ensemble strategy' with 'weighted average approach' to combine predictions from its CNN and LightGBM models, which is a form of late fusion.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+              "heading": "ABSTRACT",
+              "text_snippet": "In actuality, phishing attacks remain one of the most prevalent cybersecurity risks in existence today, with malevolent actors constantly changing their strategies to successfully trick users. This paper presents an AI model for a phishing detection system that uses an ensemble approach to combine character-level Convolutional Neural Networks (CNN) and LightGBM with engineered features.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely in the domain of 'phishing URL detection' and 'cybersecurity'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Phishing attacks are among the most widespread cybersecurity threats, while the techniques used by attackers are continuously refined to evade detection. Hence, the research domain of detecting phishing URLs has been gaining immense importance not only in terms of securing sensitive information but also in terms of protecting users and organizations from financial loss and reputation damage.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on the specific application area of 'phishing URL detection'.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 29481,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2512.16717v1"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+      "arxiv_id": "1702.08568v1",
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The user's idea focuses on 'A phishing URL detection system'. The paper's abstract states, 'In this paper we propose the eXpose neural network... to take generic, raw short character strings as input (a common case for security inputs, which include artifacts like potentially malicious URLs...)' and the introduction further clarifies, 'In this paper, we demonstrate eXpose's ability to detect malicious URLs, malicious file paths, and malicious registry keys.' This indicates a very similar problem statement, with the paper addressing malicious URL detection as one of its primary tasks. | Method: Both the user's idea and the paper propose a phishing URL detection system using a character-level CNN to extract features from the URL string. However, the paper's method, eXpose, relies solely on URL input strings and uses a dense neural network for classification, whereas the user's idea specifies combining URL features with WHOIS metadata features through a late-fusion MLP, indicating a different multi-modal approach not present in the paper. | Domain: The user's research idea is a phishing URL detection system. The paper explicitly states its application to 'detect malicious URLs' and dedicates a significant portion of its evaluation and results to this specific problem, as seen in sections like 'Results' and 'Table 1. Numbers of artifacts in our research datasets' which includes 'URLs' as a task. This indicates a direct and specific overlap in the application domain. | Contribution: The paper's primary contribution is a character-level CNN for feature extraction from raw strings (including URLs) and classification, which directly overlaps with the user's idea of using a character-level CNN for URL features. However, the user's idea explicitly includes combining these features with WHOIS metadata through a late-fusion MLP, a component not present in the paper's 'eXpose' model which 'relies solely on URL input strings' and does not mention WHOIS metadata.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A phishing URL detection system that uses a character-level CNN to extract features from the URL string and combines them with WHOIS metadata features through a late-fusion MLP.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this paper we propose the eXpose neural network, which uses a deep learning approach we have developed to take generic, raw short character strings as input (a common case for security inputs, which include artifacts like potentially malicious URLs, file paths, named pipes, named mutexes, and registry keys), and learns to simultaneously extract features and classify using character-level embeddings and convolutional neural network.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of detecting malicious URLs. The paper specifically mentions detecting 'potentially malicious URLs' as a key application.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "Introduction",
+              "text_snippet": "In this paper, we demonstrate eXpose's ability to detect malicious URLs, malicious file paths, and malicious registry keys.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states its ability to detect malicious URLs, which is the core problem of the user's research idea.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this paper we propose the eXpose neural network, which uses a deep learning approach we have developed to take generic, raw short character strings as input (a common case for security inputs, which include artifacts like potentially malicious URLs, file paths, named pipes, named mutexes, and registry keys), and learns to simultaneously extract features and classify using character-level embeddings and convolutional neural network.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a 'character-level CNN to extract features from the URL string', which directly aligns with the paper's use of 'character-level embeddings and convolutional neural network' to 'extract features' from 'raw short character strings' like URLs.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "Machine Learning",
+              "text_snippet": "Other authors propose machine learning approaches that operate on character level embeddings [23,15,30]. The advantage of such approaches is that they do not require syntactical understanding of the language, such as word boundaries or punctuation. This work is closely to related to our own, since we also model text strings at the character level, embedding them in an embedding space and then extracting features using convolutions.",
+              "similarity": 0.75,
+              "reason": "The paper describes modeling text strings at the 'character level, embedding them in an embedding space and then extracting features using convolutions', which is very similar to the user's 'character-level CNN to extract features from the URL string'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "Related work in computer security",
+              "text_snippet": "Proposed malicious URL detection approaches have tended to either exclusively use URL strings as their input or utilize both URL strings and supplementary information like website registration services, website content, and network reputation [14]. In contrast to work that uses both input URLs and auxiliary information to detect malicious URLs, our work relies solely on URL input strings, making it easier to deploy.",
+              "similarity": 0.5,
+              "reason": "The user's idea combines 'character-level CNN' features from the 'URL string' with 'WHOIS metadata features'. The paper discusses approaches that 'utilize both URL strings and supplementary information like website registration services' (which WHOIS metadata would fall under) but states its own work 'relies solely on URL input strings'. This indicates a difference in the fusion of external features, making the method similar in part but distinct in the combination strategy.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "Baseline Models",
+              "text_snippet": "The second model, used only for URLs, is based on manually extracted features described in [20]. These features include common sense statistics like: URL length, the number of '.' separators in a URL, and categorical lexical features like domain name and URL suffix tokens. Combined together, they form a very large, but sparse feature vector. ... The above hashed features are fed directly into a deep MLP model.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions a 'late-fusion MLP' for combining features. The paper uses an 'MLP model' as part of its baseline, and also discusses combining features, though its primary model focuses on raw string input. The concept of using an MLP for classification/fusion is present.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this paper we propose the eXpose neural network, which uses a deep learning approach we have developed to take generic, raw short character strings as input (a common case for security inputs, which include artifacts like potentially malicious URLs, file paths, named pipes, named mutexes, and registry keys), and learns to simultaneously extract features and classify using character-level embeddings and convolutional neural network.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are directly focused on 'phishing URL detection' and 'detecting malicious URLs' respectively, which is the same specific application area.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "Introduction",
+              "text_snippet": "In this paper, we demonstrate eXpose's ability to detect malicious URLs, malicious file paths, and malicious registry keys.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states its application to 'detect malicious URLs', which is the exact domain of the user's idea.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this paper we propose the eXpose neural network, which uses a deep learning approach we have developed to take generic, raw short character strings as input (a common case for security inputs, which include artifacts like potentially malicious URLs, file paths, named pipes, named mutexes, and registry keys), and learns to simultaneously extract features and classify using character-level embeddings and convolutional neural network. In addition to completely automating the feature design and extraction process, eXpose outperforms manual feature extraction based baselines on all of the intrusion detection problems we tested it on, yielding a 5%-10% detection rate gain at 0.1% false positive rate compared to these baselines.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution includes using a character-level CNN for malicious URL detection and feature extraction. The user's idea proposes the same core method for feature extraction from URLs. However, the user's idea also includes combining with WHOIS metadata, which is a distinct aspect not fully covered by the paper's primary contribution of relying 'solely on URL input strings'.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+              "heading": "Conclusions",
+              "text_snippet": "We developed and demonstrated the first, to our knowledge, convolutional neural network for extracting automatic features from short string in the context of cybersecurity problems. Using embeddings with convolutions as top layers in our neural network coupled with supervised training, allows us to implicitly extract a feature set that is directly optimized for classification.",
+              "similarity": 0.5,
+              "reason": "The paper claims to be the first to use a CNN for automatic feature extraction from short strings in cybersecurity, specifically mentioning URLs. The user's idea proposes a similar CNN-based feature extraction for URLs. The novelty of combining with WHOIS metadata in a late-fusion MLP is the main differentiating factor for the user's contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.5,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 32279,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1702.08568v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+      "arxiv_id": "1802.03162v2",
+      "paper_similarity_score": 0.7499999999999999,
+      "reason": "Problem: The paper addresses the problem of 'Malicious URL Detection' and 'Phishing URL Detection' is a specific type of malicious URL detection. The paper's abstract states, 'Malicious URLs host unsolicited content and are used to perpetrate cybercrimes. It is imperative to detect them in a timely manner.' This directly aligns with the user's research idea of a phishing URL detection system, as phishing is a form of cybercrime perpetrated via malicious URLs. | Method: The paper proposes URLNet, which uses character-level CNNs to extract features from URL strings, similar to the user's idea. However, the paper combines these with word-level CNNs in a jointly optimized framework, rather than WHOIS metadata features through a late-fusion MLP as specified in the user's idea. While both use character-level CNNs for URL string feature extraction, the other feature sources and fusion mechanisms differ significantly. | Domain: Both the user's research idea and the paper focus on 'phishing URL detection' and 'Malicious URL Detection' respectively, which are the same specific application area. Both aim to classify URLs as malicious or benign, using the URL string as primary data. The paper explicitly states its goal is to 'classify a given URL as malicious or not' and addresses 'Malicious URL Detection'. | Contribution: The paper 'URLNet' proposes a phishing URL detection system using character-level and word-level CNNs to learn URL embeddings, which aligns with the user's idea of using a character-level CNN for URL string features. However, the user's idea explicitly includes combining these features with WHOIS metadata features through a late-fusion MLP, which is not a claimed contribution of the 'URLNet' paper, as it focuses primarily on lexical features and deep learning for representation learning from the URL string itself, and mentions host-based features (including WHOIS) as 'related work' but not as part of its proposed URLNet architecture or contributions.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A phishing URL detection system that uses a character-level CNN to extract features from the URL string and combines them with WHOIS metadata features through a late-fusion MLP.",
+          "sentence_index": 0,
+          "similarity_score": 0.8249999999999998,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "ABSTRACT",
+              "text_snippet": "To address these challenges, we propose URLNet, an end-to-end deep learning framework to learn a nonlinear URL embedding for Malicious URL Detection directly from the URL.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper address the problem of 'Malicious URL Detection' or 'phishing URL detection system', which are essentially the same problem.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "Problem Setting",
+              "text_snippet": "Our goal is to classify a given URL as malicious or not. We do this by formulating the problem as a binary classification task.",
+              "similarity": 1.0,
+              "reason": "The core problem of classifying a URL as malicious (or phishing) is identical.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "ABSTRACT",
+              "text_snippet": "Specifically, we apply Convolutional Neural Networks to both characters and words of the URL String to learn the URL embedding in a jointly optimized framework.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions using Convolutional Neural Networks (CNNs) on characters of the URL string, which aligns with the user's 'character-level CNN to extract features from the URL string'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "Deep Learning for Malicious URL Detection",
+              "text_snippet": "Specifically CNNs are applied at both the character-level and word-level. Next, we describe a simple CNN for URL classification.",
+              "similarity": 0.75,
+              "reason": "The paper details the use of CNNs at the character-level for URL classification, directly matching the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "Character-level CNN for Malicious URL Detection",
+              "text_snippet": "Here we present the key ideas for building Character level CNNs for Malicious URL Detection. We aim to learn an embedding that captures the properties about the sequence in which the characters appear in a URL.",
+              "similarity": 1.0,
+              "reason": "The paper describes the implementation of character-level CNNs for URL detection, which is a core component of the user's idea.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "RELATED WORK",
+              "text_snippet": "Host-based features are those derived from the host-name properties of the URL including information such as IP Address, WHOIS information, Geographic location, etc.",
+              "similarity": 0.5,
+              "reason": "The paper mentions 'WHOIS information' as a type of host-based feature, which is a feature type the user proposes to combine.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "Model Configuration",
+              "text_snippet": "Then the outputs are concatenated. This is followed by 4 fullyconnected layers finally leading to the output classifier.",
+              "similarity": 0.5,
+              "reason": "The paper uses concatenation of features followed by fully connected layers (MLP) for classification, which is similar to the user's 'late-fusion MLP'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "ABSTRACT",
+              "text_snippet": "Malicious URLs host unsolicited content and are used to perpetrate cybercrimes. It is imperative to detect them in a timely manner.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on the domain of detecting malicious/phishing URLs, which falls under cybersecurity.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Malicious URLs are one of the primary mechanisms to perpetrate cyber crimes. They host unsolicited content and attack unsuspecting users, making them victims of various types of scams (theft of money, identity theft, malware installation, etc.).",
+              "similarity": 1.0,
+              "reason": "The application domain of detecting malicious URLs to prevent cybercrimes is identical.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "RELATED WORK",
+              "text_snippet": "Host-based features are those derived from the host-name properties of the URL including information such as IP Address, WHOIS information, Geographic location, etc.",
+              "similarity": 0.5,
+              "reason": "The paper acknowledges WHOIS information as a type of feature, but URLNet itself focuses on lexical features and deep learning for URL string representation. The user's explicit combination of character-level CNN with WHOIS metadata features through late-fusion MLP is a specific architectural choice that URLNet does not fully implement, although it uses character-level CNNs and mentions WHOIS as a feature type.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+              "heading": "CONCLUSION",
+              "text_snippet": "We proposed Character CNNs and Word CNNs for this task, and jointly optimized the network. Moreover, we proposed advanced word-embedding techniques which are particularly useful to deal with rare words, a problem usually observed in malicious URL Detection tasks (and not in traditional NLP tasks).",
+              "similarity": 0.5,
+              "reason": "The paper's main contribution is URLNet, which uses character and word-level CNNs. While the user also proposes a character-level CNN, the paper does not explicitly combine it with WHOIS metadata features in a late-fusion MLP as a core contribution, focusing instead on the URL string itself.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 1.0,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 48568,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1802.03162v2"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+      "arxiv_id": "2404.17960v1",
+      "paper_similarity_score": 0.7499999999999999,
+      "reason": "Problem: The user's research idea is a 'phishing URL detection system.' The paper's abstract states, 'Phishing URL identification is the best way to address the problem,' and the introduction mentions, 'In this paper, we focus on creating an intelligent real-time phishing web page detection system.' Both the user's idea and the paper address the exact same core problem of detecting phishing URLs. | Method: The user's idea proposes a character-level CNN for URL features combined with WHOIS metadata via late-fusion MLP. The paper uses a 1D CNN for URL feature extraction, but it extracts 21 'categorical and numerical features' from the URLs rather than character-level features, and it does not mention the use of WHOIS metadata or a late-fusion MLP. While both use CNNs for URL-based phishing detection, the specific feature extraction (character-level vs. engineered features) and the absence of WHOIS metadata and late-fusion MLP in the paper represent meaningful differences. | Domain: Both the user's research idea and the paper focus on the same specific application area: phishing URL detection. Both use URL strings as the primary data type for feature extraction and aim to identify phishing websites, which constitutes the same target system. | Contribution: The paper proposes a 1D Convolutional Neural Network (CNN) for phishing URL detection, which aligns with the user's idea of using a character-level CNN to extract features from the URL string. However, the paper's methodology focuses on extracting 21 features from URLs using custom functions and regular expressions, which are then fed into the CNN, rather than a character-level CNN directly processing the URL string. Furthermore, the paper does not mention combining these features with WHOIS metadata features through a late-fusion MLP, which is a distinct component of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A phishing URL detection system that uses a character-level CNN to extract features from the URL string and combines them with WHOIS metadata features through a late-fusion MLP.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "ABSTRACT",
+              "text_snippet": "Among the cyber attacks, phishing is increasing tremendously and affecting the global economy. Therefore, this phenomenon highlights the vital need for enhancing user awareness and robust support at both individual and organizational levels. Phishing URL identification is the best way to address the problem.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of phishing URL detection as a critical cybersecurity issue.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "INTRODUCTION",
+              "text_snippet": "In this paper, we focus on creating an intelligent real-time phishing web page detection system.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states its focus on creating a phishing web page detection system, which aligns with the user's goal of a 'phishing URL detection system'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "ABSTRACT",
+              "text_snippet": "To address the issues, we propose a 1D Convolutional Neural Network (CNN) and trained the model with extensive features and a substantial amount of data.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes using a 'character-level CNN to extract features from the URL string', while the paper uses a '1D Convolutional Neural Network (CNN)' for phishing URL detection. Both use CNNs for feature extraction from URLs, but the user specifies 'character-level' and 'URL string' while the paper implies it through '1D CNN' and 'URL detection'. The user also mentions 'late-fusion MLP' which is not explicitly in the paper's abstract but the paper does use an MLP in its comparative analysis.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Finally, we have proposed an explainable 1D Convolutional Neural Network (CNN).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper propose using a Convolutional Neural Network (CNN) for phishing detection. The user specifies 'character-level CNN' and 'late-fusion MLP', which is a more detailed architectural choice than the paper's general '1D CNN'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "Proposed CNN Model",
+              "text_snippet": "Though CNN is a well-known deep learning-based image analysis model, we have customized the model for URL detection.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper utilize a CNN specifically for URL detection, indicating a similar high-level methodological choice.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "Comparative Analysis",
+              "text_snippet": "The MultiLayerPerceptronClassifier model also performs well, with an accuracy of 99.78% and an F1-score of 99.79%.",
+              "similarity": 0.25,
+              "reason": "The user's idea mentions a 'late-fusion MLP', and the paper includes 'MLP' (MultiLayerPerceptronClassifier) in its comparative analysis, suggesting that MLPs are considered relevant in this domain, although the paper's primary proposed model is a CNN.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "ABSTRACT",
+              "text_snippet": "Phishing URL identification is the best way to address the problem.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are directly focused on the specific application domain of 'phishing URL detection'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "INTRODUCTION",
+              "text_snippet": "In this paper, we focus on creating an intelligent real-time phishing web page detection system.",
+              "similarity": 1.0,
+              "reason": "The paper's stated focus on 'phishing web page detection system' is identical to the user's 'phishing URL detection system' in terms of application domain.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "INTRODUCTION",
+              "text_snippet": "- We proposed a fine-tuned 1D Convolutional Neural Network (CNN) based phishing detection model, which outperforms other benchmark models.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper propose a CNN-based model for phishing detection. The user's idea specifies 'character-level CNN' and 'late-fusion MLP', which are more detailed architectural contributions than the paper's general '1D CNN'. The paper also emphasizes explainability, which is not mentioned in the user's single sentence.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+              "heading": "CONCLUSION",
+              "text_snippet": "In this proposed phishing URL detection model, we have worked on creating an intelligent phishing website detection technique from URLs that might assist internet users. We have proposed a 1D Convolutional Neural Network (CNN) to detect the phishing URLs.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper propose a CNN-based model for phishing URL detection. The user's idea specifies 'character-level CNN' and 'late-fusion MLP', which are more detailed architectural contributions than the paper's general '1D CNN'. The paper also emphasizes explainability, which is not mentioned in the user's single sentence.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.5,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 26582,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2404.17960v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+      "arxiv_id": "2011.04412v2",
+      "paper_similarity_score": 0.7999999999999999,
+      "reason": "Problem: The paper addresses the problem of 'phishing URL detection' and 'detecting phishing web pages', which is identical to the user's research idea. Both aim to classify URLs as legitimate or phishing. The paper's abstract explicitly states, 'this paper proposes WebPhish, an end-to-end deep neural network trained using embedded raw URLs and HTML content to detect website phishing attacks.' | Method: The user's idea proposes a character-level CNN for URL features combined with WHOIS metadata via a late-fusion MLP. The paper, WebPhish, uses character-level embeddings for URLs and word-level embeddings for HTML content, concatenates them, and then processes them through convolutional layers followed by fully connected layers. While both use character-level CNN for URLs and a fusion approach, the paper's fusion is earlier (concatenation of embeddings) and uses HTML content instead of WHOIS metadata, representing a meaningful difference in design and components. | Domain: The user's research idea is a 'phishing URL detection system'. The paper's title is 'Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics' and its abstract explicitly states it 'proposes WebPhish, an end-to-end deep neural network trained using embedded raw URLs and HTML content to detect website phishing attacks'. Both the user's idea and the paper are focused on the exact same specific application area of phishing detection, using the same data type (URLs and associated web content). | Contribution: The paper's proposed WebPhish model uses a character-level embedding for URLs and word-level embedding for HTML content, which are then concatenated and fed into convolutional layers, followed by fully connected layers for classification (Abstract, Figure 1, The Proposed Model). This closely aligns with the user's idea of a phishing URL detection system using a character-level CNN for URL features and combining them with other features (HTML content in the paper) through a late-fusion MLP (Fully Connected Layer in the paper). The primary difference is the paper's use of HTML content instead of WHOIS metadata.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      },
+      "sentence_level": [
+        {
+          "sentence": "A phishing URL detection system that uses a character-level CNN to extract features from the URL string and combines them with WHOIS metadata features through a late-fusion MLP.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "Abstract",
+              "text_snippet": "First, the proposed model automatically employs an embedding technique to extract the corresponding characters into homologous dense vectors. Then, the concatenation layer merges the URL and HTML embedding matrices. Following that, Convolutional layers are used to model its semantic dependencies.",
+              "similarity": 0.75,
+              "reason": "The paper describes using character embeddings for URLs and convolutional layers, similar to the user's 'character-level CNN to extract features from the URL string'. The paper also mentions a concatenation layer, which is a form of fusion, though not explicitly 'late-fusion MLP' with WHOIS metadata.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "Phishing Detection Using Automatic Feature selection on Deep Neural Networks",
+              "text_snippet": "Le et al. (2018) proposed URLNet, a deep learning model that concatenates character- and character-level word embeddings as input and applies them to convolutional layers.",
+              "similarity": 0.5,
+              "reason": "This related work mentioned in the paper uses character-level embeddings and convolutional layers for URL analysis, aligning with the user's proposed 'character-level CNN'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "The Proposed Model",
+              "text_snippet": "This study aims to automatically obtain the URL representation, u r ↦→ U , and HTML h r ↦→ H , where U and H represent the character and word embedding feature matrices of the raw URL and HTML content, respectively. Subsequently, the embedding matrices are employed to learn the discriminant model f : X ↦→ Y used to classify a given web page, where X is the concatenation of embedding matrices U and H .",
+              "similarity": 0.75,
+              "reason": "The paper uses character embedding for URLs and concatenates features for classification, which is similar to the user's idea of a character-level CNN for URL features and combining them.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "The Convolutional Neural Network",
+              "text_snippet": "The concatenated features are then passed through convolution layers. CNNs were chosen because they are the best methods to satisfy our requirement to detect more intricate text patterns.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly uses convolutional layers after feature concatenation, matching the 'character-level CNN' aspect of the user's idea.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "Input Layer",
+              "text_snippet": "To create a dictionary of characters for the URLs, we consider each URL a character sequence and then identify all unique alphanumeric and special characters in the URLs in the dataset. ... This constitutes the character-level corpus of the URLs.",
+              "similarity": 0.75,
+              "reason": "The paper details the creation of a character-level corpus for URLs, which is the basis for a 'character-level CNN' as proposed by the user.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "Embedding Layer",
+              "text_snippet": "Specifically, the raw data is transformed for each input using character embedding matrices into feature representations at the character level.",
+              "similarity": 0.75,
+              "reason": "The paper uses character embedding matrices to create character-level feature representations, directly supporting the 'character-level CNN' aspect of the user's idea.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "Fully Connected Layer",
+              "text_snippet": "The model employs two FC layers that use the output of the convolution layers and merge the resulting features.",
+              "similarity": 0.5,
+              "reason": "The paper uses Fully Connected (FC) layers to merge features, which is analogous to the 'late-fusion MLP' mentioned in the user's idea, although the paper fuses CNN outputs rather than directly combining WHOIS metadata.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "Abstract",
+              "text_snippet": "Phishing websites distribute unsolicited content and are frequently used to commit email and internet fraud; detecting them before any user information is submitted is critical.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on the domain of phishing URL detection.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "Introduction",
+              "text_snippet": "Phishing has recently become a preferred method of attack for cybercriminals due to its low cost and limited technical skill requirements. The majority of phishing attacks begin with spam emails. Frequently, these emails contain links to phishing web pages.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly in the domain of detecting phishing web pages/URLs.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "Abstract",
+              "text_snippet": "To address these challenges, this paper proposes WebPhish, an end-to-end deep neural network trained using embedded raw URLs and HTML content to detect website phishing attacks.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution of an end-to-end deep neural network for phishing detection using URL content is similar to the user's proposed system. However, the user specifies 'character-level CNN' and 'WHOIS metadata features' which are more specific than the paper's 'embedded raw URLs and HTML content'.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+              "heading": "Why does WebPhish outperform the baselines?",
+              "text_snippet": "The approach presented in this study leverages the dual input approach using both the raw URL and HTML content to detect phishing attacks. ... It exploits the URL and HTML content's character and word embedding matrices to detect a phishing attack without expert feature engineering.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution of using dual input (URL and HTML) and character/word embeddings for phishing detection aligns with the user's idea of using a character-level CNN for URL features. The user's idea adds WHOIS metadata, which is not a primary focus of the paper's core contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 63055,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2011.04412v2"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 12,
+    "global_similarity_score": 0.91225,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A phishing URL detection system that uses a character-level CNN to extract features from the URL string and combines them with WHOIS metadata features through a late-fusion MLP.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_03",
+            "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+            "heading": "ABSTRACT",
+            "text_snippet": "To address these challenges, we propose URLNet, an end-to-end deep learning framework to learn a nonlinear URL embedding for Malicious URL Detection directly from the URL.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper address the problem of 'Malicious URL Detection' or 'phishing URL detection system', which are essentially the same problem.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+            "heading": "Character-level CNN Model",
+            "text_snippet": "The character-level CNN handles the URL strings as collections of character indices. This model architecture has the capability to learn character-level patterns indicative of phishing attempts, such as character substitutions, unusual domain structure, and suspicious path patterns.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper explicitly mention using a 'character-level CNN' for URL strings to extract features.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+            "heading": "ABSTRACT",
+            "text_snippet": "In actuality, phishing attacks remain one of the most prevalent cybersecurity risks in existence today, with malevolent actors constantly changing their strategies to successfully trick users. This paper presents an AI model for a phishing detection system that uses an ensemble approach to combine character-level Convolutional Neural Networks (CNN) and LightGBM with engineered features.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are squarely in the domain of 'phishing URL detection' and 'cybersecurity'.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_02",
+            "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+            "heading": "ABSTRACT",
+            "text_snippet": "In this paper we propose the eXpose neural network, which uses a deep learning approach we have developed to take generic, raw short character strings as input (a common case for security inputs, which include artifacts like potentially malicious URLs, file paths, named pipes, named mutexes, and registry keys), and learns to simultaneously extract features and classify using character-level embeddings and convolutional neural network. In addition to completely automating the feature design and extraction process, eXpose outperforms manual feature extraction based baselines on all of the intrusion detection problems we tested it on, yielding a 5%-10% detection rate gain at 0.1% false positive rate compared to these baselines.",
+            "similarity": 0.5,
+            "reason": "The paper's contribution includes using a character-level CNN for malicious URL detection and feature extraction. The user's idea proposes the same core method for feature extraction from URLs. However, the user's idea also includes combining with WHOIS metadata, which is a distinct aspect not fully covered by the paper's primary contribution of relying 'solely on URL input strings'.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea shows very low originality, with significant overlap in problem, domain, and contribution with existing phishing detection systems. To improve originality, focus on differentiating your core methodology, as this shows the most potential for novelty.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.98,
+      "method_similarity": 0.5,
+      "domain_overlap": 1.0,
+      "contribution_similarity": 0.86
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0838,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0817,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 139.70532059669495,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "Phishing Detection System: An Ensemble Approach Using Character-Level CNN and Feature Engineering",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "eXpose: A Character-Level Convolutional Neural Network with Embeddings For Detecting Malicious URLs, File Paths and Registry Keys",
+        "paper_similarity": 0.8374999999999999,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "URLNet: Learning a URL Representation with Deep Learning for Malicious URL Detection",
+        "paper_similarity": 0.875,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "PhishGuard: A Convolutional Neural Network Based Model for Detecting Phishing URLs with Explainability Analysis",
+        "paper_similarity": 0.875,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "Look Before You Leap: Detecting Phishing Web Pages by Exploiting Raw URL And HTML Characteristics",
+        "paper_similarity": 0.8999999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.75
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 94
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 94
+    },
+    "total_papers_fetched": 94,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.7872340425531915,
+    "llm_selection_rate": 0.75
+  }
+}

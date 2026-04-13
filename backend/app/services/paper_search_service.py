@@ -68,7 +68,8 @@ class PaperSearchService:
         
         # Generate query variants for better recall
         query_variants = service._query_variant_agent.generate_query_variants(idea_for_search)
-        logger.info(f"Generated {len(query_variants)} query variants")
+        logger.info(f"Generated {len(query_variants)} query variants: {[v['query'] for v in query_variants]}")
+        job.state.query_variants = query_variants
         
         update_progress(job_id, f"Searching {len(available_sources)} source(s)...", 0.20)
 
@@ -87,8 +88,9 @@ class PaperSearchService:
                 logger.info(f"Searching {source_name} with query: {variant_query}")
                 
                 papers = source.search_papers(variant_query, max_results=papers_per_query // len(query_variants))
+                logger.info(f"  [{source_name}] query='{variant_query[:80]}' → {len(papers)} raw results")
                 paper_models = source.convert_to_paper_models(papers, limit=50)  # Limit per variant
-                
+
                 source_papers.extend(paper_models)
             
             # Deduplicate papers within the same source
