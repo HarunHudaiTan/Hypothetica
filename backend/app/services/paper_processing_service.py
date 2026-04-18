@@ -30,11 +30,17 @@ class PaperProcessingService:
         processed_count = 0
 
         # Phase 1: Parallel PDF processing (download + conversion)
-        update_progress(job_id, "Processing PDFs in parallel...", 0.56)
-        cls._pdf_processor.process_papers_parallel(
-            job.state.selected_papers,
-            max_workers=3
-        )
+        # Skip PDF processing for GitHub repos (they already have markdown)
+        papers_needing_pdf = [p for p in job.state.selected_papers if p.source != "github"]
+        
+        if papers_needing_pdf:
+            update_progress(job_id, "Processing PDFs in parallel...", 0.56)
+            cls._pdf_processor.process_papers_parallel(
+                papers_needing_pdf,
+                max_workers=3
+            )
+        else:
+            logger.info("No PDFs to process (GitHub repos use markdown directly)")
 
         # Check for patent translation warnings and notify user
         patent_warnings = []
@@ -72,7 +78,19 @@ class PaperProcessingService:
             update_progress(job_id, f"Indexing paper {i+1}/{num_papers}: {title_short}", progress)
 
             try:
-                if paper.is_processed and paper.headings:
+                # GitHub repos: skip chunking, use markdown directly
+                if paper.source == "github":
+                    if paper.markdown_content:
+                        logger.info(f"Indexing GitHub repo {paper.paper_id} (no chunking)")
+                        # Store the whole markdown as a single "chunk" for retrieval
+                        chunks_added = store.add_paper(paper)
+                        total_chunks += chunks_added
+                        processed_count += 1
+                        logger.info(f"Added GitHub repo {paper.paper_id} to vector store")
+                    else:
+                        logger.warning(f"GitHub repo {paper.paper_id} has no markdown content")
+                # Papers: chunk and index normally
+                elif paper.is_processed and paper.headings:
                     logger.info(f"Chunking paper {paper.paper_id}")
                     cls._chunk_processor.process_paper(paper)
 

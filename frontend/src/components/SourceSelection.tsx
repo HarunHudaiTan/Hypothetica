@@ -11,6 +11,8 @@ interface Props {
   disabled: boolean;
 }
 
+// Single source selection - user picks one adapter at a time
+
 export default function SourceSelection({ onSourcesChange, disabled }: Props) {
   const [sources, setSources] = useState<Record<string, Source>>({});
   const [sourcesAvailability, setSourcesAvailability] = useState<Record<string, boolean>>({});
@@ -41,8 +43,8 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
       if (selectedSources.length === 0) {
         const available = Object.keys(data.sources).filter(key => data.sources[key]);
         if (available.length > 0) {
-          // Default to all available sources instead of just arxiv
-          setSelectedSources(available);
+          // Default to first available source (single selection)
+          setSelectedSources([available[0]]);
         }
       }
     } catch (err) {
@@ -54,17 +56,8 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
   };
 
   const handleSourceToggle = (sourceName: string) => {
-    setSelectedSources(prev => {
-      if (prev.includes(sourceName)) {
-        // Don't allow deselecting if it's the only source
-        if (prev.length === 1) {
-          return prev;
-        }
-        return prev.filter(s => s !== sourceName);
-      } else {
-        return [...prev, sourceName];
-      }
-    });
+    // Single selection - replace current selection with new one
+    setSelectedSources([sourceName]);
   };
 
   if (loading) {
@@ -95,10 +88,10 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
       <h2 className="text-xl font-semibold text-slate-800 mb-2">
-        Select Paper Sources
+        Select Evidence Source
       </h2>
       <p className="text-slate-500 mb-4 text-sm">
-        Choose which sources to search for related papers and patents. At least one source must be selected.
+        Choose one source to search for evidence. You can analyze papers, patents, or GitHub repositories.
       </p>
 
       <div className="space-y-3">
@@ -120,13 +113,14 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
               `}
             >
               <input
-                type="checkbox"
+                type="radio"
                 id={key}
+                name="source-selection"
                 checked={isSelected}
                 disabled={disabled || !isAvailable}
                 onChange={() => handleSourceToggle(key)}
                 className={`
-                  mt-1 w-4 h-4 rounded border-2 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0
+                  mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0
                   ${!isAvailable ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
                 `}
               />
@@ -172,7 +166,7 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
 
       <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
         <p className="text-xs text-blue-700">
-          💡 <strong>Tip:</strong> Using multiple sources (arXiv + Google Patents) provides comprehensive coverage of both academic research and intellectual property.
+          💡 <strong>Tip:</strong> Choose arXiv for academic papers, Google Patents for intellectual property, or GitHub for open source code analysis.
         </p>
       </div>
     </div>

@@ -12,6 +12,7 @@ from app.agents.github_query_agent import GitHubQueryAgent
 from app.agents.repo_relevance_agent import RepoRelevanceAgent
 from app.agents.github_synthesis_agent import GitHubSynthesisAgent
 from app.models.analysis import GitHubAnalysisResult, RepoRelevanceResult
+from core import config
 
 logger = logging.getLogger(__name__)
 
@@ -67,6 +68,7 @@ class GitHubService:
                     verdict="pursue_as_is",
                 )
                 return
+            repos = repos[: config.GITHUB_MAX_REPOS_FOR_RELEVANCE]
 
             # Phase 3: Assess each repo with RepoRelevanceAgent
             cls._push_github_progress(job_id, "Analyzing repositories...")
@@ -85,6 +87,17 @@ class GitHubService:
                     "topics": repo.get("topics", []) or [],
                     **assessment,
                 })
+
+            repo_analyses.sort(
+                key=lambda ra: (
+                    ra["verdict"] == "strong_overlap",
+                    ra["verdict"] == "partial_overlap",
+                    ra["overlap_score"],
+                    ra["stars"],
+                    ra["last_pushed"],
+                ),
+                reverse=True,
+            )
 
             # Filter out unrelated repos for synthesis
             relevant = [

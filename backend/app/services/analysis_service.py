@@ -14,6 +14,7 @@ from app.agents.followup_agent import FollowUpAgent
 from app.agents.reality_check_agent import RealityCheckAgent
 
 from app.services.paper_search_service import PaperSearchService
+from app.services.adapter_service import AdapterService
 from app.services.paper_processing_service import PaperProcessingService
 from app.services.originality_service import OriginalityService
 from app.services.github_service import GitHubService
@@ -132,6 +133,7 @@ class AnalysisService:
             start_time = time.time()
 
             benchmark_mode = job.settings.get("benchmark_mode", False)
+            selected_adapter = job.settings.get("selected_adapter", "arxiv")
 
             # Parallel reality check
             rc_thread = threading.Thread(target=cls.run_reality_check, args=(job_id,), daemon=True)
@@ -139,16 +141,10 @@ class AnalysisService:
 
             cls.process_answers(job_id, answers)
 
-            # Launch GitHub pipeline in parallel (skipped in benchmark mode)
-            if not benchmark_mode:
-                gh_thread = threading.Thread(
-                    target=GitHubService.run_github_analysis,
-                    args=(job_id, cls._update_progress),
-                    daemon=True,
-                )
-                gh_thread.start()
-
-            PaperSearchService.search_papers(job_id, cls._update_progress, job.settings.get("selected_sources"))
+            # Use adapter-based search (new unified approach)
+            AdapterService.search_evidence(job_id, selected_adapter, cls._update_progress)
+            if selected_adapter == "github" and not benchmark_mode:
+                GitHubService.run_github_analysis(job_id, cls._update_progress)
             PaperProcessingService.process_papers(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer1_analysis(job_id, cls._update_progress, cls._get_retriever)
             OriginalityService.run_layer2_analysis(job_id, cls._update_progress)
@@ -158,8 +154,6 @@ class AnalysisService:
                 OriginalityService.generate_comprehensive_report(job_id, cls._update_progress)
 
             rc_thread.join(timeout=10)
-            if not benchmark_mode:
-                gh_thread.join(timeout=60)
 
             # Finalize results
             result = job.state.layer2_result
@@ -207,14 +201,14 @@ class AnalysisService:
             results_dict["reality_check"] = job.state.reality_check_result
             results_dict["reality_check_warning"] = job.state.reality_check_warning
             results_dict["patent_warnings"] = patent_warnings if patent_warnings else None
-            results_dict["github_analysis"] = (
-                job.state.github_result.to_dict() if job.state.github_result else None
-            )
             results_dict["stats"] = cls.get_stats(job_id)
             results_dict["user_idea"] = job.user_idea
             results_dict["enriched_idea"] = job.state.enriched_idea or job.user_idea
             results_dict["followup_questions"] = job.state.followup_questions
             results_dict["followup_answers"] = job.state.followup_answers
+            results_dict["github_result"] = (
+                job.state.github_result.to_dict() if job.state.github_result else None
+            )
 
             # Full Layer 1 (with literature source per paper) for benchmarks / Supabase
             layer1_payload = []

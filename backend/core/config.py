@@ -124,12 +124,15 @@ OUTPUT_TOKEN_PRICE = 2.50   # $2.50 per 1M output tokens
 # =============================================================================
 # GITHUB SEARCH CONFIGURATION
 # =============================================================================
-GITHUB_RESULTS_PER_QUERY = 15      # Results per query from GitHub API
-GITHUB_MIN_STARS = 10               # Minimum stars for a repo to be considered
-GITHUB_MIN_PUSH_YEAR = 2022         # Filter out repos not pushed since this year
-GITHUB_TOP_PER_QUERY = 3            # Top repos to take per query before merging
-GITHUB_MAX_REPOS_TO_ANALYZE = 7     # Max repos sent to RepoRelevanceAgent
+GITHUB_RESULTS_PER_QUERY = 30       # Results per query from GitHub API (increased)
+GITHUB_MIN_STARS = 10               # Filter out abandoned/no-signal repositories
+GITHUB_MIN_PUSH_YEAR = 2021         # Prefer actively maintained repositories
+GITHUB_TOP_PER_QUERY = 8            # Keep diversity, but bias toward higher quality
+GITHUB_MAX_REPOS_TO_ANALYZE = 24    # Smaller, cleaner candidate pool
 GITHUB_README_PREVIEW_CHARS = 2000  # First N chars of README for LLM analysis
+GITHUB_MIN_README_CHARS = 400       # Basic documentation quality gate
+GITHUB_MAX_REPOS_FOR_RELEVANCE = 12 # Cap expensive LLM repo assessments
+GITHUB_QUERY_MIN_STARS = 100        # Add stars:>N directly into GitHub search query
 
 # =============================================================================
 # RAG CONFIGURATION
@@ -140,4 +143,3 @@ RAG_TOP_K = 5  # Number of chunks to retrieve per query
 # UI CONFIGURATION
 # =============================================================================
 PROGRESS_UPDATE_INTERVAL = 0.1  # seconds between progress updates
-

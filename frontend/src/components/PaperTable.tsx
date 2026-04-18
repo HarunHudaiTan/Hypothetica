@@ -16,12 +16,6 @@ const SORT_OPTIONS: { key: SortKey; label: string; short: string }[] = [
   { key: "contribution", label: "Contribution", short: "Contrib." },
 ];
 
-const CRITERION_META = [
-  { key: "problem" as SortKey, label: "Problem", scoreKey: "problem_similarity" as const },
-  { key: "method" as SortKey, label: "Method", scoreKey: "method_similarity" as const },
-  { key: "domain" as SortKey, label: "Domain", scoreKey: "domain_overlap" as const },
-  { key: "contribution" as SortKey, label: "Contrib.", scoreKey: "contribution_similarity" as const },
-];
 
 function toLikert(s: number): number {
   if (s >= 1.0) return 5;
@@ -84,6 +78,9 @@ export default function PaperTable({ papers, originalityScore }: Props) {
   const validPapers = papers.filter((p) => p.paper_similarity_score !== undefined);
   const sorted = [...validPapers].sort((a, b) => getScore(b, sortKey) - getScore(a, sortKey));
 
+  // Detect if analyzing GitHub repos
+  const isGitHubSource = papers[0]?.source === "github";
+
   return (
     <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm">
 
@@ -92,10 +89,10 @@ export default function PaperTable({ papers, originalityScore }: Props) {
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
             <h3 className="text-base font-semibold text-slate-900 tracking-tight">
-              Analyzed Papers
+              {isGitHubSource ? "Analyzed Repositories" : "Analyzed Papers"}
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
-              {sorted.length} paper{sorted.length !== 1 ? "s" : ""} · click any row to expand
+              {sorted.length} {isGitHubSource ? "repo" : "paper"}{sorted.length !== 1 ? "s" : ""} · click any row to expand
             </p>
           </div>
           {originalityScore !== undefined && (
@@ -136,7 +133,6 @@ export default function PaperTable({ papers, originalityScore }: Props) {
         {sorted.map((paper, idx) => {
           const isExpanded = expandedId === paper.paper_id;
           const overall = paper.paper_similarity_score ?? 0;
-          const c = paper.criteria_scores;
           const oc = overallColor(overall);
 
           return (
@@ -184,24 +180,38 @@ export default function PaperTable({ papers, originalityScore }: Props) {
 
                     {/* Links */}
                     <div className="flex items-center gap-3 mt-2">
-                      <a
-                        href={paper.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-xs text-slate-400 hover:text-slate-700 font-medium underline underline-offset-2 decoration-slate-200 hover:decoration-slate-500 transition-colors"
-                      >
-                        arXiv ↗
-                      </a>
-                      <a
-                        href={paper.pdf_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-xs text-slate-400 hover:text-slate-700 font-medium underline underline-offset-2 decoration-slate-200 hover:decoration-slate-500 transition-colors"
-                      >
-                        PDF ↗
-                      </a>
+                      {paper.source === "github" ? (
+                        <a
+                          href={paper.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-xs text-slate-400 hover:text-slate-700 font-medium underline underline-offset-2 decoration-slate-200 hover:decoration-slate-500 transition-colors"
+                        >
+                          GitHub ↗
+                        </a>
+                      ) : (
+                        <>
+                          <a
+                            href={paper.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-xs text-slate-400 hover:text-slate-700 font-medium underline underline-offset-2 decoration-slate-200 hover:decoration-slate-500 transition-colors"
+                          >
+                            arXiv ↗
+                          </a>
+                          <a
+                            href={paper.pdf_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-xs text-slate-400 hover:text-slate-700 font-medium underline underline-offset-2 decoration-slate-200 hover:decoration-slate-500 transition-colors"
+                          >
+                            PDF ↗
+                          </a>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

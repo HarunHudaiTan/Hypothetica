@@ -13,8 +13,13 @@ class AnalyzeRequest(BaseModel):
     rerank_topk: int = Field(default=20, ge=10, le=50)
     final_papers: int = Field(default=5, ge=3, le=10)
     use_reranker: bool = True
-    selected_sources: List[PaperSource] = Field(
-        description="List of paper sources to use. At least one source must be selected."
+    selected_adapter: Optional[str] = Field(
+        default="arxiv",
+        description="Evidence adapter to use (e.g., 'arxiv', 'google_patents'). Defaults to 'arxiv'."
+    )
+    selected_sources: Optional[List[PaperSource]] = Field(
+        default=None,
+        description="(Deprecated) List of paper sources to use. Use selected_adapter instead."
     )
     benchmark_mode: bool = Field(
         default=False,

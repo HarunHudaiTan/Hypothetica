@@ -106,7 +106,6 @@ export default function HighlightedIdea({ annotations, jobId }: Props) {
         <div className={`transition-all duration-300 ease-out ${isExpanded ? "w-1/2" : "w-full"}`}>
           <div className={`text-sm text-slate-700 leading-relaxed ${isExpanded ? "space-y-2" : ""}`}>
             {annotations.map((ann, idx) => {
-              const style = getLabelStyle(ann.label);
               const isClickable = hasLowCriteria(ann);
               const isSelected = selectedAnn?.index === ann.index;
               const isHovered = hoveredIndex === ann.index;

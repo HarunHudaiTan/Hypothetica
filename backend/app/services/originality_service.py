@@ -47,12 +47,18 @@ class OriginalityService:
 
             logger.info(f"Analyzing paper {i+1}/{len(processed_papers)}: {title_short}")
 
-            context_chunks = retriever.get_context_for_paper(paper_id=paper.paper_id, query=idea)
-            context_text = "\n\n".join([
-                f"[{c.get('metadata', {}).get('heading', 'Section')}]\n{c.get('text', '')[:800]}"
-                for c in context_chunks[:5]
-            ])
-            logger.info(f"Retrieved {len(context_chunks)} context chunks for paper {paper.paper_id}")
+            # GitHub repos: use full markdown directly (no chunking)
+            if paper.source == "github":
+                context_text = paper.markdown_content or paper.abstract
+                logger.info(f"Using full README markdown for GitHub repo {paper.paper_id} ({len(context_text)} chars)")
+            # Papers: use chunked context from RAG
+            else:
+                context_chunks = retriever.get_context_for_paper(paper_id=paper.paper_id, query=idea)
+                context_text = "\n\n".join([
+                    f"[{c.get('metadata', {}).get('heading', 'Section')}]\n{c.get('text', '')[:800]}"
+                    for c in context_chunks[:5]
+                ])
+                logger.info(f"Retrieved {len(context_chunks)} context chunks for paper {paper.paper_id}")
 
             result = agent.analyze_paper(
                 user_idea=idea,

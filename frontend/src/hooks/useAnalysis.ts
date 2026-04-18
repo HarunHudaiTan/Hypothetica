@@ -181,7 +181,7 @@ export function useAnalysis() {
       try {
         const { job_id } = await startAnalysis({
           user_idea: userIdea,
-          selected_sources: selectedSources,
+          selected_adapter: selectedSources[0], // Send single adapter
           ...settings,
         });
         setState((s) => ({ ...s, jobId: job_id }));

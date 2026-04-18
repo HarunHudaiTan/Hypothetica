@@ -94,7 +94,6 @@ export default function App() {
             message={analysis.progressMessage}
             error={analysis.error}
             realityCheck={analysis.realityCheck}
-            githubStatus={analysis.githubStatus}
             onRetry={analysis.reset}
           />
         )}
@@ -104,7 +103,6 @@ export default function App() {
           <ResultsView
             results={analysis.results}
             jobId={analysis.jobId}
-            userIdea={analysis.userIdea}
             realityCheck={analysis.realityCheck}
             onNewAnalysis={analysis.reset}
           />

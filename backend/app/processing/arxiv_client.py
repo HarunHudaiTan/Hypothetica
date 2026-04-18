@@ -4,9 +4,14 @@ Uses the official `arxiv` Python library which handles rate limiting automatical
 Implements BasePaperSource interface.
 """
 import logging
-from typing import List, Dict, Optional, Any
+from typing import List, Dict, Optional, Any, TYPE_CHECKING
 
-import arxiv as arxiv_lib
+try:
+    import arxiv as arxiv_lib
+    _HAS_ARXIV = True
+except ImportError:
+    _HAS_ARXIV = False
+    arxiv_lib = None  # type: ignore
 
 from core import config
 from app.models.paper import Paper
@@ -26,7 +31,7 @@ class ArxivClient(BasePaperSource):
         page_size=100,
         delay_seconds=5.0,
         num_retries=10,
-    )
+    ) if _HAS_ARXIV else None
 
     @property
     def source_name(self) -> str:
@@ -34,7 +39,7 @@ class ArxivClient(BasePaperSource):
 
     @property
     def is_available(self) -> bool:
-        return True  # arXiv API is always available (no API key needed)
+        return _HAS_ARXIV  # Only available if arxiv library is installed
 
     def __init__(self):
         pass
@@ -78,7 +83,7 @@ class ArxivClient(BasePaperSource):
             logger.error(f"ArXiv search failed: {e}")
             return []
 
-    def _result_to_dict(self, r: arxiv_lib.Result) -> Dict[str, Any]:
+    def _result_to_dict(self, r) -> Dict[str, Any]:
         """Convert arxiv.Result to the dict format the rest of the pipeline expects."""
         arxiv_id = r.entry_id.split("/abs/")[-1]
         return {

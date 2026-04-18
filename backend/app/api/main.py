@@ -46,15 +46,25 @@ app.add_middleware(
 @app.post("/api/analyze")
 async def start_analysis(req: AnalyzeRequest):
     """Start a new originality analysis job."""
-    # Validate that at least one source is selected
-    if not req.selected_sources:
-        raise HTTPException(400, "At least one paper source must be selected")
+    # Handle backwards compatibility: if selected_sources provided, use first source as adapter
+    if req.selected_sources:
+        selected_adapter = req.selected_sources[0].value
+    else:
+        selected_adapter = req.selected_adapter or "arxiv"
     
-    # Convert enum values to strings for storage
-    selected_sources = [source.value for source in req.selected_sources]
+    # Validate adapter exists
+    from app.adapters import get_adapter
+    adapter = get_adapter(selected_adapter)
+    if not adapter:
+        raise HTTPException(400, f"Invalid adapter: {selected_adapter}")
     
-    settings = req.model_dump(exclude={"user_idea", "selected_sources"})
-    settings["selected_sources"] = selected_sources
+    if not adapter.is_available:
+        raise HTTPException(400, f"Adapter '{selected_adapter}' is not available. Please check configuration.")
+    
+    settings = req.model_dump(exclude={"user_idea", "selected_sources", "selected_adapter"})
+    settings["selected_adapter"] = selected_adapter
+    # Keep selected_sources for backwards compatibility with existing code
+    settings["selected_sources"] = [selected_adapter]
     
     job_id = job_manager.create_job(req.user_idea, settings)
 
@@ -148,15 +158,29 @@ async def get_sentence_matches(job_id: str, req: SentenceMatchRequest):
     return {"matches": matches}
 
 
+@app.get("/api/adapters")
+async def get_available_adapters():
+    """Get available evidence adapters and their status."""
+    from app.adapters import get_available_adapters
+    adapters = get_available_adapters()
+    return {"adapters": adapters}
+
+
 @app.get("/api/sources")
 async def get_available_sources():
-    """Get available paper sources and their status."""
-    sources = PaperSearchService.get_available_sources()
+    """(Deprecated) Get available paper sources. Use /api/adapters instead."""
+    # Use the new adapter system for consistency
+    from app.adapters import get_all_adapters
+    adapters = get_all_adapters()
+    
+    sources = {name: adapter.is_available for name, adapter in adapters.items()}
+    
     return {
         "sources": sources,
         "all_sources": {
             "arxiv": {"name": "arXiv", "description": "Academic papers and preprints"},
-            "google_patents": {"name": "Google Patents", "description": "Patents and intellectual property"}
+            "google_patents": {"name": "Google Patents", "description": "Patents and intellectual property"},
+            "github": {"name": "GitHub", "description": "GitHub repositories and open source code"}
         }
     }
 

@@ -64,7 +64,7 @@ Be selective and critical. Quality over quantity.
         
         return "\n\n---\n\n".join(lines)
 
-    def select_papers(self, user_idea: str, papers: list, select_count: int = 5, use_llm: bool = True) -> list:
+    def select_papers(self, user_idea: str, papers: list, select_count: int = 5, use_llm: bool = True, adapter_name: str = "arxiv") -> list:
         """
         Select final papers from cross-encoder filtered shortlist.
         
@@ -87,37 +87,65 @@ Be selective and critical. Quality over quantity.
         
         papers_text = self._prepare_papers_for_llm(papers)
         
-        prompt = f"""USER'S RESEARCH IDEA:
-{user_idea}
-
-SHORTLISTED PAPERS ({len(papers)} papers, pre-filtered by semantic similarity):
-{papers_text}
-
-These papers have already been filtered by embedding similarity and cross-encoder reranking. 
-Your task is to select the {select_count} MOST relevant papers for understanding and advancing the user's research idea.
-
-Consider:
+        # GitHub-specific selection criteria
+        if adapter_name == "github":
+            selection_criteria = """Consider:
+1. **Implementation quality** - Well-maintained, documented, actively used repos
+2. **Feature completeness** - Repos that implement the core concepts
+3. **Code maturity** - Production-ready vs experimental prototypes
+4. **Relevance to use case** - Direct applicability to the user's idea
+5. **Popular frameworks** - Prefer established tools (LlamaIndex, LangChain, etc.) over one-off projects"""
+            content_type = "REPOSITORIES"
+        else:
+            selection_criteria = """Consider:
 1. Direct methodological relevance
 2. Theoretical foundations the user might need
 3. Similar problem domains and approaches
-4. Complementary techniques that could be useful
+4. Complementary techniques that could be useful"""
+            content_type = "PAPERS"
+        
+        prompt = f"""USER'S RESEARCH IDEA:
+{user_idea}
 
-Return the {select_count} best papers with brief reasons for each selection."""
+SHORTLISTED {content_type} ({len(papers)} items, pre-filtered by semantic similarity):
+{papers_text}
+
+These {content_type.lower()} have already been filtered by embedding similarity and cross-encoder reranking. 
+Your task is to select the {select_count} MOST relevant {content_type.lower()} for understanding and advancing the user's research idea.
+
+{selection_criteria}
+
+Return the {select_count} best {content_type.lower()} with brief reasons for each selection."""
 
         try:
             response = self.generate_text_generation_response(prompt)
             result = json.loads(response.text)
             
+            print(f"[DEBUG] LLM response: {json.dumps(result, indent=2)}")
+            
             # Build lookup and preserve LLM's ranking order
             id_to_paper = {p.get('id'): p for p in papers}
             selected_papers = []
             
-            for item in result.get('selected', []):
-                paper_id = item['id']
+            selected_list = result.get('selected', [])
+            print(f"[DEBUG] Selected list from LLM: {len(selected_list)} items")
+            print(f"[DEBUG] Available paper IDs: {list(id_to_paper.keys())[:5]}...")
+            
+            for item in selected_list:
+                paper_id = item.get('id')
+                print(f"[DEBUG] Looking for paper_id: {paper_id}")
                 if paper_id in id_to_paper:
                     paper = id_to_paper[paper_id].copy()
                     paper['selection_reason'] = item.get('reason', '')
                     selected_papers.append(paper)
+                else:
+                    print(f"[DEBUG] Paper ID {paper_id} not found in lookup!")
+            
+            print(f"[DEBUG] Final selected papers: {len(selected_papers)}")
+            
+            if not selected_papers and papers:
+                print(f"[WARNING] LLM selected 0 papers, using fallback to top {select_count}")
+                return papers[:select_count]
             
             return selected_papers[:select_count]
             

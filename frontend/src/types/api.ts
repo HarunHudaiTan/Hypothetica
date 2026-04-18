@@ -5,7 +5,8 @@ export interface AnalyzeRequest {
   rerank_topk: number;
   final_papers: number;
   use_reranker: boolean;
-  selected_sources: string[];
+  selected_adapter: string; // Single adapter selection
+  selected_sources?: string[]; // Deprecated, kept for backwards compatibility
 }
 
 export interface FollowUpQuestion {
@@ -52,6 +53,7 @@ export interface CriteriaScores {
 export interface PaperDetail {
   paper_id: string;
   arxiv_id: string;
+  source: string;  // "arxiv", "github", "google_patents", etc.
   title: string;
   abstract: string;
   url: string;
@@ -108,7 +110,6 @@ export interface AnalysisResults {
   aggregated_criteria: CriteriaScores | null;
   papers_analyzed: number;
   papers?: PaperDetail[];
-  github_analysis?: GitHubAnalysis | null;
   cost: CostBreakdown;
   total_processing_time: number;
   reality_check?: {
@@ -121,6 +122,7 @@ export interface AnalysisResults {
     }>;
   };
   reality_check_warning?: string;
+  github_result?: GitHubAnalysis | null;
   stats?: {
     query_variants: number;
     total_fetched: number;

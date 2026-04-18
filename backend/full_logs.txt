@@ -1,0 +1,1128 @@
+INFO:     Will watch for changes in these directories: ['/Users/harun/Documents/GitHub/Hypothetica/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8005 (Press CTRL+C to quit)
+INFO:     Started reloader process [23069] using WatchFiles
+INFO:     Started server process [23072]
+INFO:     Waiting for application startup.
+2026-04-13 23:19:42,016 - app.api.main - INFO - Hypothetica API starting up
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55882 - "GET /api/sources HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55883 - "GET /api/sources HTTP/1.1" 200 OK
+2026-04-13 23:20:01,120 - app.services.analysis_service - INFO - Job 9279bd68905e [5%] Generating follow-up questions...
+2026-04-13 23:20:01,120 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:55887 - "POST /api/analyze HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55889 - "GET /api/analyze/9279bd68905e/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55893 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:20:03,166 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:20:03,167 - app.agents.followup_agent - INFO - Generated 3 follow-up questions
+2026-04-13 23:20:03,167 - app.services.analysis_service - INFO - Job 9279bd68905e [8%] Generated 3 follow-up questions
+INFO:     127.0.0.1:55898 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55903 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55908 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55914 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55920 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55925 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55930 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55935 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:20:19,985 - app.services.analysis_service - INFO - Job 9279bd68905e [2%] Checking if similar products/research already exist...
+2026-04-13 23:20:19,985 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:55939 - "POST /api/analyze/9279bd68905e/answers HTTP/1.1" 200 OK
+2026-04-13 23:20:19,987 - app.services.analysis_service - INFO - Job 9279bd68905e [10%] Processing your answers...
+2026-04-13 23:20:19,987 - app.services.analysis_service - INFO - Job 9279bd68905e [12%] Idea enriched with clarifications
+INFO:     127.0.0.1:55943 - "GET /api/analyze/9279bd68905e/stream HTTP/1.1" 200 OK
+2026-04-13 23:20:20,045 - app.services.adapter_service - INFO - Using adapter: github
+2026-04-13 23:20:20,045 - app.services.analysis_service - INFO - Job 9279bd68905e [15%] Generating query variants for GitHub repositories and open source code...
+2026-04-13 23:20:20,045 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-04-13 23:20:21,191 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:20:21,194 - app.agents.query_variant_agent - INFO - [GitHub Query Generation] Generated 4 queries:
+2026-04-13 23:20:21,194 - app.agents.query_variant_agent - INFO -   - [framework] llama_index multimodal
+2026-04-13 23:20:21,194 - app.agents.query_variant_agent - INFO -   - [specific] multimodal rag
+2026-04-13 23:20:21,194 - app.agents.query_variant_agent - INFO -   - [library] clip retrieval
+2026-04-13 23:20:21,194 - app.agents.query_variant_agent - INFO -   - [domain] vision language embedding
+2026-04-13 23:20:21,194 - app.services.adapter_service - INFO - Generated 4 query variants: ['llama_index multimodal', 'multimodal rag', 'clip retrieval', 'vision language embedding']
+2026-04-13 23:20:21,194 - app.services.analysis_service - INFO - Job 9279bd68905e [20%] Searching GitHub repositories and open source code...
+2026-04-13 23:20:21,194 - app.services.adapter_service - INFO - Searching github with query: llama_index multimodal
+2026-04-13 23:20:21,194 - app.adapters.github_adapter - INFO - [GitHubAdapter] Searching: llama_index multimodal (max 37 results)
+INFO:     127.0.0.1:55950 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:20:22,219 - app.processing.github_search - INFO - GitHub query 'llama_index multimodal': 16 raw -> 16 after filter (stars: -0, date: -0)
+2026-04-13 23:20:22,219 - app.processing.github_search - INFO - GitHub search: 16 filtered total, 16 diverse repos selected
+INFO:     127.0.0.1:55959 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:20:24,559 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:20:24,561 - app.agents.reality_check_agent - INFO - Reality check: already_exists=True, confidence=0.9
+2026-04-13 23:20:24,561 - app.services.analysis_service - INFO - Job 9279bd68905e [4%] ⚠️ Found potential match: Multimodal RAG Research & Frameworks (confidence: 90%)
+INFO:     127.0.0.1:55968 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55977 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55987 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55996 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56006 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56016 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:20:36,708 - app.adapters.github_adapter - INFO - [GitHubAdapter] Returned 16 repositories
+2026-04-13 23:20:36,708 - app.services.adapter_service - INFO -   [github] query='llama_index multimodal' → 16 raw results
+2026-04-13 23:20:36,708 - app.adapters.github_adapter - INFO - [GitHubAdapter] Converting 16 repos to Paper models
+2026-04-13 23:20:36,708 - app.adapters.github_adapter - INFO - [GitHubAdapter] Converted 16 repos to Paper models
+2026-04-13 23:20:36,708 - app.services.adapter_service - INFO - Searching github with query: multimodal rag
+2026-04-13 23:20:36,708 - app.adapters.github_adapter - INFO - [GitHubAdapter] Searching: multimodal rag (max 37 results)
+INFO:     127.0.0.1:56023 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:20:39,282 - app.processing.github_search - INFO - GitHub query 'multimodal rag': 30 raw -> 30 after filter (stars: -0, date: -0)
+2026-04-13 23:20:39,282 - app.processing.github_search - INFO - GitHub search: 30 filtered total, 30 diverse repos selected
+INFO:     127.0.0.1:56031 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56041 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56050 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56060 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56069 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56077 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56086 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56094 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56103 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56112 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56121 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56130 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56139 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56149 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56158 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56167 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:21:10,271 - app.adapters.github_adapter - INFO - [GitHubAdapter] Returned 30 repositories
+2026-04-13 23:21:10,272 - app.services.adapter_service - INFO -   [github] query='multimodal rag' → 30 raw results
+2026-04-13 23:21:10,272 - app.adapters.github_adapter - INFO - [GitHubAdapter] Converting 30 repos to Paper models
+2026-04-13 23:21:10,272 - app.adapters.github_adapter - INFO - [GitHubAdapter] Converted 30 repos to Paper models
+2026-04-13 23:21:10,272 - app.services.adapter_service - INFO - Searching github with query: clip retrieval
+2026-04-13 23:21:10,272 - app.adapters.github_adapter - INFO - [GitHubAdapter] Searching: clip retrieval (max 37 results)
+2026-04-13 23:21:11,930 - app.processing.github_search - INFO - GitHub query 'clip retrieval': 30 raw -> 30 after filter (stars: -0, date: -0)
+2026-04-13 23:21:11,931 - app.processing.github_search - INFO - GitHub search: 30 filtered total, 30 diverse repos selected
+INFO:     127.0.0.1:56174 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56182 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56191 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56200 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56209 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56217 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56226 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56235 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56244 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56251 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56260 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56270 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56279 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56288 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56297 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56308 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:21:42,821 - app.adapters.github_adapter - INFO - [GitHubAdapter] Returned 30 repositories
+2026-04-13 23:21:42,821 - app.services.adapter_service - INFO -   [github] query='clip retrieval' → 30 raw results
+2026-04-13 23:21:42,822 - app.adapters.github_adapter - INFO - [GitHubAdapter] Converting 30 repos to Paper models
+2026-04-13 23:21:42,822 - app.adapters.github_adapter - INFO - [GitHubAdapter] Converted 30 repos to Paper models
+2026-04-13 23:21:42,822 - app.services.adapter_service - INFO - Searching github with query: vision language embedding
+2026-04-13 23:21:42,822 - app.adapters.github_adapter - INFO - [GitHubAdapter] Searching: vision language embedding (max 37 results)
+INFO:     127.0.0.1:56317 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:21:44,335 - app.processing.github_search - INFO - GitHub query 'vision language embedding': 30 raw -> 30 after filter (stars: -0, date: -0)
+2026-04-13 23:21:44,335 - app.processing.github_search - INFO - GitHub search: 30 filtered total, 30 diverse repos selected
+INFO:     127.0.0.1:56327 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56336 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56345 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56354 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56362 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56370 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56381 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56390 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56399 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56408 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56419 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56428 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56437 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56446 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56455 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:14,606 - app.adapters.github_adapter - INFO - [GitHubAdapter] Returned 30 repositories
+2026-04-13 23:22:14,606 - app.services.adapter_service - INFO -   [github] query='vision language embedding' → 30 raw results
+2026-04-13 23:22:14,606 - app.adapters.github_adapter - INFO - [GitHubAdapter] Converting 30 repos to Paper models
+2026-04-13 23:22:14,606 - app.adapters.github_adapter - INFO - [GitHubAdapter] Converted 30 repos to Paper models
+2026-04-13 23:22:14,606 - app.services.adapter_service - INFO - Total unique papers from github: 105
+2026-04-13 23:22:14,606 - app.services.analysis_service - INFO - Job 9279bd68905e [30%] Running semantic search on 105 papers...
+2026-04-13 23:22:14,610 - app.services.adapter_service - INFO - Saved 105 papers to /Users/harun/Documents/GitHub/Hypothetica/backend/app/services/../../app/retrieval/sample_papers.jsonl
+2026-04-13 23:22:14,610 - app.retrieval.paper_search - INFO - Searching literature for: RESEARCH IDEA:
+I want to develop a multimodal retrieval-augmented generation (RAG) system that can p...
+2026-04-13 23:22:14,616 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: intfloat/e5-base-v2
+Force rebuild: removing existing index...
+Building index: 105 new papers (total: 105)
+INFO:     127.0.0.1:56465 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]INFO:     127.0.0.1:56470 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56475 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+Batches:  50%|█████     | 1/2 [00:02<00:02,  2.95s/it]Batches: 100%|██████████| 2/2 [00:03<00:00,  1.66s/it]Batches: 100%|██████████| 2/2 [00:03<00:00,  1.85s/it]
+2026-04-13 23:22:21,353 - faiss.loader - INFO - Loading faiss.
+2026-04-13 23:22:21,399 - faiss.loader - INFO - Successfully loaded faiss.
+2026-04-13 23:22:21,410 - app.retrieval.paper_search - INFO - Step 1: Embedding search (top 100)...
+2026-04-13 23:22:21,413 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: intfloat/e5-base-v2
+Index built with 105 papers
+INFO:     127.0.0.1:56480 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56485 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 12.93it/s]
+2026-04-13 23:22:24,256 - app.retrieval.paper_search - INFO - Found 100 candidates from embedding search
+2026-04-13 23:22:24,256 - app.retrieval.paper_search - INFO - Step 2: Cross-encoder reranking (top 20)...
+Loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+INFO:     127.0.0.1:56490 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:27,303 - app.retrieval.paper_search - INFO - Returning 20 papers
+2026-04-13 23:22:27,304 - app.services.adapter_service - INFO - After semantic search: 20 papers
+2026-04-13 23:22:27,304 - app.services.analysis_service - INFO - Job 9279bd68905e [50%] Selecting final 5 papers with LLM...
+2026-04-13 23:22:27,304 - app.services.adapter_service - INFO - After reranking: 20 papers
+2026-04-13 23:22:27,304 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+Reranking 100 results with cross-encoder...
+Reranking complete. Top score: 2.6912
+INFO:     127.0.0.1:56496 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56501 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:30,214 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:30,217 - app.services.adapter_service - INFO - LLM selected 5 papers from 20 candidates
+2026-04-13 23:22:30,217 - app.services.adapter_service - INFO - Final selection: 5 papers from github
+2026-04-13 23:22:30,217 - app.services.analysis_service - INFO - Job 9279bd68905e [60%] Selected 5 papers for analysis
+2026-04-13 23:22:30,228 - app.services.analysis_service - INFO - Job 9279bd68905e [55%] Initializing vector store...
+2026-04-13 23:22:30,228 - app.retrieval.chroma_store - INFO - Loading embedding model (singleton): intfloat/e5-base-v2 on mps
+2026-04-13 23:22:30,229 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: intfloat/e5-base-v2
+[DEBUG] LLM response: {
+  "selected": [
+    {
+      "id": "paper_01",
+      "reason": "Directly implements a Multimodal RAG system using GPT-4 and Llama Index, focusing on processing both text and images to enhance LLM capabilities, which aligns perfectly with the user's core idea."
+    },
+    {
+      "id": "paper_06",
+      "reason": "Offers a comprehensive Multimodal RAG system processing various document types (text, PDFs, PPTs, images) using LlamaIndex, NVIDIA NIM, and Milvus, addressing the user's need for diverse document handling and efficient retrieval."
+    },
+    {
+      "id": "paper_08",
+      "reason": "Raggify is designed for natively handling multimodal data (images, audio, video) from the outset, emphasizing a unified approach to multimodal RAG and supporting hybrid retrieval, which is highly relevant to the user's 'unified vector space' concept."
+    },
+    {
+      "id": "paper_26",
+      "reason": "Antfly is a distributed search engine combining full-text, vector similarity, and graph traversal over multimodal data (text, images, audio, video), with built-in RAG agents. Its focus on hybrid search and automatic embedding/graph generation for multimodal data directly supports the user's advanced retrieval and reasoning goals."
+    },
+    {
+      "id": "paper_18",
+      "reason": "This is a survey paper on Multimodal Retrieval-Augmented Generation, which is crucial for understanding the current state-of-the-art, identifying limitations, and informing novel contributions for the user's research idea."
+    }
+  ]
+}
+[DEBUG] Selected list from LLM: 5 items
+[DEBUG] Available paper IDs: ['paper_01', 'paper_06', 'paper_07', 'paper_02', 'paper_18']...
+[DEBUG] Looking for paper_id: paper_01
+[DEBUG] Looking for paper_id: paper_06
+[DEBUG] Looking for paper_id: paper_08
+[DEBUG] Looking for paper_id: paper_26
+[DEBUG] Looking for paper_id: paper_18
+[DEBUG] Final selected papers: 5
+INFO:     127.0.0.1:56506 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:32,886 - app.retrieval.chroma_store - INFO - Initializing in-memory ChromaDB
+2026-04-13 23:22:32,901 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-04-13 23:22:32,988 - app.retrieval.chroma_store - INFO - Created collection: paper_chunks_9279bd68905e
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Initialized ChromaDB vector store
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - No PDFs to process (GitHub repos use markdown directly)
+2026-04-13 23:22:32,988 - app.services.analysis_service - INFO - Job 9279bd68905e [60%] Indexing paper 1/5: Chinese-CLIP
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Indexing GitHub repo paper_01 (no chunking)
+2026-04-13 23:22:32,988 - app.retrieval.chroma_store - WARNING - Paper paper_01 has no headings
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Added GitHub repo paper_01 to vector store
+2026-04-13 23:22:32,988 - app.services.analysis_service - INFO - Job 9279bd68905e [64%] Indexing paper 2/5: LLaVE
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Indexing GitHub repo paper_06 (no chunking)
+2026-04-13 23:22:32,988 - app.retrieval.chroma_store - WARNING - Paper paper_06 has no headings
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Added GitHub repo paper_06 to vector store
+2026-04-13 23:22:32,988 - app.services.analysis_service - INFO - Job 9279bd68905e [67%] Indexing paper 3/5: PeopleCounter
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - WARNING - GitHub repo paper_08 has no markdown content
+2026-04-13 23:22:32,988 - app.services.analysis_service - INFO - Job 9279bd68905e [71%] Indexing paper 4/5: Multimodal-VideoRAG
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Indexing GitHub repo paper_26 (no chunking)
+2026-04-13 23:22:32,988 - app.retrieval.chroma_store - WARNING - Paper paper_26 has no headings
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Added GitHub repo paper_26 to vector store
+2026-04-13 23:22:32,988 - app.services.analysis_service - INFO - Job 9279bd68905e [75%] Indexing paper 5/5: SEM
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Indexing GitHub repo paper_18 (no chunking)
+2026-04-13 23:22:32,988 - app.retrieval.chroma_store - WARNING - Paper paper_18 has no headings
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Added GitHub repo paper_18 to vector store
+2026-04-13 23:22:32,988 - app.services.paper_processing_service - INFO - Processing complete: 4/5 papers processed, 0 total chunks indexed
+2026-04-13 23:22:32,988 - app.services.analysis_service - INFO - Job 9279bd68905e [75%] Indexed 0 total chunks from 4 papers
+2026-04-13 23:22:32,988 - app.services.originality_service - INFO - Starting Layer 1 analysis on 5 processed papers
+2026-04-13 23:22:32,988 - app.services.analysis_service - INFO - Job 9279bd68905e [78%] Analyzing 5 papers...
+2026-04-13 23:22:33,024 - app.services.analysis_service - INFO - Job 9279bd68905e [78%] Layer 1 analysis: Paper 1/5 — Chinese-CLIP
+2026-04-13 23:22:33,025 - app.services.originality_service - INFO - Analyzing paper 1/5: Chinese-CLIP
+2026-04-13 23:22:33,025 - app.services.originality_service - INFO - Using full README markdown for GitHub repo paper_01 (26895 chars)
+2026-04-13 23:22:33,025 - app.agents.layer1_agent - INFO - [Layer1] Starting analysis for paper: paper_01 — "Chinese-CLIP"
+2026-04-13 23:22:33,025 - app.agents.layer1_agent - INFO - [Layer1] Phase 1: Scoring 4 criteria for paper_01
+2026-04-13 23:22:33,025 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56513 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:35,028 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:35,029 - app.agents.layer1_agent - INFO -   problem_similarity: 3/5 — The user's research idea focuses on developing a multimodal RAG system for 'processing and reasoning
+2026-04-13 23:22:35,029 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56518 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:36,663 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:36,665 - app.agents.layer1_agent - INFO -   method_similarity: 3/5 — The paper 'Chinese-CLIP' develops a Chinese version of the CLIP model, which uses vision-language mo
+2026-04-13 23:22:36,666 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56523 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:38,092 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:38,094 - app.agents.layer1_agent - INFO -   domain_overlap: 3/5 — The user's idea focuses on developing a multimodal RAG system for various document types, including 
+2026-04-13 23:22:38,094 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-04-13 23:22:39,632 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:39,635 - app.agents.layer1_agent - INFO -   contribution_similarity: 3/5 — The paper 'Chinese-CLIP' focuses on developing a Chinese version of the CLIP model for cross-modal r
+2026-04-13 23:22:39,635 - app.agents.layer1_agent - INFO - [Layer1] Phase 1 complete for paper_01: p=3/5, m=3/5, d=3/5, c=3/5 → overall_overlap=0.50
+2026-04-13 23:22:39,635 - app.agents.layer1_agent - INFO - [Layer1] Phase 2: Sentence analysis for paper_01 (3 sentences)
+2026-04-13 23:22:39,636 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56529 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56535 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56540 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56546 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56551 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56556 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:50,856 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:50,859 - app.agents.layer1_agent - INFO - [Layer1]   sentence[0] similarity=0.50 p=3 m=3 d=4 c=2 matches=4 — "I want to develop a multimodal retrieval-augmented generatio..."
+2026-04-13 23:22:50,859 - app.agents.layer1_agent - INFO - [Layer1]   sentence[1] similarity=0.62 p=3 m=4 d=4 c=3 matches=4 — "The system should use vision-language models to embed both m..."
+2026-04-13 23:22:50,859 - app.agents.layer1_agent - INFO - [Layer1]   sentence[2] similarity=0.22 p=2 m=1 d=3 c=2 matches=3 — "It should support various document types including PDFs with..."
+2026-04-13 23:22:50,860 - app.agents.layer1_agent - INFO - [Layer1] Result JSON for paper_01:
+{
+  "paper_id": "paper_01",
+  "paper_title": "Chinese-CLIP",
+  "arxiv_id": "OFA-Sys/Chinese-CLIP",
+  "paper_similarity_score": 0.5,
+  "reason": "Problem: The user's research idea focuses on developing a multimodal RAG system for 'processing and reasoning over both text documents and images simultaneously' and providing 'coherent responses that synthesize information'. The paper, Chinese-CLIP, addresses the problem of enabling 'cross-modal retrieval' and 'zero-shot image classification' in the Chinese language domain by training a CLIP model on large-scale Chinese image-text pairs. While both involve multimodal processing and retrieval, Chinese-CLIP primarily focuses on embedding and retrieval for similarity calculation and classification, rather than the 'reasoning over' and 'synthesizing information' for coherent responses that the user's RAG system aims for. | Method: The paper 'Chinese-CLIP' develops a Chinese version of the CLIP model, which uses vision-language models to embed images and text into a unified vector space for tasks like cross-modal retrieval and zero-shot image classification. This aligns with the user's idea of using vision-language models for a unified vector space and single retrieval operation. However, the paper focuses on the foundational model and its application to retrieval and classification, rather than the 'multimodal RAG system' and 'coherent responses that synthesize information' as specified in the user's research idea. | Domain: The user's idea focuses on developing a multimodal RAG system for various document types, including PDFs and research papers, to synthesize information. The paper, Chinese-CLIP, is a foundational vision-language model for cross-modal retrieval and zero-shot image classification in Chinese. While both deal with multimodal data and retrieval, Chinese-CLIP is a general-purpose model for feature extraction and similarity calculation, whereas the user's idea is specifically about building a RAG system for complex document types and coherent reasoning, representing a different application target within the broader multimodal AI discipline. | Contribution: The paper 'Chinese-CLIP' focuses on developing a Chinese version of the CLIP model for cross-modal retrieval and zero-shot image classification, which aligns with the user's idea of a multimodal RAG system using vision-language models for unified embedding and retrieval. However, the paper's contributions are primarily about improving performance in Chinese and providing tools for feature extraction and KNN retrieval, rather than the user's stated goal of 'coherent responses that synthesize information' or novel architectural designs for RAG beyond basic retrieval.",
+  "criteria_scores": {
+    "problem_similarity": 0.5,
+    "method_similarity": 0.5,
+    "domain_overlap": 0.5,
+    "contribution_similarity": 0.5
+  },
+  "sentence_level": [
+    {
+      "sentence": "I want to develop a multimodal retrieval-augmented generation (RAG) system that can process and reason over both text documents and images simultaneously.",
+      "sentence_index": 0,
+      "similarity_score": 0.5,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.5,
+          "reason": "The paper focuses on cross-modal retrieval and zero-shot image classification, which involves processing and reasoning over text and images. The user's idea also aims to process and reason over both text documents and images simultaneously, but within a RAG system context, which is a broader application.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.5,
+          "reason": "The paper describes a CLIP-based model for cross-modal tasks involving text and images. The user's idea proposes a multimodal RAG system that processes and reasons over both text and images, implying the use of similar underlying multimodal processing capabilities.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper operate in the domain of multimodal AI, specifically dealing with text and images. The paper focuses on Chinese language applications, while the user's idea is more general but still within the same broad domain.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.25,
+          "reason": "The paper contributes a CLIP-based model for cross-modal tasks. The user's idea proposes a multimodal RAG system, which is a more complex system aiming for 'reasoning over' and 'generation', going beyond the direct contributions of the paper.",
+          "criterion": "contribution_similarity"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "sentence": "The system should use vision-language models to embed both modalities into a unified vector space, allowing users to query across text and visual content in a single retrieval operation.",
+      "sentence_index": 1,
+      "similarity_score": 0.625,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.5,
+          "reason": "The paper's goal of 'cross-modal retrieval' directly implies the need to query across text and visual content. The user's idea aims for a 'single retrieval operation' across modalities, which is a similar problem but within a RAG context.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.75,
+          "reason": "The paper explicitly states its purpose is to enable 'image-text feature & similarity calculation' and 'cross-modal retrieval', which inherently involves embedding modalities into a unified space for querying. The user's idea directly proposes using 'vision-language models to embed both modalities into a unified vector space' for 'single retrieval operation'.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper are in the domain of multimodal representation learning and retrieval, specifically focusing on unifying text and image modalities for querying.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.5,
+          "reason": "The paper contributes a model that performs cross-modal retrieval by embedding text and images into a shared space. The user's idea proposes a system that uses this core capability for a 'single retrieval operation' within a RAG framework, which is a more advanced application of the underlying embedding and retrieval.",
+          "criterion": "contribution_similarity"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "sentence": "It should support various document types including PDFs with figures, research papers with charts, and mixed media collections, providing coherent responses that synthesize information from both textual and visual sources.",
+      "sentence_index": 2,
+      "similarity_score": 0.22499999999999998,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.25,
+          "reason": "The paper focuses on general cross-modal retrieval and classification, not specifically on handling diverse document types like PDFs with figures or providing 'coherent responses that synthesize information'. The user's problem is more about complex document understanding and synthesis.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.5,
+          "reason": "Both are in the multimodal domain, but the paper focuses on general image-text pairs for retrieval and classification, while the user's idea specifies complex document types like PDFs with figures and research papers, indicating a more specialized application within the domain.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Chinese-CLIP",
+          "heading": "ABSTRACT",
+          "text_snippet": "本项目为CLIP模型的中文版本，使用大规模中文数据进行训练（~2亿图文对），旨在帮助用户快速实现中文领域的[图文特征&相似度计算](#API快速上手)、[跨模态检索](#跨模态检索)、[零样本图片分类](#零样本图像分类)等任务。",
+          "similarity": 0.25,
+          "reason": "The paper contributes a model for feature extraction and retrieval. The user's idea contributes a system that can handle diverse document types and synthesize information into coherent responses, which is a higher-level capability not directly addressed by the paper's contributions.",
+          "criterion": "contribution_similarity"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.25,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      }
+    }
+  ],
+  "confidence": "medium",
+  "similarity_level": "low",
+  "tokens_used": 70132,
+  "processing_time": 0.0
+}
+2026-04-13 23:22:50,860 - app.services.originality_service - INFO - Paper paper_01 analysis complete: 50% similarity (level: low)
+2026-04-13 23:22:50,860 - app.services.originality_service - INFO - Criteria scores: problem=0.50, method=0.50, domain=0.50, contribution=0.50
+2026-04-13 23:22:50,860 - app.services.analysis_service - INFO - Job 9279bd68905e [80%] Layer 1 analysis: Paper 2/5 — LLaVE
+2026-04-13 23:22:50,860 - app.services.originality_service - INFO - Analyzing paper 2/5: LLaVE
+2026-04-13 23:22:50,860 - app.services.originality_service - INFO - Using full README markdown for GitHub repo paper_06 (12605 chars)
+2026-04-13 23:22:50,860 - app.agents.layer1_agent - INFO - [Layer1] Starting analysis for paper: paper_06 — "LLaVE"
+2026-04-13 23:22:50,860 - app.agents.layer1_agent - INFO - [Layer1] Phase 1: Scoring 4 criteria for paper_06
+2026-04-13 23:22:50,860 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56562 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:52,643 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:52,645 - app.agents.layer1_agent - INFO -   problem_similarity: 4/5 — The user's idea aims to develop a multimodal RAG system that processes and reasons over text and ima
+2026-04-13 23:22:52,646 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56567 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:54,071 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:54,072 - app.agents.layer1_agent - INFO -   method_similarity: 3/5 — The user's idea proposes a multimodal RAG system that processes text and images into a unified vecto
+2026-04-13 23:22:54,072 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-04-13 23:22:55,711 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:55,714 - app.agents.layer1_agent - INFO -   domain_overlap: 4/5 — The user's idea is to develop a multimodal RAG system that processes text and images, embedding them
+2026-04-13 23:22:55,714 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56572 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:22:57,262 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:22:57,264 - app.agents.layer1_agent - INFO -   contribution_similarity: 4/5 — The paper 'LLaVE: Large Language and Vision Embedding Models' directly addresses the user's core ide
+2026-04-13 23:22:57,264 - app.agents.layer1_agent - INFO - [Layer1] Phase 1 complete for paper_06: p=4/5, m=3/5, d=4/5, c=4/5 → overall_overlap=0.68
+2026-04-13 23:22:57,264 - app.agents.layer1_agent - INFO - [Layer1] Phase 2: Sentence analysis for paper_06 (3 sentences)
+2026-04-13 23:22:57,264 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56578 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56583 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56588 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56593 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56599 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:06,223 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:06,227 - app.agents.layer1_agent - INFO - [Layer1]   sentence[0] similarity=0.55 p=3 m=3 d=4 c=3 matches=4 — "I want to develop a multimodal retrieval-augmented generatio..."
+2026-04-13 23:23:06,227 - app.agents.layer1_agent - INFO - [Layer1]   sentence[1] similarity=0.87 p=4 m=5 d=5 c=4 matches=5 — "The system should use vision-language models to embed both m..."
+2026-04-13 23:23:06,227 - app.agents.layer1_agent - INFO - [Layer1]   sentence[2] similarity=0.42 p=3 m=2 d=3 c=3 matches=3 — "It should support various document types including PDFs with..."
+2026-04-13 23:23:06,227 - app.agents.layer1_agent - INFO - [Layer1] Result JSON for paper_06:
+{
+  "paper_id": "paper_06",
+  "paper_title": "LLaVE",
+  "arxiv_id": "XMUDeepLIT/LLaVE",
+  "paper_similarity_score": 0.675,
+  "reason": "Problem: The user's idea aims to develop a multimodal RAG system that processes and reasons over text and images simultaneously, using vision-language models to embed both modalities into a unified vector space for single retrieval. The paper, LLaVE, focuses on developing 'more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video,' and demonstrates 'zero-shot video-text retrieval tasks.' This directly addresses the core problem of creating unified multimodal embeddings for retrieval, differing mainly in the explicit mention of 'RAG system' and 'coherent responses that synthesize information' in the user's idea, which are downstream applications of the embedding model developed in LLaVE. | Method: The user's idea proposes a multimodal RAG system that processes text and images into a unified vector space for single retrieval. The paper, LLaVE, develops 'unified multimodal embedding models that can accept inputs combining text and images, and even video' and demonstrates encoding multimodal embeddings for similarity scoring. While both aim for unified multimodal embeddings and retrieval, the paper focuses on the embedding model itself and its performance on benchmarks, rather than the full RAG system architecture or the specific 'reasoning over' and 'synthesizing information' aspects highlighted in the user's idea. | Domain: The user's idea is to develop a multimodal RAG system that processes text and images, embedding them into a unified vector space for retrieval. The paper presents 'LLaVE: Large Language and Vision Embedding Models' which are described as 'unified multimodal embedding models that can accept inputs combining text and images, and even video.' This directly aligns with the user's core concept of unified multimodal embeddings and retrieval, indicating a strong overlap in the fundamental technical domain and application target of creating models that can understand and retrieve across modalities. | Contribution: The paper 'LLaVE: Large Language and Vision Embedding Models' directly addresses the user's core idea of developing 'unified multimodal embedding models that can accept inputs combining text and images'. The paper's abstract and quick start guide demonstrate the creation of a unified vector space for text and images, allowing for similarity scoring between multimodal inputs, which is a key component of the user's proposed 'single retrieval operation'. While the user's idea emphasizes 'reasoning over' and 'synthesizing information' for 'coherent responses', LLaVE focuses on the embedding and retrieval aspect, which is a foundational part of the user's RAG system.",
+  "criteria_scores": {
+    "problem_similarity": 0.75,
+    "method_similarity": 0.5,
+    "domain_overlap": 0.75,
+    "contribution_similarity": 0.75
+  },
+  "sentence_level": [
+    {
+      "sentence": "I want to develop a multimodal retrieval-augmented generation (RAG) system that can process and reason over both text documents and images simultaneously.",
+      "sentence_index": 0,
+      "similarity_score": 0.55,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper aim to develop systems that can process and reason over multiple modalities, specifically text and images. The paper focuses on 'unified multimodal embedding models' which is a core component of the user's proposed RAG system.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 0.5,
+          "reason": "The user proposes a 'multimodal retrieval-augmented generation (RAG) system' that processes text and images. The paper describes 'unified multimodal embedding models that can accept inputs combining text and images', which is a foundational method for such a system.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper operate in the domain of multimodal AI, specifically dealing with the combination of text and images.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 0.5,
+          "reason": "The user's goal to 'develop a multimodal retrieval-augmented generation (RAG) system that can process and reason over both text documents and images simultaneously' aligns with the paper's contribution of 'more powerful unified multimodal embedding models that can accept inputs combining text and images'. While the user specifies RAG and reasoning, the core capability of handling both modalities is shared.",
+          "criterion": "contribution_similarity"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "sentence": "The system should use vision-language models to embed both modalities into a unified vector space, allowing users to query across text and visual content in a single retrieval operation.",
+      "sentence_index": 1,
+      "similarity_score": 0.8749999999999999,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 0.75,
+          "reason": "The user's problem involves creating a system where 'vision-language models embed both modalities into a unified vector space' for 'single retrieval operation'. The paper directly addresses this by developing 'unified multimodal embedding models that can accept inputs combining text and images'.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 1.0,
+          "reason": "The user explicitly states the method: 'use vision-language models to embed both modalities into a unified vector space'. The paper's core method is the development of 'unified multimodal embedding models that can accept inputs combining text and images'. This is an almost identical methodological approach.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "Quick Start",
+          "text_snippet": "query_embed = model.encode_multimodal_embeddings(input_ids, attention_mask=attention_mask,images=image_tensor, image_sizes=image_sizes)\n...target_embed = model.encode_multimodal_embeddings(target_input_ids, attention_mask=attention_mask)",
+          "similarity": 1.0,
+          "reason": "The paper demonstrates the use of `model.encode_multimodal_embeddings` to create embeddings from both images and text, which is precisely what the user describes for embedding 'both modalities into a unified vector space'.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are focused on multimodal embedding, specifically combining text and images into a unified representation.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 0.75,
+          "reason": "The user's contribution involves enabling 'users to query across text and visual content in a single retrieval operation' by embedding modalities into a 'unified vector space'. The paper's contribution is 'unified multimodal embedding models that can accept inputs combining text and images', which directly enables such a unified vector space and subsequent retrieval.",
+          "criterion": "contribution_similarity"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 1.0,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      }
+    },
+    {
+      "sentence": "It should support various document types including PDFs with figures, research papers with charts, and mixed media collections, providing coherent responses that synthesize information from both textual and visual sources.",
+      "sentence_index": 2,
+      "similarity_score": 0.42499999999999993,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 0.5,
+          "reason": "The user's problem involves supporting 'various document types including PDFs with figures, research papers with charts, and mixed media collections' and 'providing coherent responses that synthesize information'. The paper's 'unified multimodal embedding models' are a foundational step towards handling such diverse inputs and enabling synthesis, though the paper doesn't explicitly detail the 'coherent responses' or 'synthesis' aspect.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 0.5,
+          "reason": "The user's idea of supporting 'various document types including PDFs with figures, research papers with charts, and mixed media collections' aligns with the paper's focus on multimodal inputs combining text and images, which are common in such document types.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_06",
+          "paper_title": "LLaVE",
+          "heading": "ABSTRACT",
+          "text_snippet": "we have developed a series of more powerful unified multimodal embedding models that can accept inputs combining text and images, and even video.",
+          "similarity": 0.5,
+          "reason": "The user's contribution includes 'providing coherent responses that synthesize information from both textual and visual sources'. While the paper focuses on the embedding models, these models are a prerequisite for such synthesis. The paper's contribution of 'unified multimodal embedding models' enables the processing of information from both sources, which is a necessary step for synthesis.",
+          "criterion": "contribution_similarity"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    }
+  ],
+  "confidence": "high",
+  "similarity_level": "high",
+  "tokens_used": 29387,
+  "processing_time": 0.0
+}
+2026-04-13 23:23:06,227 - app.services.originality_service - INFO - Paper paper_06 analysis complete: 68% similarity (level: high)
+2026-04-13 23:23:06,227 - app.services.originality_service - INFO - Criteria scores: problem=0.75, method=0.50, domain=0.75, contribution=0.75
+2026-04-13 23:23:06,227 - app.services.analysis_service - INFO - Job 9279bd68905e [83%] Layer 1 analysis: Paper 3/5 — PeopleCounter
+2026-04-13 23:23:06,227 - app.services.originality_service - INFO - Analyzing paper 3/5: PeopleCounter
+2026-04-13 23:23:06,227 - app.services.originality_service - INFO - Using full README markdown for GitHub repo paper_08 (2328 chars)
+2026-04-13 23:23:06,227 - app.agents.layer1_agent - INFO - [Layer1] Starting analysis for paper: paper_08 — "PeopleCounter"
+2026-04-13 23:23:06,227 - app.agents.layer1_agent - INFO - [Layer1] Phase 1: Scoring 4 criteria for paper_08
+2026-04-13 23:23:06,227 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-04-13 23:23:07,587 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:07,589 - app.agents.layer1_agent - INFO -   problem_similarity: 1/5 — The user's research idea focuses on developing a multimodal RAG system for processing and reasoning 
+2026-04-13 23:23:07,589 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56605 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:08,929 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:08,932 - app.agents.layer1_agent - INFO -   method_similarity: 1/5 — The user's research idea proposes developing a multimodal RAG system using vision-language models to
+2026-04-13 23:23:08,932 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56610 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:11,396 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:11,396 - app.agents.layer1_agent - INFO -   domain_overlap: 1/5 — The user's research idea focuses on developing a multimodal RAG system for information retrieval and
+2026-04-13 23:23:11,396 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56615 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:12,913 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:12,916 - app.agents.layer1_agent - INFO -   contribution_similarity: 1/5 — The user's research idea focuses on developing a multimodal RAG system for reasoning over text and i
+2026-04-13 23:23:12,916 - app.agents.layer1_agent - INFO - [Layer1] Phase 1 complete for paper_08: p=1/5, m=1/5, d=1/5, c=1/5 → overall_overlap=0.00
+2026-04-13 23:23:12,916 - app.agents.layer1_agent - INFO - [Layer1] Phase 2: Sentence analysis for paper_08 (3 sentences)
+2026-04-13 23:23:12,916 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56621 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:15,242 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:15,244 - app.agents.layer1_agent - INFO - [Layer1]   sentence[0] similarity=0.12 p=1 m=2 d=2 c=1 matches=1 — "I want to develop a multimodal retrieval-augmented generatio..."
+2026-04-13 23:23:15,244 - app.agents.layer1_agent - INFO - [Layer1]   sentence[1] similarity=0.00 p=1 m=1 d=1 c=1 matches=0 — "The system should use vision-language models to embed both m..."
+2026-04-13 23:23:15,244 - app.agents.layer1_agent - INFO - [Layer1]   sentence[2] similarity=0.00 p=1 m=1 d=1 c=1 matches=0 — "It should support various document types including PDFs with..."
+2026-04-13 23:23:15,244 - app.agents.layer1_agent - INFO - [Layer1] Result JSON for paper_08:
+{
+  "paper_id": "paper_08",
+  "paper_title": "PeopleCounter",
+  "arxiv_id": "chs74515/PeopleCounter",
+  "paper_similarity_score": 0.0,
+  "reason": "Problem: The user's research idea focuses on developing a multimodal RAG system for processing and reasoning over text and images to provide coherent responses. In contrast, the paper 'PeopleCounter' addresses the problem of real-time people detection, tracking, and counting using computer vision techniques like OpenCV for traffic monitoring. These are fundamentally different research problems with distinct goals and methodologies. | Method: The user's research idea proposes developing a multimodal RAG system using vision-language models to embed text and images into a unified vector space for retrieval and synthesis. In contrast, the paper 'PeopleCounter' describes a system for real-time people detection, tracking, and counting using OpenCV and filtering algorithms on embedded devices. There is no methodological overlap between these two distinct approaches. | Domain: The user's research idea focuses on developing a multimodal RAG system for information retrieval and synthesis across text and images, aiming for coherent responses. In contrast, the paper 'PeopleCounter' describes a system for real-time people detection, tracking, and counting using image processing with OpenCV for traffic monitoring. These are entirely different application domains, with no overlap in their core objectives or methodologies. | Contribution: The user's research idea focuses on developing a multimodal RAG system for reasoning over text and images in a unified vector space to provide coherent responses. In contrast, the paper 'PeopleCounter' describes a system for real-time people detection, tracking, and counting using OpenCV on embedded devices. The contributions are entirely unrelated, addressing different problems and proposing different solutions.",
+  "criteria_scores": {
+    "problem_similarity": 0.0,
+    "method_similarity": 0.0,
+    "domain_overlap": 0.0,
+    "contribution_similarity": 0.0
+  },
+  "sentence_level": [
+    {
+      "sentence": "I want to develop a multimodal retrieval-augmented generation (RAG) system that can process and reason over both text documents and images simultaneously.",
+      "sentence_index": 0,
+      "similarity_score": 0.125,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_08",
+          "paper_title": "PeopleCounter",
+          "heading": "ABSTRACT",
+          "text_snippet": "In present days, people detection, tracking and counting is an important aspect in the video investigation and subjection demand in Computer Vision Systems.",
+          "similarity": 0.25,
+          "reason": "Both the user's idea and the paper operate within the broad field of Computer Vision Systems, although the specific application and problem differ significantly.",
+          "criterion": "domain_overlap"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_overlap": 0.25,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "sentence": "The system should use vision-language models to embed both modalities into a unified vector space, allowing users to query across text and visual content in a single retrieval operation.",
+      "sentence_index": 1,
+      "similarity_score": 0.0,
+      "matched_sections": [],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "sentence": "It should support various document types including PDFs with figures, research papers with charts, and mixed media collections, providing coherent responses that synthesize information from both textual and visual sources.",
+      "sentence_index": 2,
+      "similarity_score": 0.0,
+      "matched_sections": [],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "confidence": "medium",
+  "similarity_level": "low",
+  "tokens_used": 8485,
+  "processing_time": 0.0
+}
+2026-04-13 23:23:15,244 - app.services.originality_service - INFO - Paper paper_08 analysis complete: 0% similarity (level: low)
+2026-04-13 23:23:15,244 - app.services.originality_service - INFO - Criteria scores: problem=0.00, method=0.00, domain=0.00, contribution=0.00
+2026-04-13 23:23:15,244 - app.services.analysis_service - INFO - Job 9279bd68905e [85%] Layer 1 analysis: Paper 4/5 — Multimodal-VideoRAG
+2026-04-13 23:23:15,244 - app.services.originality_service - INFO - Analyzing paper 4/5: Multimodal-VideoRAG
+2026-04-13 23:23:15,244 - app.services.originality_service - INFO - Using full README markdown for GitHub repo paper_26 (2453 chars)
+2026-04-13 23:23:15,244 - app.agents.layer1_agent - INFO - [Layer1] Starting analysis for paper: paper_26 — "Multimodal-VideoRAG"
+2026-04-13 23:23:15,245 - app.agents.layer1_agent - INFO - [Layer1] Phase 1: Scoring 4 criteria for paper_26
+2026-04-13 23:23:15,245 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56626 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:16,845 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:16,847 - app.agents.layer1_agent - INFO -   problem_similarity: 3/5 — The user's idea focuses on developing a multimodal RAG system for text documents and images, aiming 
+2026-04-13 23:23:16,847 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56631 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:18,487 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:18,490 - app.agents.layer1_agent - INFO -   method_similarity: 3/5 — Both the user's idea and the paper propose a multimodal RAG system using vision-language models to e
+2026-04-13 23:23:18,490 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56637 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:20,220 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:20,223 - app.agents.layer1_agent - INFO -   domain_overlap: 3/5 — Both the user's idea and the paper operate within the domain of multimodal Retrieval-Augmented Gener
+2026-04-13 23:23:20,223 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-04-13 23:23:21,850 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:21,852 - app.agents.layer1_agent - INFO -   contribution_similarity: 3/5 — The paper's contribution of 'Multimodal-VideoRAG' for video understanding using BridgeTower embeddin
+2026-04-13 23:23:21,852 - app.agents.layer1_agent - INFO - [Layer1] Phase 1 complete for paper_26: p=3/5, m=3/5, d=3/5, c=3/5 → overall_overlap=0.50
+2026-04-13 23:23:21,852 - app.agents.layer1_agent - INFO - [Layer1] Phase 2: Sentence analysis for paper_26 (3 sentences)
+2026-04-13 23:23:21,852 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56643 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56648 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56653 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56658 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:29,810 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:29,814 - app.agents.layer1_agent - INFO - [Layer1]   sentence[0] similarity=0.57 p=3 m=4 d=3 c=3 matches=4 — "I want to develop a multimodal retrieval-augmented generatio..."
+2026-04-13 23:23:29,814 - app.agents.layer1_agent - INFO - [Layer1]   sentence[1] similarity=0.57 p=3 m=4 d=3 c=3 matches=4 — "The system should use vision-language models to embed both m..."
+2026-04-13 23:23:29,814 - app.agents.layer1_agent - INFO - [Layer1]   sentence[2] similarity=0.50 p=3 m=3 d=3 c=3 matches=4 — "It should support various document types including PDFs with..."
+2026-04-13 23:23:29,814 - app.agents.layer1_agent - INFO - [Layer1] Result JSON for paper_26:
+{
+  "paper_id": "paper_26",
+  "paper_title": "Multimodal-VideoRAG",
+  "arxiv_id": "Bhavik-Ardeshna/Multimodal-VideoRAG",
+  "paper_similarity_score": 0.5,
+  "reason": "Problem: The user's idea focuses on developing a multimodal RAG system for text documents and images, aiming for unified vector space retrieval and coherent synthesis across modalities. The paper, Multimodal-VideoRAG, addresses multimodal information retrieval and question answering specifically on videos, using BridgeTower embeddings and VLMs. While both deal with multimodal RAG and unified embeddings, the paper's specific focus on video content and video segments as the primary data type represents a different angle on the problem compared to the user's broader scope of text documents with figures, research papers, and mixed media collections. | Method: Both the user's idea and the paper propose a multimodal RAG system using vision-language models to embed modalities into a unified vector space for retrieval. The paper specifically uses 'BridgeTower embeddings to fuse image and text information seamlessly' and a 'Multimodal Vector Database' for querying, which aligns with the user's concept of a 'unified vector space' and 'single retrieval operation'. However, the paper focuses on 'video pre-processing' and 'video-based information', whereas the user's idea is broader, encompassing 'PDFs with figures, research papers with charts, and mixed media collections', indicating a difference in the specific application and preprocessing needs. | Domain: Both the user's idea and the paper operate within the domain of multimodal Retrieval-Augmented Generation (RAG) systems, leveraging vision-language models and unified vector spaces. However, the paper specifically targets video data ('Multimodal-VideoRAG', 'video pre-processing', 'video-based information'), whereas the user's idea focuses on static document types like 'PDFs with figures, research papers with charts, and mixed media collections', indicating a different application target within the same sub-area. | Contribution: The paper's contribution of 'Multimodal-VideoRAG' for video understanding using BridgeTower embeddings and VLMs shows partial overlap with the user's idea of a multimodal RAG system for text and images. Both aim for unified embeddings and multimodal retrieval, but the paper specifically focuses on video data and video segments, while the user's idea emphasizes diverse document types like PDFs and research papers, and 'reasoning over' and 'synthesizing information' beyond what is explicitly detailed in the paper's abstract or features.",
+  "criteria_scores": {
+    "problem_similarity": 0.5,
+    "method_similarity": 0.5,
+    "domain_overlap": 0.5,
+    "contribution_similarity": 0.5
+  },
+  "sentence_level": [
+    {
+      "sentence": "I want to develop a multimodal retrieval-augmented generation (RAG) system that can process and reason over both text documents and images simultaneously.",
+      "sentence_index": 0,
+      "similarity_score": 0.575,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "ABSTRACT",
+          "text_snippet": "Multimodal-VideoRAG is framework designed to facilitate multimodal information retrieval and question answering on videos by leveraging Video Retrieval-Augmented Generation (VideoRAG).",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper aim to develop a multimodal RAG system for information retrieval and question answering. The user's idea is broader, focusing on text documents and images, while the paper specifically targets videos.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "ABSTRACT",
+          "text_snippet": "Multimodal-VideoRAG is framework designed to facilitate multimodal information retrieval and question answering on videos by leveraging Video Retrieval-Augmented Generation (VideoRAG). It combines the power of Large Vision-Language Models (VLMs) and BridgeTower embeddings to perform video pre-processing, embedding generation, and multimodal vector database queries.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper propose a multimodal RAG system that processes and reasons over multiple modalities. The paper explicitly mentions using Large Vision-Language Models (VLMs) and embeddings for multimodal processing, which aligns with the user's general approach.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "ABSTRACT",
+          "text_snippet": "Multimodal-VideoRAG is framework designed to facilitate multimodal information retrieval and question answering on videos by leveraging Video Retrieval-Augmented Generation (VideoRAG).",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper are in the domain of multimodal information retrieval and question answering using RAG. The paper's specific application is videos, while the user's is broader (text documents and images).",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "ABSTRACT",
+          "text_snippet": "Multimodal-VideoRAG is framework designed to facilitate multimodal information retrieval and question answering on videos by leveraging Video Retrieval-Augmented Generation (VideoRAG).",
+          "similarity": 0.5,
+          "reason": "Both aim to develop a multimodal RAG system. The user's contribution is a general system for text and images, while the paper's is a specific framework for video RAG.",
+          "criterion": "contribution_similarity"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "sentence": "The system should use vision-language models to embed both modalities into a unified vector space, allowing users to query across text and visual content in a single retrieval operation.",
+      "sentence_index": 1,
+      "similarity_score": 0.575,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "ABSTRACT",
+          "text_snippet": "It combines the power of Large Vision-Language Models (VLMs) and BridgeTower embeddings to perform video pre-processing, embedding generation, and multimodal vector database queries.",
+          "similarity": 0.5,
+          "reason": "The paper addresses the problem of multimodal information retrieval using VLMs and embeddings for querying, which is a core aspect of the user's proposed system for querying across modalities.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "ABSTRACT",
+          "text_snippet": "It combines the power of Large Vision-Language Models (VLMs) and BridgeTower embeddings to perform video pre-processing, embedding generation, and multimodal vector database queries.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper propose using vision-language models (VLMs) and embeddings to process modalities. The paper explicitly mentions 'BridgeTower embeddings to fuse image and text information seamlessly' and 'multimodal vector database queries', which directly aligns with the user's concept of embedding into a 'unified vector space' for 'single retrieval operation'.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "ABSTRACT",
+          "text_snippet": "It combines the power of Large Vision-Language Models (VLMs) and BridgeTower embeddings to perform video pre-processing, embedding generation, and multimodal vector database queries.",
+          "similarity": 0.5,
+          "reason": "Both are in the domain of multimodal information retrieval using VLMs and vector embeddings for querying across modalities.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "ABSTRACT",
+          "text_snippet": "It combines the power of Large Vision-Language Models (VLMs) and BridgeTower embeddings to perform video pre-processing, embedding generation, and multimodal vector database queries.",
+          "similarity": 0.5,
+          "reason": "Both contribute to developing systems that use VLMs and embeddings for multimodal retrieval. The paper's contribution is specific to video, while the user's is general to text and images.",
+          "criterion": "contribution_similarity"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.75,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "sentence": "It should support various document types including PDFs with figures, research papers with charts, and mixed media collections, providing coherent responses that synthesize information from both textual and visual sources.",
+      "sentence_index": 2,
+      "similarity_score": 0.5,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "ABSTRACT",
+          "text_snippet": "Multimodal-VideoRAG is framework designed to facilitate multimodal information retrieval and question answering on videos by leveraging Video Retrieval-Augmented Generation (VideoRAG).",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper aim to provide coherent responses by synthesizing information from multiple sources. The paper focuses on video understanding and multimodal responses, which implies synthesizing information.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "Features",
+          "text_snippet": "VideoRAG: Employs retrieval-augmented generation techniques for video understanding, enhancing the quality of multimodal responses.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper mention providing 'coherent responses' and 'synthesizing information'. The paper explicitly states 'enhancing the quality of multimodal responses' through RAG techniques, which aligns with the user's goal of coherent synthesis.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "Features",
+          "text_snippet": "VideoRAG: Employs retrieval-augmented generation techniques for video understanding, enhancing the quality of multimodal responses.",
+          "similarity": 0.5,
+          "reason": "Both are in the domain of multimodal RAG systems that aim to provide enhanced, coherent responses by synthesizing information. The paper's specific domain is video, while the user's is broader document types.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Multimodal-VideoRAG",
+          "heading": "Features",
+          "text_snippet": "VideoRAG: Employs retrieval-augmented generation techniques for video understanding, enhancing the quality of multimodal responses.",
+          "similarity": 0.5,
+          "reason": "Both contribute to systems that provide coherent, synthesized responses from multimodal sources. The paper's contribution is specific to video understanding, while the user's is for various document types.",
+          "criterion": "contribution_similarity"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    }
+  ],
+  "confidence": "medium",
+  "similarity_level": "low",
+  "tokens_used": 9672,
+  "processing_time": 0.0
+}
+2026-04-13 23:23:29,814 - app.services.originality_service - INFO - Paper paper_26 analysis complete: 50% similarity (level: low)
+2026-04-13 23:23:29,814 - app.services.originality_service - INFO - Criteria scores: problem=0.50, method=0.50, domain=0.50, contribution=0.50
+2026-04-13 23:23:29,814 - app.services.analysis_service - INFO - Job 9279bd68905e [88%] Layer 1 analysis: Paper 5/5 — SEM
+2026-04-13 23:23:29,814 - app.services.originality_service - INFO - Analyzing paper 5/5: SEM
+2026-04-13 23:23:29,814 - app.services.originality_service - INFO - Using full README markdown for GitHub repo paper_18 (12694 chars)
+2026-04-13 23:23:29,814 - app.agents.layer1_agent - INFO - [Layer1] Starting analysis for paper: paper_18 — "SEM"
+2026-04-13 23:23:29,814 - app.agents.layer1_agent - INFO - [Layer1] Phase 1: Scoring 4 criteria for paper_18
+2026-04-13 23:23:29,814 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56664 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:31,372 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:31,373 - app.agents.layer1_agent - INFO -   problem_similarity: 1/5 — The user's research idea focuses on developing a multimodal RAG system for unified retrieval and coh
+2026-04-13 23:23:31,373 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56669 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:32,732 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:32,735 - app.agents.layer1_agent - INFO -   method_similarity: 1/5 — The user's research idea focuses on developing a multimodal RAG system for unified retrieval and coh
+2026-04-13 23:23:32,735 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56674 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:34,417 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:34,418 - app.agents.layer1_agent - INFO -   domain_overlap: 3/5 — The user's research idea focuses on developing a multimodal RAG system for information retrieval and
+2026-04-13 23:23:34,418 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-04-13 23:23:35,852 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:35,855 - app.agents.layer1_agent - INFO -   contribution_similarity: 1/5 — The user's research idea focuses on developing a multimodal RAG system for unified retrieval and coh
+2026-04-13 23:23:35,855 - app.agents.layer1_agent - INFO - [Layer1] Phase 1 complete for paper_18: p=1/5, m=1/5, d=3/5, c=1/5 → overall_overlap=0.10
+2026-04-13 23:23:35,855 - app.agents.layer1_agent - INFO - [Layer1] Phase 2: Sentence analysis for paper_18 (3 sentences)
+2026-04-13 23:23:35,855 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56680 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56685 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:39,504 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:39,507 - app.agents.layer1_agent - INFO - [Layer1]   sentence[0] similarity=0.17 p=1 m=2 d=3 c=1 matches=1 — "I want to develop a multimodal retrieval-augmented generatio..."
+2026-04-13 23:23:39,507 - app.agents.layer1_agent - INFO - [Layer1]   sentence[1] similarity=0.25 p=1 m=3 d=3 c=1 matches=2 — "The system should use vision-language models to embed both m..."
+2026-04-13 23:23:39,507 - app.agents.layer1_agent - INFO - [Layer1]   sentence[2] similarity=0.00 p=1 m=1 d=1 c=1 matches=0 — "It should support various document types including PDFs with..."
+2026-04-13 23:23:39,507 - app.agents.layer1_agent - INFO - [Layer1] Result JSON for paper_18:
+{
+  "paper_id": "paper_18",
+  "paper_title": "SEM",
+  "arxiv_id": "mardgui/SEM",
+  "paper_similarity_score": 0.1,
+  "reason": "Problem: The user's research idea focuses on developing a multimodal RAG system for unified retrieval and coherent synthesis of information from text and images. In contrast, the paper 'SEM: Sparse Embedding Modulation for Post-Hoc Debiasing of Vision-Language Models' addresses the problem of social and spurious biases in vision-language models like CLIP, aiming to achieve fairness gains in retrieval and zero-shot classification through a debiasing framework. These are fundamentally different research problems. | Method: The user's research idea focuses on developing a multimodal RAG system for unified retrieval and coherent synthesis from text and images. The paper 'SEM: Sparse Embedding Modulation' proposes a method for post-hoc debiasing of vision-language models by operating in a Sparse Autoencoder latent space to remove social and spurious biases. These are fundamentally different objectives and methodologies, with no overlap in their core technical approaches or applications. | Domain: The user's research idea focuses on developing a multimodal RAG system for information retrieval and synthesis across text and images. The paper, 'SEM: Sparse Embedding Modulation for Post-Hoc Debiasing of Vision-Language Models,' is concerned with debiasing vision-language models like CLIP to improve fairness in retrieval and zero-shot classification. While both involve vision-language models and retrieval, the paper's core domain is bias mitigation, whereas the user's idea is about building a RAG system for general multimodal information synthesis, representing different sub-areas within multimodal AI. | Contribution: The user's research idea focuses on developing a multimodal RAG system for unified retrieval and coherent synthesis of information from text and images. In contrast, the paper 'SEM: Sparse Embedding Modulation for Post-Hoc Debiasing of Vision-Language Models' addresses the problem of social and spurious biases in existing vision-language models like CLIP, proposing a method for post-hoc debiasing. The core contributions and problem statements are distinct.",
+  "criteria_scores": {
+    "problem_similarity": 0.0,
+    "method_similarity": 0.0,
+    "domain_overlap": 0.5,
+    "contribution_similarity": 0.0
+  },
+  "sentence_level": [
+    {
+      "sentence": "I want to develop a multimodal retrieval-augmented generation (RAG) system that can process and reason over both text documents and images simultaneously.",
+      "sentence_index": 0,
+      "similarity_score": 0.175,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_18",
+          "paper_title": "SEM",
+          "heading": "Abstract",
+          "text_snippet": "Models that bridge vision and language, such as CLIP, are key components of multimodal AI.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper deal with 'multimodal AI' and 'vision and language' models, indicating a shared broad domain.",
+          "criterion": "domain_overlap"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "sentence": "The system should use vision-language models to embed both modalities into a unified vector space, allowing users to query across text and visual content in a single retrieval operation.",
+      "sentence_index": 1,
+      "similarity_score": 0.25,
+      "matched_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_18",
+          "paper_title": "SEM",
+          "heading": "Abstract",
+          "text_snippet": "Existing post-hoc debiasing methods often operate directly in the dense CLIP embedding space, where bias and task-relevant information are highly _entangled_—making it difficult to remove bias without degrading semantic fidelity. In this work, we propose **Sparse Embedding Modulation (SEM)** — a post-hoc, zero-shot debiasing framework that operates in a Sparse Autoencoder (SAE) latent space. By decomposing CLIP text embeddings into _disentangled_ features, SEM can pinpoint and modulate bias-relevant neurons while safely preserving query-relevant ones.",
+          "similarity": 0.5,
+          "reason": "The user's idea mentions 'vision-language models to embed both modalities into a unified vector space' and 'query across text and visual content in a single retrieval operation'. The paper discusses operating in 'CLIP embedding space' and 'Sparse Autoencoder (SAE) latent space' for 'decomposing CLIP text embeddings' and achieving 'fairness gains in retrieval'. Both involve embedding and retrieval using vision-language models, though the paper's focus is on debiasing within that space, not the RAG system itself.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_18",
+          "paper_title": "SEM",
+          "heading": "Abstract",
+          "text_snippet": "Models that bridge vision and language, such as CLIP, are key components of multimodal AI.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper discuss 'vision-language models' and their application in 'multimodal AI', indicating a shared area of research.",
+          "criterion": "domain_overlap"
+        }
+      ],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "sentence": "It should support various document types including PDFs with figures, research papers with charts, and mixed media collections, providing coherent responses that synthesize information from both textual and visual sources.",
+      "sentence_index": 2,
+      "similarity_score": 0.0,
+      "matched_sections": [],
+      "sentence_criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_overlap": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "confidence": "medium",
+  "similarity_level": "low",
+  "tokens_used": 24300,
+  "processing_time": 0.0
+}
+2026-04-13 23:23:39,508 - app.services.originality_service - INFO - Paper paper_18 analysis complete: 10% similarity (level: low)
+2026-04-13 23:23:39,508 - app.services.originality_service - INFO - Criteria scores: problem=0.00, method=0.00, domain=0.50, contribution=0.00
+2026-04-13 23:23:39,508 - app.services.originality_service - INFO - Layer 1 analysis complete: 5 papers analyzed, total cost: $0.0624
+2026-04-13 23:23:39,508 - app.services.analysis_service - INFO - Job 9279bd68905e [90%] Completed Layer 1 analysis
+2026-04-13 23:23:39,516 - app.services.analysis_service - INFO - Job 9279bd68905e [92%] Computing global originality score...
+2026-04-13 23:23:39,516 - app.services.originality_service - INFO - Starting Layer 2 aggregation with 5 paper results
+2026-04-13 23:23:39,516 - app.agents.layer2_agent - INFO - [Layer2] Paper similarity — Chinese-CLIP: 0.500 (p=0.50 m=0.50 d=0.50 c=0.50)
+2026-04-13 23:23:39,516 - app.agents.layer2_agent - INFO - [Layer2] Paper similarity — LLaVE: 0.713 (p=0.75 m=0.50 d=0.75 c=0.75)
+2026-04-13 23:23:39,516 - app.agents.layer2_agent - INFO - [Layer2] Paper similarity — PeopleCounter: 0.000 (p=0.00 m=0.00 d=0.00 c=0.00)
+2026-04-13 23:23:39,516 - app.agents.layer2_agent - INFO - [Layer2] Paper similarity — Multimodal-VideoRAG: 0.500 (p=0.50 m=0.50 d=0.50 c=0.50)
+2026-04-13 23:23:39,516 - app.agents.layer2_agent - INFO - [Layer2] Paper similarity — SEM: 0.300 (p=0.00 m=0.00 d=0.50 c=0.00)
+2026-04-13 23:23:39,516 - app.agents.layer2_agent - INFO - [Layer2] Global similarity: 0.619 (max_score=0.713, mean_score=0.403)
+2026-04-13 23:23:39,516 - app.agents.layer2_agent - INFO - [Layer2] Final score: similarity=0.619 → originality=51/100 → label=medium
+2026-04-13 23:23:39,517 - app.agents.layer2_agent - INFO - [Layer2] sentence[0] criteria_max={problem_similarity=0.50(L3), method_similarity=0.75(L4), domain_overlap=0.75(L4), contribution_similarity=0.50(L3)} criteria_labels={problem_similarity=medium, method_similarity=low, domain_overlap=low, contribution_similarity=medium} label=low — "I want to develop a multimodal retrieval-augmented generatio"
+2026-04-13 23:23:39,517 - app.agents.layer2_agent - INFO - [Layer2] sentence[1] criteria_max={problem_similarity=0.75(L4), method_similarity=1.00(L5), domain_overlap=1.00(L5), contribution_similarity=0.75(L4)} criteria_labels={problem_similarity=low, method_similarity=low, domain_overlap=low, contribution_similarity=low} label=low — "The system should use vision-language models to embed both m"
+2026-04-13 23:23:39,517 - app.agents.layer2_agent - INFO - [Layer2] sentence[2] criteria_max={problem_similarity=0.50(L3), method_similarity=0.50(L3), domain_overlap=0.50(L3), contribution_similarity=0.50(L3)} criteria_labels={problem_similarity=medium, method_similarity=medium, domain_overlap=medium, contribution_similarity=medium} label=medium — "It should support various document types including PDFs with"
+2026-04-13 23:23:39,517 - app.agents.layer2_agent - INFO - [Layer2] Sentence annotations: 2 RED, 1 YELLOW, 0 GREEN
+2026-04-13 23:23:39,549 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56691 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:23:40,461 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:23:40,464 - app.services.originality_service - INFO - Layer 2 aggregation complete: 51/100 originality score
+2026-04-13 23:23:40,464 - app.services.originality_service - INFO - Final summary: Your research demonstrates moderate originality, particularly in its methodology, but faces significant overlap in the application domain and problem formulation with existing work like LLaVE. To enha...
+2026-04-13 23:23:40,464 - app.services.originality_service - INFO - Total analysis cost: $0.0652
+2026-04-13 23:23:40,464 - app.services.analysis_service - INFO - Job 9279bd68905e [98%] Originality score: 51/100
+2026-04-13 23:23:40,464 - app.services.analysis_service - INFO - Job 9279bd68905e [99%] Generating comprehensive analysis report...
+2026-04-13 23:23:40,464 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:56698 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56703 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56709 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56714 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56721 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56726 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56731 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56736 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56741 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56747 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56752 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56757 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56762 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56768 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56773 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56778 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56783 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56788 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:24:17,757 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-04-13 23:24:17,760 - app.services.originality_service - INFO - Comprehensive report generated for job 9279bd68905e
+2026-04-13 23:24:17,760 - app.services.analysis_service - INFO - Job 9279bd68905e [100%] Comprehensive report generated
+2026-04-13 23:24:17,770 - app.services.analysis_service - INFO - Job 9279bd68905e [100%] Analysis complete!
+INFO:     127.0.0.1:56793 - "GET /api/analyze/9279bd68905e/status HTTP/1.1" 200 OK
+2026-04-13 23:24:21,115 - httpx - INFO - HTTP Request: POST https://jqdjzvnqvkwyaiqednyf.supabase.co/rest/v1/queries "HTTP/2 201 Created"
+2026-04-13 23:24:21,134 - app.db.supabase_repository - INFO - Persisted analysis to Supabase: job_id=9279bd68905e, id=2e1b8fbb-ff88-435f-97ba-797b528d7793

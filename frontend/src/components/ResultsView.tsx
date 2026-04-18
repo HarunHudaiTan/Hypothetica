@@ -15,7 +15,6 @@ interface RealityCheckInfo {
 interface Props {
   results: AnalysisResults;
   jobId: string;
-  userIdea: string;
   realityCheck: RealityCheckInfo | null;
   onNewAnalysis: () => void;
 }
@@ -23,20 +22,20 @@ interface Props {
 export default function ResultsView({
   results,
   jobId,
-  userIdea,
   realityCheck,
   onNewAnalysis,
 }: Props) {
   const [selectedSentence, setSelectedSentence] =
     useState<SentenceAnnotation | null>(null);
 
+  // Detect if we're analyzing GitHub repos based on the first paper's source
+  const isGitHubSource = results.papers?.[0]?.source === "github";
+  const githubEvidence = results.github_result;
+
   const reportText = [
     `# Originality Assessment Report\n`,
     `## Score: ${results.originality_score}/100\n`,
     `## Summary\n${results.comprehensive_report || results.summary}\n`,
-    ...(results.github_analysis?.synthesis
-      ? [`## GitHub Evidence\n${results.github_analysis.synthesis}\nVerdict: ${results.github_analysis.verdict?.replace(/_/g, " ")}\n`]
-      : []),
     `## Sentence Analysis`,
     ...results.sentence_annotations.map((ann) => {
       const emoji =
@@ -100,7 +99,7 @@ export default function ResultsView({
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 <Stat
-                  label="Papers Analyzed"
+                  label={isGitHubSource ? "Repos Analyzed" : "Papers Analyzed"}
                   value={results.stats.papers_processed}
                 />
                 <Stat
@@ -112,7 +111,7 @@ export default function ResultsView({
                   value={results.stats.query_variants}
                 />
                 <Stat
-                  label="Papers Fetched"
+                  label={isGitHubSource ? "Repos Fetched" : "Papers Fetched"}
                   value={results.stats.total_fetched}
                 />
               </div>
@@ -152,18 +151,16 @@ export default function ResultsView({
 
         {/* Right column: Analyzed Papers (spans 2 cols) */}
         <div className="lg:col-span-2">
+          {githubEvidence && (
+            <div className="mb-6">
+              <GitHubEvidence analysis={githubEvidence} />
+            </div>
+          )}
           {results.papers && results.papers.length > 0 && (
             <PaperTable papers={results.papers} originalityScore={results.originality_score} />
           )}
         </div>
       </div>
-
-      {/* GitHub Evidence */}
-      {results.github_analysis && results.github_analysis.synthesis && (
-        <div className="mt-6">
-          <GitHubEvidence analysis={results.github_analysis} />
-        </div>
-      )}
 
       {/* Actions */}
       <div className="flex items-center gap-4 mt-8">
