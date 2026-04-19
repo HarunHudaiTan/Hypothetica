@@ -6,6 +6,7 @@ import HighlightedIdea from "./HighlightedIdea";
 import MatchesModal from "./MatchesModal";
 import PaperTable from "./PaperTable";
 import GitHubEvidence from "./GitHubEvidence";
+import { evidenceStatsLabels } from "../lib/evidenceLabels";
 
 interface RealityCheckInfo {
   warning: string | null;
@@ -28,8 +29,8 @@ export default function ResultsView({
   const [selectedSentence, setSelectedSentence] =
     useState<SentenceAnnotation | null>(null);
 
-  // Detect if we're analyzing GitHub repos based on the first paper's source
-  const isGitHubSource = results.papers?.[0]?.source === "github";
+  const evidenceSource = results.papers?.[0]?.source;
+  const statLabels = evidenceStatsLabels(evidenceSource);
   const githubEvidence = results.github_result;
 
   const reportText = [
@@ -99,7 +100,7 @@ export default function ResultsView({
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 <Stat
-                  label={isGitHubSource ? "Repos Analyzed" : "Papers Analyzed"}
+                  label={statLabels.analyzed}
                   value={results.stats.papers_processed}
                 />
                 <Stat
@@ -111,7 +112,7 @@ export default function ResultsView({
                   value={results.stats.query_variants}
                 />
                 <Stat
-                  label={isGitHubSource ? "Repos Fetched" : "Papers Fetched"}
+                  label={statLabels.fetched}
                   value={results.stats.total_fetched}
                 />
               </div>
@@ -288,7 +289,7 @@ function RealityCheckBanner({
           <p className="text-[11px] text-amber-400 border-t border-amber-200 pt-2">
             This is an advisory check based on LLM pretraining data and does not
             affect the originality score above. The score is calculated solely
-            from grounded analysis of retrieved academic papers.
+            from grounded analysis of retrieved evidence.
           </p>
         </div>
       </div>

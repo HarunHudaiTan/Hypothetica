@@ -1,10 +1,13 @@
 import logging
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Callable
 
 from app.api.managers.job_manager import job_manager
+from app.adapters import get_adapter
 
 from app.processing.pdf_processor import PDFProcessor
 from app.processing.chunk_processor import ChunkProcessor
+from app.processing.google_patents_client import GooglePatentsClient
 from app.retrieval.chroma_store import ChromaStore
 
 logger = logging.getLogger(__name__)
@@ -28,11 +31,32 @@ class PaperProcessingService:
         total_chunks = 0
         num_papers = len(job.state.selected_papers)
         processed_count = 0
+        adapter_name = (job.settings or {}).get("selected_adapter", "arxiv")
+        adapter = get_adapter(adapter_name)
+        noun_plural = adapter.evidence_noun_plural if adapter else "papers"
+        noun_singular = adapter.evidence_noun_singular if adapter else "paper"
 
-        # Phase 1: Parallel PDF processing (download + conversion)
+        # Phase 1a: Fetch patent text via API (no PDF download needed)
+        patent_papers = [p for p in job.state.selected_papers if p.source == "google_patents" and not p.markdown_content]
+        if patent_papers:
+            update_progress(job_id, f"Fetching {len(patent_papers)} patent description(s) via API...", 0.555)
+            patent_client = GooglePatentsClient()
+
+            def _fetch_patent(paper):
+                text = patent_client.fetch_description(paper.source_id)
+                if text:
+                    paper.markdown_content = text
+                    logger.info(f"Fetched API description for {paper.paper_id} ({len(text)} chars)")
+                else:
+                    logger.warning(f"No API description for {paper.paper_id} ({paper.source_id}), will fall back to PDF")
+
+            with ThreadPoolExecutor(max_workers=min(len(patent_papers), 4)) as executor:
+                list(executor.map(_fetch_patent, patent_papers))
+
+        # Phase 1b: Parallel PDF processing (arXiv + patents that had no API description)
         # Skip PDF processing for GitHub repos (they already have markdown)
         papers_needing_pdf = [p for p in job.state.selected_papers if p.source != "github"]
-        
+
         if papers_needing_pdf:
             update_progress(job_id, "Processing PDFs in parallel...", 0.56)
             cls._pdf_processor.process_papers_parallel(
@@ -75,7 +99,11 @@ class PaperProcessingService:
         for i, paper in enumerate(job.state.selected_papers):
             progress = 0.56 + (0.19 * ((i + 1) / num_papers))
             title_short = paper.title[:40] + "..." if len(paper.title) > 40 else paper.title
-            update_progress(job_id, f"Indexing paper {i+1}/{num_papers}: {title_short}", progress)
+            update_progress(
+                job_id,
+                f"Indexing {noun_singular} {i+1}/{num_papers}: {title_short}",
+                progress,
+            )
 
             try:
                 # GitHub repos: skip chunking, use markdown directly
@@ -105,5 +133,9 @@ class PaperProcessingService:
                 paper.processing_error = str(e)
 
         logger.info(f"Processing complete: {processed_count}/{num_papers} papers processed, {total_chunks} total chunks indexed")
-        update_progress(job_id, f"Indexed {total_chunks} total chunks from {processed_count} papers", 0.75)
+        update_progress(
+            job_id,
+            f"Indexed {total_chunks} total chunks from {processed_count} {noun_plural}",
+            0.75,
+        )
 

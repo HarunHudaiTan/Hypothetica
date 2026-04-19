@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import type { EvidenceSelection } from "../types/api";
 
 interface Source {
   name: string;
   description: string;
-  available: boolean;
+  evidence_noun_plural?: string;
+  evidence_noun_singular?: string;
 }
 
 interface Props {
-  onSourcesChange: (sources: string[]) => void;
+  onSourcesChange: (selection: EvidenceSelection | null) => void;
   disabled: boolean;
 }
 
@@ -24,9 +26,24 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
     fetchAvailableSources();
   }, []);
 
+  const notifySelection = useCallback(() => {
+    const id = selectedSources[0] ?? null;
+    if (!id) {
+      onSourcesChange(null);
+      return;
+    }
+    const meta = sources[id];
+    onSourcesChange({
+      id,
+      displayName: meta?.name ?? id,
+      nounPlural: meta?.evidence_noun_plural ?? "papers",
+      nounSingular: meta?.evidence_noun_singular ?? "paper",
+    });
+  }, [selectedSources, sources, onSourcesChange]);
+
   useEffect(() => {
-    onSourcesChange(selectedSources);
-  }, [selectedSources, onSourcesChange]);
+    notifySelection();
+  }, [notifySelection]);
 
   const fetchAvailableSources = async () => {
     try {
@@ -166,7 +183,7 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
 
       <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
         <p className="text-xs text-blue-700">
-          💡 <strong>Tip:</strong> Choose arXiv for academic papers, Google Patents for intellectual property, or GitHub for open source code analysis.
+          💡 <strong>Tip:</strong> Match the source to your idea—academic literature, patents, or open-source repositories each surface different evidence.
         </p>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import type {
   AnalysisResults,
+  EvidenceSelection,
   FollowUpQuestion,
   JobStatus,
   PipelineSettings,
@@ -26,6 +27,7 @@ interface AnalysisState {
   error: string | null;
   userIdea: string;
   githubStatus: string;
+  evidenceSelection: EvidenceSelection | null;
 }
 
 const DEFAULT_SETTINGS: PipelineSettings = {
@@ -49,6 +51,7 @@ export function useAnalysis() {
     error: null,
     userIdea: "",
     githubStatus: "",
+    evidenceSelection: null,
   });
 
   const [settings, setSettings] = useState<PipelineSettings>(DEFAULT_SETTINGS);
@@ -163,7 +166,7 @@ export function useAnalysis() {
   );
 
   const startNewAnalysis = useCallback(
-    async (userIdea: string, selectedSources: string[]) => {
+    async (userIdea: string, selection: EvidenceSelection) => {
       cleanup();
       setState((s) => ({
         ...s,
@@ -176,12 +179,13 @@ export function useAnalysis() {
         results: null,
         error: null,
         userIdea: userIdea,
+        evidenceSelection: selection,
       }));
 
       try {
         const { job_id } = await startAnalysis({
           user_idea: userIdea,
-          selected_adapter: selectedSources[0], // Send single adapter
+          selected_adapter: selection.id,
           ...settings,
         });
         setState((s) => ({ ...s, jobId: job_id }));
@@ -234,6 +238,7 @@ export function useAnalysis() {
       error: null,
       userIdea: "",
       githubStatus: "",
+      evidenceSelection: null,
     });
   }, [cleanup]);
 

@@ -5,6 +5,7 @@ Runs independently from and in parallel with the arXiv pipeline.
 Pipeline: GitHubQueryAgent → GitHub API search → RepoRelevanceAgent (per repo) → GitHubSynthesisAgent
 """
 import logging
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from app.api.managers.job_manager import job_manager
 from app.processing.github_search import GitHubSearchClient
@@ -70,15 +71,14 @@ class GitHubService:
                 return
             repos = repos[: config.GITHUB_MAX_REPOS_FOR_RELEVANCE]
 
-            # Phase 3: Assess each repo with RepoRelevanceAgent
+            # Phase 3: Assess each repo with RepoRelevanceAgent (parallel)
             cls._push_github_progress(job_id, "Analyzing repositories...")
             cls._relevance_agent.total_input_tokens = 0
             cls._relevance_agent.total_output_tokens = 0
 
-            repo_analyses = []
-            for repo in repos:
+            def _assess(repo):
                 assessment = cls._relevance_agent.assess_repo(idea, repo)
-                repo_analyses.append({
+                return {
                     "repo_full_name": repo["full_name"],
                     "repo_url": repo["html_url"],
                     "stars": repo["stargazers_count"],
@@ -86,7 +86,17 @@ class GitHubService:
                     "last_pushed": repo.get("pushed_at", "")[:10],
                     "topics": repo.get("topics", []) or [],
                     **assessment,
-                })
+                }
+
+            repo_analyses = []
+            with ThreadPoolExecutor(max_workers=min(len(repos), 5)) as executor:
+                futures = {executor.submit(_assess, r): r for r in repos}
+                for future in as_completed(futures):
+                    try:
+                        repo_analyses.append(future.result())
+                    except Exception as e:
+                        repo = futures[future]
+                        logger.error(f"RepoRelevance failed for {repo.get('full_name')}: {e}")
 
             repo_analyses.sort(
                 key=lambda ra: (

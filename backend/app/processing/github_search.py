@@ -4,6 +4,7 @@ GitHub API client for searching repositories and fetching README content.
 import base64
 import logging
 import math
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from typing import List, Dict, Optional
 
@@ -52,8 +53,7 @@ class GitHubSearchClient:
         qualified_query = self._build_qualified_query(query)
         params = {
             "q": qualified_query,
-            "sort": "stars",  # Sort by popularity (stars)
-            "order": "desc",
+            # No explicit sort — GitHub uses best-match relevance ranking by default
             "per_page": min(per_page, 100),  # API max is 100
         }
         try:
@@ -209,23 +209,47 @@ class GitHubSearchClient:
         - Take top GITHUB_TOP_PER_QUERY per query for diversity, then merge
         - Final cap at GITHUB_MAX_REPOS_TO_ANALYZE
         """
-        per_query_results: Dict[str, List[Dict]] = {}
+        # Step 1: Run all queries in parallel
+        query_to_repos: Dict[str, List[Dict]] = {}
+        with ThreadPoolExecutor(max_workers=min(len(queries), 4)) as executor:
+            futures = {executor.submit(self.search_repos, q): q for q in queries}
+            for future in as_completed(futures):
+                q = futures[future]
+                try:
+                    query_to_repos[q] = future.result()
+                except Exception as e:
+                    logger.error(f"GitHub query failed '{q}': {e}")
+                    query_to_repos[q] = []
 
+        # Step 2: Collect unique repos (dedup by full_name, preserve first-seen order)
+        all_repos_by_name: Dict[str, Dict] = {}
+        for q in queries:
+            for repo in query_to_repos.get(q, []):
+                name = repo["full_name"]
+                if name not in all_repos_by_name:
+                    all_repos_by_name[name] = repo
+
+        # Step 3: Fetch all READMEs in parallel (single pass, no duplicate fetches)
+        all_repos = list(all_repos_by_name.values())
+
+        def _fetch_readme(repo):
+            owner = repo["owner"]["login"]
+            name = repo["name"]
+            readme = self.get_readme(owner, name)
+            repo["_readme_preview"] = readme[:config.GITHUB_README_PREVIEW_CHARS] if readme else ""
+
+        with ThreadPoolExecutor(max_workers=min(len(all_repos), 10)) as executor:
+            list(executor.map(_fetch_readme, all_repos))
+
+        # Step 4: Filter and score per query (README data now available)
+        per_query_results: Dict[str, List[Dict]] = {}
         for query in queries:
-            repos = self.search_repos(query)
             query_terms = self._query_terms(query)
             filtered = []
             filtered_by_stars = 0
             filtered_by_date = 0
 
-            for repo in repos:
-                owner = repo["owner"]["login"]
-                name = repo["name"]
-                readme = self.get_readme(owner, name)
-                repo["_readme_preview"] = (
-                    readme[: config.GITHUB_README_PREVIEW_CHARS] if readme else ""
-                )
-
+            for repo in query_to_repos.get(query, []):
                 if repo.get("stargazers_count", 0) < config.GITHUB_MIN_STARS:
                     filtered_by_stars += 1
                     continue
@@ -254,7 +278,7 @@ class GitHubSearchClient:
             )
             per_query_results[query] = filtered
             logger.info(
-                f"GitHub query '{query[:50]}': {len(repos)} raw -> {len(filtered)} after filter "
+                f"GitHub query '{query[:50]}': {len(query_to_repos.get(query, []))} raw -> {len(filtered)} after filter "
                 f"(stars: -{filtered_by_stars}, date: -{filtered_by_date})"
             )
 

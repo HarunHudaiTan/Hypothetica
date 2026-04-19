@@ -31,6 +31,18 @@ class GitHubAdapter(EvidenceAdapter):
     @property
     def description(self) -> str:
         return "GitHub repositories and open source code"
+
+    @property
+    def display_name(self) -> str:
+        return "GitHub"
+
+    @property
+    def evidence_noun_plural(self) -> str:
+        return "repositories"
+
+    @property
+    def evidence_noun_singular(self) -> str:
+        return "repository"
     
     @property
     def is_available(self) -> bool:

@@ -89,6 +89,15 @@ class PDFProcessor:
         Process a single paper with a fresh DocumentConverter.
         Thread-safe: each call uses its own converter to avoid shared state.
         """
+        # Content already fetched (e.g. patents via details API) — skip PDF download
+        if paper.markdown_content:
+            headings = self._extract_headings_with_content(paper.markdown_content, paper.paper_id)
+            paper.headings = headings
+            paper.is_processed = True
+            paper.processed_at = datetime.now()
+            logger.info(f"Skipped PDF download for {paper.paper_id} (content pre-fetched), extracted {len(headings)} headings")
+            return paper
+
         if not paper.pdf_url:
             paper.processing_error = "No PDF URL provided"
             return paper

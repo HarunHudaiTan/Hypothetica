@@ -1,5 +1,6 @@
 import json
 import logging
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import List, Callable, Dict, Any
 
 from app.api.managers.job_manager import job_manager
@@ -81,17 +82,24 @@ class PaperSearchService:
             source = service.sources[source_name]
             update_progress(job_id, f"Searching {source_name}...", 0.25)
             
-            # Use query variants for better coverage
+            # Use query variants for better coverage — run in parallel
             source_papers = []
-            for variant in query_variants:
-                variant_query = variant['query']
-                logger.info(f"Searching {source_name} with query: {variant_query}")
-                
-                papers = source.search_papers(variant_query, max_results=papers_per_query // len(query_variants))
-                logger.info(f"  [{source_name}] query='{variant_query[:80]}' → {len(papers)} raw results")
-                paper_models = source.convert_to_paper_models(papers, limit=50)  # Limit per variant
+            max_per_variant = papers_per_query // max(len(query_variants), 1)
 
-                source_papers.extend(paper_models)
+            def _search_variant(variant):
+                q = variant['query']
+                logger.info(f"Searching {source_name} with query: {q}")
+                raw = source.search_papers(q, max_results=max_per_variant)
+                logger.info(f"  [{source_name}] query='{q[:80]}' → {len(raw)} raw results")
+                return source.convert_to_paper_models(raw, limit=50)
+
+            with ThreadPoolExecutor(max_workers=min(len(query_variants), 4)) as executor:
+                futures = {executor.submit(_search_variant, v): v for v in query_variants}
+                for future in as_completed(futures):
+                    try:
+                        source_papers.extend(future.result())
+                    except Exception as e:
+                        logger.error(f"[{source_name}] Variant search failed: {e}")
             
             # Deduplicate papers within the same source
             seen_ids = set()
@@ -99,12 +107,8 @@ class PaperSearchService:
             for paper in source_papers:
                 if paper.source_id not in seen_ids:
                     seen_ids.add(paper.source_id)
-                    # Only include papers that have accessible PDF URLs
-                    # For arXiv, all papers have PDFs. For Google Patents, only some have PDFs.
-                    if paper.source == "arxiv" or (paper.source == "google_patents" and paper.pdf_url):
-                        unique_papers.append(paper)
-                    else:
-                        logger.info(f"Excluding paper {paper.paper_id} ({paper.source}) - no accessible PDF")
+                    # Patents without PDF URLs are still usable — text is fetched via details API
+                    unique_papers.append(paper)
             
             all_papers.extend(unique_papers)
             source_results[source_name] = unique_papers
@@ -198,22 +202,22 @@ class PaperSearchService:
         for i, pd in enumerate(selected_papers_data):
             source_id = pd.get('id', '')
             
-            # Determine source
+            # Determine source from source_id prefix or URL
             source = "unknown"
-            # Check if this is an arXiv paper
-            if source_id and (source_id.startswith('cs.') or len(source_id.split('.')[0]) == 4 and source_id.split('.')[0].isdigit()):
-                source = "arxiv"
-            # Check if this might be a patent
-            elif 'patent' in pd.get('url', '').lower() or any(keyword in pd.get('title', '').lower() for keyword in ['method', 'system', 'apparatus']):
+            if source_id and source_id.startswith('patent/'):
                 source = "google_patents"
-            
+            elif source_id and (source_id.startswith('cs.') or (len(source_id.split('.')[0]) == 4 and source_id.split('.')[0].isdigit())):
+                source = "arxiv"
+            elif 'patent' in pd.get('url', '').lower():
+                source = "google_patents"
+
             url = pd.get('url', '')
             if not url and source == "arxiv" and source_id:
                 url = f"https://arxiv.org/abs/{source_id}"
             pdf_url = url.replace('/abs/', '/pdf/') if url and source == "arxiv" else pd.get('pdf_url')
 
-            # CRITICAL FIX: Only include papers that have PDF URLs
-            if not pdf_url:
+            # arXiv papers must have a PDF URL; patents get text via API so pdf_url is optional
+            if not pdf_url and source != "google_patents":
                 logger.warning(f"FILTERING OUT paper {i+1} ({source}) - no PDF URL available")
                 continue
             
@@ -233,47 +237,46 @@ class PaperSearchService:
 
         # Ensure we have enough papers after filtering, if not, get more from candidates
         if len(papers) < final_papers_count:
-            logger.warning(f"Only {len(papers)} papers have PDF URLs after filtering. Need {final_papers_count} papers.")
-            # Try to get more papers from the original search results that have PDF URLs
-            additional_papers_needed = final_papers_count - len(papers)
-            logger.info(f"Looking for {additional_papers_needed} additional papers with PDF URLs from search results...")
-            
-            # Get more papers from the original search results that have PDF URLs
+            logger.warning(f"Only {len(papers)} papers selected. Need {final_papers_count}.")
             for result in search_results_list[len(selected_papers_data):]:
                 if len(papers) >= final_papers_count:
                     break
-                    
+
                 source_id = result.get('id', '')
                 pdf_url = result.get('pdf_url')
-                
-                if pdf_url:  # Only take papers with PDF URLs
-                    logger.info(f"Adding additional paper with PDF URL: {result.get('title', 'Unknown')[:40]}...")
-                    
-                    # Determine source for additional paper
-                    source = "unknown"
-                    if source_id and (source_id.startswith('cs.') or len(source_id.split('.')[0]) == 4 and source_id.split('.')[0].isdigit()):
-                        source = "arxiv"
-                    elif 'patent' in result.get('url', '').lower():
-                        source = "google_patents"
-                    
-                    url = result.get('url', '')
-                    if not url and source == "arxiv" and source_id:
-                        url = f"https://arxiv.org/abs/{source_id}"
-                    pdf_url_final = url.replace('/abs/', '/pdf/') if url and source == "arxiv" else pdf_url
-                    
-                    additional_paper = Paper(
-                        paper_id=f"paper_{len(papers)+1:02d}",
-                        source=source,
-                        source_id=source_id,
-                        title=result.get('title', ''),
-                        abstract=result.get('abstract', ''),
-                        url=url,
-                        pdf_url=pdf_url_final,
-                        authors=result.get('authors', []),
-                        categories=result.get('categories', []),
-                        published_date=str(result.get('year', '')) if result.get('year') else None
-                    )
-                    papers.append(additional_paper)
+
+                # Determine source from source_id prefix or URL
+                source = "unknown"
+                if source_id and source_id.startswith('patent/'):
+                    source = "google_patents"
+                elif source_id and (source_id.startswith('cs.') or (len(source_id.split('.')[0]) == 4 and source_id.split('.')[0].isdigit())):
+                    source = "arxiv"
+                elif 'patent' in result.get('url', '').lower():
+                    source = "google_patents"
+
+                # arXiv must have pdf_url; patents are fine without one
+                if not pdf_url and source != "google_patents":
+                    continue
+
+                url = result.get('url', '')
+                if not url and source == "arxiv" and source_id:
+                    url = f"https://arxiv.org/abs/{source_id}"
+                pdf_url_final = url.replace('/abs/', '/pdf/') if url and source == "arxiv" else pdf_url
+
+                logger.info(f"Adding additional paper: {result.get('title', 'Unknown')[:40]}...")
+                additional_paper = Paper(
+                    paper_id=f"paper_{len(papers)+1:02d}",
+                    source=source,
+                    source_id=source_id,
+                    title=result.get('title', ''),
+                    abstract=result.get('abstract', ''),
+                    url=url,
+                    pdf_url=pdf_url_final,
+                    authors=result.get('authors', []),
+                    categories=result.get('categories', []),
+                    published_date=str(result.get('year', '')) if result.get('year') else None
+                )
+                papers.append(additional_paper)
 
         job.state.selected_papers = papers
         logger.info(f"Final selection - {len(papers)} papers, with PDFs: {sum(1 for p in papers if p.pdf_url)}")

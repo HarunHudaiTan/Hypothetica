@@ -169,20 +169,21 @@ async def get_available_adapters():
 @app.get("/api/sources")
 async def get_available_sources():
     """(Deprecated) Get available paper sources. Use /api/adapters instead."""
-    # Use the new adapter system for consistency
     from app.adapters import get_all_adapters
     adapters = get_all_adapters()
-    
+
     sources = {name: adapter.is_available for name, adapter in adapters.items()}
-    
-    return {
-        "sources": sources,
-        "all_sources": {
-            "arxiv": {"name": "arXiv", "description": "Academic papers and preprints"},
-            "google_patents": {"name": "Google Patents", "description": "Patents and intellectual property"},
-            "github": {"name": "GitHub", "description": "GitHub repositories and open source code"}
+    all_sources = {
+        name: {
+            "name": adapter.display_name,
+            "description": adapter.description,
+            "evidence_noun_plural": adapter.evidence_noun_plural,
+            "evidence_noun_singular": adapter.evidence_noun_singular,
         }
+        for name, adapter in adapters.items()
     }
+
+    return {"sources": sources, "all_sources": all_sources}
 
 
 @app.get("/api/health")

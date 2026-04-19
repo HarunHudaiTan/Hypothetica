@@ -62,7 +62,7 @@ export default function SettingsPanel({ settings, onChange, disabled }: Props) {
         min={50}
         max={300}
         step={50}
-        help="Papers fetched from arXiv per query variant"
+        help="Raw results to retrieve per query variant from the selected evidence source"
         onChange={(v) => update("papers_per_query", v)}
         disabled={disabled}
       />

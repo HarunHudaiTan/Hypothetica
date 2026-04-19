@@ -6,6 +6,7 @@ what_it_misses, and verdict.
 """
 import json
 import logging
+import threading
 from typing import Dict
 
 from app.agents.Agent import Agent
@@ -64,6 +65,7 @@ Return ONLY valid JSON:
         )
         self.total_input_tokens = 0
         self.total_output_tokens = 0
+        self._token_lock = threading.Lock()
 
     def assess_repo(self, user_idea: str, repo: Dict) -> Dict:
         """
@@ -89,8 +91,9 @@ Assess this repository's overlap with the research idea."""
         try:
             response = self.generate_text_generation_response(prompt)
             um = getattr(response, "usage_metadata", None)
-            self.total_input_tokens += getattr(um, "prompt_token_count", 0) or 0
-            self.total_output_tokens += getattr(um, "candidates_token_count", 0) or 0
+            with self._token_lock:
+                self.total_input_tokens += getattr(um, "prompt_token_count", 0) or 0
+                self.total_output_tokens += getattr(um, "candidates_token_count", 0) or 0
             result = json.loads(response.text)
 
             result["overlap_score"] = max(0.0, min(1.0, float(result.get("overlap_score", 0))))

@@ -34,6 +34,10 @@ class ArxivAdapter(EvidenceAdapter):
     @property
     def description(self) -> str:
         return "arXiv academic papers and preprints"
+
+    @property
+    def display_name(self) -> str:
+        return "arXiv"
     
     @property
     def is_available(self) -> bool:
