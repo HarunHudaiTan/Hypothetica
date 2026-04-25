@@ -3,6 +3,7 @@ from typing import List, Dict, Any, Callable
 
 from app.api.managers.job_manager import job_manager
 from app.models.analysis import Layer1Result
+from app.adapters import get_adapter
 
 from app.agents.layer1_agent import Layer1Agent
 from app.agents.layer2_agent import Layer2Aggregator
@@ -24,8 +25,14 @@ class OriginalityService:
             return
 
         processed_papers = [p for p in job.state.selected_papers if p.is_processed]
+        adapter_name = (job.settings or {}).get("selected_adapter", "arxiv")
+        adapter = get_adapter(adapter_name)
+        noun_plural = adapter.evidence_noun_plural if adapter else "papers"
+        noun_singular = adapter.evidence_noun_singular if adapter else "paper"
+        noun_label = noun_singular.capitalize()
+
         logger.info(f"Starting Layer 1 analysis on {len(processed_papers)} processed papers")
-        update_progress(job_id, f"Analyzing {len(processed_papers)} papers...", 0.78)
+        update_progress(job_id, f"Analyzing {len(processed_papers)} {noun_plural}...", 0.78)
 
         _, retriever = get_retriever(job_id)
         results = []
@@ -41,7 +48,7 @@ class OriginalityService:
             title_short = paper.title[:50] + "..." if len(paper.title) > 50 else paper.title
             update_progress(
                 job_id,
-                f"Layer 1 analysis: Paper {i+1}/{len(processed_papers)} — {title_short}",
+                f"Layer 1 analysis: {noun_label} {i+1}/{len(processed_papers)} — {title_short}",
                 progress,
             )
 

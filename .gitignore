@@ -1,7 +1,13 @@
 # IDE and OS
 /.idea
+/CLAUDE.md
+/.claude
 .DS_Store
 *.code-workspace
+
+# Graphify (knowledge graph / tooling output)
+graphify-out/
+graphify/
 
 # Environment files (never commit secrets)
 .env

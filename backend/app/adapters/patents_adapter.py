@@ -21,7 +21,7 @@ class PatentsAdapter(EvidenceAdapter):
     
     BASE_URL = "https://serpapi.com/search"
     
-    def __init__(self, api_key: str = None, delay_between_requests: float = 1.0):
+    def __init__(self, api_key: str = None, delay_between_requests: float = 0.1):
         """
         Initialize Google Patents adapter.
         
@@ -40,6 +40,18 @@ class PatentsAdapter(EvidenceAdapter):
     @property
     def description(self) -> str:
         return "Google Patents database"
+
+    @property
+    def display_name(self) -> str:
+        return "Google Patents"
+
+    @property
+    def evidence_noun_plural(self) -> str:
+        return "patents"
+
+    @property
+    def evidence_noun_singular(self) -> str:
+        return "patent"
     
     @property
     def is_available(self) -> bool:

@@ -29,6 +29,9 @@ def get_available_adapters() -> List[Dict[str, any]]:
         {
             "name": adapter.name,
             "description": adapter.description,
+            "display_name": adapter.display_name,
+            "evidence_noun_plural": adapter.evidence_noun_plural,
+            "evidence_noun_singular": adapter.evidence_noun_singular,
             "available": adapter.is_available
         }
         for adapter in _ADAPTERS.values()

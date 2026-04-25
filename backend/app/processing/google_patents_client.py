@@ -20,10 +20,10 @@ class GooglePatentsClient(BasePaperSource):
     BASE_URL = "https://serpapi.com/search"
     DETAILS_URL = "https://serpapi.com/search"
     
-    def __init__(self, api_key: str = None, delay_between_requests: float = 1.0):
+    def __init__(self, api_key: str = None, delay_between_requests: float = 0.1):
         """
         Initialize Google Patents client.
-        
+
         Args:
             api_key: SerpApi API key (defaults to config.SERPAPI_API_KEY)
             delay_between_requests: Seconds to wait between API calls
@@ -217,6 +217,27 @@ class GooglePatentsClient(BasePaperSource):
         logger.info(f"Converted {len(papers)} patents to Paper models")
         return papers
     
+    def fetch_description(self, patent_id: str) -> str:
+        """
+        Fetch patent abstract + description text via the details API.
+        Returns structured markdown suitable for chunking, or empty string on failure.
+        Avoids downloading the full patent PDF.
+        """
+        details = self.get_paper_details(patent_id)
+        if not details:
+            return ""
+
+        parts = []
+        abstract = details.get('abstract') or ''
+        description = details.get('description') or ''
+
+        if abstract:
+            parts.append(f"## Abstract\n\n{abstract}")
+        if description:
+            parts.append(f"## Description\n\n{description}")
+
+        return '\n\n'.join(parts)
+
     def _parse_search_results(self, data: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
         Parse Google Patents search results.

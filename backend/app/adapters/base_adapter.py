@@ -28,6 +28,22 @@ class EvidenceAdapter(ABC):
     def description(self) -> str:
         """Human-readable description of this evidence source."""
         pass
+
+    @property
+    @abstractmethod
+    def display_name(self) -> str:
+        """Short UI label (e.g. 'arXiv', 'Google Patents')."""
+        pass
+
+    @property
+    def evidence_noun_plural(self) -> str:
+        """Plural noun for progress messages (e.g. 'papers', 'patents')."""
+        return "papers"
+
+    @property
+    def evidence_noun_singular(self) -> str:
+        """Singular noun for progress messages (e.g. 'paper', 'patent')."""
+        return "paper"
     
     @property
     @abstractmethod

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { PaperDetail } from "../types/api";
+import { evidenceTableHeading, sourceLinkLabel } from "../lib/evidenceLabels";
 
 interface Props {
   papers: PaperDetail[];
@@ -78,8 +79,8 @@ export default function PaperTable({ papers, originalityScore }: Props) {
   const validPapers = papers.filter((p) => p.paper_similarity_score !== undefined);
   const sorted = [...validPapers].sort((a, b) => getScore(b, sortKey) - getScore(a, sortKey));
 
-  // Detect if analyzing GitHub repos
-  const isGitHubSource = papers[0]?.source === "github";
+  const primarySource = papers[0]?.source;
+  const { title: tableTitle, itemWord } = evidenceTableHeading(primarySource);
 
   return (
     <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm">
@@ -89,10 +90,11 @@ export default function PaperTable({ papers, originalityScore }: Props) {
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
             <h3 className="text-base font-semibold text-slate-900 tracking-tight">
-              {isGitHubSource ? "Analyzed Repositories" : "Analyzed Papers"}
+              {tableTitle}
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
-              {sorted.length} {isGitHubSource ? "repo" : "paper"}{sorted.length !== 1 ? "s" : ""} · click any row to expand
+              {sorted.length} {itemWord}
+              {sorted.length !== 1 ? "s" : ""} · click any row to expand
             </p>
           </div>
           {originalityScore !== undefined && (
@@ -199,17 +201,19 @@ export default function PaperTable({ papers, originalityScore }: Props) {
                             onClick={(e) => e.stopPropagation()}
                             className="text-xs text-slate-400 hover:text-slate-700 font-medium underline underline-offset-2 decoration-slate-200 hover:decoration-slate-500 transition-colors"
                           >
-                            arXiv ↗
+                            {sourceLinkLabel(paper.source)} ↗
                           </a>
-                          <a
-                            href={paper.pdf_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="text-xs text-slate-400 hover:text-slate-700 font-medium underline underline-offset-2 decoration-slate-200 hover:decoration-slate-500 transition-colors"
-                          >
-                            PDF ↗
-                          </a>
+                          {paper.pdf_url ? (
+                            <a
+                              href={paper.pdf_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-xs text-slate-400 hover:text-slate-700 font-medium underline underline-offset-2 decoration-slate-200 hover:decoration-slate-500 transition-colors"
+                            >
+                              PDF ↗
+                            </a>
+                          ) : null}
                         </>
                       )}
                     </div>

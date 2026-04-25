@@ -1,20 +1,22 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import SourceSelection from "./SourceSelection";
+import type { EvidenceSelection } from "../types/api";
 
 interface Props {
-  onSubmit: (idea: string, sources: string[]) => void;
+  onSubmit: (idea: string, selection: EvidenceSelection) => void;
   disabled: boolean;
 }
 
 export default function IdeaInput({ onSubmit, disabled }: Props) {
   const [idea, setIdea] = useState("");
-  const [selectedSources, setSelectedSources] = useState<string[]>([]);
+  const [evidenceSelection, setEvidenceSelection] =
+    useState<EvidenceSelection | null>(null);
   const charCount = idea.length;
-  const isValid = charCount >= 50 && selectedSources.length > 0;
+  const isValid = charCount >= 50 && evidenceSelection !== null;
 
-  const handleSourcesChange = (sources: string[]) => {
-    setSelectedSources(sources);
-  };
+  const handleSourcesChange = useCallback((sel: EvidenceSelection | null) => {
+    setEvidenceSelection(sel);
+  }, []);
 
   return (
     <div className="space-y-6">
@@ -43,7 +45,9 @@ export default function IdeaInput({ onSubmit, disabled }: Props) {
             {charCount}/50 characters minimum
           </span>
           <button
-            onClick={() => onSubmit(idea, selectedSources)}
+            onClick={() =>
+              evidenceSelection && onSubmit(idea, evidenceSelection)
+            }
             disabled={disabled || !isValid}
             className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:pointer-events-none"
           >

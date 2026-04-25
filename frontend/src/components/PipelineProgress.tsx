@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 interface RealityCheckInfo {
   warning: string | null;
   result: Record<string, unknown>;
@@ -9,19 +11,25 @@ interface Props {
   error: string | null;
   realityCheck: RealityCheckInfo | null;
   onRetry?: () => void;
+  /** Short adapter label, e.g. "arXiv", "Google Patents" */
+  evidenceDisplayName?: string;
+  /** e.g. "paper", "patent", "repository" — used in step labels */
+  evidenceNounSingular?: string;
 }
 
-const STEPS = [
-  { label: "Follow-up Questions", threshold: 0.1 },
-  { label: "Reality Check (advisory)", threshold: 0.05 },
-  { label: "Query Variants & arXiv Search", threshold: 0.25 },
-  { label: "Embedding Search & Reranking", threshold: 0.4 },
-  { label: "LLM Paper Selection", threshold: 0.5 },
-  { label: "PDF Processing & Indexing", threshold: 0.75 },
-  { label: "Layer 1 Analysis", threshold: 0.9 },
-  { label: "Layer 2 Aggregation", threshold: 0.98 },
-];
-
+function buildSteps(displayName: string, nounSingular: string) {
+  const capNoun = nounSingular.charAt(0).toUpperCase() + nounSingular.slice(1);
+  return [
+    { label: "Follow-up Questions", threshold: 0.1 },
+    { label: "Reality Check (advisory)", threshold: 0.05 },
+    { label: `Query Variants & ${displayName} Search`, threshold: 0.25 },
+    { label: "Embedding Search & Reranking", threshold: 0.4 },
+    { label: `LLM ${capNoun} Selection`, threshold: 0.5 },
+    { label: "PDF Processing & Indexing", threshold: 0.75 },
+    { label: "Layer 1 Analysis", threshold: 0.9 },
+    { label: "Layer 2 Aggregation", threshold: 0.98 },
+  ];
+}
 
 export default function PipelineProgress({
   progress,
@@ -29,7 +37,13 @@ export default function PipelineProgress({
   error,
   realityCheck,
   onRetry,
+  evidenceDisplayName = "arXiv",
+  evidenceNounSingular = "paper",
 }: Props) {
+  const steps = useMemo(
+    () => buildSteps(evidenceDisplayName, evidenceNounSingular),
+    [evidenceDisplayName, evidenceNounSingular]
+  );
   const pct = Math.round(progress * 100);
   const rcResult = realityCheck?.result as Record<string, unknown> | undefined;
   const rcExists = rcResult?.already_exists === true;
@@ -79,7 +93,7 @@ export default function PipelineProgress({
 
             {/* Step indicators */}
             <div className="space-y-2">
-              {STEPS.map((step) => {
+              {steps.map((step) => {
                 const done = progress >= step.threshold;
                 const active = !done && progress >= step.threshold - 0.1;
 
@@ -140,7 +154,7 @@ export default function PipelineProgress({
               </h3>
               <p className="text-sm text-amber-700 leading-relaxed">
                 {rcAssessment ||
-                  "Our initial check suggests similar concepts already exist. This does not affect the final score — the score is based solely on grounded paper analysis."}
+                  "Our initial check suggests similar concepts already exist. This does not affect the final score — the score is based solely on grounded analysis of retrieved evidence."}
               </p>
 
               {rcExamples.length > 0 && (
@@ -175,7 +189,7 @@ export default function PipelineProgress({
               <p className="mt-3 text-[11px] text-amber-500 border-t border-amber-200 pt-2">
                 This is an advisory check based on LLM pretraining data. It does
                 not affect your originality score, which is calculated solely
-                from grounded paper analysis.
+                from grounded analysis of retrieved evidence.
               </p>
             </div>
           </div>

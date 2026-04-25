@@ -1,3 +1,11 @@
+/** Selected evidence adapter + human-readable labels (from /api/sources). */
+export interface EvidenceSelection {
+  id: string;
+  displayName: string;
+  nounPlural: string;
+  nounSingular: string;
+}
+
 export interface AnalyzeRequest {
   user_idea: string;
   papers_per_query: number;

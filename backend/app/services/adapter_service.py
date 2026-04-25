@@ -102,11 +102,19 @@ class AdapterService:
         
         if not unique_papers:
             logger.warning(f"No papers found from {adapter_name}")
-            update_progress(job_id, f"No papers found from {adapter.description}", 0.25)
+            update_progress(
+                job_id,
+                f"No {adapter.evidence_noun_plural} found from {adapter.description}",
+                0.25,
+            )
             job.state.selected_papers = []
             return
         
-        update_progress(job_id, f"Running semantic search on {len(unique_papers)} papers...", 0.30)
+        update_progress(
+            job_id,
+            f"Running semantic search on {len(unique_papers)} {adapter.evidence_noun_plural}...",
+            0.30,
+        )
         
         # Convert papers to JSONL format for semantic search
         import json
@@ -135,11 +143,19 @@ class AdapterService:
         
         if not search_results_list:
             logger.warning("No papers passed semantic search filter")
-            update_progress(job_id, "No relevant papers found after filtering", 0.35)
+            update_progress(
+                job_id,
+                f"No relevant {adapter.evidence_noun_plural} found after filtering",
+                0.35,
+            )
             job.state.selected_papers = []
             return
         
-        update_progress(job_id, f"Selecting final {final_papers_count} papers with LLM...", 0.50)
+        update_progress(
+            job_id,
+            f"Selecting final {final_papers_count} {adapter.evidence_noun_plural} with LLM...",
+            0.50,
+        )
         
         logger.info(f"After reranking: {len(search_results_list)} papers")
         
@@ -170,7 +186,11 @@ class AdapterService:
         }
         
         logger.info(f"Final selection: {len(selected_papers)} papers from {adapter_name}")
-        update_progress(job_id, f"Selected {len(selected_papers)} papers for analysis", 0.60)
+        update_progress(
+            job_id,
+            f"Selected {len(selected_papers)} {adapter.evidence_noun_plural} for analysis",
+            0.60,
+        )
     
     def _convert_papers_to_jsonl(self, papers: List[Paper]) -> List[dict]:
         """Convert Paper models to JSONL format for semantic search."""

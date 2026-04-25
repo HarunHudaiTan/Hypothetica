@@ -95,6 +95,12 @@ export default function App() {
             error={analysis.error}
             realityCheck={analysis.realityCheck}
             onRetry={analysis.reset}
+            evidenceDisplayName={
+              analysis.evidenceSelection?.displayName ?? "arXiv"
+            }
+            evidenceNounSingular={
+              analysis.evidenceSelection?.nounSingular ?? "paper"
+            }
           />
         )}
 
