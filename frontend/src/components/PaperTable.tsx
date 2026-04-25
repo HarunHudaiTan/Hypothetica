@@ -55,7 +55,7 @@ function getScore(paper: PaperDetail, key: SortKey): number {
   if (!c) return 0;
   if (key === "problem") return c.problem_similarity;
   if (key === "method") return c.method_similarity;
-  if (key === "domain") return c.domain_overlap;
+  if (key === "domain") return c.domain_similarity;
   return c.contribution_similarity;
 }
 
@@ -263,7 +263,7 @@ function PaperDetailPanel({ paper }: { paper: PaperDetail }) {
     ? [
         { label: "Problem Similarity", reasonKey: "problem", score: c.problem_similarity, desc: "How closely the research problem matches your idea." },
         { label: "Method Similarity", reasonKey: "method", score: c.method_similarity, desc: "Overlap in approach, algorithms, or techniques." },
-        { label: "Domain Overlap", reasonKey: "domain", score: c.domain_overlap, desc: "Overlap in the application area or field of study." },
+        { label: "Domain Overlap", reasonKey: "domain", score: c.domain_similarity, desc: "Overlap in the application area or field of study." },
         { label: "Contribution Similarity", reasonKey: "contribution", score: c.contribution_similarity, desc: "How similar the claimed contributions are." },
       ]
     : [];

@@ -81,7 +81,7 @@ def load_cases(source: str) -> List[Case]:
             papers.append({
                 "p": float(cs.get("problem_similarity", 0.0)),
                 "m": float(cs.get("method_similarity", 0.0)),
-                "d": float(cs.get("domain_overlap", 0.0)),
+                "d": float(cs.get("domain_similarity") or cs.get("domain_overlap", 0.0)),
                 "c": float(cs.get("contribution_similarity", 0.0)),
             })
 

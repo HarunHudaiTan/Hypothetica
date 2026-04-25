@@ -12,6 +12,7 @@ from app.agents.Agent import Agent
 from core import config
 from . import agent_config
 from app.models.paper import Paper
+from app.retrieval.retriever import Retriever
 from app.models.analysis import (
     Layer1Result,
     CriteriaScores,
@@ -64,7 +65,7 @@ CRITERION_RUBRICS: Dict[str, Dict[str, str]] = {
             "5 = Identical methodology with the same implementation approach. Only trivial differences if any."
         ),
     },
-    "domain_overlap": {
+    "domain_similarity": {
         "description": "How much do the application domains overlap?",
         "rubric": (
             "1 = Different fields entirely (e.g., NLP vs. robotics).\n"
@@ -89,9 +90,10 @@ CRITERION_RUBRICS: Dict[str, Dict[str, str]] = {
 CRITERION_ORDER = [
     "problem_similarity",
     "method_similarity",
-    "domain_overlap",
+    "domain_similarity",
     "contribution_similarity",
 ]
+
 
 
 class Layer1Agent:
@@ -131,19 +133,24 @@ class Layer1Agent:
         user_idea: str,
         user_sentences: List[str],
         paper: Paper,
-        paper_context: str = "",
+        retriever: Retriever = None,
     ) -> Layer1Result:
         """
         Full analysis of one paper: 4 criterion calls + 1 sentence call.
         """
-        paper_text = self._format_paper(paper, paper_context)
+        fixed_text = self._format_fixed_sections(paper)
         self.total_tokens = 0
         self.total_input_tokens = 0
         self.total_output_tokens = 0
 
         logger.info(f"[Layer1] Starting analysis for paper: {paper.paper_id} — \"{paper.title[:60]}\"")
 
-        # Phase 1 — score each criterion independently
+        # Single RAG query — same chunks reused for all criterion calls + sentence analysis
+        shared_chunks_text = self._retrieve_shared_chunks(paper, user_idea, retriever)
+        paper_text = fixed_text + shared_chunks_text
+        logger.info(f"[Layer1] Built paper context for {paper.paper_id}")
+
+        # Phase 1 — score each criterion independently (all use same paper_text)
         logger.info(f"[Layer1] Phase 1: Scoring 4 criteria for {paper.paper_id}")
         criteria_results: Dict[str, Dict] = {}
         for criterion_name in CRITERION_ORDER:
@@ -162,16 +169,16 @@ class Layer1Agent:
         criteria = CriteriaScores(
             problem_similarity=self._likert_to_float(criteria_results["problem_similarity"]["score"]),
             method_similarity=self._likert_to_float(criteria_results["method_similarity"]["score"]),
-            domain_overlap=self._likert_to_float(criteria_results["domain_overlap"]["score"]),
+            domain_similarity=self._likert_to_float(criteria_results["domain_similarity"]["score"]),
             contribution_similarity=self._likert_to_float(criteria_results["contribution_similarity"]["score"]),
         )
 
-        # Overall overlap (weighted average of criteria)
+        # Paper similarity score (weighted average of criteria)
         w = config.CRITERIA_WEIGHTS
-        overall_overlap = (
+        paper_similarity_score = (
             w["problem"] * criteria.problem_similarity
             + w["method"] * criteria.method_similarity
-            + w["domain"] * criteria.domain_overlap
+            + w["domain"] * criteria.domain_similarity
             + w["contribution"] * criteria.contribution_similarity
         )
 
@@ -179,9 +186,9 @@ class Layer1Agent:
             f"[Layer1] Phase 1 complete for {paper.paper_id}: "
             f"p={criteria_results['problem_similarity']['score']}/5, "
             f"m={criteria_results['method_similarity']['score']}/5, "
-            f"d={criteria_results['domain_overlap']['score']}/5, "
+            f"d={criteria_results['domain_similarity']['score']}/5, "
             f"c={criteria_results['contribution_similarity']['score']}/5 "
-            f"→ overall_overlap={overall_overlap:.2f}"
+            f"→ paper_similarity_score={paper_similarity_score:.2f}"
         )
 
         # Derive confidence / similarity_level from raw Likert scores
@@ -198,10 +205,12 @@ class Layer1Agent:
             similarity_level = "low"
             confidence = "medium"
 
-        # Phase 2 — sentence-level analysis (independent, no anchoring)
+        # Phase 2 — sentence-level analysis: same paper_text as criterion calls
+        sentence_paper_text = paper_text
+
         logger.info(f"[Layer1] Phase 2: Sentence analysis for {paper.paper_id} ({len(user_sentences)} sentences)")
         sentence_analyses, sent_tokens, sent_inp, sent_out = self._analyze_sentences(
-            user_idea, user_sentences, paper_text, paper
+            user_idea, user_sentences, sentence_paper_text, paper
         )
         self.total_tokens += sent_tokens
         self.total_input_tokens += sent_inp
@@ -215,7 +224,7 @@ class Layer1Agent:
             criteria_str = (
                 f"p={self._float_to_likert(sc.problem_similarity)} "
                 f"m={self._float_to_likert(sc.method_similarity)} "
-                f"d={self._float_to_likert(sc.domain_overlap)} "
+                f"d={self._float_to_likert(sc.domain_similarity)} "
                 f"c={self._float_to_likert(sc.contribution_similarity)}"
             ) if sc else "criteria=None"
             logger.info(
@@ -229,7 +238,7 @@ class Layer1Agent:
         criterion_labels = {
             "problem_similarity": "Problem",
             "method_similarity": "Method",
-            "domain_overlap": "Domain",
+            "domain_similarity": "Domain",
             "contribution_similarity": "Contribution",
         }
         for key, label in criterion_labels.items():
@@ -242,7 +251,7 @@ class Layer1Agent:
             paper_id=paper.paper_id,
             paper_title=paper.title,
             arxiv_id=paper.source_id,  # Use source_id instead of arxiv_id
-            paper_similarity_score=overall_overlap,
+            paper_similarity_score=paper_similarity_score,
             reason=reason,
             criteria_scores=criteria,
             sentence_analyses=sentence_analyses,
@@ -279,21 +288,62 @@ class Layer1Agent:
     # ------------------------------------------------------------------
 
     @staticmethod
-    def _format_paper(paper: Paper, paper_context: str) -> str:
-        sections_text = ""
-        for heading in paper.headings:
-            if heading.section_text and heading.is_valid:
-                sections_text += f"\n### {heading.text}\n{heading.section_text[:3000]}\n"
-
-        return (
+    def _format_fixed_sections(paper: Paper) -> str:
+        """Build header + abstract + introduction + conclusion (always included)."""
+        header = (
             f"Title: {paper.title}\n"
             f"Source: {paper.source}\n"
             f"Source ID: {paper.source_id}\n"
             f"Categories: {', '.join(paper.categories)}\n\n"
-            f"### ABSTRACT\n{paper.abstract}\n\n"
-            f"### EXTRACTED SECTIONS\n"
-            f"{sections_text if sections_text else paper_context if paper_context else 'No sections extracted'}"
+            f"### ABSTRACT\n{paper.abstract}\n"
         )
+
+        intro_text = ""
+        conclusion_text = ""
+        for heading in paper.headings:
+            if not heading.section_text or not heading.is_valid:
+                continue
+            lower = heading.text.lower()
+            if not intro_text and "introduction" in lower:
+                intro_text = f"\n### {heading.text}\n{heading.section_text}\n"
+            if not conclusion_text and ("conclusion" in lower or "discussion" in lower):
+                conclusion_text = f"\n### {heading.text}\n{heading.section_text}\n"
+
+        return header + intro_text + conclusion_text
+
+    @staticmethod
+    def _retrieve_shared_chunks(
+        paper: Paper,
+        user_idea: str,
+        retriever: Retriever,
+        top_k: int = 5,
+    ) -> str:
+        """
+        Single ChromaDB query using user_idea. Returns top-k non-fixed chunks
+        shared across all criterion calls and sentence analysis.
+        """
+        if retriever is None:
+            return ""
+
+        fixed_keywords = {"introduction", "abstract", "conclusion", "discussion"}
+        raw = retriever.get_chunks_for_criterion(
+            paper_id=paper.paper_id,
+            query=user_idea,
+            top_k=top_k + len(fixed_keywords),
+        )
+
+        lines = "\n### RELEVANT SECTIONS\n"
+        added = 0
+        for c in raw:
+            heading = c.get("metadata", {}).get("heading", "Section")
+            if any(kw in heading.lower() for kw in fixed_keywords):
+                continue
+            lines += f"[{heading}]\n{c.get('text', '')}\n\n"
+            added += 1
+            if added >= top_k:
+                break
+
+        return lines if added > 0 else ""
 
     # ------------------------------------------------------------------
     # Internals — criterion scoring (1 call per criterion)
@@ -381,8 +431,8 @@ For each sentence, score it on all four criteria using these rubrics (1-5 Likert
 **method_score** — {CRITERION_RUBRICS["method_similarity"]["description"]}
 {CRITERION_RUBRICS["method_similarity"]["rubric"]}
 
-**domain_score** — {CRITERION_RUBRICS["domain_overlap"]["description"]}
-{CRITERION_RUBRICS["domain_overlap"]["rubric"]}
+**domain_score** — {CRITERION_RUBRICS["domain_similarity"]["description"]}
+{CRITERION_RUBRICS["domain_similarity"]["rubric"]}
 
 **contribution_score** — {CRITERION_RUBRICS["contribution_similarity"]["description"]}
 {CRITERION_RUBRICS["contribution_similarity"]["rubric"]}
@@ -393,7 +443,7 @@ For EACH sentence in the user's idea above, independently evaluate its overlap w
 For each sentence provide:
 - **problem_score**, **method_score**, **domain_score**, **contribution_score** (integers 1-5, using rubrics above)
 - **matched_sections**: List of overlapping passages from the paper. For each match include:
-  - criterion: One of "problem_similarity", "method_similarity", "domain_overlap", "contribution_similarity"
+  - criterion: One of "problem_similarity", "method_similarity", "domain_similarity", "contribution_similarity"
   - heading: Paper section heading where overlap was found
   - similar_text: Quote or closely paraphrase the SPECIFIC passage (1-3 sentences). NEVER leave empty.
   - reason: Explain WHAT is similar
@@ -477,16 +527,16 @@ Return ONLY valid JSON:
             sentence_criteria = CriteriaScores(
                 problem_similarity=self._likert_to_float(p),
                 method_similarity=self._likert_to_float(m),
-                domain_overlap=self._likert_to_float(d),
+                domain_similarity=self._likert_to_float(d),
                 contribution_similarity=self._likert_to_float(c),
             )
 
-            # Compute overall overlap as weighted avg of sentence criteria
+            # Sentence similarity score (weighted avg of sentence criteria)
             w = config.CRITERIA_WEIGHTS
-            overlap = (
+            sentence_similarity_score = (
                 w["problem"] * sentence_criteria.problem_similarity
                 + w["method"] * sentence_criteria.method_similarity
-                + w["domain"] * sentence_criteria.domain_overlap
+                + w["domain"] * sentence_criteria.domain_similarity
                 + w["contribution"] * sentence_criteria.contribution_similarity
             )
 
@@ -494,7 +544,7 @@ Return ONLY valid JSON:
                 SentenceAnalysis(
                     sentence=sentence,
                     sentence_index=idx,
-                    similarity_score=overlap,
+                    similarity_score=sentence_similarity_score,
                     matched_sections=matched,
                     sentence_criteria_scores=sentence_criteria,
                 )
@@ -527,7 +577,7 @@ Return ONLY valid JSON:
         paper_likert = {
             "problem_similarity": criteria_results["problem_similarity"]["score"],
             "method_similarity": criteria_results["method_similarity"]["score"],
-            "domain_overlap": criteria_results["domain_overlap"]["score"],
+            "domain_similarity": criteria_results["domain_similarity"]["score"],
             "contribution_similarity": criteria_results["contribution_similarity"]["score"],
         }
 
@@ -540,21 +590,21 @@ Return ONLY valid JSON:
             sent_likert = {
                 "problem_similarity": self._float_to_likert(sc.problem_similarity),
                 "method_similarity": self._float_to_likert(sc.method_similarity),
-                "domain_overlap": self._float_to_likert(sc.domain_overlap),
+                "domain_similarity": self._float_to_likert(sc.domain_similarity),
                 "contribution_similarity": self._float_to_likert(sc.contribution_similarity),
             }
 
             passing = {
                 "problem_similarity": sent_likert["problem_similarity"] >= paper_likert["problem_similarity"] - 1,
                 "method_similarity": sent_likert["method_similarity"] >= paper_likert["method_similarity"] - 1,
-                "domain_overlap": sent_likert["domain_overlap"] >= paper_likert["domain_overlap"] - 1,
+                "domain_similarity": sent_likert["domain_similarity"] >= paper_likert["domain_similarity"] - 1,
                 "contribution_similarity": sent_likert["contribution_similarity"] >= paper_likert["contribution_similarity"] - 1,
             }
 
             filtered = CriteriaScores(
                 problem_similarity=sc.problem_similarity if passing["problem_similarity"] else 0.0,
                 method_similarity=sc.method_similarity if passing["method_similarity"] else 0.0,
-                domain_overlap=sc.domain_overlap if passing["domain_overlap"] else 0.0,
+                domain_similarity=sc.domain_similarity if passing["domain_similarity"] else 0.0,
                 contribution_similarity=sc.contribution_similarity if passing["contribution_similarity"] else 0.0,
             )
             sa.sentence_criteria_scores = filtered

@@ -99,7 +99,7 @@ class Layer2Aggregator:
                 f"[Layer2] Paper similarity — {r.paper_title[:50]}: {paper_similarity:.3f} "
                 f"(p={r.criteria_scores.problem_similarity:.2f} "
                 f"m={r.criteria_scores.method_similarity:.2f} "
-                f"d={r.criteria_scores.domain_overlap:.2f} "
+                f"d={r.criteria_scores.domain_similarity:.2f} "
                 f"c={r.criteria_scores.contribution_similarity:.2f})"
             )
 
@@ -187,7 +187,7 @@ class Layer2Aggregator:
         return (
             w["problem"] * cs.problem_similarity
             + w["method"] * cs.method_similarity
-            + w["domain"] * cs.domain_overlap
+            + w["domain"] * cs.domain_similarity
             + w["contribution"] * cs.contribution_similarity
         )
 
@@ -234,7 +234,7 @@ class Layer2Aggregator:
         return CriteriaScores(
             problem_similarity=_mwa([r.criteria_scores.problem_similarity for r in results]),
             method_similarity=_mwa([r.criteria_scores.method_similarity for r in results]),
-            domain_overlap=_mwa([r.criteria_scores.domain_overlap for r in results]),
+            domain_similarity=_mwa([r.criteria_scores.domain_similarity for r in results]),
             contribution_similarity=_mwa([r.criteria_scores.contribution_similarity for r in results]),
         )
 
@@ -257,7 +257,7 @@ class Layer2Aggregator:
         CRITERIA_KEYS = [
             "problem_similarity",
             "method_similarity",
-            "domain_overlap",
+            "domain_similarity",
             "contribution_similarity",
         ]
 
@@ -277,7 +277,7 @@ class Layer2Aggregator:
                     scores_map = {
                         "problem_similarity": sc.problem_similarity,
                         "method_similarity": sc.method_similarity,
-                        "domain_overlap": sc.domain_overlap,
+                        "domain_similarity": sc.domain_similarity,
                         "contribution_similarity": sc.contribution_similarity,
                     }
 
@@ -416,7 +416,7 @@ Papers Analyzed: {num_papers}
 Aggregated Criteria Scores (0-1, higher = more similar to existing work):
 - Problem Similarity: {aggregated_criteria.problem_similarity:.2f}
 - Method Similarity: {aggregated_criteria.method_similarity:.2f}
-- Domain Overlap: {aggregated_criteria.domain_overlap:.2f}
+- Domain Overlap: {aggregated_criteria.domain_similarity:.2f}
 - Contribution Similarity: {aggregated_criteria.contribution_similarity:.2f}
 
 Per-Paper Threat Assessment:
@@ -461,7 +461,7 @@ Write a 1-2 sentence summary explaining the assessment and giving actionable ins
         criteria_names = {
             'problem definition': criteria.problem_similarity,
             'methodology': criteria.method_similarity,
-            'application domain': criteria.domain_overlap,
+            'application domain': criteria.domain_similarity,
             'contributions': criteria.contribution_similarity,
         }
         max_criterion = max(criteria_names.items(), key=lambda x: x[1])

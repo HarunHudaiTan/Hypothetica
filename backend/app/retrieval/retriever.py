@@ -192,6 +192,30 @@ class Retriever:
 
         return results
 
+    def get_chunks_for_criterion(
+        self,
+        paper_id: str,
+        query: str,
+        top_k: int = 3
+    ) -> List[Dict[str, Any]]:
+        """
+        Retrieve top-k chunks from a specific paper most relevant to a criterion query.
+        Used by Layer1Agent to build criterion-specific LLM context.
+
+        Args:
+            paper_id: Paper to search within
+            query: Criterion-specific query (e.g. user_idea + " methodology approach")
+            top_k: Number of chunks to return
+
+        Returns:
+            List of chunk dicts with 'text', 'metadata', 'similarity'
+        """
+        return self.store.search(
+            query=query,
+            n_results=top_k,
+            filter_paper_id=paper_id
+        )
+
     def compute_idea_paper_similarity(
         self,
         idea: str,

@@ -184,7 +184,7 @@ def upload_benchmark_row(
     agg = result.get("aggregated_criteria") or {}
     ps = agg.get("problem_similarity")
     ms = agg.get("method_similarity")
-    do = agg.get("domain_overlap")
+    do = agg.get("domain_similarity")
     cs = agg.get("contribution_similarity")
 
     cost = result.get("cost") or {}

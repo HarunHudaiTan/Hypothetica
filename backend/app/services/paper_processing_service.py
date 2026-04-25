@@ -78,15 +78,19 @@ class PaperProcessingService:
             update_progress(job_id, f"Indexing paper {i+1}/{num_papers}: {title_short}", progress)
 
             try:
-                # GitHub repos: skip chunking, use markdown directly
+                # GitHub repos: extract headings from README markdown, chunk, index for evidence retrieval
                 if paper.source == "github":
                     if paper.markdown_content:
-                        logger.info(f"Indexing GitHub repo {paper.paper_id} (no chunking)")
-                        # Store the whole markdown as a single "chunk" for retrieval
+                        headings = cls._pdf_processor._extract_headings_with_content(
+                            paper.markdown_content, paper.paper_id
+                        )
+                        paper.headings = headings
+                        paper.is_processed = True
+                        cls._chunk_processor.process_paper(paper)
                         chunks_added = store.add_paper(paper)
                         total_chunks += chunks_added
                         processed_count += 1
-                        logger.info(f"Added GitHub repo {paper.paper_id} to vector store")
+                        logger.info(f"Indexed {chunks_added} chunks from GitHub repo {paper.paper_id}")
                     else:
                         logger.warning(f"GitHub repo {paper.paper_id} has no markdown content")
                 # Papers: chunk and index normally

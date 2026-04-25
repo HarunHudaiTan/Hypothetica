@@ -20,7 +20,7 @@ const CRITERIA = [
       "Overlap in proposed techniques, algorithms, or approaches. A low score suggests a novel methodological contribution.",
   },
   {
-    key: "domain_overlap" as const,
+    key: "domain_similarity" as const,
     label: "Domain",
     icon: "🌐",
     description:
