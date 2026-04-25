@@ -1,0 +1,159 @@
+{
+  "description": "Items the script could not auto-fix. For failure=rate_limited, re-run with a higher --delay. For no_hits / low_overlap, look up the paper on arXiv and set the correct arxiv_id (and title) in the benchmark JSON.",
+  "count": 9,
+  "entries": [
+    {
+      "case_id": "arxiv_010",
+      "claimed_title": "Beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework",
+      "old_id": "1811.00741",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2603.06755",
+        "real_title": "Implementation of Quantum Implicit Neural Representation in Deterministic and Probabilistic Autoencoders for Image Reconstruction/Generation Tasks",
+        "overlap": 0.0
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Constrained AND all:Variational AND all:Framework AND all:Beta-VAE",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_015",
+      "claimed_title": "Constraints Satisfaction for Adversarial Robustness in Network Intrusion Detection",
+      "old_id": "2007.01434",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2112.01156",
+        "real_title": "A Unified Framework for Adversarial Attack and Defense in Constrained Feature Space",
+        "overlap": 0.3333333333333333
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Satisfaction AND all:Constraints AND all:Adversarial AND all:Robustness",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_019",
+      "claimed_title": "Automated Vulnerability Severity Rating from Bug Reports using NLP",
+      "old_id": "2009.09227",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2108.06590",
+        "real_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+        "overlap": 0.2222222222222222
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Vulnerability AND all:Automated AND all:Severity AND all:Reports",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_019",
+      "claimed_title": "CVE-NLP: Extracting Software Vulnerability Information with BERT",
+      "old_id": "2105.05639",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2411.18347",
+        "real_title": "TransferFuzz: Fuzzing with Historical Trace for Verifying Propagated Vulnerability Code",
+        "overlap": 0.25
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Vulnerability AND all:Information AND all:Extracting AND all:Software",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_020",
+      "claimed_title": "RawNet2: Enhanced RawNet with Deep Filter Banks for Spoofing Detection",
+      "old_id": "2109.01234",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2510.05562",
+        "real_title": "Generative Dynamic Graph Representation Learning for Conspiracy Spoofing Detection",
+        "overlap": 0.3
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Detection AND all:Enhanced AND all:Spoofing",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_026",
+      "claimed_title": "Deep Learning for Automated Defect Detection in Crystalline Materials",
+      "old_id": "2005.13082",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2202.10983",
+        "real_title": "Tracking perovskite crystallization via deep learning-based feature detection on 2D X-ray scattering data",
+        "overlap": 0.3333333333333333
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Crystalline AND all:Automated AND all:Detection AND all:Materials",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_028",
+      "claimed_title": "Matminer: An Open Source Toolkit for Materials Data Mining",
+      "old_id": "1906.02192",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2602.22950",
+        "real_title": "A Comparative Study of Structural Representations for 2D Materials: Insights from Dynamic Collision Fingerprint and Matminer",
+        "overlap": 0.3333333333333333
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Materials AND all:Matminer",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_030",
+      "claimed_title": "Constraint-Aware Loss Functions for Physics-Consistent ML Potentials",
+      "old_id": "2301.12578",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2510.16723",
+        "real_title": "Thermal Conductivity Estimation of Thermoelectric Materials with Uncertainty Quantification Using Bayesian Physics-Informed Neural Networks",
+        "overlap": 0.1111111111111111
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Physics-Consistent AND all:Constraint-Aware AND all:Potentials AND all:Functions",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_040",
+      "claimed_title": "AlphaFold-Based Features for PPI Prediction: A Benchmark",
+      "old_id": "2301.09163",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2202.01079",
+        "real_title": "AlphaDesign: A graph protein design method and benchmark on AlphaFoldDB",
+        "overlap": 0.25
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:AlphaFold-Based AND all:Prediction AND all:Benchmark AND all:Features",
+      "search_tier": "keyword"
+    }
+  ]
+}
