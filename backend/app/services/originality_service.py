@@ -54,24 +54,11 @@ class OriginalityService:
 
             logger.info(f"Analyzing paper {i+1}/{len(processed_papers)}: {title_short}")
 
-            # GitHub repos: use full markdown directly (no chunking)
-            if paper.source == "github":
-                context_text = paper.markdown_content or paper.abstract
-                logger.info(f"Using full README markdown for GitHub repo {paper.paper_id} ({len(context_text)} chars)")
-            # Papers: use chunked context from RAG
-            else:
-                context_chunks = retriever.get_context_for_paper(paper_id=paper.paper_id, query=idea)
-                context_text = "\n\n".join([
-                    f"[{c.get('metadata', {}).get('heading', 'Section')}]\n{c.get('text', '')[:800]}"
-                    for c in context_chunks[:5]
-                ])
-                logger.info(f"Retrieved {len(context_chunks)} context chunks for paper {paper.paper_id}")
-
             result = agent.analyze_paper(
                 user_idea=idea,
                 user_sentences=job.state.user_sentences,
                 paper=paper,
-                paper_context=context_text,
+                retriever=retriever,
             )
             results.append(result)
             layer1_cost += agent.get_cost()
@@ -83,7 +70,7 @@ class OriginalityService:
             logger.info(
                 f"Criteria scores: problem={result.criteria_scores.problem_similarity:.2f}, "
                 f"method={result.criteria_scores.method_similarity:.2f}, "
-                f"domain={result.criteria_scores.domain_overlap:.2f}, "
+                f"domain={result.criteria_scores.domain_similarity:.2f}, "
                 f"contribution={result.criteria_scores.contribution_similarity:.2f}"
             )
 
@@ -157,8 +144,7 @@ class OriginalityService:
                 threshold_config={
                     "high_overlap_threshold": config.HIGH_OVERLAP_THRESHOLD,
                     "medium_overlap_threshold": config.MEDIUM_OVERLAP_THRESHOLD,
-                    "paper_similarity_max_weight": config.PAPER_SIMILARITY_MAX_WEIGHT,
-                    "global_similarity_max_weight": config.GLOBAL_SIMILARITY_MAX_WEIGHT,
+                    "overlap_curve_power": config.OVERLAP_CURVE_POWER,
                 },
                 total_tokens_used=sum(r.tokens_used for r in job.state.layer1_results),
                 total_cost_usd=job.state.cost.total,

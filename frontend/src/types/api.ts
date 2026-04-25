@@ -54,7 +54,7 @@ export interface SentenceAnnotation {
 export interface CriteriaScores {
   problem_similarity: number;
   method_similarity: number;
-  domain_overlap: number;
+  domain_similarity: number;
   contribution_similarity: number;
 }
 

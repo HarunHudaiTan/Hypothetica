@@ -10,7 +10,7 @@ interface Props {
 const CRITERION_DISPLAY: Record<string, string> = {
   problem_similarity: "Problem",
   method_similarity: "Method",
-  domain_overlap: "Domain",
+  domain_similarity: "Domain",
   contribution_similarity: "Contribution",
 };
 

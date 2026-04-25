@@ -40,14 +40,14 @@ def make_l1_result(
     cs = CriteriaScores(
         problem_similarity=_likert_to_float(problem),
         method_similarity=_likert_to_float(method),
-        domain_overlap=_likert_to_float(domain),
+        domain_similarity=_likert_to_float(domain),
         contribution_similarity=_likert_to_float(contribution),
     )
     w = config.CRITERIA_WEIGHTS
     overall = (
         w["problem"] * cs.problem_similarity
         + w["method"] * cs.method_similarity
-        + w["domain"] * cs.domain_overlap
+        + w["domain"] * cs.domain_similarity
         + w["contribution"] * cs.contribution_similarity
     )
 
@@ -96,7 +96,7 @@ def print_result(label, result):
         print(f"Aggregated criteria:")
         print(f"  problem:      {ac.problem_similarity:.2f}")
         print(f"  method:       {ac.method_similarity:.2f}")
-        print(f"  domain:       {ac.domain_overlap:.2f}")
+        print(f"  domain:       {ac.domain_similarity:.2f}")
         print(f"  contribution: {ac.contribution_similarity:.2f}")
     print(f"Sentence labels: ", end="")
     for sa in result.sentence_annotations:

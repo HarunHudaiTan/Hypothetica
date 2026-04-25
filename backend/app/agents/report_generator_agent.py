@@ -343,7 +343,7 @@ Confidence: {result.confidence}
 Criteria Scores:
 - Problem Similarity: {result.criteria_scores.problem_similarity:.3f}
 - Method Similarity: {result.criteria_scores.method_similarity:.3f}
-- Domain Overlap: {result.criteria_scores.domain_overlap:.3f}
+- Domain Overlap: {result.criteria_scores.domain_similarity:.3f}
 - Contribution Similarity: {result.criteria_scores.contribution_similarity:.3f}
 
 Sentence Analysis Summary: {len(result.sentence_analyses)} sentences analyzed
@@ -445,7 +445,7 @@ Processing Time: {data.processing_time_seconds:.2f} seconds
         return (
             f"- Problem Similarity: {criteria.problem_similarity:.3f}\n"
             f"- Method Similarity: {criteria.method_similarity:.3f}\n"
-            f"- Domain Overlap: {criteria.domain_overlap:.3f}\n"
+            f"- Domain Overlap: {criteria.domain_similarity:.3f}\n"
             f"- Contribution Similarity: {criteria.contribution_similarity:.3f}"
         )
 

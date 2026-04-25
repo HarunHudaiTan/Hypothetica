@@ -88,20 +88,29 @@ SCORE_YELLOW_MAX = 70   # 40-70 = medium originality
 LIKERT_TO_FLOAT = {1: 0.0, 2: 0.25, 3: 0.5, 4: 0.75, 5: 1.0}
 
 # Criteria weights for computing overall overlap score
+# Recalibrated 2026-04-19 against arXiv benchmark (40 cases).
+# Rationale: contribution is the strongest discriminator (Δ=+0.30 between
+# novel and already_exists), method second (Δ=+0.23). Problem and domain are
+# kept as context signals with low weights — domain is near-constant because
+# retrieval already restricts to the same field, so it carries little info.
 CRITERIA_WEIGHTS = {
-    "problem": 0.3,
-    "method": 0.3,
-    "domain": 0.2,
-    "contribution": 0.2,
+    "problem":      0.15,    # context (low — overlaps with method/contribution)
+    "method":       0.30,    # novelty signal
+    "domain":       0.10,    # context (retrieval already guarantees same field)
+    "contribution": 0.45,    # strongest novelty signal
 }
 
 SENTENCE_OVERLAP_TOP_K = 2       # Top-K scores to average per sentence (UI annotations)
 CRITERIA_MAX_WEIGHT = 0.6        # Weight given to max score in criteria aggregation (UI display)
-OVERLAP_CURVE_POWER = 1.5        # Exponent for non-linear overlap→originality mapping
+OVERLAP_CURVE_POWER = 2.0        # Exponent for non-linear overlap→originality mapping
+                                 # Recalibrated 2026-04-19: was 1.5, too aggressive on mid-overlap.
 
-# Paper-threat-based scoring (Layer 2)
-PAPER_SIMILARITY_MAX_WEIGHT = 0.5    # In per-paper threat: weight for max criterion vs weighted mean
-GLOBAL_SIMILARITY_MAX_WEIGHT = 0.7   # In global overlap: weight for most threatening paper vs mean
+# Layer 2 aggregation policy (2026-04-19 recalibration)
+# Per-paper similarity = weighted mean of the 4 criteria (no max-term).
+# Global similarity   = plain mean across all retrieved papers (no max-term).
+# Previously max-driven blends with α=PAPER_SIMILARITY_MAX_WEIGHT and
+# β=GLOBAL_SIMILARITY_MAX_WEIGHT were used; a sweep over 125k configs showed
+# both blends crushed novel ideas, so they were removed entirely.
 
 # Categorical guardrails
 GUARDRAIL_CRITICAL_FLOOR = 0.65  # Min overlap when any criterion = Likert 5 (1.0)

@@ -48,14 +48,14 @@ class CriteriaScores:
     """
     problem_similarity: float      # How similar is the problem definition
     method_similarity: float       # How similar is the proposed method
-    domain_overlap: float          # How much domain/application overlap
+    domain_similarity: float          # How much domain/application overlap
     contribution_similarity: float # How similar are the claimed contributions
     
     def to_dict(self) -> dict:
         return {
             "problem_similarity": self.problem_similarity,
             "method_similarity": self.method_similarity,
-            "domain_overlap": self.domain_overlap,
+            "domain_similarity": self.domain_similarity,
             "contribution_similarity": self.contribution_similarity
         }
     
@@ -65,7 +65,7 @@ class CriteriaScores:
         return (
             self.problem_similarity + 
             self.method_similarity + 
-            self.domain_overlap + 
+            self.domain_similarity + 
             self.contribution_similarity
         ) / 4
 

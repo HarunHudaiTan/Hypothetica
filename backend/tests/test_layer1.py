@@ -118,7 +118,7 @@ def test_high_overlap():
     print(f"\nCriteria scores:")
     print(f"  problem_similarity:      {result.criteria_scores.problem_similarity:.2f}")
     print(f"  method_similarity:       {result.criteria_scores.method_similarity:.2f}")
-    print(f"  domain_overlap:          {result.criteria_scores.domain_overlap:.2f}")
+    print(f"  domain_similarity:          {result.criteria_scores.domain_similarity:.2f}")
     print(f"  contribution_similarity: {result.criteria_scores.contribution_similarity:.2f}")
     print(f"\nSentence analyses:")
     for sa in result.sentence_analyses:
@@ -156,7 +156,7 @@ def test_low_overlap():
     print(f"\nCriteria scores:")
     print(f"  problem_similarity:      {result.criteria_scores.problem_similarity:.2f}")
     print(f"  method_similarity:       {result.criteria_scores.method_similarity:.2f}")
-    print(f"  domain_overlap:          {result.criteria_scores.domain_overlap:.2f}")
+    print(f"  domain_similarity:          {result.criteria_scores.domain_similarity:.2f}")
     print(f"  contribution_similarity: {result.criteria_scores.contribution_similarity:.2f}")
     print(f"\nTokens used: {result.tokens_used}")
     print(f"Cost: ${agent.get_cost():.4f}")

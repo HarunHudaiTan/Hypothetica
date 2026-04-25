@@ -99,7 +99,7 @@ class Layer2Aggregator:
                 f"[Layer2] Paper similarity — {r.paper_title[:50]}: {paper_similarity:.3f} "
                 f"(p={r.criteria_scores.problem_similarity:.2f} "
                 f"m={r.criteria_scores.method_similarity:.2f} "
-                f"d={r.criteria_scores.domain_overlap:.2f} "
+                f"d={r.criteria_scores.domain_similarity:.2f} "
                 f"c={r.criteria_scores.contribution_similarity:.2f})"
             )
 
@@ -172,28 +172,24 @@ class Layer2Aggregator:
         """
         Compute how similar a single paper is to the idea.
 
-        Formula: PAPER_SIMILARITY_MAX_WEIGHT * max(criteria) +
-                 (1 - PAPER_SIMILARITY_MAX_WEIGHT) * weighted_mean(criteria)
+        Formula: weighted mean of the 4 criteria, using config.CRITERIA_WEIGHTS.
 
-        Worst-case driven: if a paper has contribution_similarity=1.0 (Likert 5),
-        the max term dominates regardless of other criteria being low.
+            paper_sim = w_p * problem + w_m * method + w_d * domain + w_c * contribution
+
+        Recalibrated 2026-04-19: previously also added a max-term
+        (PAPER_SIMILARITY_MAX_WEIGHT * max(criteria)), but a sweep over 125k
+        configs showed the max-term inflated single-criterion noise (especially
+        domain, which is near-constant due to retrieval bias) without improving
+        macro-F1. The plain weighted mean is both simpler and more accurate.
         """
-        scores = [
-            result.criteria_scores.problem_similarity,
-            result.criteria_scores.method_similarity,
-            result.criteria_scores.domain_overlap,
-            result.criteria_scores.contribution_similarity,
-        ]
+        cs = result.criteria_scores
         w = config.CRITERIA_WEIGHTS
-        weighted_mean = (
-            w["problem"] * result.criteria_scores.problem_similarity
-            + w["method"] * result.criteria_scores.method_similarity
-            + w["domain"] * result.criteria_scores.domain_overlap
-            + w["contribution"] * result.criteria_scores.contribution_similarity
+        return (
+            w["problem"] * cs.problem_similarity
+            + w["method"] * cs.method_similarity
+            + w["domain"] * cs.domain_similarity
+            + w["contribution"] * cs.contribution_similarity
         )
-        max_score = max(scores)
-        t = config.PAPER_SIMILARITY_MAX_WEIGHT
-        return t * max_score + (1 - t) * weighted_mean
 
     # ------------------------------------------------------------------
     # Global overlap (across papers)
@@ -202,15 +198,17 @@ class Layer2Aggregator:
     @staticmethod
     def _compute_global_similarity(paper_similarity_score_list: List[float]) -> float:
         """
-        Global similarity = GLOBAL_SIMILARITY_MAX_WEIGHT * max(scores)
-                           + (1 - GLOBAL_SIMILARITY_MAX_WEIGHT) * mean(scores)
+        Global similarity = plain mean of per-paper similarity scores.
 
-        One very similar paper dominates the final score.
+        Recalibrated 2026-04-19: previously a max-driven blend
+        (GLOBAL_SIMILARITY_MAX_WEIGHT * max + (1 - β) * mean) let a single
+        nearby paper dominate the final score. Since retrieval already returns
+        the top-N most similar papers, that max-term double-penalised proximity
+        and crushed novel ideas. Mean across all retrieved papers is more robust.
         """
         if not paper_similarity_score_list:
             return 0.0
-        g = config.GLOBAL_SIMILARITY_MAX_WEIGHT
-        return g * max(paper_similarity_score_list) + (1 - g) * (sum(paper_similarity_score_list) / len(paper_similarity_score_list))
+        return sum(paper_similarity_score_list) / len(paper_similarity_score_list)
 
     # ------------------------------------------------------------------
     # Categorical guardrails
@@ -236,7 +234,7 @@ class Layer2Aggregator:
         return CriteriaScores(
             problem_similarity=_mwa([r.criteria_scores.problem_similarity for r in results]),
             method_similarity=_mwa([r.criteria_scores.method_similarity for r in results]),
-            domain_overlap=_mwa([r.criteria_scores.domain_overlap for r in results]),
+            domain_similarity=_mwa([r.criteria_scores.domain_similarity for r in results]),
             contribution_similarity=_mwa([r.criteria_scores.contribution_similarity for r in results]),
         )
 
@@ -259,7 +257,7 @@ class Layer2Aggregator:
         CRITERIA_KEYS = [
             "problem_similarity",
             "method_similarity",
-            "domain_overlap",
+            "domain_similarity",
             "contribution_similarity",
         ]
 
@@ -279,7 +277,7 @@ class Layer2Aggregator:
                     scores_map = {
                         "problem_similarity": sc.problem_similarity,
                         "method_similarity": sc.method_similarity,
-                        "domain_overlap": sc.domain_overlap,
+                        "domain_similarity": sc.domain_similarity,
                         "contribution_similarity": sc.contribution_similarity,
                     }
 
@@ -418,7 +416,7 @@ Papers Analyzed: {num_papers}
 Aggregated Criteria Scores (0-1, higher = more similar to existing work):
 - Problem Similarity: {aggregated_criteria.problem_similarity:.2f}
 - Method Similarity: {aggregated_criteria.method_similarity:.2f}
-- Domain Overlap: {aggregated_criteria.domain_overlap:.2f}
+- Domain Overlap: {aggregated_criteria.domain_similarity:.2f}
 - Contribution Similarity: {aggregated_criteria.contribution_similarity:.2f}
 
 Per-Paper Threat Assessment:
@@ -463,7 +461,7 @@ Write a 1-2 sentence summary explaining the assessment and giving actionable ins
         criteria_names = {
             'problem definition': criteria.problem_similarity,
             'methodology': criteria.method_similarity,
-            'application domain': criteria.domain_overlap,
+            'application domain': criteria.domain_similarity,
             'contributions': criteria.contribution_similarity,
         }
         max_criterion = max(criteria_names.items(), key=lambda x: x[1])

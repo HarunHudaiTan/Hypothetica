@@ -55,22 +55,28 @@ BASE_DIR = Path(__file__).parent
 DATASETS_DIR = BASE_DIR / "datasets"
 RESULTS_DIR = BASE_DIR / "results"
 
-SOURCE_CONFIG = {
-    "arxiv": {
-        "dataset_json": DATASETS_DIR / "hypothetica_benchmark_arxiv.json",
-        "raw_dir": RESULTS_DIR / "arxiv",
-        "results_csv": RESULTS_DIR / "arxiv_results.csv",
-        "metrics_csv": RESULTS_DIR / "metrics_arxiv.csv",
-        "api_source": "arxiv",
-    },
-    "google_patents": {
-        "dataset_json": DATASETS_DIR / "hypothetica_benchmark_patents.json",
-        "raw_dir": RESULTS_DIR / "google_patents",
-        "results_csv": RESULTS_DIR / "google_patents_results.csv",
-        "metrics_csv": RESULTS_DIR / "metrics_google_patents.csv",
-        "api_source": "google_patents",
-    },
-}
+
+def build_source_config(results_dir: Path) -> dict:
+    return {
+        "arxiv": {
+            "dataset_json": DATASETS_DIR / "hypothetica_benchmark_arxiv.json",
+            "raw_dir": results_dir / "arxiv",
+            "results_csv": results_dir / "arxiv_results.csv",
+            "metrics_csv": results_dir / "metrics_arxiv.csv",
+            "api_source": "arxiv",
+        },
+        "google_patents": {
+            "dataset_json": DATASETS_DIR / "hypothetica_benchmark_patents.json",
+            "raw_dir": results_dir / "google_patents",
+            "results_csv": results_dir / "google_patents_results.csv",
+            "metrics_csv": results_dir / "metrics_google_patents.csv",
+            "api_source": "google_patents",
+        },
+    }
+
+
+# Default config (overridden in main() if --results-dir given)
+SOURCE_CONFIG = build_source_config(RESULTS_DIR)
 
 
 def log(msg: str):
@@ -178,7 +184,7 @@ def upload_benchmark_row(
     agg = result.get("aggregated_criteria") or {}
     ps = agg.get("problem_similarity")
     ms = agg.get("method_similarity")
-    do = agg.get("domain_overlap")
+    do = agg.get("domain_similarity")
     cs = agg.get("contribution_similarity")
 
     cost = result.get("cost") or {}
@@ -605,7 +611,23 @@ def main():
         "--upload-only", action="store_true",
         help="Upload existing raw results to Supabase benchmark table (no API calls)",
     )
+    parser.add_argument(
+        "--results-dir",
+        type=Path,
+        default=RESULTS_DIR,
+        help=(
+            "Directory to read/write benchmark results. Defaults to "
+            "'benchmarks/results'. Use e.g. 'benchmarks/results_new' to "
+            "store a fresh run alongside the previous one."
+        ),
+    )
     args = parser.parse_args()
+
+    # Override the module-level SOURCE_CONFIG so run_source() picks up the
+    # caller-supplied results directory.
+    global SOURCE_CONFIG
+    SOURCE_CONFIG = build_source_config(args.results_dir)
+    log(f"Using results directory: {args.results_dir}")
 
     sources = [args.source] if args.source else ["arxiv", "google_patents"]
 
