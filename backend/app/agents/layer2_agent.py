@@ -172,28 +172,24 @@ class Layer2Aggregator:
         """
         Compute how similar a single paper is to the idea.
 
-        Formula: PAPER_SIMILARITY_MAX_WEIGHT * max(criteria) +
-                 (1 - PAPER_SIMILARITY_MAX_WEIGHT) * weighted_mean(criteria)
+        Formula: weighted mean of the 4 criteria, using config.CRITERIA_WEIGHTS.
 
-        Worst-case driven: if a paper has contribution_similarity=1.0 (Likert 5),
-        the max term dominates regardless of other criteria being low.
+            paper_sim = w_p * problem + w_m * method + w_d * domain + w_c * contribution
+
+        Recalibrated 2026-04-19: previously also added a max-term
+        (PAPER_SIMILARITY_MAX_WEIGHT * max(criteria)), but a sweep over 125k
+        configs showed the max-term inflated single-criterion noise (especially
+        domain, which is near-constant due to retrieval bias) without improving
+        macro-F1. The plain weighted mean is both simpler and more accurate.
         """
-        scores = [
-            result.criteria_scores.problem_similarity,
-            result.criteria_scores.method_similarity,
-            result.criteria_scores.domain_overlap,
-            result.criteria_scores.contribution_similarity,
-        ]
+        cs = result.criteria_scores
         w = config.CRITERIA_WEIGHTS
-        weighted_mean = (
-            w["problem"] * result.criteria_scores.problem_similarity
-            + w["method"] * result.criteria_scores.method_similarity
-            + w["domain"] * result.criteria_scores.domain_overlap
-            + w["contribution"] * result.criteria_scores.contribution_similarity
+        return (
+            w["problem"] * cs.problem_similarity
+            + w["method"] * cs.method_similarity
+            + w["domain"] * cs.domain_overlap
+            + w["contribution"] * cs.contribution_similarity
         )
-        max_score = max(scores)
-        t = config.PAPER_SIMILARITY_MAX_WEIGHT
-        return t * max_score + (1 - t) * weighted_mean
 
     # ------------------------------------------------------------------
     # Global overlap (across papers)
@@ -202,15 +198,17 @@ class Layer2Aggregator:
     @staticmethod
     def _compute_global_similarity(paper_similarity_score_list: List[float]) -> float:
         """
-        Global similarity = GLOBAL_SIMILARITY_MAX_WEIGHT * max(scores)
-                           + (1 - GLOBAL_SIMILARITY_MAX_WEIGHT) * mean(scores)
+        Global similarity = plain mean of per-paper similarity scores.
 
-        One very similar paper dominates the final score.
+        Recalibrated 2026-04-19: previously a max-driven blend
+        (GLOBAL_SIMILARITY_MAX_WEIGHT * max + (1 - β) * mean) let a single
+        nearby paper dominate the final score. Since retrieval already returns
+        the top-N most similar papers, that max-term double-penalised proximity
+        and crushed novel ideas. Mean across all retrieved papers is more robust.
         """
         if not paper_similarity_score_list:
             return 0.0
-        g = config.GLOBAL_SIMILARITY_MAX_WEIGHT
-        return g * max(paper_similarity_score_list) + (1 - g) * (sum(paper_similarity_score_list) / len(paper_similarity_score_list))
+        return sum(paper_similarity_score_list) / len(paper_similarity_score_list)
 
     # ------------------------------------------------------------------
     # Categorical guardrails

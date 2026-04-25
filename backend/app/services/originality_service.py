@@ -150,8 +150,7 @@ class OriginalityService:
                 threshold_config={
                     "high_overlap_threshold": config.HIGH_OVERLAP_THRESHOLD,
                     "medium_overlap_threshold": config.MEDIUM_OVERLAP_THRESHOLD,
-                    "paper_similarity_max_weight": config.PAPER_SIMILARITY_MAX_WEIGHT,
-                    "global_similarity_max_weight": config.GLOBAL_SIMILARITY_MAX_WEIGHT,
+                    "overlap_curve_power": config.OVERLAP_CURVE_POWER,
                 },
                 total_tokens_used=sum(r.tokens_used for r in job.state.layer1_results),
                 total_cost_usd=job.state.cost.total,
