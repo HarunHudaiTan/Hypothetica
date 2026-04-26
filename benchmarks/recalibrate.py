@@ -18,10 +18,11 @@ import argparse
 import csv
 import itertools
 import json
+import os
 import statistics
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -32,7 +33,7 @@ RESULTS_DIR = BASE_DIR / "results"
 
 SOURCE_CONFIG = {
     "arxiv": {
-        "dataset_json": DATASETS_DIR / "hypothetica_benchmark_arxiv.json",
+        "dataset_json": DATASETS_DIR / "hypothetica_benchmark_arxiv_gold_clean.json",
         "results_dir": RESULTS_DIR / "arxiv",
     },
     "google_patents": {
@@ -55,15 +56,21 @@ class Case:
     papers: List[Dict[str, float]]
 
 
-def load_cases(source: str) -> List[Case]:
+def load_cases(
+    source: str,
+    dataset_json: Optional[Path] = None,
+    results_dir: Optional[Path] = None,
+) -> List[Case]:
     cfg = SOURCE_CONFIG[source]
-    with open(cfg["dataset_json"], encoding="utf-8") as f:
+    ds_path = dataset_json or cfg["dataset_json"]
+    res_dir = results_dir or cfg["results_dir"]
+    with open(ds_path, encoding="utf-8") as f:
         dataset = json.load(f)
 
     true_labels = {c["id"]: c["originality_label"] for c in dataset["cases"]}
     cases: List[Case] = []
 
-    for result_file in sorted(cfg["results_dir"].glob("*.json")):
+    for result_file in sorted(res_dir.glob("*.json")):
         case_id = result_file.stem
         if case_id not in true_labels:
             continue
@@ -526,9 +533,20 @@ def save_csv(results: List[Dict], path: Path, top_n: int = 100):
 # Main
 # ---------------------------------------------------------------------------
 
-def run(source: str, top_n: int, output: Path):
+def run(
+    source: str,
+    top_n: int,
+    output: Path,
+    dataset_json: Optional[Path] = None,
+    arxiv_results_dir: Optional[Path] = None,
+):
     print(f"\nLoading cases for source={source} ...")
-    cases = load_cases(source)
+    if source == "arxiv" and dataset_json is None:
+        env_ds = os.environ.get("BENCHMARK_ARXIV_DATASET", "").strip()
+        if env_ds:
+            dataset_json = Path(env_ds).expanduser().resolve()
+    res_override = arxiv_results_dir if source == "arxiv" else None
+    cases = load_cases(source, dataset_json=dataset_json, results_dir=res_override)
     label_dist = {l: sum(1 for c in cases if c.true_label == l) for l in LABELS}
     print(f"Loaded {len(cases)} cases. Label distribution: {label_dist}")
 
@@ -687,8 +705,29 @@ def main():
         default=BASE_DIR / "recalibration_results.csv",
         help="CSV output for top-500 configs",
     )
+    parser.add_argument(
+        "--arxiv-dataset",
+        type=Path,
+        default=None,
+        help="arXiv benchmark JSON (default: datasets/hypothetica_benchmark_arxiv_gold_clean.json).",
+    )
+    parser.add_argument(
+        "--arxiv-results",
+        type=Path,
+        default=None,
+        help=(
+            "Directory with per-case raw results (*.json) for arxiv, e.g. "
+            "benchmarks/results_arxiv_gold_clean/arxiv"
+        ),
+    )
     args = parser.parse_args()
-    run(args.source, args.top, args.output)
+    run(
+        args.source,
+        args.top,
+        args.output,
+        dataset_json=args.arxiv_dataset,
+        arxiv_results_dir=args.arxiv_results,
+    )
 
 
 if __name__ == "__main__":

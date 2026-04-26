@@ -4,13 +4,16 @@ Hypothetica Benchmark Runner
 Runs benchmark cases against the live Hypothetica API (same flow as the UI:
 analyze → follow-up questions → submit answers → processing → results).
 
-Loads datasets from:
-    benchmarks/datasets/hypothetica_benchmark_arxiv.json
+Default arXiv dataset (single source of truth):
+    benchmarks/datasets/hypothetica_benchmark_arxiv_gold_clean.json
+Also:
     benchmarks/datasets/hypothetica_benchmark_patents.json
 
 Usage:
     python run_benchmark.py
     python run_benchmark.py --source arxiv
+    # Optional: separate results tree for an experiment:
+    python run_benchmark.py --source arxiv --results-dir benchmarks/results_experiment_a
     python run_benchmark.py --source google_patents
     python run_benchmark.py --metrics-only
     python run_benchmark.py --upload-only          # backfill Supabase from saved raw results
@@ -56,10 +59,21 @@ DATASETS_DIR = BASE_DIR / "datasets"
 RESULTS_DIR = BASE_DIR / "results"
 
 
-def build_source_config(results_dir: Path) -> dict:
+def _default_arxiv_dataset() -> Path:
+    env = os.environ.get("BENCHMARK_ARXIV_DATASET", "").strip()
+    if env:
+        return Path(env).expanduser().resolve()
+    return (DATASETS_DIR / "hypothetica_benchmark_arxiv_gold_clean.json").resolve()
+
+
+def build_source_config(
+    results_dir: Path,
+    arxiv_dataset: Path | None = None,
+) -> dict:
+    arxiv_path = (arxiv_dataset or _default_arxiv_dataset()).resolve()
     return {
         "arxiv": {
-            "dataset_json": DATASETS_DIR / "hypothetica_benchmark_arxiv.json",
+            "dataset_json": arxiv_path,
             "raw_dir": results_dir / "arxiv",
             "results_csv": results_dir / "arxiv_results.csv",
             "metrics_csv": results_dir / "metrics_arxiv.csv",
@@ -551,6 +565,7 @@ def run_source(source_name: str, metrics_only: bool = False, upload_only: bool =
 
         log(f"\n{'─' * 50}")
         log(f"Starting benchmark: {source_name.upper()}  ({total} cases)")
+        log(f"Dataset: {path}")
         log(f"{'─' * 50}")
 
         for i, case in enumerate(cases, 1):
@@ -617,19 +632,35 @@ def main():
         default=RESULTS_DIR,
         help=(
             "Directory to read/write benchmark results. Defaults to "
-            "'benchmarks/results'. Use e.g. 'benchmarks/results_new' to "
-            "store a fresh run alongside the previous one."
+            "'benchmarks/results'. Use a different path so multiple benchmark "
+            "runs or dataset experiments do not overwrite the same raw JSON/CSVs."
+        ),
+    )
+    parser.add_argument(
+        "--arxiv-dataset",
+        type=Path,
+        default=None,
+        help=(
+            "Path to the arXiv benchmark JSON (default: "
+            "hypothetica_benchmark_arxiv_gold_clean.json). "
+            "Override with BENCHMARK_ARXIV_DATASET if set."
         ),
     )
     args = parser.parse_args()
 
+    arxiv_ds = args.arxiv_dataset
+    if arxiv_ds is not None:
+        arxiv_ds = arxiv_ds.resolve()
+
     # Override the module-level SOURCE_CONFIG so run_source() picks up the
-    # caller-supplied results directory.
+    # caller-supplied results directory and optional arXiv dataset path.
     global SOURCE_CONFIG
-    SOURCE_CONFIG = build_source_config(args.results_dir)
-    log(f"Using results directory: {args.results_dir}")
+    SOURCE_CONFIG = build_source_config(args.results_dir, arxiv_dataset=arxiv_ds)
+    log(f"Using results directory: {args.results_dir.resolve()}")
 
     sources = [args.source] if args.source else ["arxiv", "google_patents"]
+    if "arxiv" in sources:
+        log(f"arXiv dataset: {SOURCE_CONFIG['arxiv']['dataset_json']}")
 
     for source in sources:
         run_source(source, metrics_only=args.metrics_only, upload_only=args.upload_only)
