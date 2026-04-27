@@ -182,8 +182,8 @@ if __name__ == "__main__":
         ("All Low Overlap (expect HIGH originality)", test_all_low_overlap()),
         ("One Threatening Paper (expect LOW/MEDIUM originality)", test_one_threatening_paper()),
         ("Moderate Overlap (expect MEDIUM originality)", test_moderate_overlap()),
-        ("Guardrail: Criterion at 5 (expect floor applied)", test_guardrail_critical()),
-        ("Guardrail: 2+ Criteria at 4 (expect floor applied)", test_guardrail_high_count()),
+        ("Max dominance: contribs at 5 (single paper should set global)", test_guardrail_critical()),
+        ("Max dominance: 3+ criteria at 4 on one paper", test_guardrail_high_count()),
     ]
 
     all_results = []
@@ -213,13 +213,14 @@ if __name__ == "__main__":
     assert threat_r.originality_score <= 50, \
         "One very similar paper should bring originality below 50"
 
-    # Guardrail checks
+    # Max-based global: one paper with a strong dimension sets global to that paper's score
     guardrail_crit = all_results[3][1]
-    assert guardrail_crit.global_similarity_score >= config.GUARDRAIL_CRITICAL_FLOOR, \
-        f"Critical guardrail should enforce floor of {config.GUARDRAIL_CRITICAL_FLOOR}"
-
+    assert guardrail_crit.global_similarity_score >= 0.45, (
+        "Paper with contribution=5 should make global similarity reflect that paper (not dilute with mean)"
+    )
     guardrail_high = all_results[4][1]
-    assert guardrail_high.global_similarity_score >= config.GUARDRAIL_HIGH_FLOOR, \
-        f"High guardrail should enforce floor of {config.GUARDRAIL_HIGH_FLOOR}"
+    assert guardrail_high.global_similarity_score >= 0.55, (
+        "Paper with 3+ criteria at 4 should dominate global (max) vs unrelated papers"
+    )
 
     print("\nAll sanity checks passed!")

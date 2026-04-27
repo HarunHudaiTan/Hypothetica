@@ -1,0 +1,532 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "804585ad6d24",
+    "status": "completed"
+  },
+  "originality_score": 100,
+  "global_similarity_score": 0.0,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Replacing the scalar temperature in softmax attention with a learned per-head temperature vector, allowing different attention heads to operate at different sharpness levels without other changes to the transformer architecture.",
+      "originality_score": 1.0,
+      "similarity_score": 0.0,
+      "label": "high",
+      "criteria_labels": {
+        "problem_similarity": "high",
+        "method_similarity": "high",
+        "domain_similarity": "high",
+        "contribution_similarity": "high"
+      },
+      "linked_sections": []
+    }
+  ],
+  "summary": "This research idea appears highly original across all criteria, showing no significant overlap with existing work in problem, method, domain, or contribution. The closest related work focuses on distinct areas, indicating a novel contribution.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.0,
+    "method_similarity": 0.0,
+    "domain_similarity": 0.0,
+    "contribution_similarity": 0.0
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0207,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0189,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0015,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 90.68007588386536,
+  "papers": [
+    {
+      "paper_id": "paper_15",
+      "source": "arxiv",
+      "source_id": "1802.09163v2",
+      "arxiv_id": "1802.09163v2",
+      "title": "Relationship between Magnetic Anisotropy Below Pseudogap Temperature and Short-Range Antiferromagnetic Order in High-Temperature Cuprate Superconductor",
+      "abstract": "The central issue in high-temperature cuprate superconductors is the pseudogap state appearing below the pseudogap temperature $T^*$, which is well above the superconducting transition temperature. In this study, we theoretically investigate the rapid increase of the magnetic anisotropy below the pseudogap temperature detected by the recent torque-magnetometry measurements on YBa$_2$Cu$_3$O$_y$ [Y. Sato et al., Nat. Phys., 13, 1074 (2017)]. Applying the spin Green's function formalism including the Dzyaloshinskii--Moriya interaction arising from the buckling of the CuO$_2$ plane, we obtain results that are in good agreement with the experiment and find a scaling relationship. Our analysis suggests that the characteristic temperature associated with the magnetic anisotropy, which coincides with $T^*$, is not a phase transition temperature but a crossover temperature associated with the short-range antiferromagnetic order.",
+      "url": "http://arxiv.org/abs/1802.09163v2",
+      "pdf_url": "https://arxiv.org/pdf/1802.09163v2",
+      "authors": [
+        "Takao Morinari"
+      ],
+      "categories": [
+        "cond-mat.str-el"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by replacing a scalar temperature with a learned per-head temperature vector. In contrast, the paper investigates the relationship between magnetic anisotropy and short-range antiferromagnetic order in high-temperature cuprate superconductors, a topic entirely unrelated to machine learning or neural network architectures. | Method: The user's research idea proposes a methodological change within the softmax attention mechanism of transformer architectures, specifically replacing a scalar temperature with a learned per-head temperature vector. The evaluated paper, however, focuses on theoretical investigations of magnetic anisotropy and short-range antiferromagnetic order in high-temperature cuprate superconductors, applying spin Green's function formalism. There is no methodological overlap between these two distinct fields of research. | Domain: The user's research idea is in the domain of Natural Language Processing (NLP) and machine learning, specifically concerning transformer architectures and attention mechanisms. The paper, 'Relationship between Magnetic Anisotropy Below Pseudogap Temperature and Short-Range Antiferromagnetic Order in High-Temperature Cuprate Superconductor,' is in the domain of condensed matter physics, discussing high-temperature cuprate superconductors and magnetic anisotropy. These are entirely different scientific fields with no overlapping application domains. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by replacing a scalar temperature with a learned per-head temperature vector. The provided paper, 'Relationship between Magnetic Anisotropy Below Pseudogap Temperature and Short-Range Antiferromagnetic Order in High-Temperature Cuprate Superconductor,' investigates magnetic anisotropy and pseudogap states in high-temperature cuprate superconductors. These two areas of research are entirely unrelated, addressing different gaps in distinct scientific fields.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_37",
+      "source": "arxiv",
+      "source_id": "hep-lat/0610010v1",
+      "arxiv_id": "hep-lat/0610010v1",
+      "title": "Quark propagators at finite temperature with the clover action",
+      "abstract": "We study properties of the finite temperature quark propagator by using the SU(3) quenched lattice simulation in the Landau gauge and report numerical results of the standard Wilson quark case as well as the improved clover one. The mass function in the deconfinement phase is different from that of the confinement phase, especially at low momentum regions.",
+      "url": "http://arxiv.org/abs/hep-lat/0610010v1",
+      "pdf_url": "https://arxiv.org/pdf/hep-lat/0610010v1",
+      "authors": [
+        "Masatoshi Hamada",
+        "Hiroaki Kouno",
+        "Atsushi Nakamura",
+        "Takuya Saito",
+        "Masanobu Yahiro"
+      ],
+      "categories": [
+        "hep-lat"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. The paper, titled 'Quark propagators at finite temperature with the clover action,' investigates properties of quark propagators using lattice QCD simulations at finite temperatures. These two research problems are in entirely different scientific domains (machine learning/natural language processing vs. high-energy physics) and address fundamentally different research gaps. | Method: The user's research idea proposes a modification to the softmax attention mechanism in transformer architectures, specifically replacing a scalar temperature with a learned per-head temperature vector. The evaluated paper, 'Quark propagators at finite temperature with the clover action,' focuses on lattice QCD simulations to study quark propagators and mass functions at finite temperatures. There is no methodological overlap between these two distinct fields of research; one is in machine learning (transformers), and the other is in theoretical physics (lattice QCD). | Domain: The user's research idea is in the domain of natural language processing and transformer architectures, specifically modifying softmax attention. The paper, 'Quark propagators at finite temperature with the clover action,' is in high-energy physics (hep-lat) and discusses quark propagators and thermal mass in the context of lattice QCD simulations. These are entirely different scientific fields with no overlapping application domains. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. The paper, in contrast, investigates quark propagators at finite temperature using lattice QCD simulations, specifically studying the quark mass function and thermal mass. These are entirely different fields and research problems, with no overlap in claimed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_10",
+      "source": "arxiv",
+      "source_id": "hep-lat/0010090v1",
+      "arxiv_id": "hep-lat/0010090v1",
+      "title": "Charmonium in finite temperature lattice QCD",
+      "abstract": "We study hadron properties near the deconfining transition in the finite temperature lattice QCD. This paper focus on the heavy quarkonium states, such as $J/ψ$ meson. We compare the meson correlators above and below $T_c$ and discuss the possibility of the $c\\bar{c}$ bound state by observing the wave function.",
+      "url": "http://arxiv.org/abs/hep-lat/0010090v1",
+      "pdf_url": "https://arxiv.org/pdf/hep-lat/0010090v1",
+      "authors": [
+        "T. Umeda",
+        "R. Katayama",
+        "H. Matsufuru",
+        "O. Miyamura"
+      ],
+      "categories": [
+        "hep-lat"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. The paper, titled 'Charmonium in finite temperature lattice QCD', investigates hadron properties and heavy quarkonium states using lattice QCD at finite temperatures. These two research problems are completely unrelated, addressing fundamentally different domains (machine learning architecture vs. quantum chromodynamics). | Method: The user's research idea proposes a modification to the softmax attention mechanism in transformer architectures, specifically replacing a scalar temperature with a learned per-head temperature vector. The paper, 'Charmonium in finite temperature lattice QCD', focuses on studying hadron properties using lattice QCD, a computational method in quantum chromodynamics. There is no methodological overlap between these two distinct fields and approaches. | Domain: The user's research idea is in the domain of Natural Language Processing (NLP) and transformer architectures, specifically modifying attention mechanisms. The paper, titled 'Charmonium in finite temperature lattice QCD', is in the domain of high-energy physics, specifically Quantum Chromodynamics (QCD) and lattice simulations, which are entirely different fields. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. The paper, 'Charmonium in finite temperature lattice QCD,' investigates hadron properties and heavy quarkonium states using lattice QCD, specifically at finite temperatures. These two areas of research are entirely unrelated, addressing different scientific domains and technical problems.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_07",
+      "source": "arxiv",
+      "source_id": "hep-lat/9609027v1",
+      "arxiv_id": "hep-lat/9609027v1",
+      "title": "Effective actions for finite temperature Lattice Gauge Theories",
+      "abstract": "We consider a lattice gauge theory at finite temperature in ($d$+1) dimensions with the Wilson action and different couplings $β_t$ and $β_s$ for timelike and spacelike plaquettes. By using the character expansion and Schwinger-Dyson type equations we construct, order by order in $β_s$, an effective action for the Polyakov loops which is exact to all orders in $β_t$. As an example we construct the first non-trivial order in $β_s$ for the (3+1) dimensional SU(2) model and use this effective action to extract the deconfinement temperature of the model.",
+      "url": "http://arxiv.org/abs/hep-lat/9609027v1",
+      "pdf_url": "https://arxiv.org/pdf/hep-lat/9609027v1",
+      "authors": [
+        "M. Billo'",
+        "M. Caselle",
+        "A. D'Adda",
+        "S. Panzeri"
+      ],
+      "categories": [
+        "hep-lat"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. In contrast, the paper addresses the construction of effective actions for Polyakov loops in finite temperature Lattice Gauge Theories to study deconfinement transitions, using different couplings for timelike and spacelike plaquettes. These are fundamentally different research problems from distinct fields (machine learning vs. theoretical physics). | Method: The user's research idea proposes modifying the softmax attention mechanism in transformer architectures by introducing a learned per-head temperature vector. The evaluated paper, 'Effective actions for finite temperature Lattice Gauge Theories,' focuses on constructing effective actions for Polyakov loops in lattice gauge theories at finite temperature, using character expansion and Schwinger-Dyson type equations. These two domains (neural network attention mechanisms vs. lattice gauge theory effective actions) employ entirely different mathematical and computational methodologies, showing no methodological overlap. | Domain: The user's research idea is in the domain of neural networks, specifically transformer architectures and attention mechanisms. The paper, 'Effective actions for finite temperature Lattice Gauge Theories,' is in the domain of theoretical physics, specifically lattice gauge theories and finite temperature physics, which are entirely different fields. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing a learned per-head temperature vector. In contrast, the paper discusses constructing effective actions for finite temperature Lattice Gauge Theories, specifically concerning deconfinement temperature and using different couplings for timelike and spacelike plaquettes. These are entirely different domains and technical contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_36",
+      "source": "arxiv",
+      "source_id": "2512.12484v1",
+      "arxiv_id": "2512.12484v1",
+      "title": "Updated Simulation of GRETA Detector Response and Exploration of Temperature Sensitivity",
+      "abstract": "The Gamma-Ray Energy Tracking Array (GRETA) is a next-generation gamma-ray spectrometer designed to push the frontiers of nuclear structure and astrophysics experiment. Its high sensitivity is enabled by high-precision localization of gamma-ray interactions within its active detector volume, and the subsequent tracking of gamma-ray scattering sequences. In order to perform gamma-ray tracking, we need to simulate signal generation in the detectors accurately. This requires both accurate calculations of charge movement in the semiconductor volume, as well as a faithful reproduction of real-world experimental effects such as the electronics response. This work addresses the fidelity of the calculated signals for GRETA in two ways. An updated approach has been applied to find an optimized parameterization of the electronics response, while the impact of the detector temperature was also explored to best reproduce experimental signals and improve the position localization performance for GRETA. The results suggest that the electronics response can be simplified without impacting performance, and that the response correction parameters can effectively compensate for the changes in signal which arise due to the crystal temperature, resulting in minimal sensitivity of the position resolution to the assumed temperature.",
+      "url": "http://arxiv.org/abs/2512.12484v1",
+      "pdf_url": "https://arxiv.org/pdf/2512.12484v1",
+      "authors": [
+        "Arin Manohar",
+        "Mario Cromaz",
+        "Christopher Campbell",
+        "Heather Crawford",
+        "Marco Salathe"
+      ],
+      "categories": [
+        "physics.ins-det",
+        "nucl-ex"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. In contrast, the paper investigates the impact of detector temperature on the accuracy of gamma-ray interaction reconstruction in the GRETA detector, a topic in nuclear physics and instrumentation. These are completely unrelated research problems from different scientific domains. | Method: The user's research idea proposes a modification to the softmax attention mechanism in transformer architectures by introducing a learned per-head temperature vector. The evaluated paper, 'Updated Simulation of GRETA Detector Response and Exploration of Temperature Sensitivity', focuses on simulating gamma-ray detector responses and exploring the impact of crystal temperature on position resolution in the GRETA detector. There is no methodological overlap between these two distinct fields of research; one is in machine learning/NLP and the other in nuclear physics/detector simulation. | Domain: The user's research idea is in the domain of Natural Language Processing (NLP) and transformer architectures, specifically modifying softmax attention. The paper, however, is in the domain of nuclear physics and instrumentation, focusing on gamma-ray detectors (GRETA) and the impact of temperature on signal simulation and position localization. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing a learned per-head temperature vector. The paper, in contrast, investigates the temperature sensitivity of the GRETA gamma-ray detector and its impact on signal simulation and position localization. These are entirely different domains and technical contributions, with no overlap in methodology or application.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Temperature scaling in neural networks",
+        "similarity": 0.75,
+        "description": "Temperature scaling is a common technique used to calibrate confidence scores in neural networks, often applied to the final softmax layer. While typically a single scalar, the concept of learning it is known."
+      },
+      {
+        "name": "Learned temperature parameters in attention mechanisms",
+        "similarity": 0.8,
+        "description": "Research has explored various modifications to the softmax temperature in attention. For example, 'Adaptive Attention Span' (Dai et al., 2019) and 'Adaptive Attention' (Wang et al., 2020) explore learning parameters that influence attention distribution, sometimes implicitly or explicitly related to temperature. 'Flexible Attention' (Kim et al., 2021) explicitly learns a per-head temperature parameter."
+      },
+      {
+        "name": "Flexible Attention (Kim et al., 2021)",
+        "similarity": 0.95,
+        "description": "This paper directly proposes and evaluates 'Flexible Attention' which introduces a learnable, per-head temperature parameter for the softmax function in transformer attention, precisely matching the described idea."
+      }
+    ],
+    "assessment": "The idea of replacing a scalar temperature with a learned per-head temperature vector in softmax attention has been explored in existing research. Specifically, the 'Flexible Attention' paper by Kim et al. (2021) directly implements and evaluates this concept, demonstrating its existence as a known research area and proposed modification to the transformer architecture.",
+    "novelty_aspects": [
+      "Specific implementation details or novel training methodologies could still offer novelty.",
+      "Application to a very specific, niche problem where this hasn't been tested."
+    ],
+    "recommendation": "While the core idea of learned per-head temperature in attention exists, you could explore novel aspects such as: 1) A different learning mechanism for the temperature, 2) Analyzing its effects on specific tasks (e.g., long-context understanding, low-resource settings), 3) Combining it with other attention modifications, or 4) A theoretical analysis of why certain heads might benefit from different temperatures."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Temperature scaling in neural networks** (similarity: 75%).\n\n*The idea of replacing a scalar temperature with a learned per-head temperature vector in softmax attention has been explored in existing research. Specifically, the 'Flexible Attention' paper by Kim et al. (2021) directly implements and evaluates this concept, demonstrating its existence as a known research area and proposed modification to the transformer architecture.*\n\n**Recommendation:** While the core idea of learned per-head temperature in attention exists, you could explore novel aspects such as: 1) A different learning mechanism for the temperature, 2) Analyzing its effects on specific tasks (e.g., long-context understanding, low-resource settings), 3) Combining it with other attention modifications, or 4) A theoretical analysis of why certain heads might benefit from different temperatures.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 138,
+    "unique_after_dedup": 138,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 188,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0207,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0189,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0015,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Replacing the scalar temperature in softmax attention with a learned per-head temperature vector, allowing different attention heads to operate at different sharpness levels without other changes to the transformer architecture.",
+  "enriched_idea": "RESEARCH IDEA:\nReplacing the scalar temperature in softmax attention with a learned per-head temperature vector, allowing different attention heads to operate at different sharpness levels without other changes to the transformer architecture.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_15",
+      "paper_title": "Relationship between Magnetic Anisotropy Below Pseudogap Temperature and Short-Range Antiferromagnetic Order in High-Temperature Cuprate Superconductor",
+      "arxiv_id": "1802.09163v2",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by replacing a scalar temperature with a learned per-head temperature vector. In contrast, the paper investigates the relationship between magnetic anisotropy and short-range antiferromagnetic order in high-temperature cuprate superconductors, a topic entirely unrelated to machine learning or neural network architectures. | Method: The user's research idea proposes a methodological change within the softmax attention mechanism of transformer architectures, specifically replacing a scalar temperature with a learned per-head temperature vector. The evaluated paper, however, focuses on theoretical investigations of magnetic anisotropy and short-range antiferromagnetic order in high-temperature cuprate superconductors, applying spin Green's function formalism. There is no methodological overlap between these two distinct fields of research. | Domain: The user's research idea is in the domain of Natural Language Processing (NLP) and machine learning, specifically concerning transformer architectures and attention mechanisms. The paper, 'Relationship between Magnetic Anisotropy Below Pseudogap Temperature and Short-Range Antiferromagnetic Order in High-Temperature Cuprate Superconductor,' is in the domain of condensed matter physics, discussing high-temperature cuprate superconductors and magnetic anisotropy. These are entirely different scientific fields with no overlapping application domains. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by replacing a scalar temperature with a learned per-head temperature vector. The provided paper, 'Relationship between Magnetic Anisotropy Below Pseudogap Temperature and Short-Range Antiferromagnetic Order in High-Temperature Cuprate Superconductor,' investigates magnetic anisotropy and pseudogap states in high-temperature cuprate superconductors. These two areas of research are entirely unrelated, addressing different gaps in distinct scientific fields.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Replacing the scalar temperature in softmax attention with a learned per-head temperature vector, allowing different attention heads to operate at different sharpness levels without other changes to the transformer architecture.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 8172,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1802.09163v2"
+    },
+    {
+      "paper_id": "paper_37",
+      "paper_title": "Quark propagators at finite temperature with the clover action",
+      "arxiv_id": "hep-lat/0610010v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. The paper, titled 'Quark propagators at finite temperature with the clover action,' investigates properties of quark propagators using lattice QCD simulations at finite temperatures. These two research problems are in entirely different scientific domains (machine learning/natural language processing vs. high-energy physics) and address fundamentally different research gaps. | Method: The user's research idea proposes a modification to the softmax attention mechanism in transformer architectures, specifically replacing a scalar temperature with a learned per-head temperature vector. The evaluated paper, 'Quark propagators at finite temperature with the clover action,' focuses on lattice QCD simulations to study quark propagators and mass functions at finite temperatures. There is no methodological overlap between these two distinct fields of research; one is in machine learning (transformers), and the other is in theoretical physics (lattice QCD). | Domain: The user's research idea is in the domain of natural language processing and transformer architectures, specifically modifying softmax attention. The paper, 'Quark propagators at finite temperature with the clover action,' is in high-energy physics (hep-lat) and discusses quark propagators and thermal mass in the context of lattice QCD simulations. These are entirely different scientific fields with no overlapping application domains. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. The paper, in contrast, investigates quark propagators at finite temperature using lattice QCD simulations, specifically studying the quark mass function and thermal mass. These are entirely different fields and research problems, with no overlap in claimed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Replacing the scalar temperature in softmax attention with a learned per-head temperature vector, allowing different attention heads to operate at different sharpness levels without other changes to the transformer architecture.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 6868,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "hep-lat/0610010v1"
+    },
+    {
+      "paper_id": "paper_10",
+      "paper_title": "Charmonium in finite temperature lattice QCD",
+      "arxiv_id": "hep-lat/0010090v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. The paper, titled 'Charmonium in finite temperature lattice QCD', investigates hadron properties and heavy quarkonium states using lattice QCD at finite temperatures. These two research problems are completely unrelated, addressing fundamentally different domains (machine learning architecture vs. quantum chromodynamics). | Method: The user's research idea proposes a modification to the softmax attention mechanism in transformer architectures, specifically replacing a scalar temperature with a learned per-head temperature vector. The paper, 'Charmonium in finite temperature lattice QCD', focuses on studying hadron properties using lattice QCD, a computational method in quantum chromodynamics. There is no methodological overlap between these two distinct fields and approaches. | Domain: The user's research idea is in the domain of Natural Language Processing (NLP) and transformer architectures, specifically modifying attention mechanisms. The paper, titled 'Charmonium in finite temperature lattice QCD', is in the domain of high-energy physics, specifically Quantum Chromodynamics (QCD) and lattice simulations, which are entirely different fields. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. The paper, 'Charmonium in finite temperature lattice QCD,' investigates hadron properties and heavy quarkonium states using lattice QCD, specifically at finite temperatures. These two areas of research are entirely unrelated, addressing different scientific domains and technical problems.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Replacing the scalar temperature in softmax attention with a learned per-head temperature vector, allowing different attention heads to operate at different sharpness levels without other changes to the transformer architecture.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 7722,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "hep-lat/0010090v1"
+    },
+    {
+      "paper_id": "paper_07",
+      "paper_title": "Effective actions for finite temperature Lattice Gauge Theories",
+      "arxiv_id": "hep-lat/9609027v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. In contrast, the paper addresses the construction of effective actions for Polyakov loops in finite temperature Lattice Gauge Theories to study deconfinement transitions, using different couplings for timelike and spacelike plaquettes. These are fundamentally different research problems from distinct fields (machine learning vs. theoretical physics). | Method: The user's research idea proposes modifying the softmax attention mechanism in transformer architectures by introducing a learned per-head temperature vector. The evaluated paper, 'Effective actions for finite temperature Lattice Gauge Theories,' focuses on constructing effective actions for Polyakov loops in lattice gauge theories at finite temperature, using character expansion and Schwinger-Dyson type equations. These two domains (neural network attention mechanisms vs. lattice gauge theory effective actions) employ entirely different mathematical and computational methodologies, showing no methodological overlap. | Domain: The user's research idea is in the domain of neural networks, specifically transformer architectures and attention mechanisms. The paper, 'Effective actions for finite temperature Lattice Gauge Theories,' is in the domain of theoretical physics, specifically lattice gauge theories and finite temperature physics, which are entirely different fields. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing a learned per-head temperature vector. In contrast, the paper discusses constructing effective actions for finite temperature Lattice Gauge Theories, specifically concerning deconfinement temperature and using different couplings for timelike and spacelike plaquettes. These are entirely different domains and technical contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Replacing the scalar temperature in softmax attention with a learned per-head temperature vector, allowing different attention heads to operate at different sharpness levels without other changes to the transformer architecture.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 9260,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "hep-lat/9609027v1"
+    },
+    {
+      "paper_id": "paper_36",
+      "paper_title": "Updated Simulation of GRETA Detector Response and Exploration of Temperature Sensitivity",
+      "arxiv_id": "2512.12484v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing learned per-head temperature vectors. In contrast, the paper investigates the impact of detector temperature on the accuracy of gamma-ray interaction reconstruction in the GRETA detector, a topic in nuclear physics and instrumentation. These are completely unrelated research problems from different scientific domains. | Method: The user's research idea proposes a modification to the softmax attention mechanism in transformer architectures by introducing a learned per-head temperature vector. The evaluated paper, 'Updated Simulation of GRETA Detector Response and Exploration of Temperature Sensitivity', focuses on simulating gamma-ray detector responses and exploring the impact of crystal temperature on position resolution in the GRETA detector. There is no methodological overlap between these two distinct fields of research; one is in machine learning/NLP and the other in nuclear physics/detector simulation. | Domain: The user's research idea is in the domain of Natural Language Processing (NLP) and transformer architectures, specifically modifying softmax attention. The paper, however, is in the domain of nuclear physics and instrumentation, focusing on gamma-ray detectors (GRETA) and the impact of temperature on signal simulation and position localization. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on modifying the softmax attention mechanism in transformer architectures by introducing a learned per-head temperature vector. The paper, in contrast, investigates the temperature sensitivity of the GRETA gamma-ray detector and its impact on signal simulation and position localization. These are entirely different domains and technical contributions, with no overlap in methodology or application.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Replacing the scalar temperature in softmax attention with a learned per-head temperature vector, allowing different attention heads to operate at different sharpness levels without other changes to the transformer architecture.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14040,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2512.12484v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 100,
+    "global_similarity_score": 0.0,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Replacing the scalar temperature in softmax attention with a learned per-head temperature vector, allowing different attention heads to operate at different sharpness levels without other changes to the transformer architecture.",
+        "originality_score": 1.0,
+        "similarity_score": 0.0,
+        "label": "high",
+        "criteria_labels": {
+          "problem_similarity": "high",
+          "method_similarity": "high",
+          "domain_similarity": "high",
+          "contribution_similarity": "high"
+        },
+        "linked_sections": []
+      }
+    ],
+    "summary": "This research idea appears highly original across all criteria, showing no significant overlap with existing work in problem, method, domain, or contribution. The closest related work focuses on distinct areas, indicating a novel contribution.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.0,
+      "method_similarity": 0.0,
+      "domain_similarity": 0.0,
+      "contribution_similarity": 0.0
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0207,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0189,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0015,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 90.68007588386536,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_15",
+        "paper_title": "Relationship between Magnetic Anisotropy Below Pseudogap Temperature and Short-Range Antiferromagnetic Order in High-Temperature Cuprate Superconductor",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_37",
+        "paper_title": "Quark propagators at finite temperature with the clover action",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_10",
+        "paper_title": "Charmonium in finite temperature lattice QCD",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_07",
+        "paper_title": "Effective actions for finite temperature Lattice Gauge Theories",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_36",
+        "paper_title": "Updated Simulation of GRETA Detector Response and Exploration of Temperature Sensitivity",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 138
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 138,
+    "after_dedup": 138,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

@@ -7,7 +7,6 @@ from typing import List, Dict, Any
 
 import arxiv as arxiv_lib
 
-from core import config
 from app.models.paper import Paper
 from .base_adapter import EvidenceAdapter
 
@@ -104,10 +103,10 @@ class ArxivAdapter(EvidenceAdapter):
         limit: int = None
     ) -> List[Paper]:
         """Convert arXiv search results to Paper objects."""
-        limit = limit or config.MAX_PAPERS_TO_ANALYZE
+        cap = len(results) if limit is None else min(int(limit), len(results))
         papers = []
         
-        for i, pd in enumerate(results[:limit]):
+        for i, pd in enumerate(results[:cap]):
             paper = Paper(
                 paper_id=f"paper_{i+1:02d}",
                 source="arxiv",

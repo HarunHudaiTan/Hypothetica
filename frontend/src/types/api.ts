@@ -9,6 +9,8 @@ export interface EvidenceSelection {
 export interface AnalyzeRequest {
   user_idea: string;
   papers_per_query: number;
+  /** Raw hits kept per search query variant (arXiv, patents, …) before dedup. */
+  papers_per_variant_conversion: number;
   embedding_topk: number;
   rerank_topk: number;
   final_papers: number;
@@ -133,6 +135,8 @@ export interface AnalysisResults {
   github_result?: GitHubAnalysis | null;
   stats?: {
     query_variants: number;
+    query_variants_list?: Array<{ type?: string; query: string }>;
+    query_variant_strings?: string[];
     total_fetched: number;
     unique_after_dedup: number;
     after_rerank: number;
@@ -161,6 +165,7 @@ export interface JobStatusResponse {
 
 export interface PipelineSettings {
   papers_per_query: number;
+  papers_per_variant_conversion: number;
   embedding_topk: number;
   rerank_topk: number;
   final_papers: number;

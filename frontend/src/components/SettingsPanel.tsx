@@ -57,13 +57,23 @@ export default function SettingsPanel({ settings, onChange, disabled }: Props) {
       </h3>
 
       <Slider
-        label="Papers per query"
+        label="Papers per query (budget)"
         value={settings.papers_per_query}
         min={50}
         max={300}
         step={50}
-        help="Raw results to retrieve per query variant from the selected evidence source"
+        help="Drives minimum fetch size (÷4 for multi-variant split); combined with the next control"
         onChange={(v) => update("papers_per_query", v)}
+        disabled={disabled}
+      />
+      <Slider
+        label="Papers per variant (kept)"
+        value={settings.papers_per_variant_conversion}
+        min={10}
+        max={200}
+        step={5}
+        help="How many papers to keep from each search query variant before deduplication"
+        onChange={(v) => update("papers_per_variant_conversion", v)}
         disabled={disabled}
       />
       <Slider

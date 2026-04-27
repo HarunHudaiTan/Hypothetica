@@ -1,0 +1,975 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "100fe2e30e20",
+    "status": "completed"
+  },
+  "originality_score": 95,
+  "global_similarity_score": 0.21000000000000002,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "medium",
+        "domain_similarity": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+          "heading": "ABSTRACT",
+          "text_snippet": "Motivation: Computational prediction of multiple-type drug-drug interaction (DDI) helps reduce unexpected side effects in poly-drug treatments.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper address the problem of drug-drug interaction (DDI) prediction to reduce side effects. The user's idea focuses on using real-world prescription patterns, while the paper focuses on substructure-aware prediction.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_03",
+          "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+          "heading": "Introduction",
+          "text_snippet": "The fourth and last research area includes network-based approaches where, the algorithms extract information from graphs and networks describing drug data.",
+          "similarity": 0.5,
+          "reason": "The user's idea proposes a 'graph-based' model and 'co-prescription networks', which aligns with the 'network-based approaches' discussed in the paper's introduction as a category of DDI research.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_03",
+          "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+          "heading": "ABSTRACT",
+          "text_snippet": "It is a common practice in modern medicine to prescribe multiple medications simultaneously to treat diseases. However, these medications could have adverse reactions between them, known as Drug-Drug Interactions (DDI), which have the potential to cause significant bodily injury and could even be fatal. Hence, it is essential to identify all the DDI events before prescribing multiple drugs to a patient.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are squarely focused on the domain of Drug-Drug Interaction (DDI) prediction within medicine and pharmacology.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_03",
+          "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+          "heading": "ABSTRACT",
+          "text_snippet": "In this study, we propose a KG-integrated Transformer architecture to generate an end-to-end fully automated Machine Learning pipeline for predicting DDI events with high accuracy.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper aim to contribute a model for predicting DDI events. The user proposes a 'graph-based drug-drug interaction prediction model' and the paper proposes a 'KG-integrated Transformer model for accurately predicting Drug-Drug Interaction Events'. While the specific methods differ, the overarching contribution of a DDI prediction model is shared.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research demonstrates high originality, particularly in its unique contribution and proposed methodology. While the problem and domain show some overlap with existing work, focusing on how your novel method addresses these familiar areas will strengthen your differentiation.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.84,
+    "method_similarity": 0.21,
+    "domain_similarity": 0.9,
+    "contribution_similarity": 0.0
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.043,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0405,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0023,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 220.54379796981812,
+  "papers": [
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "2412.05770v1",
+      "arxiv_id": "2412.05770v1",
+      "title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+      "abstract": "It is a common practice in modern medicine to prescribe multiple medications simultaneously to treat diseases. However, these medications could have adverse reactions between them, known as Drug-Drug Interactions (DDI), which have the potential to cause significant bodily injury and could even be fatal. Hence, it is essential to identify all the DDI events before prescribing multiple drugs to a patient. Most contemporary research for predicting DDI events relies on either information from Biomedical Knowledge graphs (KG) or drug SMILES, with very few managing to merge data from both to make predictions. While others use heuristic algorithms to extract features from SMILES and KGs, which are then fed into a Deep Learning framework to generate output. In this study, we propose a KG-integrated Transformer architecture to generate an end-to-end fully automated Machine Learning pipeline for predicting DDI events with high accuracy. The algorithm takes full-scale molecular SMILES sequences of a pair of drugs and a biomedical KG as input and predicts the interaction between the two drugs with high precision. The results show superior performance in two different benchmark datasets compared to existing state-of-the-art models especially when the test and training sets contain distinct sets of drug molecules. This demonstrates the strong generalization of the proposed model, indicating its potential for DDI event prediction for newly developed drugs. The model does not depend on heuristic models for generating embeddings and has a minimal number of hyperparameters, making it easy to use while demonstrating outstanding performance in low-data scenarios.",
+      "url": "http://arxiv.org/abs/2412.05770v1",
+      "pdf_url": "https://arxiv.org/pdf/2412.05770v1",
+      "authors": [
+        "Azwad Tamir",
+        "Jiann-Shiun Yuan"
+      ],
+      "categories": [
+        "cs.LG",
+        "q-bio.BM"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.32499999999999996,
+      "reason": "Problem: The user's research idea is 'A graph-based drug-drug interaction prediction model'. The paper's abstract states its purpose is 'accurately predicting Drug-Drug Interaction Events' and the introduction emphasizes the need for 'computational methods in order to construct algorithmic models for predicting DDI events'. Both the user's idea and the paper are directly focused on the problem of predicting drug-drug interactions. | Method: Both the user's idea and the paper propose graph-based models for DDI prediction. However, the paper uses a 'Biomedical Knowledge Graph' and drug SMILES as input, processed by a 'KG-integrated Transformer architecture', whereas the user's idea focuses on constructing 'co-prescription networks' from 'patient electronic health records' and using 'real-world prescription patterns as weak supervision signals'. | Domain: Both the user's research idea and the paper focus on the same specific application area: drug-drug interaction (DDI) prediction. The paper explicitly states its goal is 'predicting DDI events' and the user's idea is a 'drug-drug interaction prediction model'. Both use graph-based approaches, with the paper utilizing a 'Biomedical Knowledge graph' and the user proposing 'co-prescription networks'. | Contribution: The user's idea proposes a graph-based model using patient electronic health records to construct co-prescription networks and treat real-world prescription patterns as weak supervision signals. In contrast, the paper's KITE-DDI model integrates information from Biomedical Knowledge Graphs and drug SMILES representations to predict DDI events, without mentioning patient EHRs or co-prescription networks.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2111.05708v2",
+      "arxiv_id": "2111.05708v2",
+      "title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+      "abstract": "Motivation: Computational prediction of multiple-type drug-drug interaction (DDI) helps reduce unexpected side effects in poly-drug treatments. Although existing computational approaches achieve inspiring results, they ignore that the action of a drug is mainly caused by its chemical substructures. In addition, their interpretability is still weak. Results: In this paper, by supposing that the interactions between two given drugs are caused by their local chemical structures (sub-structures) and their DDI types are determined by the linkages between different substructure sets, we design a novel Substructure-ware Tensor Neural Network model for DDI prediction (STNN-DDI). The proposed model learns a 3-D tensor of (substructure, in-teraction type, substructure) triplets, which characterizes a substructure-substructure interaction (SSI) space. According to a list of predefined substructures with specific chemical meanings, the mapping of drugs into this SSI space enables STNN-DDI to perform the multiple-type DDI prediction in both transductive and inductive scenarios in a unified form with an explicable manner. The compar-ison with deep learning-based state-of-the-art baselines demonstrates the superiority of STNN-DDI with the significant improvement of AUC, AUPR, Accuracy, and Precision. More importantly, case studies illustrate its interpretability by both revealing a crucial sub-structure pair across drugs regarding a DDI type of interest and uncovering interaction type-specific substructure pairs in a given DDI. In summary, STNN-DDI provides an effective approach to predicting DDIs as well as explaining the interaction mechanisms among drugs.",
+      "url": "http://arxiv.org/abs/2111.05708v2",
+      "pdf_url": "https://arxiv.org/pdf/2111.05708v2",
+      "authors": [
+        "Hui Yu",
+        "ShiYu Zhao",
+        "JianYu Shi"
+      ],
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.25,
+      "reason": "Problem: Both the user's idea and the paper address the problem of drug-drug interaction (DDI) prediction. However, the paper focuses on predicting multiple-type DDIs based on chemical substructures and their interactions, aiming for interpretability and handling inductive scenarios. The user's idea, while also graph-based for DDI prediction, specifically proposes using patient electronic health records to construct co-prescription networks and treating real-world prescription patterns as weak supervision signals, which is a different approach and data source than the chemical structure focus of the paper. | Method: The user's idea proposes a graph-based model using patient electronic health records to construct co-prescription networks and weak supervision signals. In contrast, the paper proposes STNN-DDI, a substructure-aware tensor neural network that focuses on chemical substructures of drugs and their interactions, using predefined substructures like PubChem fingerprints. While both are computational methods for DDI prediction, the core data sources (EHR vs. chemical substructures) and the specific modeling approaches (co-prescription networks with weak supervision vs. substructure-aware tensor neural networks) are distinct. | Domain: Both the user's research idea and the paper focus on the same specific application area: drug-drug interaction (DDI) prediction. The paper explicitly states its goal is 'Computational prediction of multiple-type drug-drug interaction (DDI) helps reduce unexpected side effects in poly-drug treatments,' which directly aligns with the user's aim of a 'graph-based drug-drug interaction prediction model.' | Contribution: The user's research idea focuses on a graph-based model using patient electronic health records (EHRs) to construct co-prescription networks and leverage real-world prescription patterns as weak supervision. In contrast, the paper 'STNN-DDI' proposes a substructure-aware tensor neural network for DDI prediction, primarily using chemical substructures and a 3-D tensor to characterize substructure-substructure interactions. The methodologies and data sources (EHRs vs. chemical substructures) are fundamentally different, addressing distinct aspects of DDI prediction.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_20",
+      "source": "arxiv",
+      "source_id": "1811.00208v1",
+      "arxiv_id": "1811.00208v1",
+      "title": "Multi-Label Robust Factorization Autoencoder and its Application in Predicting Drug-Drug Interactions",
+      "abstract": "Drug-drug interactions (DDIs) are a major cause of preventable hospitalizations and deaths. Predicting the occurrence of DDIs helps drug safety professionals allocate investigative resources and take appropriate regulatory action promptly. Traditional DDI prediction methods predict DDIs based on the similarity between drugs. Recently, researchers revealed that predictive performance can be improved by better modeling the interactions between drug pairs with bilinear forms. However, the shallow models leveraging bilinear forms suffer from limitations on capturing complicated nonlinear interactions between drug pairs. To this end, we propose Multi-Label Robust Factorization Autoencoder (abbreviated to MuLFA) for DDI prediction, which learns a representation of interactions between drug pairs and has the capability of characterizing complicated nonlinear interactions more precisely. Moreover, a novel loss called CuXCov is designed to effectively learn the parameters of MuLFA. Furthermore, the decoder is able to generate high-risk chemical structures of drug pairs for specific DDIs, assisting pharmacists to better understand the relationship between drug chemistry and DDI. Experimental results on real-world datasets demonstrate that MuLFA consistently outperforms state-of-the-art methods; particularly, it increases 21:3% predictive performance compared to the best baseline for top 50 frequent DDIs.We also illustrate various case studies to demonstrate the efficacy of the chemical structures generated by MuLFA in DDI diagnosis.",
+      "url": "http://arxiv.org/abs/1811.00208v1",
+      "pdf_url": "https://arxiv.org/pdf/1811.00208v1",
+      "authors": [
+        "Xu Chu",
+        "Yang Lin",
+        "Jingyue Gao",
+        "Jiangtao Wang",
+        "Yasha Wang",
+        "Leye Wang"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.175,
+      "reason": "Problem: Both the user's idea and the paper address the problem of drug-drug interaction (DDI) prediction. However, the paper focuses on predicting DDI types based on drug features like chemical structures, aiming to characterize complicated nonlinear interactions. The user's idea, while also predicting DDIs, specifically proposes using patient electronic health records to construct co-prescription networks and treat real-world prescription patterns as weak supervision signals, which is a different approach and data source for the prediction. | Method: The user's research idea proposes a graph-based model using co-prescription networks from electronic health records and real-world prescription patterns as weak supervision. In contrast, the paper proposes a Multi-Label Robust Factorization Autoencoder (MuLFA) for DDI prediction, primarily based on drug chemical structures and leveraging a novel CuXCov loss. There is no mention of graph-based methods, co-prescription networks, electronic health records, or weak supervision signals in the provided paper content. | Domain: Both the user's research idea and the paper are focused on the specific application domain of 'drug-drug interaction prediction'. The paper's abstract explicitly states its goal is 'Predicting the occurrence of DDIs' and the introduction defines the problem as 'Predicting the occurrence of different types of DDIs between a pair of drugs'. This directly aligns with the user's idea of a 'drug-drug interaction prediction model'. | Contribution: The user's idea proposes a graph-based model using patient electronic health records to construct co-prescription networks and treat prescription patterns as weak supervision. In contrast, the paper proposes a Multi-Label Robust Factorization Autoencoder (MuLFA) for DDI prediction, primarily based on drug chemical structures and leveraging a novel loss function (CuXCov) to learn representations and generate high-risk chemical structures. The methodologies, data sources (EHR vs. chemical structures), and specific technical contributions are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_14",
+      "source": "arxiv",
+      "source_id": "1912.10364v3",
+      "arxiv_id": "1912.10364v3",
+      "title": "Learning to Impute: A General Framework for Semi-supervised Learning",
+      "abstract": "Recent semi-supervised learning methods have shown to achieve comparable results to their supervised counterparts while using only a small portion of labels in image classification tasks thanks to their regularization strategies. In this paper, we take a more direct approach for semi-supervised learning and propose learning to impute the labels of unlabeled samples such that a network achieves better generalization when it is trained on these labels. We pose the problem in a learning-to-learn formulation which can easily be incorporated to the state-of-the-art semi-supervised techniques and boost their performance especially when the labels are limited. We demonstrate that our method is applicable to both classification and regression problems including image classification and facial landmark detection tasks.",
+      "url": "http://arxiv.org/abs/1912.10364v3",
+      "pdf_url": "https://arxiv.org/pdf/1912.10364v3",
+      "authors": [
+        "Wei-Hong Li",
+        "Chuan-Sheng Foo",
+        "Hakan Bilen"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on predicting drug-drug interactions using graph-based models and electronic health records, treating prescription patterns as weak supervision. The paper, 'Learning to Impute: A General Framework for Semi-supervised Learning,' addresses the problem of improving semi-supervised learning by learning to impute labels for unlabeled data, primarily in image classification, facial landmark detection, and text classification tasks. These are fundamentally different research problems with distinct goals and application domains. | Method: Both the user's idea and the paper utilize semi-supervised learning. However, the user's idea specifically proposes a graph-based model for drug-drug interaction prediction using co-prescription networks and 'weak supervision signals,' while the paper presents a general 'learning to impute' framework for semi-supervised learning, primarily demonstrated on image classification, facial landmark detection, and text classification tasks, without mentioning graph-based methods or drug-drug interactions. | Domain: The user's research idea is in the domain of drug-drug interaction prediction using electronic health records, which falls under bioinformatics or medical informatics. The paper, however, focuses on general semi-supervised learning frameworks applied to image classification, facial landmark detection, and text classification, with no mention of healthcare, drug interactions, or patient data. | Contribution: The user's research idea proposes a graph-based model for drug-drug interaction prediction using co-prescription networks from EHRs and weak supervision. The paper, 'Learning to Impute: A General Framework for Semi-supervised Learning,' focuses on a meta-learning approach to impute labels for semi-supervised learning in general classification and regression tasks (e.g., image, text, facial landmark detection). There is no overlap in the specific problem domain, methodology (graph-based vs. meta-learning for label imputation), or claimed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_24",
+      "source": "arxiv",
+      "source_id": "2502.06890v1",
+      "arxiv_id": "2502.06890v1",
+      "title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+      "abstract": "The increasing volume of drug combinations in modern therapeutic regimens needs reliable methods for predicting drug-drug interactions (DDIs). While Large Language Models (LLMs) have revolutionized various domains, their potential in pharmaceutical research, particularly in DDI prediction, remains largely unexplored. This study thoroughly investigates LLMs' capabilities in predicting DDIs by uniquely processing molecular structures (SMILES), target organisms, and gene interaction data as raw text input from the latest DrugBank dataset. We evaluated 18 different LLMs, including proprietary models (GPT-4, Claude, Gemini) and open-source variants (from 1.5B to 72B parameters), first assessing their zero-shot capabilities in DDI prediction. We then fine-tuned selected models (GPT-4, Phi-3.5 2.7B, Qwen-2.5 3B, Gemma-2 9B, and Deepseek R1 distilled Qwen 1.5B) to optimize their performance. Our comprehensive evaluation framework included validation across 13 external DDI datasets, comparing against traditional approaches such as l2-regularized logistic regression. Fine-tuned LLMs demonstrated superior performance, with Phi-3.5 2.7B achieving a sensitivity of 0.978 in DDI prediction, with an accuracy of 0.919 on balanced datasets (50% positive, 50% negative cases). This result represents an improvement over both zero-shot predictions and state-of-the-art machine-learning methods used for DDI prediction. Our analysis reveals that LLMs can effectively capture complex molecular interaction patterns and cases where drug pairs target common genes, making them valuable tools for practical applications in pharmaceutical research and clinical settings.",
+      "url": "http://arxiv.org/abs/2502.06890v1",
+      "pdf_url": "https://arxiv.org/pdf/2502.06890v1",
+      "authors": [
+        "Gabriele De Vito",
+        "Filomena Ferrucci",
+        "Athanasios Angelakis"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "q-bio.QM"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.225,
+      "reason": "Problem: Both the user's research idea and the paper address the problem of 'drug-drug interaction prediction'. The paper explicitly states, 'This study thoroughly investigates LLMs' capabilities in predicting DDIs' and 'predicting potential DDIs before clinical use is crucial for patient safety'. This directly aligns with the core problem of the user's idea. | Method: The user's idea proposes a graph-based model using co-prescription networks from EHRs with weak supervision. In contrast, the paper focuses on using Large Language Models (LLMs) to predict DDIs by processing molecular structures, target organisms, and gene interaction data as raw text input from DrugBank. There is no mention of graph-based methods, co-prescription networks, EHRs, or weak supervision in the paper's methodology. | Domain: Both the user's idea and the paper focus on drug-drug interaction (DDI) prediction, which is a closely related application target within the same sub-area of pharmaceutical research. The paper explicitly mentions 'DDI prediction' multiple times and discusses its 'practical applications in pharmaceutical research and clinical settings,' aligning with the user's goal. | Contribution: The user's idea proposes a graph-based model using patient electronic health records and co-prescription networks as weak supervision signals. In contrast, the paper focuses on evaluating LLMs for DDI prediction, processing molecular structures (SMILES), target organisms, and gene interaction data as raw text input from DrugBank. The methodologies and data sources are fundamentally different, addressing distinct technical gaps.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.9,
+    "existing_examples": [
+      {
+        "name": "Drug-Drug Interaction (DDI) Prediction Models (General)",
+        "similarity": 0.85,
+        "description": "Numerous research efforts and some commercial tools exist for DDI prediction, using various data sources (chemical structures, protein targets, side effects, literature) and methodologies (machine learning, network analysis, knowledge graphs)."
+      },
+      {
+        "name": "Graph Neural Networks (GNNs) for DDI Prediction",
+        "similarity": 0.75,
+        "description": "The application of graph-based methods, including GNNs, to model drug interactions is a well-established research area. Drugs are often represented as nodes in a graph, with interactions as edges, or features derived from graphs."
+      },
+      {
+        "name": "EHR-based DDI Detection/Prediction",
+        "similarity": 0.8,
+        "description": "Many studies leverage Electronic Health Records (EHRs) to identify or predict DDIs. This often involves analyzing co-prescription patterns, adverse event reporting, and patient outcomes within large EHR datasets."
+      },
+      {
+        "name": "Weak Supervision in Biomedical NLP/ML",
+        "similarity": 0.65,
+        "description": "The concept of using 'weak supervision' (e.g., co-occurrence, heuristic rules, distant supervision) to train models when strong labels are scarce is common in biomedical machine learning, including for relation extraction and knowledge graph construction."
+      },
+      {
+        "name": "Drug Co-prescription Networks",
+        "similarity": 0.8,
+        "description": "Constructing networks based on drugs prescribed together in patient cohorts is a standard approach in pharmacoepidemiology and for identifying potential DDIs or drug combinations."
+      }
+    ],
+    "assessment": "The proposed idea combines several well-established research areas and methodologies in bioinformatics, medical informatics, and machine learning. Specifically, using graph-based models (like GNNs) for drug-drug interaction prediction is a very active research field. Leveraging Electronic Health Records (EHRs) to derive co-prescription networks and using these patterns as 'weak supervision signals' for learning drug embeddings is also a recognized and explored approach to address the data sparsity and labeling challenges in DDI prediction. While the exact combination of 'graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings' might not be found as a single, identically named product, each component and their synergistic application for DDI prediction is extensively covered in academic literature and has seen various implementations.",
+    "novelty_aspects": [
+      "Specific architecture of the graph model (e.g., novel GNN variant tailored for this task)",
+      "Unique method for constructing the co-prescription network or defining 'weak supervision' signals",
+      "Novel embedding technique for drug compatibility that goes beyond existing methods",
+      "Integration with a specific, large-scale, and diverse EHR dataset that offers unique insights"
+    ],
+    "recommendation": "This idea describes a well-trodden path in DDI research. To make it novel, focus on a specific, innovative contribution within one or more of its components. For example, develop a new graph neural network architecture specifically designed to capture subtle DDI signals from noisy EHR data, or propose a novel way to quantify 'compatibility' from co-prescription patterns that outperforms existing weak supervision methods. Clearly articulate what makes your approach distinct and superior to existing methods in terms of accuracy, interpretability, or generalizability."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Drug-Drug Interaction (DDI) Prediction Models (General)** (similarity: 85%).\n\n*The proposed idea combines several well-established research areas and methodologies in bioinformatics, medical informatics, and machine learning. Specifically, using graph-based models (like GNNs) for drug-drug interaction prediction is a very active research field. Leveraging Electronic Health Records (EHRs) to derive co-prescription networks and using these patterns as 'weak supervision signals' for learning drug embeddings is also a recognized and explored approach to address the data sparsity and labeling challenges in DDI prediction. While the exact combination of 'graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings' might not be found as a single, identically named product, each component and their synergistic application for DDI prediction is extensively covered in academic literature and has seen various implementations.*\n\n**Recommendation:** This idea describes a well-trodden path in DDI research. To make it novel, focus on a specific, innovative contribution within one or more of its components. For example, develop a new graph neural network architecture specifically designed to capture subtle DDI signals from noisy EHR data, or propose a novel way to quantify 'compatibility' from co-prescription patterns that outperforms existing weak supervision methods. Clearly articulate what makes your approach distinct and superior to existing methods in terms of accuracy, interpretability, or generalizability.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 108,
+    "unique_after_dedup": 108,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 562,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.043,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0405,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0023,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+  "enriched_idea": "RESEARCH IDEA:\nA graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_03",
+      "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+      "arxiv_id": "2412.05770v1",
+      "paper_similarity_score": 0.32499999999999996,
+      "reason": "Problem: The user's research idea is 'A graph-based drug-drug interaction prediction model'. The paper's abstract states its purpose is 'accurately predicting Drug-Drug Interaction Events' and the introduction emphasizes the need for 'computational methods in order to construct algorithmic models for predicting DDI events'. Both the user's idea and the paper are directly focused on the problem of predicting drug-drug interactions. | Method: Both the user's idea and the paper propose graph-based models for DDI prediction. However, the paper uses a 'Biomedical Knowledge Graph' and drug SMILES as input, processed by a 'KG-integrated Transformer architecture', whereas the user's idea focuses on constructing 'co-prescription networks' from 'patient electronic health records' and using 'real-world prescription patterns as weak supervision signals'. | Domain: Both the user's research idea and the paper focus on the same specific application area: drug-drug interaction (DDI) prediction. The paper explicitly states its goal is 'predicting DDI events' and the user's idea is a 'drug-drug interaction prediction model'. Both use graph-based approaches, with the paper utilizing a 'Biomedical Knowledge graph' and the user proposing 'co-prescription networks'. | Contribution: The user's idea proposes a graph-based model using patient electronic health records to construct co-prescription networks and treat real-world prescription patterns as weak supervision signals. In contrast, the paper's KITE-DDI model integrates information from Biomedical Knowledge Graphs and drug SMILES representations to predict DDI events, without mentioning patient EHRs or co-prescription networks.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.5499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+              "heading": "Introduction",
+              "text_snippet": "The fourth and last research area includes network-based approaches where, the algorithms extract information from graphs and networks describing drug data.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'graph-based' model and 'co-prescription networks', which aligns with the 'network-based approaches' discussed in the paper's introduction as a category of DDI research.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this study, we propose a KG-integrated Transformer architecture to generate an end-to-end fully automated Machine Learning pipeline for predicting DDI events with high accuracy.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper propose a 'prediction model' for DDI events using a machine learning approach. The user specifies 'graph-based' and 'learning drug compatibility embeddings', while the paper uses a 'KG-integrated Transformer architecture' and 'extract the entity features using the TransE algorithm' to generate embeddings, indicating a shared high-level methodological category but different specific implementations.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+              "heading": "Model",
+              "text_snippet": "The overall architecture of the proposed KITE-DDI model is illustrated in Figure. The model has two inputs; the first one is from a biomedical Knowledge Graph (KG) and the second is from a pair of Drug SMILEs which are involved in the DDI event. The Drug Repurposing Knowledge Graph (DRKG) is used as the biomedical KG, which is then fed into the Pykeen deep learning framework to extract the entity features using the TransE algorithm. These embeddings for the two drug compounds are then concatenated into a one-dimensional vector of length 800 followed by a self-attention layer which extracts the information relating to the interaction between the two drug embeddings.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'learning drug compatibility embeddings' and 'graph-based' models. The paper also uses graph-based information (Knowledge Graph) to 'extract the entity features using the TransE algorithm' and generate 'embeddings for the two drug compounds', which are then used to predict interactions. While the specific graph type and input data differ (co-prescription networks vs. biomedical KGs/SMILES), the core idea of using graph information to learn embeddings for DDI prediction is similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+              "heading": "ABSTRACT",
+              "text_snippet": "It is a common practice in modern medicine to prescribe multiple medications simultaneously to treat diseases. However, these medications could have adverse reactions between them, known as Drug-Drug Interactions (DDI), which have the potential to cause significant bodily injury and could even be fatal. Hence, it is essential to identify all the DDI events before prescribing multiple drugs to a patient.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on the domain of Drug-Drug Interaction (DDI) prediction within medicine and pharmacology.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+              "heading": "Introduction",
+              "text_snippet": "Polypharmacy, the routine prescription of several medications concurrently, has become a prevalent practice in contemporary medicine[1]. This technique of treating patients with multiple medications has become more common with the rapid increase of the number of approved drugs commercially available for consumption, especially to elderly individuals or patients suffering from long-lasting medical ailments like diabetes, Cancer, chronic heart conditions, etc. When multiple drugs are taken simultaneously in clinical practice, it can make the treatment process more complicated and potentially lead to unexpected interactions between the drugs, which is known as Drug-Drug Interaction (DDI).",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are concerned with the medical domain of Drug-Drug Interactions (DDI) and the implications of polypharmacy.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this study, we propose a KG-integrated Transformer architecture to generate an end-to-end fully automated Machine Learning pipeline for predicting DDI events with high accuracy.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to contribute a model for predicting DDI events. The user proposes a 'graph-based drug-drug interaction prediction model' and the paper proposes a 'KG-integrated Transformer model for accurately predicting Drug-Drug Interaction Events'. While the specific methods differ, the overarching contribution of a DDI prediction model is shared.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+              "heading": "Conclusion",
+              "text_snippet": "In this work, we have implemented a transformer based lightweight end-to-end deep learning system, KITE-DDI, for predicting DDI events with higher precision and accuracy compared to other similar state-of-the-art methods.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to contribute a system for predicting DDI events. The user's idea focuses on a graph-based model using EHRs, while the paper presents KITE-DDI using knowledge graphs and SMILES, but the core contribution of a DDI prediction system is common.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 16986,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2412.05770v1"
+    },
+    {
+      "paper_id": "paper_01",
+      "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+      "arxiv_id": "2111.05708v2",
+      "paper_similarity_score": 0.25,
+      "reason": "Problem: Both the user's idea and the paper address the problem of drug-drug interaction (DDI) prediction. However, the paper focuses on predicting multiple-type DDIs based on chemical substructures and their interactions, aiming for interpretability and handling inductive scenarios. The user's idea, while also graph-based for DDI prediction, specifically proposes using patient electronic health records to construct co-prescription networks and treating real-world prescription patterns as weak supervision signals, which is a different approach and data source than the chemical structure focus of the paper. | Method: The user's idea proposes a graph-based model using patient electronic health records to construct co-prescription networks and weak supervision signals. In contrast, the paper proposes STNN-DDI, a substructure-aware tensor neural network that focuses on chemical substructures of drugs and their interactions, using predefined substructures like PubChem fingerprints. While both are computational methods for DDI prediction, the core data sources (EHR vs. chemical substructures) and the specific modeling approaches (co-prescription networks with weak supervision vs. substructure-aware tensor neural networks) are distinct. | Domain: Both the user's research idea and the paper focus on the same specific application area: drug-drug interaction (DDI) prediction. The paper explicitly states its goal is 'Computational prediction of multiple-type drug-drug interaction (DDI) helps reduce unexpected side effects in poly-drug treatments,' which directly aligns with the user's aim of a 'graph-based drug-drug interaction prediction model.' | Contribution: The user's research idea focuses on a graph-based model using patient electronic health records (EHRs) to construct co-prescription networks and leverage real-world prescription patterns as weak supervision. In contrast, the paper 'STNN-DDI' proposes a substructure-aware tensor neural network for DDI prediction, primarily using chemical substructures and a 3-D tensor to characterize substructure-substructure interactions. The methodologies and data sources (EHRs vs. chemical substructures) are fundamentally different, addressing distinct aspects of DDI prediction.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.5499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+              "heading": "ABSTRACT",
+              "text_snippet": "Motivation: Computational prediction of multiple-type drug-drug interaction (DDI) helps reduce unexpected side effects in poly-drug treatments.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of drug-drug interaction (DDI) prediction to reduce side effects. The user's idea focuses on using real-world prescription patterns, while the paper focuses on substructure-aware prediction.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+              "heading": "Introduction",
+              "text_snippet": "Therefore, the detection of potential DDIs before making co-prescriptions has been gaining attention from biologists, pharmacologists, and clinicians. Due to the enormous combinational number of drugs, traditional methods (e.g., in-vitro approaches and clinical trials) are timeconsuming, low-efficiency, and costly[6]. In recent years, computational methods have been demonstrated their ability to infer potential DDIs rapidly and cheaply[7].",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are motivated by the need for computational methods to predict DDIs due to the limitations of traditional approaches.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+              "heading": "Introduction",
+              "text_snippet": "By constructing the knowledge graph of DDIs, network-based methods generally obtain drug embeddings by their local or global topological information in the graph to infer potential DDIs. For example, Wang et al . [16] generated drug embedding representation on the drug structure graph by graph convolution neural network (GCN).",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'graph-based' model and 'co-prescription networks' to learn 'drug compatibility embeddings'. The paper discusses 'network-based methods' that 'obtain drug embeddings by their local or global topological information in the graph to infer potential DDIs', which aligns with the general approach of using graphs and embeddings for DDI prediction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+              "heading": "ABSTRACT",
+              "text_snippet": "Motivation: Computational prediction of multiple-type drug-drug interaction (DDI) helps reduce unexpected side effects in poly-drug treatments.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on the domain of drug-drug interaction (DDI) prediction.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+              "heading": "Introduction",
+              "text_snippet": "In the treatment of human complex disease, co-prescription of drugs has become a common therapy[1] because individual drugs often fail to meet clinical needs. However, two or more drugs are taken together would induce pharmacokinetic or pharmacodynamic changes[2][3], referred to as drug-drug interactions (DDIs), which may trigger unexpected adverse drug events[4].",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are concerned with drug-drug interactions in the context of co-prescription and their implications for patient treatment.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+              "heading": "ABSTRACT",
+              "text_snippet": "In summary, STNN-DDI provides an effective approach to predicting DDIs as well as explaining the interaction mechanisms among drugs.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to provide an effective approach for predicting DDIs. While the user's method is different (patient EHRs, weak supervision), the overarching goal of DDI prediction is a shared contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+              "heading": "Conclusions",
+              "text_snippet": "To summarize, STNN-DDI contributes not only an effective predicting model of multiple-type DDIs but also an explorer to the DDI mechanism.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to contribute an effective model for DDI prediction.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 16268,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2111.05708v2"
+    },
+    {
+      "paper_id": "paper_20",
+      "paper_title": "Multi-Label Robust Factorization Autoencoder and its Application in Predicting Drug-Drug Interactions",
+      "arxiv_id": "1811.00208v1",
+      "paper_similarity_score": 0.175,
+      "reason": "Problem: Both the user's idea and the paper address the problem of drug-drug interaction (DDI) prediction. However, the paper focuses on predicting DDI types based on drug features like chemical structures, aiming to characterize complicated nonlinear interactions. The user's idea, while also predicting DDIs, specifically proposes using patient electronic health records to construct co-prescription networks and treat real-world prescription patterns as weak supervision signals, which is a different approach and data source for the prediction. | Method: The user's research idea proposes a graph-based model using co-prescription networks from electronic health records and real-world prescription patterns as weak supervision. In contrast, the paper proposes a Multi-Label Robust Factorization Autoencoder (MuLFA) for DDI prediction, primarily based on drug chemical structures and leveraging a novel CuXCov loss. There is no mention of graph-based methods, co-prescription networks, electronic health records, or weak supervision signals in the provided paper content. | Domain: Both the user's research idea and the paper are focused on the specific application domain of 'drug-drug interaction prediction'. The paper's abstract explicitly states its goal is 'Predicting the occurrence of DDIs' and the introduction defines the problem as 'Predicting the occurrence of different types of DDIs between a pair of drugs'. This directly aligns with the user's idea of a 'drug-drug interaction prediction model'. | Contribution: The user's idea proposes a graph-based model using patient electronic health records to construct co-prescription networks and treat prescription patterns as weak supervision. In contrast, the paper proposes a Multi-Label Robust Factorization Autoencoder (MuLFA) for DDI prediction, primarily based on drug chemical structures and leveraging a novel loss function (CuXCov) to learn representations and generate high-risk chemical structures. The methodologies, data sources (EHR vs. chemical structures), and specific technical contributions are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.3625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Multi-Label Robust Factorization Autoencoder and its Application in Predicting Drug-Drug Interactions",
+              "heading": "ABSTRACT",
+              "text_snippet": "Drug-drug interactions (DDIs) are a major cause of preventable hospitalizations and deaths. Predicting the occurrence of DDIs helps drug safety professionals allocate investigative resources and take appropriate regulatory action promptly.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of predicting drug-drug interactions (DDIs). The user's idea focuses on a graph-based model using EHRs, while the paper focuses on a factorization autoencoder, but the core problem of DDI prediction is shared.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Multi-Label Robust Factorization Autoencoder and its Application in Predicting Drug-Drug Interactions",
+              "heading": "Introduction",
+              "text_snippet": "The DDI prediction problem studied in this paper is defined as: Predicting the occurrence of different types of DDIs between a pair of drugs based on the drug features (e.g., chemical structures).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to predict drug-drug interactions. The paper specifies 'different types of DDIs' and 'based on drug features', while the user's idea specifies 'drug compatibility embeddings' and 'co-prescription networks' from EHRs, indicating a shared high-level problem but different specific approaches to features and interaction types.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Multi-Label Robust Factorization Autoencoder and its Application in Predicting Drug-Drug Interactions",
+              "heading": "Introduction",
+              "text_snippet": "Nowadays, deep representation learning methods has been found advantageous in modeling the complicated nonlinear relations (Krizhevsky, Sutskever, and Hinton 2012; Collobert et al. 2011). DDI prediction is actually a multilabel classification problem. A natural idea is to harness the power of representation learning to learn a representation of interactions between drug pairs that is efficient for classification.",
+              "similarity": 0.25,
+              "reason": "The user's idea mentions 'learning drug compatibility embeddings', which aligns with the paper's use of 'representation learning to learn a representation of interactions between drug pairs'. However, the user's specific method of 'graph-based' and 'co-prescription networks' with 'weak supervision signals' is distinct from the paper's 'Multi-Label Robust Factorization Autoencoder'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Multi-Label Robust Factorization Autoencoder and its Application in Predicting Drug-Drug Interactions",
+              "heading": "ABSTRACT",
+              "text_snippet": "Drug-drug interactions (DDIs) are a major cause of preventable hospitalizations and deaths. Predicting the occurrence of DDIs helps drug safety professionals allocate investigative resources and take appropriate regulatory action promptly.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on the domain of drug-drug interaction prediction within healthcare and drug safety.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Multi-Label Robust Factorization Autoencoder and its Application in Predicting Drug-Drug Interactions",
+              "heading": "Introduction",
+              "text_snippet": "Drug-drug interactions (DDIs) are common situations in which a drug affects the efficacy and safety of another drug when both are administered together, resulting in many adverse drug reactions (ADRs) that may cause severe injuries or even be responsible for deaths (Qato et al. 2016).",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are concerned with the same specific application area: predicting drug-drug interactions to improve drug safety and prevent adverse drug reactions.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Multi-Label Robust Factorization Autoencoder and its Application in Predicting Drug-Drug Interactions",
+              "heading": "ABSTRACT",
+              "text_snippet": "To this end, we propose Multi-Label Robust Factorization Autoencoder (abbreviated to MuLFA) for DDI prediction, which learns a representation of interactions between drug pairs and has the capability of characterizing complicated nonlinear interactions more precisely.",
+              "similarity": 0.25,
+              "reason": "The paper proposes a specific model (MuLFA) for DDI prediction that learns representations. The user's idea also proposes a DDI prediction model that learns 'drug compatibility embeddings'. While both aim to learn representations for DDI prediction, the specific models and their underlying mechanisms (factorization autoencoder vs. graph-based with co-prescription networks) are different, leading to distinct contributions.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.25,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 14631,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1811.00208v1"
+    },
+    {
+      "paper_id": "paper_14",
+      "paper_title": "Learning to Impute: A General Framework for Semi-supervised Learning",
+      "arxiv_id": "1912.10364v3",
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on predicting drug-drug interactions using graph-based models and electronic health records, treating prescription patterns as weak supervision. The paper, 'Learning to Impute: A General Framework for Semi-supervised Learning,' addresses the problem of improving semi-supervised learning by learning to impute labels for unlabeled data, primarily in image classification, facial landmark detection, and text classification tasks. These are fundamentally different research problems with distinct goals and application domains. | Method: Both the user's idea and the paper utilize semi-supervised learning. However, the user's idea specifically proposes a graph-based model for drug-drug interaction prediction using co-prescription networks and 'weak supervision signals,' while the paper presents a general 'learning to impute' framework for semi-supervised learning, primarily demonstrated on image classification, facial landmark detection, and text classification tasks, without mentioning graph-based methods or drug-drug interactions. | Domain: The user's research idea is in the domain of drug-drug interaction prediction using electronic health records, which falls under bioinformatics or medical informatics. The paper, however, focuses on general semi-supervised learning frameworks applied to image classification, facial landmark detection, and text classification, with no mention of healthcare, drug interactions, or patient data. | Contribution: The user's research idea proposes a graph-based model for drug-drug interaction prediction using co-prescription networks from EHRs and weak supervision. The paper, 'Learning to Impute: A General Framework for Semi-supervised Learning,' focuses on a meta-learning approach to impute labels for semi-supervised learning in general classification and regression tasks (e.g., image, text, facial landmark detection). There is no overlap in the specific problem domain, methodology (graph-based vs. meta-learning for label imputation), or claimed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.3625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Learning to Impute: A General Framework for Semi-supervised Learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Semi-supervised learning (SSL) [7] is one of the approaches to learn not only from labeled samples but also unlabeled ones. Under certain assumptions such as presence of smooth prediction functions that map data to labels, of low-dimensional manifolds that the high-dimensional data lies [7], SSL methods provide a way to leverage the information at unlabeled data and lessen the dependency on labels.",
+              "similarity": 0.5,
+              "reason": "The user's idea implicitly uses 'weak supervision signals' which aligns with the concept of semi-supervised learning, where information from unlabeled or weakly labeled data is leveraged to improve learning, similar to how SSL aims to learn from both labeled and unlabeled samples.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Learning to Impute: A General Framework for Semi-supervised Learning",
+              "heading": "Learning to Impute: A General Framework for Semi-supervised Learning",
+              "text_snippet": "We pose the problem in a learning-to-learn formulation which can easily be incorporated to the state-of-the-art semi-supervised techniques and boost their performance especially when the labels are limited. We demonstrate that our method is applicable to both regression and classification problems including facial landmark detection, text and image classification tasks.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes 'learning drug compatibility embeddings' using 'weak supervision signals', which involves learning representations from data with limited explicit labels. This broadly aligns with the paper's 'learning-to-learn formulation' for semi-supervised learning, which aims to improve performance when labels are limited, although the specific learning objective and network type differ.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Learning to Impute: A General Framework for Semi-supervised Learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "In this paper, we propose a new learning-to-learn method for semi-supervised learning, L earning to Impute (L2I), that can be cast as a bi-level optimization problem to address this question. Our method involves learning an update rule to label unlabeled training samples such that training our model using these predicted labels improves its performance not only on itself but also on a hold-out set.",
+              "similarity": 0.5,
+              "reason": "The user's idea uses 'real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings', which involves learning from implicitly labeled data. This has a conceptual overlap with the paper's 'learning-to-learn method for semi-supervised learning' and 'learning an update rule to label unlabeled training samples', as both approaches deal with leveraging less explicit forms of supervision to learn representations or labels.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Learning to Impute: A General Framework for Semi-supervised Learning",
+              "heading": "Learning to Impute: A General Framework for Semi-supervised Learning",
+              "text_snippet": "We demonstrate that our method is applicable to both regression and classification problems including facial landmark detection, text and image classification tasks.",
+              "similarity": 0.25,
+              "reason": "The paper mentions applicability to 'text and image classification tasks' and 'regression problems', which are general machine learning domains. The user's idea is in 'drug-drug interaction prediction', which is a specific application within bioinformatics/healthcare, distinct from the examples given in the paper but still within the broader scope of machine learning applications.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Learning to Impute: A General Framework for Semi-supervised Learning",
+              "heading": "CONCLUSION",
+              "text_snippet": "We demonstrated that integrating our method results in significant performance gains over the baseline state-of-the-art methods, on challenging benchmarks for facial landmark detection, image and text classification, especially when the labeled data is scarce.",
+              "similarity": 0.25,
+              "reason": "The paper's demonstrated domains are 'facial landmark detection, image and text classification'. The user's idea is in 'drug-drug interaction prediction' using 'patient electronic health records', which is a biomedical/healthcare domain, distinct from the paper's examples.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Learning to Impute: A General Framework for Semi-supervised Learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "In this paper, we propose a new learning-to-learn method for semi-supervised learning, L earning to Impute (L2I), that can be cast as a bi-level optimization problem to address this question. Our method involves learning an update rule to label unlabeled training samples such that training our model using these predicted labels improves its performance not only on itself but also on a hold-out set.",
+              "similarity": 0.25,
+              "reason": "The paper's contribution is a 'general semi-supervised learning framework' that 'learns to impute labels'. The user's idea proposes a 'graph-based drug-drug interaction prediction model' that uses 'weak supervision signals for learning drug compatibility embeddings'. While both involve learning from less-than-fully-labeled data, the specific model, task, and the nature of the 'weak supervision' are different, leading to distinct contributions.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.25,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 11645,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1912.10364v3"
+    },
+    {
+      "paper_id": "paper_24",
+      "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+      "arxiv_id": "2502.06890v1",
+      "paper_similarity_score": 0.225,
+      "reason": "Problem: Both the user's research idea and the paper address the problem of 'drug-drug interaction prediction'. The paper explicitly states, 'This study thoroughly investigates LLMs' capabilities in predicting DDIs' and 'predicting potential DDIs before clinical use is crucial for patient safety'. This directly aligns with the core problem of the user's idea. | Method: The user's idea proposes a graph-based model using co-prescription networks from EHRs with weak supervision. In contrast, the paper focuses on using Large Language Models (LLMs) to predict DDIs by processing molecular structures, target organisms, and gene interaction data as raw text input from DrugBank. There is no mention of graph-based methods, co-prescription networks, EHRs, or weak supervision in the paper's methodology. | Domain: Both the user's idea and the paper focus on drug-drug interaction (DDI) prediction, which is a closely related application target within the same sub-area of pharmaceutical research. The paper explicitly mentions 'DDI prediction' multiple times and discusses its 'practical applications in pharmaceutical research and clinical settings,' aligning with the user's goal. | Contribution: The user's idea proposes a graph-based model using patient electronic health records and co-prescription networks as weak supervision signals. In contrast, the paper focuses on evaluating LLMs for DDI prediction, processing molecular structures (SMILES), target organisms, and gene interaction data as raw text input from DrugBank. The methodologies and data sources are fundamentally different, addressing distinct technical gaps.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+          "sentence_index": 0,
+          "similarity_score": 0.43749999999999994,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+              "heading": "Introduction",
+              "text_snippet": "Recent advances in computational biology and the increasing availability of molecular data have spurred the development of in silico methods for DDI prediction, aiming to complement traditional experimental approaches while addressing challenges of interpretability and clinical validation [7]. These computational approaches can be broadly categorized into three main types: literature-based extraction methods [8, 9, 10], which use natural language processes techniques to extract DDI information from biomedical literature, but are limited to documented interactions; machine learning-based prediction methods [11, 12, 13, 14], which leverage structured data from databases like DrugBank [15], but often require complex feature engineering, careful architecture design and extensive training data; and pharmacovigilance-based methods [16, 17], which can only identify DDIs after their occurrence in clinical practice [1].",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'graph-based drug-drug interaction prediction model' which falls under the 'machine learning-based prediction methods' category mentioned in the paper. While the paper focuses on LLMs, it acknowledges graph-based methods as a relevant computational approach.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+              "heading": "Results and Discussion",
+              "text_snippet": "Graph-based methods have emerged as powerful tools, modeling DDI prediction as a multi-relational link prediction problem on multimodal graphs incorporating drugs, proteins, and side effect relationships , . These approaches can capture complex patterns in drug interaction networks, though they often require extensive computational resources and careful feature engineering.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions a 'graph-based drug-drug interaction prediction model' and the paper discusses 'Graph-based methods' as powerful tools for DDI prediction, showing a direct methodological family overlap.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+              "heading": "Introduction",
+              "text_snippet": "Drug-drug interactions (DDIs) represent a significant challenge in clinical practice, as they can alter the intended responses when patients take multiple drugs simultaneously, resulting in unexpected side effects or decreased clinical efficacy [1].",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on drug-drug interaction prediction, which is a specific application area within pharmaceutical research and clinical settings.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+              "heading": "ABSTRACT",
+              "text_snippet": "The increasing volume of drug combinations in modern therapeutic regimens needs reliable methods for predicting drug-drug interactions (DDIs).",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are directly concerned with predicting drug-drug interactions.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+              "heading": "Practical Implications",
+              "text_snippet": "From a clinical perspective, our results suggest several promising applications. The high sensitivity achieved by our models, particularly in detecting known interactions across diverse external datasets, indicates their potential as reliable screening tools in clinical practice. This potential is especially valuable for complex polypharmacy cases, where traditional approaches might miss potential interactions.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are situated in the domain of DDI prediction for clinical practice and patient safety.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+              "heading": "Practical Implications",
+              "text_snippet": "systems, including electronic health records.",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions 'patient electronic health records' and the paper mentions 'electronic health records' in the context of practical implications, indicating a shared data source domain.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+              "heading": "ABSTRACT",
+              "text_snippet": "This study thoroughly investigates LLMs' capabilities in predicting DDIs by uniquely processing molecular structures (SMILES), target organisms, and gene interaction data as raw text input from the latest DrugBank dataset.",
+              "similarity": 0.25,
+              "reason": "The paper's contribution is focused on LLMs for DDI prediction using specific data types (SMILES, target organisms, gene interaction data). The user's idea proposes a graph-based model using co-prescription networks from EHRs and weak supervision, which is a different approach and data source for DDI prediction.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+              "heading": "Introduction",
+              "text_snippet": "This study presents the first comprehensive investigation of LLMs for DDI prediction, leveraging their ability to process multiple drug information simultaneously (SMILES notation, target organisms, and gene interactions) as text.",
+              "similarity": 0.25,
+              "reason": "The paper's main contribution is the comprehensive investigation of LLMs for DDI prediction with a specific text input representation. The user's idea proposes a graph-based model with a different data source (EHRs) and weak supervision, making the core contributions distinct.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 14479,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2502.06890v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 95,
+    "global_similarity_score": 0.21000000000000002,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A graph-based drug-drug interaction prediction model that uses patient electronic health records to construct co-prescription networks, treating real-world prescription patterns as weak supervision signals for learning drug compatibility embeddings.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "medium",
+          "domain_similarity": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+            "heading": "ABSTRACT",
+            "text_snippet": "Motivation: Computational prediction of multiple-type drug-drug interaction (DDI) helps reduce unexpected side effects in poly-drug treatments.",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper address the problem of drug-drug interaction (DDI) prediction to reduce side effects. The user's idea focuses on using real-world prescription patterns, while the paper focuses on substructure-aware prediction.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_03",
+            "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+            "heading": "Introduction",
+            "text_snippet": "The fourth and last research area includes network-based approaches where, the algorithms extract information from graphs and networks describing drug data.",
+            "similarity": 0.5,
+            "reason": "The user's idea proposes a 'graph-based' model and 'co-prescription networks', which aligns with the 'network-based approaches' discussed in the paper's introduction as a category of DDI research.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_03",
+            "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+            "heading": "ABSTRACT",
+            "text_snippet": "It is a common practice in modern medicine to prescribe multiple medications simultaneously to treat diseases. However, these medications could have adverse reactions between them, known as Drug-Drug Interactions (DDI), which have the potential to cause significant bodily injury and could even be fatal. Hence, it is essential to identify all the DDI events before prescribing multiple drugs to a patient.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are squarely focused on the domain of Drug-Drug Interaction (DDI) prediction within medicine and pharmacology.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_03",
+            "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+            "heading": "ABSTRACT",
+            "text_snippet": "In this study, we propose a KG-integrated Transformer architecture to generate an end-to-end fully automated Machine Learning pipeline for predicting DDI events with high accuracy.",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper aim to contribute a model for predicting DDI events. The user proposes a 'graph-based drug-drug interaction prediction model' and the paper proposes a 'KG-integrated Transformer model for accurately predicting Drug-Drug Interaction Events'. While the specific methods differ, the overarching contribution of a DDI prediction model is shared.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research demonstrates high originality, particularly in its unique contribution and proposed methodology. While the problem and domain show some overlap with existing work, focusing on how your novel method addresses these familiar areas will strengthen your differentiation.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.84,
+      "method_similarity": 0.21,
+      "domain_similarity": 0.9,
+      "contribution_similarity": 0.0
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.043,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0405,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0023,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 220.54379796981812,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_03",
+        "paper_title": "KITE-DDI: A Knowledge graph Integrated Transformer Model for accurately predicting Drug-Drug Interaction Events from Drug SMILES and Biomedical Knowledge Graph",
+        "paper_similarity": 0.32499999999999996,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_01",
+        "paper_title": "STNN-DDI: A Substructure-aware Tensor Neural Network to Predict Drug-Drug Interactions",
+        "paper_similarity": 0.25,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_20",
+        "paper_title": "Multi-Label Robust Factorization Autoencoder and its Application in Predicting Drug-Drug Interactions",
+        "paper_similarity": 0.175,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_14",
+        "paper_title": "Learning to Impute: A General Framework for Semi-supervised Learning",
+        "paper_similarity": 0.075,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_24",
+        "paper_title": "LLMs for Drug-Drug Interaction Prediction: A Comprehensive Comparison",
+        "paper_similarity": 0.225,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 108
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 108,
+    "after_dedup": 108,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

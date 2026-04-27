@@ -1,0 +1,989 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "629824219829",
+    "status": "completed"
+  },
+  "originality_score": 93,
+  "global_similarity_score": 0.25999999999999995,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A continual learning method that maintains a small 'surprise buffer' — storing only samples that caused the highest gradient conflict with previously learned tasks — and uses these samples as the sole replay set, updated dynamically per task boundary.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_13",
+          "paper_title": "Active learning for data streams: a survey",
+          "heading": "Introduction",
+          "text_snippet": "This has led to growing interest in the online variant of active learning, also referred to as streambased active learning, which involves continuously selecting and labeling observations as they arrive in a stream, allowing for real-time adaptation to changing data distributions.",
+          "similarity": 0.5,
+          "reason": "The user's idea is about continual learning, which shares the goal of adapting to changing data over time, similar to stream-based active learning's focus on real-time adaptation to changing data distributions.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_22",
+          "paper_title": "Replay Can Provably Increase Forgetting",
+          "heading": "GENERAL SETUP",
+          "text_snippet": "Replay. We consider a simple and standard formulation of replay in the literature, where the learning algorithm can store up to m samples from the previously seen tasks in memory, sometimes called episodic memory (Chaudhry et al., 2019). Let { X mem , y mem } denote the set of stored samples. During training on the current task t , in addition to the current task's samples, the model also trains on { X mem , y mem } to get the new iterate ˜ w t +1 . There are many ways the algorithm can update { X mem , y mem } (Chaudhry et al., 2019).",
+          "similarity": 0.75,
+          "reason": "The user's idea proposes a specific method for selecting and updating a 'surprise buffer' as a replay set, which directly relates to the paper's discussion of sample replay, episodic memory, and different ways to update the stored samples. The user's method is a specific instantiation of a replay mechanism.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+          "heading": "ABSTRACT",
+          "text_snippet": "When an agent encounters a continual stream of new tasks in the lifelong learning setting, it leverages the knowledge it gained from the earlier tasks to help learn the new tasks better.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are explicitly situated within the domain of 'continual learning' or 'lifelong learning', dealing with agents learning from a stream of new tasks.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_22",
+          "paper_title": "Replay Can Provably Increase Forgetting",
+          "heading": "ABSTRACT",
+          "text_snippet": "One of the commonly used techniques to mitigate forgetting, sample replay, has been shown empirically to reduce forgetting by retaining some examples from old tasks and including them in new training episodes.",
+          "similarity": 0.5,
+          "reason": "The user's idea proposes a novel replay strategy to mitigate forgetting, which is a common goal for replay methods, as acknowledged by the paper. While the paper focuses on analyzing replay's potential harms, it still frames replay as a technique to mitigate forgetting.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research demonstrates high originality in its problem, method, and contribution, with the closest related work only moderately similar. However, there is significant overlap in the application domain, suggesting you could further highlight the unique aspects of your chosen domain.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.48,
+    "method_similarity": 0.36,
+    "domain_similarity": 0.92,
+    "contribution_similarity": 0.36
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.041,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0387,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.002,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 150.00885391235352,
+  "papers": [
+    {
+      "paper_id": "paper_13",
+      "source": "arxiv",
+      "source_id": "2302.08893v4",
+      "arxiv_id": "2302.08893v4",
+      "title": "Active learning for data streams: a survey",
+      "abstract": "Online active learning is a paradigm in machine learning that aims to select the most informative data points to label from a data stream. The problem of minimizing the cost associated with collecting labeled observations has gained a lot of attention in recent years, particularly in real-world applications where data is only available in an unlabeled form. Annotating each observation can be time-consuming and costly, making it difficult to obtain large amounts of labeled data. To overcome this issue, many active learning strategies have been proposed in the last decades, aiming to select the most informative observations for labeling in order to improve the performance of machine learning models. These approaches can be broadly divided into two categories: static pool-based and stream-based active learning. Pool-based active learning involves selecting a subset of observations from a closed pool of unlabeled data, and it has been the focus of many surveys and literature reviews. However, the growing availability of data streams has led to an increase in the number of approaches that focus on online active learning, which involves continuously selecting and labeling observations as they arrive in a stream. This work aims to provide an overview of the most recently proposed approaches for selecting the most informative observations from data streams in real time. We review the various techniques that have been proposed and discuss their strengths and limitations, as well as the challenges and opportunities that exist in this area of research.",
+      "url": "http://arxiv.org/abs/2302.08893v4",
+      "pdf_url": "https://arxiv.org/pdf/2302.08893v4",
+      "authors": [
+        "Davide Cacciarelli",
+        "Murat Kulahci"
+      ],
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0875,
+      "reason": "Problem: The user's research idea focuses on a continual learning method using a 'surprise buffer' for replay to manage gradient conflict across tasks. The paper, 'Active learning for data streams: a survey,' addresses the problem of selecting informative data points for labeling from data streams in an online fashion to minimize labeling costs. While both deal with online data and learning, the paper's core problem is active learning (querying for labels) in data streams, which is distinct from the user's focus on continual learning's replay strategy for mitigating catastrophic forgetting. | Method: The user's research idea proposes a continual learning method using a 'surprise buffer' based on gradient conflict for replay. The paper, 'Active learning for data streams: a survey,' focuses on online active learning strategies for selecting informative data points from streams, with methods like uncertainty sampling and diversity sampling. There is no mention of continual learning, gradient conflict, or a 'surprise buffer' for replay in the provided text, indicating completely different methodologies. | Domain: The user's research idea is in continual learning, a sub-area of machine learning focused on learning new tasks without forgetting old ones. The paper focuses on online active learning for data streams, which is also a sub-area of machine learning dealing with sequential data. While both are within machine learning and deal with sequential data, the specific problem formulations and primary objectives (continual learning's focus on catastrophic forgetting vs. active learning's focus on labeling efficiency) are distinct, placing them in different sub-areas with related but not identical application targets. | Contribution: The user's research idea proposes a specific continual learning method involving a 'surprise buffer' and gradient conflict for replay. The paper, 'Active learning for data streams: a survey,' is a survey of online active learning techniques, focusing on selecting informative data points for labeling in data streams. While both touch on 'online' aspects and data streams, the paper does not claim contributions related to continual learning, gradient conflict, or a 'surprise buffer' for replay, making their contributions unrelated.",
+      "criteria_scores": {
+        "problem_similarity": 0.25,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2105.05155v3",
+      "arxiv_id": "2105.05155v3",
+      "title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+      "abstract": "When an agent encounters a continual stream of new tasks in the lifelong learning setting, it leverages the knowledge it gained from the earlier tasks to help learn the new tasks better. In such a scenario, identifying an efficient knowledge representation becomes a challenging problem. Most research works propose to either store a subset of examples from the past tasks in a replay buffer, dedicate a separate set of parameters to each task or penalize excessive updates over parameters by introducing a regularization term. While existing methods employ the general task-agnostic stochastic gradient descent update rule, we propose a task-aware optimizer that adapts the learning rate based on the relatedness among tasks. We utilize the directions taken by the parameters during the updates by accumulating the gradients specific to each task. These task-based accumulated gradients act as a knowledge base that is maintained and updated throughout the stream. We empirically show that our proposed adaptive learning rate not only accounts for catastrophic forgetting but also allows positive backward transfer. We also show that our method performs better than several state-of-the-art methods in lifelong learning on complex datasets with a large number of tasks.",
+      "url": "http://arxiv.org/abs/2105.05155v3",
+      "pdf_url": "https://arxiv.org/pdf/2105.05155v3",
+      "authors": [
+        "Pranshu Malviya",
+        "Balaraman Ravindran",
+        "Sarath Chandar"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's idea focuses on a continual learning method using a 'surprise buffer' for replay, specifically storing samples with high gradient conflict. The paper also addresses continual learning, aiming to prevent catastrophic forgetting and achieve positive backward transfer, but it explicitly states its focus is on 'replay-free methods' and a 'task-aware optimizer' that adapts the learning rate based on accumulated gradients. While both address continual learning, the paper's approach of being 'replay-free' and using accumulated gradients for an adaptive learning rate is a different specific problem/angle than the user's replay-based 'surprise buffer'. | Method: The user's idea proposes a continual learning method using a 'surprise buffer' that stores samples causing high gradient conflict for replay. In contrast, the paper explicitly states its focus is on 'design efficient replay-free methods for LLL' and introduces a 'task-aware optimizer that adapts the learning rate based on the relatedness among tasks' using 'task-based accumulated gradients'. There is no methodological overlap as the paper avoids replay buffers entirely, which is central to the user's idea. | Domain: Both the user's research idea and the paper operate within the domain of 'continual learning' or 'lifelong learning' (LLL), which is a specific sub-area of machine learning. The paper explicitly states its focus on 'continual stream of new tasks in the lifelong learning setting' and 'design efficient replay-free methods for LLL', while the user's idea is a 'continual learning method'. Both address the challenge of learning new tasks without forgetting old ones. | Contribution: The user's research idea proposes a continual learning method using a 'surprise buffer' for replay, storing samples with high gradient conflict. In contrast, the paper explicitly states its focus is on 'replay-free methods for LLL' and introduces a 'task-aware optimizer' that adapts the learning rate based on 'task-based accumulated gradients', without storing past examples.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_22",
+      "source": "arxiv",
+      "source_id": "2506.04377v1",
+      "arxiv_id": "2506.04377v1",
+      "title": "Replay Can Provably Increase Forgetting",
+      "abstract": "Continual learning seeks to enable machine learning systems to solve an increasing corpus of tasks sequentially. A critical challenge for continual learning is forgetting, where the performance on previously learned tasks decreases as new tasks are introduced. One of the commonly used techniques to mitigate forgetting, sample replay, has been shown empirically to reduce forgetting by retaining some examples from old tasks and including them in new training episodes. In this work, we provide a theoretical analysis of sample replay in an over-parameterized continual linear regression setting, where each task is given by a linear subspace and with enough replay samples, one would be able to eliminate forgetting. Our analysis focuses on sample replay and highlights the role of the replayed samples and the relationship between task subspaces. Surprisingly, we find that, even in a noiseless setting, forgetting can be non-monotonic with respect to the number of replay samples. We present tasks where replay can be harmful with respect to worst-case settings, and also in distributional settings where replay of randomly selected samples increases forgetting in expectation. We also give empirical evidence that harmful replay is not limited to training with linear models by showing similar behavior for a neural networks equipped with SGD. Through experiments on a commonly used benchmark, we provide additional evidence that, even in seemingly benign scenarios, performance of the replay heavily depends on the choice of replay samples and the relationship between tasks.",
+      "url": "http://arxiv.org/abs/2506.04377v1",
+      "pdf_url": "https://arxiv.org/pdf/2506.04377v1",
+      "authors": [
+        "Yasaman Mahdaviyeh",
+        "James Lucas",
+        "Mengye Ren",
+        "Andreas S. Tolias",
+        "Richard Zemel",
+        "Toniann Pitassi"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.2625,
+      "reason": "Problem: The user's idea focuses on a specific continual learning method using a 'surprise buffer' and gradient conflict for replay sample selection. The paper, while also in continual learning and focusing on replay, investigates the broader problem of whether replay can increase forgetting, even with randomly selected samples. While both address replay in continual learning, the specific problem and angle are different: one proposes a novel replay mechanism, the other analyzes the potential pitfalls of existing replay methods. | Method: The user's research idea proposes a specific continual learning method involving a 'surprise buffer' that stores samples based on 'highest gradient conflict' for replay. The evaluated paper, however, focuses on analyzing the theoretical and empirical effects of general 'sample replay' and how it can sometimes increase forgetting, without proposing or evaluating a specific replay method based on gradient conflict or a 'surprise buffer'. | Domain: Both the user's idea and the paper are firmly within the domain of continual learning, specifically focusing on replay-based methods to mitigate catastrophic forgetting. The paper explicitly discusses 'sample replay' and 'episodic memory' which aligns with the user's concept of a 'surprise buffer' as a replay set. The paper also mentions 'continual linear regression' and 'neural networks equipped with SGD' as models, which are common in continual learning research. | Contribution: The user's idea proposes a specific continual learning method using a 'surprise buffer' for replay, focusing on samples with high gradient conflict. The paper, in contrast, theoretically and empirically analyzes the general phenomenon of sample replay, demonstrating that it can surprisingly increase forgetting, even with randomly selected samples. While both relate to replay, their contributions address different aspects: one proposes a novel replay mechanism, the other analyzes the efficacy and potential pitfalls of existing replay methods.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_14",
+      "source": "arxiv",
+      "source_id": "2103.15851v2",
+      "arxiv_id": "2103.15851v2",
+      "title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+      "abstract": "Replay strategies are Continual Learning techniques which mitigate catastrophic forgetting by keeping a buffer of patterns from previous experiences, which are interleaved with new data during training. The amount of patterns stored in the buffer is a critical parameter which largely influences the final performance and the memory footprint of the approach. This work introduces Distilled Replay, a novel replay strategy for Continual Learning which is able to mitigate forgetting by keeping a very small buffer (1 pattern per class) of highly informative samples. Distilled Replay builds the buffer through a distillation process which compresses a large dataset into a tiny set of informative examples. We show the effectiveness of our Distilled Replay against popular replay-based strategies on four Continual Learning benchmarks.",
+      "url": "http://arxiv.org/abs/2103.15851v2",
+      "pdf_url": "https://arxiv.org/pdf/2103.15851v2",
+      "authors": [
+        "Andrea Rosasco",
+        "Antonio Carta",
+        "Andrea Cossu",
+        "Vincenzo Lomonaco",
+        "Davide Bacciu"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5499999999999999,
+      "reason": "Problem: The user's idea focuses on a continual learning method using a 'surprise buffer' based on 'gradient conflict' to select replay samples. The paper addresses the problem of mitigating catastrophic forgetting using 'very small buffers' of 'highly informative samples' built through a 'distillation process'. While both aim to reduce buffer size in continual learning, the paper's core problem is about generating synthetic, informative samples via distillation, whereas the user's idea is about selecting real samples based on a specific 'gradient conflict' criterion. | Method: Both the user's idea and the paper propose continual learning methods using a small replay buffer. However, the user's idea specifically focuses on a 'surprise buffer' storing samples with the highest gradient conflict, whereas 'Distilled Replay' uses a distillation process to generate highly informative synthetic samples (one per class) for its buffer, which is a different mechanism for buffer population. | Domain: Both the user's research idea and the paper focus on continual learning methods, specifically addressing catastrophic forgetting through replay strategies with small buffers. The paper explicitly discusses 'replay strategies' and 'mitigating catastrophic forgetting by keeping a buffer of patterns from previous experiences,' which directly aligns with the user's idea of a continual learning method using a 'surprise buffer' as a 'sole replay set'. | Contribution: The user's idea proposes a 'surprise buffer' storing samples with the 'highest gradient conflict' as the sole replay set. The paper introduces 'Distilled Replay' which uses a 'very small buffer (1 pattern per class) of highly informative samples' built through a 'distillation process'. While both focus on small, informative replay buffers, the paper's method of selecting samples via distillation differs from the user's proposed 'gradient conflict' mechanism, though the paper does mention 'Maximal Interfered Retrieval (MIR)' which selects samples based on accuracy drop, showing some conceptual overlap in identifying 'problematic' samples.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_32",
+      "source": "arxiv",
+      "source_id": "2207.04998v1",
+      "arxiv_id": "2207.04998v1",
+      "title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+      "abstract": "Deep neural networks struggle to continually learn multiple sequential tasks due to catastrophic forgetting of previously learned tasks. Rehearsal-based methods which explicitly store previous task samples in the buffer and interleave them with the current task samples have proven to be the most effective in mitigating forgetting. However, Experience Replay (ER) does not perform well under low-buffer regimes and longer task sequences as its performance is commensurate with the buffer size. Consistency in predictions of soft-targets can assist ER in preserving information pertaining to previous tasks better as soft-targets capture the rich similarity structure of the data. Therefore, we examine the role of consistency regularization in ER framework under various continual learning scenarios. We also propose to cast consistency regularization as a self-supervised pretext task thereby enabling the use of a wide variety of self-supervised learning methods as regularizers. While simultaneously enhancing model calibration and robustness to natural corruptions, regularizing consistency in predictions results in lesser forgetting across all continual learning scenarios. Among the different families of regularizers, we find that stricter consistency constraints preserve previous task information in ER better.",
+      "url": "http://arxiv.org/abs/2207.04998v1",
+      "pdf_url": "https://arxiv.org/pdf/2207.04998v1",
+      "authors": [
+        "Prashant Bhat",
+        "Bahram Zonooz",
+        "Elahe Arani"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.25,
+      "reason": "Problem: The user's idea focuses on a continual learning method that uses a 'surprise buffer' storing samples with high gradient conflict to form a replay set. The paper addresses mitigating catastrophic forgetting in continual learning, specifically focusing on improving Experience Replay (ER) under low-buffer regimes by using consistency regularization. While both deal with continual learning and replay buffers to mitigate catastrophic forgetting, the specific problem of *how* to select samples for the replay buffer (gradient conflict for 'surprise buffer') is distinct from the paper's problem of *how* to better leverage existing buffered samples through consistency regularization. | Method: The user's idea proposes a 'surprise buffer' based on 'gradient conflict' for selecting replay samples, which is a specific sample selection strategy. The paper, while also using a replay buffer, focuses on 'consistency regularization' and 'soft-targets' to improve the effectiveness of existing Experience Replay (ER) methods, rather than a novel sample selection mechanism based on gradient conflict. The methods share the broad category of continual learning with replay, but the core methodological approaches to buffer management and learning are distinct. | Domain: Both the user's research idea and the paper are squarely within the domain of 'continual learning' and specifically address 'catastrophic forgetting' in deep neural networks. Both focus on 'replay-based methods' and the challenge of 'low-buffer regimes' in continual learning, indicating a direct overlap in the specific application area and problem being tackled. | Contribution: The user's research idea proposes a continual learning method that uses a 'surprise buffer' storing samples with high gradient conflict as the sole replay set. The paper, in contrast, focuses on consistency regularization within an Experience Replay (ER) framework to mitigate catastrophic forgetting, examining various consistency regularizers and self-supervised learning methods. There is no mention of 'gradient conflict' or a 'surprise buffer' in the paper's approach to selecting replay samples.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Gradient Episodic Memory (GEM)",
+        "similarity": 0.75,
+        "description": "GEM (Lopez-Paz et al., 2017) uses a small memory buffer to store samples from previous tasks. It constrains the gradient of the current task to not interfere negatively with the gradients of previous tasks, which is a form of 'gradient conflict' management."
+      },
+      {
+        "name": "A-GEM (Averaged Gradient Episodic Memory)",
+        "similarity": 0.8,
+        "description": "A-GEM (Chaudhry et al., 2018) is an improvement over GEM that simplifies the gradient projection by only requiring the average gradient of previous tasks, still relying on a small replay buffer to manage interference."
+      },
+      {
+        "name": "Experience Replay (ER) with prioritization",
+        "similarity": 0.65,
+        "description": "Standard experience replay in continual learning uses a buffer. Prioritized experience replay (PER) (Schaul et al., 2015, in RL context, but concept applies) selects samples based on their 'surprise' or 'error' (e.g., TD-error), which is conceptually similar to selecting samples causing high gradient conflict for replay."
+      },
+      {
+        "name": "Gradient-based sample selection for replay",
+        "similarity": 0.7,
+        "description": "Various continual learning methods explore intelligent sample selection for replay buffers, often based on how 'important' or 'problematic' a sample is for preventing catastrophic forgetting. Gradient information is a common metric for importance."
+      }
+    ],
+    "assessment": "The core idea of using a small replay buffer containing samples selected based on their 'conflict' or 'importance' for preventing forgetting is a well-explored area in continual learning research. Methods like GEM and A-GEM explicitly use gradient information to manage interference between tasks, and implicitly select samples that would cause high 'gradient conflict' if not replayed. The term 'surprise buffer' and 'highest gradient conflict' are specific phrasing, but the underlying mechanism of prioritizing samples that are most critical for retaining past knowledge, often identified via gradient analysis or error, is a known strategy.",
+    "novelty_aspects": [
+      "The specific metric or algorithm for quantifying 'gradient conflict' and dynamically updating the 'surprise buffer' might offer novelty.",
+      "The precise definition of 'task boundary' and how the buffer is updated 'per task boundary' could be a novel implementation detail.",
+      "The claim that these 'surprise' samples are the *sole* replay set, and its effectiveness compared to other selection strategies."
+    ],
+    "recommendation": "While the general concept exists, the specific implementation details for defining and measuring 'gradient conflict,' the dynamic update mechanism, and empirical validation of its effectiveness as the *sole* replay set could still be novel. Focus on clearly defining your 'gradient conflict' metric, demonstrating its superiority over existing selection methods (e.g., random, importance sampling, or GEM's projection), and showing how it maintains performance with a minimal buffer size."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Gradient Episodic Memory (GEM)** (similarity: 75%).\n\n*The core idea of using a small replay buffer containing samples selected based on their 'conflict' or 'importance' for preventing forgetting is a well-explored area in continual learning research. Methods like GEM and A-GEM explicitly use gradient information to manage interference between tasks, and implicitly select samples that would cause high 'gradient conflict' if not replayed. The term 'surprise buffer' and 'highest gradient conflict' are specific phrasing, but the underlying mechanism of prioritizing samples that are most critical for retaining past knowledge, often identified via gradient analysis or error, is a known strategy.*\n\n**Recommendation:** While the general concept exists, the specific implementation details for defining and measuring 'gradient conflict,' the dynamic update mechanism, and empirical validation of its effectiveness as the *sole* replay set could still be novel. Focus on clearly defining your 'gradient conflict' metric, demonstrating its superiority over existing selection methods (e.g., random, importance sampling, or GEM's projection), and showing how it maintains performance with a minimal buffer size.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 94,
+    "unique_after_dedup": 94,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 928,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.041,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0387,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.002,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A continual learning method that maintains a small 'surprise buffer' — storing only samples that caused the highest gradient conflict with previously learned tasks — and uses these samples as the sole replay set, updated dynamically per task boundary.",
+  "enriched_idea": "RESEARCH IDEA:\nA continual learning method that maintains a small 'surprise buffer' — storing only samples that caused the highest gradient conflict with previously learned tasks — and uses these samples as the sole replay set, updated dynamically per task boundary.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_13",
+      "paper_title": "Active learning for data streams: a survey",
+      "arxiv_id": "2302.08893v4",
+      "paper_similarity_score": 0.0875,
+      "reason": "Problem: The user's research idea focuses on a continual learning method using a 'surprise buffer' for replay to manage gradient conflict across tasks. The paper, 'Active learning for data streams: a survey,' addresses the problem of selecting informative data points for labeling from data streams in an online fashion to minimize labeling costs. While both deal with online data and learning, the paper's core problem is active learning (querying for labels) in data streams, which is distinct from the user's focus on continual learning's replay strategy for mitigating catastrophic forgetting. | Method: The user's research idea proposes a continual learning method using a 'surprise buffer' based on gradient conflict for replay. The paper, 'Active learning for data streams: a survey,' focuses on online active learning strategies for selecting informative data points from streams, with methods like uncertainty sampling and diversity sampling. There is no mention of continual learning, gradient conflict, or a 'surprise buffer' for replay in the provided text, indicating completely different methodologies. | Domain: The user's research idea is in continual learning, a sub-area of machine learning focused on learning new tasks without forgetting old ones. The paper focuses on online active learning for data streams, which is also a sub-area of machine learning dealing with sequential data. While both are within machine learning and deal with sequential data, the specific problem formulations and primary objectives (continual learning's focus on catastrophic forgetting vs. active learning's focus on labeling efficiency) are distinct, placing them in different sub-areas with related but not identical application targets. | Contribution: The user's research idea proposes a specific continual learning method involving a 'surprise buffer' and gradient conflict for replay. The paper, 'Active learning for data streams: a survey,' is a survey of online active learning techniques, focusing on selecting informative data points for labeling in data streams. While both touch on 'online' aspects and data streams, the paper does not claim contributions related to continual learning, gradient conflict, or a 'surprise buffer' for replay, making their contributions unrelated.",
+      "criteria_scores": {
+        "problem_similarity": 0.25,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A continual learning method that maintains a small 'surprise buffer' — storing only samples that caused the highest gradient conflict with previously learned tasks — and uses these samples as the sole replay set, updated dynamically per task boundary.",
+          "sentence_index": 0,
+          "similarity_score": 0.38749999999999996,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "Active learning for data streams: a survey",
+              "heading": "Introduction",
+              "text_snippet": "This has led to growing interest in the online variant of active learning, also referred to as streambased active learning, which involves continuously selecting and labeling observations as they arrive in a stream, allowing for real-time adaptation to changing data distributions.",
+              "similarity": 0.5,
+              "reason": "The user's idea is about continual learning, which shares the goal of adapting to changing data over time, similar to stream-based active learning's focus on real-time adaptation to changing data distributions.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "Active learning for data streams: a survey",
+              "heading": "Algorithm 3 Online active learning with drifting data streams",
+              "text_snippet": "The key idea is that whenever the reactive classifier starts to outperform the stable classifier, the stable classifier is replaced by the reactive one, which is eventually reset. This replacement allows the learner to adapt to the drift and focus on the most recent instances, forgetting the seemingly obsolete data points.",
+              "similarity": 0.5,
+              "reason": "The paper discusses methods that adapt to drift and focus on recent instances, 'forgetting' obsolete data. While not a 'surprise buffer' or 'gradient conflict', it shares the concept of dynamic adaptation and selective retention/forgetting of information in a streaming context.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "Active learning for data streams: a survey",
+              "heading": "Algorithm 3 Online active learning with drifting data streams",
+              "text_snippet": "if Υ( x t ) = True then ▷ Sampling decision Ask for the true label y t c ← c +1 ▷ Pay for the label Update classifier Ψ with the labeled example ( x t , y t ) Update drift detector Θ with the labeled example ( x t , y t )",
+              "similarity": 0.25,
+              "reason": "The paper's algorithm includes a 'sampling decision' and updating a classifier with labeled examples, which broadly relates to the user's idea of using a 'replay set' for learning. However, the specific mechanism of 'surprise buffer' and 'gradient conflict' is not present.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "Active learning for data streams: a survey",
+              "heading": "Abstract",
+              "text_snippet": "Online active learning is a paradigm in machine learning that aims to select the most informative data points to label from a data stream.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper operate within the general domain of machine learning, specifically dealing with learning from data streams or sequences of tasks, which implies an online or continual learning setting.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "Active learning for data streams: a survey",
+              "heading": "Conclusion",
+              "text_snippet": "We reviewed a wide range of strategies for selecting the most informative data points in online active learning, including methods based on uncertainty sampling, diversity sampling, query by committee, and reinforcement learning, among others.",
+              "similarity": 0.25,
+              "reason": "The paper reviews existing strategies for online active learning. The user's idea proposes a specific novel method ('surprise buffer' based on 'gradient conflict') for continual learning, which is a distinct contribution from a survey of existing methods, even if the broad area is related.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14982,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2302.08893v4"
+    },
+    {
+      "paper_id": "paper_01",
+      "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+      "arxiv_id": "2105.05155v3",
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's idea focuses on a continual learning method using a 'surprise buffer' for replay, specifically storing samples with high gradient conflict. The paper also addresses continual learning, aiming to prevent catastrophic forgetting and achieve positive backward transfer, but it explicitly states its focus is on 'replay-free methods' and a 'task-aware optimizer' that adapts the learning rate based on accumulated gradients. While both address continual learning, the paper's approach of being 'replay-free' and using accumulated gradients for an adaptive learning rate is a different specific problem/angle than the user's replay-based 'surprise buffer'. | Method: The user's idea proposes a continual learning method using a 'surprise buffer' that stores samples causing high gradient conflict for replay. In contrast, the paper explicitly states its focus is on 'design efficient replay-free methods for LLL' and introduces a 'task-aware optimizer that adapts the learning rate based on the relatedness among tasks' using 'task-based accumulated gradients'. There is no methodological overlap as the paper avoids replay buffers entirely, which is central to the user's idea. | Domain: Both the user's research idea and the paper operate within the domain of 'continual learning' or 'lifelong learning' (LLL), which is a specific sub-area of machine learning. The paper explicitly states its focus on 'continual stream of new tasks in the lifelong learning setting' and 'design efficient replay-free methods for LLL', while the user's idea is a 'continual learning method'. Both address the challenge of learning new tasks without forgetting old ones. | Contribution: The user's research idea proposes a continual learning method using a 'surprise buffer' for replay, storing samples with high gradient conflict. In contrast, the paper explicitly states its focus is on 'replay-free methods for LLL' and introduces a 'task-aware optimizer' that adapts the learning rate based on 'task-based accumulated gradients', without storing past examples.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A continual learning method that maintains a small 'surprise buffer' — storing only samples that caused the highest gradient conflict with previously learned tasks — and uses these samples as the sole replay set, updated dynamically per task boundary.",
+          "sentence_index": 0,
+          "similarity_score": 0.43749999999999994,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Most research works propose to either store a subset of examples from the past tasks in a replay buffer, dedicate a separate set of parameters to each task or penalize excessive updates over parameters by introducing a regularization term.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of continual learning, specifically mentioning replay buffers as a common approach. The user's idea proposes a specific type of replay buffer, while the paper aims for replay-free methods but acknowledges replay as a prevalent problem-solving strategy.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+              "heading": "Balaraman Ravindran",
+              "text_snippet": "Another class of methods, namely Replay-based methods, store a subset of examples from each task in a replay buffer. These methods apply gradient-based updates that facilitate a high-level transfer across different tasks through the examples from the past tasks that are simultaneously available while training.",
+              "similarity": 0.5,
+              "reason": "The user's idea directly proposes a replay-based method, which the paper identifies as a class of methods for lifelong learning. While the paper aims for replay-free methods, it acknowledges the problem setting where replay buffers are used to mitigate forgetting.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+              "heading": "RELATED WORK",
+              "text_snippet": "For instance, Averaged Gradient Episodic Memory ( A-GEM ) (Chaudhry et al., 2018b), alleviating computational inefficiency of GEM (Lopez-Paz &amp; Ranzato, 2017), uses the episodic memory to project the gradients based on hard constraints defined on the episodic memory and the current mini-batch. Experience Replay ( ER ) (Chaudhry et al., 2019) uses both replay memory and input mini-batches in the optimization step by averaging their gradients to mitigate forgetting.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'surprise buffer' as a replay set, which is a form of episodic memory or replay memory. The paper discusses A-GEM and ER, which are replay-based methods that use episodic/replay memory and gradient-based updates to mitigate forgetting, showing a conceptual overlap in using a buffer and gradients for continual learning, though the specific criteria for buffer content differ.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+              "heading": "Balaraman Ravindran",
+              "text_snippet": "Another class of methods, namely Replay-based methods, store a subset of examples from each task in a replay buffer. These methods apply gradient-based updates that facilitate a high-level transfer across different tasks through the examples from the past tasks that are simultaneously available while training.",
+              "similarity": 0.5,
+              "reason": "The user's idea explicitly describes a replay-based method that stores samples in a 'surprise buffer' and uses them as a replay set. This aligns with the general description of replay-based methods in the paper, which store a subset of examples in a replay buffer and use gradient-based updates.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "When an agent encounters a continual stream of new tasks in the lifelong learning setting, it leverages the knowledge it gained from the earlier tasks to help learn the new tasks better.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly situated within the domain of 'continual learning' or 'lifelong learning', dealing with agents learning from a stream of new tasks.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Lifelong learning (LLL), also known as continual learning, is a setting where an agent continuously learns from data belonging to different tasks (Parisi et al., 2019).",
+              "similarity": 1.0,
+              "reason": "The user's idea directly mentions 'continual learning method', which is synonymous with 'lifelong learning' as defined and discussed throughout the paper.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Most research works propose to either store a subset of examples from the past tasks in a replay buffer, dedicate a separate set of parameters to each task or penalize excessive updates over parameters by introducing a regularization term. While existing methods employ the general task-agnostic stochastic gradient descent update rule, we propose a task-aware optimizer that adapts the learning rate based on the relatedness among tasks.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes a specific novel replay buffer strategy, while the paper proposes a novel task-aware optimizer and accumulated gradients. Both aim to improve continual learning, but their specific contributions (replay strategy vs. optimizer/gradient accumulation) are distinct.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+              "heading": "CONCLUSION",
+              "text_snippet": "We propose a new task-aware optimizer for the LLL setting that adapts the learning rate based on the relatedness among tasks. We introduce the task-based accumulated gradients that act as the representation for individual tasks for the same.",
+              "similarity": 0.25,
+              "reason": "The user's idea contributes a specific replay buffer mechanism ('surprise buffer' based on gradient conflict). The paper's main contribution is a 'task-aware optimizer' and 'task-based accumulated gradients'. While both are in continual learning, their specific proposed solutions and contributions are different.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 11126,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2105.05155v3"
+    },
+    {
+      "paper_id": "paper_22",
+      "paper_title": "Replay Can Provably Increase Forgetting",
+      "arxiv_id": "2506.04377v1",
+      "paper_similarity_score": 0.2625,
+      "reason": "Problem: The user's idea focuses on a specific continual learning method using a 'surprise buffer' and gradient conflict for replay sample selection. The paper, while also in continual learning and focusing on replay, investigates the broader problem of whether replay can increase forgetting, even with randomly selected samples. While both address replay in continual learning, the specific problem and angle are different: one proposes a novel replay mechanism, the other analyzes the potential pitfalls of existing replay methods. | Method: The user's research idea proposes a specific continual learning method involving a 'surprise buffer' that stores samples based on 'highest gradient conflict' for replay. The evaluated paper, however, focuses on analyzing the theoretical and empirical effects of general 'sample replay' and how it can sometimes increase forgetting, without proposing or evaluating a specific replay method based on gradient conflict or a 'surprise buffer'. | Domain: Both the user's idea and the paper are firmly within the domain of continual learning, specifically focusing on replay-based methods to mitigate catastrophic forgetting. The paper explicitly discusses 'sample replay' and 'episodic memory' which aligns with the user's concept of a 'surprise buffer' as a replay set. The paper also mentions 'continual linear regression' and 'neural networks equipped with SGD' as models, which are common in continual learning research. | Contribution: The user's idea proposes a specific continual learning method using a 'surprise buffer' for replay, focusing on samples with high gradient conflict. The paper, in contrast, theoretically and empirically analyzes the general phenomenon of sample replay, demonstrating that it can surprisingly increase forgetting, even with randomly selected samples. While both relate to replay, their contributions address different aspects: one proposes a novel replay mechanism, the other analyzes the efficacy and potential pitfalls of existing replay methods.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A continual learning method that maintains a small 'surprise buffer' — storing only samples that caused the highest gradient conflict with previously learned tasks — and uses these samples as the sole replay set, updated dynamically per task boundary.",
+          "sentence_index": 0,
+          "similarity_score": 0.6,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Replay Can Provably Increase Forgetting",
+              "heading": "ABSTRACT",
+              "text_snippet": "A critical challenge for continual learning is forgetting, where the performance on previously learned tasks decreases as new tasks are introduced. One of the commonly used techniques to mitigate forgetting, sample replay, has been shown empirically to reduce forgetting by retaining some examples from old tasks and including them in new training episodes.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address continual learning and the challenge of forgetting, with replay as a mitigation strategy. The user proposes a specific replay mechanism to address this problem.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Replay Can Provably Increase Forgetting",
+              "heading": "GENERAL SETUP",
+              "text_snippet": "Replay. We consider a simple and standard formulation of replay in the literature, where the learning algorithm can store up to m samples from the previously seen tasks in memory, sometimes called episodic memory (Chaudhry et al., 2019). Let { X mem , y mem } denote the set of stored samples. During training on the current task t , in addition to the current task's samples, the model also trains on { X mem , y mem } to get the new iterate ˜ w t +1 . There are many ways the algorithm can update { X mem , y mem } (Chaudhry et al., 2019).",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a specific method for selecting and updating a 'surprise buffer' as a replay set, which directly relates to the paper's discussion of sample replay, episodic memory, and different ways to update the stored samples. The user's method is a specific instantiation of a replay mechanism.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Replay Can Provably Increase Forgetting",
+              "heading": "RELATED WORK",
+              "text_snippet": "Although there has been some concern in the literature that replaying a small number of samples might lead to overfitting (Lopez-Paz &amp; Ranzato, 2017), Chaudhry et al. (2019) find that replay of even one sample per class improves performance and does not hurt generalization even when the model memorizes the replay samples.",
+              "similarity": 0.5,
+              "reason": "The user's idea specifies a 'small surprise buffer', which aligns with the concept of replaying a small number of samples discussed in the related work section of the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Replay Can Provably Increase Forgetting",
+              "heading": "ABSTRACT",
+              "text_snippet": "Continual learning seeks to enable machine learning systems to solve an increasing corpus of tasks sequentially. A critical challenge for continual learning is forgetting, where the performance on previously learned tasks decreases as new tasks are introduced.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are firmly situated within the domain of continual learning, addressing its core challenges.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Replay Can Provably Increase Forgetting",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Humans and other animals can seemingly learn new skills and accumulate knowledge throughout their lifetimes. Continual learning algorithms aim to achieve this same capability: to produce systems that can learn from a sequence of tasks. One of the main challenges is a phenomenon typically called catastrophic forgetting (McCloskey &amp; Cohen, 1989), where the learner's performance on a previously visited task degrades once it learns new tasks.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on continual learning and the problem of catastrophic forgetting, which is a central theme in the paper.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Replay Can Provably Increase Forgetting",
+              "heading": "ABSTRACT",
+              "text_snippet": "One of the commonly used techniques to mitigate forgetting, sample replay, has been shown empirically to reduce forgetting by retaining some examples from old tasks and including them in new training episodes.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a novel replay strategy to mitigate forgetting, which is a common goal for replay methods, as acknowledged by the paper. While the paper focuses on analyzing replay's potential harms, it still frames replay as a technique to mitigate forgetting.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Replay Can Provably Increase Forgetting",
+              "heading": "GENERAL SETUP",
+              "text_snippet": "There are many ways the algorithm can update { X mem , y mem } (Chaudhry et al., 2019). In our worst case setup, this choice is adversarial, while in the average case setup we consider a random selection.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a specific method for updating the replay set ('surprise buffer'), which directly addresses one of the 'many ways the algorithm can update' the memory, as mentioned in the paper. The user's contribution is a specific strategy for this update.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 14136,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2506.04377v1"
+    },
+    {
+      "paper_id": "paper_14",
+      "paper_title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+      "arxiv_id": "2103.15851v2",
+      "paper_similarity_score": 0.5499999999999999,
+      "reason": "Problem: The user's idea focuses on a continual learning method using a 'surprise buffer' based on 'gradient conflict' to select replay samples. The paper addresses the problem of mitigating catastrophic forgetting using 'very small buffers' of 'highly informative samples' built through a 'distillation process'. While both aim to reduce buffer size in continual learning, the paper's core problem is about generating synthetic, informative samples via distillation, whereas the user's idea is about selecting real samples based on a specific 'gradient conflict' criterion. | Method: Both the user's idea and the paper propose continual learning methods using a small replay buffer. However, the user's idea specifically focuses on a 'surprise buffer' storing samples with the highest gradient conflict, whereas 'Distilled Replay' uses a distillation process to generate highly informative synthetic samples (one per class) for its buffer, which is a different mechanism for buffer population. | Domain: Both the user's research idea and the paper focus on continual learning methods, specifically addressing catastrophic forgetting through replay strategies with small buffers. The paper explicitly discusses 'replay strategies' and 'mitigating catastrophic forgetting by keeping a buffer of patterns from previous experiences,' which directly aligns with the user's idea of a continual learning method using a 'surprise buffer' as a 'sole replay set'. | Contribution: The user's idea proposes a 'surprise buffer' storing samples with the 'highest gradient conflict' as the sole replay set. The paper introduces 'Distilled Replay' which uses a 'very small buffer (1 pattern per class) of highly informative samples' built through a 'distillation process'. While both focus on small, informative replay buffers, the paper's method of selecting samples via distillation differs from the user's proposed 'gradient conflict' mechanism, though the paper does mention 'Maximal Interfered Retrieval (MIR)' which selects samples based on accuracy drop, showing some conceptual overlap in identifying 'problematic' samples.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A continual learning method that maintains a small 'surprise buffer' — storing only samples that caused the highest gradient conflict with previously learned tasks — and uses these samples as the sole replay set, updated dynamically per task boundary.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+              "heading": "Introduction",
+              "text_snippet": "To address this problem, in this paper we focused on Replay strategies [Chaudhry et al. , 2019b; Aljundi et al. , 2019], a family of CL techniques which leverages a buffer of patterns from previous experiences and uses it together with the current data to train the model.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of mitigating catastrophic forgetting in continual learning using replay strategies and a buffer of patterns.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+              "heading": "Introduction",
+              "text_snippet": "We introduce a novel CL strategy called Distilled Replay to address the problem of building very small replay buffers with highly informative samples.",
+              "similarity": 0.75,
+              "reason": "The paper focuses on building very small replay buffers with highly informative samples, which aligns with the user's idea of a 'small surprise buffer' and using these samples as the sole replay set.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+              "heading": "Introduction",
+              "text_snippet": "We introduce a novel CL strategy called Distilled Replay to address the problem of building very small replay buffers with highly informative samples.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a 'small surprise buffer' and the paper introduces 'Distilled Replay' which uses a 'very small buffer (1 pattern per class) of highly informative samples'. Both aim for small, informative buffers.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Our proposed approach, called Distilled Replay, belongs to the family of dual memory strategies. Distilled Replay combines a simple replay policy with a small buffer composed of highly informative patterns.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose a continual learning method that uses a small buffer of highly informative patterns as a replay set.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Maximal Interfered Retrieval (MIR) [Aljundi et al. , 2019] a dual-memory algorithm which selects the samples to be replayed based on how much their accuracy would drop after a training step on the current minibatch of data.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions 'samples that caused the highest gradient conflict with previously learned tasks', which is conceptually similar to MIR's approach of selecting samples based on 'how much their accuracy would drop after a training step', both focusing on samples that cause 'conflict' or 'interference'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+              "heading": "Introduction",
+              "text_snippet": "Continual learning (CL) requires the model to learn sequentially from a stream of experiences [Lesort et al. , 2020]. Each experience is made of a batch of data, which may contain new knowledge such as novel classes that need to be distinguished by the model.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly situated within the domain of Continual Learning (CL).",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+              "heading": "Introduction",
+              "text_snippet": "This work introduces Distilled Replay, a novel replay strategy for Continual Learning which is able to mitigate forgetting by keeping a very small buffer (1 pattern per class) of highly informative samples.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is a novel replay strategy using a very small buffer of highly informative samples, which partially overlaps with the user's idea of a 'small surprise buffer' and using these samples as the sole replay set.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 12607,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2103.15851v2"
+    },
+    {
+      "paper_id": "paper_32",
+      "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+      "arxiv_id": "2207.04998v1",
+      "paper_similarity_score": 0.25,
+      "reason": "Problem: The user's idea focuses on a continual learning method that uses a 'surprise buffer' storing samples with high gradient conflict to form a replay set. The paper addresses mitigating catastrophic forgetting in continual learning, specifically focusing on improving Experience Replay (ER) under low-buffer regimes by using consistency regularization. While both deal with continual learning and replay buffers to mitigate catastrophic forgetting, the specific problem of *how* to select samples for the replay buffer (gradient conflict for 'surprise buffer') is distinct from the paper's problem of *how* to better leverage existing buffered samples through consistency regularization. | Method: The user's idea proposes a 'surprise buffer' based on 'gradient conflict' for selecting replay samples, which is a specific sample selection strategy. The paper, while also using a replay buffer, focuses on 'consistency regularization' and 'soft-targets' to improve the effectiveness of existing Experience Replay (ER) methods, rather than a novel sample selection mechanism based on gradient conflict. The methods share the broad category of continual learning with replay, but the core methodological approaches to buffer management and learning are distinct. | Domain: Both the user's research idea and the paper are squarely within the domain of 'continual learning' and specifically address 'catastrophic forgetting' in deep neural networks. Both focus on 'replay-based methods' and the challenge of 'low-buffer regimes' in continual learning, indicating a direct overlap in the specific application area and problem being tackled. | Contribution: The user's research idea proposes a continual learning method that uses a 'surprise buffer' storing samples with high gradient conflict as the sole replay set. The paper, in contrast, focuses on consistency regularization within an Experience Replay (ER) framework to mitigate catastrophic forgetting, examining various consistency regularizers and self-supervised learning methods. There is no mention of 'gradient conflict' or a 'surprise buffer' in the paper's approach to selecting replay samples.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A continual learning method that maintains a small 'surprise buffer' — storing only samples that caused the highest gradient conflict with previously learned tasks — and uses these samples as the sole replay set, updated dynamically per task boundary.",
+          "sentence_index": 0,
+          "similarity_score": 0.43749999999999994,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Deep neural networks struggle to continually learn multiple sequential tasks due to catastrophic forgetting of previously learned tasks. Rehearsal-based methods which explicitly store previous task samples in the buffer and interleave them with the current task samples have proven to be the most effective in mitigating forgetting.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of catastrophic forgetting in continual learning, specifically focusing on rehearsal-based methods and the use of a buffer.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Continual Learning (CL) refers to a learning paradigm where computational systems sequentially learn multiple tasks with data becoming progressively available over time. An ideal CL system must be plastic enough to integrate novel information and stable enough to not interfere with the consolidated knowledge (Parisi et al., 2019). In deep neural networks, however, sufficient plasticity to acquire new tasks results in large weight changes disrupting consolidated knowledge, referred to as catastrophic forgetting (Goodfellow et al., 2013; McCloskey &amp; Cohen, 1989).",
+              "similarity": 0.5,
+              "reason": "The core problem of catastrophic forgetting in continual learning is shared between the user's idea and the paper.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Rehearsal-based methods which explicitly store previous task samples in the buffer and interleave them with the current task samples have proven to be the most effective in mitigating forgetting. However, Experience Replay (ER) does not perform well under low-buffer regimes and longer task sequences as its performance is commensurate with the buffer size.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'surprise buffer' as a replay set, which falls under the general category of rehearsal-based methods and experience replay discussed in the paper. Both acknowledge the use of a buffer for storing samples.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Rehearsal-based methods (Lopez-Paz &amp; Ranzato, 2017; Chaudhry et al., 2019) explicitly store and replay a subset of previous task samples along with the current batch of samples, have proven to be most effective in minimizing interference in challenging CL tasks (Farquhar &amp; Gal, 2018). Simple Experience Replay (ER) (Ratcliff, 1990; Robins, 1995) which interleaves old task samples with the current task samples is one of the top-performing methods across different CL scenarios (Buzzega et al., 2020).",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'replay set' and a 'surprise buffer', which aligns with the concept of rehearsal-based methods and Experience Replay (ER) that store and replay previous task samples, as described in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+              "heading": "RELATED WORKS",
+              "text_snippet": "Early works attempted to minimize forgetting in neural networks through experience rehearsal (Ratcliff, 1990; Robins, 1995; Lopez-Paz &amp; Ranzato, 2017; Chaudhry et al., 2019) by interleaving samples belonging to previous tasks in the replay buffer with the current batch of samples while training on the new tasks. Simple ER (Ratcliff, 1990; Robins, 1995) is one of the top-performing methods across different CL scenarios (Buzzega et al., 2020).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper discuss methods involving a 'replay buffer' or 'replay set' for continual learning, specifically 'experience rehearsal' or 'experience replay'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Deep neural networks struggle to continually learn multiple sequential tasks due to catastrophic forgetting of previously learned tasks.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are situated within the domain of continual learning for deep neural networks.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Continual Learning (CL) refers to a learning paradigm where computational systems sequentially learn multiple tasks with data becoming progressively available over time. An ideal CL system must be plastic enough to integrate novel information and stable enough to not interfere with the consolidated knowledge (Parisi et al., 2019). In deep neural networks, however, sufficient plasticity to acquire new tasks results in large weight changes disrupting consolidated knowledge, referred to as catastrophic forgetting (Goodfellow et al., 2013; McCloskey &amp; Cohen, 1989).",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions 'continual learning method', which is the central domain of the paper.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Rehearsal-based methods which explicitly store previous task samples in the buffer and interleave them with the current task samples have proven to be the most effective in mitigating forgetting. However, Experience Replay (ER) does not perform well under low-buffer regimes and longer task sequences as its performance is commensurate with the buffer size. Consistency in predictions of soft-targets can assist ER in preserving information pertaining to previous tasks better as soft-targets capture the rich similarity structure of the data. Therefore, we examine the role of consistency regularization in ER framework under various continual learning scenarios.",
+              "similarity": 0.25,
+              "reason": "While both address continual learning with buffers, the paper's main contribution is on 'consistency regularization' to improve ER, especially under low-buffer regimes. The user's idea proposes a different mechanism for buffer management ('surprise buffer' based on 'gradient conflict') as its core contribution, which is distinct from consistency regularization.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+              "heading": "CONCLUSION",
+              "text_snippet": "We provided a comprehensive study on the role of consistency regularization under a common ER framework across various CL scenarios and datasets. We also studied the state-of-the-art SSL algorithms as regularizers by interpreting the regularization of consistency in predictions as a self-supervised pretext task. Consistency regularization augments ER in preserving rich information about the previous tasks better thereby mitigating catastrophic forgetting further.",
+              "similarity": 0.25,
+              "reason": "The paper's contribution is focused on consistency regularization. The user's idea contributes a specific buffer selection strategy ('surprise buffer' based on 'gradient conflict'), which is a different approach to improving replay-based methods.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 15586,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2207.04998v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 93,
+    "global_similarity_score": 0.25999999999999995,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A continual learning method that maintains a small 'surprise buffer' — storing only samples that caused the highest gradient conflict with previously learned tasks — and uses these samples as the sole replay set, updated dynamically per task boundary.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_13",
+            "paper_title": "Active learning for data streams: a survey",
+            "heading": "Introduction",
+            "text_snippet": "This has led to growing interest in the online variant of active learning, also referred to as streambased active learning, which involves continuously selecting and labeling observations as they arrive in a stream, allowing for real-time adaptation to changing data distributions.",
+            "similarity": 0.5,
+            "reason": "The user's idea is about continual learning, which shares the goal of adapting to changing data over time, similar to stream-based active learning's focus on real-time adaptation to changing data distributions.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_22",
+            "paper_title": "Replay Can Provably Increase Forgetting",
+            "heading": "GENERAL SETUP",
+            "text_snippet": "Replay. We consider a simple and standard formulation of replay in the literature, where the learning algorithm can store up to m samples from the previously seen tasks in memory, sometimes called episodic memory (Chaudhry et al., 2019). Let { X mem , y mem } denote the set of stored samples. During training on the current task t , in addition to the current task's samples, the model also trains on { X mem , y mem } to get the new iterate ˜ w t +1 . There are many ways the algorithm can update { X mem , y mem } (Chaudhry et al., 2019).",
+            "similarity": 0.75,
+            "reason": "The user's idea proposes a specific method for selecting and updating a 'surprise buffer' as a replay set, which directly relates to the paper's discussion of sample replay, episodic memory, and different ways to update the stored samples. The user's method is a specific instantiation of a replay mechanism.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+            "heading": "ABSTRACT",
+            "text_snippet": "When an agent encounters a continual stream of new tasks in the lifelong learning setting, it leverages the knowledge it gained from the earlier tasks to help learn the new tasks better.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are explicitly situated within the domain of 'continual learning' or 'lifelong learning', dealing with agents learning from a stream of new tasks.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_22",
+            "paper_title": "Replay Can Provably Increase Forgetting",
+            "heading": "ABSTRACT",
+            "text_snippet": "One of the commonly used techniques to mitigate forgetting, sample replay, has been shown empirically to reduce forgetting by retaining some examples from old tasks and including them in new training episodes.",
+            "similarity": 0.5,
+            "reason": "The user's idea proposes a novel replay strategy to mitigate forgetting, which is a common goal for replay methods, as acknowledged by the paper. While the paper focuses on analyzing replay's potential harms, it still frames replay as a technique to mitigate forgetting.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research demonstrates high originality in its problem, method, and contribution, with the closest related work only moderately similar. However, there is significant overlap in the application domain, suggesting you could further highlight the unique aspects of your chosen domain.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.48,
+      "method_similarity": 0.36,
+      "domain_similarity": 0.92,
+      "contribution_similarity": 0.36
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.041,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0387,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.002,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 150.00885391235352,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_13",
+        "paper_title": "Active learning for data streams: a survey",
+        "paper_similarity": 0.0875,
+        "criteria_scores": {
+          "problem_similarity": 0.25,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_01",
+        "paper_title": "TAG: Task-based Accumulated Gradients for Lifelong learning",
+        "paper_similarity": 0.15000000000000002,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_22",
+        "paper_title": "Replay Can Provably Increase Forgetting",
+        "paper_similarity": 0.2625,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_14",
+        "paper_title": "Distilled Replay: Overcoming Forgetting through Synthetic Samples",
+        "paper_similarity": 0.5499999999999999,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_32",
+        "paper_title": "Consistency is the key to further mitigating catastrophic forgetting in continual learning",
+        "paper_similarity": 0.25,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 94
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 94,
+    "after_dedup": 94,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

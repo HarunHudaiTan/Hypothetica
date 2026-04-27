@@ -565,10 +565,10 @@ def run(
         global_mode="mean",
     )
     print("\n" + "=" * 72)
-    print("  PREFERRED FORMULA — weighted-mean + plain mean + power γ=2.0")
+    print("  [Production uses weighted-mean per paper, max across papers, power γ=1.0; this script is for sweeps only]")
     print("=" * 72)
     print(f"  paper_similarity = 0.15·p + 0.10·d + 0.30·m + 0.45·c")
-    print(f"  global_similarity = mean(5 paper sims)")
+    print(f"  (legacy sweep) global_similarity = mean(5 paper sims) — not production")
     print(f"  originality = (1 - global_sim^2.0) × 100")
     print(f"  thresholds = (40, 70)")
     print(f"  macro_f1={preferred['macro_f1']:.3f}  "
@@ -692,7 +692,7 @@ def run(
     print(f"  OLD formula — best sweep config:              {all_results[0]['macro_f1']:.3f}")
     print(f"  NEW formula — default weights:                {new_default['macro_f1']:.3f}")
     print(f"  NEW formula — best small-sweep config:        {best_new['macro_f1']:.3f}")
-    print(f"  PREFERRED (wmean + mean + power γ=2.0):       {preferred['macro_f1']:.3f}")
+    print(f"  sweep baseline (wmean + mean + power γ=2.0): {preferred['macro_f1']:.3f}")
     print("=" * 72)
 
 

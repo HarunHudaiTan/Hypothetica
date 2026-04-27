@@ -9,6 +9,12 @@ class PaperSource(str, Enum):
 class AnalyzeRequest(BaseModel):
     user_idea: str = Field(..., min_length=50)
     papers_per_query: int = Field(default=150, ge=50, le=300)
+    papers_per_variant_conversion: int = Field(
+        default=40,
+        ge=10,
+        le=200,
+        description="How many hits to keep from each search query variant (arXiv, patents, etc.) before dedup.",
+    )
     embedding_topk: int = Field(default=100, ge=50, le=200)
     rerank_topk: int = Field(default=20, ge=10, le=50)
     final_papers: int = Field(default=5, ge=3, le=10)

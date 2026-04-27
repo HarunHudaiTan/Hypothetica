@@ -17,6 +17,11 @@ Usage:
     python run_benchmark.py --source google_patents
     python run_benchmark.py --metrics-only
     python run_benchmark.py --upload-only          # backfill Supabase from saved raw results
+
+    Ad-hoc API smoke tests (any text; not from dataset JSON; gold metrics are N/A):
+    python run_benchmark.py --source arxiv --idea "Your research idea in one string"
+    python run_benchmark.py --source arxiv --ideas-file /path/to/ideas.txt
+    # ideas.txt: one research idea per line (omit blank lines)
 """
 
 from __future__ import annotations
@@ -25,6 +30,7 @@ import argparse
 import csv
 import json
 import os
+import re
 import time
 from datetime import datetime
 from pathlib import Path
@@ -363,6 +369,21 @@ def run_one_case(idea: str, api_source: str) -> dict | None:
 # Metrics
 # ---------------------------------------------------------------------------
 
+def normalize_arxiv_id(raw: str) -> str:
+    """
+    Canonical arXiv id for matching gold vs retrieved: strip version suffix
+    and optional abs/pdf URL. New-style: 1234.56789, old-style: cs/0601001.
+    """
+    s = (raw or "").strip()
+    if not s:
+        return s
+    # New-style id anywhere in the string (e.g. full URL to abs page)
+    m = re.search(r"(\d{4}\.\d{4,5})(?:v\d+)?", s)
+    if m:
+        return m.group(1)
+    return re.sub(r"v\d+$", "", s, flags=re.IGNORECASE)
+
+
 def extract_retrieved_ids(result: dict, source: str) -> list[str]:
     """IDs in list order for overlap with gold arxiv_id / patent_id."""
     ids: list[str] = []
@@ -380,7 +401,7 @@ def extract_retrieved_ids(result: dict, source: str) -> list[str]:
                 val = str(v).strip()
                 break
         if val and not val.startswith("paper_"):
-            ids.append(val)
+            ids.append(normalize_arxiv_id(val))
 
     seen: set[str] = set()
     out: list[str] = []
@@ -446,9 +467,10 @@ def gold_id_sets(gold_items: list[dict]) -> tuple[set[str], set[str]]:
         gid = (g.get("arxiv_id") or g.get("patent_id") or "").strip()
         if not gid:
             continue
-        all_ids.add(gid)
+        nid = normalize_arxiv_id(gid) if g.get("arxiv_id") else gid
+        all_ids.add(nid)
         if g.get("relevance") == "core":
-            core_ids.add(gid)
+            core_ids.add(nid)
     return all_ids, core_ids
 
 
@@ -544,13 +566,55 @@ def print_summary(rows: list[dict], source: str):
     print(f"{'=' * 55}\n")
 
 
-def run_source(source_name: str, metrics_only: bool = False, upload_only: bool = False):
+def adhoc_cases_single(idea: str) -> tuple[list[dict], dict[str, list[dict]]]:
+    cid = "ad_hoc_001"
+    cases = [
+        {
+            "case_id": cid,
+            "domain": "",
+            "originality_label": "",
+            "idea": idea.strip(),
+        }
+    ]
+    return cases, {cid: []}
+
+
+def adhoc_cases_from_ideas_file(path: Path) -> tuple[list[dict], dict[str, list[dict]]]:
+    text = path.read_text(encoding="utf-8")
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    if not lines:
+        raise SystemExit(f"No non-empty lines in {path}")
+    cases = []
+    gold: dict[str, list[dict]] = {}
+    for i, line in enumerate(lines, 1):
+        cid = f"ad_hoc_{i:03d}"
+        cases.append(
+            {
+                "case_id": cid,
+                "domain": "",
+                "originality_label": "",
+                "idea": line,
+            }
+        )
+        gold[cid] = []
+    return cases, gold
+
+
+def run_source(
+    source_name: str,
+    metrics_only: bool = False,
+    upload_only: bool = False,
+    *,
+    cases: list[dict] | None = None,
+    gold_map: dict[str, list[dict]] | None = None,
+    adhoc: bool = False,
+):
     cfg = SOURCE_CONFIG[source_name]
     path = cfg["dataset_json"]
-    if not path.exists():
-        raise FileNotFoundError(f"Dataset not found: {path}")
-
-    cases, gold_map = load_dataset_json(path)
+    if cases is None or gold_map is None:
+        if not path.exists():
+            raise FileNotFoundError(f"Dataset not found: {path}")
+        cases, gold_map = load_dataset_json(path)
     raw_dir = cfg["raw_dir"]
     raw_dir.mkdir(parents=True, exist_ok=True)
 
@@ -565,7 +629,10 @@ def run_source(source_name: str, metrics_only: bool = False, upload_only: bool =
 
         log(f"\n{'─' * 50}")
         log(f"Starting benchmark: {source_name.upper()}  ({total} cases)")
-        log(f"Dataset: {path}")
+        if adhoc:
+            log("Dataset: (ad-hoc ideas — not from benchmark JSON)")
+        else:
+            log(f"Dataset: {path}")
         log(f"{'─' * 50}")
 
         for i, case in enumerate(cases, 1):
@@ -646,7 +713,25 @@ def main():
             "Override with BENCHMARK_ARXIV_DATASET if set."
         ),
     )
+    parser.add_argument(
+        "--idea",
+        type=str,
+        default=None,
+        help="Run a single ad-hoc idea through the live API (not from a dataset file).",
+    )
+    parser.add_argument(
+        "--ideas-file",
+        type=Path,
+        default=None,
+        help="Text file: one research idea per non-empty line; runs each as a separate ad-hoc case.",
+    )
     args = parser.parse_args()
+
+    if (args.idea or args.ideas_file) and args.upload_only:
+        raise SystemExit("--upload-only is not valid with --idea or --ideas-file")
+
+    if args.idea and args.ideas_file:
+        raise SystemExit("Use only one of --idea and --ideas-file")
 
     arxiv_ds = args.arxiv_dataset
     if arxiv_ds is not None:
@@ -657,6 +742,30 @@ def main():
     global SOURCE_CONFIG
     SOURCE_CONFIG = build_source_config(args.results_dir, arxiv_dataset=arxiv_ds)
     log(f"Using results directory: {args.results_dir.resolve()}")
+
+    if args.idea is not None or args.ideas_file is not None:
+        source = args.source or "arxiv"
+        if args.source is None:
+            log("No --source for ad-hoc run; using arxiv")
+        if args.ideas_file is not None:
+            p = args.ideas_file.resolve()
+            if not p.is_file():
+                raise SystemExit(f"Not a file: {p}")
+            cases, gold_map = adhoc_cases_from_ideas_file(p)
+        else:
+            if not (args.idea or "").strip():
+                raise SystemExit("--idea must be non-empty")
+            cases, gold_map = adhoc_cases_single(args.idea)
+        run_source(
+            source,
+            metrics_only=args.metrics_only,
+            upload_only=False,
+            cases=cases,
+            gold_map=gold_map,
+            adhoc=True,
+        )
+        log("All done.")
+        return
 
     sources = [args.source] if args.source else ["arxiv", "google_patents"]
     if "arxiv" in sources:

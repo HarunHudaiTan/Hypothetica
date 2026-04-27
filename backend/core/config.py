@@ -10,7 +10,8 @@ import torch
 # Load .env: try envfiles/.env first (Docker), then project root .env (local dev)
 _root = Path(__file__).resolve().parent.parent.parent
 load_dotenv(_root / "envfiles" / ".env")
-load_dotenv(_root / ".env")  # Fallback for local development
+# Local .env should win over any duplicate keys in envfiles/ (default override=False is wrong for that)
+load_dotenv(_root / ".env", override=True)
 
 # =============================================================================
 # API KEYS
@@ -26,6 +27,10 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 # SerpApi for Google Patents
 SERPAPI_API_KEY = os.getenv("SERPAPI_API_KEY")
+
+# OpenAlex (https://developers.openalex.org/) — optional mailto improves rate limits
+OPENALEX_API_KEY = os.getenv("OPENALEX_API_KEY")
+OPENALEX_MAILTO = os.getenv("OPENALEX_MAILTO")
 
 # =============================================================================
 # MODEL CONFIGURATION
@@ -46,6 +51,9 @@ EMBEDDING_DEVICE = _detect_device()
 # =============================================================================
 # Enhanced ArXiv Search (High-Recall Retrieval)
 PAPERS_PER_QUERY_VARIANT = 150  # Papers to fetch per query variant
+# Raw hits retained per query variant after search (AdapterService, non-OpenAlex).
+# Fetch size is max(this, papers_per_query // 4) so the API returns enough rows.
+PAPERS_PER_VARIANT_CONVERSION = 40
 EMBEDDING_TOPK = 100  # Candidates from embedding search
 RERANK_TOPK = 20  # Papers after cross-encoder reranking
 MAX_PAPERS_TO_ANALYZE = 5  # Final papers for detailed analysis
@@ -102,15 +110,14 @@ CRITERIA_WEIGHTS = {
 
 SENTENCE_OVERLAP_TOP_K = 2       # Top-K scores to average per sentence (UI annotations)
 CRITERIA_MAX_WEIGHT = 0.6        # Weight given to max score in criteria aggregation (UI display)
-OVERLAP_CURVE_POWER = 2.0        # Exponent for non-linear overlap→originality mapping
-                                 # Recalibrated 2026-04-19: was 1.5, too aggressive on mid-overlap.
+# originality = (1 - global_similarity ** OVERLAP_CURVE_POWER) * 100
+# Power=1 is linear. Power>1 convex-ifies low similarities (inflates “novel” when mean was used).
+# Power=2 with mean(global) let irrelevant papers dilute one real match; we now use max(global).
+OVERLAP_CURVE_POWER = 1.0
 
-# Layer 2 aggregation policy (2026-04-19 recalibration)
-# Per-paper similarity = weighted mean of the 4 criteria (no max-term).
-# Global similarity   = plain mean across all retrieved papers (no max-term).
-# Previously max-driven blends with α=PAPER_SIMILARITY_MAX_WEIGHT and
-# β=GLOBAL_SIMILARITY_MAX_WEIGHT were used; a sweep over 125k configs showed
-# both blends crushed novel ideas, so they were removed entirely.
+# Layer 2 aggregation policy
+# Per-paper similarity = weighted mean of the 4 criteria (no max within paper).
+# Global similarity   = max over analyzed papers (best match wins — mean diluted real overlap).
 
 # Categorical guardrails
 GUARDRAIL_CRITICAL_FLOOR = 0.65  # Min overlap when any criterion = Likert 5 (1.0)

@@ -1,0 +1,802 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "a896090e322e",
+    "status": "completed"
+  },
+  "originality_score": 99,
+  "global_similarity_score": 0.0725,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+      "originality_score": 0.25,
+      "similarity_score": 0.75,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "medium",
+        "domain_similarity": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_17",
+          "paper_title": "Growth-dependent bacterial susceptibility to ribosome-targeting antibiotics",
+          "heading": "Introduction",
+          "text_snippet": "Quantitative predictions for the inhibition of bacterial growth by antibiotics are essential for the design of treatment strategies [1] and for controlling the evolution of antibiotic resistance [2-5].",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper are concerned with antibiotic resistance and its prediction/control. The user focuses on predicting resistance from mutations, while the paper focuses on growth-dependent susceptibility and its implications for resistance evolution.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_13",
+          "paper_title": "Pushing the Limits of AMR Parsing with Self-Learning",
+          "heading": "Self-Training with Synthetic AMR",
+          "text_snippet": "Following prior work, we tested pre-training on synAMR only, as in (Konstas et al., 2017b), or on the mix of human-annotated AMR and synAMR, as in (van Noord and Bos, 2017) and then fine-tuned on the AMR1.0 or AMR2.0 corpora.",
+          "similarity": 0.75,
+          "reason": "The user's idea explicitly states 'Fine-tuning a pre-trained protein language model... on a labeled dataset'. This directly corresponds to the paper's mention of 'pre-training... and then fine-tuned on the AMR1.0 or AMR2.0 corpora', showing a shared methodological step of fine-tuning a pre-trained model on a specific dataset.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+          "heading": "ABSTRACT",
+          "text_snippet": "Antimicrobial resistance (AMR) poses a significant public health and economic challenge, increasing treatment costs and reducing antibiotic effectiveness. This study employs machine learning to analyze genomic and epidemiological data...",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are squarely in the domain of antimicrobial resistance (AMR) prediction using computational methods on biological data.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_26",
+          "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+          "heading": "ABSTRACT",
+          "text_snippet": "This study employs machine learning to analyze genomic and epidemiological data... We investigate gyrA mutations for fluoroquinolone resistance and the tet(O) gene for tetracycline resistance, training a Random Forest model validated with bootstrap resampling (1,000 samples, 95% confidence intervals), achieving 74% accuracy in predicting AMR phenotypes.",
+          "similarity": 0.5,
+          "reason": "The user proposes to 'predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class'. The paper's contribution includes 'achieving 74% accuracy in predicting AMR phenotypes' and investigating specific mutations for resistance, indicating a shared goal of predicting AMR based on genetic markers.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea demonstrates very high originality across all criteria, with minimal overlap detected in problem formulation and domain. The closest related work on AMR prediction differs significantly from your proposed approach, suggesting a unique contribution.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.33999999999999997,
+    "method_similarity": 0.16999999999999998,
+    "domain_similarity": 0.38,
+    "contribution_similarity": 0.16999999999999998
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.032,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0302,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0016,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 209.38679337501526,
+  "papers": [
+    {
+      "paper_id": "paper_17",
+      "source": "arxiv",
+      "source_id": "1412.1390v1",
+      "arxiv_id": "1412.1390v1",
+      "title": "Growth-dependent bacterial susceptibility to ribosome-targeting antibiotics",
+      "abstract": "Bacterial growth environment strongly influences the efficacy of antibiotic treatment, with slow growth often being associated with decreased susceptibility. Yet in many cases the connection between antibiotic susceptibility and pathogen physiology remains unclear. We show that for ribosome-targeting antibiotics acting on Escherichia coli, a complex interplay exists between physiology and antibiotic action; for some antibiotics within this class faster growth indeed increases susceptibility, but for other antibiotics the opposite is true. Remarkably, these observations can be explained by a simple mathematical model that combines drug transport and binding with physiological constraints. Our model reveals that growth-dependent susceptibility is controlled by a single parameter characterizing the `reversibility' of antibiotic transport and binding. This parameter provides a spectrum-classification of antibiotic growth-dependent efficacy that appears to correspond at its extremes to existing binary classification schemes. In these limits the model predicts universal, parameter-free limiting forms for growth inhibition curves. The model also leads to non-trivial predictions for the drug susceptibility of a translation-mutant strain of E. coli, which we verify experimentally. Drug action and bacterial metabolism are mechanistically complex; nevertheless this study illustrates how coarse-grained models can be used to integrate pathogen physiology into drug design and treatment strategies.",
+      "url": "http://arxiv.org/abs/1412.1390v1",
+      "pdf_url": "https://arxiv.org/pdf/1412.1390v1",
+      "authors": [
+        "Philip Greulich",
+        "Matthew Scott",
+        "Martin R. Evans",
+        "Rosalind J. Allen"
+      ],
+      "categories": [
+        "q-bio.CB",
+        "q-bio.QM"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on predicting antibiotic resistance mutations using a protein language model. In contrast, the paper investigates the growth-dependent bacterial susceptibility to ribosome-targeting antibiotics, explaining observed phenomena with a mathematical model that combines drug transport and binding with physiological constraints. These are fundamentally different research problems. | Method: The user's research idea proposes fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset to predict antibiotic resistance mutations. The paper, however, uses a mathematical model combining drug transport and binding with physiological constraints to explain growth-dependent bacterial susceptibility to ribosome-targeting antibiotics. There is no methodological overlap between these approaches. | Domain: Both the user's idea and the paper are within the broader domain of antibiotic resistance and bacterial response to antibiotics. However, the paper focuses on the physiological mechanisms of growth-dependent susceptibility to ribosome-targeting antibiotics in E. coli, using mathematical modeling and experimental verification. The user's idea is specifically about using a protein language model (ESM-2) to predict antibiotic resistance mutations, which is a different sub-area and methodology within the same general field. | Contribution: The user's research idea focuses on fine-tuning a protein language model (ESM-2) to predict antibiotic resistance mutations. In contrast, the paper investigates the growth-dependent susceptibility of bacteria to ribosome-targeting antibiotics using a mathematical model and experimental verification, without any mention of protein language models, machine learning, or predicting mutations.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_20",
+      "source": "arxiv",
+      "source_id": "1002.1144v1",
+      "arxiv_id": "1002.1144v1",
+      "title": "A CHAID Based Performance Prediction Model in Educational Data Mining",
+      "abstract": "The performance in higher secondary school education in India is a turning point in the academic lives of all students. As this academic performance is influenced by many factors, it is essential to develop predictive data mining model for students' performance so as to identify the slow learners and study the influence of the dominant factors on their academic performance. In the present investigation, a survey cum experimental methodology was adopted to generate a database and it was constructed from a primary and a secondary source. While the primary data was collected from the regular students, the secondary data was gathered from the school and office of the Chief Educational Officer (CEO). A total of 1000 datasets of the year 2006 from five different schools in three different districts of Tamilnadu were collected. The raw data was preprocessed in terms of filling up missing values, transforming values in one form into another and relevant attribute/ variable selection. As a result, we had 772 student records, which were used for CHAID prediction model construction. A set of prediction rules were extracted from CHIAD prediction model and the efficiency of the generated CHIAD prediction model was found. The accuracy of the present model was compared with other model and it has been found to be satisfactory.",
+      "url": "http://arxiv.org/abs/1002.1144v1",
+      "pdf_url": "https://arxiv.org/pdf/1002.1144v1",
+      "authors": [
+        "M. Ramaswami",
+        "R. Bhaskaran"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on fine-tuning a protein language model to predict antibiotic resistance mutations in bacterial proteins. In contrast, the paper aims to develop a CHAID-based model to predict student academic performance in higher secondary school education in India. These two problems are fundamentally different in their domain (biology/bioinformatics vs. educational data mining), data types (protein sequences vs. student demographic/academic records), and predictive targets (antibiotic resistance vs. academic grades). | Method: The user's research idea proposes fine-tuning a pre-trained protein language model (ESM-2) for antibiotic resistance prediction. The paper, however, uses a CHAID prediction model for educational data mining to predict student performance. These are entirely different methodologies applied to vastly different domains, with no methodological overlap. | Domain: The user's research idea is in the domain of bioinformatics and computational biology, specifically predicting antibiotic resistance mutations in bacterial proteins using protein language models. The paper, however, is in the domain of educational data mining, focusing on predicting student academic performance using a CHAID model. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on fine-tuning a protein language model (ESM-2) to predict antibiotic resistance mutations in bacterial proteins. In contrast, the paper develops a CHAID-based prediction model to evaluate students' academic performance in higher secondary education, using socio-economic and personal factors. The contributions are entirely unrelated, addressing different domains and research questions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_13",
+      "source": "arxiv",
+      "source_id": "2010.10673v1",
+      "arxiv_id": "2010.10673v1",
+      "title": "Pushing the Limits of AMR Parsing with Self-Learning",
+      "abstract": "Abstract Meaning Representation (AMR) parsing has experienced a notable growth in performance in the last two years, due both to the impact of transfer learning and the development of novel architectures specific to AMR. At the same time, self-learning techniques have helped push the performance boundaries of other natural language processing applications, such as machine translation or question answering. In this paper, we explore different ways in which trained models can be applied to improve AMR parsing performance, including generation of synthetic text and AMR annotations as well as refinement of actions oracle. We show that, without any additional human annotations, these techniques improve an already performant parser and achieve state-of-the-art results on AMR 1.0 and AMR 2.0.",
+      "url": "http://arxiv.org/abs/2010.10673v1",
+      "pdf_url": "https://arxiv.org/pdf/2010.10673v1",
+      "authors": [
+        "Young-Suk Lee",
+        "Ramon Fernandez Astudillo",
+        "Tahira Naseem",
+        "Revanth Gangi Reddy",
+        "Radu Florian",
+        "Salim Roukos"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on predicting antibiotic resistance mutations in bacterial proteins using a protein language model. In contrast, the paper addresses improving Abstract Meaning Representation (AMR) parsing performance in natural language processing using self-learning techniques. These are fundamentally different research problems in distinct scientific domains (biology/bioinformatics vs. natural language processing). | Method: The user's research idea focuses on fine-tuning a protein language model (ESM-2) for predicting antibiotic resistance mutations in bacterial proteins. The evaluated paper, 'Pushing the Limits of AMR Parsing with Self-Learning,' is entirely focused on improving Abstract Meaning Representation (AMR) parsing using self-learning techniques, synthetic text, and refinement of action oracles. There is no overlap in the domain (protein science vs. natural language processing), the specific models used (ESM-2 vs. Transformer-based AMR parsers), or the application (antibiotic resistance prediction vs. semantic parsing). | Domain: The user's research idea is in the domain of bioinformatics and computational biology, specifically predicting antibiotic resistance mutations in bacterial proteins using protein language models. The paper, 'Pushing the Limits of AMR Parsing with Self-Learning,' is focused on Abstract Meaning Representation (AMR) parsing, a sub-area of natural language processing (NLP). These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on fine-tuning a protein language model (ESM-2) for predicting antibiotic resistance mutations in bacterial proteins. The paper, 'Pushing the Limits of AMR Parsing with Self-Learning,' is entirely concerned with improving Abstract Meaning Representation (AMR) parsing performance using self-learning techniques in natural language processing. These are distinct domains with unrelated contributions and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_26",
+      "source": "arxiv",
+      "source_id": "2509.03551v1",
+      "arxiv_id": "2509.03551v1",
+      "title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+      "abstract": "Antimicrobial resistance (AMR) poses a significant public health and economic challenge, increasing treatment costs and reducing antibiotic effectiveness. This study employs machine learning to analyze genomic and epidemiological data from the public databases for molecular typing and microbial genome diversity (PubMLST), incorporating data from UK government-supported AMR surveillance by the Food Standards Agency and Food Standards Scotland. We identify AMR patterns in Campylobacter jejuni and Campylobacter coli isolates collected in the UK from 2001 to 2017. The research integrates whole-genome sequencing (WGS) data, epidemiological metadata, and economic projections to identify key resistance determinants and forecast future resistance trends and healthcare costs. We investigate gyrA mutations for fluoroquinolone resistance and the tet(O) gene for tetracycline resistance, training a Random Forest model validated with bootstrap resampling (1,000 samples, 95% confidence intervals), achieving 74% accuracy in predicting AMR phenotypes. Time-series forecasting models (SARIMA, SIR, and Prophet) predict a rise in campylobacteriosis cases, potentially exceeding 130 cases per 100,000 people by 2050, with an economic burden projected to surpass 1.9 billion GBP annually if left unchecked. An enhanced Random Forest system, analyzing 6,683 isolates, refines predictions by incorporating temporal patterns, uncertainty estimation, and resistance trend modeling, indicating sustained high beta-lactam resistance, increasing fluoroquinolone resistance, and fluctuating tetracycline resistance.",
+      "url": "http://arxiv.org/abs/2509.03551v1",
+      "pdf_url": "https://arxiv.org/pdf/2509.03551v1",
+      "authors": [
+        "Shubham Mishra",
+        "The Anh Han",
+        "Bruno Silvester Lopes",
+        "Shatha Ghareeb",
+        "Zia Ush Shamszaman"
+      ],
+      "categories": [
+        "q-bio.QM",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The paper addresses the broad topic of predicting antimicrobial resistance (AMR) using machine learning, similar to the user's idea. However, the paper focuses on predicting AMR phenotypes in Campylobacter using whole-genome sequencing (WGS) data and specific resistance genes (gyrA mutations, tet(O) gene, beta-lactamase genes), rather than fine-tuning a pre-trained protein language model like ESM-2 on point mutations to predict resistance, which is a different methodological approach to the problem. | Method: The user's idea proposes fine-tuning a pre-trained protein language model (ESM-2) on antibiotic resistance mutations. The paper, however, uses traditional machine learning models like Random Forest and time-series forecasting models (SARIMA, SIR, Prophet) on whole-genome sequencing (WGS) data and epidemiological metadata, focusing on specific gene mutations (gyrA, tet(O), blaOXA-61) rather than a protein language model. | Domain: Both the user's idea and the paper are in the domain of predicting antibiotic resistance in bacteria using machine learning and genomic data. However, the user's idea specifically focuses on fine-tuning a protein language model (ESM-2) to predict resistance from point mutations, while the paper uses Random Forest models with whole-genome sequencing data to predict AMR phenotypes based on known resistance genes (e.g., gyrA mutations, tet(O) gene, blaOXA genes) in Campylobacter species. | Contribution: The paper predicts AMR using genomic and epidemiological data, focusing on specific gene mutations (gyrA, tet(O), blaOXA) and gene presence with a Random Forest model. The user's idea, while also predicting AMR, specifically proposes fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict point mutation effects, which is a different methodological approach and model type than what is described in the paper.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_14",
+      "source": "arxiv",
+      "source_id": "2411.01343v1",
+      "arxiv_id": "2411.01343v1",
+      "title": "AMREx: AMR for Explainable Fact Verification",
+      "abstract": "With the advent of social media networks and the vast amount of information circulating through them, automatic fact verification is an essential component to prevent the spread of misinformation. It is even more useful to have fact verification systems that provide explanations along with their classifications to ensure accurate predictions. To address both of these requirements, we implement AMREx, an Abstract Meaning Representation (AMR)-based veracity prediction and explanation system for fact verification using a combination of Smatch, an AMR evaluation metric to measure meaning containment and textual similarity, and demonstrate its effectiveness in producing partially explainable justifications using two community standard fact verification datasets, FEVER and AVeriTeC. AMREx surpasses the AVeriTec baseline accuracy showing the effectiveness of our approach for real-world claim verification. It follows an interpretable pipeline and returns an explainable AMR node mapping to clarify the system's veracity predictions when applicable. We further demonstrate that AMREx output can be used to prompt LLMs to generate natural-language explanations using the AMR mappings as a guide to lessen the probability of hallucinations.",
+      "url": "http://arxiv.org/abs/2411.01343v1",
+      "pdf_url": "https://arxiv.org/pdf/2411.01343v1",
+      "authors": [
+        "Chathuri Jayaweera",
+        "Sangpil Youm",
+        "Bonnie Dorr"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on predicting antibiotic resistance mutations in bacterial proteins using a protein language model. In contrast, the paper 'AMREx: AMR for Explainable Fact Verification' addresses the problem of automatic fact verification and explanation using Abstract Meaning Representation (AMR) for natural language claims, as stated in its abstract: 'automatic fact verification is an essential component to prevent the spread of misinformation.' These are fundamentally different research problems. | Method: The user's research idea proposes fine-tuning a protein language model (ESM-2) for predicting antibiotic resistance mutations. The paper, AMREx, implements an Abstract Meaning Representation (AMR)-based system for fact verification using semantic and textual similarity. There is no methodological overlap; one focuses on biological sequence data and protein language models, while the other focuses on natural language processing for fact verification using AMR. | Domain: The user's research idea is in the domain of bioinformatics and computational biology, specifically predicting antibiotic resistance mutations in bacterial proteins using protein language models. The paper, 'AMREx: AMR for Explainable Fact Verification,' is in the domain of natural language processing (NLP) and focuses on automatic fact verification using Abstract Meaning Representation (AMR) on social media claims. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on fine-tuning a protein language model (ESM-2) for predicting antibiotic resistance mutations in bacterial proteins. In contrast, the paper 'AMREx: AMR for Explainable Fact Verification' implements an Abstract Meaning Representation (AMR)-based system for fact verification using natural language processing techniques on datasets like FEVER and AVeriTeC. These are entirely different domains and methodologies, addressing unrelated research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "ESM-2 fine-tuning for protein function prediction",
+        "similarity": 0.9,
+        "description": "ESM-2 and similar protein language models are commonly fine-tuned on labeled datasets for various downstream tasks, including predicting protein function, stability, and pathogenicity of mutations. This specific application (antibiotic resistance) is a direct extension of this established methodology."
+      },
+      {
+        "name": "Machine learning for antibiotic resistance prediction",
+        "similarity": 0.85,
+        "description": "Numerous studies and tools already exist that use machine learning (including deep learning) to predict antibiotic resistance based on genomic data, protein sequences, and specific mutations. While not all use ESM-2 specifically, the general approach of using ML/AI for this problem is well-established."
+      },
+      {
+        "name": "AlphaMissense / AlphaFold models for mutation impact",
+        "similarity": 0.75,
+        "description": "Models like AlphaMissense predict the pathogenicity of missense mutations across the human genome. While not directly focused on antibiotic resistance, they demonstrate the capability of large language models and deep learning to assess the functional impact of point mutations in proteins."
+      }
+    ],
+    "assessment": "The core idea of fine-tuning a pre-trained protein language model (like ESM-2) on a labeled dataset to predict the impact of mutations is a well-established and active area of research in bioinformatics and computational biology. Specifically applying this to antibiotic resistance mutations is a direct and common application of these methods. While the exact dataset and specific fine-tuning parameters might be novel, the overall methodology and problem statement are not new.",
+    "novelty_aspects": [
+      "The specific labeled dataset of antibiotic resistance mutations, if it's novel or uniquely curated.",
+      "The specific architecture or fine-tuning strategy applied to ESM-2, if it deviates significantly from standard practices.",
+      "The performance metrics achieved compared to existing methods, or the discovery of novel resistance mechanisms through interpretation of the model."
+    ],
+    "recommendation": "While the general approach is established, there is still significant value in developing highly accurate and robust models for antibiotic resistance prediction. Focus on demonstrating superior performance, interpretability, or applicability to novel resistance mechanisms. Consider exploring how the model's predictions can inform drug discovery or surveillance efforts. Clearly articulate what makes your specific implementation or results unique and impactful compared to existing work."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **ESM-2 fine-tuning for protein function prediction** (similarity: 90%).\n\n*The core idea of fine-tuning a pre-trained protein language model (like ESM-2) on a labeled dataset to predict the impact of mutations is a well-established and active area of research in bioinformatics and computational biology. Specifically applying this to antibiotic resistance mutations is a direct and common application of these methods. While the exact dataset and specific fine-tuning parameters might be novel, the overall methodology and problem statement are not new.*\n\n**Recommendation:** While the general approach is established, there is still significant value in developing highly accurate and robust models for antibiotic resistance prediction. Focus on demonstrating superior performance, interpretability, or applicability to novel resistance mechanisms. Consider exploring how the model's predictions can inform drug discovery or surveillance efforts. Clearly articulate what makes your specific implementation or results unique and impactful compared to existing work.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 116,
+    "unique_after_dedup": 116,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 412,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.032,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0302,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0016,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+  "enriched_idea": "RESEARCH IDEA:\nFine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_17",
+      "paper_title": "Growth-dependent bacterial susceptibility to ribosome-targeting antibiotics",
+      "arxiv_id": "1412.1390v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on predicting antibiotic resistance mutations using a protein language model. In contrast, the paper investigates the growth-dependent bacterial susceptibility to ribosome-targeting antibiotics, explaining observed phenomena with a mathematical model that combines drug transport and binding with physiological constraints. These are fundamentally different research problems. | Method: The user's research idea proposes fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset to predict antibiotic resistance mutations. The paper, however, uses a mathematical model combining drug transport and binding with physiological constraints to explain growth-dependent bacterial susceptibility to ribosome-targeting antibiotics. There is no methodological overlap between these approaches. | Domain: Both the user's idea and the paper are within the broader domain of antibiotic resistance and bacterial response to antibiotics. However, the paper focuses on the physiological mechanisms of growth-dependent susceptibility to ribosome-targeting antibiotics in E. coli, using mathematical modeling and experimental verification. The user's idea is specifically about using a protein language model (ESM-2) to predict antibiotic resistance mutations, which is a different sub-area and methodology within the same general field. | Contribution: The user's research idea focuses on fine-tuning a protein language model (ESM-2) to predict antibiotic resistance mutations. In contrast, the paper investigates the growth-dependent susceptibility of bacteria to ribosome-targeting antibiotics using a mathematical model and experimental verification, without any mention of protein language models, machine learning, or predicting mutations.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.3125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Growth-dependent bacterial susceptibility to ribosome-targeting antibiotics",
+              "heading": "Introduction",
+              "text_snippet": "Quantitative predictions for the inhibition of bacterial growth by antibiotics are essential for the design of treatment strategies [1] and for controlling the evolution of antibiotic resistance [2-5].",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are concerned with antibiotic resistance and its prediction/control. The user focuses on predicting resistance from mutations, while the paper focuses on growth-dependent susceptibility and its implications for resistance evolution.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Growth-dependent bacterial susceptibility to ribosome-targeting antibiotics",
+              "heading": "Introduction",
+              "text_snippet": "Quantitative predictions for the inhibition of bacterial growth by antibiotics are essential for the design of treatment strategies [1] and for controlling the evolution of antibiotic resistance [2-5].",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper operate within the domain of antibiotic resistance in bacteria. The user specifically mentions 'bacterial protein' and 'antibiotic class', aligning with the paper's focus on 'bacterial growth' and 'antibiotics'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Growth-dependent bacterial susceptibility to ribosome-targeting antibiotics",
+              "heading": "Introduction",
+              "text_snippet": "Quantitative predictions for the inhibition of bacterial growth by antibiotics are essential for the design of treatment strategies [1] and for controlling the evolution of antibiotic resistance [2-5].",
+              "similarity": 0.25,
+              "reason": "The user's idea aims to 'predict whether a point mutation in a bacterial protein confers resistance', which contributes to understanding antibiotic resistance. The paper also discusses 'controlling the evolution of antibiotic resistance' and provides insights into how physiological state affects drug response, which has 'implications for clinical practice and for the evolution of antibiotic resistance'. While the specific prediction task differs, both contribute to the broader understanding and management of antibiotic resistance.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14344,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1412.1390v1"
+    },
+    {
+      "paper_id": "paper_20",
+      "paper_title": "A CHAID Based Performance Prediction Model in Educational Data Mining",
+      "arxiv_id": "1002.1144v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on fine-tuning a protein language model to predict antibiotic resistance mutations in bacterial proteins. In contrast, the paper aims to develop a CHAID-based model to predict student academic performance in higher secondary school education in India. These two problems are fundamentally different in their domain (biology/bioinformatics vs. educational data mining), data types (protein sequences vs. student demographic/academic records), and predictive targets (antibiotic resistance vs. academic grades). | Method: The user's research idea proposes fine-tuning a pre-trained protein language model (ESM-2) for antibiotic resistance prediction. The paper, however, uses a CHAID prediction model for educational data mining to predict student performance. These are entirely different methodologies applied to vastly different domains, with no methodological overlap. | Domain: The user's research idea is in the domain of bioinformatics and computational biology, specifically predicting antibiotic resistance mutations in bacterial proteins using protein language models. The paper, however, is in the domain of educational data mining, focusing on predicting student academic performance using a CHAID model. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on fine-tuning a protein language model (ESM-2) to predict antibiotic resistance mutations in bacterial proteins. In contrast, the paper develops a CHAID-based prediction model to evaluate students' academic performance in higher secondary education, using socio-economic and personal factors. The contributions are entirely unrelated, addressing different domains and research questions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "A CHAID Based Performance Prediction Model in Educational Data Mining",
+              "heading": "ABSTRACT",
+              "text_snippet": "The raw data was preprocessed in terms of filling up missing values, transforming values in one form into another and relevant attribute/ variable selection. As a result, we had 772 student records, which were used for CHAID prediction model construction.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper mention using a 'prediction model' and 'data' for their respective tasks. However, the specific models (protein language model vs. CHAID) and data types are entirely different.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "A CHAID Based Performance Prediction Model in Educational Data Mining",
+              "heading": "Introduction",
+              "text_snippet": "Prediction models that include all these variables are necessitated for the effective prediction of the performance of the students. The prediction of student performance with high accuracy is beneficial to identify the students with low academic achievements initially.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper discuss the concept of 'prediction models' for making predictions. However, the models themselves and what they predict are vastly different.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "A CHAID Based Performance Prediction Model in Educational Data Mining",
+              "heading": "Conclusions",
+              "text_snippet": "The CHAID prediction model was useful to analyze the interrelation between variables that are used to predict the outcome on the performance at higher secondary school education.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper refer to a 'prediction model'. However, the specific model (protein language model vs. CHAID) and the domain of application are completely different.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 12043,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1002.1144v1"
+    },
+    {
+      "paper_id": "paper_13",
+      "paper_title": "Pushing the Limits of AMR Parsing with Self-Learning",
+      "arxiv_id": "2010.10673v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on predicting antibiotic resistance mutations in bacterial proteins using a protein language model. In contrast, the paper addresses improving Abstract Meaning Representation (AMR) parsing performance in natural language processing using self-learning techniques. These are fundamentally different research problems in distinct scientific domains (biology/bioinformatics vs. natural language processing). | Method: The user's research idea focuses on fine-tuning a protein language model (ESM-2) for predicting antibiotic resistance mutations in bacterial proteins. The evaluated paper, 'Pushing the Limits of AMR Parsing with Self-Learning,' is entirely focused on improving Abstract Meaning Representation (AMR) parsing using self-learning techniques, synthetic text, and refinement of action oracles. There is no overlap in the domain (protein science vs. natural language processing), the specific models used (ESM-2 vs. Transformer-based AMR parsers), or the application (antibiotic resistance prediction vs. semantic parsing). | Domain: The user's research idea is in the domain of bioinformatics and computational biology, specifically predicting antibiotic resistance mutations in bacterial proteins using protein language models. The paper, 'Pushing the Limits of AMR Parsing with Self-Learning,' is focused on Abstract Meaning Representation (AMR) parsing, a sub-area of natural language processing (NLP). These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on fine-tuning a protein language model (ESM-2) for predicting antibiotic resistance mutations in bacterial proteins. The paper, 'Pushing the Limits of AMR Parsing with Self-Learning,' is entirely concerned with improving Abstract Meaning Representation (AMR) parsing performance using self-learning techniques in natural language processing. These are distinct domains with unrelated contributions and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.15,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "Pushing the Limits of AMR Parsing with Self-Learning",
+              "heading": "Introduction",
+              "text_snippet": "AMR has experienced unprecedented performance improvements in the last two years, partly due to the rise of pre-trained transformer models (Radford et al., 2019; Devlin et al., 2019; Liu et al., 2019), but also due to AMR-specific architecture improvements.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'fine-tuning a pre-trained protein language model (ESM-2)', which broadly aligns with the paper's discussion of 'pre-trained transformer models' and their role in performance improvements, indicating a shared high-level methodological approach of leveraging pre-trained models.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "Pushing the Limits of AMR Parsing with Self-Learning",
+              "heading": "Self-Training with Synthetic AMR",
+              "text_snippet": "Following prior work, we tested pre-training on synAMR only, as in (Konstas et al., 2017b), or on the mix of human-annotated AMR and synAMR, as in (van Noord and Bos, 2017) and then fine-tuned on the AMR1.0 or AMR2.0 corpora.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly states 'Fine-tuning a pre-trained protein language model... on a labeled dataset'. This directly corresponds to the paper's mention of 'pre-training... and then fine-tuned on the AMR1.0 or AMR2.0 corpora', showing a shared methodological step of fine-tuning a pre-trained model on a specific dataset.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 11719,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2010.10673v1"
+    },
+    {
+      "paper_id": "paper_26",
+      "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+      "arxiv_id": "2509.03551v1",
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The paper addresses the broad topic of predicting antimicrobial resistance (AMR) using machine learning, similar to the user's idea. However, the paper focuses on predicting AMR phenotypes in Campylobacter using whole-genome sequencing (WGS) data and specific resistance genes (gyrA mutations, tet(O) gene, beta-lactamase genes), rather than fine-tuning a pre-trained protein language model like ESM-2 on point mutations to predict resistance, which is a different methodological approach to the problem. | Method: The user's idea proposes fine-tuning a pre-trained protein language model (ESM-2) on antibiotic resistance mutations. The paper, however, uses traditional machine learning models like Random Forest and time-series forecasting models (SARIMA, SIR, Prophet) on whole-genome sequencing (WGS) data and epidemiological metadata, focusing on specific gene mutations (gyrA, tet(O), blaOXA-61) rather than a protein language model. | Domain: Both the user's idea and the paper are in the domain of predicting antibiotic resistance in bacteria using machine learning and genomic data. However, the user's idea specifically focuses on fine-tuning a protein language model (ESM-2) to predict resistance from point mutations, while the paper uses Random Forest models with whole-genome sequencing data to predict AMR phenotypes based on known resistance genes (e.g., gyrA mutations, tet(O) gene, blaOXA genes) in Campylobacter species. | Contribution: The paper predicts AMR using genomic and epidemiological data, focusing on specific gene mutations (gyrA, tet(O), blaOXA) and gene presence with a Random Forest model. The user's idea, while also predicting AMR, specifically proposes fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict point mutation effects, which is a different methodological approach and model type than what is described in the paper.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.525,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "This study employs machine learning to analyze genomic and epidemiological data from the public databases for molecular typing and microbial genome diversity (PubMLST)... We identify AMR patterns in Campylobacter jejuni and Campylobacter coli isolates collected in the UK from 2001 to 2017.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of predicting antimicrobial resistance (AMR) using computational methods and genomic data. The user focuses on point mutations and specific antibiotic classes, while the paper identifies AMR patterns and resistance determinants.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+              "heading": "Introduction",
+              "text_snippet": "Recent advances in whole-genome sequencing (WGS) and machine learning present opportunities to revolutionize AMR prediction and surveillance by identifying genomic markers associated with resistance phenotypes (8).",
+              "similarity": 0.5,
+              "reason": "Both the user and the paper aim to predict AMR using advanced computational techniques and genomic markers, though the user specifies point mutations and a protein language model.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "This study employs machine learning to analyze genomic and epidemiological data... We investigate gyrA mutations for fluoroquinolone resistance and the tet(O) gene for tetracycline resistance, training a Random Forest model validated with bootstrap resampling (1,000 samples, 95% confidence intervals), achieving 74% accuracy in predicting AMR phenotypes.",
+              "similarity": 0.5,
+              "reason": "Both the user and the paper propose using machine learning models to predict AMR phenotypes based on genetic information. The user specifies a 'pre-trained protein language model (ESM-2)' and 'fine-tuning', while the paper uses a 'Random Forest model' and investigates specific gene mutations.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+              "heading": "Machine Learning in AMR",
+              "text_snippet": "(11) developed DeepARG, a deep learning approach for predicting antibiotic resistance genes from metagenomic data. This method addressed limitations in homology-based approaches, improving detection of novel resistance determinants in complex microbial communities. Their work demonstrated the potential of neural networks to capture subtle genomic signatures associated with resistance.",
+              "similarity": 0.5,
+              "reason": "The user proposes a 'protein language model' which is a type of deep learning model. The paper mentions 'deep learning approach' and 'neural networks' for predicting antibiotic resistance genes, indicating a shared high-level methodological category.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Antimicrobial resistance (AMR) poses a significant public health and economic challenge, increasing treatment costs and reducing antibiotic effectiveness. This study employs machine learning to analyze genomic and epidemiological data...",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely in the domain of antimicrobial resistance (AMR) prediction using computational methods on biological data.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+              "heading": "Introduction",
+              "text_snippet": "Antimicrobial resistance (AMR) represents one of the most significant challenges to global public health in the 21st century. The World Health Organization has identified AMR as a priority health threat...",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on the critical public health domain of antimicrobial resistance.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+              "heading": "ML Framework for AMR Phenotype Prediction",
+              "text_snippet": "resistance across three antibiotic classes:- Fluoroquinolones (FQ): Predicted using gyrA mutations (T86I), which are well-established markers of quinolone resistance (19). - Tetracyclines (Tet): Predicted using tet(O) and other tet(O) -like variants. - β -Lactams (BL): Predicted using β -lactamase gene presence like blaOXA-61 and OXA-184 for BL (20).",
+              "similarity": 1.0,
+              "reason": "The user's idea specifically mentions 'antibiotic resistance mutations' and 'specific antibiotic class', which directly aligns with the paper's focus on predicting resistance to 'Fluoroquinolones', 'Tetracyclines', and 'β -Lactams' based on specific mutations or gene presence.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+              "heading": "ABSTRACT",
+              "text_snippet": "This study employs machine learning to analyze genomic and epidemiological data... We investigate gyrA mutations for fluoroquinolone resistance and the tet(O) gene for tetracycline resistance, training a Random Forest model validated with bootstrap resampling (1,000 samples, 95% confidence intervals), achieving 74% accuracy in predicting AMR phenotypes.",
+              "similarity": 0.5,
+              "reason": "The user proposes to 'predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class'. The paper's contribution includes 'achieving 74% accuracy in predicting AMR phenotypes' and investigating specific mutations for resistance, indicating a shared goal of predicting AMR based on genetic markers.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+              "heading": "Key Outcomes",
+              "text_snippet": "This study successfully employed machine learning techniques to predict antimicrobial resistance (AMR) in Campylobacter isolates, achieving an overall classification accuracy of 74%.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to predict antimicrobial resistance using machine learning. The paper has already demonstrated this capability for Campylobacter, while the user proposes a specific model (ESM-2) and focus (point mutations).",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 10552,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2509.03551v1"
+    },
+    {
+      "paper_id": "paper_14",
+      "paper_title": "AMREx: AMR for Explainable Fact Verification",
+      "arxiv_id": "2411.01343v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on predicting antibiotic resistance mutations in bacterial proteins using a protein language model. In contrast, the paper 'AMREx: AMR for Explainable Fact Verification' addresses the problem of automatic fact verification and explanation using Abstract Meaning Representation (AMR) for natural language claims, as stated in its abstract: 'automatic fact verification is an essential component to prevent the spread of misinformation.' These are fundamentally different research problems. | Method: The user's research idea proposes fine-tuning a protein language model (ESM-2) for predicting antibiotic resistance mutations. The paper, AMREx, implements an Abstract Meaning Representation (AMR)-based system for fact verification using semantic and textual similarity. There is no methodological overlap; one focuses on biological sequence data and protein language models, while the other focuses on natural language processing for fact verification using AMR. | Domain: The user's research idea is in the domain of bioinformatics and computational biology, specifically predicting antibiotic resistance mutations in bacterial proteins using protein language models. The paper, 'AMREx: AMR for Explainable Fact Verification,' is in the domain of natural language processing (NLP) and focuses on automatic fact verification using Abstract Meaning Representation (AMR) on social media claims. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on fine-tuning a protein language model (ESM-2) for predicting antibiotic resistance mutations in bacterial proteins. In contrast, the paper 'AMREx: AMR for Explainable Fact Verification' implements an Abstract Meaning Representation (AMR)-based system for fact verification using natural language processing techniques on datasets like FEVER and AVeriTeC. These are entirely different domains and methodologies, addressing unrelated research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "AMREx: AMR for Explainable Fact Verification",
+              "heading": "NLI for Fact Verification",
+              "text_snippet": "With the development of fact verification datasets, fine-tuned language models (e.g., BERT, XLNet) have been applied to verify facts, improving generalizability without the need for manually crafted rules (Chernyavskiy and Ilvovsky, 2019; Nie et al., 2019; Portelli et al., 2020; Zhong et al., 2020). These BERT-based models use the Claim and potential Evidence as inputs and determine the final labels. Recently, Pan et al. (2023) fine-tuned a small dataset to enhance the performance of BERTbased models, aiming to develop domain-specific models and improving generalizability.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes 'Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset'. The paper mentions 'fine-tuned language models (e.g., BERT, XLNet) have been applied to verify facts' and 'Pan et al. (2023) fine-tuned a small dataset to enhance the performance of BERTbased models'. Both involve fine-tuning pre-trained language models on labeled datasets, though the specific models (ESM-2 vs. BERT/XLNet) and domains differ significantly.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 13380,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2411.01343v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 99,
+    "global_similarity_score": 0.0725,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Fine-tuning a pre-trained protein language model (ESM-2) on a labeled dataset of antibiotic resistance mutations to predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class.",
+        "originality_score": 0.25,
+        "similarity_score": 0.75,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "medium",
+          "domain_similarity": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_17",
+            "paper_title": "Growth-dependent bacterial susceptibility to ribosome-targeting antibiotics",
+            "heading": "Introduction",
+            "text_snippet": "Quantitative predictions for the inhibition of bacterial growth by antibiotics are essential for the design of treatment strategies [1] and for controlling the evolution of antibiotic resistance [2-5].",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper are concerned with antibiotic resistance and its prediction/control. The user focuses on predicting resistance from mutations, while the paper focuses on growth-dependent susceptibility and its implications for resistance evolution.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_13",
+            "paper_title": "Pushing the Limits of AMR Parsing with Self-Learning",
+            "heading": "Self-Training with Synthetic AMR",
+            "text_snippet": "Following prior work, we tested pre-training on synAMR only, as in (Konstas et al., 2017b), or on the mix of human-annotated AMR and synAMR, as in (van Noord and Bos, 2017) and then fine-tuned on the AMR1.0 or AMR2.0 corpora.",
+            "similarity": 0.75,
+            "reason": "The user's idea explicitly states 'Fine-tuning a pre-trained protein language model... on a labeled dataset'. This directly corresponds to the paper's mention of 'pre-training... and then fine-tuned on the AMR1.0 or AMR2.0 corpora', showing a shared methodological step of fine-tuning a pre-trained model on a specific dataset.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_26",
+            "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+            "heading": "ABSTRACT",
+            "text_snippet": "Antimicrobial resistance (AMR) poses a significant public health and economic challenge, increasing treatment costs and reducing antibiotic effectiveness. This study employs machine learning to analyze genomic and epidemiological data...",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are squarely in the domain of antimicrobial resistance (AMR) prediction using computational methods on biological data.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_26",
+            "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+            "heading": "ABSTRACT",
+            "text_snippet": "This study employs machine learning to analyze genomic and epidemiological data... We investigate gyrA mutations for fluoroquinolone resistance and the tet(O) gene for tetracycline resistance, training a Random Forest model validated with bootstrap resampling (1,000 samples, 95% confidence intervals), achieving 74% accuracy in predicting AMR phenotypes.",
+            "similarity": 0.5,
+            "reason": "The user proposes to 'predict whether a point mutation in a bacterial protein confers resistance to a specific antibiotic class'. The paper's contribution includes 'achieving 74% accuracy in predicting AMR phenotypes' and investigating specific mutations for resistance, indicating a shared goal of predicting AMR based on genetic markers.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea demonstrates very high originality across all criteria, with minimal overlap detected in problem formulation and domain. The closest related work on AMR prediction differs significantly from your proposed approach, suggesting a unique contribution.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.33999999999999997,
+      "method_similarity": 0.16999999999999998,
+      "domain_similarity": 0.38,
+      "contribution_similarity": 0.16999999999999998
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.032,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0302,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0016,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 209.38679337501526,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_17",
+        "paper_title": "Growth-dependent bacterial susceptibility to ribosome-targeting antibiotics",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_20",
+        "paper_title": "A CHAID Based Performance Prediction Model in Educational Data Mining",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_13",
+        "paper_title": "Pushing the Limits of AMR Parsing with Self-Learning",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_26",
+        "paper_title": "Predicting Antimicrobial Resistance (AMR) in Campylobacter, a Foodborne Pathogen, and Cost Burden Analysis Using Machine Learning",
+        "paper_similarity": 0.3125,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_14",
+        "paper_title": "AMREx: AMR for Explainable Fact Verification",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 116
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 116,
+    "after_dedup": 116,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

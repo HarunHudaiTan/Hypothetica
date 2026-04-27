@@ -1,0 +1,735 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "53ad606ffae2",
+    "status": "completed"
+  },
+  "originality_score": 93,
+  "global_similarity_score": 0.24499999999999997,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "high",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "high"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_30",
+          "paper_title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+          "heading": "Introduction",
+          "text_snippet": "By leveraging large-scale datasets and advanced neural network architectures, uMLIPs achieve near-DFT-level prediction accuracy while maintaining the computational efficiency required for high-throughput research.",
+          "similarity": 1.0,
+          "reason": "The user proposes 'Training a neural network potential... on DFT-labeled atomic configurations to simulate molecular dynamics... without full DFT at each timestep.' This directly aligns with the paper's description of uMLIPs, which are trained on DFT data to achieve near-DFT accuracy efficiently for simulations like MD.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_30",
+          "paper_title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+          "heading": "ABSTRACT",
+          "text_snippet": "With the rapid development of energy storage technology, high-performance solid-state electrolytes (SSEs) have become critical for next-generation lithium-ion batteries.",
+          "similarity": 0.75,
+          "reason": "The user's idea focuses on 'lithium-ion battery cathode materials', which is a specific type of material for lithium-ion batteries, a domain extensively covered by the paper's focus on solid-state electrolytes for next-generation lithium-ion batteries.",
+          "criterion": "domain_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea demonstrates strong originality, with minimal overlap across most analyzed papers. However, there is a high similarity detected with \"Universal Machine Learning Interatomic Potentials are Ready,\" suggesting a need to clearly differentiate your contribution from this specific work.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.6799999999999999,
+    "method_similarity": 0.59,
+    "domain_similarity": 0.6799999999999999,
+    "contribution_similarity": 0.6799999999999999
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0365,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0342,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.002,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 332.8950960636139,
+  "papers": [
+    {
+      "paper_id": "paper_23",
+      "source": "arxiv",
+      "source_id": "2209.07499v1",
+      "arxiv_id": "2209.07499v1",
+      "title": "DiP-GNN: Discriminative Pre-Training of Graph Neural Networks",
+      "abstract": "Graph neural network (GNN) pre-training methods have been proposed to enhance the power of GNNs. Specifically, a GNN is first pre-trained on a large-scale unlabeled graph and then fine-tuned on a separate small labeled graph for downstream applications, such as node classification. One popular pre-training method is to mask out a proportion of the edges, and a GNN is trained to recover them. However, such a generative method suffers from graph mismatch. That is, the masked graph inputted to the GNN deviates from the original graph. To alleviate this issue, we propose DiP-GNN (Discriminative Pre-training of Graph Neural Networks). Specifically, we train a generator to recover identities of the masked edges, and simultaneously, we train a discriminator to distinguish the generated edges from the original graph's edges. In our framework, the graph seen by the discriminator better matches the original graph because the generator can recover a proportion of the masked edges. Extensive experiments on large-scale homogeneous and heterogeneous graphs demonstrate the effectiveness of the proposed framework.",
+      "url": "http://arxiv.org/abs/2209.07499v1",
+      "pdf_url": "https://arxiv.org/pdf/2209.07499v1",
+      "authors": [
+        "Simiao Zuo",
+        "Haoming Jiang",
+        "Qingyu Yin",
+        "Xianfeng Tang",
+        "Bing Yin",
+        "Tuo Zhao"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on training neural network potentials for molecular dynamics simulations of lithium-ion battery cathode materials, which is a problem in computational materials science. The paper, 'DiP-GNN,' addresses the problem of enhancing Graph Neural Network performance through discriminative pre-training for tasks like node classification on general large-scale graphs, a problem in machine learning methodology. These are fundamentally different research questions with distinct goals and application domains. | Method: The user's research idea focuses on training a neural network potential with a message-passing architecture for molecular dynamics simulations of materials, specifically lithium-ion battery cathodes. The paper, DiP-GNN, proposes a discriminative pre-training method for Graph Neural Networks (GNNs) to enhance their performance in general graph-based tasks like node classification. While both involve GNNs, the specific application, architecture (neural network potential vs. general GNN pre-training), and overall objective (molecular dynamics simulation vs. improved GNN pre-training for classification) are distinct. | Domain: The user's research idea is in materials science, specifically simulating molecular dynamics for lithium-ion battery cathode materials. The paper, however, focuses on general graph neural network pre-training methods for applications such as node classification, knowledge graph modeling, and recommendation systems, as stated in the abstract and introduction. These are entirely different application domains. | Contribution: The user's research idea focuses on training a neural network potential with a message-passing architecture for molecular dynamics simulations of lithium-ion battery cathode materials, specifically to avoid full DFT calculations. The evaluated paper, 'DiP-GNN', proposes a discriminative pre-training method for Graph Neural Networks to enhance their power in tasks like node classification by addressing graph mismatch during pre-training. These are distinct contributions addressing different problems and applications.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_24",
+      "source": "arxiv",
+      "source_id": "2112.10767v7",
+      "arxiv_id": "2112.10767v7",
+      "title": "GNN-Geo: A Graph Neural Network-based Fine-grained IP geolocation Framework",
+      "abstract": "Rule-based fine-grained IP geolocation methods are hard to generalize in computer networks which do not follow hypothetical rules. Recently, deep learning methods, like multi-layer perceptron (MLP), are tried to increase generalization capabilities. However, MLP is not so suitable for graph-structured data like networks. MLP treats IP addresses as isolated instances and ignores the connection information, which limits geolocation accuracy. In this work, we research how to increase the generalization capability with an emerging graph deep learning method -- Graph Neural Network (GNN). First, IP geolocation is re-formulated as an attributed graph node regression problem. Then, we propose a GNN-based IP geolocation framework named GNN-Geo. GNN-Geo consists of a preprocessor, an encoder, messaging passing (MP) layers and a decoder. The preprocessor and encoder transform measurement data into the initial node embeddings. MP layers refine the initial node embeddings by modeling the connection information. The decoder maps the refined embeddings to nodes' locations and relieves the convergence problem by considering prior knowledge. The experiments in 8 real-world IPv4/IPv6 networks in North America, Europe and Asia show the proposed GNN-Geo clearly outperforms the state-of-art rule-based and learning-based baselines. This work verifies the great potential of GNN for fine-grained IP geolocation.",
+      "url": "http://arxiv.org/abs/2112.10767v7",
+      "pdf_url": "https://arxiv.org/pdf/2112.10767v7",
+      "authors": [
+        "Shichang Ding",
+        "Xiangyang Luo",
+        "Jinwei Wang",
+        "Xiaoming Fu"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on training a neural network potential for molecular dynamics simulations of lithium-ion battery cathode materials using DFT-labeled atomic configurations. In contrast, the paper addresses the problem of fine-grained IP geolocation using Graph Neural Networks to determine the geographic location of IP addresses in computer networks. These are fundamentally different research problems in distinct scientific domains (materials science vs. computer networking). | Method: Both the user's idea and the paper utilize deep learning, specifically neural networks with a message-passing architecture. However, the application domains are entirely different: the user's idea is for simulating molecular dynamics in materials science, while the paper focuses on IP geolocation in computer networks. The specific architectures, input data, and output predictions are distinct, placing them in the same broad category of deep learning but with significant methodological divergence. | Domain: The user's research idea is in materials science, specifically simulating molecular dynamics for lithium-ion battery cathode materials. The paper, 'GNN-Geo: A Graph Neural Network-based Fine-grained IP geolocation Framework,' is in computer networks and focuses on IP geolocation. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on training a neural network potential for molecular dynamics simulations of lithium-ion battery cathode materials using DFT-labeled atomic configurations. In contrast, the paper 'GNN-Geo' proposes a GNN-based framework for fine-grained IP geolocation. These are entirely different application domains and research problems, leading to unrelated contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_09",
+      "source": "arxiv",
+      "source_id": "1904.10098v1",
+      "arxiv_id": "1904.10098v1",
+      "title": "DAG-GNN: DAG Structure Learning with Graph Neural Networks",
+      "abstract": "Learning a faithful directed acyclic graph (DAG) from samples of a joint distribution is a challenging combinatorial problem, owing to the intractable search space superexponential in the number of graph nodes. A recent breakthrough formulates the problem as a continuous optimization with a structural constraint that ensures acyclicity (Zheng et al., 2018). The authors apply the approach to the linear structural equation model (SEM) and the least-squares loss function that are statistically well justified but nevertheless limited. Motivated by the widespread success of deep learning that is capable of capturing complex nonlinear mappings, in this work we propose a deep generative model and apply a variant of the structural constraint to learn the DAG. At the heart of the generative model is a variational autoencoder parameterized by a novel graph neural network architecture, which we coin DAG-GNN. In addition to the richer capacity, an advantage of the proposed model is that it naturally handles discrete variables as well as vector-valued ones. We demonstrate that on synthetic data sets, the proposed method learns more accurate graphs for nonlinearly generated samples; and on benchmark data sets with discrete variables, the learned graphs are reasonably close to the global optima. The code is available at \\url{https://github.com/fishmoon1234/DAG-GNN}.",
+      "url": "http://arxiv.org/abs/1904.10098v1",
+      "pdf_url": "https://arxiv.org/pdf/1904.10098v1",
+      "authors": [
+        "Yue Yu",
+        "Jie Chen",
+        "Tian Gao",
+        "Mo Yu"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on training neural network potentials for molecular dynamics simulations of lithium-ion battery materials. In contrast, the paper 'DAG-GNN' addresses the problem of learning faithful directed acyclic graphs (DAGs) from samples of a joint distribution, which is a problem in causal inference and graphical models, as stated in its abstract and introduction. | Method: Both the user's idea and the paper utilize Graph Neural Networks (GNNs) as a broad category of deep learning. However, the paper focuses on DAG structure learning using a novel DAG-GNN architecture within a variational autoencoder framework for general data types, while the user's idea applies GNNs with a message-passing architecture specifically for training neural network potentials to simulate molecular dynamics in materials science. | Domain: The user's research idea is in materials science, specifically simulating molecular dynamics for lithium-ion battery cathode materials. The paper, 'DAG-GNN: DAG Structure Learning with Graph Neural Networks,' is focused on learning directed acyclic graphs for causal inference and Bayesian Networks, with applications mentioned in medicine, genetics, economics, and epidemics, and experiments on synthetic and benchmark datasets with discrete variables. These are entirely different application domains. | Contribution: The paper focuses on learning the structure of Directed Acyclic Graphs (DAGs) from data, proposing a deep generative model with a novel GNN architecture (DAG-GNN) to handle nonlinear relationships and various data types. The user's idea, in contrast, is about training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials. These are distinct research problems with unrelated claimed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_30",
+      "source": "arxiv",
+      "source_id": "2502.09970v1",
+      "arxiv_id": "2502.09970v1",
+      "title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+      "abstract": "With the rapid development of energy storage technology, high-performance solid-state electrolytes (SSEs) have become critical for next-generation lithium-ion batteries. These materials require high ionic conductivity, excellent electrochemical stability, and good mechanical properties to meet the demands of electric vehicles and portable electronics. However, traditional methods like density functional theory (DFT) and empirical force fields face challenges such as high computational costs, poor scalability, and limited accuracy across material systems. Universal machine learning interatomic potentials (uMLIPs) offer a promising solution with their efficiency and near-DFT-level accuracy.This study systematically evaluates six advanced uMLIP models (MatterSim, MACE, SevenNet, CHGNet, M3GNet, and ORBFF) in terms of energy, forces, thermodynamic properties, elastic moduli, and lithium-ion diffusion behavior. The results show that MatterSim outperforms others in nearly all metrics, particularly in complex material systems, demonstrating superior accuracy and physical consistency. Other models exhibit significant deviations due to issues like energy inconsistency or insufficient training data coverage.Further analysis reveals that MatterSim achieves excellent agreement with reference values in lithium-ion diffusivity calculations, especially at room temperature. Studies on Li3YCl6 and Li6PS5Cl uncover how crystal structure, anion disorder levels, and Na/Li arrangements influence ionic conductivity. Appropriate S/Cl disorder levels and optimized Na/Li arrangements enhance diffusion pathway connectivity, improving overall ionic transport performance.",
+      "url": "http://arxiv.org/abs/2502.09970v1",
+      "pdf_url": "https://arxiv.org/pdf/2502.09970v1",
+      "authors": [
+        "Hongwei Du",
+        "Jian Hui",
+        "Lanting Zhang",
+        "Hong Wang"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.925,
+      "reason": "Problem: The user's research idea is to train a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep. The paper directly addresses this problem by evaluating 'universal machine learning interatomic potentials (uMLIPs)' which 'achieve near-DFT-level prediction accuracy while maintaining the computational efficiency required for high-throughput research' for 'solid-state electrolytes (SSEs)' in 'next-generation lithium-ion batteries' using 'molecular dynamics (MD) simulations guided by uMLIPs' to 'reproduce lithium-ion diffusion coefficients'. The paper explicitly mentions training DP models using DeePMD-kit with DFT calculations for labeling, and evaluating models like MACE and M3GNet which are message-passing architectures. | Method: Both the user's idea and the paper focus on training neural network potentials using DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery materials. The paper explicitly evaluates multiple universal machine learning interatomic potentials (uMLIPs), which are neural network potentials, for simulating lithium-ion diffusion behavior in solid-state electrolytes, a type of lithium-ion battery cathode material, without full DFT at each timestep. The paper's 'Calculation of material properties based on uMLIPs' section details MD simulations using these potentials, and the 'uMLIPs description' mentions graph neural network architectures, which are a form of message-passing architecture. | Domain: Both the user's research idea and the paper focus on simulating molecular dynamics for lithium-ion battery cathode materials using neural network potentials trained on DFT data. The paper specifically evaluates uMLIPs for solid ion conductors, which are critical for next-generation lithium-ion batteries, and performs lithium-ion diffusion simulations using these potentials, directly aligning with the user's stated application domain. | Contribution: The paper directly addresses the user's research idea by evaluating universal machine learning interatomic potentials (uMLIPs) for simulating molecular dynamics of lithium-ion battery cathode materials. It explicitly states the use of uMLIPs to achieve 'near-DFT-level prediction accuracy while maintaining the computational efficiency required for high-throughput research' and performs 'lithium-ion diffusion simulations' using MD guided by uMLIPs, comparing them to DFT benchmarks. This directly matches the user's proposal to 'simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep' by 'training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations'.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_35",
+      "source": "arxiv",
+      "source_id": "2304.09590v1",
+      "arxiv_id": "2304.09590v1",
+      "title": "Parallel Neural Networks in Golang",
+      "abstract": "This paper describes the design and implementation of parallel neural networks (PNNs) with the novel programming language Golang. We follow in our approach the classical Single-Program Multiple-Data (SPMD) model where a PNN is composed of several sequential neural networks, which are trained with a proportional share of the training dataset. We used for this purpose the MNIST dataset, which contains binary images of handwritten digits. Our analysis focusses on different activation functions and optimizations in the form of stochastic gradients and initialization of weights and biases. We conduct a thorough performance analysis, where network configurations and different performance factors are analyzed and interpreted. Golang and its inherent parallelization support proved very well for parallel neural network simulation by considerable decreased processing times compared to sequential variants.",
+      "url": "http://arxiv.org/abs/2304.09590v1",
+      "pdf_url": "https://arxiv.org/pdf/2304.09590v1",
+      "authors": [
+        "Daniela Kalwarowskyj",
+        "Erich Schikuta"
+      ],
+      "categories": [
+        "cs.NE",
+        "cs.DC"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on training a neural network potential for molecular dynamics simulations of lithium-ion battery cathode materials, a problem in computational materials science. The paper, however, addresses the problem of parallelizing neural network training using Golang for image classification (MNIST dataset), which is a problem in computer science/software engineering concerning computational performance and accuracy of general neural networks. These are fundamentally different research problems with distinct goals and application domains. | Method: Both the user's idea and the paper utilize neural networks. However, the paper focuses on parallelizing a classical feed-forward neural network for image classification (MNIST dataset) using a Single-Program Multiple-Data (SPMD) approach, while the user's idea proposes training a neural network potential with a message-passing architecture for molecular dynamics simulations of materials, which is a fundamentally different application and network architecture. | Domain: The user's research idea is in materials science/computational chemistry, specifically simulating molecular dynamics for lithium-ion battery cathode materials. The paper, 'Parallel Neural Networks in Golang,' focuses on parallelizing neural network training using the MNIST dataset for handwritten digit recognition, which is a computer science/machine learning domain. There is no overlap in the application domains. | Contribution: The user's research idea focuses on training a neural network potential with a message-passing architecture for molecular dynamics simulations of lithium-ion battery cathode materials. In contrast, the paper describes the design and implementation of parallel neural networks in Golang using the MNIST dataset for handwritten digit recognition, focusing on performance analysis of parallelization strategies. The contributions address entirely different problems and applications.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.95,
+    "existing_examples": [
+      {
+        "name": "MACE (Message-passing neural network for Accurate Coarse-graining of atomistic Environments)",
+        "similarity": 0.9,
+        "description": "A state-of-the-art message-passing neural network potential trained on DFT data, specifically designed for molecular dynamics simulations across various materials, including those relevant to batteries."
+      },
+      {
+        "name": "NEQUIP (Neural Equivariant Interatomic Potentials)",
+        "similarity": 0.88,
+        "description": "Another prominent message-passing neural network potential framework that learns from DFT data to enable efficient and accurate molecular dynamics simulations, with applications in materials science."
+      },
+      {
+        "name": "Allegro (Equivariant Neural Network Potential)",
+        "similarity": 0.85,
+        "description": "A recent equivariant neural network potential, similar to MACE and NequIP, designed for high accuracy and efficiency in MD simulations, trained on ab initio data."
+      },
+      {
+        "name": "DeepMD-kit",
+        "similarity": 0.8,
+        "description": "An earlier but widely used deep learning package for molecular dynamics, which trains neural network potentials on DFT data to accelerate MD simulations, applicable to various materials."
+      },
+      {
+        "name": "Graph Neural Network Potentials (General Research Area)",
+        "similarity": 0.92,
+        "description": "The broader research area of using graph neural networks (which message-passing architectures fall under) to learn interatomic potentials from DFT data for accelerated molecular dynamics simulations is a very active and well-established field."
+      }
+    ],
+    "assessment": "The idea describes a well-established and highly active research area within computational materials science and machine learning. Training neural network potentials, particularly those with message-passing architectures (a type of Graph Neural Network), on DFT-labeled atomic configurations to enable efficient molecular dynamics simulations without explicit DFT calculations at each timestep is a core methodology in modern atomistic simulations. This approach is widely used for various materials, including those relevant to lithium-ion batteries, to overcome the computational cost of pure DFT-MD. Several prominent frameworks and research groups are actively developing and applying such potentials.",
+    "novelty_aspects": [
+      "Specific novel message-passing architecture design (if significantly different from existing ones)",
+      "Novel training methodologies or data augmentation techniques",
+      "Application to a *highly specific* and previously unstudied cathode material system where existing potentials perform poorly",
+      "Integration with multi-scale modeling frameworks in a novel way"
+    ],
+    "recommendation": "While the general concept is well-established, there is still room for novel contributions. Focus on a specific, unsolved problem within this domain. For example, developing a potential that achieves unprecedented accuracy for a particularly challenging battery material, improving transferability across different conditions (temperature, pressure, composition), or developing more robust uncertainty quantification for these potentials. Clearly articulate what makes your specific approach or application unique and superior to existing methods like MACE, NEQUIP, or Allegro."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **MACE (Message-passing neural network for Accurate Coarse-graining of atomistic Environments)** (similarity: 90%).\n\n*The idea describes a well-established and highly active research area within computational materials science and machine learning. Training neural network potentials, particularly those with message-passing architectures (a type of Graph Neural Network), on DFT-labeled atomic configurations to enable efficient molecular dynamics simulations without explicit DFT calculations at each timestep is a core methodology in modern atomistic simulations. This approach is widely used for various materials, including those relevant to lithium-ion batteries, to overcome the computational cost of pure DFT-MD. Several prominent frameworks and research groups are actively developing and applying such potentials.*\n\n**Recommendation:** While the general concept is well-established, there is still room for novel contributions. Focus on a specific, unsolved problem within this domain. For example, developing a potential that achieves unprecedented accuracy for a particularly challenging battery material, improving transferability across different conditions (temperature, pressure, composition), or developing more robust uncertainty quantification for these potentials. Clearly articulate what makes your specific approach or application unique and superior to existing methods like MACE, NEQUIP, or Allegro.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 127,
+    "unique_after_dedup": 127,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 676,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0365,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0342,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.002,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep.",
+  "enriched_idea": "RESEARCH IDEA:\nTraining a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_23",
+      "paper_title": "DiP-GNN: Discriminative Pre-Training of Graph Neural Networks",
+      "arxiv_id": "2209.07499v1",
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on training neural network potentials for molecular dynamics simulations of lithium-ion battery cathode materials, which is a problem in computational materials science. The paper, 'DiP-GNN,' addresses the problem of enhancing Graph Neural Network performance through discriminative pre-training for tasks like node classification on general large-scale graphs, a problem in machine learning methodology. These are fundamentally different research questions with distinct goals and application domains. | Method: The user's research idea focuses on training a neural network potential with a message-passing architecture for molecular dynamics simulations of materials, specifically lithium-ion battery cathodes. The paper, DiP-GNN, proposes a discriminative pre-training method for Graph Neural Networks (GNNs) to enhance their performance in general graph-based tasks like node classification. While both involve GNNs, the specific application, architecture (neural network potential vs. general GNN pre-training), and overall objective (molecular dynamics simulation vs. improved GNN pre-training for classification) are distinct. | Domain: The user's research idea is in materials science, specifically simulating molecular dynamics for lithium-ion battery cathode materials. The paper, however, focuses on general graph neural network pre-training methods for applications such as node classification, knowledge graph modeling, and recommendation systems, as stated in the abstract and introduction. These are entirely different application domains. | Contribution: The user's research idea focuses on training a neural network potential with a message-passing architecture for molecular dynamics simulations of lithium-ion battery cathode materials, specifically to avoid full DFT calculations. The evaluated paper, 'DiP-GNN', proposes a discriminative pre-training method for Graph Neural Networks to enhance their power in tasks like node classification by addressing graph mismatch during pre-training. These are distinct contributions addressing different problems and applications.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep.",
+          "sentence_index": 0,
+          "similarity_score": 0.15,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "DiP-GNN: Discriminative Pre-Training of Graph Neural Networks",
+              "heading": "ABSTRACT",
+              "text_snippet": "Graph neural network (GNN) pre-training methods have been proposed to enhance the power of GNNs.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper mention 'Graph Neural Networks' (GNNs) as a core methodology. The user's 'message-passing architecture' is a type of GNN.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "DiP-GNN: Discriminative Pre-Training of Graph Neural Networks",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Graph neural networks (GNNs) have achieved superior performance in various applications, such as node classification (Kipf &amp; Welling, 2017), knowledge graph modeling (Schlichtkrull et al., 2018) and recommendation systems (Ying et al., 2018).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper utilize Graph Neural Networks (GNNs). The paper discusses GNNs as a general method, while the user specifies a 'message-passing architecture' which is a common form of GNN.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 13439,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2209.07499v1"
+    },
+    {
+      "paper_id": "paper_24",
+      "paper_title": "GNN-Geo: A Graph Neural Network-based Fine-grained IP geolocation Framework",
+      "arxiv_id": "2112.10767v7",
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on training a neural network potential for molecular dynamics simulations of lithium-ion battery cathode materials using DFT-labeled atomic configurations. In contrast, the paper addresses the problem of fine-grained IP geolocation using Graph Neural Networks to determine the geographic location of IP addresses in computer networks. These are fundamentally different research problems in distinct scientific domains (materials science vs. computer networking). | Method: Both the user's idea and the paper utilize deep learning, specifically neural networks with a message-passing architecture. However, the application domains are entirely different: the user's idea is for simulating molecular dynamics in materials science, while the paper focuses on IP geolocation in computer networks. The specific architectures, input data, and output predictions are distinct, placing them in the same broad category of deep learning but with significant methodological divergence. | Domain: The user's research idea is in materials science, specifically simulating molecular dynamics for lithium-ion battery cathode materials. The paper, 'GNN-Geo: A Graph Neural Network-based Fine-grained IP geolocation Framework,' is in computer networks and focuses on IP geolocation. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on training a neural network potential for molecular dynamics simulations of lithium-ion battery cathode materials using DFT-labeled atomic configurations. In contrast, the paper 'GNN-Geo' proposes a GNN-based framework for fine-grained IP geolocation. These are entirely different application domains and research problems, leading to unrelated contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep.",
+          "sentence_index": 0,
+          "similarity_score": 0.22499999999999998,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "GNN-Geo: A Graph Neural Network-based Fine-grained IP geolocation Framework",
+              "heading": "ABSTRACT",
+              "text_snippet": "Then, we propose a GNN-based IP geolocation framework named GNN-Geo. GNN-Geo consists of a preprocessor, an encoder, messaging passing (MP) layers and a decoder.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'message-passing architecture', which directly aligns with the 'messaging passing (MP) layers' described in the paper's abstract as a core component of their GNN framework.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "GNN-Geo: A Graph Neural Network-based Fine-grained IP geolocation Framework",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Graph Neural Network (GNN) is an emerging deep learning method for graph-structured data presentation [11]. Recently, it has been successfully applied in different fields of graphstructured data, like recommendation system [12], social network [13], knowledge map [14], etc.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes 'Training a neural network potential using a message-passing architecture', which is a type of Graph Neural Network (GNN). The paper extensively discusses GNNs as a deep learning method for graph-structured data.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "GNN-Geo: A Graph Neural Network-based Fine-grained IP geolocation Framework",
+              "heading": "INTRODUCTION",
+              "text_snippet": "We propose a GNN-based framework (GNN-Geo) to solve the node regression problem. It consists of four components: a preprocessor, an encoder, MP (message passing) layers, and a decoder. The preprocessor transforms the raw traceroute data of a computer network into an attributed-graph representation. The encoder generates the initial graph node/edge embeddings for MP layers. MP layers refine the node embeddings by propagating messages along the edges.",
+              "similarity": 0.75,
+              "reason": "The user's idea specifies 'message-passing architecture', which is a direct match to the 'MP (message passing) layers' described in the paper's GNN-Geo framework. Both use this core mechanism for processing information.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "GNN-Geo: A Graph Neural Network-based Fine-grained IP geolocation Framework",
+              "heading": "THE POSSIBLE VALUE OF GNN FOR IP GEOLOCATION",
+              "text_snippet": "Through passing messages along the edges, after several MP layers, every node will gradually know the topology and node/edge attributes of the computer network. So compared with MLP, GNN can naturally describe the network topology in the targets' embeddings.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions 'message-passing architecture', which is the fundamental mechanism described here for GNNs to process information by 'passing messages along the edges' through 'MP layers'.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 18517,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2112.10767v7"
+    },
+    {
+      "paper_id": "paper_09",
+      "paper_title": "DAG-GNN: DAG Structure Learning with Graph Neural Networks",
+      "arxiv_id": "1904.10098v1",
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on training neural network potentials for molecular dynamics simulations of lithium-ion battery materials. In contrast, the paper 'DAG-GNN' addresses the problem of learning faithful directed acyclic graphs (DAGs) from samples of a joint distribution, which is a problem in causal inference and graphical models, as stated in its abstract and introduction. | Method: Both the user's idea and the paper utilize Graph Neural Networks (GNNs) as a broad category of deep learning. However, the paper focuses on DAG structure learning using a novel DAG-GNN architecture within a variational autoencoder framework for general data types, while the user's idea applies GNNs with a message-passing architecture specifically for training neural network potentials to simulate molecular dynamics in materials science. | Domain: The user's research idea is in materials science, specifically simulating molecular dynamics for lithium-ion battery cathode materials. The paper, 'DAG-GNN: DAG Structure Learning with Graph Neural Networks,' is focused on learning directed acyclic graphs for causal inference and Bayesian Networks, with applications mentioned in medicine, genetics, economics, and epidemics, and experiments on synthetic and benchmark datasets with discrete variables. These are entirely different application domains. | Contribution: The paper focuses on learning the structure of Directed Acyclic Graphs (DAGs) from data, proposing a deep generative model with a novel GNN architecture (DAG-GNN) to handle nonlinear relationships and various data types. The user's idea, in contrast, is about training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials. These are distinct research problems with unrelated claimed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep.",
+          "sentence_index": 0,
+          "similarity_score": 0.15,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "DAG-GNN: DAG Structure Learning with Graph Neural Networks",
+              "heading": "Abstract",
+              "text_snippet": "At the heart of the generative model is a variational autoencoder parameterized by a novel graph neural network architecture, which we coin DAG-GNN.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes 'Training a neural network potential using a message-passing architecture', and the paper describes a 'novel graph neural network architecture' which is a type of message-passing architecture. Both use GNNs for their core model.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "DAG-GNN: DAG Structure Learning with Graph Neural Networks",
+              "heading": "Introduction",
+              "text_snippet": "To this end, we employ the machinery of variational inference and parameterize a pair of encoder/decoder with specially designed graph neural networks (GNN).",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'neural network potential using a message-passing architecture', which aligns with the paper's use of 'specially designed graph neural networks (GNN)' for parameterization, as message-passing is a core concept in GNNs.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "DAG-GNN: DAG Structure Learning with Graph Neural Networks",
+              "heading": "Proposed Graph Neural Network Model",
+              "text_snippet": "Equation (2) may be written as X = f A ( Z ) , a general form recognized by the deep learning community as an abstraction of parameterized graph neural networks that take node features Z as input and return X as high level representations. Nearly all graph neural networks (Bruna et al., 2014; Defferrard et al., 2016; Li et al., 2016; Kipf & Welling, 2017; Hamilton et al., 2017; Gilmer et al., 2017; Chen et al., 2018; Veli˘ ckovi´ c et al., 2018) can be written in this form.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'message-passing architecture', which is a fundamental characteristic of Graph Neural Networks (GNNs). The paper extensively discusses and proposes a new GNN architecture, confirming the shared methodological family.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14401,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1904.10098v1"
+    },
+    {
+      "paper_id": "paper_30",
+      "paper_title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+      "arxiv_id": "2502.09970v1",
+      "paper_similarity_score": 0.925,
+      "reason": "Problem: The user's research idea is to train a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep. The paper directly addresses this problem by evaluating 'universal machine learning interatomic potentials (uMLIPs)' which 'achieve near-DFT-level prediction accuracy while maintaining the computational efficiency required for high-throughput research' for 'solid-state electrolytes (SSEs)' in 'next-generation lithium-ion batteries' using 'molecular dynamics (MD) simulations guided by uMLIPs' to 'reproduce lithium-ion diffusion coefficients'. The paper explicitly mentions training DP models using DeePMD-kit with DFT calculations for labeling, and evaluating models like MACE and M3GNet which are message-passing architectures. | Method: Both the user's idea and the paper focus on training neural network potentials using DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery materials. The paper explicitly evaluates multiple universal machine learning interatomic potentials (uMLIPs), which are neural network potentials, for simulating lithium-ion diffusion behavior in solid-state electrolytes, a type of lithium-ion battery cathode material, without full DFT at each timestep. The paper's 'Calculation of material properties based on uMLIPs' section details MD simulations using these potentials, and the 'uMLIPs description' mentions graph neural network architectures, which are a form of message-passing architecture. | Domain: Both the user's research idea and the paper focus on simulating molecular dynamics for lithium-ion battery cathode materials using neural network potentials trained on DFT data. The paper specifically evaluates uMLIPs for solid ion conductors, which are critical for next-generation lithium-ion batteries, and performs lithium-ion diffusion simulations using these potentials, directly aligning with the user's stated application domain. | Contribution: The paper directly addresses the user's research idea by evaluating universal machine learning interatomic potentials (uMLIPs) for simulating molecular dynamics of lithium-ion battery cathode materials. It explicitly states the use of uMLIPs to achieve 'near-DFT-level prediction accuracy while maintaining the computational efficiency required for high-throughput research' and performs 'lithium-ion diffusion simulations' using MD guided by uMLIPs, comparing them to DFT benchmarks. This directly matches the user's proposal to 'simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep' by 'training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations'.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep.",
+          "sentence_index": 0,
+          "similarity_score": 0.675,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+              "heading": "Introduction",
+              "text_snippet": "By leveraging large-scale datasets and advanced neural network architectures, uMLIPs achieve near-DFT-level prediction accuracy while maintaining the computational efficiency required for high-throughput research.",
+              "similarity": 1.0,
+              "reason": "The user proposes 'Training a neural network potential... on DFT-labeled atomic configurations to simulate molecular dynamics... without full DFT at each timestep.' This directly aligns with the paper's description of uMLIPs, which are trained on DFT data to achieve near-DFT accuracy efficiently for simulations like MD.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+              "heading": "uMLIPs description",
+              "text_snippet": "M3GNet, as a pioneering model in this field, employs a graph neural network architecture that integrates three-body interactions, capturing atomic interactions precisely through iterative updates of atom and bond features.",
+              "similarity": 0.75,
+              "reason": "The user specifies 'using a message-passing architecture', which is a type of graph neural network architecture, similar to M3GNet mentioned in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+              "heading": "ABSTRACT",
+              "text_snippet": "With the rapid development of energy storage technology, high-performance solid-state electrolytes (SSEs) have become critical for next-generation lithium-ion batteries.",
+              "similarity": 0.75,
+              "reason": "The user's idea focuses on 'lithium-ion battery cathode materials', which is a specific type of material for lithium-ion batteries, a domain extensively covered by the paper's focus on solid-state electrolytes for next-generation lithium-ion batteries.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 1.0,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 19831,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2502.09970v1"
+    },
+    {
+      "paper_id": "paper_35",
+      "paper_title": "Parallel Neural Networks in Golang",
+      "arxiv_id": "2304.09590v1",
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on training a neural network potential for molecular dynamics simulations of lithium-ion battery cathode materials, a problem in computational materials science. The paper, however, addresses the problem of parallelizing neural network training using Golang for image classification (MNIST dataset), which is a problem in computer science/software engineering concerning computational performance and accuracy of general neural networks. These are fundamentally different research problems with distinct goals and application domains. | Method: Both the user's idea and the paper utilize neural networks. However, the paper focuses on parallelizing a classical feed-forward neural network for image classification (MNIST dataset) using a Single-Program Multiple-Data (SPMD) approach, while the user's idea proposes training a neural network potential with a message-passing architecture for molecular dynamics simulations of materials, which is a fundamentally different application and network architecture. | Domain: The user's research idea is in materials science/computational chemistry, specifically simulating molecular dynamics for lithium-ion battery cathode materials. The paper, 'Parallel Neural Networks in Golang,' focuses on parallelizing neural network training using the MNIST dataset for handwritten digit recognition, which is a computer science/machine learning domain. There is no overlap in the application domains. | Contribution: The user's research idea focuses on training a neural network potential with a message-passing architecture for molecular dynamics simulations of lithium-ion battery cathode materials. In contrast, the paper describes the design and implementation of parallel neural networks in Golang using the MNIST dataset for handwritten digit recognition, focusing on performance analysis of parallelization strategies. The contributions address entirely different problems and applications.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep.",
+          "sentence_index": 0,
+          "similarity_score": 0.15,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Parallel Neural Networks in Golang",
+              "heading": "ABSTRACT",
+              "text_snippet": "This paper describes the design and implementation of parallel neural networks (PNNs) with the novel programming language Golang.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper involve neural networks. The user specifies a 'message-passing architecture' which is a type of neural network architecture, while the paper focuses on parallel neural networks.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Parallel Neural Networks in Golang",
+              "heading": "Introduction",
+              "text_snippet": "Inspired by the way our nervous system perceives visual input, the idea emerged to write a mechanism that could 'learn' and furthermore use this 'knowledge' on unknown data. Learning is accomplished by repeating exercises and comparing results with given solutions. The neural network studied in this paper uses the MNIST dataset to train and test its capabilities.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper discuss training neural networks. The user mentions 'training a neural network potential' and the paper discusses 'training' neural networks using a dataset.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 11343,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2304.09590v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 93,
+    "global_similarity_score": 0.24499999999999997,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Training a neural network potential using a message-passing architecture on DFT-labeled atomic configurations to simulate molecular dynamics for lithium-ion battery cathode materials without full DFT at each timestep.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "high",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "high"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_30",
+            "paper_title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+            "heading": "Introduction",
+            "text_snippet": "By leveraging large-scale datasets and advanced neural network architectures, uMLIPs achieve near-DFT-level prediction accuracy while maintaining the computational efficiency required for high-throughput research.",
+            "similarity": 1.0,
+            "reason": "The user proposes 'Training a neural network potential... on DFT-labeled atomic configurations to simulate molecular dynamics... without full DFT at each timestep.' This directly aligns with the paper's description of uMLIPs, which are trained on DFT data to achieve near-DFT accuracy efficiently for simulations like MD.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_30",
+            "paper_title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+            "heading": "ABSTRACT",
+            "text_snippet": "With the rapid development of energy storage technology, high-performance solid-state electrolytes (SSEs) have become critical for next-generation lithium-ion batteries.",
+            "similarity": 0.75,
+            "reason": "The user's idea focuses on 'lithium-ion battery cathode materials', which is a specific type of material for lithium-ion batteries, a domain extensively covered by the paper's focus on solid-state electrolytes for next-generation lithium-ion batteries.",
+            "criterion": "domain_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea demonstrates strong originality, with minimal overlap across most analyzed papers. However, there is a high similarity detected with \"Universal Machine Learning Interatomic Potentials are Ready,\" suggesting a need to clearly differentiate your contribution from this specific work.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.6799999999999999,
+      "method_similarity": 0.59,
+      "domain_similarity": 0.6799999999999999,
+      "contribution_similarity": 0.6799999999999999
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0365,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0342,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.002,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 332.8950960636139,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_23",
+        "paper_title": "DiP-GNN: Discriminative Pre-Training of Graph Neural Networks",
+        "paper_similarity": 0.075,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_24",
+        "paper_title": "GNN-Geo: A Graph Neural Network-based Fine-grained IP geolocation Framework",
+        "paper_similarity": 0.075,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_09",
+        "paper_title": "DAG-GNN: DAG Structure Learning with Graph Neural Networks",
+        "paper_similarity": 0.075,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_30",
+        "paper_title": "Universal Machine Learning Interatomic Potentials are Ready for Solid Ion Conductors",
+        "paper_similarity": 0.925,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_35",
+        "paper_title": "Parallel Neural Networks in Golang",
+        "paper_similarity": 0.075,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 127
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 127,
+    "after_dedup": 127,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

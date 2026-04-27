@@ -1,0 +1,586 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "b0dd63d55fbb",
+    "status": "completed"
+  },
+  "originality_score": 99,
+  "global_similarity_score": 0.030000000000000006,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A graph neural network that aggregates neighbor features using attention weights derived from the cosine similarity between node embeddings, applied to node classification tasks.",
+      "originality_score": 0.5,
+      "similarity_score": 0.5,
+      "label": "medium",
+      "criteria_labels": {
+        "problem_similarity": "high",
+        "method_similarity": "high",
+        "domain_similarity": "medium",
+        "contribution_similarity": "high"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_09",
+          "paper_title": "Subsampling for Knowledge Graph Embedding Explained",
+          "heading": "Negative Sampling Loss",
+          "text_snippet": "Knowledge graph embedding (KGE) is a well-known scalable approach for KGC. In KGE, a KGE model scores a triplet ( e i , r k , e j ) by using a scoring function s θ ( x, y ).",
+          "similarity": 0.5,
+          "reason": "The user's idea is about 'node classification tasks' on 'graph neural networks', while the paper focuses on 'knowledge graph embedding' and 'knowledge graph completion'. Both deal with graph-structured data and related tasks, but the specific application and problem (node classification vs. link prediction/embedding) are different enough to warrant a moderate score.",
+          "criterion": "domain_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea demonstrates very high originality across all criteria, with minimal overlap detected in problem, method, and contribution. While there is some domain overlap with existing graph theory work, your specific approach appears highly novel.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.0,
+    "method_similarity": 0.0,
+    "domain_similarity": 0.42,
+    "contribution_similarity": 0.0
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0287,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0267,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0018,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 140.12917399406433,
+  "papers": [
+    {
+      "paper_id": "paper_19",
+      "source": "arxiv",
+      "source_id": "1703.01691v4",
+      "arxiv_id": "1703.01691v4",
+      "title": "Drawing Planar Graphs with Few Geometric Primitives",
+      "abstract": "We define the \\emph{visual complexity} of a plane graph drawing to be the number of basic geometric objects needed to represent all its edges. In particular, one object may represent multiple edges (e.g., one needs only one line segment to draw a path with an arbitrary number of edges). Let $n$ denote the number of vertices of a graph. We show that trees can be drawn with $3n/4$ straight-line segments on a polynomial grid, and with $n/2$ straight-line segments on a quasi-polynomial grid. Further, we present an algorithm for drawing planar 3-trees with $(8n-17)/3$ segments on an $O(n)\\times O(n^2)$ grid. This algorithm can also be used with a small modification to draw maximal outerplanar graphs with $3n/2$ edges on an $O(n)\\times O(n^2)$ grid. We also study the problem of drawing maximal planar graphs with circular arcs and provide an algorithm to draw such graphs using only $(5n - 11)/3$ arcs. This is significantly smaller than the lower bound of $2n$ for line segments for a nontrivial graph class.",
+      "url": "http://arxiv.org/abs/1703.01691v4",
+      "pdf_url": "https://arxiv.org/pdf/1703.01691v4",
+      "authors": [
+        "Gregor Hültenschmidt",
+        "Philipp Kindermann",
+        "Wouter Meulemans",
+        "André Schulz"
+      ],
+      "categories": [
+        "cs.CG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on a graph neural network for node classification, utilizing attention weights derived from cosine similarity between node embeddings. In contrast, the paper addresses the 'visual complexity' of planar graph drawings, aiming to minimize the number of geometric objects (segments or arcs) needed to represent edges. These are fundamentally different problems with no overlap in methodology or objective. | Method: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, however, focuses on algorithms for drawing planar graphs with few geometric primitives (straight-line segments or circular arcs) and discusses visual complexity, grid size, and graph-theoretic properties like Schnyder realizers. There is no methodological overlap between these two distinct areas of research. | Domain: The user's idea is in graph neural networks for node classification, which falls under machine learning and graph analysis. The paper focuses on graph drawing algorithms, specifically minimizing geometric primitives for planar graphs. While both deal with graphs, the application domains are different: one is about learning representations for prediction tasks, and the other is about visual representation and geometric complexity of graphs. | Contribution: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, in contrast, focuses on the 'visual complexity' of planar graph drawings, aiming to minimize the number of geometric primitives (segments or arcs) needed to represent edges, as discussed in its abstract and introduction. These are entirely different research problems and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_09",
+      "source": "arxiv",
+      "source_id": "2209.12801v1",
+      "arxiv_id": "2209.12801v1",
+      "title": "Subsampling for Knowledge Graph Embedding Explained",
+      "abstract": "In this article, we explain the recent advance of subsampling methods in knowledge graph embedding (KGE) starting from the original one used in word2vec.",
+      "url": "http://arxiv.org/abs/2209.12801v1",
+      "pdf_url": "https://arxiv.org/pdf/2209.12801v1",
+      "authors": [
+        "Hidetaka Kamigaito",
+        "Katsuhiko Hayashi"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on a graph neural network for node classification using attention based on cosine similarity. The paper, 'Subsampling for Knowledge Graph Embedding Explained,' addresses knowledge graph embedding (KGE) and knowledge graph completion (KGC) using subsampling methods and negative sampling loss. These are fundamentally different research problems and goals. | Method: The user's idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper focuses on subsampling methods for knowledge graph embedding and completion, using negative sampling loss and word2vec-based subsampling. There is no mention of graph neural networks, attention mechanisms, cosine similarity for attention, or node classification in the provided paper content. | Domain: The user's idea is about graph neural networks for node classification, which falls under graph machine learning. The paper focuses on knowledge graph embedding (KGE) for knowledge graph completion (KGC), which is also a graph-related task. While both are in the broader field of machine learning on graphs, KGE and KGC are distinct sub-areas from general graph neural networks for node classification. | Contribution: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, 'Subsampling for Knowledge Graph Embedding Explained,' focuses on subsampling methods for knowledge graph embedding and completion, primarily discussing negative sampling loss and frequency-based subsampling. There is no overlap in the proposed methods or the specific tasks addressed.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_10",
+      "source": "arxiv",
+      "source_id": "1408.1422v1",
+      "arxiv_id": "1408.1422v1",
+      "title": "The Galois Complexity of Graph Drawing: Why Numerical Solutions are Ubiquitous for Force-Directed, Spectral, and Circle Packing Drawings",
+      "abstract": "Many well-known graph drawing techniques, including force directed drawings, spectral graph layouts, multidimensional scaling, and circle packings, have algebraic formulations. However, practical methods for producing such drawings ubiquitously use iterative numerical approximations rather than constructing and then solving algebraic expressions representing their exact solutions. To explain this phenomenon, we use Galois theory to show that many variants of these problems have solutions that cannot be expressed by nested radicals or nested roots of low-degree polynomials. Hence, such solutions cannot be computed exactly even in extended computational models that include such operations.",
+      "url": "http://arxiv.org/abs/1408.1422v1",
+      "pdf_url": "https://arxiv.org/pdf/1408.1422v1",
+      "authors": [
+        "Michael J. Bannister",
+        "William E. Devanny",
+        "David Eppstein",
+        "Michael T. Goodrich"
+      ],
+      "categories": [
+        "cs.CG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on developing a graph neural network for node classification using attention based on cosine similarity. In contrast, the paper investigates the Galois complexity of various graph drawing techniques (force-directed, spectral, circle packing) to explain why numerical solutions are ubiquitous, addressing the solvability of algebraic formulations rather than machine learning models for graph tasks. | Method: The user's research idea proposes a graph neural network utilizing attention weights derived from cosine similarity for node classification. The evaluated paper focuses on the Galois complexity of various algebraic graph drawing techniques (force-directed, spectral, circle packing) and the impossibility of exact symbolic solutions for them. There is no methodological overlap between the graph neural network approach and the algebraic/Galois theory methods discussed in the paper. | Domain: The user's research idea is about graph neural networks for node classification, which falls under machine learning applied to graphs. The paper focuses on the 'Galois Complexity of Graph Drawing', analyzing the algebraic solvability of various graph drawing techniques like force-directed, spectral, and circle packing drawings. While both deal with graphs, the paper is concerned with the mathematical foundations and computational limitations of traditional graph visualization methods, which is a different sub-area and application target compared to the machine learning paradigm of graph neural networks for classification tasks. | Contribution: The user's research idea proposes a graph neural network with attention mechanisms for node classification. The paper, in contrast, focuses on the Galois complexity of various algebraic graph drawing techniques (force-directed, spectral, circle packing) and proves the impossibility of exact symbolic solutions for these methods. There is no overlap in the claimed contributions or methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_25",
+      "source": "arxiv",
+      "source_id": "1701.00420v2",
+      "arxiv_id": "1701.00420v2",
+      "title": "Partition functions and a generalized coloring-flow duality for embedded graphs",
+      "abstract": "Let $G$ be a finite group and $χ: G \\rightarrow \\mathbb{C}$ a class function. Let $H = (V,E)$ be a directed graph with for each vertex a cyclic order of the edges incident to it. The cyclic orders give a collection $F$ of faces of $H$. Define the partition function $P_χ(H) := \\sum_{κ: E \\rightarrow G}\\prod_{v \\in V}χ(κ(δ(v)))$, where $κ(δ(v))$ denotes the product of the $κ$-values of the edges incident with $v$ (in order), where the inverse is taken for any edge leaving $v$. Write $χ= \\sum_λm_λχ_λ$, where the sum runs over irreducible representations $λ$ of $G$ with character $χ_λ$ and with $m_λ \\in \\mathbb{C}$ for every $λ$. If $H$ is connected, it is proved that $P_χ(H) = |G|^{|E|}\\sum_λχ_λ(1)^{|F|-|E|}m_λ^{|V|}$, where $1$ is the identity element of $G$. Among the corollaries, a formula for the number of nowhere-identity $G$-flows on $H$ is derived, generalizing a result of Tutte. We show that these flows correspond bijectively to certain proper $G$-colorings of a covering graph of the dual graph of $H$. This correspondence generalizes coloring-flow duality for planar graphs.",
+      "url": "http://arxiv.org/abs/1701.00420v2",
+      "pdf_url": "https://arxiv.org/pdf/1701.00420v2",
+      "authors": [
+        "Bart Litjens",
+        "Bart Sevenster"
+      ],
+      "categories": [
+        "math.CO"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on developing a graph neural network for node classification using attention based on cosine similarity. In contrast, the paper addresses partition functions, generalized coloring-flow duality for embedded graphs, and properties of G-flows, which are fundamentally different mathematical problems in graph theory and representation theory. | Method: The user's research idea proposes a graph neural network that uses attention weights derived from cosine similarity for node classification. The paper, on the other hand, focuses on partition functions, group characters, and coloring-flow duality for embedded graphs, using concepts from abstract algebra and graph theory. There is no methodological overlap in terms of neural networks, attention mechanisms, or node embeddings. | Domain: The user's research idea is about graph neural networks for node classification, which falls under machine learning or artificial intelligence. The paper, however, focuses on graph theory, group theory, and topology, specifically 'partition functions and a generalized coloring-flow duality for embedded graphs'. These are entirely different academic fields with no overlapping application domains. | Contribution: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, however, focuses on partition functions, generalized coloring-flow duality for embedded graphs, and group theory, with contributions related to counting G-flows and G-colorings. These are distinct research areas and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_28",
+      "source": "arxiv",
+      "source_id": "2105.13332v2",
+      "arxiv_id": "2105.13332v2",
+      "title": "The number and average size of connected sets in graphs with degree constraints",
+      "abstract": "The average size of connected vertex subsets of a connected graph generalises a much-studied parameter for subtrees of trees. For trees, the possible values of this parameter are critically affected by the presence or absence of vertices of degree 2. We answer two questions of Andrew Vince regarding the effect of degree constraints on general connected graphs. We give a new lower bound, and the first non-trivial upper bound, on the maximum growth rate of the number of connected sets of a cubic graph, and in fact obtain non-trivial upper bounds for any constant bound on the maximum degree. We show that the average connected set density is bounded away from 1 for graphs with no vertex of degree 2, and generalise a classical result of Jamison for trees by showing that in order for the connected set density to approach 1, the proportion of vertices of degree 2 must approach 1. Finally, we show that any sequence of graphs with minimum degree tending to infinity must have connected set density tending to 1/2.",
+      "url": "http://arxiv.org/abs/2105.13332v2",
+      "pdf_url": "https://arxiv.org/pdf/2105.13332v2",
+      "authors": [
+        "John Haslegrave"
+      ],
+      "categories": [
+        "math.CO"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on developing a graph neural network model using attention mechanisms for node classification. In contrast, the paper investigates the number and average size of connected sets in graphs, particularly under degree constraints, which is a problem in graph theory and combinatorics. These are fundamentally different research problems with no overlap in methodology or application. | Method: The user's research idea proposes a graph neural network utilizing attention weights derived from cosine similarity for node classification. The paper, however, focuses on combinatorial graph theory, specifically analyzing the number and average size of connected sets in graphs with degree constraints, using mathematical proofs and bounds. There is no mention of neural networks, machine learning, or any computational models in the paper's abstract, introduction, or relevant sections, indicating completely different methodologies. | Domain: The user's research idea is in the domain of graph neural networks for node classification, which is a subfield of machine learning and artificial intelligence. The paper, however, is focused on theoretical graph theory, specifically analyzing properties like the number and average size of connected sets in graphs with degree constraints. These are entirely different fields with no overlap in application domain. | Contribution: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, however, focuses on theoretical graph properties, specifically the number and average size of connected sets in graphs with degree constraints, and does not involve any machine learning models or neural networks.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "Graph Attention Networks (GAT)",
+        "similarity": 0.95,
+        "description": "GATs use an attention mechanism to assign different weights to different neighbors, often based on a learnable compatibility function between node features, which can be seen as a generalization of cosine similarity."
+      },
+      {
+        "name": "Attention mechanisms in GNNs (general)",
+        "similarity": 0.9,
+        "description": "Many GNN architectures incorporate attention to weigh neighbor contributions, with various methods for computing attention scores (e.g., dot product, concatenation followed by MLP, etc.). Cosine similarity is a common metric for feature similarity."
+      },
+      {
+        "name": "GraphSAGE with attention",
+        "similarity": 0.8,
+        "description": "While GraphSAGE typically uses mean, LSTM, or pooling aggregators, extensions or modifications could easily incorporate attention, including attention based on feature similarity."
+      },
+      {
+        "name": "Transformer-based GNNs",
+        "similarity": 0.85,
+        "description": "Transformers heavily rely on self-attention, often using dot-product attention (a form of similarity) to weigh interactions, which has been adapted for graph structures."
+      }
+    ],
+    "assessment": "The core idea of using attention weights derived from feature similarity (like cosine similarity) for neighbor aggregation in Graph Neural Networks (GNNs) for node classification is a well-established and widely researched area. Graph Attention Networks (GATs), introduced in 2017, are a prime example of this concept, where attention coefficients are computed based on the features of a node and its neighbors. While the specific choice of 'cosine similarity between node embeddings' for attention weights might be a particular implementation detail, the general principle of using feature similarity to guide neighbor aggregation via attention is fundamental to many advanced GNN architectures.",
+    "novelty_aspects": [
+      "Specific formulation of attention using *only* cosine similarity between *node embeddings* (as opposed to raw features or more complex compatibility functions) might be a specific design choice, but the underlying mechanism is not novel.",
+      "Potential for a highly optimized or novel training objective if not explicitly stated."
+    ],
+    "recommendation": "This specific GNN architecture is highly similar to existing Graph Attention Networks (GATs) and other attention-based GNNs. To make this research novel, you would need to identify a specific limitation of existing attention mechanisms that your 'cosine similarity' approach uniquely solves, or demonstrate significant performance improvements/efficiency gains in specific, challenging scenarios. Consider exploring novel ways to learn or adapt the similarity metric, or integrate it into a multi-head attention mechanism with unique properties."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Graph Attention Networks (GAT)** (similarity: 95%).\n\n*The core idea of using attention weights derived from feature similarity (like cosine similarity) for neighbor aggregation in Graph Neural Networks (GNNs) for node classification is a well-established and widely researched area. Graph Attention Networks (GATs), introduced in 2017, are a prime example of this concept, where attention coefficients are computed based on the features of a node and its neighbors. While the specific choice of 'cosine similarity between node embeddings' for attention weights might be a particular implementation detail, the general principle of using feature similarity to guide neighbor aggregation via attention is fundamental to many advanced GNN architectures.*\n\n**Recommendation:** This specific GNN architecture is highly similar to existing Graph Attention Networks (GATs) and other attention-based GNNs. To make this research novel, you would need to identify a specific limitation of existing attention mechanisms that your 'cosine similarity' approach uniquely solves, or demonstrate significant performance improvements/efficiency gains in specific, challenging scenarios. Consider exploring novel ways to learn or adapt the similarity metric, or integrate it into a multi-head attention mechanism with unique properties.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 138,
+    "unique_after_dedup": 138,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 522,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0287,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0267,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A graph neural network that aggregates neighbor features using attention weights derived from the cosine similarity between node embeddings, applied to node classification tasks.",
+  "enriched_idea": "RESEARCH IDEA:\nA graph neural network that aggregates neighbor features using attention weights derived from the cosine similarity between node embeddings, applied to node classification tasks.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_19",
+      "paper_title": "Drawing Planar Graphs with Few Geometric Primitives",
+      "arxiv_id": "1703.01691v4",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on a graph neural network for node classification, utilizing attention weights derived from cosine similarity between node embeddings. In contrast, the paper addresses the 'visual complexity' of planar graph drawings, aiming to minimize the number of geometric objects (segments or arcs) needed to represent edges. These are fundamentally different problems with no overlap in methodology or objective. | Method: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, however, focuses on algorithms for drawing planar graphs with few geometric primitives (straight-line segments or circular arcs) and discusses visual complexity, grid size, and graph-theoretic properties like Schnyder realizers. There is no methodological overlap between these two distinct areas of research. | Domain: The user's idea is in graph neural networks for node classification, which falls under machine learning and graph analysis. The paper focuses on graph drawing algorithms, specifically minimizing geometric primitives for planar graphs. While both deal with graphs, the application domains are different: one is about learning representations for prediction tasks, and the other is about visual representation and geometric complexity of graphs. | Contribution: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, in contrast, focuses on the 'visual complexity' of planar graph drawings, aiming to minimize the number of geometric primitives (segments or arcs) needed to represent edges, as discussed in its abstract and introduction. These are entirely different research problems and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network that aggregates neighbor features using attention weights derived from the cosine similarity between node embeddings, applied to node classification tasks.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 21925,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1703.01691v4"
+    },
+    {
+      "paper_id": "paper_09",
+      "paper_title": "Subsampling for Knowledge Graph Embedding Explained",
+      "arxiv_id": "2209.12801v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on a graph neural network for node classification using attention based on cosine similarity. The paper, 'Subsampling for Knowledge Graph Embedding Explained,' addresses knowledge graph embedding (KGE) and knowledge graph completion (KGC) using subsampling methods and negative sampling loss. These are fundamentally different research problems and goals. | Method: The user's idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper focuses on subsampling methods for knowledge graph embedding and completion, using negative sampling loss and word2vec-based subsampling. There is no mention of graph neural networks, attention mechanisms, cosine similarity for attention, or node classification in the provided paper content. | Domain: The user's idea is about graph neural networks for node classification, which falls under graph machine learning. The paper focuses on knowledge graph embedding (KGE) for knowledge graph completion (KGC), which is also a graph-related task. While both are in the broader field of machine learning on graphs, KGE and KGC are distinct sub-areas from general graph neural networks for node classification. | Contribution: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, 'Subsampling for Knowledge Graph Embedding Explained,' focuses on subsampling methods for knowledge graph embedding and completion, primarily discussing negative sampling loss and frequency-based subsampling. There is no overlap in the proposed methods or the specific tasks addressed.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network that aggregates neighbor features using attention weights derived from the cosine similarity between node embeddings, applied to node classification tasks.",
+          "sentence_index": 0,
+          "similarity_score": 0.125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "Subsampling for Knowledge Graph Embedding Explained",
+              "heading": "Negative Sampling Loss",
+              "text_snippet": "Knowledge graph embedding (KGE) is a well-known scalable approach for KGC. In KGE, a KGE model scores a triplet ( e i , r k , e j ) by using a scoring function s θ ( x, y ).",
+              "similarity": 0.5,
+              "reason": "The user's idea is about 'node classification tasks' on 'graph neural networks', while the paper focuses on 'knowledge graph embedding' and 'knowledge graph completion'. Both deal with graph-structured data and related tasks, but the specific application and problem (node classification vs. link prediction/embedding) are different enough to warrant a moderate score.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 6245,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2209.12801v1"
+    },
+    {
+      "paper_id": "paper_10",
+      "paper_title": "The Galois Complexity of Graph Drawing: Why Numerical Solutions are Ubiquitous for Force-Directed, Spectral, and Circle Packing Drawings",
+      "arxiv_id": "1408.1422v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on developing a graph neural network for node classification using attention based on cosine similarity. In contrast, the paper investigates the Galois complexity of various graph drawing techniques (force-directed, spectral, circle packing) to explain why numerical solutions are ubiquitous, addressing the solvability of algebraic formulations rather than machine learning models for graph tasks. | Method: The user's research idea proposes a graph neural network utilizing attention weights derived from cosine similarity for node classification. The evaluated paper focuses on the Galois complexity of various algebraic graph drawing techniques (force-directed, spectral, circle packing) and the impossibility of exact symbolic solutions for them. There is no methodological overlap between the graph neural network approach and the algebraic/Galois theory methods discussed in the paper. | Domain: The user's research idea is about graph neural networks for node classification, which falls under machine learning applied to graphs. The paper focuses on the 'Galois Complexity of Graph Drawing', analyzing the algebraic solvability of various graph drawing techniques like force-directed, spectral, and circle packing drawings. While both deal with graphs, the paper is concerned with the mathematical foundations and computational limitations of traditional graph visualization methods, which is a different sub-area and application target compared to the machine learning paradigm of graph neural networks for classification tasks. | Contribution: The user's research idea proposes a graph neural network with attention mechanisms for node classification. The paper, in contrast, focuses on the Galois complexity of various algebraic graph drawing techniques (force-directed, spectral, circle packing) and proves the impossibility of exact symbolic solutions for these methods. There is no overlap in the claimed contributions or methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network that aggregates neighbor features using attention weights derived from the cosine similarity between node embeddings, applied to node classification tasks.",
+          "sentence_index": 0,
+          "similarity_score": 0.125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_10",
+              "paper_title": "The Galois Complexity of Graph Drawing: Why Numerical Solutions are Ubiquitous for Force-Directed, Spectral, and Circle Packing Drawings",
+              "heading": "Introduction",
+              "text_snippet": "One of the most powerful paradigms for drawing a graph is to construct an algebraic formulation for a suitably-defined optimal drawing of the graph and then solve this formulation to produce a drawing. Examples of this algebraic graph drawing approach include the force-directed, spectral, multidimensional scaling, and circle packing drawing techniques (which we review in Appendix A for readers unfamiliar with them).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper deal with 'graph' related problems. The paper focuses on graph drawing, while the user's idea is about graph neural networks for node classification, indicating a shared broad domain of graph analysis but different specific tasks.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_10",
+              "paper_title": "The Galois Complexity of Graph Drawing: Why Numerical Solutions are Ubiquitous for Force-Directed, Spectral, and Circle Packing Drawings",
+              "heading": "Conclusion",
+              "text_snippet": "We have shown that several types of graph drawing cannot be constructed by models of computation that allow computation of arbitrary-degree radicals, nor by models that allow computation of the roots of bounded-degree polynomials.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are within the general field of graph-related computational problems. The paper discusses 'graph drawing' while the user's idea is about 'graph neural networks' and 'node classification tasks', showing a shared high-level domain of graph algorithms.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 11140,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1408.1422v1"
+    },
+    {
+      "paper_id": "paper_25",
+      "paper_title": "Partition functions and a generalized coloring-flow duality for embedded graphs",
+      "arxiv_id": "1701.00420v2",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on developing a graph neural network for node classification using attention based on cosine similarity. In contrast, the paper addresses partition functions, generalized coloring-flow duality for embedded graphs, and properties of G-flows, which are fundamentally different mathematical problems in graph theory and representation theory. | Method: The user's research idea proposes a graph neural network that uses attention weights derived from cosine similarity for node classification. The paper, on the other hand, focuses on partition functions, group characters, and coloring-flow duality for embedded graphs, using concepts from abstract algebra and graph theory. There is no methodological overlap in terms of neural networks, attention mechanisms, or node embeddings. | Domain: The user's research idea is about graph neural networks for node classification, which falls under machine learning or artificial intelligence. The paper, however, focuses on graph theory, group theory, and topology, specifically 'partition functions and a generalized coloring-flow duality for embedded graphs'. These are entirely different academic fields with no overlapping application domains. | Contribution: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, however, focuses on partition functions, generalized coloring-flow duality for embedded graphs, and group theory, with contributions related to counting G-flows and G-colorings. These are distinct research areas and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network that aggregates neighbor features using attention weights derived from the cosine similarity between node embeddings, applied to node classification tasks.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 13563,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1701.00420v2"
+    },
+    {
+      "paper_id": "paper_28",
+      "paper_title": "The number and average size of connected sets in graphs with degree constraints",
+      "arxiv_id": "2105.13332v2",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on developing a graph neural network model using attention mechanisms for node classification. In contrast, the paper investigates the number and average size of connected sets in graphs, particularly under degree constraints, which is a problem in graph theory and combinatorics. These are fundamentally different research problems with no overlap in methodology or application. | Method: The user's research idea proposes a graph neural network utilizing attention weights derived from cosine similarity for node classification. The paper, however, focuses on combinatorial graph theory, specifically analyzing the number and average size of connected sets in graphs with degree constraints, using mathematical proofs and bounds. There is no mention of neural networks, machine learning, or any computational models in the paper's abstract, introduction, or relevant sections, indicating completely different methodologies. | Domain: The user's research idea is in the domain of graph neural networks for node classification, which is a subfield of machine learning and artificial intelligence. The paper, however, is focused on theoretical graph theory, specifically analyzing properties like the number and average size of connected sets in graphs with degree constraints. These are entirely different fields with no overlap in application domain. | Contribution: The user's research idea proposes a graph neural network using attention weights derived from cosine similarity for node classification. The paper, however, focuses on theoretical graph properties, specifically the number and average size of connected sets in graphs with degree constraints, and does not involve any machine learning models or neural networks.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network that aggregates neighbor features using attention weights derived from the cosine similarity between node embeddings, applied to node classification tasks.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 16091,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2105.13332v2"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 99,
+    "global_similarity_score": 0.030000000000000006,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A graph neural network that aggregates neighbor features using attention weights derived from the cosine similarity between node embeddings, applied to node classification tasks.",
+        "originality_score": 0.5,
+        "similarity_score": 0.5,
+        "label": "medium",
+        "criteria_labels": {
+          "problem_similarity": "high",
+          "method_similarity": "high",
+          "domain_similarity": "medium",
+          "contribution_similarity": "high"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_09",
+            "paper_title": "Subsampling for Knowledge Graph Embedding Explained",
+            "heading": "Negative Sampling Loss",
+            "text_snippet": "Knowledge graph embedding (KGE) is a well-known scalable approach for KGC. In KGE, a KGE model scores a triplet ( e i , r k , e j ) by using a scoring function s θ ( x, y ).",
+            "similarity": 0.5,
+            "reason": "The user's idea is about 'node classification tasks' on 'graph neural networks', while the paper focuses on 'knowledge graph embedding' and 'knowledge graph completion'. Both deal with graph-structured data and related tasks, but the specific application and problem (node classification vs. link prediction/embedding) are different enough to warrant a moderate score.",
+            "criterion": "domain_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea demonstrates very high originality across all criteria, with minimal overlap detected in problem, method, and contribution. While there is some domain overlap with existing graph theory work, your specific approach appears highly novel.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.0,
+      "method_similarity": 0.0,
+      "domain_similarity": 0.42,
+      "contribution_similarity": 0.0
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0287,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0267,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 140.12917399406433,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_19",
+        "paper_title": "Drawing Planar Graphs with Few Geometric Primitives",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_09",
+        "paper_title": "Subsampling for Knowledge Graph Embedding Explained",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_10",
+        "paper_title": "The Galois Complexity of Graph Drawing: Why Numerical Solutions are Ubiquitous for Force-Directed, Spectral, and Circle Packing Drawings",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_25",
+        "paper_title": "Partition functions and a generalized coloring-flow duality for embedded graphs",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_28",
+        "paper_title": "The number and average size of connected sets in graphs with degree constraints",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 138
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 138,
+    "after_dedup": 138,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

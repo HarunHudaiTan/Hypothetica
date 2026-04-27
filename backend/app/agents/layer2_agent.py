@@ -1,8 +1,7 @@
 """
 Layer 2: Global originality aggregation.
-Uses paper-threat-based scoring (worst-case driven) with categorical guardrails.
-Final score is derived from criteria, NOT sentences.
-Sentence annotations are kept for UI display only.
+Per-paper weighted criteria, then max across papers; mapped to 0–100 originality.
+Final score is derived from criteria, not sentences. Sentence annotations are UI-only.
 """
 import logging
 from typing import List, Dict, Optional
@@ -52,12 +51,11 @@ class Layer2Aggregator:
     Layer 2: Aggregates Layer 1 results into final originality assessment.
 
     Scoring pipeline:
-      1. Compute per-paper threat (worst-case driven within each paper)
-      2. Compute global overlap from paper threats (worst-case driven across papers)
-      3. Apply categorical guardrails
-      4. Convert to 0-100 originality score
-      5. Compute sentence annotations (for UI only — does NOT affect final score)
-      6. Generate summary via LLM
+      1. Per-paper similarity = weighted mean of four criteria (config.CRITERIA_WEIGHTS)
+      2. Global similarity = max over papers (a single close match is enough to cap originality)
+      3. Convert to 0-100 originality via (1 - global ** power) (config.OVERLAP_CURVE_POWER)
+      4. Compute sentence annotations (for UI only — does NOT affect final score)
+      5. Generate summary via LLM
     """
 
     def __init__(self):
@@ -103,14 +101,15 @@ class Layer2Aggregator:
                 f"c={r.criteria_scores.contribution_similarity:.2f})"
             )
 
-        # Step 2: Global similarity from paper similarity scores (worst-case driven)
+        # Step 2: Global similarity = max per-paper (one strong match cannot be averaged away)
         global_similarity = self._compute_global_similarity(paper_similarity_score_list)
+        mean_s = sum(paper_similarity_score_list) / len(paper_similarity_score_list)
         logger.info(
             f"[Layer2] Global similarity: {global_similarity:.3f} "
-            f"(max_score={max(paper_similarity_score_list):.3f}, mean_score={sum(paper_similarity_score_list)/len(paper_similarity_score_list):.3f})"
+            f"(max per paper={max(paper_similarity_score_list):.3f}, mean for ref={mean_s:.3f})"
         )
 
-        # Step 4: Convert to 0-100 originality score
+        # Step 3: Convert to 0-100 originality score
         global_originality = self._overlap_to_originality_score(global_similarity)
         global_label = self._score_to_label(global_originality)
         logger.info(
@@ -118,10 +117,10 @@ class Layer2Aggregator:
             f"originality={global_originality}/100 → label={global_label.value}"
         )
 
-        # Step 5: Aggregate criteria for UI display
+        # Step 4: Aggregate criteria for UI display
         aggregated_criteria = self._aggregate_criteria(layer1_results)
 
-        # Step 6: Sentence annotations for UI (does NOT affect final score)
+        # Step 5: Sentence annotations for UI (does NOT affect final score)
         sentence_annotations = self._compute_sentence_annotations(
             layer1_results, user_sentences
         )
@@ -130,7 +129,7 @@ class Layer2Aggregator:
         green = sum(1 for a in sentence_annotations if a.label == OriginalityLabel.HIGH)
         logger.info(f"[Layer2] Sentence annotations: {red} RED, {yellow} YELLOW, {green} GREEN")
 
-        # Step 7: Generate summary
+        # Step 6: Generate summary
         summary = self._generate_summary(
             global_originality=global_originality,
             aggregated_criteria=aggregated_criteria,
@@ -198,17 +197,15 @@ class Layer2Aggregator:
     @staticmethod
     def _compute_global_similarity(paper_similarity_score_list: List[float]) -> float:
         """
-        Global similarity = plain mean of per-paper similarity scores.
+        Global similarity = max of per-paper similarity scores.
 
-        Recalibrated 2026-04-19: previously a max-driven blend
-        (GLOBAL_SIMILARITY_MAX_WEIGHT * max + (1 - β) * mean) let a single
-        nearby paper dominate the final score. Since retrieval already returns
-        the top-N most similar papers, that max-term double-penalised proximity
-        and crushed novel ideas. Mean across all retrieved papers is more robust.
+        If any analyzed paper is a strong match, overlap should be high regardless
+        of how weak the other retrievals are. Mean was letting irrelevant papers
+        dilute a single genuine prior-art hit (e.g. ResNet with mixed retrieval).
         """
         if not paper_similarity_score_list:
             return 0.0
-        return sum(paper_similarity_score_list) / len(paper_similarity_score_list)
+        return max(paper_similarity_score_list)
 
     # ------------------------------------------------------------------
     # Categorical guardrails

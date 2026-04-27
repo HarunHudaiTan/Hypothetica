@@ -1,0 +1,708 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "752b59341824",
+    "status": "completed"
+  },
+  "originality_score": 99,
+  "global_similarity_score": 0.05500000000000001,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A graph neural network trained on DFT-computed property datasets that predicts elastic tensor components for alloys by encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.",
+      "originality_score": 0.5,
+      "similarity_score": 0.5,
+      "label": "medium",
+      "criteria_labels": {
+        "problem_similarity": "high",
+        "method_similarity": "medium",
+        "domain_similarity": "medium",
+        "contribution_similarity": "high"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_24",
+          "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+          "heading": "ABSTRACT",
+          "text_snippet": "Deep Learning using the eponymous deep neural networks (DNNs) has become an attractive approach towards various data-based problems of theoretical physics in the past decade. There has been a clear trend to deeper architectures containing increasingly more powerful and involved layers.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper discuss deep neural networks and their architectures. The user specifies a 'graph neural network' while the paper focuses on 'multilayer perceptrons' and 'deep neural networks' more generally, indicating a shared broad methodological category but different specific architectures.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_24",
+          "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+          "heading": "ABSTRACT",
+          "text_snippet": "Deep Learning using the eponymous deep neural networks (DNNs) has become an attractive approach towards various data-based problems of theoretical physics in the past decade.",
+          "similarity": 0.5,
+          "reason": "The user's idea is in the domain of materials science/physics (predicting elastic tensor components for alloys using DFT-computed data), which falls under the broader umbrella of 'theoretical physics' problems that the paper addresses with deep learning.",
+          "criterion": "domain_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea appears highly original across all criteria, with particularly strong originality in problem formulation and contribution. While there is a slight domain overlap with existing work, it does not significantly impact the overall novelty of your approach.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.0,
+    "method_similarity": 0.19,
+    "domain_similarity": 0.4,
+    "contribution_similarity": 0.0
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0355,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0331,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0021,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 206.41778421401978,
+  "papers": [
+    {
+      "paper_id": "paper_14",
+      "source": "arxiv",
+      "source_id": "2104.08930v1",
+      "arxiv_id": "2104.08930v1",
+      "title": "Construction of higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory",
+      "abstract": "We examine the basic conservation laws for diffeomorphism symmetry in the context of spontaneous diffeomorphism and local Lorentz-symmetry breaking. The conservation laws are used as constraints on a generic series of terms in an expansion around a flat background. We find all such terms for a two-tensor coupling to cubic order in the metric and tensor field fluctuations. The results are presented in a form that can be used for phenomenological calculations. One key result is that if we preserve the underlying diffeomorphism symmetry in a spontaneous-symmetry breaking scenario, one cannot decouple the two-tensor fluctuations from the metric fluctuations at the level of the action, except in special cases of the quadratic actions.",
+      "url": "http://arxiv.org/abs/2104.08930v1",
+      "pdf_url": "https://arxiv.org/pdf/2104.08930v1",
+      "authors": [
+        "Quentin G. Bailey"
+      ],
+      "categories": [
+        "gr-qc"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on using graph neural networks and DFT data to predict elastic tensor components for alloys, explicitly encoding crystallographic symmetry. The paper, in contrast, investigates higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory, specifically concerning diffeomorphism and local Lorentz symmetry. These are fundamentally different research problems in distinct scientific domains (materials science/machine learning vs. theoretical physics/gravitation). | Method: The user's research idea proposes using Graph Neural Networks (GNNs) with DFT-computed property datasets to predict elastic tensor components by encoding crystallographic symmetry constraints into message-passing rules. The evaluated paper, on the other hand, focuses on effective field theory, spontaneous symmetry breaking, and the construction of higher-order metric fluctuation terms in the context of spacetime symmetries (diffeomorphism and local Lorentz symmetry). There is no methodological overlap; the paper does not mention GNNs, machine learning, DFT, or material property prediction. | Domain: The user's research idea is in materials science, specifically predicting elastic tensor components for alloys using graph neural networks and DFT data. The paper, however, is in theoretical physics, focusing on spacetime symmetry-breaking effective field theory and gravitational theories. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on training a graph neural network to predict elastic tensor components for alloys by encoding crystallographic symmetry constraints. In contrast, the paper evaluates higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory, specifically concerning diffeomorphism and local Lorentz symmetry. The domains, methodologies, and specific contributions are entirely unrelated.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_24",
+      "source": "arxiv",
+      "source_id": "2009.03192v2",
+      "arxiv_id": "2009.03192v2",
+      "title": "A Neural Network Perturbation Theory Based on the Born Series",
+      "abstract": "Deep Learning using the eponymous deep neural networks (DNNs) has become an attractive approach towards various data-based problems of theoretical physics in the past decade. There has been a clear trend to deeper architectures containing increasingly more powerful and involved layers. Contrarily, Taylor coefficients of DNNs still appear mainly in the light of interpretability studies, where they are computed at most to first order. However, especially in theoretical physics numerous problems benefit from accessing higher orders, as well. This gap motivates a general formulation of neural network (NN) Taylor expansions. Restricting our analysis to multilayer perceptrons (MLPs) and introducing quantities we refer to as propagators and vertices, both depending on the MLP's weights and biases, we establish a graph-theoretical approach. Similarly to Feynman rules in quantum field theories, we can systematically assign diagrams containing propagators and vertices to the corresponding partial derivative. Examining this approach for S-wave scattering lengths of shallow potentials, we observe NNs to adapt their derivatives mainly to the leading order of the target function's Taylor expansion. To circumvent this problem, we propose an iterative NN perturbation theory. During each iteration we eliminate the leading order, such that the next-to-leading order can be faithfully learned during the subsequent iteration. After performing two iterations, we find that the first- and second-order Born terms are correctly adapted during the respective iterations. Finally, we combine both results to find a proxy that acts as a machine-learned second-order Born approximation.",
+      "url": "http://arxiv.org/abs/2009.03192v2",
+      "pdf_url": "https://arxiv.org/pdf/2009.03192v2",
+      "authors": [
+        "Bastian Kaspschak",
+        "Ulf-G. Meißner"
+      ],
+      "categories": [
+        "cs.LG",
+        "nucl-th",
+        "physics.comp-ph",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.1,
+      "reason": "Problem: The user's research idea focuses on predicting elastic tensor components for alloys using graph neural networks with explicit crystallographic symmetry encoding. In contrast, the paper addresses the analytical properties of neural networks, specifically developing a neural network perturbation theory to compute higher-order Taylor coefficients and applying it to S-wave scattering lengths in quantum physics. These are fundamentally different research problems and domains. | Method: Both the user's idea and the paper utilize neural networks, placing them in the same broad category of deep learning. However, the paper focuses on a 'neural network perturbation theory' for 'multilayer perceptrons (MLPs)' to analyze Taylor expansions and Born series, while the user's idea specifies 'graph neural networks' for predicting 'elastic tensor components' by encoding 'crystallographic symmetry constraints directly into the message-passing aggregation rules'. These are distinct architectural choices and methodological approaches within deep learning. | Domain: The user's research idea is in materials science, specifically predicting elastic tensor components for alloys using GNNs and DFT data. The paper, while also in theoretical physics and using neural networks, focuses on a 'neural network perturbation theory' applied to 'S-wave scattering lengths of shallow potentials' in quantum physics, which is a different application context and domain. | Contribution: The paper focuses on developing a neural network perturbation theory for MLPs to analyze Taylor expansions and extract higher-order derivatives, particularly in the context of S-wave scattering lengths. This is distinct from the user's idea of training a graph neural network to predict elastic tensor components for alloys by encoding crystallographic symmetry constraints into message-passing rules.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.25,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_33",
+      "source": "arxiv",
+      "source_id": "2501.07186v3",
+      "arxiv_id": "2501.07186v3",
+      "title": "Graph Neural Networks for Transmission Grid Topology Control: Busbar Information Asymmetry and Heterogeneous Representations",
+      "abstract": "Factors such as the proliferation of renewable energy and electrification contribute to grid congestion as a pressing problem. Topology control is an appealing method for relieving congestion, but traditional approaches for topology discovery have proven too slow for practical application. Recent research has focused on machine learning (ML) as an efficient alternative. Graph neural networks (GNNs) are particularly well-suited for topology control applications due to their ability to model the graph structure of power grids. This study investigates the effect of the graph representation on GNN effectiveness for topology control. We identify the busbar information asymmetry problem inherent to the popular homogeneous graph representation. We propose a heterogeneous graph representation that resolves this problem. We apply GNNs with both representations and a fully connected neural network (FCNN) baseline on an imitation learning task. The models are evaluated by classification accuracy and grid operation ability. We find that heterogeneous GNNs perform best on in-distribution network configurations, followed by FCNNs, and lastly, homogeneous GNNs. We also find that both GNN types generalize better to out-of-distribution network configurations than FCNNs.",
+      "url": "http://arxiv.org/abs/2501.07186v3",
+      "pdf_url": "https://arxiv.org/pdf/2501.07186v3",
+      "authors": [
+        "Matthijs de Jong",
+        "Jan Viebahn",
+        "Yuliya Shapovalova"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on predicting elastic tensor components for alloys using GNNs with encoded crystallographic symmetry constraints. In contrast, the paper addresses the problem of transmission grid topology control using GNNs, specifically investigating graph representations to manage grid congestion. These are fundamentally different research problems in distinct domains (materials science vs. power systems). | Method: Both the user's idea and the paper utilize Graph Neural Networks (GNNs). However, the paper applies GNNs to power grid topology control, focusing on heterogeneous graph representations to address 'busbar information asymmetry,' while the user's idea applies GNNs to predict elastic tensor components for alloys, specifically by encoding crystallographic symmetry constraints into message-passing rules. The application domains, specific GNN architectures, and the nature of the 'constraints' being encoded are distinct. | Domain: The user's research idea is in materials science, specifically predicting elastic tensor components for alloys using DFT-computed property datasets. The paper, however, is in power systems engineering, focusing on transmission grid topology control. Both utilize Graph Neural Networks, placing them in the same discipline (machine learning/AI), but their application targets and specific sub-areas (materials science vs. power grids) are distinct. | Contribution: The user's research idea focuses on predicting elastic tensor components for alloys using GNNs with encoded crystallographic symmetry constraints. The paper, however, addresses topology control in power grids using GNNs, investigating graph representations and generalization to out-of-distribution network configurations. These are entirely different application domains and specific technical contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_18",
+      "source": "arxiv",
+      "source_id": "2007.03539v1",
+      "arxiv_id": "2007.03539v1",
+      "title": "Corrections to Wigner-Eckart Relations by Spontaneous Symmetry Breaking",
+      "abstract": "The matrix elements of operators transforming as irreducible representations of an unbroken symmetry group $G$ are governed by the well-known Wigner-Eckart relations. In the case of infinitely-extended systems, with $G$ spontaneously broken, we prove that the corrections to such relations are provided by symmetry breaking Ward identities, and simply reduce to a tadpole term involving Goldstone bosons. The analysis extends to the case in which an explicit symmetry breaking term is present in the Hamiltonian, with the tadpole term now involving pseudo Goldstone bosons. An explicit example is discussed, illustrating the two cases.",
+      "url": "http://arxiv.org/abs/2007.03539v1",
+      "pdf_url": "https://arxiv.org/pdf/2007.03539v1",
+      "authors": [
+        "Carlo Heissenberg",
+        "Franco Strocchi"
+      ],
+      "categories": [
+        "quant-ph",
+        "cond-mat.stat-mech",
+        "hep-th"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on using graph neural networks and DFT data to predict elastic tensor components for alloys by encoding crystallographic symmetry. In contrast, the paper discusses corrections to Wigner-Eckart relations due to spontaneous symmetry breaking in quantum systems, particularly in the context of infinitely-extended systems and field theory. These are fundamentally different research problems and domains. | Method: The user's research idea proposes a graph neural network that explicitly encodes crystallographic symmetry constraints into message-passing aggregation rules. The evaluated paper, 'Corrections to Wigner-Eckart Relations by Spontaneous Symmetry Breaking,' focuses on theoretical physics, specifically deriving corrections to Wigner-Eckart relations in the context of spontaneous symmetry breaking and Ward identities. There is no mention of neural networks, graph-based methods, or computational materials science in the paper, indicating completely different techniques and methodological approaches. | Domain: The user's research idea is in materials science and computational chemistry, specifically predicting elastic tensor components for alloys using graph neural networks and DFT data. The paper, however, is in theoretical quantum physics (quant-ph, cond-mat.stat-mech, hep-th) and discusses Wigner-Eckart relations and spontaneous symmetry breaking in infinitely-extended quantum systems. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea proposes a graph neural network for predicting elastic tensor components of alloys by encoding crystallographic symmetry constraints into message-passing rules. The paper, in contrast, focuses on theoretical corrections to Wigner-Eckart relations in the context of spontaneous symmetry breaking in quantum systems, which is a fundamentally different domain and contribution.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_25",
+      "source": "arxiv",
+      "source_id": "1311.2729v1",
+      "arxiv_id": "1311.2729v1",
+      "title": "Undercooling growth and magnetic characterization of ferromagnetic shape memory alloy Ni2FeGa single crystals",
+      "abstract": "Ni2FeGa single crystals have been grown in undercooling conditions provided by a glass-purification method. It has been found that trace amounts of gamma phase embededin the single crystalline matrix preferentially orients in the <100> orientation along the growth direction. This gamma phase generates directional residual stress and results in an anisotropic two-way shape memory effect. Large strains of -2.5% in the [001] and 1.5% in the [010] directions have been observed. This trace gamma phase also improves the ductility of the material and thus the crystals could be plastically deformed at room temperature in the parent phase. The <110> and <111> orientations in Ni2FeGa alloy were identified as the easy and hard magnetization directions, respectively, in the parent phase by using low field M-T measurements.",
+      "url": "http://arxiv.org/abs/1311.2729v1",
+      "pdf_url": "https://arxiv.org/pdf/1311.2729v1",
+      "authors": [
+        "Jin-Feng Qian",
+        "Hong Guo Zhang",
+        "Jing Lan Chen",
+        "Wen Hong Wang",
+        "Guang Heng Wu"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on developing a graph neural network to predict elastic tensor components for alloys by encoding crystallographic symmetry. The paper, in contrast, investigates the growth, magnetic characterization, and shape memory effect of Ni2FeGa single crystals, which is an experimental study of material properties rather than a computational method development for prediction. | Method: The user's research idea proposes a graph neural network trained on DFT data to predict elastic tensor components, encoding crystallographic symmetry. The paper describes experimental growth and characterization of Ni2FeGa single crystals, including magnetic properties and shape memory effect. There is no methodological overlap; the paper uses experimental materials science techniques, while the idea is computational and machine learning-based. | Domain: The user's research idea is in materials science, specifically predicting elastic tensor components for alloys using GNNs and DFT. The paper is also in materials science, focusing on the experimental growth and characterization of Ni2FeGa ferromagnetic shape memory alloy single crystals, including magnetic properties and shape memory effect. While both are in materials science and deal with alloys, the paper is experimental characterization, whereas the user's idea is computational prediction of mechanical properties, representing different sub-areas and application targets within the broader field. | Contribution: The user's research idea proposes a graph neural network for predicting elastic tensor components using DFT data and encoding crystallographic symmetry. The paper, in contrast, focuses on the experimental growth, magnetic characterization, and shape memory effect of Ni2FeGa single crystals, with no mention of computational modeling, neural networks, or elastic tensor prediction.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": false,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Materials Project",
+        "similarity": 0.3,
+        "description": "A large database of DFT-computed materials properties, which could serve as a dataset for such a model."
+      },
+      {
+        "name": "Matminer/Pymatgen",
+        "similarity": 0.25,
+        "description": "Software libraries for materials data mining and analysis, including symmetry operations and crystal structure manipulation."
+      },
+      {
+        "name": "MEGNet (Materials Graph Network)",
+        "similarity": 0.6,
+        "description": "A prominent graph neural network architecture for materials science that predicts properties from crystal structures, trained on DFT data. It learns symmetry implicitly."
+      },
+      {
+        "name": "ALIGNN (Atomistic Line Graph Neural Network)",
+        "similarity": 0.55,
+        "description": "Another GNN for materials property prediction, also trained on DFT data, and aims to capture structural information, but typically learns symmetry implicitly."
+      },
+      {
+        "name": "E(3)-equivariant GNNs (e.g., NequIP, Allegro)",
+        "similarity": 0.7,
+        "description": "These GNNs are designed to be invariant/equivariant to 3D rotations, translations, and reflections, which is a form of encoding symmetry. However, they typically focus on point group symmetries for atomic environments, not necessarily the full crystallographic space group symmetry for macroscopic tensor properties in the message-passing rules directly for elastic tensors."
+      }
+    ],
+    "assessment": "The core idea of using Graph Neural Networks (GNNs) to predict materials properties, including elastic tensors, from DFT-computed datasets is a well-established and active research area. Many GNN architectures (e.g., MEGNet, ALIGNN) already exist for this purpose. The key novelty here lies in 'encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.' While E(3)-equivariant GNNs incorporate some forms of symmetry, the explicit encoding of *crystallographic space group symmetry* into the *message-passing aggregation rules* for *elastic tensor components* is a specific and potentially novel approach that goes beyond typical implicit learning or general E(3) equivariance. This specific method of direct encoding for this particular application (elastic tensors of alloys) appears to be a distinct research direction, even if the broader components (GNNs, DFT data, elastic tensor prediction) are not new.",
+    "novelty_aspects": [
+      "Direct encoding of crystallographic symmetry constraints into GNN message-passing aggregation rules.",
+      "Application of this specific symmetry-aware GNN design to predict elastic tensor components for alloys."
+    ],
+    "recommendation": "This idea has a strong foundation in existing research but proposes a specific, potentially novel methodological improvement. Focus your research on clearly defining how the crystallographic symmetry constraints are *directly encoded* into the message-passing rules and demonstrate its advantages (e.g., improved accuracy, data efficiency, interpretability) compared to existing GNNs that learn symmetry implicitly or use general E(3) equivariance. A thorough literature review on symmetry-aware GNNs in materials science, particularly those dealing with tensor properties, would be crucial."
+  },
+  "reality_check_warning": null,
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 122,
+    "unique_after_dedup": 122,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 409,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0355,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0331,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0021,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A graph neural network trained on DFT-computed property datasets that predicts elastic tensor components for alloys by encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.",
+  "enriched_idea": "RESEARCH IDEA:\nA graph neural network trained on DFT-computed property datasets that predicts elastic tensor components for alloys by encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_14",
+      "paper_title": "Construction of higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory",
+      "arxiv_id": "2104.08930v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on using graph neural networks and DFT data to predict elastic tensor components for alloys, explicitly encoding crystallographic symmetry. The paper, in contrast, investigates higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory, specifically concerning diffeomorphism and local Lorentz symmetry. These are fundamentally different research problems in distinct scientific domains (materials science/machine learning vs. theoretical physics/gravitation). | Method: The user's research idea proposes using Graph Neural Networks (GNNs) with DFT-computed property datasets to predict elastic tensor components by encoding crystallographic symmetry constraints into message-passing rules. The evaluated paper, on the other hand, focuses on effective field theory, spontaneous symmetry breaking, and the construction of higher-order metric fluctuation terms in the context of spacetime symmetries (diffeomorphism and local Lorentz symmetry). There is no methodological overlap; the paper does not mention GNNs, machine learning, DFT, or material property prediction. | Domain: The user's research idea is in materials science, specifically predicting elastic tensor components for alloys using graph neural networks and DFT data. The paper, however, is in theoretical physics, focusing on spacetime symmetry-breaking effective field theory and gravitational theories. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on training a graph neural network to predict elastic tensor components for alloys by encoding crystallographic symmetry constraints. In contrast, the paper evaluates higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory, specifically concerning diffeomorphism and local Lorentz symmetry. The domains, methodologies, and specific contributions are entirely unrelated.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network trained on DFT-computed property datasets that predicts elastic tensor components for alloys by encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Construction of higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory",
+              "heading": "Construction of higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory",
+              "text_snippet": "One key result is that if we preserve the underlying diffeomorphism symmetry in a spontaneous-symmetry breaking scenario, one cannot decouple the two-tensor fluctuations from the metric fluctuations at the level of the action, except in special cases of the quadratic actions.",
+              "similarity": 0.25,
+              "reason": "The user's idea mentions 'encoding crystallographic symmetry constraints directly into the message-passing aggregation rules' and the paper discusses 'preserving the underlying diffeomorphism symmetry' and its implications for tensor fluctuations. Both involve handling symmetry constraints in a model, but the specific methods and context are very different.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "Construction of higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory",
+              "heading": "General construction of Lagrange density",
+              "text_snippet": "This shows it is not possible to construct terms in the action at cubic order, and second order in derivatives, that arise from spontaneous symmetry breaking that also fully decouple the metric fluctuations and the coefficient fluctuations.",
+              "similarity": 0.25,
+              "reason": "The user's idea focuses on 'encoding crystallographic symmetry constraints directly' while the paper discusses the implications of 'spontaneous symmetry breaking' and the inability to 'fully decouple the metric fluctuations and the coefficient fluctuations' when preserving symmetry. Both deal with how symmetry influences the construction of a model, but the specific models (GNN vs. effective field theory) and the nature of the symmetry (crystallographic vs. diffeomorphism) are distinct.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 11771,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2104.08930v1"
+    },
+    {
+      "paper_id": "paper_24",
+      "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+      "arxiv_id": "2009.03192v2",
+      "paper_similarity_score": 0.1,
+      "reason": "Problem: The user's research idea focuses on predicting elastic tensor components for alloys using graph neural networks with explicit crystallographic symmetry encoding. In contrast, the paper addresses the analytical properties of neural networks, specifically developing a neural network perturbation theory to compute higher-order Taylor coefficients and applying it to S-wave scattering lengths in quantum physics. These are fundamentally different research problems and domains. | Method: Both the user's idea and the paper utilize neural networks, placing them in the same broad category of deep learning. However, the paper focuses on a 'neural network perturbation theory' for 'multilayer perceptrons (MLPs)' to analyze Taylor expansions and Born series, while the user's idea specifies 'graph neural networks' for predicting 'elastic tensor components' by encoding 'crystallographic symmetry constraints directly into the message-passing aggregation rules'. These are distinct architectural choices and methodological approaches within deep learning. | Domain: The user's research idea is in materials science, specifically predicting elastic tensor components for alloys using GNNs and DFT data. The paper, while also in theoretical physics and using neural networks, focuses on a 'neural network perturbation theory' applied to 'S-wave scattering lengths of shallow potentials' in quantum physics, which is a different application context and domain. | Contribution: The paper focuses on developing a neural network perturbation theory for MLPs to analyze Taylor expansions and extract higher-order derivatives, particularly in the context of S-wave scattering lengths. This is distinct from the user's idea of training a graph neural network to predict elastic tensor components for alloys by encoding crystallographic symmetry constraints into message-passing rules.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.25,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network trained on DFT-computed property datasets that predicts elastic tensor components for alloys by encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.",
+          "sentence_index": 0,
+          "similarity_score": 0.35,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+              "heading": "ABSTRACT",
+              "text_snippet": "Deep Learning using the eponymous deep neural networks (DNNs) has become an attractive approach towards various data-based problems of theoretical physics in the past decade. There has been a clear trend to deeper architectures containing increasingly more powerful and involved layers.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper discuss deep neural networks and their architectures. The user specifies a 'graph neural network' while the paper focuses on 'multilayer perceptrons' and 'deep neural networks' more generally, indicating a shared broad methodological category but different specific architectures.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Nowadays, neural networks (NNs) are a popular choice in the context of supervised learning. There is an overwhelming variety of NN-architectures that are as diverse as the problems they are specially suited for.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper utilize neural networks as a core methodology. The paper acknowledges the diversity of NN architectures, which encompasses the user's specific mention of a 'graph neural network'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+              "heading": "ABSTRACT",
+              "text_snippet": "Deep Learning using the eponymous deep neural networks (DNNs) has become an attractive approach towards various data-based problems of theoretical physics in the past decade.",
+              "similarity": 0.5,
+              "reason": "The user's idea is in the domain of materials science/physics (predicting elastic tensor components for alloys using DFT-computed data), which falls under the broader umbrella of 'theoretical physics' problems that the paper addresses with deep learning.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Machine Learning (ML) is a highly active field of research that provides a wide range of tools to tackle various data-based problems. As such, it also receives growing attention in the theoretical physics literature, such as in Refs. [1-15].",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are situated within the application of machine learning to problems in theoretical physics. The user's specific application to 'alloys' and 'elastic tensor components' is a sub-domain within theoretical physics.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+              "heading": "THE BORN SERIES AS A TAYLOR SERIES",
+              "text_snippet": "At this point the following questions arise: What conditions must the given architecture satisfy such that loss minimization during training also causes the partial derivatives of the MLP for any given order to approximate the corresponding derivatives of the target function? Or asked differently: If we are given a raw data set and do not know the analytical representation of the target function, how can we be sure that its analytical structure is reproduced by the trained NN?",
+              "similarity": 0.25,
+              "reason": "The user's idea focuses on encoding 'crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly'. This relates to the paper's broader concern about how NNs learn and reproduce the 'analytical structure' of target functions, particularly in how they adapt to underlying physical theories (like the Born series). While the specific problem (symmetry constraints vs. Born series) differs, both are concerned with how NNs handle underlying physical principles.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+              "heading": "DISCUSSION AND OUTLOOK",
+              "text_snippet": "Note that the obvious next step of this analysis would be the interpretation of the constructed proxy in the space of all sampled potentials. In doing so, we would just gather a post-hoc interpretation, based on approximations and thus deviations from actual scattering lengths. In recent years there have been many efforts to close the gap between prediction and interpretation by ad-hoc interpretation methods. These exemplarily involve training NNs whose architectures are either intrinsically interpretable or can be brought in an interpretable representation, see Ref. [20].",
+              "similarity": 0.25,
+              "reason": "The user's idea of 'encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly' suggests a contribution towards making the model more interpretable or physically informed by design. This aligns with the paper's discussion of 'ad-hoc interpretation methods' and 'intrinsically interpretable' NN architectures, although the specific mechanism and target (symmetry vs. Born series interpretation) differ.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.25,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 20373,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2009.03192v2"
+    },
+    {
+      "paper_id": "paper_33",
+      "paper_title": "Graph Neural Networks for Transmission Grid Topology Control: Busbar Information Asymmetry and Heterogeneous Representations",
+      "arxiv_id": "2501.07186v3",
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on predicting elastic tensor components for alloys using GNNs with encoded crystallographic symmetry constraints. In contrast, the paper addresses the problem of transmission grid topology control using GNNs, specifically investigating graph representations to manage grid congestion. These are fundamentally different research problems in distinct domains (materials science vs. power systems). | Method: Both the user's idea and the paper utilize Graph Neural Networks (GNNs). However, the paper applies GNNs to power grid topology control, focusing on heterogeneous graph representations to address 'busbar information asymmetry,' while the user's idea applies GNNs to predict elastic tensor components for alloys, specifically by encoding crystallographic symmetry constraints into message-passing rules. The application domains, specific GNN architectures, and the nature of the 'constraints' being encoded are distinct. | Domain: The user's research idea is in materials science, specifically predicting elastic tensor components for alloys using DFT-computed property datasets. The paper, however, is in power systems engineering, focusing on transmission grid topology control. Both utilize Graph Neural Networks, placing them in the same discipline (machine learning/AI), but their application targets and specific sub-areas (materials science vs. power grids) are distinct. | Contribution: The user's research idea focuses on predicting elastic tensor components for alloys using GNNs with encoded crystallographic symmetry constraints. The paper, however, addresses topology control in power grids using GNNs, investigating graph representations and generalization to out-of-distribution network configurations. These are entirely different application domains and specific technical contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network trained on DFT-computed property datasets that predicts elastic tensor components for alloys by encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.",
+          "sentence_index": 0,
+          "similarity_score": 0.15,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Graph Neural Networks for Transmission Grid Topology Control: Busbar Information Asymmetry and Heterogeneous Representations",
+              "heading": "Abstract",
+              "text_snippet": "Graph neural networks (GNNs) are particularly well-suited for topology control applications due to their ability to model the graph structure of power grids. This study investigates the effect of the graph representation on GNN effectiveness for topology control. We identify the busbar information asymmetry problem inherent to the popular homogeneous graph representation. We propose a heterogeneous graph representation that resolves this problem.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper propose using Graph Neural Networks (GNNs) and focus on how graph representation or encoding specific constraints (symmetry for the user, busbar information for the paper) within the GNN architecture affects performance. The paper explicitly discusses different graph representations (homogeneous vs. heterogeneous) and how they resolve a specific problem, which is conceptually similar to the user's idea of encoding symmetry constraints directly into message-passing rules.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Graph Neural Networks for Transmission Grid Topology Control: Busbar Information Asymmetry and Heterogeneous Representations",
+              "heading": "Introduction",
+              "text_snippet": "Graph neural networks (GNNs) [23] have recently recieved much attention, both from the machine learning and power engineering community. Deep learning models have traditionally been designed for tabular, sequential, or grid-like data. Consequently, ML methods for power grid operation have historically not or minimally exploited the network structure of power grids. This is a major limitation as power grid topologies are dynamic and frequently change, for example due to maintenance. Graph neural networks encode network structure into their representation and are therefore well-suited for power grid modeling.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper leverage Graph Neural Networks (GNNs) as a core methodological component, recognizing their ability to encode network structure. The paper highlights how GNNs encode network structure, which aligns with the user's approach of encoding crystallographic symmetry constraints into GNN message-passing rules.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 17987,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2501.07186v3"
+    },
+    {
+      "paper_id": "paper_18",
+      "paper_title": "Corrections to Wigner-Eckart Relations by Spontaneous Symmetry Breaking",
+      "arxiv_id": "2007.03539v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on using graph neural networks and DFT data to predict elastic tensor components for alloys by encoding crystallographic symmetry. In contrast, the paper discusses corrections to Wigner-Eckart relations due to spontaneous symmetry breaking in quantum systems, particularly in the context of infinitely-extended systems and field theory. These are fundamentally different research problems and domains. | Method: The user's research idea proposes a graph neural network that explicitly encodes crystallographic symmetry constraints into message-passing aggregation rules. The evaluated paper, 'Corrections to Wigner-Eckart Relations by Spontaneous Symmetry Breaking,' focuses on theoretical physics, specifically deriving corrections to Wigner-Eckart relations in the context of spontaneous symmetry breaking and Ward identities. There is no mention of neural networks, graph-based methods, or computational materials science in the paper, indicating completely different techniques and methodological approaches. | Domain: The user's research idea is in materials science and computational chemistry, specifically predicting elastic tensor components for alloys using graph neural networks and DFT data. The paper, however, is in theoretical quantum physics (quant-ph, cond-mat.stat-mech, hep-th) and discusses Wigner-Eckart relations and spontaneous symmetry breaking in infinitely-extended quantum systems. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea proposes a graph neural network for predicting elastic tensor components of alloys by encoding crystallographic symmetry constraints into message-passing rules. The paper, in contrast, focuses on theoretical corrections to Wigner-Eckart relations in the context of spontaneous symmetry breaking in quantum systems, which is a fundamentally different domain and contribution.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network trained on DFT-computed property datasets that predicts elastic tensor components for alloys by encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 9972,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2007.03539v1"
+    },
+    {
+      "paper_id": "paper_25",
+      "paper_title": "Undercooling growth and magnetic characterization of ferromagnetic shape memory alloy Ni2FeGa single crystals",
+      "arxiv_id": "1311.2729v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on developing a graph neural network to predict elastic tensor components for alloys by encoding crystallographic symmetry. The paper, in contrast, investigates the growth, magnetic characterization, and shape memory effect of Ni2FeGa single crystals, which is an experimental study of material properties rather than a computational method development for prediction. | Method: The user's research idea proposes a graph neural network trained on DFT data to predict elastic tensor components, encoding crystallographic symmetry. The paper describes experimental growth and characterization of Ni2FeGa single crystals, including magnetic properties and shape memory effect. There is no methodological overlap; the paper uses experimental materials science techniques, while the idea is computational and machine learning-based. | Domain: The user's research idea is in materials science, specifically predicting elastic tensor components for alloys using GNNs and DFT. The paper is also in materials science, focusing on the experimental growth and characterization of Ni2FeGa ferromagnetic shape memory alloy single crystals, including magnetic properties and shape memory effect. While both are in materials science and deal with alloys, the paper is experimental characterization, whereas the user's idea is computational prediction of mechanical properties, representing different sub-areas and application targets within the broader field. | Contribution: The user's research idea proposes a graph neural network for predicting elastic tensor components using DFT data and encoding crystallographic symmetry. The paper, in contrast, focuses on the experimental growth, magnetic characterization, and shape memory effect of Ni2FeGa single crystals, with no mention of computational modeling, neural networks, or elastic tensor prediction.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A graph neural network trained on DFT-computed property datasets that predicts elastic tensor components for alloys by encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.",
+          "sentence_index": 0,
+          "similarity_score": 0.05,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_25",
+              "paper_title": "Undercooling growth and magnetic characterization of ferromagnetic shape memory alloy Ni2FeGa single crystals",
+              "heading": "ABSTRACT",
+              "text_snippet": "Ni2FeGa single crystals have been grown in undercooling conditions provided by a glass-purification method. ... This trace gamma phase also improves the ductility of the material and thus the crystals could be plastically deformed at room temperature in the parent phase.",
+              "similarity": 0.5,
+              "reason": "The user's idea focuses on predicting elastic tensor components for alloys, and the paper discusses properties of Ni2FeGa alloys, specifically ductility and shape memory effects. Both are within the broader domain of materials science and alloy properties.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_25",
+              "paper_title": "Undercooling growth and magnetic characterization of ferromagnetic shape memory alloy Ni2FeGa single crystals",
+              "heading": "Results and discussion",
+              "text_snippet": "A two-way shape memory effect has been observed in our Ni2FeGa samples of single crystals. As shown in Figure 7, the <001> orientation (growth direction) shows a contraction of 2.5% through the martensitic transformation, which is completely recovered during the reverse transformation.",
+              "similarity": 0.5,
+              "reason": "The user's idea is about predicting elastic tensor components for alloys, which relates to mechanical properties. The paper discusses shape memory effects and strain in Ni2FeGa alloys, which are also mechanical properties of alloys, indicating a shared general domain.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 17692,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1311.2729v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 99,
+    "global_similarity_score": 0.05500000000000001,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A graph neural network trained on DFT-computed property datasets that predicts elastic tensor components for alloys by encoding crystallographic symmetry constraints directly into the message-passing aggregation rules, rather than learning symmetry implicitly.",
+        "originality_score": 0.5,
+        "similarity_score": 0.5,
+        "label": "medium",
+        "criteria_labels": {
+          "problem_similarity": "high",
+          "method_similarity": "medium",
+          "domain_similarity": "medium",
+          "contribution_similarity": "high"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_24",
+            "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+            "heading": "ABSTRACT",
+            "text_snippet": "Deep Learning using the eponymous deep neural networks (DNNs) has become an attractive approach towards various data-based problems of theoretical physics in the past decade. There has been a clear trend to deeper architectures containing increasingly more powerful and involved layers.",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper discuss deep neural networks and their architectures. The user specifies a 'graph neural network' while the paper focuses on 'multilayer perceptrons' and 'deep neural networks' more generally, indicating a shared broad methodological category but different specific architectures.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_24",
+            "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+            "heading": "ABSTRACT",
+            "text_snippet": "Deep Learning using the eponymous deep neural networks (DNNs) has become an attractive approach towards various data-based problems of theoretical physics in the past decade.",
+            "similarity": 0.5,
+            "reason": "The user's idea is in the domain of materials science/physics (predicting elastic tensor components for alloys using DFT-computed data), which falls under the broader umbrella of 'theoretical physics' problems that the paper addresses with deep learning.",
+            "criterion": "domain_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea appears highly original across all criteria, with particularly strong originality in problem formulation and contribution. While there is a slight domain overlap with existing work, it does not significantly impact the overall novelty of your approach.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.0,
+      "method_similarity": 0.19,
+      "domain_similarity": 0.4,
+      "contribution_similarity": 0.0
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0355,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0331,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0021,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 206.41778421401978,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_14",
+        "paper_title": "Construction of higher-order metric fluctuation terms in spacetime symmetry-breaking effective field theory",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_24",
+        "paper_title": "A Neural Network Perturbation Theory Based on the Born Series",
+        "paper_similarity": 0.1,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.25,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_33",
+        "paper_title": "Graph Neural Networks for Transmission Grid Topology Control: Busbar Information Asymmetry and Heterogeneous Representations",
+        "paper_similarity": 0.125,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_18",
+        "paper_title": "Corrections to Wigner-Eckart Relations by Spontaneous Symmetry Breaking",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_25",
+        "paper_title": "Undercooling growth and magnetic characterization of ferromagnetic shape memory alloy Ni2FeGa single crystals",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 122
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 122,
+    "after_dedup": 122,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

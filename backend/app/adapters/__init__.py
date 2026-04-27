@@ -60,3 +60,10 @@ try:
 except ImportError as e:
     import logging
     logging.warning(f"Failed to load GitHubAdapter: {e}")
+
+try:
+    from .openalex_adapter import OpenAlexAdapter
+    register_adapter(OpenAlexAdapter())
+except ImportError as e:
+    import logging
+    logging.warning(f"Failed to load OpenAlexAdapter: {e}")

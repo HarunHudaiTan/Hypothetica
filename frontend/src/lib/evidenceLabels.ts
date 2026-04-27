@@ -8,6 +8,8 @@ export function sourceLinkLabel(source: string): string {
       return "Google Patents";
     case "github":
       return "GitHub";
+    case "openalex":
+      return "OpenAlex";
     default:
       return source.replace(/_/g, " ");
   }

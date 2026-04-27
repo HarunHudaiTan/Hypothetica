@@ -1,0 +1,1086 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "a7c38b95ca54",
+    "status": "completed"
+  },
+  "originality_score": 93,
+  "global_similarity_score": 0.24500000000000002,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A convolutional neural network trained on transmission electron microscopy images to automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_16",
+          "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+          "heading": "Related work.",
+          "text_snippet": "Refs.  and  propose a CNN-based method to identify structures of interest in TEM images. They train on carefully designed simulated data and show that the model generalizes to real data.",
+          "similarity": 0.5,
+          "reason": "The user's idea focuses on identifying and classifying crystal defect types, which are 'structures of interest' in TEM images, aligning with the problem addressed by other CNN applications mentioned in the paper.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_16",
+          "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+          "heading": "ABSTRACT",
+          "text_snippet": "Deep convolutional neural networks (CNNs) provide the current state of the art in denoising natural images, where they produce impressive results. However, their potential has barely been explored in the context of scientific imaging.",
+          "similarity": 0.75,
+          "reason": "The user proposes using a 'convolutional neural network' which directly matches the 'Deep convolutional neural networks (CNNs)' mentioned in the paper as a core method.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_16",
+          "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+          "heading": "ABSTRACT",
+          "text_snippet": "We test the framework on data obtained from transmission electron microscopy (TEM), an imaging technique with widespread applications in material science, biology, and medicine.",
+          "similarity": 1.0,
+          "reason": "The user's idea explicitly mentions 'transmission electron microscopy images', which is the exact imaging technique and data type used and discussed in the paper.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_16",
+          "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+          "heading": "Related work.",
+          "text_snippet": "Refs.  and  propose a CNN-based method to identify structures of interest in TEM images. They train on carefully designed simulated data and show that the model generalizes to real data.",
+          "similarity": 0.5,
+          "reason": "The user's idea proposes to 'automatically identify and classify crystal defect types', which aligns with the 'identify structures of interest in TEM images' mentioned as a contribution of other works, suggesting a similar type of contribution.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea shows strong originality, particularly in its unique contribution to the field. While there is some overlap in the application domain, consider further articulating how your specific problem formulation differentiates from existing work on electron microscopy analysis.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.5,
+    "method_similarity": 0.38,
+    "domain_similarity": 0.71,
+    "contribution_similarity": 0.19
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0471,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0452,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0016,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 300.6241970062256,
+  "papers": [
+    {
+      "paper_id": "paper_16",
+      "source": "arxiv",
+      "source_id": "2010.12970v2",
+      "arxiv_id": "2010.12970v2",
+      "title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+      "abstract": "Denoising is a fundamental challenge in scientific imaging. Deep convolutional neural networks (CNNs) provide the current state of the art in denoising natural images, where they produce impressive results. However, their potential has barely been explored in the context of scientific imaging. Denoising CNNs are typically trained on real natural images artificially corrupted with simulated noise. In contrast, in scientific applications, noiseless ground-truth images are usually not available. To address this issue, we propose a simulation-based denoising (SBD) framework, in which CNNs are trained on simulated images. We test the framework on data obtained from transmission electron microscopy (TEM), an imaging technique with widespread applications in material science, biology, and medicine. SBD outperforms existing techniques by a wide margin on a simulated benchmark dataset, as well as on real data. Apart from the denoised images, SBD generates likelihood maps to visualize the agreement between the structure of the denoised image and the observed data. Our results reveal shortcomings of state-of-the-art denoising architectures, such as their small field-of-view: substantially increasing the field-of-view of the CNNs allows them to exploit non-local periodic patterns in the data, which is crucial at high noise levels. In addition, we analyze the generalization capability of SBD, demonstrating that the trained networks are robust to variations of imaging parameters and of the underlying signal structure. Finally, we release the first publicly available benchmark dataset of TEM images, containing 18,000 examples.",
+      "url": "http://arxiv.org/abs/2010.12970v2",
+      "pdf_url": "https://arxiv.org/pdf/2010.12970v2",
+      "authors": [
+        "Sreyas Mohan",
+        "Ramon Manzorro",
+        "Joshua L. Vincent",
+        "Binh Tang",
+        "Dev Yashpal Sheth",
+        "Eero P. Simoncelli",
+        "David S. Matteson",
+        "Peter A. Crozier",
+        "Carlos Fernandez-Granda"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "eess.IV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's research idea focuses on using CNNs to identify and classify crystal defect types in TEM images. The paper, however, primarily addresses the problem of denoising TEM images using CNNs, proposing a simulation-based denoising framework. While both use CNNs with TEM images, the specific problem being solved (denoising vs. defect classification) is different, though related within the broader field of TEM image analysis. | Method: Both the user's idea and the paper utilize convolutional neural networks (CNNs) and transmission electron microscopy (TEM) images, placing them in the same broad category of deep learning for scientific imaging. However, the paper's method focuses on denoising TEM images using a simulation-based denoising (SBD) framework, while the user's idea is to identify and classify crystal defect types, indicating different applications and training objectives for the CNNs. | Domain: Both the user's idea and the paper operate within the domain of transmission electron microscopy (TEM) images and utilize convolutional neural networks (CNNs). However, the paper focuses on denoising TEM images, while the user's idea is specifically about identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries) using CNNs on TEM images. This represents the same discipline (materials science/imaging) and data type (TEM images) but different application targets within that domain. | Contribution: The user's research idea focuses on using a CNN for automatic identification and classification of crystal defect types (vacancies, dislocations, grain boundaries) in TEM images. The evaluated paper, however, focuses on deep denoising of TEM images using CNNs, proposing a simulation-based denoising framework. While both use CNNs and TEM images, their core contributions and objectives are distinct: one is about defect classification, and the other is about image denoising.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_14",
+      "source": "arxiv",
+      "source_id": "1503.05430v3",
+      "arxiv_id": "1503.05430v3",
+      "title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+      "abstract": "The prospect of neural reconstruction from Electron Microscopy (EM) images has been elucidated by the automatic segmentation algorithms. Although segmentation algorithms eliminate the necessity of tracing the neurons by hand, significant manual effort is still essential for correcting the mistakes they make. A considerable amount of human labor is also required for annotating groundtruth volumes for training the classifiers of a segmentation framework. It is critically important to diminish the dependence on human interaction in the overall reconstruction system. This study proposes a novel classifier training algorithm for EM segmentation aimed to reduce the amount of manual effort demanded by the groundtruth annotation and error refinement tasks. Instead of using an exhaustive pixel level groundtruth, an active learning algorithm is proposed for sparse labeling of pixel and boundaries of superpixels. Because over-segmentation errors are in general more tolerable and easier to correct than the under-segmentation errors, our algorithm is designed to prioritize minimization of false-merges over false-split mistakes. Our experiments on both 2D and 3D data suggest that the proposed method yields segmentation outputs that are more amenable to neural reconstruction than those of existing methods.",
+      "url": "http://arxiv.org/abs/1503.05430v3",
+      "pdf_url": "https://arxiv.org/pdf/1503.05430v3",
+      "authors": [
+        "Toufiq Parag"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's research idea focuses on automatically identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries) in transmission electron microscopy (TEM) images. The paper, however, addresses the problem of segmenting neural structures in electron microscopy (EM) images for neural reconstruction, aiming to reduce manual effort and minimize false-merge errors. While both use EM images and segmentation/classification, the specific objects of interest (crystal defects vs. neural structures) and the ultimate goals (defect classification vs. neural reconstruction) are distinct, placing them in the same broad topic but with different specific problems. | Method: Both the user's idea and the paper utilize neural networks and electron microscopy images for image analysis. However, the user's idea specifically focuses on a convolutional neural network for identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries), while the paper uses a classifier (e.g., Random Forest, not explicitly a CNN) within an active learning framework for neural reconstruction segmentation, prioritizing the minimization of false merges in EM images. | Domain: Both the user's idea and the paper operate within the domain of electron microscopy image analysis using machine learning. However, the paper focuses on neural reconstruction and segmenting neurons from EM images, as evidenced by phrases like 'neural reconstruction from Electron Microscopy (EM) images' and 'extract the anatomical structure of a neuron'. The user's idea, in contrast, targets the identification and classification of crystal defect types (vacancies, dislocations, grain boundaries) in materials science, which is a different application target within the broader field of EM. | Contribution: The user's research idea focuses on automatically identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries) in transmission electron microscopy images using a convolutional neural network. The paper, however, focuses on improving segmentation algorithms for neural reconstruction from electron microscopy images, specifically addressing issues like reducing manual effort in groundtruth annotation and minimizing false-merge errors in neuron segmentation. These are distinct research problems and contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_20",
+      "source": "arxiv",
+      "source_id": "1806.04010v1",
+      "arxiv_id": "1806.04010v1",
+      "title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+      "abstract": "There is a high demand for fully automated methods for the analysis of primary particle size distributions of agglomerates on transmission electron microscopy images. Therefore, a novel method, based on the utilization of artificial neural networks, was proposed, implemented and validated. The training of the artificial neural networks requires large quantities (up to several hundreds of thousands) of transmission electron microscopy images of agglomerates consisting of primary particles with known sizes. Since the manual evaluation of such large amounts of transmission electron microscopy images is not feasible, a synthesis of lifelike transmission electron microscopy images as training data was implemented. The proposed method can compete with state-of-the-art automated imaging particle size methods like the Hough transformation, ultimate erosion and watershed transformation and is in some cases even able to outperform these methods. It is however still outperformed by the manual analysis.",
+      "url": "http://arxiv.org/abs/1806.04010v1",
+      "pdf_url": "https://arxiv.org/pdf/1806.04010v1",
+      "authors": [
+        "Max Frei",
+        "Frank Einar Kruis"
+      ],
+      "categories": [
+        "cs.CV",
+        "cond-mat.mtrl-sci",
+        "physics.ins-det"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.4125,
+      "reason": "Problem: The paper addresses the problem of automatically analyzing primary particle size distributions of agglomerates on TEM images, specifically identifying and classifying the number and size of primary particles. While both the user's idea and the paper utilize neural networks on TEM images for classification, the user's idea focuses on identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries), which is a different specific problem than particle size analysis. | Method: Both the user's idea and the paper utilize artificial neural networks (specifically, the user mentions CNNs, and the paper uses ANNs which can encompass CNNs) trained on transmission electron microscopy (TEM) images for automated analysis. However, the paper focuses on primary particle size analysis and classification of agglomerates based on the number of particles, while the user's idea is to identify and classify crystal defect types (vacancies, dislocations, grain boundaries). This represents a similar general method family (ANNs on TEM images) but with different specific applications and output classifications. | Domain: Both the user's idea and the paper operate within the domain of materials science, specifically utilizing Transmission Electron Microscopy (TEM) images for analysis. The paper focuses on 'primary particle size analysis of agglomerates on transmission electron microscopy images', while the user's idea aims to 'automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries' from TEM images. Both use neural networks for image analysis in materials science, representing closely related application targets within the same sub-area. | Contribution: The paper focuses on using ANNs to analyze primary particle size distributions of agglomerates on TEM images, specifically determining projected areas and the number of primary particles. In contrast, the user's idea aims to identify and classify crystal defect types (vacancies, dislocations, grain boundaries) using a convolutional neural network on TEM images, addressing a different classification task.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_26",
+      "source": "arxiv",
+      "source_id": "2512.12278v1",
+      "arxiv_id": "2512.12278v1",
+      "title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+      "abstract": "The paper presents resutls of investigation of a natural Ib-IaA diamond containing Y-defects. Analysis of spatial distribution of nitrogen-related A and C centers and intensity of Infra-red absorption at Raman frequency (1332 cm-1) reveals anticorrelation between these defects. Transmission electron microscopy of a zone with abundant Y-defects shows presence of dislocations in various configurations and numerous clusters of point defects generated by non-conservative dislocation motion. Extended defects with shape resembling thin (1-3 nm) rhombic plates with the largest dimension up to 20 nm are observed. Analysis of contrast of these defects shows that they represent nanosized voids (vacancy clusters). It is suggested that the defects were formed by annihilation of dislocation dipoles with subsequent growth by consumption of vacancies produced by non-conservative motion of dislocations. Upon excitation by 787 nm laser, numerous narrow photoluminescecne lines are observed between 800-900 nm; their intensity and position show irregular temporal variations. Such behaviour (blinking) was earlier noted for hydrogenated nanodiamonds. It is suggested that unusual behaviour of the luminescence lines may be explained by recombination processes at internal walls of the discovered nanovoids.",
+      "url": "http://arxiv.org/abs/2512.12278v1",
+      "pdf_url": "https://arxiv.org/pdf/2512.12278v1",
+      "authors": [
+        "A. A. Shiryaev",
+        "E. F. Vasilev",
+        "A. L. Vasilev",
+        "V. V. Artemov",
+        "N. V. Gubanov",
+        "D. A. Zedgenizov"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.2625,
+      "reason": "Problem: The user's research idea focuses on using a convolutional neural network to automatically identify and classify crystal defect types from TEM images. The paper, while utilizing TEM to investigate and identify crystal defects like dislocations and vacancy clusters (nanovoids), does not involve any machine learning or automated classification. It primarily uses TEM as an investigative tool alongside spectroscopy to characterize Y-defects in diamonds, representing a different approach and specific problem. | Method: The user's research idea proposes using a convolutional neural network for automatic identification and classification of crystal defects from TEM images. The paper, while utilizing Transmission Electron Microscopy (TEM) to observe defects, does not mention any computational methods like convolutional neural networks or any form of automated classification. The methods are completely different. | Domain: Both the user's idea and the paper operate within the domain of materials science, specifically focusing on crystal defects in diamonds using Transmission Electron Microscopy (TEM). The paper identifies and discusses various crystal defect types, including dislocations, point defects (vacancy clusters/nanovoids), which directly overlap with the user's interest in classifying vacancies and dislocations. While the paper uses TEM for observation and analysis rather than training a CNN for automatic classification, the core application target of analyzing crystal defects via TEM images is closely related. | Contribution: The user's idea proposes using a convolutional neural network to automatically identify and classify crystal defect types from TEM images. The paper uses TEM to observe and analyze crystal defects (dislocations, vacancy clusters/nanovoids) but does not involve any machine learning or automated classification methods, focusing instead on spectroscopic analysis and defect characterization.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_35",
+      "source": "arxiv",
+      "source_id": "2309.14927v1",
+      "arxiv_id": "2309.14927v1",
+      "title": "Microstructure and structural modulation of lutetium dihydride LuH2 as seen via transmission electron microscopy",
+      "abstract": "Structural investigations conducted using transmission electron microscopy (TEM) on LuH2 synthesized under atmospheric pressure (AP-LuH2) and nitrogen-doped LuH2 synthesized under high pressure (HP-LuH2) have revealed numerous microstructural phenomena. Both materials show a clear superstructure modulation with wave vector, q^* = 1/4 (2-20), and this modulation can be well interpreted by the displacements of Lu atoms. Further investigations on the nitrogen-doped HP-LuH2 materials reveal the appearance of high-density antiphase boundaries, in particular, domain walls of a few atomic layer thickness without structural modulation can be observed, suggesting possible interface properties could be detected in this system. In-situ TEM observations of AP-LuH2 suggest that no evident structural phase transition occurs between 94 K and 673 K.",
+      "url": "http://arxiv.org/abs/2309.14927v1",
+      "pdf_url": "https://arxiv.org/pdf/2309.14927v1",
+      "authors": [
+        "Xiao-Ping Ma",
+        "Ning-Ning Wang",
+        "Wen-Tao Wang",
+        "Jing-Zhe Nie",
+        "Wen-Li Gao",
+        "Shuai-Shuai Sun",
+        "Jun Li",
+        "Huan-Fang Tian",
+        "Tian-Long Xia",
+        "Jin-Guang Cheng",
+        "Jian-Qi Li",
+        "Huai-Xin Yang"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "physics.chem-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's research idea focuses on using a convolutional neural network to automatically identify and classify crystal defect types from TEM images. The paper, while using TEM for microstructural investigations and observing phenomena like antiphase boundaries and atomic displacements, does not address the problem of automated defect classification using neural networks. It focuses on characterizing the microstructure and structural modulation of LuH2 and nitrogen-doped LuH2, which is a different specific problem within the broad topic of materials characterization using TEM. | Method: The user's research idea proposes using a convolutional neural network for automatic identification and classification of crystal defect types from TEM images. The evaluated paper, while extensively using Transmission Electron Microscopy (TEM) for structural investigations and microstructural phenomena, does not mention or employ any form of machine learning, deep learning, or convolutional neural networks for image analysis or defect classification. The methods are entirely disparate. | Domain: Both the user's idea and the paper operate within the domain of materials science, specifically focusing on crystal structures and defects using transmission electron microscopy (TEM) images. The paper investigates 'numerous microstructural phenomena' including 'antiphase boundaries' and 'domain walls' in LuH2, which are types of crystal defects, closely related to the user's interest in 'vacancies, dislocations, and grain boundaries'. | Contribution: The user's research idea proposes using a convolutional neural network to automatically identify and classify crystal defect types from TEM images. The paper, however, focuses on microstructural investigations of LuH2 using traditional TEM and STEM techniques to observe superstructure modulation and antiphase boundaries, without any mention of AI or automated classification of defects.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "Deep learning for defect detection in materials science",
+        "similarity": 0.95,
+        "description": "Numerous research papers and projects have explored using CNNs and other deep learning techniques for automated analysis of microscopy images (including TEM, SEM, AFM) to identify and classify various material defects like dislocations, vacancies, precipitates, and grain boundaries. This is a well-established research area in computational materials science and computer vision."
+      },
+      {
+        "name": "Automated TEM image analysis software",
+        "similarity": 0.85,
+        "description": "While not always commercialized as standalone products, many research groups and some specialized software packages incorporate or are developing AI/ML modules for automated feature recognition in TEM images, including defect analysis. Examples include work from national labs and university research centers."
+      },
+      {
+        "name": "Image analysis in materials characterization",
+        "similarity": 0.7,
+        "description": "Traditional image processing techniques (non-ML) have long been used to analyze microscopy images for defects, but the integration of CNNs specifically for complex defect classification is a more recent, yet now common, advancement."
+      }
+    ],
+    "assessment": "The idea of using convolutional neural networks (CNNs) to automatically identify and classify crystal defect types (vacancies, dislocations, grain boundaries) from transmission electron microscopy (TEM) images is a well-established and active area of research in materials science, condensed matter physics, and computer vision. There are numerous published papers, open-source projects, and ongoing academic efforts demonstrating this exact application. It is not a novel concept in its general form.",
+    "novelty_aspects": [
+      "Specific novel CNN architecture tailored for a unique defect type or material system",
+      "Achieving significantly higher accuracy or efficiency than state-of-the-art methods",
+      "Developing a robust, user-friendly software product for broad adoption in industry/academia",
+      "Applying this to a previously unstudied material or defect combination"
+    ],
+    "recommendation": "While the general idea is not novel, there is still room for specific contributions. To pursue this, you would need to identify a very specific niche or improvement. For example, focus on a particular material where existing methods struggle, develop a more robust or interpretable model, or create a highly optimized and user-friendly tool. A thorough literature review is essential to identify gaps and potential unique contributions."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Deep learning for defect detection in materials science** (similarity: 95%).\n\n*The idea of using convolutional neural networks (CNNs) to automatically identify and classify crystal defect types (vacancies, dislocations, grain boundaries) from transmission electron microscopy (TEM) images is a well-established and active area of research in materials science, condensed matter physics, and computer vision. There are numerous published papers, open-source projects, and ongoing academic efforts demonstrating this exact application. It is not a novel concept in its general form.*\n\n**Recommendation:** While the general idea is not novel, there is still room for specific contributions. To pursue this, you would need to identify a very specific niche or improvement. For example, focus on a particular material where existing methods struggle, develop a more robust or interpretable model, or create a highly optimized and user-friendly tool. A thorough literature review is essential to identify gaps and potential unique contributions.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 122,
+    "unique_after_dedup": 122,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 515,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0471,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0452,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0016,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A convolutional neural network trained on transmission electron microscopy images to automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries.",
+  "enriched_idea": "RESEARCH IDEA:\nA convolutional neural network trained on transmission electron microscopy images to automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_16",
+      "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+      "arxiv_id": "2010.12970v2",
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's research idea focuses on using CNNs to identify and classify crystal defect types in TEM images. The paper, however, primarily addresses the problem of denoising TEM images using CNNs, proposing a simulation-based denoising framework. While both use CNNs with TEM images, the specific problem being solved (denoising vs. defect classification) is different, though related within the broader field of TEM image analysis. | Method: Both the user's idea and the paper utilize convolutional neural networks (CNNs) and transmission electron microscopy (TEM) images, placing them in the same broad category of deep learning for scientific imaging. However, the paper's method focuses on denoising TEM images using a simulation-based denoising (SBD) framework, while the user's idea is to identify and classify crystal defect types, indicating different applications and training objectives for the CNNs. | Domain: Both the user's idea and the paper operate within the domain of transmission electron microscopy (TEM) images and utilize convolutional neural networks (CNNs). However, the paper focuses on denoising TEM images, while the user's idea is specifically about identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries) using CNNs on TEM images. This represents the same discipline (materials science/imaging) and data type (TEM images) but different application targets within that domain. | Contribution: The user's research idea focuses on using a CNN for automatic identification and classification of crystal defect types (vacancies, dislocations, grain boundaries) in TEM images. The evaluated paper, however, focuses on deep denoising of TEM images using CNNs, proposing a simulation-based denoising framework. While both use CNNs and TEM images, their core contributions and objectives are distinct: one is about defect classification, and the other is about image denoising.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on transmission electron microscopy images to automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+              "heading": "Related work.",
+              "text_snippet": "Refs.  and  propose a CNN-based method to identify structures of interest in TEM images. They train on carefully designed simulated data and show that the model generalizes to real data.",
+              "similarity": 0.5,
+              "reason": "The user's idea focuses on identifying and classifying crystal defect types, which are 'structures of interest' in TEM images, aligning with the problem addressed by other CNN applications mentioned in the paper.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+              "heading": "ABSTRACT",
+              "text_snippet": "Deep convolutional neural networks (CNNs) provide the current state of the art in denoising natural images, where they produce impressive results. However, their potential has barely been explored in the context of scientific imaging.",
+              "similarity": 0.75,
+              "reason": "The user proposes using a 'convolutional neural network' which directly matches the 'Deep convolutional neural networks (CNNs)' mentioned in the paper as a core method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+              "heading": "Related work.",
+              "text_snippet": "Deep CNNs have been applied to other image-processing tasks in TEM beyond denoising, see Ref.  for a comprehensive review. Ref.  proposes a CNN-based method for TEM image super-resolution, wherein CNNs are trained on pairs of low-resolution and high-resolution images acquired experimentally.",
+              "similarity": 0.75,
+              "reason": "The user's idea specifies 'A convolutional neural network trained on transmission electron microscopy images', which is a direct methodological overlap with the 'CNN-based method' and 'CNNs are trained' on TEM images mentioned for other tasks.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+              "heading": "ABSTRACT",
+              "text_snippet": "We test the framework on data obtained from transmission electron microscopy (TEM), an imaging technique with widespread applications in material science, biology, and medicine.",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions 'transmission electron microscopy images', which is the exact imaging technique and data type used and discussed in the paper.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+              "heading": "[Deep Denoising for Scientific Discovery: A Case Study in Electron Microscopy]",
+              "text_snippet": "We test the framework on data obtained from transmission electron microscopy (TEM), an imaging technique with widespread applications in material science, biology, and medicine.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are centered around 'transmission electron microscopy (TEM)' as the core imaging domain.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+              "heading": "Related work.",
+              "text_snippet": "Refs.  and  propose a CNN-based method to identify structures of interest in TEM images. They train on carefully designed simulated data and show that the model generalizes to real data.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes to 'automatically identify and classify crystal defect types', which aligns with the 'identify structures of interest in TEM images' mentioned as a contribution of other works, suggesting a similar type of contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 7637,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2010.12970v2"
+    },
+    {
+      "paper_id": "paper_14",
+      "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+      "arxiv_id": "1503.05430v3",
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's research idea focuses on automatically identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries) in transmission electron microscopy (TEM) images. The paper, however, addresses the problem of segmenting neural structures in electron microscopy (EM) images for neural reconstruction, aiming to reduce manual effort and minimize false-merge errors. While both use EM images and segmentation/classification, the specific objects of interest (crystal defects vs. neural structures) and the ultimate goals (defect classification vs. neural reconstruction) are distinct, placing them in the same broad topic but with different specific problems. | Method: Both the user's idea and the paper utilize neural networks and electron microscopy images for image analysis. However, the user's idea specifically focuses on a convolutional neural network for identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries), while the paper uses a classifier (e.g., Random Forest, not explicitly a CNN) within an active learning framework for neural reconstruction segmentation, prioritizing the minimization of false merges in EM images. | Domain: Both the user's idea and the paper operate within the domain of electron microscopy image analysis using machine learning. However, the paper focuses on neural reconstruction and segmenting neurons from EM images, as evidenced by phrases like 'neural reconstruction from Electron Microscopy (EM) images' and 'extract the anatomical structure of a neuron'. The user's idea, in contrast, targets the identification and classification of crystal defect types (vacancies, dislocations, grain boundaries) in materials science, which is a different application target within the broader field of EM. | Contribution: The user's research idea focuses on automatically identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries) in transmission electron microscopy images using a convolutional neural network. The paper, however, focuses on improving segmentation algorithms for neural reconstruction from electron microscopy images, specifically addressing issues like reducing manual effort in groundtruth annotation and minimizing false-merge errors in neuron segmentation. These are distinct research problems and contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on transmission electron microscopy images to automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries.",
+          "sentence_index": 0,
+          "similarity_score": 0.4875,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "ABSTRACT",
+              "text_snippet": "The prospect of neural reconstruction from Electron Microscopy (EM) images has been elucidated by the automatic segmentation algorithms. Although segmentation algorithms eliminate the necessity of tracing the neurons by hand, significant manual effort is still essential for correcting the mistakes they make. A considerable amount of human labor is also required for annotating groundtruth volumes for training the classifiers of a segmentation framework.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose using automated algorithms, specifically neural networks (convolutional neural network in the user's idea, classifiers in the paper), for analysis of Electron Microscopy (EM) images. The paper focuses on segmentation algorithms, which are a type of classification.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "Introduction",
+              "text_snippet": "One important task for neural reconstruction from Electron Microscopy (EM) is to extract the anatomical structure of a neuron by accurately assigning regions of EM images to corresponding cells. Due to the size and number of EMimages typically required for a useful dense reconstruction, it is impractical to manually perform such task. Recent studies on neural reconstructions or connectomics [32][15] apply automated segmentation algorithms for determining cell morphology.",
+              "similarity": 0.75,
+              "reason": "The paper discusses automated segmentation algorithms for EM images, which aligns with the user's idea of using a convolutional neural network for automatic identification and classification from EM images. Both involve automated image analysis techniques.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "Introduction",
+              "text_snippet": "We adopt a standard EM segmentation approach [19][3][28][30], as illustrated in Figure 2, where the confidence values of a pixelwise classifier 1 are utilized to generate an initial over-segmentation of the dataset. The over-segmentated image or volume is then refined by aggregating superpixels with the help of a superpixel boundary classifier.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions using pixelwise classifiers and superpixel boundary classifiers within an EM segmentation framework. While the user specifies a 'convolutional neural network', this falls under the broader category of classifiers used for image analysis, which is a core method in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "ABSTRACT",
+              "text_snippet": "The prospect of neural reconstruction from Electron Microscopy (EM) images has been elucidated by the automatic segmentation algorithms.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly focused on Electron Microscopy (EM) images as their primary data source.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "Introduction",
+              "text_snippet": "One important task for neural reconstruction from Electron Microscopy (EM) is to extract the anatomical structure of a neuron by accurately assigning regions of EM images to corresponding cells.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper operate within the domain of analyzing Electron Microscopy (EM) images.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "The challenge website provides a training set of 30 annotated images, generated by serial section Transmission Electron Microscopy (ssTEM) from the ventral nerve cord (VNC) of the Drosophila larva.",
+              "similarity": 1.0,
+              "reason": "The user's idea specifically mentions 'transmission electron microscopy images', which is directly aligned with the 'serial section Transmission Electron Microscopy (ssTEM)' data used and discussed in the paper.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "ABSTRACT",
+              "text_snippet": "The prospect of neural reconstruction from Electron Microscopy (EM) images has been elucidated by the automatic segmentation algorithms. Although segmentation algorithms eliminate the necessity of tracing the neurons by hand, significant manual effort is still essential for correcting the mistakes they make.",
+              "similarity": 0.5,
+              "reason": "The paper addresses the problem of automatic segmentation and classification in EM images to reduce manual effort, which is broadly similar to the user's goal of automatically identifying and classifying crystal defects. While the specific targets differ (neurons vs. crystal defects), the underlying problem of automating image analysis in EM is shared.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "Introduction",
+              "text_snippet": "One important task for neural reconstruction from Electron Microscopy (EM) is to extract the anatomical structure of a neuron by accurately assigning regions of EM images to corresponding cells. Due to the size and number of EMimages typically required for a useful dense reconstruction, it is impractical to manually perform such task. Recent studies on neural reconstructions or connectomics [32][15] apply automated segmentation algorithms for determining cell morphology.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to automate the identification and classification of features within EM images to overcome the impracticality of manual analysis. The paper focuses on neural structures, while the user focuses on crystal defects, but the core problem of automating EM image analysis is similar.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "ABSTRACT",
+              "text_snippet": "This study proposes a novel classifier training algorithm for EM segmentation aimed to reduce the amount of manual effort demanded by the groundtruth annotation and error refinement tasks. Instead of using an exhaustive pixel level groundtruth, an active learning algorithm is proposed for sparse labeling of pixel and boundaries of superpixels.",
+              "similarity": 0.25,
+              "reason": "The paper's contribution is focused on improving the efficiency and accuracy of EM segmentation algorithms, particularly in reducing manual annotation effort and minimizing false merges. The user's idea proposes to automatically identify and classify crystal defects, which is a different specific contribution, although both aim for automation in EM image analysis.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+              "heading": "Introduction",
+              "text_snippet": "We empirically demonstrate the advantages of the proposed method over the state of the art techniques for neural reconstruction from both 2D and 3D EM data. The overall active learning algorithm is defined in Section 2.",
+              "similarity": 0.25,
+              "reason": "The paper's contribution is a novel active learning algorithm for EM segmentation, demonstrating advantages for neural reconstruction. The user's idea proposes a CNN for identifying crystal defects, which is a distinct contribution, even though both involve automated classification in EM.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 16645,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1503.05430v3"
+    },
+    {
+      "paper_id": "paper_20",
+      "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+      "arxiv_id": "1806.04010v1",
+      "paper_similarity_score": 0.4125,
+      "reason": "Problem: The paper addresses the problem of automatically analyzing primary particle size distributions of agglomerates on TEM images, specifically identifying and classifying the number and size of primary particles. While both the user's idea and the paper utilize neural networks on TEM images for classification, the user's idea focuses on identifying and classifying crystal defect types (vacancies, dislocations, grain boundaries), which is a different specific problem than particle size analysis. | Method: Both the user's idea and the paper utilize artificial neural networks (specifically, the user mentions CNNs, and the paper uses ANNs which can encompass CNNs) trained on transmission electron microscopy (TEM) images for automated analysis. However, the paper focuses on primary particle size analysis and classification of agglomerates based on the number of particles, while the user's idea is to identify and classify crystal defect types (vacancies, dislocations, grain boundaries). This represents a similar general method family (ANNs on TEM images) but with different specific applications and output classifications. | Domain: Both the user's idea and the paper operate within the domain of materials science, specifically utilizing Transmission Electron Microscopy (TEM) images for analysis. The paper focuses on 'primary particle size analysis of agglomerates on transmission electron microscopy images', while the user's idea aims to 'automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries' from TEM images. Both use neural networks for image analysis in materials science, representing closely related application targets within the same sub-area. | Contribution: The paper focuses on using ANNs to analyze primary particle size distributions of agglomerates on TEM images, specifically determining projected areas and the number of primary particles. In contrast, the user's idea aims to identify and classify crystal defect types (vacancies, dislocations, grain boundaries) using a convolutional neural network on TEM images, addressing a different classification task.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on transmission electron microscopy images to automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries.",
+          "sentence_index": 0,
+          "similarity_score": 0.4875,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "ABSTRACT",
+              "text_snippet": "Therefore, a novel method, based on the utilization of artificial neural networks, was proposed, implemented and validated.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose using artificial neural networks for image analysis. The user specifies 'convolutional neural network' which is a type of ANN.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "Introduction",
+              "text_snippet": "Therefore, a new approach to imaging particle size analysis, with help of artificial neural networks (ANNs), was proposed, implemented and validated. The ANNs were trained to determine the projected areas of primary particles of agglomerates via regression and the number of primary particles per agglomerate via classification.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose using artificial neural networks for image analysis. The paper specifies ANNs trained for classification, which aligns with the user's idea of 'classify crystal defect types'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "Conclusion",
+              "text_snippet": "During the first stage, each agglomerate is assigned to a class, depending on the number of primary particles it incorporates, by a classification ANN.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions using a 'classification ANN', which directly relates to the user's proposed method of using a neural network to 'classify crystal defect types'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "ABSTRACT",
+              "text_snippet": "There is a high demand for fully automated methods for the analysis of primary particle size distributions of agglomerates on transmission electron microscopy images.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper focus on image analysis using 'transmission electron microscopy images'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "Introduction",
+              "text_snippet": "There are various techniques available for the determination of the di GLYPH<11> erent types of equivalent diameters, one of them being transmission electron microscopy (TEM) [3].",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper explicitly state the use of 'transmission electron microscopy images' (TEM images) as their data source.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "Conclusion",
+              "text_snippet": "Within this work, a novel method for the analysis of the size of primary particles of agglomerates on TEM images was successfully implemented and validated.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are concerned with analysis of 'TEM images'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "ABSTRACT",
+              "text_snippet": "There is a high demand for fully automated methods for the analysis of primary particle size distributions of agglomerates on transmission electron microscopy images.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of automated analysis of features within transmission electron microscopy images. The paper focuses on particle size and agglomerates, while the user focuses on crystal defects, indicating a similar type of problem but different specific targets.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "Introduction",
+              "text_snippet": "The determination of particle size distributions (PSDs) of non-agglomerated 1 particles on TEM images can already be performed partially or fully automated since several decades [5, 6]. By contrast, the determination of PSDs of agglomerated particles still is a very challenging task for conventional image processing algorithms [7] and therefore still depends on the recognition of primary particles by a human operator.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to automate a challenging image analysis task on TEM images that traditionally relies on human operators. The specific tasks (particle size vs. defect classification) differ, but the underlying problem of automation is similar.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "ABSTRACT",
+              "text_snippet": "Therefore, a novel method, based on the utilization of artificial neural networks, was proposed, implemented and validated.",
+              "similarity": 0.25,
+              "reason": "Both propose a novel method using neural networks for automated analysis of TEM images. However, the specific output (particle size/agglomerate classification vs. crystal defect classification) differs.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+              "heading": "Introduction",
+              "text_snippet": "Therefore, a new approach to imaging particle size analysis, with help of artificial neural networks (ANNs), was proposed, implemented and validated. The ANNs were trained to determine the projected areas of primary particles of agglomerates via regression and the number of primary particles per agglomerate via classification.",
+              "similarity": 0.25,
+              "reason": "Both aim to contribute an automated method using ANNs for image analysis. The paper's contribution is specifically for particle size and agglomerate classification, while the user's is for crystal defect classification, making them distinct but related contributions in the same general field.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 12916,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1806.04010v1"
+    },
+    {
+      "paper_id": "paper_26",
+      "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+      "arxiv_id": "2512.12278v1",
+      "paper_similarity_score": 0.2625,
+      "reason": "Problem: The user's research idea focuses on using a convolutional neural network to automatically identify and classify crystal defect types from TEM images. The paper, while utilizing TEM to investigate and identify crystal defects like dislocations and vacancy clusters (nanovoids), does not involve any machine learning or automated classification. It primarily uses TEM as an investigative tool alongside spectroscopy to characterize Y-defects in diamonds, representing a different approach and specific problem. | Method: The user's research idea proposes using a convolutional neural network for automatic identification and classification of crystal defects from TEM images. The paper, while utilizing Transmission Electron Microscopy (TEM) to observe defects, does not mention any computational methods like convolutional neural networks or any form of automated classification. The methods are completely different. | Domain: Both the user's idea and the paper operate within the domain of materials science, specifically focusing on crystal defects in diamonds using Transmission Electron Microscopy (TEM). The paper identifies and discusses various crystal defect types, including dislocations, point defects (vacancy clusters/nanovoids), which directly overlap with the user's interest in classifying vacancies and dislocations. While the paper uses TEM for observation and analysis rather than training a CNN for automatic classification, the core application target of analyzing crystal defects via TEM images is closely related. | Contribution: The user's idea proposes using a convolutional neural network to automatically identify and classify crystal defect types from TEM images. The paper uses TEM to observe and analyze crystal defects (dislocations, vacancy clusters/nanovoids) but does not involve any machine learning or automated classification methods, focusing instead on spectroscopic analysis and defect characterization.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on transmission electron microscopy images to automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries.",
+          "sentence_index": 0,
+          "similarity_score": 0.45,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "ABSTRACT",
+              "text_snippet": "Transmission electron microscopy of a zone with abundant Y-defects shows presence of dislocations in various configurations and numerous clusters of point defects generated by non-conservative dislocation motion. Extended defects with shape resembling thin (1-3 nm) rhombic plates with the largest dimension up to 20 nm are observed. Analysis of contrast of these defects shows that they represent nanosized voids (vacancy clusters).",
+              "similarity": 0.5,
+              "reason": "The paper identifies and classifies crystal defect types (dislocations, vacancy clusters/nanovoids) using TEM, which aligns with the user's goal of identifying and classifying crystal defect types. However, the paper's primary problem is understanding Y-defects, not general defect classification.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Transmission electron microscopy of a zone with abundant Y-defects shows presence of dislocations in various configurations and numerous clusters of point defects generated by nonconservative dislocation movement. Extended defects with shape resembling thin (1-3 nm) rhombic plates with the largest dimension up to 5-20 nm are observed. Analysis of contrast of these defects shows that they represent nanosised voids (vacancy clusters).",
+              "similarity": 0.5,
+              "reason": "The paper identifies and classifies crystal defect types (dislocations, vacancy clusters/nanovoids) using TEM, which aligns with the user's goal of identifying and classifying crystal defect types. However, the paper's primary problem is understanding Y-defects, not general defect classification.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "Transmission electron microscopy .",
+              "text_snippet": "Transmission electron microscopy reveals presence of three main types of defects: 1) polyphase inclusions with sizes between tens and 300 nm; 2) numerous dislocations in various configurations; 3) strongly flattened nanosized defects with shapes qualitatively resembling rhombic plates.",
+              "similarity": 0.5,
+              "reason": "The paper uses TEM to reveal and categorize different types of defects, which is a core aspect of the user's problem statement. The specific defect types (dislocations) also overlap.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "ABSTRACT",
+              "text_snippet": "Transmission electron microscopy of a zone with abundant Y-defects shows presence of dislocations in various configurations and numerous clusters of point defects generated by non-conservative dislocation motion.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper utilize Transmission Electron Microscopy (TEM) images. However, the user proposes a 'convolutional neural network' for automatic identification, which is a different analytical method than the manual analysis implied by the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "Introduction.",
+              "text_snippet": "In this contribution, we present results of investigation of a natural diamond with the Y-centers employing IR absorption spectroscopy, photo- (PL) and cathodoluminescence (CL) and Transmission Electron Microscopy (TEM).",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper utilize Transmission Electron Microscopy (TEM) images. However, the user proposes a 'convolutional neural network' for automatic identification, which is a different analytical method than the manual analysis implied by the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Transmission electron microscopy of a zone with abundant Y-defects shows presence of dislocations in various configurations and numerous clusters of point defects generated by nonconservative dislocation movement.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper utilize Transmission Electron Microscopy (TEM) images. However, the user proposes a 'convolutional neural network' for automatic identification, which is a different analytical method than the manual analysis implied by the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "DIAMOND CRYSTAL WITH Y-DEFECTS: SPECTROSCOPY AND TRANSMISSION ELECTRON MICROSCOPY",
+              "text_snippet": "Keywords diamond, Y-defect, spectroscopy, transmission electron microscopy",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper utilize Transmission Electron Microscopy (TEM) images. However, the user proposes a 'convolutional neural network' for automatic identification, which is a different analytical method than the manual analysis implied by the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "Transmission electron microscopy .",
+              "text_snippet": "Transmission electron microscopy reveals presence of three main types of defects: 1) polyphase inclusions with sizes between tens and 300 nm; 2) numerous dislocations in various configurations; 3) strongly flattened nanosized defects with shapes qualitatively resembling rhombic plates.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper utilize Transmission Electron Microscopy (TEM) images. However, the user proposes a 'convolutional neural network' for automatic identification, which is a different analytical method than the manual analysis implied by the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "ABSTRACT",
+              "text_snippet": "Transmission electron microscopy of a zone with abundant Y-defects shows presence of dislocations in various configurations and numerous clusters of point defects generated by non-conservative dislocation motion. Extended defects with shape resembling thin (1-3 nm) rhombic plates with the largest dimension up to 20 nm are observed. Analysis of contrast of these defects shows that they represent nanosized voids (vacancy clusters).",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper focus on crystal defects (vacancies, dislocations, grain boundaries in the idea; dislocations, vacancy clusters/nanovoids in the paper) and use transmission electron microscopy images, indicating a strong overlap in the application domain of materials science and microscopy.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Transmission electron microscopy of a zone with abundant Y-defects shows presence of dislocations in various configurations and numerous clusters of point defects generated by nonconservative dislocation movement. Extended defects with shape resembling thin (1-3 nm) rhombic plates with the largest dimension up to 5-20 nm are observed. Analysis of contrast of these defects shows that they represent nanosised voids (vacancy clusters).",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper focus on crystal defects (vacancies, dislocations, grain boundaries in the idea; dislocations, vacancy clusters/nanovoids in the paper) and use transmission electron microscopy images, indicating a strong overlap in the application domain of materials science and microscopy.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "Dislocations",
+              "text_snippet": "largely consist of vacancies and interstitials.Although qualitatively the foil from peripheral part of the crystal is similar to that from the Y-defects zone (Figure), density of dislocations and of defect clusters is, apparently,",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper focus on crystal defects (vacancies, dislocations, grain boundaries in the idea; dislocations, vacancy clusters/nanovoids in the paper) and use transmission electron microscopy images, indicating a strong overlap in the application domain of materials science and microscopy.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "Transmission electron microscopy .",
+              "text_snippet": "Transmission electron microscopy reveals presence of three main types of defects: 1) polyphase inclusions with sizes between tens and 300 nm; 2) numerous dislocations in various configurations; 3) strongly flattened nanosized defects with shapes qualitatively resembling rhombic plates.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper focus on crystal defects (vacancies, dislocations, grain boundaries in the idea; dislocations, vacancy clusters/nanovoids in the paper) and use transmission electron microscopy images, indicating a strong overlap in the application domain of materials science and microscopy.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "ABSTRACT",
+              "text_snippet": "Transmission electron microscopy of a zone with abundant Y-defects shows presence of dislocations in various configurations and numerous clusters of point defects generated by non-conservative dislocation motion. Extended defects with shape resembling thin (1-3 nm) rhombic plates with the largest dimension up to 20 nm are observed. Analysis of contrast of these defects shows that they represent nanosized voids (vacancy clusters).",
+              "similarity": 0.5,
+              "reason": "The paper contributes to identifying and classifying specific crystal defects (dislocations, vacancy clusters) using TEM, which partially overlaps with the user's proposed contribution of automatically identifying and classifying crystal defect types. However, the paper does not propose an *automatic* method using a neural network.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Transmission electron microscopy of a zone with abundant Y-defects shows presence of dislocations in various configurations and numerous clusters of point defects generated by nonconservative dislocation movement. Extended defects with shape resembling thin (1-3 nm) rhombic plates with the largest dimension up to 5-20 nm are observed. Analysis of contrast of these defects shows that they represent nanosised voids (vacancy clusters).",
+              "similarity": 0.5,
+              "reason": "The paper contributes to identifying and classifying specific crystal defects (dislocations, vacancy clusters) using TEM, which partially overlaps with the user's proposed contribution of automatically identifying and classifying crystal defect types. However, the paper does not propose an *automatic* method using a neural network.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+              "heading": "Transmission electron microscopy .",
+              "text_snippet": "Transmission electron microscopy reveals presence of three main types of defects: 1) polyphase inclusions with sizes between tens and 300 nm; 2) numerous dislocations in various configurations; 3) strongly flattened nanosized defects with shapes qualitatively resembling rhombic plates.",
+              "similarity": 0.5,
+              "reason": "The paper contributes to identifying and classifying specific crystal defects (dislocations, nanosized defects) using TEM, which partially overlaps with the user's proposed contribution of automatically identifying and classifying crystal defect types. However, the paper does not propose an *automatic* method using a neural network.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 19882,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2512.12278v1"
+    },
+    {
+      "paper_id": "paper_35",
+      "paper_title": "Microstructure and structural modulation of lutetium dihydride LuH2 as seen via transmission electron microscopy",
+      "arxiv_id": "2309.14927v1",
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's research idea focuses on using a convolutional neural network to automatically identify and classify crystal defect types from TEM images. The paper, while using TEM for microstructural investigations and observing phenomena like antiphase boundaries and atomic displacements, does not address the problem of automated defect classification using neural networks. It focuses on characterizing the microstructure and structural modulation of LuH2 and nitrogen-doped LuH2, which is a different specific problem within the broad topic of materials characterization using TEM. | Method: The user's research idea proposes using a convolutional neural network for automatic identification and classification of crystal defect types from TEM images. The evaluated paper, while extensively using Transmission Electron Microscopy (TEM) for structural investigations and microstructural phenomena, does not mention or employ any form of machine learning, deep learning, or convolutional neural networks for image analysis or defect classification. The methods are entirely disparate. | Domain: Both the user's idea and the paper operate within the domain of materials science, specifically focusing on crystal structures and defects using transmission electron microscopy (TEM) images. The paper investigates 'numerous microstructural phenomena' including 'antiphase boundaries' and 'domain walls' in LuH2, which are types of crystal defects, closely related to the user's interest in 'vacancies, dislocations, and grain boundaries'. | Contribution: The user's research idea proposes using a convolutional neural network to automatically identify and classify crystal defect types from TEM images. The paper, however, focuses on microstructural investigations of LuH2 using traditional TEM and STEM techniques to observe superstructure modulation and antiphase boundaries, without any mention of AI or automated classification of defects.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on transmission electron microscopy images to automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries.",
+          "sentence_index": 0,
+          "similarity_score": 0.125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Microstructure and structural modulation of lutetium dihydride LuH2 as seen via transmission electron microscopy",
+              "heading": "ABSTRACT",
+              "text_snippet": "Structural investigations conducted using transmission electron microscopy (TEM) on LuH2 synthesized under atmospheric pressure (AP-LuH2) and nitrogen-doped LuH2 synthesized under high pressure (HP-LuH2) have revealed numerous microstructural phenomena.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper focus on analyzing microstructural phenomena in materials using transmission electron microscopy (TEM). The user's idea specifies 'crystal defect types' while the paper mentions 'microstructural phenomena' and 'antiphase boundaries', which are types of defects.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Microstructure and structural modulation of lutetium dihydride LuH2 as seen via transmission electron microscopy",
+              "heading": "◼ INTRODUCTION",
+              "text_snippet": "Scanning transmission electron microscopy (STEM) technique with sub-angstrom spatial resolution has been extensively applied for structural characterizations, especially for structural modulation, phase separation, and local defective structures.",
+              "similarity": 0.5,
+              "reason": "The user's idea is about identifying 'crystal defect types' and the paper explicitly mentions the use of STEM for 'local defective structures', indicating a shared domain of interest in material defects.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Microstructure and structural modulation of lutetium dihydride LuH2 as seen via transmission electron microscopy",
+              "heading": "◼ INTRODUCTION",
+              "text_snippet": "Scanning transmission electron microscopy (STEM) technique with sub-angstrom spatial resolution has been extensively applied for structural characterizations, especially for structural modulation, phase separation, and local defective structures.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes using 'transmission electron microscopy images' and the paper extensively uses 'Scanning transmission electron microscopy (STEM) technique' which is a form of TEM, for structural characterizations. While the user proposes a 'convolutional neural network', the core data source (TEM images) is shared.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Microstructure and structural modulation of lutetium dihydride LuH2 as seen via transmission electron microscopy",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Atomic-resolution HAADF images were obtained with a spherical-aberration-corrected JEOL ARM200F instrument equipped with doubleaberration correctors and operated at 200 kV.",
+              "similarity": 0.25,
+              "reason": "The user's idea specifies 'transmission electron microscopy images' as the input for their method. The paper details the use of 'Atomic-resolution HAADF images' obtained via a TEM instrument, confirming the use of the same type of imaging data.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 28287,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2309.14927v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 93,
+    "global_similarity_score": 0.24500000000000002,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A convolutional neural network trained on transmission electron microscopy images to automatically identify and classify crystal defect types including vacancies, dislocations, and grain boundaries.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_16",
+            "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+            "heading": "Related work.",
+            "text_snippet": "Refs.  and  propose a CNN-based method to identify structures of interest in TEM images. They train on carefully designed simulated data and show that the model generalizes to real data.",
+            "similarity": 0.5,
+            "reason": "The user's idea focuses on identifying and classifying crystal defect types, which are 'structures of interest' in TEM images, aligning with the problem addressed by other CNN applications mentioned in the paper.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_16",
+            "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+            "heading": "ABSTRACT",
+            "text_snippet": "Deep convolutional neural networks (CNNs) provide the current state of the art in denoising natural images, where they produce impressive results. However, their potential has barely been explored in the context of scientific imaging.",
+            "similarity": 0.75,
+            "reason": "The user proposes using a 'convolutional neural network' which directly matches the 'Deep convolutional neural networks (CNNs)' mentioned in the paper as a core method.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_16",
+            "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+            "heading": "ABSTRACT",
+            "text_snippet": "We test the framework on data obtained from transmission electron microscopy (TEM), an imaging technique with widespread applications in material science, biology, and medicine.",
+            "similarity": 1.0,
+            "reason": "The user's idea explicitly mentions 'transmission electron microscopy images', which is the exact imaging technique and data type used and discussed in the paper.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_16",
+            "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+            "heading": "Related work.",
+            "text_snippet": "Refs.  and  propose a CNN-based method to identify structures of interest in TEM images. They train on carefully designed simulated data and show that the model generalizes to real data.",
+            "similarity": 0.5,
+            "reason": "The user's idea proposes to 'automatically identify and classify crystal defect types', which aligns with the 'identify structures of interest in TEM images' mentioned as a contribution of other works, suggesting a similar type of contribution.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea shows strong originality, particularly in its unique contribution to the field. While there is some overlap in the application domain, consider further articulating how your specific problem formulation differentiates from existing work on electron microscopy analysis.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.5,
+      "method_similarity": 0.38,
+      "domain_similarity": 0.71,
+      "contribution_similarity": 0.19
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0471,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0452,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0016,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 300.6241970062256,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_16",
+        "paper_title": "Deep Denoising For Scientific Discovery: A Case Study In Electron Microscopy",
+        "paper_similarity": 0.2,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_14",
+        "paper_title": "What Properties are Desirable from an Electron Microscopy Segmentation Algorithm",
+        "paper_similarity": 0.2,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_20",
+        "paper_title": "Fully automated primary particle size analysis of agglomerates on transmission electron microscopy images via artificial neural networks",
+        "paper_similarity": 0.4125,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_26",
+        "paper_title": "Diamond crystal with Y-defects: spectroscopy and transmittion electron microscopy",
+        "paper_similarity": 0.2625,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_35",
+        "paper_title": "Microstructure and structural modulation of lutetium dihydride LuH2 as seen via transmission electron microscopy",
+        "paper_similarity": 0.15000000000000002,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 122
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 122,
+    "after_dedup": 122,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}
