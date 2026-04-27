@@ -1,0 +1,304 @@
+[
+    {
+      "id": "idea_001",
+      "label": "already_exists",
+      "domain": "Autonomous Vehicles",
+      "idea": "A system for autonomous driving that uses LiDAR, radar, and camera sensor fusion to detect objects, predict trajectories, and control steering, braking, and acceleration in real time."
+    },
+    {
+      "id": "idea_002",
+      "label": "already_exists",
+      "domain": "Mobile Devices",
+      "idea": "A smartphone facial recognition system that captures a 3D depth map of the user's face and compares it to a stored biometric template for secure device unlocking."
+    },
+    {
+      "id": "idea_003",
+      "label": "already_exists",
+      "domain": "E-commerce",
+      "idea": "A recommendation system that analyzes user browsing history, past purchases, and item similarity to generate personalized product suggestions."
+    },
+    {
+      "id": "idea_004",
+      "label": "already_exists",
+      "domain": "Medical Devices",
+      "idea": "A wearable heart rate monitor that continuously measures pulse using optical sensors and transmits data to a mobile application for health tracking."
+    },
+    {
+      "id": "idea_005",
+      "label": "already_exists",
+      "domain": "Cloud Computing",
+      "idea": "A distributed storage system that replicates data across multiple servers and uses consensus algorithms to ensure consistency and fault tolerance."
+    },
+    {
+      "id": "idea_006",
+      "label": "already_exists",
+      "domain": "Smart Home",
+      "idea": "A voice-controlled smart assistant that processes spoken commands using natural language processing and controls connected home devices."
+    },
+    {
+      "id": "idea_007",
+      "label": "already_exists",
+      "domain": "Finance",
+      "idea": "A fraud detection system that analyzes transaction patterns and flags anomalous behavior using machine learning models."
+    },
+    {
+      "id": "idea_008",
+      "label": "already_exists",
+      "domain": "Biometrics",
+      "idea": "A fingerprint authentication system that captures ridge patterns and matches them against stored templates for identity verification."
+    },
+    {
+      "id": "idea_009",
+      "label": "already_exists",
+      "domain": "Telecommunications",
+      "idea": "A method for adaptive bitrate streaming that dynamically adjusts video quality based on network bandwidth conditions."
+    },
+    {
+      "id": "idea_010",
+      "label": "already_exists",
+      "domain": "Robotics",
+      "idea": "An industrial robot arm that uses inverse kinematics and sensor feedback to perform precise pick-and-place operations."
+    },
+    {
+      "id": "idea_011",
+      "label": "already_exists",
+      "domain": "Energy",
+      "idea": "A solar panel tracking system that adjusts panel orientation throughout the day to maximize energy capture."
+    },
+    {
+      "id": "idea_012",
+      "label": "already_exists",
+      "domain": "Transportation",
+      "idea": "A ride-sharing system that matches passengers with nearby drivers using GPS location and route optimization algorithms."
+    },
+    {
+      "id": "idea_013",
+      "label": "already_exists",
+      "domain": "Security",
+      "idea": "A surveillance system that detects motion using video analysis and triggers alerts when unauthorized activity is identified."
+    },
+    {
+      "id": "idea_014",
+      "label": "already_exists",
+      "domain": "Manufacturing",
+      "idea": "A predictive maintenance system that monitors machine vibrations and predicts failures using time-series analysis."
+    },
+    {
+      "id": "idea_015",
+      "label": "already_exists",
+      "domain": "Augmented Reality",
+      "idea": "A head-mounted display that overlays digital information onto a user's field of view using spatial tracking."
+    },
+    {
+      "id": "idea_016",
+      "label": "already_exists",
+      "domain": "Healthcare",
+      "idea": "An electronic health record system that stores patient data and allows secure sharing between healthcare providers."
+    },
+    {
+      "id": "idea_017",
+      "label": "already_exists",
+      "domain": "Retail",
+      "idea": "A cashierless checkout system that uses computer vision to track items selected by customers and automatically charges their account."
+    },
+  
+    {
+        "id": "idea_018",
+        "label": "incremental",
+        "domain": "Autonomous Vehicles",
+        "idea": "A sensor fusion system for autonomous vehicles that dynamically reweights LiDAR, radar, and camera inputs using a learned confidence model trained on labeled adverse-condition datasets, with the weighting updated per-frame based on real-time environmental classification."
+      },
+      {
+        "id": "idea_019",
+        "label": "incremental",
+        "domain": "Mobile Devices",
+        "idea": "A facial recognition system that maintains multiple biometric templates representing different lighting and aging states, and selects the active template using a temporal distance model that weights recent captures more heavily."
+      },
+      {
+        "id": "idea_020",
+        "label": "incremental",
+        "domain": "E-commerce",
+        "idea": "A recommendation engine that incorporates session-level contextual signals including dwell time, scroll depth, and time of day into a multi-armed bandit model that rebalances exploration and exploitation per user session."
+      },
+      {
+        "id": "idea_021",
+        "label": "incremental",
+        "domain": "Medical Devices",
+        "idea": "A wearable that fuses heart rate variability, oxygen saturation, and skin temperature into a composite early-warning score calibrated against labeled hospitalization events from a retrospective patient dataset."
+      },
+      {
+        "id": "idea_022",
+        "label": "incremental",
+        "domain": "Cloud Computing",
+        "idea": "A tiered storage system that uses an online learning algorithm to predict future access frequency from access recency and object metadata, migrating data between storage tiers without manual threshold configuration."
+      },
+      {
+        "id": "idea_023",
+        "label": "incremental",
+        "domain": "Smart Home",
+        "idea": "A voice assistant that maintains a per-user context graph of household routines and uses it to disambiguate commands that would otherwise require follow-up clarification questions."
+      },
+      {
+        "id": "idea_024",
+        "label": "incremental",
+        "domain": "Finance",
+        "idea": "A fraud detection system that constructs a transaction graph linking accounts, devices, and merchants, and applies graph convolutional networks to propagate risk scores through the network to identify coordinated fraud rings."
+      },
+      {
+        "id": "idea_025",
+        "label": "incremental",
+        "domain": "Biometrics",
+        "idea": "A fingerprint authentication system that supplements ridge-pattern matching with continuous keystroke dynamics verification, requiring both to agree before granting access."
+      },
+      {
+        "id": "idea_026",
+        "label": "incremental",
+        "domain": "Telecommunications",
+        "idea": "A video streaming system that predicts segment demand using a transformer trained on per-user viewing history and pre-fetches segments into a client-side cache ranked by predicted watch probability."
+      },
+      {
+        "id": "idea_027",
+        "label": "incremental",
+        "domain": "Robotics",
+        "idea": "A robotic arm controller that uses offline reinforcement learning on previously collected manipulation trajectories to initialize a grasping policy, then fine-tunes online using real-time force-torque sensor feedback."
+      },
+      {
+        "id": "idea_028",
+        "label": "incremental",
+        "domain": "Energy",
+        "idea": "A solar panel tracking system that incorporates short-range cloud cover forecasts from a sky-facing camera to preemptively park panels at an aerodynamically optimal angle before shading events to reduce wind load."
+      },
+      {
+        "id": "idea_029",
+        "label": "incremental",
+        "domain": "Transportation",
+        "idea": "A ride-pooling algorithm that uses a rolling-horizon optimization approach to dynamically insert new ride requests into in-progress shared routes without disrupting committed passenger drop-off windows."
+      },
+      {
+        "id": "idea_030",
+        "label": "incremental",
+        "domain": "Security",
+        "idea": "A surveillance system that combines skeleton pose estimation with spatial zone modeling to detect loitering, tailgating, and prohibited postures without storing or transmitting identifiable facial images."
+      },
+      {
+        "id": "idea_031",
+        "label": "incremental",
+        "domain": "Manufacturing",
+        "idea": "A predictive maintenance system that learns machine-specific degradation curves by fine-tuning a cross-factory foundation model on local sensor history, reducing cold-start failure prediction error on newly installed equipment."
+      },
+      {
+        "id": "idea_032",
+        "label": "incremental",
+        "domain": "Augmented Reality",
+        "idea": "An AR display system that uses real-time gaze tracking to render overlay content at full resolution only in the foveal region and progressively lower resolution in the periphery, reducing GPU load while maintaining perceived clarity."
+      },
+      {
+        "id": "idea_033",
+        "label": "incremental",
+        "domain": "Healthcare",
+        "idea": "An electronic health record system that uses a fine-tuned clinical language model to generate structured problem-list summaries from unstructured physician notes, with extracted items linked back to their source sentences."
+      },
+      {
+        "id": "idea_034",
+        "label": "incremental",
+        "domain": "Retail",
+        "idea": "A cashierless checkout system that resolves item-identity ambiguity between visually similar products by fusing shelf weight sensor readings with overhead camera detections using a probabilistic reconciliation layer."
+      },
+  
+      {
+        "id": "idea_035",
+        "label": "novel",
+        "domain": "Autonomous Systems",
+        "idea": "A vehicle navigation system where each vehicle maintains a probabilistic model of nearby vehicles' intended routes and continuously negotiates right-of-way using a distributed auction protocol, with bids denominated in estimated time-cost, eliminating reliance on static intersection signals or centralized traffic control."
+      },
+      {
+        "id": "idea_036",
+        "label": "novel",
+        "domain": "Medical Devices",
+        "idea": "An implantable closed-loop drug delivery device that models a patient's real-time metabolic state using a sparse Gaussian process fit to continuous glucose, lactate, and cortisol sensor streams, and releases drug dosages calculated by an onboard model predictive controller with safety constraints enforced in hardware."
+      },
+      {
+        "id": "idea_037",
+        "label": "novel",
+        "domain": "Energy",
+        "idea": "A power distribution network where each substation hosts an autonomous control agent that models local grid state as a partial-information Markov game and reconfigures its switching topology through multi-agent consensus, allowing the grid to reroute power flows around failures without a central control system."
+      },
+      {
+        "id": "idea_038",
+        "label": "novel",
+        "domain": "Robotics",
+        "idea": "A modular robotic system where physical connector interfaces between modules transmit both mechanical force and a token-passing coordination signal, allowing a reconfigured assembly to self-identify its new morphology and derive a valid locomotion policy without external reprogramming."
+      },
+      {
+        "id": "idea_039",
+        "label": "novel",
+        "domain": "Telecommunications",
+        "idea": "A wireless communication system where the modulation scheme is represented as a continuously differentiable function jointly optimized with a channel decoder using end-to-end learned autoencoders, allowing the signal structure to adapt to non-stationary interference patterns not covered by any fixed modulation standard."
+      },
+      {
+        "id": "idea_040",
+        "label": "novel",
+        "domain": "Cybersecurity",
+        "idea": "A network defense system that instruments each host with a lightweight hypervisor layer that randomizes system call table layouts, memory allocator behavior, and library load addresses on a per-process basis at runtime, invalidating exploit payloads that assume a stable ABI without modifying application binaries."
+      },
+      {
+        "id": "idea_041",
+        "label": "novel",
+        "domain": "Manufacturing",
+        "idea": "A factory floor system where each machine broadcasts its current capability state and remaining capacity as a signed token on a local mesh network, and incoming work orders are fulfilled by a self-assembling task coalition formed through iterated contract-net exchanges between machines, without any centralized scheduler."
+      },
+      {
+        "id": "idea_042",
+        "label": "novel",
+        "domain": "Augmented Reality",
+        "idea": "An AR system that maintains a probabilistic model of user task intent inferred from hand trajectory, gaze fixation sequence, and object proximity history, and pre-renders virtual tools into the predicted grasp location before the user consciously initiates the interaction."
+      },
+      {
+        "id": "idea_043",
+        "label": "novel",
+        "domain": "Finance",
+        "idea": "A clearing system where each transaction carries an embedded systemic-risk contribution score computed from a real-time contagion model of the counterparty network, and settlement timing is dynamically delayed or accelerated to prevent risk score aggregations from exceeding regulatory thresholds."
+      },
+      {
+        "id": "idea_044",
+        "label": "novel",
+        "domain": "Healthcare",
+        "idea": "A treatment planning system that represents a patient's disease state as a directed influence graph over biological subsystems and identifies intervention targets by computing the minimal vertex cut that disconnects pathological activation cascades from downstream organ damage nodes."
+      },
+      {
+        "id": "idea_045",
+        "label": "novel",
+        "domain": "Retail",
+        "idea": "A dynamic pricing system where each product's price is updated by a decentralized agent that observes only local shelf interaction signals — pick-ups, returns, dwell time — and adjusts price using a no-regret online learning algorithm without access to store-wide inventory or competitor data."
+      },
+      {
+        "id": "idea_046",
+        "label": "novel",
+        "domain": "Biometrics",
+        "idea": "An identity verification system that represents a user's identity as a time-varying stochastic process over behavioral signals including gait, touch pressure, and interaction timing, and authenticates by testing whether a new observation sequence is a likely sample from the enrolled process using a sequential likelihood ratio test."
+      },
+      {
+        "id": "idea_047",
+        "label": "novel",
+        "domain": "Cloud Computing",
+        "idea": "A cloud scheduler that learns a workload arrival model per tenant using a neural marked temporal point process, and uses the learned model to pre-warm compute capacity along predicted burst trajectories, reducing cold-start latency without over-provisioning idle resources."
+      },
+      {
+        "id": "idea_048",
+        "label": "novel",
+        "domain": "Transportation",
+        "idea": "An intersection management system where approaching vehicles submit sealed bids representing their time-urgency to a roadside unit that runs a second-price auction each 100ms cycle, assigns crossing slots to winners, and enforces the schedule through vehicle-to-infrastructure speed commands."
+      },
+      {
+        "id": "idea_049",
+        "label": "novel",
+        "domain": "Smart Home",
+        "idea": "A home automation system that constructs a causal model of resident behavior from passive sensor streams and uses counterfactual reasoning over the model to infer unstated goals, generating new device automation rules that are presented to the resident for approval before activation."
+      },
+      {
+        "id": "idea_050",
+        "label": "novel",
+        "domain": "Human-Computer Interaction",
+        "idea": "A computing interface that continuously estimates a user's cognitive load from typing cadence, cursor micro-movements, and interaction latency, and dynamically restructures the active workspace — collapsing, surfacing, or reordering interface elements — to match available attentional bandwidth."
+      }
+  ]
