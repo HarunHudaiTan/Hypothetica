@@ -1,0 +1,807 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "634cbaffb360",
+    "status": "completed"
+  },
+  "originality_score": 98,
+  "global_similarity_score": 0.1125,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "medium",
+        "domain_similarity": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_33",
+          "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+          "heading": "Introduction",
+          "text_snippet": "However, the development and application of MOF materials are still facing great challenges. First of all, the structure-performance relationship of MOF materials is extremely complex, and it is difficult for traditional experimental methods to predict the properties of new MOF materials quickly and accurately. Secondly, the design space of MOF materials is huge, and it is time-consuming and expensive to screen and optimize them only by experimental means.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper acknowledge the challenge of MOF material design and property prediction due to complexity and vast design space. The user's idea proposes inverse design to address this, while the paper focuses on predicting properties.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_33",
+          "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+          "heading": "RELEVANT SECTIONS",
+          "text_snippet": "In the aspect of Qualcomm screening, Yao et al . (2021) reported on Nature Machine Intelligence a reverse design method of MOF materials based on deep generation model, which can quickly predict MOF structures with target properties.",
+          "similarity": 0.5,
+          "reason": "The user's idea proposes a 'generative model' and 'latent diffusion process' for 'inverse design of MOFs'. The paper mentions a 'reverse design method of MOF materials based on deep generation model' in its literature review, indicating a shared high-level methodological approach (generative models for inverse design). However, the specific 'latent diffusion process on voxelized unit cell representations' is not mentioned in the paper.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_33",
+          "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+          "heading": "ABSTRACT",
+          "text_snippet": "Metal-organic frameworks (MOFs) have emerged as promising materials for various applications due to their unique structural properties and versatile functionalities. This study presents a comprehensive investigation of machine learning approaches for predicting MOF material properties.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are explicitly focused on Metal-Organic Frameworks (MOFs) as the material domain.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_33",
+          "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+          "heading": "RELEVANT SECTIONS",
+          "text_snippet": "In the aspect of Qualcomm screening, Yao et al . (2021) reported on Nature Machine Intelligence a reverse design method of MOF materials based on deep generation model, which can quickly predict MOF structures with target properties.",
+          "similarity": 0.5,
+          "reason": "The user's idea proposes 'inverse design of MOFs' using a generative model. The paper cites existing work on 'reverse design method of MOF materials based on deep generation model', indicating that the concept of inverse design using generative models for MOFs is an established contribution in the field, which the user's idea aims to build upon with a specific method.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea demonstrates high originality, particularly in its methodology and proposed contributions. While there is moderate domain overlap with existing work on Metal-Organic Frameworks, the specific problem and approach appear novel.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.38,
+    "method_similarity": 0.16999999999999998,
+    "domain_similarity": 0.63,
+    "contribution_similarity": 0.16999999999999998
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0343,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0322,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0019,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 184.58176517486572,
+  "papers": [
+    {
+      "paper_id": "paper_31",
+      "source": "arxiv",
+      "source_id": "1809.09692v2",
+      "arxiv_id": "1809.09692v2",
+      "title": "Interfacial thermal resistance between porous layers: impact on thermal conductivity of a multilayered porous structure",
+      "abstract": "Features of thermal transport in multilayered porous silicon nanostructures are considered. Such nanostructures were fabricated by electrochemical etching of monocrystalline Si substrates by applying periodically changed current density. Hereby, the multilayered structures with specific phononic properties were formed. Photoacoustic (PA) technique in gas-microphone configuration was applied for thermal conductivity evaluation. Experimental amplitude-frequency dependencies were adjusted by temperature distribution simulation with thermal conductivity of the multilayered porous structure as a fitting parameter. The experimentally determined values of thermal conductivity were found to be significantly lower than theoretically calculated ones. Such difference was associated with the presence of thermal resistance at the interfaces between porous layers with different porosities arising because of elastic parameters mismatch (acoustical mismatch). Accordingly, the magnitude of this interfacial thermal resistance was experimentally evaluated for the first time. Furthermore, crucial impact of the resistance on thermal transport perturbation in a multilayered porous silicon structure was revealed.",
+      "url": "http://arxiv.org/abs/1809.09692v2",
+      "pdf_url": "https://arxiv.org/pdf/1809.09692v2",
+      "authors": [
+        "Pavlo Lishchuk",
+        "Anastasiya Dekret",
+        "Anton Pastushenko",
+        "Andrey Kuzmich",
+        "Roman Burbelo",
+        "Ali Belarouci",
+        "Vladimir Lysenko",
+        "Mykola Isaiev"
+      ],
+      "categories": [
+        "physics.app-ph",
+        "cond-mat.mes-hall"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on developing a generative model for inverse design of porous materials (MOFs) based on target properties like gas adsorption and thermal stability. In contrast, the paper investigates the impact of interfacial thermal resistance on the thermal conductivity of multilayered porous silicon nanostructures, aiming to experimentally evaluate this resistance. These are fundamentally different research problems. | Method: The user's research idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design of MOFs, conditioned on gas adsorption capacity and thermal stability. The paper, however, focuses on experimental evaluation and simulation of interfacial thermal resistance in multilayered porous silicon nanostructures using a photoacoustic technique and a one-dimensional model for thermal conductivity evaluation. There is no methodological overlap between these approaches. | Domain: Both the research idea and the paper are within the domain of materials science, specifically focusing on porous materials. However, the research idea is about generative design of MOFs for gas adsorption and thermal stability, while the paper investigates thermal transport and interfacial thermal resistance in multilayered porous silicon nanostructures. They share the general domain of porous materials but target different sub-areas and applications. | Contribution: The user's research idea proposes a generative model for inverse design of MOFs based on gas adsorption capacity and thermal stability using a latent diffusion process. In contrast, the paper focuses on experimentally evaluating interfacial thermal resistance in multilayered porous silicon nanostructures and its impact on thermal transport. The contributions are entirely different, addressing distinct research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_33",
+      "source": "arxiv",
+      "source_id": "2507.04493v1",
+      "arxiv_id": "2507.04493v1",
+      "title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+      "abstract": "Metal-organic frameworks (MOFs) have emerged as promising materials for various applications due to their unique structural properties and versatile functionalities. This study presents a comprehensive investigation of machine learning approaches for predicting MOF material properties. We employed five different machine learning models: Random Forest, XGBoost, LightGBM, Support Vector Machine, and Neural Network, to analyze and predict MOF characteristics using a dataset from the Kaggle platform. The models were evaluated using multiple performance metrics, including RMSE, R^2, MAE, and cross-validation scores. Results demonstrated that the Random Forest model achieved superior performance with an R^2 value of 0.891 and RMSE of 0.152, significantly outperforming other models. LightGBM showed remarkable computational efficiency, completing training in 25.7 seconds while maintaining high accuracy. Our comparative analysis revealed that ensemble learning methods generally exhibited better performance than traditional single models in MOF property prediction. This research provides valuable insights into the application of machine learning in materials science and establishes a robust framework for future MOF material design and property prediction.",
+      "url": "http://arxiv.org/abs/2507.04493v1",
+      "pdf_url": "https://arxiv.org/pdf/2507.04493v1",
+      "authors": [
+        "Zhuo Zheng",
+        "Keyan Liu",
+        "Xiyuan Zhu"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.3375,
+      "reason": "Problem: The user's research idea focuses on generative inverse design of MOFs using a latent diffusion model conditioned on specific properties (gas adsorption capacity and thermal stability). The paper, while also addressing MOF material properties, focuses on predicting MOF characteristics using comparative analysis of various machine learning models (Random Forest, XGBoost, etc.) to establish structure-property relationships. While both are in the broad area of MOF material design and property prediction using machine learning, the paper's problem is predictive modeling, whereas the user's idea is generative inverse design. | Method: The user's idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design. The paper, however, focuses on comparative analysis of discriminative machine learning models (Random Forest, XGBoost, LightGBM, SVM, Neural Network) for predicting MOF properties. While both use machine learning for MOFs, the core methodologies (generative diffusion vs. discriminative prediction) are fundamentally different, placing them in a broad category of 'machine learning' but with distinct approaches. | Domain: Both the user's research idea and the paper operate within the domain of Metal-Organic Frameworks (MOFs) and their design/prediction. The paper explicitly mentions 'MOF material design and property prediction' and references a 'reverse design method of MOF materials based on deep generation model' in its literature review, which aligns closely with the user's idea of inverse design for MOFs. While the paper focuses on comparative analysis of predictive models, it acknowledges and discusses generative design, indicating a closely related application target within the same sub-area of MOF materials science. | Contribution: The user's idea proposes a generative model using latent diffusion for inverse design of MOFs conditioned on specific properties (gas adsorption capacity, thermal stability). The paper, however, focuses on a comparative analysis of discriminative machine learning models (Random Forest, XGBoost, etc.) for predicting MOF properties, not generating new designs. While both relate to MOFs and machine learning, the core contribution of generative inverse design in the user's idea is distinct from the predictive modeling in the paper.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_25",
+      "source": "arxiv",
+      "source_id": "1809.08894v1",
+      "arxiv_id": "1809.08894v1",
+      "title": "Magnetotransport in phase-separated (Ga,Fe)N with $γ$'-Ga$_y$Fe$_{4-y}$N nanocrystals",
+      "abstract": "The magnetotransport in phase-separated (Ga,Fe)N containing $γ$'-Ga$_y$Fe$_{4-y}$N (0\\,$<$\\,y\\,$<$1) nanocrystals (NCs) is studied in the temperature range between 2\\,K and 300\\,K. The evolution of the resistivity and of the magnetoresistance (MR) as a function of temperature points at two conduction mechanisms: namely a conventional Arrhenius-type one down to 50\\,K, and Mott variable range hopping at lower temperatures, where the spin-polarized current is transported between NCs in a regime in which phonon-scattering effects are not dominant. Below 25\\,K, the MR shows a hysteretic contribution at magnetic fields $<$1\\,T and proportional to the coercive field. Anisotropic magnetoresistance with values one order of magnitude greater than those previously reported for $γ$'-Fe$_4$N thin films over the whole considered temperature range, confirms that the observed MR in these layers is determined by the embedded nanocrystals.",
+      "url": "http://arxiv.org/abs/1809.08894v1",
+      "pdf_url": "https://arxiv.org/pdf/1809.08894v1",
+      "authors": [
+        "A. Navarro-Quezada",
+        "M. Aiglinger",
+        "B. Faina",
+        "K. Gas",
+        "M. Matzer",
+        "Tian Li",
+        "R. Adhikari",
+        "M. Sawicki",
+        "A. Bonanni"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on developing a generative model for inverse design of porous materials (MOFs) based on target properties like gas adsorption and thermal stability. In contrast, the paper investigates the magnetotransport mechanisms in phase-separated (Ga,Fe)N containing nanocrystals, aiming to understand conduction mechanisms and magnetoresistance. These are fundamentally different research problems with no overlap in goals or methodology. | Method: The user's research idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design of MOFs. The evaluated paper focuses on experimental magnetotransport studies in phase-separated (Ga,Fe)N nanocrystals, investigating conduction mechanisms and magnetoresistance. There is no methodological overlap; the paper uses experimental material characterization and measurement techniques, while the idea proposes a computational generative AI approach. | Domain: The user's research idea focuses on generative models for porous material design, specifically MOFs, for gas adsorption and thermal stability. The paper, however, investigates magnetotransport properties in phase-separated (Ga,Fe)N nanocrystals for spintronics applications. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on developing a generative model for inverse design of porous materials (MOFs) using latent diffusion processes conditioned on properties like gas adsorption and thermal stability. In contrast, the paper investigates the magnetotransport mechanisms in phase-separated (Ga,Fe)N containing nanocrystals, analyzing resistivity and magnetoresistance, which are unrelated contributions addressing different scientific gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_06",
+      "source": "arxiv",
+      "source_id": "1703.05526v1",
+      "arxiv_id": "1703.05526v1",
+      "title": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+      "abstract": "Outstanding functional tunability underpinning metal-organic framework (MOF) confers a versatile platform to contrive next-generation chemical sensors, optoelectronics, energy harvesters and converters. We report a rare exemplar of a porous 2D nanosheet material, constructed from an extended 3D MOF structure. We develop a rapid supramolecular self-assembly methodology at ambient conditions, to synthesize readily-exfoliatable MOF nanosheets, functionalized in situ by adopting the Guest@MOF (Host) strategy. Nanoscale confinement of light-emitting molecules (as functional guest) inside the MOF pores generates unusual combination of optical, electronic, and chemical properties, arising from the strong host-guest coupling effects. We show highly promising photonics based chemical sensing opened up by the new Guest@MOF composite systems. By harnessing host-guest optochemical interactions of functionalized MOF nanosheets, we have accomplished detection of an extensive range of volatile organic compounds (VOCs) and small molecules important for many practical applications.",
+      "url": "http://arxiv.org/abs/1703.05526v1",
+      "pdf_url": "https://arxiv.org/pdf/1703.05526v1",
+      "authors": [
+        "Abhijeet K. Chaudhari",
+        "Ha Jin Kim",
+        "Intaek Han",
+        "Jin-Chong Tan"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on developing a generative model for inverse design of MOFs based on target properties (gas adsorption, thermal stability) using latent diffusion on voxelized representations. The paper, in contrast, addresses the problem of synthesizing and characterizing optochemically responsive 2D nanosheets from 3D MOFs for chemical sensing applications, as evidenced by its abstract and sections on 'Optochemical sensing applications'. These are fundamentally different research problems. | Method: The user's research idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design of MOFs. The paper, however, focuses on the synthesis and characterization of 2D MOF nanosheets and their application in optochemical sensing, using experimental methods like supramolecular self-assembly, SEM, TEM, AFM, PXRD, TGA, and Raman Spectroscopy. There is no methodological overlap in terms of generative modeling or AI-driven design. | Domain: Both the research idea and the paper are within the broad domain of Metal-Organic Frameworks (MOFs). The user's idea focuses on generative design of MOFs for specific properties (gas adsorption, thermal stability), while the paper focuses on synthesizing and characterizing MOF nanosheets for optochemical sensing applications. This represents the same discipline (materials science/chemistry) but different sub-areas or application targets within MOFs. | Contribution: The user's research idea proposes a generative model for inverse design of MOFs based on latent diffusion and specific properties (gas adsorption, thermal stability). The paper, in contrast, focuses on the synthesis and characterization of 2D MOF nanosheets for optochemical sensing applications, investigating their host-guest interactions and material properties. The contributions are unrelated, addressing different research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_11",
+      "source": "arxiv",
+      "source_id": "2011.07088v1",
+      "arxiv_id": "2011.07088v1",
+      "title": "Metal-organic Frameworks: Possible New Two-Dimensional Magnetic and Topological materials",
+      "abstract": "Finding new two-dimensional (2D) materials with novel quantum properties is highly desirable for technological innovations. In this work, we studied a series of metal-organic frameworks (MOFs) with different metal cores and discovered various attractive properties, such as room-temperature magnetic ordering, strong perpendicular magnetic anisotropy, huge topological band gap (>200meV), and excellent spin-filtering performance. As many MOFs have been successfully synthesized in experiments, our results suggest realistic new 2D functional materials for the design of spintronic nanodevices.",
+      "url": "http://arxiv.org/abs/2011.07088v1",
+      "pdf_url": "https://arxiv.org/pdf/2011.07088v1",
+      "authors": [
+        "Jie Li",
+        "Ruqian Wu"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "physics.comp-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on developing a generative model for inverse design of MOFs based on target properties (gas adsorption capacity, thermal stability). The paper, however, focuses on theoretically predicting new 2D MOFs with specific quantum properties like magnetic ordering and topological features, and evaluating their thermal and dynamic stability using ab-initio calculations. While both involve MOFs and property evaluation, the paper's problem is material discovery and characterization, not generative inverse design. | Method: The user's research idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design of MOFs, conditioned on gas adsorption and thermal stability. The paper, however, uses ab-initio calculations (DFT, phonon, molecular dynamics simulations) to predict and characterize the magnetic and topological properties of specific 2D MOFs, focusing on their thermal and dynamic stability, magnetic ordering, and topological band gaps. There is no methodological overlap in terms of generative modeling or latent diffusion processes. | Domain: Both the research idea and the paper are within the domain of materials science, specifically focusing on Metal-Organic Frameworks (MOFs). However, the application targets differ: the user's idea is about inverse design of MOFs for gas adsorption and thermal stability, while the paper focuses on predicting MOFs with novel quantum properties like magnetism and topological features for spintronic nanodevices. | Contribution: The user's research idea focuses on developing a generative model for inverse design of MOFs based on target properties (gas adsorption capacity, thermal stability) using a latent diffusion process on voxelized unit cell representations. In contrast, the paper evaluates existing MOFs for their potential as 2D magnetic and topological materials, using ab-initio calculations and molecular dynamics simulations to predict properties like magnetic ordering, topological band gaps, and thermal stability. The paper does not propose or implement any generative model or inverse design methodology.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Inverse Design of MOFs using Machine Learning",
+        "similarity": 0.9,
+        "description": "Numerous research papers and projects focus on using various machine learning techniques (including generative models) for the inverse design of MOFs and other porous materials, targeting specific properties like gas adsorption, stability, and selectivity. This often involves representing materials in a way suitable for ML models (e.g., graphs, descriptors, or voxelized structures)."
+      },
+      {
+        "name": "Generative Models for Material Design (e.g., GANs, VAEs, Diffusion Models)",
+        "similarity": 0.85,
+        "description": "The application of generative models, including latent diffusion models, for designing new molecules and materials with desired properties is a very active research area. While not always specifically for MOFs or voxelized unit cells, the underlying methodology of using generative AI for inverse material design is well-established."
+      },
+      {
+        "name": "Voxelized Representations in Material Science",
+        "similarity": 0.75,
+        "description": "Voxelized representations are a known method for representing 3D structures in materials science, particularly for simulations and for input into certain types of machine learning models."
+      }
+    ],
+    "assessment": "The core idea of using a generative model (specifically a latent diffusion process) for the inverse design of porous materials like MOFs, conditioned on target properties (gas adsorption, thermal stability), is a very active and well-established area of research in computational materials science and machine learning for materials. While the specific combination of 'latent diffusion process' on 'voxelized unit cell representations' for 'MOF inverse design conditioned on gas adsorption and thermal stability' might not be an exact one-to-one match for a single published paper, all individual components and the overall approach are highly similar to existing research efforts. Many groups are exploring various generative AI architectures (GANs, VAEs, diffusion models) and material representations (graphs, descriptors, voxel grids) for inverse design of MOFs and other functional materials.",
+    "novelty_aspects": [
+      "The specific architecture of the latent diffusion model tailored for voxelized unit cells of MOFs might have unique implementation details.",
+      "The precise combination of conditioning targets (gas adsorption capacity AND thermal stability) within this specific generative framework could offer a nuanced contribution if the integration is particularly effective.",
+      "The specific dataset and training methodology for this particular model might be novel."
+    ],
+    "recommendation": "While the overarching concept is not novel, there is still room for novel contributions in the specific implementation. Focus on demonstrating superior performance (e.g., higher design success rate, better property prediction accuracy, diversity of generated structures, computational efficiency) compared to existing inverse design methods for MOFs. Clearly articulate the unique aspects of your model's architecture, training, or the specific challenges it addresses more effectively than prior work. A thorough literature review of recent advances in generative AI for MOF design is crucial to identify specific gaps."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Inverse Design of MOFs using Machine Learning** (similarity: 90%).\n\n*The core idea of using a generative model (specifically a latent diffusion process) for the inverse design of porous materials like MOFs, conditioned on target properties (gas adsorption, thermal stability), is a very active and well-established area of research in computational materials science and machine learning for materials. While the specific combination of 'latent diffusion process' on 'voxelized unit cell representations' for 'MOF inverse design conditioned on gas adsorption and thermal stability' might not be an exact one-to-one match for a single published paper, all individual components and the overall approach are highly similar to existing research efforts. Many groups are exploring various generative AI architectures (GANs, VAEs, diffusion models) and material representations (graphs, descriptors, voxel grids) for inverse design of MOFs and other functional materials.*\n\n**Recommendation:** While the overarching concept is not novel, there is still room for novel contributions in the specific implementation. Focus on demonstrating superior performance (e.g., higher design success rate, better property prediction accuracy, diversity of generated structures, computational efficiency) compared to existing inverse design methods for MOFs. Clearly articulate the unique aspects of your model's architecture, training, or the specific challenges it addresses more effectively than prior work. A thorough literature review of recent advances in generative AI for MOF design is crucial to identify specific gaps.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 119,
+    "unique_after_dedup": 119,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 391,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0343,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0322,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+  "enriched_idea": "RESEARCH IDEA:\nA generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_31",
+      "paper_title": "Interfacial thermal resistance between porous layers: impact on thermal conductivity of a multilayered porous structure",
+      "arxiv_id": "1809.09692v2",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on developing a generative model for inverse design of porous materials (MOFs) based on target properties like gas adsorption and thermal stability. In contrast, the paper investigates the impact of interfacial thermal resistance on the thermal conductivity of multilayered porous silicon nanostructures, aiming to experimentally evaluate this resistance. These are fundamentally different research problems. | Method: The user's research idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design of MOFs, conditioned on gas adsorption capacity and thermal stability. The paper, however, focuses on experimental evaluation and simulation of interfacial thermal resistance in multilayered porous silicon nanostructures using a photoacoustic technique and a one-dimensional model for thermal conductivity evaluation. There is no methodological overlap between these approaches. | Domain: Both the research idea and the paper are within the domain of materials science, specifically focusing on porous materials. However, the research idea is about generative design of MOFs for gas adsorption and thermal stability, while the paper investigates thermal transport and interfacial thermal resistance in multilayered porous silicon nanostructures. They share the general domain of porous materials but target different sub-areas and applications. | Contribution: The user's research idea proposes a generative model for inverse design of MOFs based on gas adsorption capacity and thermal stability using a latent diffusion process. In contrast, the paper focuses on experimentally evaluating interfacial thermal resistance in multilayered porous silicon nanostructures and its impact on thermal transport. The contributions are entirely different, addressing distinct research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.05,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_31",
+              "paper_title": "Interfacial thermal resistance between porous layers: impact on thermal conductivity of a multilayered porous structure",
+              "heading": "ABSTRACT",
+              "text_snippet": "Features of thermal transport in multilayered porous silicon nanostructures are considered.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper discuss 'porous' materials, indicating a shared general domain of materials science, specifically concerning porous structures.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_31",
+              "paper_title": "Interfacial thermal resistance between porous layers: impact on thermal conductivity of a multilayered porous structure",
+              "heading": "Keywords",
+              "text_snippet": "Interfacial thermal resistance - porous silicon - thermal transport - photothermal technique",
+              "similarity": 0.5,
+              "reason": "The keyword 'porous silicon' from the paper aligns with the user's mention of 'porous material design', indicating a shared high-level domain of porous materials.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 7373,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1809.09692v2"
+    },
+    {
+      "paper_id": "paper_33",
+      "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+      "arxiv_id": "2507.04493v1",
+      "paper_similarity_score": 0.3375,
+      "reason": "Problem: The user's research idea focuses on generative inverse design of MOFs using a latent diffusion model conditioned on specific properties (gas adsorption capacity and thermal stability). The paper, while also addressing MOF material properties, focuses on predicting MOF characteristics using comparative analysis of various machine learning models (Random Forest, XGBoost, etc.) to establish structure-property relationships. While both are in the broad area of MOF material design and property prediction using machine learning, the paper's problem is predictive modeling, whereas the user's idea is generative inverse design. | Method: The user's idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design. The paper, however, focuses on comparative analysis of discriminative machine learning models (Random Forest, XGBoost, LightGBM, SVM, Neural Network) for predicting MOF properties. While both use machine learning for MOFs, the core methodologies (generative diffusion vs. discriminative prediction) are fundamentally different, placing them in a broad category of 'machine learning' but with distinct approaches. | Domain: Both the user's research idea and the paper operate within the domain of Metal-Organic Frameworks (MOFs) and their design/prediction. The paper explicitly mentions 'MOF material design and property prediction' and references a 'reverse design method of MOF materials based on deep generation model' in its literature review, which aligns closely with the user's idea of inverse design for MOFs. While the paper focuses on comparative analysis of predictive models, it acknowledges and discusses generative design, indicating a closely related application target within the same sub-area of MOF materials science. | Contribution: The user's idea proposes a generative model using latent diffusion for inverse design of MOFs conditioned on specific properties (gas adsorption capacity, thermal stability). The paper, however, focuses on a comparative analysis of discriminative machine learning models (Random Forest, XGBoost, etc.) for predicting MOF properties, not generating new designs. While both relate to MOFs and machine learning, the core contribution of generative inverse design in the user's idea is distinct from the predictive modeling in the paper.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.5499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+              "heading": "Introduction",
+              "text_snippet": "However, the development and application of MOF materials are still facing great challenges. First of all, the structure-performance relationship of MOF materials is extremely complex, and it is difficult for traditional experimental methods to predict the properties of new MOF materials quickly and accurately. Secondly, the design space of MOF materials is huge, and it is time-consuming and expensive to screen and optimize them only by experimental means.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper acknowledge the challenge of MOF material design and property prediction due to complexity and vast design space. The user's idea proposes inverse design to address this, while the paper focuses on predicting properties.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "In the aspect of Qualcomm screening, Yao et al . (2021) reported on Nature Machine Intelligence a reverse design method of MOF materials based on deep generation model, which can quickly predict MOF structures with target properties.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'generative model' and 'latent diffusion process' for 'inverse design of MOFs'. The paper mentions a 'reverse design method of MOF materials based on deep generation model' in its literature review, indicating a shared high-level methodological approach (generative models for inverse design). However, the specific 'latent diffusion process on voxelized unit cell representations' is not mentioned in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+              "heading": "ABSTRACT",
+              "text_snippet": "Metal-organic frameworks (MOFs) have emerged as promising materials for various applications due to their unique structural properties and versatile functionalities. This study presents a comprehensive investigation of machine learning approaches for predicting MOF material properties.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly focused on Metal-Organic Frameworks (MOFs) as the material domain.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+              "heading": "Introduction",
+              "text_snippet": "Metal-Organic Frameworks, MOFs), as a new kind of porous crystal materials, have attracted much attention because of its unique structural characteristics and excellent properties. These materials are formed by the coordination bonds between metal ions or metal clusters and organic ligands, which have highly adjustable pore size distribution, super-large specific surface area and rich functional modification sites, and show great application potential in gas adsorption and separation, catalysis, sensing, drug delivery and other fields.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly focused on Metal-Organic Frameworks (MOFs) as the material domain, specifically mentioning their porous nature and application in gas adsorption.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "MOF material design and property prediction.Keywords ： Metal-Organic Frameworks (MOFs); Machine Learning; Random Forest; Materials Design",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly focused on Metal-Organic Frameworks (MOFs) as the material domain.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "In the aspect of Qualcomm screening, Yao et al . (2021) reported on Nature Machine Intelligence a reverse design method of MOF materials based on deep generation model, which can quickly predict MOF structures with target properties.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes 'inverse design of MOFs' using a generative model. The paper cites existing work on 'reverse design method of MOF materials based on deep generation model', indicating that the concept of inverse design using generative models for MOFs is an established contribution in the field, which the user's idea aims to build upon with a specific method.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "The MOFSimplify model developed by them can effectively predict the thermodynamic stability of MOF materials and provide important reference for material design.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'thermal stability' as a conditioning factor for design. The paper cites work on predicting 'thermodynamic stability of MOF materials', showing that predicting stability is a relevant contribution in the field, which the user's idea incorporates into its inverse design goal.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "The model can predict the adsorption behavior of various gas molecules in MOF materials at the same time, which provides important reference for the practical application of materials.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'target gas adsorption capacity' as a conditioning factor for design. The paper cites work on predicting 'multicomponent adsorption properties of MOF materials' and 'gas separation performance', showing that predicting adsorption is a relevant contribution in the field, which the user's idea incorporates into its inverse design goal.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 13245,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2507.04493v1"
+    },
+    {
+      "paper_id": "paper_25",
+      "paper_title": "Magnetotransport in phase-separated (Ga,Fe)N with $γ$'-Ga$_y$Fe$_{4-y}$N nanocrystals",
+      "arxiv_id": "1809.08894v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on developing a generative model for inverse design of porous materials (MOFs) based on target properties like gas adsorption and thermal stability. In contrast, the paper investigates the magnetotransport mechanisms in phase-separated (Ga,Fe)N containing nanocrystals, aiming to understand conduction mechanisms and magnetoresistance. These are fundamentally different research problems with no overlap in goals or methodology. | Method: The user's research idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design of MOFs. The evaluated paper focuses on experimental magnetotransport studies in phase-separated (Ga,Fe)N nanocrystals, investigating conduction mechanisms and magnetoresistance. There is no methodological overlap; the paper uses experimental material characterization and measurement techniques, while the idea proposes a computational generative AI approach. | Domain: The user's research idea focuses on generative models for porous material design, specifically MOFs, for gas adsorption and thermal stability. The paper, however, investigates magnetotransport properties in phase-separated (Ga,Fe)N nanocrystals for spintronics applications. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on developing a generative model for inverse design of porous materials (MOFs) using latent diffusion processes conditioned on properties like gas adsorption and thermal stability. In contrast, the paper investigates the magnetotransport mechanisms in phase-separated (Ga,Fe)N containing nanocrystals, analyzing resistivity and magnetoresistance, which are unrelated contributions addressing different scientific gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 15351,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1809.08894v1"
+    },
+    {
+      "paper_id": "paper_06",
+      "paper_title": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+      "arxiv_id": "1703.05526v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on developing a generative model for inverse design of MOFs based on target properties (gas adsorption, thermal stability) using latent diffusion on voxelized representations. The paper, in contrast, addresses the problem of synthesizing and characterizing optochemically responsive 2D nanosheets from 3D MOFs for chemical sensing applications, as evidenced by its abstract and sections on 'Optochemical sensing applications'. These are fundamentally different research problems. | Method: The user's research idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design of MOFs. The paper, however, focuses on the synthesis and characterization of 2D MOF nanosheets and their application in optochemical sensing, using experimental methods like supramolecular self-assembly, SEM, TEM, AFM, PXRD, TGA, and Raman Spectroscopy. There is no methodological overlap in terms of generative modeling or AI-driven design. | Domain: Both the research idea and the paper are within the broad domain of Metal-Organic Frameworks (MOFs). The user's idea focuses on generative design of MOFs for specific properties (gas adsorption, thermal stability), while the paper focuses on synthesizing and characterizing MOF nanosheets for optochemical sensing applications. This represents the same discipline (materials science/chemistry) but different sub-areas or application targets within MOFs. | Contribution: The user's research idea proposes a generative model for inverse design of MOFs based on latent diffusion and specific properties (gas adsorption, thermal stability). The paper, in contrast, focuses on the synthesis and characterization of 2D MOF nanosheets for optochemical sensing applications, investigating their host-guest interactions and material properties. The contributions are unrelated, addressing different research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.2625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_06",
+              "paper_title": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+              "heading": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+              "text_snippet": "There is recent intensifying interest in an emergent class of 2D nanosheets constructed by downsizing 3D metal-organic frameworks (MOFs) [3a,7] , which are inorganic-organic (hybrid) structures possessing an enormous physicochemical  and structural versatility  .",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are interested in Metal-Organic Frameworks (MOFs) and their design/properties. The paper focuses on understanding and synthesizing MOFs with specific properties, while the user proposes a generative model for MOF design.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_06",
+              "paper_title": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+              "heading": "ABSTRACT",
+              "text_snippet": "Outstanding functional tunability underpinning metal-organic framework (MOF) confers a versatile platform to contrive next-generation chemical sensors, optoelectronics, energy harvesters and converters.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are firmly within the domain of Metal-Organic Frameworks (MOFs) and their application in materials science, particularly for functional materials.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_06",
+              "paper_title": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+              "heading": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+              "text_snippet": "There is recent intensifying interest in an emergent class of 2D nanosheets constructed by downsizing 3D metal-organic frameworks (MOFs) [3a,7] , which are inorganic-organic (hybrid) structures possessing an enormous physicochemical  and structural versatility  .",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are firmly within the domain of Metal-Organic Frameworks (MOFs) and their application in materials science, particularly for functional materials.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_06",
+              "paper_title": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+              "heading": "Table of Contents",
+              "text_snippet": "7 | Thermogravimetric Analysis (TGA)............................................................................................. 22",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'thermal stability' as a conditioning factor for MOF design, and the paper includes 'Thermogravimetric Analysis (TGA)' which is a method to assess thermal stability of materials, indicating a shared domain interest in material properties.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_06",
+              "paper_title": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+              "heading": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+              "text_snippet": "There is recent intensifying interest in an emergent class of 2D nanosheets constructed by downsizing 3D metal-organic frameworks (MOFs) [3a,7] , which are inorganic-organic (hybrid) structures possessing an enormous physicochemical  and structural versatility  .",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes 'inverse design of MOFs' which aims to create MOFs with desired properties. The paper contributes to understanding and synthesizing MOFs with specific functional tunability and properties, which is a step towards the broader goal of designing functional MOFs, but not inverse design via a generative model.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 8810,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1703.05526v1"
+    },
+    {
+      "paper_id": "paper_11",
+      "paper_title": "Metal-organic Frameworks: Possible New Two-Dimensional Magnetic and Topological materials",
+      "arxiv_id": "2011.07088v1",
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on developing a generative model for inverse design of MOFs based on target properties (gas adsorption capacity, thermal stability). The paper, however, focuses on theoretically predicting new 2D MOFs with specific quantum properties like magnetic ordering and topological features, and evaluating their thermal and dynamic stability using ab-initio calculations. While both involve MOFs and property evaluation, the paper's problem is material discovery and characterization, not generative inverse design. | Method: The user's research idea proposes a generative model using a latent diffusion process on voxelized unit cell representations for inverse design of MOFs, conditioned on gas adsorption and thermal stability. The paper, however, uses ab-initio calculations (DFT, phonon, molecular dynamics simulations) to predict and characterize the magnetic and topological properties of specific 2D MOFs, focusing on their thermal and dynamic stability, magnetic ordering, and topological band gaps. There is no methodological overlap in terms of generative modeling or latent diffusion processes. | Domain: Both the research idea and the paper are within the domain of materials science, specifically focusing on Metal-Organic Frameworks (MOFs). However, the application targets differ: the user's idea is about inverse design of MOFs for gas adsorption and thermal stability, while the paper focuses on predicting MOFs with novel quantum properties like magnetism and topological features for spintronic nanodevices. | Contribution: The user's research idea focuses on developing a generative model for inverse design of MOFs based on target properties (gas adsorption capacity, thermal stability) using a latent diffusion process on voxelized unit cell representations. In contrast, the paper evaluates existing MOFs for their potential as 2D magnetic and topological materials, using ab-initio calculations and molecular dynamics simulations to predict properties like magnetic ordering, topological band gaps, and thermal stability. The paper does not propose or implement any generative model or inverse design methodology.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.05,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Metal-organic Frameworks: Possible New Two-Dimensional Magnetic and Topological materials",
+              "heading": "Abstract",
+              "text_snippet": "In this work, we studied a series of metal-organic frameworks (MOFs) with different metal cores and discovered various attractive properties, such as room-temperature magnetic ordering, strong perpendicular magnetic anisotropy, huge topological band gap (>200meV), and excellent spin-filtering performance.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper discuss Metal-Organic Frameworks (MOFs) as the material domain of interest.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Metal-organic Frameworks: Possible New Two-Dimensional Magnetic and Topological materials",
+              "heading": "Introduction",
+              "text_snippet": "Among potential 2D materials in this realm, metal-organic frameworks (MOFs) are particularly attractive as they have various advantages such as easy fabrication and manipulation, high mechanical flexibility, and low cost.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper focus on Metal-Organic Frameworks (MOFs) as the material class.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Metal-organic Frameworks: Possible New Two-Dimensional Magnetic and Topological materials",
+              "heading": "Results and discussion",
+              "text_snippet": "From our DFT calculations, only (V, Cr, Mn, Fe)-Hex-Ⅰ(Ⅱ) MOFs are magnetic, as shown in Fig. S3 in the Supplementary Information.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are concerned with Metal-Organic Frameworks (MOFs).",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 25660,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2011.07088v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 98,
+    "global_similarity_score": 0.1125,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "medium",
+          "domain_similarity": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_33",
+            "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+            "heading": "Introduction",
+            "text_snippet": "However, the development and application of MOF materials are still facing great challenges. First of all, the structure-performance relationship of MOF materials is extremely complex, and it is difficult for traditional experimental methods to predict the properties of new MOF materials quickly and accurately. Secondly, the design space of MOF materials is huge, and it is time-consuming and expensive to screen and optimize them only by experimental means.",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper acknowledge the challenge of MOF material design and property prediction due to complexity and vast design space. The user's idea proposes inverse design to address this, while the paper focuses on predicting properties.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_33",
+            "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+            "heading": "RELEVANT SECTIONS",
+            "text_snippet": "In the aspect of Qualcomm screening, Yao et al . (2021) reported on Nature Machine Intelligence a reverse design method of MOF materials based on deep generation model, which can quickly predict MOF structures with target properties.",
+            "similarity": 0.5,
+            "reason": "The user's idea proposes a 'generative model' and 'latent diffusion process' for 'inverse design of MOFs'. The paper mentions a 'reverse design method of MOF materials based on deep generation model' in its literature review, indicating a shared high-level methodological approach (generative models for inverse design). However, the specific 'latent diffusion process on voxelized unit cell representations' is not mentioned in the paper.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_33",
+            "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+            "heading": "ABSTRACT",
+            "text_snippet": "Metal-organic frameworks (MOFs) have emerged as promising materials for various applications due to their unique structural properties and versatile functionalities. This study presents a comprehensive investigation of machine learning approaches for predicting MOF material properties.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are explicitly focused on Metal-Organic Frameworks (MOFs) as the material domain.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_33",
+            "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+            "heading": "RELEVANT SECTIONS",
+            "text_snippet": "In the aspect of Qualcomm screening, Yao et al . (2021) reported on Nature Machine Intelligence a reverse design method of MOF materials based on deep generation model, which can quickly predict MOF structures with target properties.",
+            "similarity": 0.5,
+            "reason": "The user's idea proposes 'inverse design of MOFs' using a generative model. The paper cites existing work on 'reverse design method of MOF materials based on deep generation model', indicating that the concept of inverse design using generative models for MOFs is an established contribution in the field, which the user's idea aims to build upon with a specific method.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea demonstrates high originality, particularly in its methodology and proposed contributions. While there is moderate domain overlap with existing work on Metal-Organic Frameworks, the specific problem and approach appear novel.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.38,
+      "method_similarity": 0.16999999999999998,
+      "domain_similarity": 0.63,
+      "contribution_similarity": 0.16999999999999998
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0343,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0322,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 184.58176517486572,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_31",
+        "paper_title": "Interfacial thermal resistance between porous layers: impact on thermal conductivity of a multilayered porous structure",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_33",
+        "paper_title": "Machine Learning-Based Prediction of Metal-Organic Framework Materials: A Comparative Analysis of Multiple Models",
+        "paper_similarity": 0.3375,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_25",
+        "paper_title": "Magnetotransport in phase-separated (Ga,Fe)N with $γ$'-Ga$_y$Fe$_{4-y}$N nanocrystals",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_06",
+        "paper_title": "Optochemically Responsive 2D Nanosheets of a 3D Metal-Organic Framework Material",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_11",
+        "paper_title": "Metal-organic Frameworks: Possible New Two-Dimensional Magnetic and Topological materials",
+        "paper_similarity": 0.125,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 119
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 119,
+    "after_dedup": 119,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

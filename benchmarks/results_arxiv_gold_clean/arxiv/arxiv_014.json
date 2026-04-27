@@ -1,0 +1,708 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "f4a44f47089e",
+    "status": "completed"
+  },
+  "originality_score": 99,
+  "global_similarity_score": 0.034999999999999996,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer trained on malware corpora rather than using standard BPE tokenization, to better capture executable structure.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "medium",
+        "domain_similarity": "low",
+        "contribution_similarity": "high"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_32",
+          "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+          "heading": "ABSTRACT",
+          "text_snippet": "Our work addresses these shortcomings with MalwareDNA: an advanced dimensionality reduction and feature extraction framework. We demonstrate stable task performance under class imbalance for the following tasks: malware family classification and novel malware detection with a trade-off in increased abstention or reject-option rate.",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper address malware classification. The user's idea focuses on improving feature capture for classification, while the paper focuses on classification under class imbalance and novel malware detection. They share the broad problem of improving malware classification.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_32",
+          "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+          "heading": "RELEVANT WORK",
+          "text_snippet": "Raff et al. introduced a deep learning architecture named MalConv, aiming to classify malware directly based on the entire raw byte-sequences of the binary . Kumar et al. demonstrated that XGBoost is an effective model for classifying Windows PE malware using the EMBER-2018 dataset , achieved through lowresource feature selection .",
+          "similarity": 0.5,
+          "reason": "The user's idea mentions 'transformer-based malware classification model' and 'byte n-gram tokenizer'. The paper mentions 'deep learning-based ML methods for malware classification' and specifically 'MalConv, aiming to classify malware directly based on the entire raw byte-sequences'. This indicates a shared high-level approach of using deep learning on byte sequences for malware classification, although the specific tokenizer and model architecture (transformer vs. MalConv) differ.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_32",
+          "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+          "heading": "ABSTRACT",
+          "text_snippet": "National security is threatened by malware, which remains one of the most dangerous and costly cyber threats. As of last year, researchers reported 1.3 billion known malware specimens, motivating the use of data-driven machine learning (ML) methods for analysis.",
+          "similarity": 1.0,
+          "reason": "Both the user's research idea and the paper are squarely focused on 'malware classification' and the analysis of 'malware specimens'. The domain is identical.",
+          "criterion": "domain_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea demonstrates high originality, particularly in its proposed method and contribution, with no direct overlaps found. While the application domain shows some existing work, your unique approach differentiates it significantly.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.33999999999999997,
+    "method_similarity": 0.0,
+    "domain_similarity": 0.6799999999999999,
+    "contribution_similarity": 0.0
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0278,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0254,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0022,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 208.5844268798828,
+  "papers": [
+    {
+      "paper_id": "paper_19",
+      "source": "arxiv",
+      "source_id": "2103.08436v1",
+      "arxiv_id": "2103.08436v1",
+      "title": "Formal Modelling and Security Analysis of Bitcoin's Payment Protocol",
+      "abstract": "The Payment Protocol standard BIP70, specifying how payments in Bitcoin are performed by merchants and customers, is supported by the largest payment processors and most widely-used wallets. The protocol has been shown to be vulnerable to refund attacks due to lack of authentication of the refund addresses. In this paper, we give the first formal model of the protocol and formalise the refund address security goals for the protocol, namely refund address authentication and secrecy. The formal model utilises communication channels as abstractions conveying security goals on which the protocol modeller and verifier can rely. We analyse the Payment Protocol confirming that it is vulnerable to an attack violating the refund address authentication security goal. Moreover, we present a concrete protocol revision proposal supporting the merchant with publicly verifiable evidence that can mitigate the attack. We verify that the revised protocol meets the security goals defined for the refund address. Hence, we demonstrate that the revised protocol is secure, not only against the existing attacks, but also against any further attacks violating the formalised security goals.",
+      "url": "http://arxiv.org/abs/2103.08436v1",
+      "pdf_url": "https://arxiv.org/pdf/2103.08436v1",
+      "authors": [
+        "Paolo Modesti",
+        "Siamak F. Shahandashti",
+        "Patrick McCorry",
+        "Feng Hao"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.FL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving malware classification using transformer models and specialized tokenization for executable structures. In contrast, the paper addresses the formal modeling and security analysis of Bitcoin's payment protocol (BIP70) to identify and mitigate refund attacks. These are completely unrelated research problems from different domains (malware analysis vs. cryptocurrency security). | Method: The user's research idea proposes augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. The paper, 'Formal Modelling and Security Analysis of Bitcoin's Payment Protocol,' focuses on formal modeling and security analysis of cryptographic protocols using tools like AnBx and OFMC. There is no methodological overlap between these two distinct research areas. | Domain: The user's research idea is in the domain of malware classification using transformer models and byte n-gram tokenization. The paper, 'Formal Modelling and Security Analysis of Bitcoin's Payment Protocol,' is focused on the formal modeling and security analysis of cryptocurrency payment protocols. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on augmenting transformer-based malware classification models with domain-specific byte n-gram tokenizers. In contrast, the paper 'Formal Modelling and Security Analysis of Bitcoin's Payment Protocol' is concerned with formal modeling and security analysis of a cryptocurrency payment protocol. There is no overlap in the claimed contributions or methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_32",
+      "source": "arxiv",
+      "source_id": "2403.02546v1",
+      "arxiv_id": "2403.02546v1",
+      "title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+      "abstract": "National security is threatened by malware, which remains one of the most dangerous and costly cyber threats. As of last year, researchers reported 1.3 billion known malware specimens, motivating the use of data-driven machine learning (ML) methods for analysis. However, shortcomings in existing ML approaches hinder their mass adoption. These challenges include detection of novel malware and the ability to perform malware classification in the face of class imbalance: a situation where malware families are not equally represented in the data. Our work addresses these shortcomings with MalwareDNA: an advanced dimensionality reduction and feature extraction framework. We demonstrate stable task performance under class imbalance for the following tasks: malware family classification and novel malware detection with a trade-off in increased abstention or reject-option rate.",
+      "url": "http://arxiv.org/abs/2403.02546v1",
+      "pdf_url": "https://arxiv.org/pdf/2403.02546v1",
+      "authors": [
+        "Maksim E. Eren",
+        "Ryan Barron",
+        "Manish Bhattarai",
+        "Selma Wanna",
+        "Nicholas Solovyev",
+        "Kim Rasmussen",
+        "Boian S. Alexandrov",
+        "Charles Nicholas"
+      ],
+      "categories": [
+        "cs.CR"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.175,
+      "reason": "Problem: The user's idea focuses on augmenting transformer models with domain-specific byte n-gram tokenization for malware classification to better capture executable structure. The paper, 'Catch'em all', addresses malware family classification and novel malware detection, particularly under class imbalance, using a dimensionality reduction and feature extraction framework (MalwareDNA) based on hierarchical nonnegative matrix factorization. While both works are in the broad area of malware classification, the specific problem of improving tokenization for transformer models is not directly addressed in the paper, which instead focuses on different ML techniques and challenges like class imbalance and novel malware detection. | Method: The user's research idea focuses on augmenting a transformer-based model with a domain-specific byte n-gram tokenizer. The paper, however, proposes MalwareDNA, an advanced dimensionality reduction and feature extraction framework using hierarchical nonnegative matrix factorization (NMF) and semi-supervised learning. There is no mention of transformer models, byte n-gram tokenization, or BPE tokenization in the paper's methodology. | Domain: Both the user's research idea and the paper operate within the specific application domain of malware classification. The paper explicitly states its focus on 'malware family classification' and 'detection of novel malware' using 'Windows Portable Executable (PE) format malware specimens', which directly aligns with the user's idea of a malware classification model. Both are concerned with analyzing executable structures for security purposes. | Contribution: The user's research idea focuses on augmenting a transformer-based model with a domain-specific byte n-gram tokenizer for malware classification. In contrast, the paper 'Catch'em all' introduces MalwareDNA, a semi-supervised method using hierarchical nonnegative matrix factorization (NMF) for malware family classification and novel malware detection, addressing class imbalance. The methodologies and specific contributions are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_14",
+      "source": "arxiv",
+      "source_id": "1711.00146v1",
+      "arxiv_id": "1711.00146v1",
+      "title": "A multitask deep learning model for real-time deployment in embedded systems",
+      "abstract": "We propose an approach to Multitask Learning (MTL) to make deep learning models faster and lighter for applications in which multiple tasks need to be solved simultaneously, which is particularly useful in embedded, real-time systems. We develop a multitask model for both Object Detection and Semantic Segmentation and analyze the challenges that appear during its training. Our multitask network is 1.6x faster, lighter and uses less memory than deploying the single-task models in parallel. We conclude that MTL has the potential to give superior performance in exchange of a more complex training process that introduces challenges not present in single-task models.",
+      "url": "http://arxiv.org/abs/1711.00146v1",
+      "pdf_url": "https://arxiv.org/pdf/1711.00146v1",
+      "authors": [
+        "Miquel Martí",
+        "Atsuto Maki"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving malware classification using a domain-specific tokenizer for transformer models. The paper, however, addresses the problem of making deep learning models faster and lighter for embedded systems by using multitask learning for object detection and semantic segmentation. These are fundamentally different research problems with no overlap in domain, methodology, or specific goals. | Method: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. The paper, however, proposes a multitask deep learning model for object detection and semantic segmentation using a ResNet-50 base network. There is no mention of transformers, malware classification, or byte n-gram tokenization in the paper, indicating completely different techniques and applications. | Domain: The user's research idea is in the domain of malware classification, specifically augmenting transformer models with domain-specific tokenization for executable structure. The paper, however, focuses on multitask deep learning for object detection and semantic segmentation in embedded systems, which are computer vision tasks. These are entirely different application domains. | Contribution: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. In contrast, the paper proposes a multitask deep learning model for object detection and semantic segmentation to improve speed and efficiency in embedded systems. The contributions address entirely different problems and methodologies, with no overlap in the claimed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2306.11113v2",
+      "arxiv_id": "2306.11113v2",
+      "title": "Learn to Accumulate Evidence from All Training Samples: Theory and Practice",
+      "abstract": "Evidential deep learning, built upon belief theory and subjective logic, offers a principled and computationally efficient way to turn a deterministic neural network uncertainty-aware. The resultant evidential models can quantify fine-grained uncertainty using the learned evidence. To ensure theoretically sound evidential models, the evidence needs to be non-negative, which requires special activation functions for model training and inference. This constraint often leads to inferior predictive performance compared to standard softmax models, making it challenging to extend them to many large-scale datasets. To unveil the real cause of this undesired behavior, we theoretically investigate evidential models and identify a fundamental limitation that explains the inferior performance: existing evidential activation functions create zero evidence regions, which prevent the model to learn from training samples falling into such regions. A deeper analysis of evidential activation functions based on our theoretical underpinning inspires the design of a novel regularizer that effectively alleviates this fundamental limitation. Extensive experiments over many challenging real-world datasets and settings confirm our theoretical findings and demonstrate the effectiveness of our proposed approach.",
+      "url": "http://arxiv.org/abs/2306.11113v2",
+      "pdf_url": "https://arxiv.org/pdf/2306.11113v2",
+      "authors": [
+        "Deep Pandey",
+        "Qi Yu"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving malware classification using domain-specific byte n-gram tokenization with transformer models. In contrast, the paper addresses the fundamental limitation of evidential deep learning models in quantifying uncertainty and improving predictive performance by alleviating 'zero evidence regions'. These are completely unrelated research problems. | Method: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. The paper, however, investigates evidential deep learning models, their theoretical limitations regarding 'zero-evidence regions,' and proposes a novel regularizer to improve uncertainty quantification and predictive performance. There is no mention of malware classification, transformers, or byte n-gram tokenization in the paper. | Domain: The user's research idea is focused on malware classification, a specific application within cybersecurity, using transformer models and byte n-gram tokenization. The paper, however, discusses evidential deep learning for uncertainty quantification in general, with applications mentioned across speech recognition, machine translation, and computer vision, and experiments on datasets like Cifar100 and MNIST. There is no mention of malware, cybersecurity, or related domains in the provided text. | Contribution: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. In contrast, the paper 'Learn to Accumulate Evidence from All Training Samples: Theory and Practice' addresses limitations in evidential deep learning models for uncertainty quantification, proposing a novel regularizer to alleviate 'zero evidence regions'. These are entirely different research problems and proposed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_29",
+      "source": "arxiv",
+      "source_id": "2107.09957v2",
+      "arxiv_id": "2107.09957v2",
+      "title": "Memorization in Deep Neural Networks: Does the Loss Function matter?",
+      "abstract": "Deep Neural Networks, often owing to the overparameterization, are shown to be capable of exactly memorizing even randomly labelled data. Empirical studies have also shown that none of the standard regularization techniques mitigate such overfitting. We investigate whether the choice of the loss function can affect this memorization. We empirically show, with benchmark data sets MNIST and CIFAR-10, that a symmetric loss function, as opposed to either cross-entropy or squared error loss, results in significant improvement in the ability of the network to resist such overfitting. We then provide a formal definition for robustness to memorization and provide a theoretical explanation as to why the symmetric losses provide this robustness. Our results clearly bring out the role loss functions alone can play in this phenomenon of memorization.",
+      "url": "http://arxiv.org/abs/2107.09957v2",
+      "pdf_url": "https://arxiv.org/pdf/2107.09957v2",
+      "authors": [
+        "Deep Patel",
+        "P. S. Sastry"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.CV",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving malware classification by augmenting transformer models with domain-specific byte n-gram tokenizers. In contrast, the paper investigates whether the choice of loss function can affect memorization in deep neural networks, using benchmark datasets like MNIST and CIFAR-10. These are fundamentally different research problems with no overlap in domain, methodology, or specific research questions. | Method: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. In contrast, the paper investigates the role of loss functions in resisting memorization in deep neural networks, using standard benchmark datasets like MNIST and CIFAR-10 and architectures like ResNet and Inception-Lite. There is no methodological overlap regarding malware classification, transformer models, or byte n-gram tokenization. | Domain: The user's research idea is in the domain of malware classification using transformer models and byte n-gram tokenization. The paper, 'Memorization in Deep Neural Networks: Does the Loss Function matter?', focuses on the theoretical and empirical study of memorization in deep neural networks using benchmark datasets like MNIST and CIFAR-10, which are image classification tasks. There is no overlap in the application domains or data types. | Contribution: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. In contrast, the paper investigates the role of loss functions in resisting memorization in deep neural networks, using benchmark datasets like MNIST and CIFAR-10. The contributions are unrelated, addressing entirely different research gaps in distinct subfields of machine learning.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Malware Classification using N-grams",
+        "similarity": 0.9,
+        "description": "The use of byte n-grams for malware classification is a very well-established technique, predating transformer models. Many research papers and systems have utilized byte n-grams (e.g., 2-grams, 3-grams, 4-grams) as features for various machine learning models (SVM, Random Forest, CNNs, LSTMs) to capture local patterns in executable binaries."
+      },
+      {
+        "name": "Domain-specific Tokenization in NLP/ML",
+        "similarity": 0.8,
+        "description": "The concept of training a tokenizer (whether BPE, WordPiece, or n-gram based) on a domain-specific corpus to improve performance for that domain is a standard practice in natural language processing and other sequence modeling tasks. This is done to ensure the tokenizer learns relevant subword units or patterns specific to the target data."
+      },
+      {
+        "name": "Transformers for Malware Classification",
+        "similarity": 0.75,
+        "description": "Applying transformer models to malware classification (treating byte sequences as 'language') is an active and known research area. Researchers have experimented with various input representations for transformers, including raw bytes, byte n-grams, and even BPE-like tokenization, though the specific 'domain-specific byte n-gram tokenizer' might be a particular flavor."
+      },
+      {
+        "name": "Byte-level BPE for Binary Analysis",
+        "similarity": 0.7,
+        "description": "While the idea specifically mentions *not* using standard BPE, the concept of applying BPE or similar subword tokenization directly to byte sequences of binaries (rather than text) has also been explored in research for various binary analysis tasks, including malware detection. The proposed n-gram tokenizer is an alternative to this, but the underlying goal of capturing structure is similar."
+      }
+    ],
+    "assessment": "The core components of this idea are well-established in malware research and machine learning. Using byte n-grams for malware classification is a classic approach. Training a tokenizer on a domain-specific corpus is a standard optimization technique. Applying transformer models to malware classification is a current research trend. The specific combination of a transformer with a *domain-specific byte n-gram tokenizer* (as opposed to BPE) is a specific architectural choice, but it builds upon existing, well-known techniques rather than introducing a fundamentally new concept. Researchers have explored various tokenization strategies for transformers on binary data, and n-grams are a natural candidate.",
+    "novelty_aspects": [
+      "The specific implementation details of how the byte n-gram tokenizer is integrated into the transformer's input pipeline.",
+      "Empirical demonstration that this specific combination significantly outperforms other tokenization strategies (e.g., standard BPE, raw bytes) for transformers on malware classification benchmarks.",
+      "Novel insights derived from the learned n-gram tokens or the transformer's attention mechanisms when using this specific input representation."
+    ],
+    "recommendation": "While the individual components are not novel, the specific combination and its empirical evaluation could still yield valuable research. Focus on demonstrating a clear performance advantage or novel insights compared to existing methods (e.g., BPE-based tokenization for transformers, or traditional n-gram models with other classifiers). Clearly articulate the hypothesis for why a domain-specific byte n-gram tokenizer would be superior to other tokenization schemes for transformers in this context."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Malware Classification using N-grams** (similarity: 90%).\n\n*The core components of this idea are well-established in malware research and machine learning. Using byte n-grams for malware classification is a classic approach. Training a tokenizer on a domain-specific corpus is a standard optimization technique. Applying transformer models to malware classification is a current research trend. The specific combination of a transformer with a *domain-specific byte n-gram tokenizer* (as opposed to BPE) is a specific architectural choice, but it builds upon existing, well-known techniques rather than introducing a fundamentally new concept. Researchers have explored various tokenization strategies for transformers on binary data, and n-grams are a natural candidate.*\n\n**Recommendation:** While the individual components are not novel, the specific combination and its empirical evaluation could still yield valuable research. Focus on demonstrating a clear performance advantage or novel insights compared to existing methods (e.g., BPE-based tokenization for transformers, or traditional n-gram models with other classifiers). Clearly articulate the hypothesis for why a domain-specific byte n-gram tokenizer would be superior to other tokenization schemes for transformers in this context.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 103,
+    "unique_after_dedup": 103,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 512,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0278,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0254,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0022,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer trained on malware corpora rather than using standard BPE tokenization, to better capture executable structure.",
+  "enriched_idea": "RESEARCH IDEA:\nAugmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer trained on malware corpora rather than using standard BPE tokenization, to better capture executable structure.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_19",
+      "paper_title": "Formal Modelling and Security Analysis of Bitcoin's Payment Protocol",
+      "arxiv_id": "2103.08436v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving malware classification using transformer models and specialized tokenization for executable structures. In contrast, the paper addresses the formal modeling and security analysis of Bitcoin's payment protocol (BIP70) to identify and mitigate refund attacks. These are completely unrelated research problems from different domains (malware analysis vs. cryptocurrency security). | Method: The user's research idea proposes augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. The paper, 'Formal Modelling and Security Analysis of Bitcoin's Payment Protocol,' focuses on formal modeling and security analysis of cryptographic protocols using tools like AnBx and OFMC. There is no methodological overlap between these two distinct research areas. | Domain: The user's research idea is in the domain of malware classification using transformer models and byte n-gram tokenization. The paper, 'Formal Modelling and Security Analysis of Bitcoin's Payment Protocol,' is focused on the formal modeling and security analysis of cryptocurrency payment protocols. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on augmenting transformer-based malware classification models with domain-specific byte n-gram tokenizers. In contrast, the paper 'Formal Modelling and Security Analysis of Bitcoin's Payment Protocol' is concerned with formal modeling and security analysis of a cryptocurrency payment protocol. There is no overlap in the claimed contributions or methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer trained on malware corpora rather than using standard BPE tokenization, to better capture executable structure.",
+          "sentence_index": 0,
+          "similarity_score": 0.0,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 8444,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2103.08436v1"
+    },
+    {
+      "paper_id": "paper_32",
+      "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+      "arxiv_id": "2403.02546v1",
+      "paper_similarity_score": 0.175,
+      "reason": "Problem: The user's idea focuses on augmenting transformer models with domain-specific byte n-gram tokenization for malware classification to better capture executable structure. The paper, 'Catch'em all', addresses malware family classification and novel malware detection, particularly under class imbalance, using a dimensionality reduction and feature extraction framework (MalwareDNA) based on hierarchical nonnegative matrix factorization. While both works are in the broad area of malware classification, the specific problem of improving tokenization for transformer models is not directly addressed in the paper, which instead focuses on different ML techniques and challenges like class imbalance and novel malware detection. | Method: The user's research idea focuses on augmenting a transformer-based model with a domain-specific byte n-gram tokenizer. The paper, however, proposes MalwareDNA, an advanced dimensionality reduction and feature extraction framework using hierarchical nonnegative matrix factorization (NMF) and semi-supervised learning. There is no mention of transformer models, byte n-gram tokenization, or BPE tokenization in the paper's methodology. | Domain: Both the user's research idea and the paper operate within the specific application domain of malware classification. The paper explicitly states its focus on 'malware family classification' and 'detection of novel malware' using 'Windows Portable Executable (PE) format malware specimens', which directly aligns with the user's idea of a malware classification model. Both are concerned with analyzing executable structures for security purposes. | Contribution: The user's research idea focuses on augmenting a transformer-based model with a domain-specific byte n-gram tokenizer for malware classification. In contrast, the paper 'Catch'em all' introduces MalwareDNA, a semi-supervised method using hierarchical nonnegative matrix factorization (NMF) for malware family classification and novel malware detection, addressing class imbalance. The methodologies and specific contributions are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer trained on malware corpora rather than using standard BPE tokenization, to better capture executable structure.",
+          "sentence_index": 0,
+          "similarity_score": 0.43749999999999994,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+              "heading": "ABSTRACT",
+              "text_snippet": "Our work addresses these shortcomings with MalwareDNA: an advanced dimensionality reduction and feature extraction framework. We demonstrate stable task performance under class imbalance for the following tasks: malware family classification and novel malware detection with a trade-off in increased abstention or reject-option rate.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address malware classification. The user's idea focuses on improving feature capture for classification, while the paper focuses on classification under class imbalance and novel malware detection. They share the broad problem of improving malware classification.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The goal of malware family classification is to assign malware family labels to known-malware examples to better understand specimen behavior [2]. Our work focuses on classifying existing and novel malware families, an important task for risk analysis to assess threat severity and develop mitigation strategies for emerging threats.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are concerned with malware family classification. The user's idea proposes a method to 'better capture executable structure' for this task, while the paper focuses on challenges like class imbalance and novel malware, but the core task is the same.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+              "heading": "RELEVANT WORK",
+              "text_snippet": "Raff et al. introduced a deep learning architecture named MalConv, aiming to classify malware directly based on the entire raw byte-sequences of the binary . Kumar et al. demonstrated that XGBoost is an effective model for classifying Windows PE malware using the EMBER-2018 dataset , achieved through lowresource feature selection .",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'transformer-based malware classification model' and 'byte n-gram tokenizer'. The paper mentions 'deep learning-based ML methods for malware classification' and specifically 'MalConv, aiming to classify malware directly based on the entire raw byte-sequences'. This indicates a shared high-level approach of using deep learning on byte sequences for malware classification, although the specific tokenizer and model architecture (transformer vs. MalConv) differ.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+              "heading": "RELEVANT WORK",
+              "text_snippet": "Rajvardhan et al. used BERT to classify imbalanced malware data with high accuracy . While this work only focused on malware/benign-ware classification, our aim is to classify malware families.",
+              "similarity": 0.5,
+              "reason": "The user's idea explicitly mentions 'transformer-based malware classification model'. The paper references 'BERT', which is a transformer-based model, in the context of malware classification. This shows a shared methodological family (transformers for malware classification), even if the paper's own method (MalwareDNA using NMF) is different and the referenced BERT work had a different classification goal.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+              "heading": "ABSTRACT",
+              "text_snippet": "National security is threatened by malware, which remains one of the most dangerous and costly cyber threats. As of last year, researchers reported 1.3 billion known malware specimens, motivating the use of data-driven machine learning (ML) methods for analysis.",
+              "similarity": 1.0,
+              "reason": "Both the user's research idea and the paper are squarely focused on 'malware classification' and the analysis of 'malware specimens'. The domain is identical.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Approximately half a million new malware specimens are reported every day, totaling 1.3 billion specimens as of 2024 [1]. This immense quantity of malware requires the utilization of Machine Learning (ML) based automated security systems for detection and family classification.",
+              "similarity": 1.0,
+              "reason": "The user's idea is about 'malware classification model' and the paper extensively discusses 'malware specimens' and 'malware family classification'. The application domain is precisely the same.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_32",
+              "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Our contributions include: - Comparing and contrasting our method's malware family - classification capability with different inference confidence metrics including Projection Similarity, Ensemble Voting, and Data Augmentation. - Demonstrating our method's capability to classify both rare and prominent malware families, and identify novel malware families all at the same time, using the Windows Portable Executable (PE) format malware specimens from EMBER-2018 dataset [10], outperforming our supervised and semi-supervised baseline models.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes a specific methodological improvement (domain-specific tokenizer for transformers) to 'better capture executable structure' for malware classification. The paper's contributions are focused on a different method (MalwareDNA) for handling class imbalance and novel malware detection. While both aim to improve malware classification, the specific contributions and the means to achieve them are distinct.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 13011,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2403.02546v1"
+    },
+    {
+      "paper_id": "paper_14",
+      "paper_title": "A multitask deep learning model for real-time deployment in embedded systems",
+      "arxiv_id": "1711.00146v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving malware classification using a domain-specific tokenizer for transformer models. The paper, however, addresses the problem of making deep learning models faster and lighter for embedded systems by using multitask learning for object detection and semantic segmentation. These are fundamentally different research problems with no overlap in domain, methodology, or specific goals. | Method: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. The paper, however, proposes a multitask deep learning model for object detection and semantic segmentation using a ResNet-50 base network. There is no mention of transformers, malware classification, or byte n-gram tokenization in the paper, indicating completely different techniques and applications. | Domain: The user's research idea is in the domain of malware classification, specifically augmenting transformer models with domain-specific tokenization for executable structure. The paper, however, focuses on multitask deep learning for object detection and semantic segmentation in embedded systems, which are computer vision tasks. These are entirely different application domains. | Contribution: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. In contrast, the paper proposes a multitask deep learning model for object detection and semantic segmentation to improve speed and efficiency in embedded systems. The contributions address entirely different problems and methodologies, with no overlap in the claimed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer trained on malware corpora rather than using standard BPE tokenization, to better capture executable structure.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_14",
+              "paper_title": "A multitask deep learning model for real-time deployment in embedded systems",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Deep learning models (and machine learning models in general) focus on solving one task at a time.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper discuss deep learning models. The user's idea specifies 'transformer-based' which is a type of deep learning model, while the paper broadly refers to 'deep learning models'. However, the specific method of 'transformer-based malware classification model with a domain-specific byte n-gram tokenizer' is not mentioned in the paper.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 7992,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1711.00146v1"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Learn to Accumulate Evidence from All Training Samples: Theory and Practice",
+      "arxiv_id": "2306.11113v2",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving malware classification using domain-specific byte n-gram tokenization with transformer models. In contrast, the paper addresses the fundamental limitation of evidential deep learning models in quantifying uncertainty and improving predictive performance by alleviating 'zero evidence regions'. These are completely unrelated research problems. | Method: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. The paper, however, investigates evidential deep learning models, their theoretical limitations regarding 'zero-evidence regions,' and proposes a novel regularizer to improve uncertainty quantification and predictive performance. There is no mention of malware classification, transformers, or byte n-gram tokenization in the paper. | Domain: The user's research idea is focused on malware classification, a specific application within cybersecurity, using transformer models and byte n-gram tokenization. The paper, however, discusses evidential deep learning for uncertainty quantification in general, with applications mentioned across speech recognition, machine translation, and computer vision, and experiments on datasets like Cifar100 and MNIST. There is no mention of malware, cybersecurity, or related domains in the provided text. | Contribution: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. In contrast, the paper 'Learn to Accumulate Evidence from All Training Samples: Theory and Practice' addresses limitations in evidential deep learning models for uncertainty quantification, proposing a novel regularizer to alleviate 'zero evidence regions'. These are entirely different research problems and proposed contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer trained on malware corpora rather than using standard BPE tokenization, to better capture executable structure.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Learn to Accumulate Evidence from All Training Samples: Theory and Practice",
+              "heading": "Introduction",
+              "text_snippet": "Deep Learning (DL) models have found great success in many real-world applications such as speech recognition (Kamath et al., 2019), machine translation (Singh et al., 2017), and computer vision (Voulodimos et al., 2018).",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper mention 'Deep Learning' models. The user's idea specifies 'transformer-based' which is a type of deep learning model, while the paper discusses DL models in general.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 13282,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2306.11113v2"
+    },
+    {
+      "paper_id": "paper_29",
+      "paper_title": "Memorization in Deep Neural Networks: Does the Loss Function matter?",
+      "arxiv_id": "2107.09957v2",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving malware classification by augmenting transformer models with domain-specific byte n-gram tokenizers. In contrast, the paper investigates whether the choice of loss function can affect memorization in deep neural networks, using benchmark datasets like MNIST and CIFAR-10. These are fundamentally different research problems with no overlap in domain, methodology, or specific research questions. | Method: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. In contrast, the paper investigates the role of loss functions in resisting memorization in deep neural networks, using standard benchmark datasets like MNIST and CIFAR-10 and architectures like ResNet and Inception-Lite. There is no methodological overlap regarding malware classification, transformer models, or byte n-gram tokenization. | Domain: The user's research idea is in the domain of malware classification using transformer models and byte n-gram tokenization. The paper, 'Memorization in Deep Neural Networks: Does the Loss Function matter?', focuses on the theoretical and empirical study of memorization in deep neural networks using benchmark datasets like MNIST and CIFAR-10, which are image classification tasks. There is no overlap in the application domains or data types. | Contribution: The user's research idea focuses on augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer. In contrast, the paper investigates the role of loss functions in resisting memorization in deep neural networks, using benchmark datasets like MNIST and CIFAR-10. The contributions are unrelated, addressing entirely different research gaps in distinct subfields of machine learning.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer trained on malware corpora rather than using standard BPE tokenization, to better capture executable structure.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_29",
+              "paper_title": "Memorization in Deep Neural Networks: Does the Loss Function matter?",
+              "heading": "Introduction",
+              "text_snippet": "Deep Neural Networks have been remarkably successful in a variety of classification problems involving image, text or speech data [12, 18, 20, 21, 24].",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper mention 'classification problems' and 'Deep Neural Networks' (implied by 'transformer-based' in the user's idea). However, the specific methods (transformer-based vs. general DNNs, byte n-gram tokenizer vs. loss functions) and application domains are different.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 12992,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2107.09957v2"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 99,
+    "global_similarity_score": 0.034999999999999996,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Augmenting a transformer-based malware classification model with a domain-specific byte n-gram tokenizer trained on malware corpora rather than using standard BPE tokenization, to better capture executable structure.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "medium",
+          "domain_similarity": "low",
+          "contribution_similarity": "high"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_32",
+            "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+            "heading": "ABSTRACT",
+            "text_snippet": "Our work addresses these shortcomings with MalwareDNA: an advanced dimensionality reduction and feature extraction framework. We demonstrate stable task performance under class imbalance for the following tasks: malware family classification and novel malware detection with a trade-off in increased abstention or reject-option rate.",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper address malware classification. The user's idea focuses on improving feature capture for classification, while the paper focuses on classification under class imbalance and novel malware detection. They share the broad problem of improving malware classification.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_32",
+            "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+            "heading": "RELEVANT WORK",
+            "text_snippet": "Raff et al. introduced a deep learning architecture named MalConv, aiming to classify malware directly based on the entire raw byte-sequences of the binary . Kumar et al. demonstrated that XGBoost is an effective model for classifying Windows PE malware using the EMBER-2018 dataset , achieved through lowresource feature selection .",
+            "similarity": 0.5,
+            "reason": "The user's idea mentions 'transformer-based malware classification model' and 'byte n-gram tokenizer'. The paper mentions 'deep learning-based ML methods for malware classification' and specifically 'MalConv, aiming to classify malware directly based on the entire raw byte-sequences'. This indicates a shared high-level approach of using deep learning on byte sequences for malware classification, although the specific tokenizer and model architecture (transformer vs. MalConv) differ.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_32",
+            "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+            "heading": "ABSTRACT",
+            "text_snippet": "National security is threatened by malware, which remains one of the most dangerous and costly cyber threats. As of last year, researchers reported 1.3 billion known malware specimens, motivating the use of data-driven machine learning (ML) methods for analysis.",
+            "similarity": 1.0,
+            "reason": "Both the user's research idea and the paper are squarely focused on 'malware classification' and the analysis of 'malware specimens'. The domain is identical.",
+            "criterion": "domain_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea demonstrates high originality, particularly in its proposed method and contribution, with no direct overlaps found. While the application domain shows some existing work, your unique approach differentiates it significantly.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.33999999999999997,
+      "method_similarity": 0.0,
+      "domain_similarity": 0.6799999999999999,
+      "contribution_similarity": 0.0
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0278,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0254,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0022,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 208.5844268798828,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_19",
+        "paper_title": "Formal Modelling and Security Analysis of Bitcoin's Payment Protocol",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_32",
+        "paper_title": "Catch'em all: Classification of Rare, Prominent, and Novel Malware Families",
+        "paper_similarity": 0.175,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_14",
+        "paper_title": "A multitask deep learning model for real-time deployment in embedded systems",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Learn to Accumulate Evidence from All Training Samples: Theory and Practice",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_29",
+        "paper_title": "Memorization in Deep Neural Networks: Does the Loss Function matter?",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 103
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 103,
+    "after_dedup": 103,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

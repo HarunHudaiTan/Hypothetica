@@ -161,10 +161,11 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
                 </p>
                 {!isAvailable && (
                   <p className="text-xs text-amber-600 mt-1">
-                    {key === 'google_patents' 
-                      ? 'Requires SERPAPI_KEY environment variable'
-                      : 'Source configuration needed'
-                    }
+                    {key === "google_patents"
+                      ? "Requires SERPAPI_KEY environment variable"
+                      : key === "openalex"
+                        ? "Requires OPENALEX_API_KEY in your environment"
+                        : "Source configuration needed"}
                   </p>
                 )}
               </div>

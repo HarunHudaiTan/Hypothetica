@@ -1,0 +1,962 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "f91a7029553d",
+    "status": "completed"
+  },
+  "originality_score": 84,
+  "global_similarity_score": 0.4,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A federated learning approach to train an intrusion detection model across multiple organizations without sharing raw network traffic data, preserving privacy while enabling collaborative learning.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_similarity": "medium",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_24",
+          "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+          "heading": "INTRODUCTION",
+          "text_snippet": "Federated Learning (FL) is a machine learning paradigm that enables the training of a global model using decentralized datasets without requiring sharing of raw and sensitive data from participating parties (McMahan et al., 2017; Li et al., 2020; Wei et al., 2022). Under FL, individual institutions or devices train a common global model collaboratively, agreeing on a possible third party or central server to orchestrate the learning and perform model aggregation.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper's introduction describe Federated Learning as a method for collaborative model training across multiple parties without sharing raw data, specifically mentioning privacy preservation.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_36",
+          "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+          "heading": "ABSTRACT",
+          "text_snippet": "This work investigates the possibilities enabled by federated learning concerning IoT malware detection and studies security issues inherent to this new learning paradigm. In this context, a framework that uses federated learning to detect malware affecting IoT devices is presented.",
+          "similarity": 1.0,
+          "reason": "The user proposes a 'federated learning approach to train an intrusion detection model', which directly aligns with the paper's use of 'federated learning to detect malware'. The core methodology is identical.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_18",
+          "paper_title": "Gaming and Cooperation in Federated Learning: What Can Happen and How to Monitor It",
+          "heading": "Broader Impact Statement",
+          "text_snippet": "In high-stakes domains such as healthcare, finance, or public services, better-aligned evaluation and reward rules, together with appropriately designed audits, can reduce metric gaming and unintended Goodhart effects, and can support more stable cooperation among organizations that cannot share raw data.",
+          "similarity": 0.5,
+          "reason": "The user's idea mentions 'intrusion detection model' which implies a security or network domain. The paper mentions 'high-stakes domains such as healthcare, finance, or public services' and 'organizations that cannot share raw data', which aligns with the need for privacy in sensitive domains, though not specifically intrusion detection.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_24",
+          "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+          "heading": "INTRODUCTION",
+          "text_snippet": "Federated Learning (FL) is a machine learning paradigm that enables the training of a global model using decentralized datasets without requiring sharing of raw and sensitive data from participating parties (McMahan et al., 2017; Li et al., 2020; Wei et al., 2022). Under FL, individual institutions or devices train a common global model collaboratively, agreeing on a possible third party or central server to orchestrate the learning and perform model aggregation.",
+          "similarity": 1.0,
+          "reason": "The user's idea proposes using federated learning to train a model across organizations without sharing raw data, preserving privacy, and enabling collaborative learning. This directly aligns with the fundamental principles and benefits of FL as described in the paper's introduction and abstract.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea shows strong originality, particularly in its methodological approach and potential contributions. While there is some overlap in problem formulation and domain with existing work on federated learning for malware detection, your unique combination of elements appears novel.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.6699999999999999,
+    "method_similarity": 0.59,
+    "domain_similarity": 0.6699999999999999,
+    "contribution_similarity": 0.59
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0312,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0294,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0015,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 170.47889924049377,
+  "papers": [
+    {
+      "paper_id": "paper_18",
+      "source": "arxiv",
+      "source_id": "2509.02391v3",
+      "arxiv_id": "2509.02391v3",
+      "title": "Gaming and Cooperation in Federated Learning: What Can Happen and How to Monitor It",
+      "abstract": "The success of federated learning (FL) ultimately depends on how strategic participants behave under partial observability, yet most formulations still treat FL as a static optimization problem. We instead view FL deployments as governed strategic systems and develop an analytical framework that separates welfare-improving behavior from metric gaming. Within this framework, we introduce indices that quantify manipulability, the price of gaming, and the price of cooperation, and we use them to study how rules, information disclosure, evaluation metrics, and aggregator-switching policies reshape incentives and cooperation patterns. We derive threshold conditions for deterring harmful gaming while preserving benign cooperation, and for triggering auto-switch rules when early-warning indicators become critical. Building on these results, we construct a design toolkit including a governance checklist and a simple audit-budget allocation algorithm with a provable performance guarantee. Simulations across diverse stylized environments and a federated learning case study consistently match the qualitative and quantitative patterns predicted by our framework. Taken together, our results provide design principles and operational guidelines for reducing metric gaming while sustaining stable, high-welfare cooperation in FL platforms.",
+      "url": "http://arxiv.org/abs/2509.02391v3",
+      "pdf_url": "https://arxiv.org/pdf/2509.02391v3",
+      "authors": [
+        "Dongseok Kim",
+        "Hyoungsun Choi",
+        "Mohamed Jismy Aashik Rasool",
+        "Gisung Oh"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.GT",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on using federated learning for intrusion detection while preserving privacy. The paper, while acknowledging federated learning's privacy-preserving aspect ('keeping data local while jointly training models has become a leading alternative to traditional data pooling, especially when privacy, confidentiality, and regulatory constraints rule out centralization'), primarily addresses the strategic behavior, incentives, and governance within FL systems to prevent 'metric gaming' and ensure cooperation. The paper's core problem is about the 'governed strategic systems' of FL, not the application of FL to a specific problem like intrusion detection. | Method: The user's research idea proposes a federated learning approach to train an intrusion detection model. The paper, however, focuses on viewing federated learning as a 'governed strategic system' to analyze participant behavior, incentives, and cooperation patterns, rather than developing or applying a specific federated learning model for a task like intrusion detection. There is no methodological overlap in terms of model training or application for intrusion detection. | Domain: Both the user's idea and the paper are firmly within the domain of federated learning. The user's idea focuses on intrusion detection, which is a specific application target. The paper, while discussing FL governance and strategic behavior, mentions 'high-stakes domains such as healthcare, finance, or public services' as potential applications, indicating a broader but still related set of application targets within FL. | Contribution: The user's research idea focuses on applying federated learning for intrusion detection to preserve privacy while enabling collaborative learning. In contrast, the paper's contributions are centered on viewing federated learning as a 'governed strategic system' to analyze and mitigate 'metric gaming' and promote cooperation among participants, as stated in its 'Contributions' and 'From optimization to governed strategic systems' sections. These are distinct research problems and contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_22",
+      "source": "arxiv",
+      "source_id": "2006.07026v2",
+      "arxiv_id": "2006.07026v2",
+      "title": "Backdoor Attacks on Federated Meta-Learning",
+      "abstract": "Federated learning allows multiple users to collaboratively train a shared classification model while preserving data privacy. This approach, where model updates are aggregated by a central server, was shown to be vulnerable to poisoning backdoor attacks: a malicious user can alter the shared model to arbitrarily classify specific inputs from a given class. In this paper, we analyze the effects of backdoor attacks on federated meta-learning, where users train a model that can be adapted to different sets of output classes using only a few examples. While the ability to adapt could, in principle, make federated learning frameworks more robust to backdoor attacks (when new training examples are benign), we find that even 1-shot~attacks can be very successful and persist after additional training. To address these vulnerabilities, we propose a defense mechanism inspired by matching networks, where the class of an input is predicted from the similarity of its features with a support set of labeled examples. By removing the decision logic from the model shared with the federation, success and persistence of backdoor attacks are greatly reduced.",
+      "url": "http://arxiv.org/abs/2006.07026v2",
+      "pdf_url": "https://arxiv.org/pdf/2006.07026v2",
+      "authors": [
+        "Chien-Lun Chen",
+        "Leana Golubchik",
+        "Marco Paolieri"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.CR",
+        "cs.DC",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.2375,
+      "reason": "Problem: The user's idea focuses on using federated learning for intrusion detection to preserve privacy. The paper, while also discussing federated learning and privacy, specifically investigates 'backdoor attacks on federated meta-learning' and proposes a defense mechanism. While both address federated learning and privacy, the paper's core problem is about attack vulnerability and defense, not the application of federated learning to intrusion detection. | Method: The user's research idea proposes a federated learning approach for intrusion detection. The paper, however, focuses on analyzing and defending against backdoor attacks in federated meta-learning. While both utilize federated learning, their core methodologies and objectives are distinct: one aims to build an intrusion detection model, and the other investigates security vulnerabilities in a specific variant of federated learning (meta-learning). | Domain: The user's idea focuses on intrusion detection, a specific application of federated learning. The paper, while discussing federated learning and its privacy-preserving aspects, primarily investigates backdoor attacks on federated meta-learning in a general sense, using examples like Omniglot and mini-ImageNet, which are image classification datasets. While both are in the domain of federated learning and privacy, the specific application targets differ. | Contribution: The user's research idea focuses on applying federated learning to intrusion detection for privacy-preserving collaborative learning. The paper, however, investigates backdoor attacks on federated meta-learning and proposes a defense mechanism against such attacks. While both involve federated learning and privacy, their specific contributions address different problems: one is an application, the other is a security vulnerability analysis and defense.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_24",
+      "source": "arxiv",
+      "source_id": "2305.11236v1",
+      "arxiv_id": "2305.11236v1",
+      "title": "Efficient Vertical Federated Learning with Secure Aggregation",
+      "abstract": "The majority of work in privacy-preserving federated learning (FL) has been focusing on horizontally partitioned datasets where clients share the same sets of features and can train complete models independently. However, in many interesting problems, such as financial fraud detection and disease detection, individual data points are scattered across different clients/organizations in vertical federated learning. Solutions for this type of FL require the exchange of gradients between participants and rarely consider privacy and security concerns, posing a potential risk of privacy leakage. In this work, we present a novel design for training vertical FL securely and efficiently using state-of-the-art security modules for secure aggregation. We demonstrate empirically that our method does not impact training performance whilst obtaining 9.1e2 ~3.8e4 speedup compared to homomorphic encryption (HE).",
+      "url": "http://arxiv.org/abs/2305.11236v1",
+      "pdf_url": "https://arxiv.org/pdf/2305.11236v1",
+      "authors": [
+        "Xinchi Qiu",
+        "Heng Pan",
+        "Wanru Zhao",
+        "Chenyang Ma",
+        "Pedro Porto Buarque de Gusmão",
+        "Nicholas D. Lane"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CR"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5375,
+      "reason": "Problem: The user's idea focuses on a federated learning approach for intrusion detection without sharing raw network traffic data, preserving privacy. The paper addresses 'privacy-preserving training in vertical federated learning settings' and explicitly mentions 'financial fraud detection' as an example of a problem where VFL is needed due to sensitive data and legal restrictions. While the paper doesn't specifically mention 'intrusion detection,' the core problem of using federated learning to train models across multiple organizations while preserving privacy of sensitive data (like network traffic or financial data) is very similar, differing mainly in the specific application domain and the type of sensitive data. | Method: Both the user's idea and the paper propose a federated learning approach to train models across multiple organizations while preserving privacy. The paper specifically focuses on Vertical Federated Learning (VFL) and uses secure aggregation with added noise to protect privacy, which aligns with the user's general goal of collaborative learning without sharing raw data. However, the user's idea specifies 'intrusion detection model' as the application, while the paper evaluates its method on general classification datasets and mentions 'financial fraud detection' and 'disease detection' as examples, but not intrusion detection. | Domain: The user's research idea focuses on 'intrusion detection' as the application domain. The paper mentions 'financial fraud detection' and 'disease detection' as examples of vertical federated learning applications, and specifically discusses a 'financial crime detection model'. While both are security-related applications within the broader machine learning domain, intrusion detection and financial fraud detection are distinct sub-areas with different data types and targets. | Contribution: The user's idea proposes a federated learning approach for intrusion detection, focusing on privacy-preserving collaborative learning without sharing raw network traffic. The paper focuses on 'Efficient Vertical Federated Learning with Secure Aggregation' for privacy-preserving training, mentioning 'financial fraud detection and disease detection' as examples, but not specifically intrusion detection. While both address privacy-preserving federated learning across organizations, the specific application domain (intrusion detection vs. general VFL with secure aggregation) represents a partial overlap in contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "1906.03595v1",
+      "arxiv_id": "1906.03595v1",
+      "title": "Federated AI lets a team imagine together: Federated Learning of GANs",
+      "abstract": "Envisioning a new imaginative idea together is a popular human need. Imagining together as a team can often lead to breakthrough ideas, but the collaboration effort can also be challenging, especially when the team members are separated by time and space. What if there is a AI that can assist the team to collaboratively envision new ideas?. Is it possible to develop a working model of such an AI? This paper aims to design such an intelligence. This paper proposes a approach to design a creative and collaborative intelligence by employing a form of distributed machine learning approach called Federated Learning along with fusion on Generative Adversarial Networks, GAN. This collaborative creative AI presents a new paradigm in AI, one that lets a team of two or more to come together to imagine and envision ideas that synergies well with interests of all members of the team. In short, this paper explores the design of a novel type of AI paradigm, called Federated AI Imagination, one that lets geographically distributed teams to collaboratively imagine.",
+      "url": "http://arxiv.org/abs/1906.03595v1",
+      "pdf_url": "https://arxiv.org/pdf/1906.03595v1",
+      "authors": [
+        "Rajagopal. A",
+        "Nirmala. V"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.DC",
+        "cs.MA"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.35,
+      "reason": "Problem: The user's research idea focuses on using federated learning for intrusion detection to preserve privacy while training a model on network traffic data. The paper, however, addresses the problem of developing a 'Federated AI Imagination' that allows geographically distributed teams to 'collaboratively imagine' or 'envision new ideas' using Federated Learning with GANs. While both use federated learning, the specific problem and application domain (intrusion detection vs. collaborative creative AI) are distinct. | Method: Both the user's idea and the paper utilize Federated Learning as a core method for collaborative learning across distributed entities while preserving privacy. However, the paper specifically applies Federated Learning with Generative Adversarial Networks (GANs) for 'collaborative imagination' and 'synthesis', which is a different application and architectural combination than the user's idea of training an intrusion detection model. | Domain: The user's research idea is in intrusion detection, a cybersecurity application. The paper focuses on 'collaborative imagination' and 'creative intelligence' using Federated Learning of GANs, which is a different application target within the broader AI discipline. While both use federated learning, their specific application domains (cybersecurity vs. creative AI) are distinct. | Contribution: The user's idea focuses on using federated learning for intrusion detection to preserve privacy while training a model on network traffic data. The paper, however, proposes using federated learning with GANs for 'collaborative imagination' or 'creative and collaborative intelligence,' which is a distinct application. While both use federated learning, their specific contributions and problem domains are different.",
+      "criteria_scores": {
+        "problem_similarity": 0.25,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_36",
+      "source": "arxiv",
+      "source_id": "2104.09994v3",
+      "arxiv_id": "2104.09994v3",
+      "title": "Federated Learning for Malware Detection in IoT Devices",
+      "abstract": "This work investigates the possibilities enabled by federated learning concerning IoT malware detection and studies security issues inherent to this new learning paradigm. In this context, a framework that uses federated learning to detect malware affecting IoT devices is presented. N-BaIoT, a dataset modeling network traffic of several real IoT devices while affected by malware, has been used to evaluate the proposed framework. Both supervised and unsupervised federated models (multi-layer perceptron and autoencoder) able to detect malware affecting seen and unseen IoT devices of N-BaIoT have been trained and evaluated. Furthermore, their performance has been compared to two traditional approaches. The first one lets each participant locally train a model using only its own data, while the second consists of making the participants share their data with a central entity in charge of training a global model. This comparison has shown that the use of more diverse and large data, as done in the federated and centralized methods, has a considerable positive impact on the model performance. Besides, the federated models, while preserving the participant's privacy, show similar results as the centralized ones. As an additional contribution and to measure the robustness of the federated approach, an adversarial setup with several malicious participants poisoning the federated model has been considered. The baseline model aggregation averaging step used in most federated learning algorithms appears highly vulnerable to different attacks, even with a single adversary. The performance of other model aggregation functions acting as countermeasures is thus evaluated under the same attack scenarios. These functions provide a significant improvement against malicious participants, but more efforts are still needed to make federated approaches robust.",
+      "url": "http://arxiv.org/abs/2104.09994v3",
+      "pdf_url": "https://arxiv.org/pdf/2104.09994v3",
+      "authors": [
+        "Valerian Rey",
+        "Pedro Miguel Sánchez Sánchez",
+        "Alberto Huertas Celdrán",
+        "Gérôme Bovet",
+        "Martin Jaggi"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.75,
+      "reason": "Problem: The paper addresses the problem of using federated learning for malware detection in IoT devices, which is a specific type of intrusion detection. It aims to detect malware by analyzing network traffic data ('N-BaIoT, a dataset modeling network traffic of several real IoT devices while affected by malware') while preserving privacy, similar to the user's idea of training an intrusion detection model without sharing raw network traffic data across organizations. | Method: The paper proposes a federated learning approach for malware detection in IoT devices, which is very similar to the user's idea of using federated learning for intrusion detection. Both aim to train a model collaboratively across multiple entities (organizations/IoT devices) without sharing raw network traffic data, thus preserving privacy. The core methodology of using federated learning for network-based anomaly/intrusion detection is highly aligned. | Domain: The user's idea focuses on 'intrusion detection' using federated learning to analyze 'network traffic data' across organizations. The paper evaluates 'Federated Learning for Malware Detection in IoT Devices' using the 'N-BaIoT, a dataset modeling network traffic of several real IoT devices while affected by malware'. Both address network-based threat detection using federated learning, making the application targets closely related, though the paper specifically targets IoT malware rather than general network intrusions. | Contribution: The paper's core contribution, 'a framework that uses federated learning to detect malware affecting IoT devices,' directly aligns with the user's idea of a 'federated learning approach to train an intrusion detection model.' Both aim to leverage federated learning for network-based threat detection (malware/intrusion) while preserving privacy, as highlighted by the paper stating 'the federated models, while preserving the participant's privacy, show similar results as the centralized ones.' The paper's focus on IoT malware is a specific application of the broader intrusion detection concept, making it a very close match.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.75,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.75
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "Federated Learning Research (General)",
+        "similarity": 0.95,
+        "description": "Federated learning as a concept was introduced by Google in 2016 and is a well-established research area for privacy-preserving collaborative AI training across various domains, including cybersecurity."
+      },
+      {
+        "name": "Federated Learning for Intrusion Detection Systems (IDS)",
+        "similarity": 0.9,
+        "description": "Numerous academic papers and research projects have explored and demonstrated the application of federated learning specifically for training intrusion detection models. Examples include works by researchers from institutions like Google, IBM, and various universities, often focusing on network traffic analysis."
+      },
+      {
+        "name": "Privacy-Preserving AI/ML in Cybersecurity Products",
+        "similarity": 0.75,
+        "description": "While not always explicitly 'federated learning' in product marketing, many cybersecurity solutions incorporate distributed learning or privacy-enhancing technologies to analyze threats without centralizing all raw data. Some vendors are starting to integrate FL concepts into their offerings for threat intelligence sharing."
+      }
+    ],
+    "assessment": "The core idea of using federated learning to train an intrusion detection model across multiple organizations without sharing raw data is a well-researched and actively developed area. It directly addresses a known challenge in cybersecurity (privacy vs. collaborative threat intelligence) and federated learning is a recognized solution for this. There are numerous academic papers, proof-of-concepts, and even early-stage commercial applications exploring this exact approach.",
+    "novelty_aspects": [
+      "Specific architectural design for the federated IDS",
+      "Novel aggregation algorithms tailored for network intrusion data",
+      "Integration with specific network protocols or security frameworks",
+      "Performance optimization for real-time intrusion detection in a federated setting",
+      "Unique incentive mechanisms for organizations to participate"
+    ],
+    "recommendation": "While the overarching concept is not novel, there is still significant scope for innovation within this field. Focus on specific, unique contributions such as a novel federated learning algorithm optimized for IDS, a highly efficient and scalable architecture, or a robust privacy guarantee mechanism. Clearly articulate what makes your specific implementation or approach superior or different from existing research and prototypes."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Federated Learning Research (General)** (similarity: 95%).\n\n*The core idea of using federated learning to train an intrusion detection model across multiple organizations without sharing raw data is a well-researched and actively developed area. It directly addresses a known challenge in cybersecurity (privacy vs. collaborative threat intelligence) and federated learning is a recognized solution for this. There are numerous academic papers, proof-of-concepts, and even early-stage commercial applications exploring this exact approach.*\n\n**Recommendation:** While the overarching concept is not novel, there is still significant scope for innovation within this field. Focus on specific, unique contributions such as a novel federated learning algorithm optimized for IDS, a highly efficient and scalable architecture, or a robust privacy guarantee mechanism. Clearly articulate what makes your specific implementation or approach superior or different from existing research and prototypes.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 105,
+    "unique_after_dedup": 105,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 753,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0312,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0294,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0015,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A federated learning approach to train an intrusion detection model across multiple organizations without sharing raw network traffic data, preserving privacy while enabling collaborative learning.",
+  "enriched_idea": "RESEARCH IDEA:\nA federated learning approach to train an intrusion detection model across multiple organizations without sharing raw network traffic data, preserving privacy while enabling collaborative learning.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_18",
+      "paper_title": "Gaming and Cooperation in Federated Learning: What Can Happen and How to Monitor It",
+      "arxiv_id": "2509.02391v3",
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on using federated learning for intrusion detection while preserving privacy. The paper, while acknowledging federated learning's privacy-preserving aspect ('keeping data local while jointly training models has become a leading alternative to traditional data pooling, especially when privacy, confidentiality, and regulatory constraints rule out centralization'), primarily addresses the strategic behavior, incentives, and governance within FL systems to prevent 'metric gaming' and ensure cooperation. The paper's core problem is about the 'governed strategic systems' of FL, not the application of FL to a specific problem like intrusion detection. | Method: The user's research idea proposes a federated learning approach to train an intrusion detection model. The paper, however, focuses on viewing federated learning as a 'governed strategic system' to analyze participant behavior, incentives, and cooperation patterns, rather than developing or applying a specific federated learning model for a task like intrusion detection. There is no methodological overlap in terms of model training or application for intrusion detection. | Domain: Both the user's idea and the paper are firmly within the domain of federated learning. The user's idea focuses on intrusion detection, which is a specific application target. The paper, while discussing FL governance and strategic behavior, mentions 'high-stakes domains such as healthcare, finance, or public services' as potential applications, indicating a broader but still related set of application targets within FL. | Contribution: The user's research idea focuses on applying federated learning for intrusion detection to preserve privacy while enabling collaborative learning. In contrast, the paper's contributions are centered on viewing federated learning as a 'governed strategic system' to analyze and mitigate 'metric gaming' and promote cooperation among participants, as stated in its 'Contributions' and 'From optimization to governed strategic systems' sections. These are distinct research problems and contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning approach to train an intrusion detection model across multiple organizations without sharing raw network traffic data, preserving privacy while enabling collaborative learning.",
+          "sentence_index": 0,
+          "similarity_score": 0.38749999999999996,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_18",
+              "paper_title": "Gaming and Cooperation in Federated Learning: What Can Happen and How to Monitor It",
+              "heading": "Motivation",
+              "text_snippet": "Federated learning (FL) enables multiple organizations to train a shared model without moving data, and adoption has been growing through consortia and platform-based collaborations. As cross-organizational data collaboration expands, keeping data local while jointly training models has become a leading alternative to traditional data pooling, especially when privacy, confidentiality, and regulatory constraints rule out centralization.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper's motivation discuss federated learning as a solution for multiple organizations to train models collaboratively while keeping data local and preserving privacy. The user's idea focuses on intrusion detection, while the paper discusses FL more broadly as a 'governed strategic system'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_18",
+              "paper_title": "Gaming and Cooperation in Federated Learning: What Can Happen and How to Monitor It",
+              "heading": "Motivation",
+              "text_snippet": "Federated learning (FL) enables multiple organizations to train a shared model without moving data...",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes 'A federated learning approach to train an intrusion detection model'. The paper's motivation explicitly states that 'Federated learning (FL) enables multiple organizations to train a shared model without moving data'. Both clearly state the use of federated learning as the core method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_18",
+              "paper_title": "Gaming and Cooperation in Federated Learning: What Can Happen and How to Monitor It",
+              "heading": "Broader Impact Statement",
+              "text_snippet": "In high-stakes domains such as healthcare, finance, or public services, better-aligned evaluation and reward rules, together with appropriately designed audits, can reduce metric gaming and unintended Goodhart effects, and can support more stable cooperation among organizations that cannot share raw data.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'intrusion detection model' which implies a security or network domain. The paper mentions 'high-stakes domains such as healthcare, finance, or public services' and 'organizations that cannot share raw data', which aligns with the need for privacy in sensitive domains, though not specifically intrusion detection.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_18",
+              "paper_title": "Gaming and Cooperation in Federated Learning: What Can Happen and How to Monitor It",
+              "heading": "Motivation",
+              "text_snippet": "Federated learning (FL) enables multiple organizations to train a shared model without moving data, and adoption has been growing through consortia and platform-based collaborations. As cross-organizational data collaboration expands, keeping data local while jointly training models has become a leading alternative to traditional data pooling, especially when privacy, confidentiality, and regulatory constraints rule out centralization.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes using FL for privacy-preserving collaborative learning for intrusion detection. The paper acknowledges FL's role in enabling collaborative learning while preserving privacy due to regulatory constraints, but its main contribution is about governing FL systems, not developing a specific FL application like intrusion detection.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 8881,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2509.02391v3"
+    },
+    {
+      "paper_id": "paper_22",
+      "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+      "arxiv_id": "2006.07026v2",
+      "paper_similarity_score": 0.2375,
+      "reason": "Problem: The user's idea focuses on using federated learning for intrusion detection to preserve privacy. The paper, while also discussing federated learning and privacy, specifically investigates 'backdoor attacks on federated meta-learning' and proposes a defense mechanism. While both address federated learning and privacy, the paper's core problem is about attack vulnerability and defense, not the application of federated learning to intrusion detection. | Method: The user's research idea proposes a federated learning approach for intrusion detection. The paper, however, focuses on analyzing and defending against backdoor attacks in federated meta-learning. While both utilize federated learning, their core methodologies and objectives are distinct: one aims to build an intrusion detection model, and the other investigates security vulnerabilities in a specific variant of federated learning (meta-learning). | Domain: The user's idea focuses on intrusion detection, a specific application of federated learning. The paper, while discussing federated learning and its privacy-preserving aspects, primarily investigates backdoor attacks on federated meta-learning in a general sense, using examples like Omniglot and mini-ImageNet, which are image classification datasets. While both are in the domain of federated learning and privacy, the specific application targets differ. | Contribution: The user's research idea focuses on applying federated learning to intrusion detection for privacy-preserving collaborative learning. The paper, however, investigates backdoor attacks on federated meta-learning and proposes a defense mechanism against such attacks. While both involve federated learning and privacy, their specific contributions address different problems: one is an application, the other is a security vulnerability analysis and defense.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning approach to train an intrusion detection model across multiple organizations without sharing raw network traffic data, preserving privacy while enabling collaborative learning.",
+          "sentence_index": 0,
+          "similarity_score": 0.575,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+              "heading": "Abstract",
+              "text_snippet": "Federated learning allows multiple users to collaboratively train a shared classification model while preserving data privacy.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper discuss federated learning for collaborative model training while preserving privacy.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+              "heading": "Introduction",
+              "text_snippet": "Federated learning [1] allows multiple users to collaboratively train a shared prediction model without sharing their private data.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper identify federated learning as a solution for collaborative model training without sharing private data.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+              "heading": "Broader Impact",
+              "text_snippet": "The context for this paper is Federated Learning (FL), a framework designed to allow users with insufficient but confidential data to jointly train machine learning models while preserving privacy.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper highlight federated learning's role in enabling collaborative model training with confidential data while preserving privacy.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+              "heading": "Abstract",
+              "text_snippet": "Federated learning allows multiple users to collaboratively train a shared classification model while preserving data privacy.",
+              "similarity": 1.0,
+              "reason": "The user proposes a 'federated learning approach' which directly aligns with the core method discussed and utilized throughout the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+              "heading": "Introduction",
+              "text_snippet": "Federated learning [1] allows multiple users to collaboratively train a shared prediction model without sharing their private data.",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly states 'A federated learning approach', which is the fundamental method described and investigated in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+              "heading": "Abstract",
+              "text_snippet": "Federated learning allows multiple users to collaboratively train a shared classification model while preserving data privacy.",
+              "similarity": 0.5,
+              "reason": "The user's idea is about training an 'intrusion detection model', which is a type of classification model. The paper discusses federated learning for 'classification models' in general.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+              "heading": "Introduction",
+              "text_snippet": "Federated learning [1] allows multiple users to collaboratively train a shared prediction model without sharing their private data.",
+              "similarity": 0.5,
+              "reason": "The user's idea focuses on 'intrusion detection', a specific application of a 'prediction model' which is a broader category mentioned in the paper.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+              "heading": "Abstract",
+              "text_snippet": "Federated learning allows multiple users to collaboratively train a shared classification model while preserving data privacy.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes to use federated learning for collaborative training and privacy preservation, which is a foundational concept that the paper builds upon, rather than a novel contribution in the context of the paper.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+              "heading": "Introduction",
+              "text_snippet": "Federated learning [1] allows multiple users to collaboratively train a shared prediction model without sharing their private data.",
+              "similarity": 0.5,
+              "reason": "The user's idea describes the basic premise of federated learning, which the paper takes as a given and then investigates its vulnerabilities and defenses, making the user's statement a description of the field rather than a novel contribution compared to the paper.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 11445,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2006.07026v2"
+    },
+    {
+      "paper_id": "paper_24",
+      "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+      "arxiv_id": "2305.11236v1",
+      "paper_similarity_score": 0.5375,
+      "reason": "Problem: The user's idea focuses on a federated learning approach for intrusion detection without sharing raw network traffic data, preserving privacy. The paper addresses 'privacy-preserving training in vertical federated learning settings' and explicitly mentions 'financial fraud detection' as an example of a problem where VFL is needed due to sensitive data and legal restrictions. While the paper doesn't specifically mention 'intrusion detection,' the core problem of using federated learning to train models across multiple organizations while preserving privacy of sensitive data (like network traffic or financial data) is very similar, differing mainly in the specific application domain and the type of sensitive data. | Method: Both the user's idea and the paper propose a federated learning approach to train models across multiple organizations while preserving privacy. The paper specifically focuses on Vertical Federated Learning (VFL) and uses secure aggregation with added noise to protect privacy, which aligns with the user's general goal of collaborative learning without sharing raw data. However, the user's idea specifies 'intrusion detection model' as the application, while the paper evaluates its method on general classification datasets and mentions 'financial fraud detection' and 'disease detection' as examples, but not intrusion detection. | Domain: The user's research idea focuses on 'intrusion detection' as the application domain. The paper mentions 'financial fraud detection' and 'disease detection' as examples of vertical federated learning applications, and specifically discusses a 'financial crime detection model'. While both are security-related applications within the broader machine learning domain, intrusion detection and financial fraud detection are distinct sub-areas with different data types and targets. | Contribution: The user's idea proposes a federated learning approach for intrusion detection, focusing on privacy-preserving collaborative learning without sharing raw network traffic. The paper focuses on 'Efficient Vertical Federated Learning with Secure Aggregation' for privacy-preserving training, mentioning 'financial fraud detection and disease detection' as examples, but not specifically intrusion detection. While both address privacy-preserving federated learning across organizations, the specific application domain (intrusion detection vs. general VFL with secure aggregation) represents a partial overlap in contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning approach to train an intrusion detection model across multiple organizations without sharing raw network traffic data, preserving privacy while enabling collaborative learning.",
+          "sentence_index": 0,
+          "similarity_score": 0.6499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Federated Learning (FL) is a machine learning paradigm that enables the training of a global model using decentralized datasets without requiring sharing of raw and sensitive data from participating parties (McMahan et al., 2017; Li et al., 2020; Wei et al., 2022). Under FL, individual institutions or devices train a common global model collaboratively, agreeing on a possible third party or central server to orchestrate the learning and perform model aggregation.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper's introduction describe Federated Learning as a method for collaborative model training across multiple parties without sharing raw data, specifically mentioning privacy preservation.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The institution would like to have access to more private information, such as account information, that various banks might have. However, this is a deal breaker for financial applications as such data is very sensitive, and legal restrictions (e.g., GDPR) can prevent it from being shared across institutions. With VFL, institutions and companies that own only small and fragmented data have constantly been looking for other institutions to collaboratively develop a shared model for maximizing data utilization (Li et al., 2021b).",
+              "similarity": 0.75,
+              "reason": "The paper highlights the problem of institutions needing to collaborate to train models using sensitive data from multiple sources, which aligns with the user's problem of training an intrusion detection model across organizations without sharing raw data.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Federated Learning (FL) is a machine learning paradigm that enables the training of a global model using decentralized datasets without requiring sharing of raw and sensitive data from participating parties (McMahan et al., 2017; Li et al., 2020; Wei et al., 2022).",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly proposes a 'federated learning approach', which is the core methodology discussed and utilized throughout the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+              "heading": "ABSTRACT",
+              "text_snippet": "The majority of work in privacy-preserving federated learning (FL) has been focusing on horizontally partitioned datasets where clients share the same sets of features and can train complete models independently. However, in many interesting problems, such as financial fraud detection and disease detection, individual data points are scattered across different clients/organizations in vertical federated learning.",
+              "similarity": 0.5,
+              "reason": "The paper discusses different types of federated learning, including vertical FL, which involves training across different organizations. While the user's idea doesn't specify horizontal or vertical, it aligns with the general FL paradigm.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The need for VFL has arisen massively in the industry these years (Liu et al., 2022; 2020). For example, a financial institution would like to train a financial crime detection model, but it only has limited features in its own institution that limit the performance.",
+              "similarity": 0.5,
+              "reason": "The paper mentions 'financial crime detection model' as an example application of federated learning, which is a security-related domain, similar to the user's 'intrusion detection model'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Federated Learning (FL) is a machine learning paradigm that enables the training of a global model using decentralized datasets without requiring sharing of raw and sensitive data from participating parties (McMahan et al., 2017; Li et al., 2020; Wei et al., 2022). Under FL, individual institutions or devices train a common global model collaboratively, agreeing on a possible third party or central server to orchestrate the learning and perform model aggregation.",
+              "similarity": 1.0,
+              "reason": "The user's idea proposes using federated learning to train a model across organizations without sharing raw data, preserving privacy, and enabling collaborative learning. This directly aligns with the fundamental principles and benefits of FL as described in the paper's introduction and abstract.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+              "heading": "ABSTRACT",
+              "text_snippet": "The majority of work in privacy-preserving federated learning (FL) has been focusing on horizontally partitioned datasets where clients share the same sets of features and can train complete models independently. However, in many interesting problems, such as financial fraud detection and disease detection, individual data points are scattered across different clients/organizations in vertical federated learning. Solutions for this type of FL require the exchange of gradients between participants and rarely consider privacy and security concerns, posing a potential risk of privacy leakage.",
+              "similarity": 0.75,
+              "reason": "The paper identifies the challenge of privacy leakage in federated learning, particularly in vertical FL, and aims to provide secure and efficient solutions. The user's idea also focuses on preserving privacy while enabling collaborative learning.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 12377,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2305.11236v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "Federated AI lets a team imagine together: Federated Learning of GANs",
+      "arxiv_id": "1906.03595v1",
+      "paper_similarity_score": 0.35,
+      "reason": "Problem: The user's research idea focuses on using federated learning for intrusion detection to preserve privacy while training a model on network traffic data. The paper, however, addresses the problem of developing a 'Federated AI Imagination' that allows geographically distributed teams to 'collaboratively imagine' or 'envision new ideas' using Federated Learning with GANs. While both use federated learning, the specific problem and application domain (intrusion detection vs. collaborative creative AI) are distinct. | Method: Both the user's idea and the paper utilize Federated Learning as a core method for collaborative learning across distributed entities while preserving privacy. However, the paper specifically applies Federated Learning with Generative Adversarial Networks (GANs) for 'collaborative imagination' and 'synthesis', which is a different application and architectural combination than the user's idea of training an intrusion detection model. | Domain: The user's research idea is in intrusion detection, a cybersecurity application. The paper focuses on 'collaborative imagination' and 'creative intelligence' using Federated Learning of GANs, which is a different application target within the broader AI discipline. While both use federated learning, their specific application domains (cybersecurity vs. creative AI) are distinct. | Contribution: The user's idea focuses on using federated learning for intrusion detection to preserve privacy while training a model on network traffic data. The paper, however, proposes using federated learning with GANs for 'collaborative imagination' or 'creative and collaborative intelligence,' which is a distinct application. While both use federated learning, their specific contributions and problem domains are different.",
+      "criteria_scores": {
+        "problem_similarity": 0.25,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning approach to train an intrusion detection model across multiple organizations without sharing raw network traffic data, preserving privacy while enabling collaborative learning.",
+          "sentence_index": 0,
+          "similarity_score": 0.575,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Federated AI lets a team imagine together: Federated Learning of GANs",
+              "heading": "ABSTRACT",
+              "text_snippet": "This paper proposes a approach to design a creative and collaborative intelligence by employing a form of distributed machine learning approach called Federated Learning along with fusion on Generative Adversarial Networks, GAN.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose using a 'federated learning approach' as a core methodology. The paper explicitly mentions 'Federated Learning' as a distributed machine learning approach.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Federated AI lets a team imagine together: Federated Learning of GANs",
+              "heading": "[Federated AI lets a team imagine together: Federated Learning of GANs]",
+              "text_snippet": "This paper proposes an approach to design a creative & collaborative intelligence by employing a form of distributed machine learning approach called Federated Learning along with Generative Adversarial Network (GAN) fusion.",
+              "similarity": 0.75,
+              "reason": "The paper directly states its approach involves 'Federated Learning', which is the central method proposed by the user.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Federated AI lets a team imagine together: Federated Learning of GANs",
+              "heading": "[Key results are]",
+              "text_snippet": "Federated Learning | Learn to pattern by training on multiple user's data for better recognition classification | FL with DNN or CNN | AI learns while protecting user's Privacy",
+              "similarity": 0.75,
+              "reason": "The paper discusses 'Federated Learning' as a method for 'training on multiple user's data' and protecting 'user's Privacy', which aligns with the user's method of training across organizations without sharing raw data.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Federated AI lets a team imagine together: Federated Learning of GANs",
+              "heading": "[Key results are]",
+              "text_snippet": "Federated Learning | Learn to pattern by training on multiple user's data for better recognition classification | FL with DNN or CNN | AI learns while protecting user's Privacy",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to train a model 'without sharing raw network traffic data, preserving privacy'. The paper mentions 'AI learns while protecting user's Privacy' in the context of Federated Learning, indicating a shared concern for privacy in collaborative learning.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Federated AI lets a team imagine together: Federated Learning of GANs",
+              "heading": "[Key results are]",
+              "text_snippet": "Federated Learning | Learn to pattern by training on multiple user's data for better recognition classification | FL with DNN or CNN | AI learns while protecting user's Privacy",
+              "similarity": 0.5,
+              "reason": "The user's idea contributes to 'preserving privacy while enabling collaborative learning'. The paper highlights 'AI learns while protecting user's Privacy' as a benefit of Federated Learning, showing a similar contribution regarding privacy in a collaborative setting.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Federated AI lets a team imagine together: Federated Learning of GANs",
+              "heading": "[Key results are]",
+              "text_snippet": "Federated Learning | Learn to pattern by training on multiple user's data for better recognition classification | FL with DNN or CNN | AI learns while protecting user's Privacy",
+              "similarity": 0.5,
+              "reason": "Both the user's idea (intrusion detection model) and the paper (recognition classification) are within the broader domain of AI/machine learning for pattern recognition and classification tasks, albeit with different specific applications.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 7800,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1906.03595v1"
+    },
+    {
+      "paper_id": "paper_36",
+      "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+      "arxiv_id": "2104.09994v3",
+      "paper_similarity_score": 0.75,
+      "reason": "Problem: The paper addresses the problem of using federated learning for malware detection in IoT devices, which is a specific type of intrusion detection. It aims to detect malware by analyzing network traffic data ('N-BaIoT, a dataset modeling network traffic of several real IoT devices while affected by malware') while preserving privacy, similar to the user's idea of training an intrusion detection model without sharing raw network traffic data across organizations. | Method: The paper proposes a federated learning approach for malware detection in IoT devices, which is very similar to the user's idea of using federated learning for intrusion detection. Both aim to train a model collaboratively across multiple entities (organizations/IoT devices) without sharing raw network traffic data, thus preserving privacy. The core methodology of using federated learning for network-based anomaly/intrusion detection is highly aligned. | Domain: The user's idea focuses on 'intrusion detection' using federated learning to analyze 'network traffic data' across organizations. The paper evaluates 'Federated Learning for Malware Detection in IoT Devices' using the 'N-BaIoT, a dataset modeling network traffic of several real IoT devices while affected by malware'. Both address network-based threat detection using federated learning, making the application targets closely related, though the paper specifically targets IoT malware rather than general network intrusions. | Contribution: The paper's core contribution, 'a framework that uses federated learning to detect malware affecting IoT devices,' directly aligns with the user's idea of a 'federated learning approach to train an intrusion detection model.' Both aim to leverage federated learning for network-based threat detection (malware/intrusion) while preserving privacy, as highlighted by the paper stating 'the federated models, while preserving the participant's privacy, show similar results as the centralized ones.' The paper's focus on IoT malware is a specific application of the broader intrusion detection concept, making it a very close match.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.75,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.75
+      },
+      "sentence_level": [
+        {
+          "sentence": "A federated learning approach to train an intrusion detection model across multiple organizations without sharing raw network traffic data, preserving privacy while enabling collaborative learning.",
+          "sentence_index": 0,
+          "similarity_score": 0.8,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+              "heading": "ABSTRACT",
+              "text_snippet": "This work investigates the possibilities enabled by federated learning concerning IoT malware detection and studies security issues inherent to this new learning paradigm.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of using federated learning for detection, with the user focusing on intrusion detection and the paper on malware detection.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+              "heading": "ABSTRACT",
+              "text_snippet": "Besides, the federated models, while preserving the participant's privacy, show similar results as the centralized ones.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions preserving participant's privacy as a benefit of federated learning, which is a core problem the user's idea aims to solve.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+              "heading": "ABSTRACT",
+              "text_snippet": "This work investigates the possibilities enabled by federated learning concerning IoT malware detection and studies security issues inherent to this new learning paradigm. In this context, a framework that uses federated learning to detect malware affecting IoT devices is presented.",
+              "similarity": 1.0,
+              "reason": "The user proposes a 'federated learning approach to train an intrusion detection model', which directly aligns with the paper's use of 'federated learning to detect malware'. The core methodology is identical.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+              "heading": "[Federated Learning Algorithms, Vulnerabilities and Countermeasures]",
+              "text_snippet": "In this algorithm, several clients use their individual datasets to collaboratively train a global model, thanks to the coordination provided by a central server.",
+              "similarity": 1.0,
+              "reason": "The user's idea of 'collaborative learning' across 'multiple organizations' using federated learning directly matches the description of federated learning where 'several clients use their individual datasets to collaboratively train a global model'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+              "heading": "ABSTRACT",
+              "text_snippet": "This work investigates the possibilities enabled by federated learning concerning IoT malware detection and studies security issues inherent to this new learning paradigm.",
+              "similarity": 0.5,
+              "reason": "The user's idea is about 'intrusion detection' and the paper is about 'malware detection'. Both fall under the broader domain of network security and anomaly detection, but the specific targets differ (general network intrusions vs. IoT malware).",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+              "heading": "ABSTRACT",
+              "text_snippet": "N-BaIoT, a dataset modeling network traffic of several real IoT devices while affected by malware, has been used to evaluate the proposed framework.",
+              "similarity": 0.75,
+              "reason": "The paper uses 'network traffic' data, which is also the data type mentioned in the user's idea ('raw network traffic data'). This indicates a shared data domain.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+              "heading": "ABSTRACT",
+              "text_snippet": "Besides, the federated models, while preserving the participant's privacy, show similar results as the centralized ones.",
+              "similarity": 0.75,
+              "reason": "The user's idea aims to contribute by 'preserving privacy while enabling collaborative learning'. The paper explicitly states that federated models achieve this by 'preserving the participant's privacy' and enabling collaborative learning.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 1.0,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 7497,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2104.09994v3"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 84,
+    "global_similarity_score": 0.4,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A federated learning approach to train an intrusion detection model across multiple organizations without sharing raw network traffic data, preserving privacy while enabling collaborative learning.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_similarity": "medium",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_24",
+            "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+            "heading": "INTRODUCTION",
+            "text_snippet": "Federated Learning (FL) is a machine learning paradigm that enables the training of a global model using decentralized datasets without requiring sharing of raw and sensitive data from participating parties (McMahan et al., 2017; Li et al., 2020; Wei et al., 2022). Under FL, individual institutions or devices train a common global model collaboratively, agreeing on a possible third party or central server to orchestrate the learning and perform model aggregation.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper's introduction describe Federated Learning as a method for collaborative model training across multiple parties without sharing raw data, specifically mentioning privacy preservation.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_36",
+            "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+            "heading": "ABSTRACT",
+            "text_snippet": "This work investigates the possibilities enabled by federated learning concerning IoT malware detection and studies security issues inherent to this new learning paradigm. In this context, a framework that uses federated learning to detect malware affecting IoT devices is presented.",
+            "similarity": 1.0,
+            "reason": "The user proposes a 'federated learning approach to train an intrusion detection model', which directly aligns with the paper's use of 'federated learning to detect malware'. The core methodology is identical.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_18",
+            "paper_title": "Gaming and Cooperation in Federated Learning: What Can Happen and How to Monitor It",
+            "heading": "Broader Impact Statement",
+            "text_snippet": "In high-stakes domains such as healthcare, finance, or public services, better-aligned evaluation and reward rules, together with appropriately designed audits, can reduce metric gaming and unintended Goodhart effects, and can support more stable cooperation among organizations that cannot share raw data.",
+            "similarity": 0.5,
+            "reason": "The user's idea mentions 'intrusion detection model' which implies a security or network domain. The paper mentions 'high-stakes domains such as healthcare, finance, or public services' and 'organizations that cannot share raw data', which aligns with the need for privacy in sensitive domains, though not specifically intrusion detection.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_24",
+            "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+            "heading": "INTRODUCTION",
+            "text_snippet": "Federated Learning (FL) is a machine learning paradigm that enables the training of a global model using decentralized datasets without requiring sharing of raw and sensitive data from participating parties (McMahan et al., 2017; Li et al., 2020; Wei et al., 2022). Under FL, individual institutions or devices train a common global model collaboratively, agreeing on a possible third party or central server to orchestrate the learning and perform model aggregation.",
+            "similarity": 1.0,
+            "reason": "The user's idea proposes using federated learning to train a model across organizations without sharing raw data, preserving privacy, and enabling collaborative learning. This directly aligns with the fundamental principles and benefits of FL as described in the paper's introduction and abstract.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea shows strong originality, particularly in its methodological approach and potential contributions. While there is some overlap in problem formulation and domain with existing work on federated learning for malware detection, your unique combination of elements appears novel.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.6699999999999999,
+      "method_similarity": 0.59,
+      "domain_similarity": 0.6699999999999999,
+      "contribution_similarity": 0.59
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0312,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0294,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0015,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 170.47889924049377,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_18",
+        "paper_title": "Gaming and Cooperation in Federated Learning: What Can Happen and How to Monitor It",
+        "paper_similarity": 0.125,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_22",
+        "paper_title": "Backdoor Attacks on Federated Meta-Learning",
+        "paper_similarity": 0.2375,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_24",
+        "paper_title": "Efficient Vertical Federated Learning with Secure Aggregation",
+        "paper_similarity": 0.5375,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "Federated AI lets a team imagine together: Federated Learning of GANs",
+        "paper_similarity": 0.35,
+        "criteria_scores": {
+          "problem_similarity": 0.25,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_36",
+        "paper_title": "Federated Learning for Malware Detection in IoT Devices",
+        "paper_similarity": 0.75,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.75,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.75
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 105
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 105,
+    "after_dedup": 105,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

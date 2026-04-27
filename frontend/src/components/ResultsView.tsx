@@ -116,6 +116,7 @@ export default function ResultsView({
                   value={results.stats.total_fetched}
                 />
               </div>
+              <SearchQueriesList stats={results.stats} />
             </div>
           )}
 
@@ -197,6 +198,40 @@ function Stat({ label, value }: { label: string; value: number }) {
     <div className="bg-slate-50 rounded-lg p-3 text-center">
       <div className="text-lg font-bold text-slate-800">{value}</div>
       <div className="text-xs text-slate-500">{label}</div>
+    </div>
+  );
+}
+
+/** arXiv / patent search strings from QueryVariantAgent (also in job stats API). */
+function SearchQueriesList({
+  stats,
+}: {
+  stats: NonNullable<AnalysisResults["stats"]>;
+}) {
+  const raw =
+    stats.query_variant_strings && stats.query_variant_strings.length > 0
+      ? stats.query_variant_strings
+      : (stats.query_variants_list?.map((v) => v.query).filter(Boolean) as
+          | string[]
+          | undefined) ?? [];
+  if (raw.length === 0) {
+    return null;
+  }
+  return (
+    <div className="mt-4 pt-4 border-t border-slate-100">
+      <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+        Literature search queries
+      </h4>
+      <p className="text-[11px] text-slate-400 mb-2">
+        Phrases used to retrieve papers (query-variant model).
+      </p>
+      <ol className="list-decimal pl-4 space-y-1.5 text-sm text-slate-600">
+        {raw.map((q, i) => (
+          <li key={i} className="break-words">
+            {q}
+          </li>
+        ))}
+      </ol>
     </div>
   );
 }

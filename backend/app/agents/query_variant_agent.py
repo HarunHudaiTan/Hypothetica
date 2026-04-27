@@ -74,23 +74,101 @@ Output:
     def generate_query_variants(self, user_idea: str, adapter_name: str = "arxiv") -> list:
         """
         Generate search query variants from user's research idea.
-        
+
         Args:
             user_idea: The user's research idea/description
-            adapter_name: The adapter being used ("arxiv", "github", "google_patents")
-            
+            adapter_name: The adapter being used ("arxiv", "github", "google_patents", "openalex")
+
         Returns:
             List of query variant dictionaries with 'type' and 'query' keys
         """
-        # Use GitHub-optimized prompt if adapter is GitHub
         if adapter_name == "github":
             return self._generate_github_queries(user_idea)
-        
+        if adapter_name == "openalex":
+            return self._generate_openalex_queries(user_idea)
+
         # Default academic query generation for arXiv and patents
         response = self.generate_text_generation_response(user_idea)
         result = json.loads(response.text)
         return result.get('variants', [])
     
+    def _generate_openalex_queries(self, user_idea: str) -> list:
+        """
+        Generate 5 OpenAlex-optimised search variants.
+        OpenAlex covers 250M+ works across all disciplines and supports full-text
+        search over titles + abstracts, so variants should span vocabulary, synonyms,
+        and conceptual framing rather than just keyword permutations.
+        """
+        import logging
+        logger = logging.getLogger(__name__)
+
+        prompt = f"""You are an OpenAlex Academic Search Query Generator.
+
+OpenAlex indexes 250M+ scholarly works (journals, conferences, preprints, datasets) across all disciplines.
+Queries run as relevance-ranked full-text search over titles and abstracts.
+
+Your task: generate exactly 5 query variants that maximise recall of relevant papers while staying precise enough to avoid noise.
+
+## Variant types to produce
+
+1. **raw** — Core research concept in plain language (5–15 words). What the idea is fundamentally about.
+
+2. **academic_method** — Formal methodology query: algorithms, architectures, model families, or frameworks used.
+   Use vocabulary found in paper titles and abstract first sentences.
+
+3. **academic_domain** — Application domain / problem framing: what field this applies to, what real-world problem it solves.
+
+4. **synonyms** — OR-based query with acronyms and alternative terms.
+   Format: "term1 OR term2 OR abbreviation OR synonym". Maximum 5 OR terms.
+
+5. **concept** — Established research sub-field name, benchmark dataset name, or survey-level framing.
+   Catches papers that study the same phenomenon from a different angle.
+
+## Output format — return ONLY valid JSON
+{{
+  "variants": [
+    {{"type": "raw",             "query": "..."}},
+    {{"type": "academic_method", "query": "..."}},
+    {{"type": "academic_domain", "query": "..."}},
+    {{"type": "synonyms",        "query": "..."}},
+    {{"type": "concept",         "query": "..."}}
+  ]
+}}
+
+## Rules
+- Each query: 3–20 words (synonym queries may be slightly longer)
+- Queries must complement each other — no near-duplicates
+- Use terminology that appears in published paper titles and abstracts
+- Do NOT quote phrases unless essential
+
+## Example
+Idea: "Graph neural networks to predict drug-drug interactions from patient EHR co-prescription data"
+
+{{
+  "variants": [
+    {{"type": "raw",             "query": "graph neural network drug-drug interaction prediction electronic health records"}},
+    {{"type": "academic_method", "query": "graph convolutional network link prediction biomedical knowledge graph"}},
+    {{"type": "academic_domain", "query": "polypharmacy side effect prediction clinical co-prescription data"}},
+    {{"type": "synonyms",        "query": "DDI OR polypharmacy OR drug interaction OR GNN OR EHR"}},
+    {{"type": "concept",         "query": "drug safety pharmacovigilance interaction network embedding"}}
+  ]
+}}
+
+## User's research idea
+{user_idea}
+
+Generate exactly 5 variants."""
+
+        response = self.generate_text_generation_response(prompt)
+        result = json.loads(response.text)
+        variants = result.get('variants', [])
+
+        logger.info(f"[OpenAlex Query Generation] {len(variants)} variants generated")
+        for v in variants:
+            logger.info(f"  [{v.get('type')}] {v.get('query')}")
+
+        return variants
+
     def _generate_github_queries(self, user_idea: str) -> list:
         """
         Generate GitHub-optimized search queries based on 2026 API best practices.

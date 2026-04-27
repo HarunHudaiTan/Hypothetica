@@ -278,8 +278,15 @@ class AnalysisService:
         if not job: return {}
 
         store, _ = cls._get_retriever(job_id)
+        qv = list(job.state.query_variants or [])
+        qv_strings = [
+            (x.get("query") if isinstance(x, dict) else str(x))
+            for x in qv
+        ]
         return {
-            "query_variants": len(job.state.query_variants),
+            "query_variants": len(qv),
+            "query_variants_list": qv,
+            "query_variant_strings": qv_strings,
             "total_fetched": job.state.total_papers_fetched,
             "unique_after_dedup": job.state.unique_papers_after_dedup,
             "after_rerank": job.state.papers_after_rerank,

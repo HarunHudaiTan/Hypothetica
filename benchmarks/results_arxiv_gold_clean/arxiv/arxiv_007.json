@@ -1,0 +1,993 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "99319eaf1716",
+    "status": "completed"
+  },
+  "originality_score": 96,
+  "global_similarity_score": 0.1825,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Using a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+          "heading": "Introduction",
+          "text_snippet": "Despite the architectural importance of routing, its internal behavior remains poorly characterized. Existing work has largely focused on training stability, scaling behavior, and balancing losses [Lepikhin et al., 2021, Fedus et al., 2022, Zhou et al., 2022]. In contrast, relatively little work studies routing as an object of analysis : a structured signal that may reveal how sparse models allocate computation across tasks.",
+          "similarity": 0.5,
+          "reason": "The user's idea aims to improve multilingual LLM performance by modifying the routing mechanism, which aligns with the paper's broader interest in understanding and potentially improving routing behavior in MoE models, moving beyond just stability and balancing.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_05",
+          "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+          "heading": "MoE Layer",
+          "text_snippet": "Each MoE layer comprises N E expert networks (FFNs) and a router mechanism. For an input token representation x , we employ Topk routing, where only the k experts with the highest routing scores are selected to process the token: ... where E i denotes the i -th expert network and r is a router network that computes router scores r ( x ) for each of the N E experts based on the input token representation x .",
+          "similarity": 0.75,
+          "reason": "The user proposes 'a mixture-of-experts routing mechanism' which directly corresponds to the 'MoE layer' and 'router mechanism' described in the paper. The paper details how a router computes scores based on the 'input token representation x', which is the standard approach the user is contrasting with their proposed 'language identity token' conditioning.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+          "heading": "ABSTRACT",
+          "text_snippet": "Sparse Mixture-of-Experts (MoE) architectures enable efficient scaling of large language models through conditional computation, yet the routing mechanisms responsible for expert selection remain poorly understood.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are squarely focused on improving or understanding Mixture-of-Experts (MoE) architectures within the context of Large Language Models (LLMs). The user's specific goal is 'multilingual LLM performance', which is a direct application domain for MoE LLMs.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_05",
+          "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+          "heading": "Abstract",
+          "text_snippet": "Yet academic researchers still lack a fully open, end-to-end MoE platform for investigating scaling, routing, and expert behavior. We release FLAME-MoE, a completely open-source research suite composed of seven decoder-only models, ranging from 38M to 1.7B active parameters, whose architecture--64 experts with top-8 gating and 2 shared experts--closely reflects modern production LLMs.",
+          "similarity": 0.5,
+          "reason": "The user's idea proposes a specific method to 'improve multilingual LLM performance'. The paper's contribution is a research platform to investigate 'routing, and expert behavior' and shows 'FLAME-MoE improves average accuracy by up to 3.4 points over dense baselines'. While the user's contribution is a specific improvement, the paper contributes a platform for such investigations and demonstrates performance improvements, making the general goal of improving MoE performance a shared, albeit distinct, contribution.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea demonstrates high originality, particularly in its proposed contributions. While there is moderate domain overlap with existing work, the core problem and method show low similarity to current literature.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.42,
+    "method_similarity": 0.38,
+    "domain_similarity": 0.6699999999999999,
+    "contribution_similarity": 0.16999999999999998
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0591,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0572,
+      "layer2": 0.0002,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0017,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 196.20600199699402,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2603.11114v1",
+      "arxiv_id": "2603.11114v1",
+      "title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+      "abstract": "Sparse Mixture-of-Experts (MoE) architectures enable efficient scaling of large language models through conditional computation, yet the routing mechanisms responsible for expert selection remain poorly understood. In this work, we introduce routing signatures, a vector representation summarizing expert activation patterns across layers for a given prompt, and use them to study whether MoE routing exhibits task-conditioned structure. Using OLMoE-1B-7B-0125-Instruct as an empirical testbed, we show that prompts from the same task category induce highly similar routing signatures, while prompts from different categories exhibit substantially lower similarity. Within-category routing similarity (0.8435 +/- 0.0879) significantly exceeds across-category similarity (0.6225 +/- 0.1687), corresponding to Cohen's d = 1.44. A logistic regression classifier trained solely on routing signatures achieves 92.5% +/- 6.1% cross-validated accuracy on four-way task classification. To ensure statistical validity, we introduce permutation and load-balancing baselines and show that the observed separation is not explained by sparsity or balancing constraints alone. We further analyze layer-wise signal strength and low-dimensional projections of routing signatures, finding that task structure becomes increasingly apparent in deeper layers. These results suggest that routing in sparse transformers is not merely a balancing mechanism, but a measurable task-sensitive component of conditional computation. We release MOE-XRAY, a lightweight toolkit for routing telemetry and analysis.",
+      "url": "http://arxiv.org/abs/2603.11114v1",
+      "pdf_url": "https://arxiv.org/pdf/2603.11114v1",
+      "authors": [
+        "Mynampati Sri Ranganadha Avinash"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.27499999999999997,
+      "reason": "Problem: The user's idea focuses on improving multilingual LLM performance by conditioning the router on language identity tokens. The paper, however, investigates whether MoE routing exhibits 'task-conditioned structure' and if 'prompts from different categories induce statistically distinguishable expert activation patterns,' using categories like code, math, and story. While both involve conditioning MoE routers, the specific conditioning mechanism (language identity vs. general task category) and the primary goal (performance improvement vs. understanding routing behavior) are different. | Method: Both the user's idea and the paper utilize a mixture-of-experts (MoE) routing mechanism within LLMs. However, the user's idea specifically proposes conditioning the router on a 'language identity token' detected at preprocessing, whereas the paper studies existing MoE routing where decisions depend on 'hidden representations' which are 'sensitive to the structure of the input task' (e.g., code vs. creative writing prompts). The paper does not explicitly propose or evaluate conditioning on a pre-detected language identity token. | Domain: Both the user's idea and the paper are within the same discipline of natural language processing (NLP) and specifically focus on Mixture-of-Experts (MoE) architectures in large language models (LLMs). However, the user's idea targets multilingual LLM performance by conditioning the router on language identity, while the paper investigates task-conditioned routing signatures across different task categories (code, math, story, factual QA) to understand routing behavior, not directly to improve multilingual performance. | Contribution: The user's research idea proposes using a language identity token to condition the router in a mixture-of-experts model to improve multilingual LLM performance. In contrast, the paper investigates whether MoE routing exhibits task-conditioned structure by analyzing 'routing signatures' derived from expert activation patterns across layers for different task categories (code, math, story, factual QA). The paper does not discuss conditioning the router on language identity tokens or improving multilingual LLM performance.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_21",
+      "source": "arxiv",
+      "source_id": "2410.12013v1",
+      "arxiv_id": "2410.12013v1",
+      "title": "MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router",
+      "abstract": "Mixture-of-Experts (MoE) architectures face challenges such as high memory consumption and redundancy in experts. Pruning MoE can reduce network weights while maintaining model performance. Motivated by the recent observation of emergent large magnitude features in Large Language Models (LLM) and MoE routing policy, we propose MoE-Pruner, a method that prunes weights with the smallest magnitudes multiplied by the corresponding input activations and router weights, on each output neuron. Our pruning method is one-shot, requiring no retraining or weight updates. We evaluate our method on Mixtral-8x7B and Mixtral-8x22B across multiple language benchmarks. Experimental results show that our pruning method significantly outperforms state-of-the-art LLM pruning methods. Furthermore, our pruned MoE models can benefit from a pretrained teacher model through expert-wise knowledge distillation, improving performance post-pruning. Experimental results demonstrate that the Mixtral-8x7B model with 50% sparsity maintains 99% of the performance of the original model after the expert-wise knowledge distillation.",
+      "url": "http://arxiv.org/abs/2410.12013v1",
+      "pdf_url": "https://arxiv.org/pdf/2410.12013v1",
+      "authors": [
+        "Yanyue Xie",
+        "Zhi Zhang",
+        "Ding Zhou",
+        "Cong Xie",
+        "Ziang Song",
+        "Xin Liu",
+        "Yanzhi Wang",
+        "Xue Lin",
+        "An Xu"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on improving multilingual LLM performance by conditioning a mixture-of-experts router on language identity tokens. In contrast, the paper 'MoE-Pruner' addresses the problem of pruning Mixture-of-Experts models to reduce memory consumption and redundancy, aiming to maintain performance post-pruning. These are distinct research problems with different objectives. | Method: The user's research idea proposes a mixture-of-experts routing mechanism conditioned on language identity tokens. The evaluated paper, MoE-Pruner, focuses on pruning MoE models by identifying and removing unimportant weights based on magnitude, input activations, and router weights. There is no mention in the paper of conditioning the router on language identity tokens or using language identity for routing, making the core methodological approach completely different. | Domain: The user's idea focuses on improving multilingual LLM performance through a specific routing mechanism conditioned on language identity. The paper, MoE-Pruner, is also in the domain of LLMs and MoE architectures, but its primary application is pruning MoE models to reduce memory consumption and redundancy, as stated in the abstract: 'Pruning MoE can reduce network weights while maintaining model performance.' While both are within the broader field of LLMs and MoE, their specific application targets (multilingual performance improvement vs. model compression/pruning) are distinct sub-areas. | Contribution: The user's research idea proposes using language identity tokens to condition the router in a mixture-of-experts model for improved multilingual LLM performance. In contrast, the paper 'MoE-Pruner' focuses on pruning MoE models to reduce memory consumption and redundancy, using a pruning metric that incorporates router weights and input activations, but not language identity tokens for routing.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2505.20225v1",
+      "arxiv_id": "2505.20225v1",
+      "title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+      "abstract": "Recent large language models such as Gemini-1.5, DeepSeek-V3, and Llama-4 increasingly adopt Mixture-of-Experts (MoE) architectures, which offer strong efficiency-performance trade-offs by activating only a fraction of the model per token. Yet academic researchers still lack a fully open, end-to-end MoE platform for investigating scaling, routing, and expert behavior. We release FLAME-MoE, a completely open-source research suite composed of seven decoder-only models, ranging from 38M to 1.7B active parameters, whose architecture--64 experts with top-8 gating and 2 shared experts--closely reflects modern production LLMs. All training data pipelines, scripts, logs, and checkpoints are publicly available to enable reproducible experimentation. Across six evaluation tasks, FLAME-MoE improves average accuracy by up to 3.4 points over dense baselines trained with identical FLOPs. Leveraging full training trace transparency, we present initial analyses showing that (i) experts increasingly specialize on distinct token subsets, (ii) co-activation matrices remain sparse, reflecting diverse expert usage, and (iii) routing behavior stabilizes early in training. All code, training logs, and model checkpoints are available at https://github.com/cmu-flame/FLAME-MoE.",
+      "url": "http://arxiv.org/abs/2505.20225v1",
+      "pdf_url": "https://arxiv.org/pdf/2505.20225v1",
+      "authors": [
+        "Hao Kang",
+        "Zichun Yu",
+        "Chenyan Xiong"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.38749999999999996,
+      "reason": "Problem: The user's research idea focuses on improving multilingual LLM performance by conditioning the MoE router on language identity tokens. The paper, FLAME-MoE, addresses the broader problem of providing a transparent, end-to-end research platform for Mixture-of-Experts language models to investigate scaling, routing, and expert behavior. While the paper mentions 'multilingual and long-context scenarios' in related work and discusses expert specialization and routing dynamics, it does not specifically investigate conditioning the router on language identity tokens for multilingual performance, making it a different angle on the broad topic of MoE routing. | Method: The user's idea proposes conditioning the MoE router on a language identity token, a specific input feature. The paper, FLAME-MoE, uses a standard Topk routing mechanism where the router is conditioned on the 'input token representation x', which is typically an embedding. While both use Mixture-of-Experts with a router, the specific conditioning mechanism for the router differs meaningfully, moving beyond a simple architectural tweak. | Domain: Both the user's idea and the paper are within the same discipline of Natural Language Processing (NLP) and specifically focus on Mixture-of-Experts (MoE) architectures for Large Language Models (LLMs). However, the user's idea specifically targets multilingual LLM performance by conditioning the router on language identity, which is a different sub-area or application target compared to the paper's general focus on MoE research, scaling, and expert behavior, although the paper does mention 'multilingual and long-context scenarios' in its related work. | Contribution: The user's idea proposes a specific routing mechanism conditioned on language identity tokens, which is a novel approach to multilingual LLM performance. While the paper discusses MoE architectures, routing mechanisms, and mentions 'multilingual scenarios' in related work, it does not propose or implement language-identity-conditioned routing. The paper's contributions focus on providing a transparent research platform for general MoE behavior, scaling, and expert specialization, rather than a specific routing innovation for multilingual performance.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_33",
+      "source": "arxiv",
+      "source_id": "2602.09316v2",
+      "arxiv_id": "2602.09316v2",
+      "title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+      "abstract": "Mixture-of-Experts (MoE) based Large Language Models (LLMs) have achieved superior performance, yet the massive memory overhead caused by storing multiple expert networks severely hinders their practical deployment. Singular Value Decomposition (SVD)-based compression has emerged as a promising post-training technique; however, most existing methods apply uniform rank allocation or rely solely on static weight properties. This overlooks the substantial heterogeneity in expert utilization observed in MoE models, where frequent routing patterns and intrinsic information density vary significantly across experts. In this work, we propose RFID-MoE, an effective framework for MoE compression by exploiting heterogeneous Routing Frequency and Information Density. We first introduce a fused metric that combines expert activation frequency with effective rank to measure expert importance, adaptively allocating higher ranks to critical expert groups under a fixed budget. Moreover, instead of discarding compression residuals, we reconstruct them via a parameter-efficient sparse projection mechanism to recover lost information with minimal parameter overhead. Extensive experiments on representative MoE LLMs (e.g., Qwen3, DeepSeekMoE) across multiple compression ratios demonstrate that RFID-MoE consistently outperforms state-of-the-art methods like MoBE and D2-MoE. Notably, RFID-MoE achieves a perplexity of 16.92 on PTB with the Qwen3-30B model at a 60% compression ratio, reducing perplexity by over 8.0 compared to baselines, and improves zero-shot accuracy on HellaSwag by approximately 8%.",
+      "url": "http://arxiv.org/abs/2602.09316v2",
+      "pdf_url": "https://arxiv.org/pdf/2602.09316v2",
+      "authors": [
+        "Zhendong Mi",
+        "Yixiao Chen",
+        "Pu Zhao",
+        "Xiaodong Yu",
+        "Hao Wang",
+        "Yanzhi Wang",
+        "Shaoyi Huang"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on improving multilingual LLM performance by conditioning the mixture-of-experts router on language identity tokens. In contrast, the paper addresses the problem of compressing MoE-based LLMs to reduce memory overhead for deployment, using methods like SVD-based compression and adaptive rank allocation based on routing frequency and information density. These are fundamentally different research problems. | Method: The user's research idea proposes conditioning a mixture-of-experts router on language identity tokens to improve multilingual LLM performance. The evaluated paper, RFID-MoE, focuses on compressing MoE-based LLMs by exploiting heterogeneous routing frequency and information density for adaptive rank allocation in SVD-based compression. There is no methodological overlap; the paper does not discuss multilingual LLMs, language identity tokens, or router conditioning based on such tokens, nor does the user's idea involve MoE compression or SVD-based rank allocation. | Domain: Both the user's idea and the paper operate within the domain of Mixture-of-Experts (MoE) Large Language Models (LLMs). However, the user's idea focuses on improving multilingual LLM performance by conditioning the router on language identity tokens, while the paper focuses on compressing MoE LLMs to reduce memory overhead for deployment, using routing frequency and information density for adaptive rank allocation. They share the overarching domain of MoE LLMs but target different sub-areas and application goals (multilingual performance vs. model compression). | Contribution: The user's research idea focuses on improving multilingual LLM performance by conditioning the mixture-of-experts router on language identity tokens. In contrast, the paper 'RFID-MoE' focuses on compressing MoE-based LLMs by exploiting heterogeneous routing frequency and information density for adaptive rank allocation, which is a different problem and solution space.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_11",
+      "source": "arxiv",
+      "source_id": "2412.04003v1",
+      "arxiv_id": "2412.04003v1",
+      "title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+      "abstract": "Large Language Models (LLMs) have achieved remarkable progress in recent years; however, their excellent performance is still largely limited to major world languages, primarily English. Many LLMs continue to face challenges with multilingual tasks, especially when it comes to low-resource languages. To address this issue, we introduced Marco-LLM: Massive multilingual training for cross-lingual enhancement LLM. We have collected a substantial amount of multilingual data for several low-resource languages and conducted extensive continual pre-training using the Qwen2 models. This effort has resulted in a multilingual LLM named Marco-LLM. Through comprehensive evaluations on various multilingual benchmarks, including MMMLU, AGIEval, Belebele, Flores-200, XCOPA and many others, Marco-LLM has demonstrated substantial improvements over state-of-the-art LLMs. Furthermore, Marco-LLM achieved substantial enhancements in any-to-any machine translation tasks, showing the effectiveness of our multilingual LLM. Marco-LLM is a pioneering multilingual LLM designed to not only perform exceptionally well in multilingual tasks, including low-resource languages, but also maintain strong performance in English and other major languages, closing the performance gap between high- and low-resource language capabilities. By bridging languages, this effort demonstrates our dedication to ensuring LLMs work accurately across various languages.",
+      "url": "http://arxiv.org/abs/2412.04003v1",
+      "pdf_url": "https://arxiv.org/pdf/2412.04003v1",
+      "authors": [
+        "Lingfeng Ming",
+        "Bo Zeng",
+        "Chenyang Lyu",
+        "Tianqi Shi",
+        "Yu Zhao",
+        "Xue Yang",
+        "Yefeng Liu",
+        "Yiyu Wang",
+        "Linlong Xu",
+        "Yangyang Liu",
+        "Xiaohu Zhao",
+        "Hao Wang",
+        "Heng Liu",
+        "Hao Zhou",
+        "Huifeng Yin",
+        "Zifu Shang",
+        "Haijun Li",
+        "Longyue Wang",
+        "Weihua Luo",
+        "Kaifu Zhang"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's research idea focuses on improving multilingual LLM performance using a mixture-of-experts (MoE) routing mechanism conditioned on language identity tokens. The paper, 'Marco-LLM,' also aims to improve multilingual LLM performance, particularly for low-resource languages, through massive multilingual continual pre-training and post-training. While both address the broad topic of multilingual LLM enhancement, the paper does not mention a mixture-of-experts architecture or routing conditioned on language identity tokens, indicating a different specific approach to the problem. | Method: The user's research idea proposes a mixture-of-experts (MoE) routing mechanism conditioned on language identity tokens. The paper 'Marco-LLM' focuses on massive multilingual continual pre-training and post-training using the Qwen2 model to improve multilingual LLM performance, without mentioning or describing any mixture-of-experts architecture or language-identity-conditioned routing mechanism. | Domain: Both the user's research idea and the paper focus on improving multilingual LLM performance. The paper, \"Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement,\" directly addresses challenges with multilingual tasks and low-resource languages, aiming to bridge performance gaps. While the paper does not explicitly mention a 'mixture-of-experts routing mechanism conditioned on language identity token,' its core application domain of enhancing multilingual LLMs is closely related to the user's idea. | Contribution: The user's research idea proposes a specific architectural modification (mixture-of-experts routing conditioned on language identity tokens) to improve multilingual LLM performance. In contrast, the paper 'Marco-LLM' focuses on improving multilingual LLM performance through 'massive multilingual training' and 'continual pre-training' on a large, diverse dataset, without mentioning a mixture-of-experts architecture or language identity token conditioning for routing.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Multilingual Mixture-of-Experts (MoE) Models",
+        "similarity": 0.9,
+        "description": "Many MoE models for multilingual tasks already exist. While the *exact* conditioning mechanism (language identity token vs. embedding) might vary, the core idea of using language information to route to specialized experts is a common approach in multilingual MoE research."
+      },
+      {
+        "name": "Language-specific routing in LLMs",
+        "similarity": 0.8,
+        "description": "Research in multilingual LLMs frequently explores methods to leverage language identity for better performance. This includes explicit language tagging, language-specific adapters, or routing mechanisms that are implicitly or explicitly guided by language."
+      },
+      {
+        "name": "Conditional Computation in LLMs",
+        "similarity": 0.75,
+        "description": "The broader concept of conditioning computation paths based on input characteristics (of which language is one) is a known technique to improve efficiency and specialization in large models."
+      }
+    ],
+    "assessment": "The core idea of using a mixture-of-experts (MoE) architecture for multilingual LLMs, where routing is influenced by language identity, is a well-established research area. While the specific mechanism of conditioning the router directly on a 'language identity token' rather than the input embedding might represent a subtle architectural choice, it falls within the existing paradigm of language-aware routing in MoE models. Many existing multilingual MoE models implicitly or explicitly use language information (often derived from the input or metadata) to guide expert selection. The novelty would lie in demonstrating that this specific conditioning method (token vs. embedding) offers significant, measurable improvements over existing language-aware routing strategies.",
+    "novelty_aspects": [
+      "Explicitly conditioning the MoE router *directly* on a pre-detected language identity token, and demonstrating its superiority over routing based on the input embedding itself for multilingual LLMs.",
+      "Quantifying the performance gains and efficiency benefits of this specific routing mechanism compared to other language-aware MoE routing strategies."
+    ],
+    "recommendation": "While the general concept is not entirely novel, there might be a specific novelty in the *method* of conditioning the router. Focus your research on rigorously comparing this 'language identity token' routing approach against existing state-of-the-art multilingual MoE routing mechanisms (e.g., those that derive language information from the embedding or use other explicit language signals). Clearly articulate and demonstrate the unique advantages (e.g., performance, efficiency, interpretability) of your proposed method."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Multilingual Mixture-of-Experts (MoE) Models** (similarity: 90%).\n\n*The core idea of using a mixture-of-experts (MoE) architecture for multilingual LLMs, where routing is influenced by language identity, is a well-established research area. While the specific mechanism of conditioning the router directly on a 'language identity token' rather than the input embedding might represent a subtle architectural choice, it falls within the existing paradigm of language-aware routing in MoE models. Many existing multilingual MoE models implicitly or explicitly use language information (often derived from the input or metadata) to guide expert selection. The novelty would lie in demonstrating that this specific conditioning method (token vs. embedding) offers significant, measurable improvements over existing language-aware routing strategies.*\n\n**Recommendation:** While the general concept is not entirely novel, there might be a specific novelty in the *method* of conditioning the router. Focus your research on rigorously comparing this 'language identity token' routing approach against existing state-of-the-art multilingual MoE routing mechanisms (e.g., those that derive language information from the embedding or use other explicit language signals). Clearly articulate and demonstrate the unique advantages (e.g., performance, efficiency, interpretability) of your proposed method.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 107,
+    "unique_after_dedup": 107,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 566,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0591,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0572,
+        "layer2": 0.0002,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0017,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Using a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.",
+  "enriched_idea": "RESEARCH IDEA:\nUsing a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+      "arxiv_id": "2603.11114v1",
+      "paper_similarity_score": 0.27499999999999997,
+      "reason": "Problem: The user's idea focuses on improving multilingual LLM performance by conditioning the router on language identity tokens. The paper, however, investigates whether MoE routing exhibits 'task-conditioned structure' and if 'prompts from different categories induce statistically distinguishable expert activation patterns,' using categories like code, math, and story. While both involve conditioning MoE routers, the specific conditioning mechanism (language identity vs. general task category) and the primary goal (performance improvement vs. understanding routing behavior) are different. | Method: Both the user's idea and the paper utilize a mixture-of-experts (MoE) routing mechanism within LLMs. However, the user's idea specifically proposes conditioning the router on a 'language identity token' detected at preprocessing, whereas the paper studies existing MoE routing where decisions depend on 'hidden representations' which are 'sensitive to the structure of the input task' (e.g., code vs. creative writing prompts). The paper does not explicitly propose or evaluate conditioning on a pre-detected language identity token. | Domain: Both the user's idea and the paper are within the same discipline of natural language processing (NLP) and specifically focus on Mixture-of-Experts (MoE) architectures in large language models (LLMs). However, the user's idea targets multilingual LLM performance by conditioning the router on language identity, while the paper investigates task-conditioned routing signatures across different task categories (code, math, story, factual QA) to understand routing behavior, not directly to improve multilingual performance. | Contribution: The user's research idea proposes using a language identity token to condition the router in a mixture-of-experts model to improve multilingual LLM performance. In contrast, the paper investigates whether MoE routing exhibits task-conditioned structure by analyzing 'routing signatures' derived from expert activation patterns across layers for different task categories (code, math, story, factual QA). The paper does not discuss conditioning the router on language identity tokens or improving multilingual LLM performance.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.",
+          "sentence_index": 0,
+          "similarity_score": 0.43749999999999994,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+              "heading": "Introduction",
+              "text_snippet": "Despite the architectural importance of routing, its internal behavior remains poorly characterized. Existing work has largely focused on training stability, scaling behavior, and balancing losses [Lepikhin et al., 2021, Fedus et al., 2022, Zhou et al., 2022]. In contrast, relatively little work studies routing as an object of analysis : a structured signal that may reveal how sparse models allocate computation across tasks.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to improve multilingual LLM performance by modifying the routing mechanism, which aligns with the paper's broader interest in understanding and potentially improving routing behavior in MoE models, moving beyond just stability and balancing.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+              "heading": "Mixture-of-Experts Routing",
+              "text_snippet": "In an MoE transformer, this block is replaced by a set of experts { f 1 , . . . , f E } together with a learned router. The router computes a distribution over experts for each token representation and selects a subset for execution.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper discuss the core concept of a mixture-of-experts routing mechanism where a router selects experts. The user proposes a specific conditioning for this router, which is a modification of the general mechanism described.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+              "heading": "Conditional Computation and Task Structure",
+              "text_snippet": "Because routing decisions depend on hidden representations, and hidden representations depend on both token identity and context, routing behavior is potentially sensitive to the structure of the input task.",
+              "similarity": 0.5,
+              "reason": "The user proposes conditioning the router on a 'language identity token' rather than 'input embedding'. This directly relates to the paper's discussion that routing decisions depend on hidden representations and are sensitive to input task structure. The user is suggesting a different input for conditioning the router.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+              "heading": "ABSTRACT",
+              "text_snippet": "Sparse Mixture-of-Experts (MoE) architectures enable efficient scaling of large language models through conditional computation, yet the routing mechanisms responsible for expert selection remain poorly understood.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on improving or understanding Mixture-of-Experts (MoE) architectures within the context of Large Language Models (LLMs). The user's specific goal is 'multilingual LLM performance', which is a direct application domain for MoE LLMs.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+              "heading": "Introduction",
+              "text_snippet": "Sparse Mixture-of-Experts (MoE) transformers have emerged as a compelling architecture for scaling language models while controlling inference cost.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on improving or understanding Mixture-of-Experts (MoE) architectures within the context of Large Language Models (LLMs). The user's specific goal is 'multilingual LLM performance', which is a direct application domain for MoE LLMs.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+              "heading": "Introduction",
+              "text_snippet": "First, routing is central to interpretability . If different tasks systematically activate different experts, then routing patterns may provide a tractable view into how sparse transformers organize computation. Second, routing matters for debugging and monitoring . Abnormal routing patterns may signal expert collapse, drift, or degradation in deployed MoE systems. Third, routing may reveal whether sparse models implement different computation pathways for different tasks, a question closely tied to the broader study of modularity in neural systems.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes a specific modification to routing to 'improve multilingual LLM performance'. While the paper focuses on analyzing existing routing behavior to understand task-conditioned structure, both aim to understand and potentially leverage routing for better model performance or interpretability. The user's contribution is a proposed improvement, whereas the paper's is an analysis.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 10901,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2603.11114v1"
+    },
+    {
+      "paper_id": "paper_21",
+      "paper_title": "MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router",
+      "arxiv_id": "2410.12013v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on improving multilingual LLM performance by conditioning a mixture-of-experts router on language identity tokens. In contrast, the paper 'MoE-Pruner' addresses the problem of pruning Mixture-of-Experts models to reduce memory consumption and redundancy, aiming to maintain performance post-pruning. These are distinct research problems with different objectives. | Method: The user's research idea proposes a mixture-of-experts routing mechanism conditioned on language identity tokens. The evaluated paper, MoE-Pruner, focuses on pruning MoE models by identifying and removing unimportant weights based on magnitude, input activations, and router weights. There is no mention in the paper of conditioning the router on language identity tokens or using language identity for routing, making the core methodological approach completely different. | Domain: The user's idea focuses on improving multilingual LLM performance through a specific routing mechanism conditioned on language identity. The paper, MoE-Pruner, is also in the domain of LLMs and MoE architectures, but its primary application is pruning MoE models to reduce memory consumption and redundancy, as stated in the abstract: 'Pruning MoE can reduce network weights while maintaining model performance.' While both are within the broader field of LLMs and MoE, their specific application targets (multilingual performance improvement vs. model compression/pruning) are distinct sub-areas. | Contribution: The user's research idea proposes using language identity tokens to condition the router in a mixture-of-experts model for improved multilingual LLM performance. In contrast, the paper 'MoE-Pruner' focuses on pruning MoE models to reduce memory consumption and redundancy, using a pruning metric that incorporates router weights and input activations, but not language identity tokens for routing.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.",
+          "sentence_index": 0,
+          "similarity_score": 0.43749999999999994,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_21",
+              "paper_title": "MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Mixture-of-Experts (MoE) architectures (Jacobs et al., 1991; Shazeer et al., 2017) have been proposed to reduce the computing cost while enabling efficient scaling of network capacity. It has been successfully employed to scale both vision (Ruiz et al., 2021; Shen et al., 2023) and language (Lepikhin et al., 2021; Fedus et al., 2022) models.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper discuss Mixture-of-Experts (MoE) architectures in the context of improving performance in language models. The user's idea focuses on improving multilingual LLM performance, while the paper focuses on pruning MoE LLMs to maintain performance.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_21",
+              "paper_title": "MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router",
+              "heading": "THE MIXTURE-OF-EXPERTS ARCHITECTURE",
+              "text_snippet": "A router or a gating network is trained to select a subset of experts for each input token based on its routing policy.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token'. The paper describes the fundamental MoE architecture where 'a router or a gating network is trained to select a subset of experts for each input token based on its routing policy'. While the user specifies conditioning on a 'language identity token' versus the paper's general 'routing policy' or 'input activations' for pruning, both involve a router in an MoE setup.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_21",
+              "paper_title": "MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router",
+              "heading": "PRUNING METRIC",
+              "text_snippet": "As shown in Equation 1, the router weights are assigned to each expert output. Motivated by the pruning metric in Wanda and the MoE routing policy, our approach, MoE-Pruner, prunes weights with the smallest magnitudes multiplied by the corresponding input activations and router weights, on each output neuron:",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes conditioning the router on a 'language identity token' rather than the 'input embedding'. The paper, in its pruning metric, explicitly mentions using 'router weights' and 'input activations' in its calculations, indicating that the router's input (or its derived weights) is a key component in its methodology. While the user's specific conditioning mechanism is different, the general concept of the router's input/conditioning being a critical factor is shared.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_21",
+              "paper_title": "MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router",
+              "heading": "ABSTRACT",
+              "text_snippet": "We evaluate our method on Mixtral-8x7B and Mixtral-8x22B across multiple language benchmarks.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly focused on improving performance in Large Language Models (LLMs), specifically in a multilingual context (user's idea) or evaluated across multiple language benchmarks (paper).",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_21",
+              "paper_title": "MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Mixture-of-Experts (MoE) architectures (Jacobs et al., 1991; Shazeer et al., 2017) have been proposed to reduce the computing cost while enabling efficient scaling of network capacity. It has been successfully employed to scale both vision (Ruiz et al., 2021; Shen et al., 2023) and language (Lepikhin et al., 2021; Fedus et al., 2022) models.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly focused on improving performance in Large Language Models (LLMs), specifically in a multilingual context (user's idea) or evaluated across multiple language benchmarks (paper).",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_21",
+              "paper_title": "MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router",
+              "heading": "ABSTRACT",
+              "text_snippet": "Pruning MoE can reduce network weights while maintaining model performance. Motivated by the recent observation of emergent large magnitude features in Large Language Models (LLM) and MoE routing policy, we propose MoE-Pruner, a method that prunes weights with the smallest magnitudes multiplied by the corresponding input activations and router weights, on each output neuron.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes a novel routing mechanism to 'improve multilingual LLM performance'. The paper proposes a pruning method for MoE LLMs to 'maintain model performance' and 'significantly outperforms state-of-the-art LLM pruning methods'. While both aim to improve LLM performance, the user's contribution is about a new routing strategy, whereas the paper's is about a pruning strategy.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 15925,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2410.12013v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+      "arxiv_id": "2505.20225v1",
+      "paper_similarity_score": 0.38749999999999996,
+      "reason": "Problem: The user's research idea focuses on improving multilingual LLM performance by conditioning the MoE router on language identity tokens. The paper, FLAME-MoE, addresses the broader problem of providing a transparent, end-to-end research platform for Mixture-of-Experts language models to investigate scaling, routing, and expert behavior. While the paper mentions 'multilingual and long-context scenarios' in related work and discusses expert specialization and routing dynamics, it does not specifically investigate conditioning the router on language identity tokens for multilingual performance, making it a different angle on the broad topic of MoE routing. | Method: The user's idea proposes conditioning the MoE router on a language identity token, a specific input feature. The paper, FLAME-MoE, uses a standard Topk routing mechanism where the router is conditioned on the 'input token representation x', which is typically an embedding. While both use Mixture-of-Experts with a router, the specific conditioning mechanism for the router differs meaningfully, moving beyond a simple architectural tweak. | Domain: Both the user's idea and the paper are within the same discipline of Natural Language Processing (NLP) and specifically focus on Mixture-of-Experts (MoE) architectures for Large Language Models (LLMs). However, the user's idea specifically targets multilingual LLM performance by conditioning the router on language identity, which is a different sub-area or application target compared to the paper's general focus on MoE research, scaling, and expert behavior, although the paper does mention 'multilingual and long-context scenarios' in its related work. | Contribution: The user's idea proposes a specific routing mechanism conditioned on language identity tokens, which is a novel approach to multilingual LLM performance. While the paper discusses MoE architectures, routing mechanisms, and mentions 'multilingual scenarios' in related work, it does not propose or implement language-identity-conditioned routing. The paper's contributions focus on providing a transparent research platform for general MoE behavior, scaling, and expert specialization, rather than a specific routing innovation for multilingual performance.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+              "heading": "Abstract",
+              "text_snippet": "Recent large language models such as Gemini-1.5, DeepSeek-V3, and Llama-4 increasingly adopt Mixture-of-Experts (MoE) architectures, which offer strong efficiency-performance trade-offs by activating only a fraction of the model per token. Yet academic researchers still lack a fully open, end-to-end MoE platform for investigating scaling, routing, and expert behavior.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to improve multilingual LLM performance using MoE, which aligns with the paper's general focus on MoE architectures and investigating routing behavior to improve performance. While the user's specific problem is about multilingual performance via a novel routing condition, the paper broadly addresses improving MoE understanding and performance.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+              "heading": "Introduction",
+              "text_snippet": "Mixture-of-Experts (MoE) architectures have emerged as a powerful paradigm for scaling large language models efficiently. By activating only a sparse subset of expert modules per input token, MoE models significantly expand the number of trainable parameters without a commensurate increase in training or inference cost. This approach enables high effective capacity with strong computational efficiency, and has been adopted in a range of state-of-the-art systems-both open and closed-source-including Gemini-1.5, DeepSeek-V3, and Llama-4 [21, 23, 34].",
+              "similarity": 0.5,
+              "reason": "The user's problem is about improving multilingual LLM performance using MoE, which aligns with the paper's discussion of MoE as a powerful paradigm for scaling LLMs efficiently and its adoption in state-of-the-art systems.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+              "heading": "MoE Layer",
+              "text_snippet": "Each MoE layer comprises N E expert networks (FFNs) and a router mechanism. For an input token representation x , we employ Topk routing, where only the k experts with the highest routing scores are selected to process the token: ... where E i denotes the i -th expert network and r is a router network that computes router scores r ( x ) for each of the N E experts based on the input token representation x .",
+              "similarity": 0.75,
+              "reason": "The user proposes 'a mixture-of-experts routing mechanism' which directly corresponds to the 'MoE layer' and 'router mechanism' described in the paper. The paper details how a router computes scores based on the 'input token representation x', which is the standard approach the user is contrasting with their proposed 'language identity token' conditioning.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+              "heading": "Related Work",
+              "text_snippet": "Recent work has also examined the robustness and specialization of expert routing in MoE architectures [5, 25, 36]. For instance, Chi et al. address the issue of representation collapse-where token embeddings become overly concentrated around expert centroids-by projecting tokens and expert keys onto a hypersphere prior to computing routing scores. This modification enhances assignment diversity and yields improved performance on multilingual benchmarks.",
+              "similarity": 0.75,
+              "reason": "The user's idea focuses on a specific routing mechanism ('router is conditioned on the input's language identity token... rather than the input embedding'). The paper's related work section discusses modifications to routing mechanisms (e.g., projecting tokens and expert keys) to improve performance, including on multilingual benchmarks. This shows the paper is aware of and discusses modifications to routing based on input characteristics, even if the specific modification is different.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+              "heading": "Abstract",
+              "text_snippet": "Recent large language models such as Gemini-1.5, DeepSeek-V3, and Llama-4 increasingly adopt Mixture-of-Experts (MoE) architectures, which offer strong efficiency-performance trade-offs by activating only a fraction of the model per token.",
+              "similarity": 1.0,
+              "reason": "The user's idea is about improving 'multilingual LLM performance' using MoE. The paper is entirely focused on 'Mixture-of-Experts Language Models' and discusses their adoption in 'large language models'. The domain is identical.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+              "heading": "Introduction",
+              "text_snippet": "Mixture-of-Experts (MoE) architectures have emerged as a powerful paradigm for scaling large language models efficiently.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on Mixture-of-Experts (MoE) architectures within the context of large language models (LLMs).",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+              "heading": "Abstract",
+              "text_snippet": "Yet academic researchers still lack a fully open, end-to-end MoE platform for investigating scaling, routing, and expert behavior. We release FLAME-MoE, a completely open-source research suite composed of seven decoder-only models, ranging from 38M to 1.7B active parameters, whose architecture--64 experts with top-8 gating and 2 shared experts--closely reflects modern production LLMs.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a specific method to 'improve multilingual LLM performance'. The paper's contribution is a research platform to investigate 'routing, and expert behavior' and shows 'FLAME-MoE improves average accuracy by up to 3.4 points over dense baselines'. While the user's contribution is a specific improvement, the paper contributes a platform for such investigations and demonstrates performance improvements, making the general goal of improving MoE performance a shared, albeit distinct, contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+              "heading": "Introduction",
+              "text_snippet": "Empirical evaluations on 6 downstream tasks show that FLAME-MoE consistently outperforms dense counterparts trained under equal compute, with accuracy gains ranging from 1.8 to 3.4 points. More importantly, our training traces reveal nuanced dynamics of MoE models: expert specialization emerges early and intensifies over time; expert co-activation remains sparse and stable; and routing behaviors quickly converge during early pretraining.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to 'improve multilingual LLM performance'. The paper demonstrates that FLAME-MoE 'consistently outperforms dense counterparts' and provides insights into 'routing behaviors'. While the user's proposed improvement is specific to multilingual performance and a novel routing condition, the paper's contribution includes demonstrating performance gains and analyzing routing, which are related to the user's overall goal.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14601,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2505.20225v1"
+    },
+    {
+      "paper_id": "paper_33",
+      "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+      "arxiv_id": "2602.09316v2",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on improving multilingual LLM performance by conditioning the mixture-of-experts router on language identity tokens. In contrast, the paper addresses the problem of compressing MoE-based LLMs to reduce memory overhead for deployment, using methods like SVD-based compression and adaptive rank allocation based on routing frequency and information density. These are fundamentally different research problems. | Method: The user's research idea proposes conditioning a mixture-of-experts router on language identity tokens to improve multilingual LLM performance. The evaluated paper, RFID-MoE, focuses on compressing MoE-based LLMs by exploiting heterogeneous routing frequency and information density for adaptive rank allocation in SVD-based compression. There is no methodological overlap; the paper does not discuss multilingual LLMs, language identity tokens, or router conditioning based on such tokens, nor does the user's idea involve MoE compression or SVD-based rank allocation. | Domain: Both the user's idea and the paper operate within the domain of Mixture-of-Experts (MoE) Large Language Models (LLMs). However, the user's idea focuses on improving multilingual LLM performance by conditioning the router on language identity tokens, while the paper focuses on compressing MoE LLMs to reduce memory overhead for deployment, using routing frequency and information density for adaptive rank allocation. They share the overarching domain of MoE LLMs but target different sub-areas and application goals (multilingual performance vs. model compression). | Contribution: The user's research idea focuses on improving multilingual LLM performance by conditioning the mixture-of-experts router on language identity tokens. In contrast, the paper 'RFID-MoE' focuses on compressing MoE-based LLMs by exploiting heterogeneous routing frequency and information density for adaptive rank allocation, which is a different problem and solution space.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.",
+          "sentence_index": 0,
+          "similarity_score": 0.5499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+              "heading": "Introduction",
+              "text_snippet": "The landscape of Natural Language Processing (NLP) has been reshaped by Transformer-based LLMs with strong performance across tasks (Vaswani et al., 2017). To balance massive capacity demands with computational constraints, recent architectures adopt Mixture-of-Experts (MoE) designs using specialized expert networks with sparse activation (Team et al., 2025), enabling models like DeepSeek (Liu et al., 2024a) and Qwen3 (Yang et al., 2025) to scale effectively (Hoffmann et al., 2022).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are concerned with improving LLM performance, specifically in the context of MoE architectures. The paper focuses on compression to address memory overhead, while the user's idea focuses on routing mechanisms for multilingual performance, indicating a shared broad problem space but different specific angles.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+              "heading": "Related Work",
+              "text_snippet": "This efficiency has driven widespread MoE adoption in LLMs, with recent research refining expert structures, router designs, and training methods (Zhou et al., 2022; Liu et al., 2023).",
+              "similarity": 0.5,
+              "reason": "The paper acknowledges research refining 'router designs' within MoE LLMs, which aligns with the user's focus on a 'mixture-of-experts routing mechanism'. This indicates a shared area of interest in improving MoE models through router enhancements, even if the specific problem (compression vs. multilingual performance) differs.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+              "heading": "Introduction",
+              "text_snippet": "To balance massive capacity demands with computational constraints, recent architectures adopt Mixture-of-Experts (MoE) designs using specialized expert networks with sparse activation (Team et al., 2025), enabling models like DeepSeek (Liu et al., 2024a) and Qwen3 (Yang et al., 2025) to scale effectively (Hoffmann et al., 2022).",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper explicitly mention and utilize 'Mixture-of-Experts (MoE)' as a core architectural component. The user's idea proposes a specific 'routing mechanism' within MoE, while the paper focuses on MoE compression, but the underlying MoE framework is common.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+              "heading": "Related Work",
+              "text_snippet": "This efficiency has driven widespread MoE adoption in LLMs, with recent research refining expert structures, router designs, and training methods (Zhou et al., 2022; Liu et al., 2023).",
+              "similarity": 0.5,
+              "reason": "The paper discusses 'router designs' as an area of refinement in MoE LLMs, which directly relates to the user's proposed 'mixture-of-experts routing mechanism'. While the paper doesn't detail conditioning on language identity, the general concept of modifying or improving MoE routers is a shared methodological space.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+              "heading": "ABSTRACT",
+              "text_snippet": "Mixture-of-Experts (MoE) based Large Language Models (LLMs) have achieved superior performance, yet the massive memory overhead caused by storing multiple expert networks severely hinders their practical deployment.",
+              "similarity": 1.0,
+              "reason": "Both the user's research idea and the paper are squarely focused on 'Large Language Models (LLMs)' and specifically 'Mixture-of-Experts (MoE)' architectures within LLMs. The application domain is identical.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+              "heading": "Introduction",
+              "text_snippet": "The landscape of Natural Language Processing (NLP) has been reshaped by Transformer-based LLMs with strong performance across tasks (Vaswani et al., 2017). To balance massive capacity demands with computational constraints, recent architectures adopt Mixture-of-Experts (MoE) designs using specialized expert networks with sparse activation (Team et al., 2025), enabling models like DeepSeek (Liu et al., 2024a) and Qwen3 (Yang et al., 2025) to scale effectively (Hoffmann et al., 2022).",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper operate within the domain of 'Natural Language Processing (NLP)' and specifically target 'LLMs' with 'MoE designs'. The user's idea aims to improve 'multilingual LLM performance', which is a specific aspect within the broader LLM domain that the paper also addresses.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+              "heading": "ABSTRACT",
+              "text_snippet": "Mixture-of-Experts (MoE) based Large Language Models (LLMs) have achieved superior performance, yet the massive memory overhead caused by storing multiple expert networks severely hinders their practical deployment.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to 'improve' or enhance MoE-based LLMs. The user's contribution is improving 'multilingual LLM performance' through a specific routing mechanism, while the paper's contribution is improving MoE LLM deployment through compression. Both contribute to advancing MoE LLMs, but through different means and for different specific outcomes.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_33",
+              "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+              "heading": "Related Work",
+              "text_snippet": "This efficiency has driven widespread MoE adoption in LLMs, with recent research refining expert structures, router designs, and training methods (Zhou et al., 2022; Liu et al., 2023).",
+              "similarity": 0.5,
+              "reason": "The paper mentions 'refining expert structures, router designs, and training methods' as areas of research to improve MoE LLMs. The user's idea proposes a refinement to a 'routing mechanism' to 'improve multilingual LLM performance', aligning with the general goal of refining MoE components for better performance, even if the specific contribution is different.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 12548,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2602.09316v2"
+    },
+    {
+      "paper_id": "paper_11",
+      "paper_title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+      "arxiv_id": "2412.04003v1",
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's research idea focuses on improving multilingual LLM performance using a mixture-of-experts (MoE) routing mechanism conditioned on language identity tokens. The paper, 'Marco-LLM,' also aims to improve multilingual LLM performance, particularly for low-resource languages, through massive multilingual continual pre-training and post-training. While both address the broad topic of multilingual LLM enhancement, the paper does not mention a mixture-of-experts architecture or routing conditioned on language identity tokens, indicating a different specific approach to the problem. | Method: The user's research idea proposes a mixture-of-experts (MoE) routing mechanism conditioned on language identity tokens. The paper 'Marco-LLM' focuses on massive multilingual continual pre-training and post-training using the Qwen2 model to improve multilingual LLM performance, without mentioning or describing any mixture-of-experts architecture or language-identity-conditioned routing mechanism. | Domain: Both the user's research idea and the paper focus on improving multilingual LLM performance. The paper, \"Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement,\" directly addresses challenges with multilingual tasks and low-resource languages, aiming to bridge performance gaps. While the paper does not explicitly mention a 'mixture-of-experts routing mechanism conditioned on language identity token,' its core application domain of enhancing multilingual LLMs is closely related to the user's idea. | Contribution: The user's research idea proposes a specific architectural modification (mixture-of-experts routing conditioned on language identity tokens) to improve multilingual LLM performance. In contrast, the paper 'Marco-LLM' focuses on improving multilingual LLM performance through 'massive multilingual training' and 'continual pre-training' on a large, diverse dataset, without mentioning a mixture-of-experts architecture or language identity token conditioning for routing.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.",
+          "sentence_index": 0,
+          "similarity_score": 0.5499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+              "heading": "ABSTRACT",
+              "text_snippet": "Many LLMs continue to face challenges with multilingual tasks, especially when it comes to low-resource languages. To address this issue, we introduced Marco-LLM: Massive multilingual training for cross-lingual enhancement LLM.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to improve multilingual LLM performance, particularly for challenging multilingual tasks. The user proposes a specific mechanism to achieve this, while the paper addresses the general problem of LLMs facing challenges with multilingual tasks.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+              "heading": "Introduction",
+              "text_snippet": "However, the majority of these advances have been centered around high-resource languages, predominantly English [Bang et al., 2023, Jiao et al., 2023, Lai et al., 2023]. This focus has resulted in a performance gap when these models are applied to multilingual tasks, especially involving low-resource languages.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper identify the problem of LLMs having a performance gap in multilingual tasks, especially for low-resource languages. The user's idea aims to improve this performance, aligning with the problem identified by the paper.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+              "heading": "Two-Stage Continual Pretraining Strategy",
+              "text_snippet": "We develop Marco-LLM based on Qwen2, which is naturally designed to be multilingual-friendly and has an extensive vocabulary of 150k, ensuring a high compression rate for multilingual data.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'mixture-of-experts routing mechanism' for multilingual LLMs. While the paper doesn't explicitly mention mixture-of-experts, it focuses on developing a 'multilingual-friendly' LLM (Marco-LLM based on Qwen2) and uses 'massive multilingual training' to improve performance. The concept of routing based on language identity is a specific architectural choice within the broader goal of multilingual LLM improvement, which the paper also addresses through its training strategy.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+              "heading": "ABSTRACT",
+              "text_snippet": "Using a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on improving the performance of multilingual Large Language Models (LLMs).",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+              "heading": "Introduction",
+              "text_snippet": "Large Language Models (LLMs) [Brown et al., 2020, OpenAI, 2023, Touvron et al., 2023b,c, Dubey and et al, 2024, Guo et al., 2024] have transformed the field of Natural Language Processing (NLP) by achieving impressive results across a variety of tasks such as language understanding, generation, and translation [Bang et al., 2023, Wang et al., 2023, Jiao et al., 2023, Bai et al., 2023, Hui et al., 2024, Yao et al., 2024].",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on the domain of Large Language Models (LLMs) and their application in multilingual contexts.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+              "heading": "ABSTRACT",
+              "text_snippet": "Through comprehensive evaluations on various multilingual benchmarks, including MMMLU, AGIEval, Belebele, Flores-200, XCOPA and many others, Marco-LLM has demonstrated substantial improvements over state-of-the-art LLMs. Furthermore, Marco-LLM achieved substantial enhancements in any-to-any machine translation tasks, showing the effectiveness of our multilingual LLM.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to 'improve multilingual LLM performance'. The paper's core contribution is demonstrating 'substantial improvements over state-of-the-art LLMs' and 'substantial enhancements in any-to-any machine translation tasks' for multilingual LLMs. While the user proposes a specific method, the ultimate goal of improved performance is a shared contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_11",
+              "paper_title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+              "heading": "Introduction",
+              "text_snippet": "Marco-LLM aims to bridge the performance gap in multilingual NLP tasks. We perform massive multilingual continual pre-training and post-training on the Qwen2 model to develop Marco-LLM, a multilingual LLM that substantially improves performance on low-resource language tasks.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to 'improve multilingual LLM performance', which directly aligns with the paper's contribution of developing Marco-LLM to 'substantially improve performance on low-resource language tasks' and 'bridge the performance gap in multilingual NLP tasks'.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 71352,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2412.04003v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 96,
+    "global_similarity_score": 0.1825,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Using a mixture-of-experts routing mechanism where the router is conditioned on the input's language identity token (detected at preprocessing) rather than the input embedding, to improve multilingual LLM performance.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+            "heading": "Introduction",
+            "text_snippet": "Despite the architectural importance of routing, its internal behavior remains poorly characterized. Existing work has largely focused on training stability, scaling behavior, and balancing losses [Lepikhin et al., 2021, Fedus et al., 2022, Zhou et al., 2022]. In contrast, relatively little work studies routing as an object of analysis : a structured signal that may reveal how sparse models allocate computation across tasks.",
+            "similarity": 0.5,
+            "reason": "The user's idea aims to improve multilingual LLM performance by modifying the routing mechanism, which aligns with the paper's broader interest in understanding and potentially improving routing behavior in MoE models, moving beyond just stability and balancing.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_05",
+            "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+            "heading": "MoE Layer",
+            "text_snippet": "Each MoE layer comprises N E expert networks (FFNs) and a router mechanism. For an input token representation x , we employ Topk routing, where only the k experts with the highest routing scores are selected to process the token: ... where E i denotes the i -th expert network and r is a router network that computes router scores r ( x ) for each of the N E experts based on the input token representation x .",
+            "similarity": 0.75,
+            "reason": "The user proposes 'a mixture-of-experts routing mechanism' which directly corresponds to the 'MoE layer' and 'router mechanism' described in the paper. The paper details how a router computes scores based on the 'input token representation x', which is the standard approach the user is contrasting with their proposed 'language identity token' conditioning.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+            "heading": "ABSTRACT",
+            "text_snippet": "Sparse Mixture-of-Experts (MoE) architectures enable efficient scaling of large language models through conditional computation, yet the routing mechanisms responsible for expert selection remain poorly understood.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are squarely focused on improving or understanding Mixture-of-Experts (MoE) architectures within the context of Large Language Models (LLMs). The user's specific goal is 'multilingual LLM performance', which is a direct application domain for MoE LLMs.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_05",
+            "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+            "heading": "Abstract",
+            "text_snippet": "Yet academic researchers still lack a fully open, end-to-end MoE platform for investigating scaling, routing, and expert behavior. We release FLAME-MoE, a completely open-source research suite composed of seven decoder-only models, ranging from 38M to 1.7B active parameters, whose architecture--64 experts with top-8 gating and 2 shared experts--closely reflects modern production LLMs.",
+            "similarity": 0.5,
+            "reason": "The user's idea proposes a specific method to 'improve multilingual LLM performance'. The paper's contribution is a research platform to investigate 'routing, and expert behavior' and shows 'FLAME-MoE improves average accuracy by up to 3.4 points over dense baselines'. While the user's contribution is a specific improvement, the paper contributes a platform for such investigations and demonstrates performance improvements, making the general goal of improving MoE performance a shared, albeit distinct, contribution.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea demonstrates high originality, particularly in its proposed contributions. While there is moderate domain overlap with existing work, the core problem and method show low similarity to current literature.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.42,
+      "method_similarity": 0.38,
+      "domain_similarity": 0.6699999999999999,
+      "contribution_similarity": 0.16999999999999998
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0591,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0572,
+        "layer2": 0.0002,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0017,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 196.20600199699402,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "Task-Conditioned Routing Signatures in Sparse Mixture-of-Experts Transformers",
+        "paper_similarity": 0.27499999999999997,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_21",
+        "paper_title": "MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "FLAME-MoE: A Transparent End-to-End Research Platform for Mixture-of-Experts Language Models",
+        "paper_similarity": 0.38749999999999996,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_33",
+        "paper_title": "Effective MoE-based LLM Compression by Exploiting Heterogeneous Inter-Group Experts Routing Frequency and Information Density",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_11",
+        "paper_title": "Marco-LLM: Bridging Languages via Massive Multilingual Training for Cross-Lingual Enhancement",
+        "paper_similarity": 0.15000000000000002,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 107
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 107,
+    "after_dedup": 107,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

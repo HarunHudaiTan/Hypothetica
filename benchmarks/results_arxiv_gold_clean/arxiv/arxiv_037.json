@@ -1,0 +1,1005 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "8030ba2322f0",
+    "status": "completed"
+  },
+  "originality_score": 70,
+  "global_similarity_score": 0.5475,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_17",
+          "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+          "heading": "ABSTRACT",
+          "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge. The BraTS challenge consists of a 3D segmentation of a 240x240x155x4 input image into a set of tumor classes.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper address the problem of brain tumor segmentation using the BraTS challenge dataset.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_13",
+          "paper_title": "Deep Learning and Computational Physics (Lecture Notes)",
+          "heading": "Image-to-image transformations",
+          "text_snippet": "In the upscaling branch of the U-net, if you consider the activation at one point, you will see they come from two different sources. One of these is the from the same spatial scale in the down-scaling branch of the U-net, and the other is from the coarser scales of the upscaling branch of the U-net.",
+          "similarity": 0.75,
+          "reason": "The user's idea explicitly mentions a 'U-Net-based architecture', and this section of the paper describes the specific architectural components and data flow within a U-Net, indicating a strong methodological overlap regarding the core network design.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_17",
+          "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+          "heading": "ABSTRACT",
+          "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge. The BraTS challenge consists of a 3D segmentation of a 240x240x155x4 input image into a set of tumor classes.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are focused on 'Brain Tumor Segmentation' and specifically mention the 'BraTS challenge' and 'multi-modal MRI scans (T1, T2, FLAIR, T1ce)' which are detailed in the paper as 'T1-weighted, Gadolinium enhanced T1-weighted, T2-weighted, and FLAIR'.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_17",
+          "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+          "heading": "ABSTRACT",
+          "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge.",
+          "similarity": 0.75,
+          "reason": "The paper's contribution is a U-Net based architecture for brain tumor segmentation on BraTS, which is very similar to the user's proposed research idea. The user's idea does not specify 'memory saving techniques' as a novel aspect, but the core task and method are highly aligned.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research shows moderate originality, with significant overlap in problem formulation and domain with existing work, particularly in U-Net architectures for medical imaging. To enhance originality, consider differentiating your core method and contribution beyond existing U-Net applications.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.86,
+    "method_similarity": 0.6499999999999999,
+    "domain_similarity": 0.9,
+    "contribution_similarity": 0.8
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0382,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.036,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0018,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 195.6783790588379,
+  "papers": [
+    {
+      "paper_id": "paper_13",
+      "source": "arxiv",
+      "source_id": "2301.00942v1",
+      "arxiv_id": "2301.00942v1",
+      "title": "Deep Learning and Computational Physics (Lecture Notes)",
+      "abstract": "These notes were compiled as lecture notes for a course developed and taught at the University of the Southern California. They should be accessible to a typical engineering graduate student with a strong background in Applied Mathematics.\n  The main objective of these notes is to introduce a student who is familiar with concepts in linear algebra and partial differential equations to select topics in deep learning. These lecture notes exploit the strong connections between deep learning algorithms and the more conventional techniques of computational physics to achieve two goals. First, they use concepts from computational physics to develop an understanding of deep learning algorithms. Not surprisingly, many concepts in deep learning can be connected to similar concepts in computational physics, and one can utilize this connection to better understand these algorithms. Second, several novel deep learning algorithms can be used to solve challenging problems in computational physics. Thus, they offer someone who is interested in modeling a physical phenomena with a complementary set of tools.",
+      "url": "http://arxiv.org/abs/2301.00942v1",
+      "pdf_url": "https://arxiv.org/pdf/2301.00942v1",
+      "authors": [
+        "Deep Ray",
+        "Orazio Pinti",
+        "Assad A. Oberai"
+      ],
+      "categories": [
+        "cs.LG",
+        "math-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's research idea focuses on automatic segmentation of brain tumors using a U-Net architecture. The paper, while discussing deep learning and mentioning U-Net architectures in the context of 'Image-to-image transformations', is a set of lecture notes introducing deep learning concepts and their connections to computational physics. It does not address the specific problem of brain tumor segmentation. | Method: The user's idea proposes a U-Net-based architecture for brain tumor segmentation. The paper mentions 'U-net' and discusses its upscaling branch and activation sources, indicating it covers the general concept of U-Net. However, the paper is a set of lecture notes on deep learning and computational physics, not a research paper proposing a specific U-Net architecture for a particular task like brain tumor segmentation. It lacks details on the specific architecture, training, or application to medical imaging, which are central to the user's idea. | Domain: The user's idea is in medical image segmentation, specifically brain tumor segmentation using MRI. The paper is a set of lecture notes on deep learning and computational physics. While it mentions 'Semantic Segmenter' and 'Image-to-image transformations' and briefly discusses the U-Net architecture, it does not focus on medical imaging or brain tumor segmentation as an application domain. The paper's domain is broader, covering general deep learning concepts and their connection to computational physics. | Contribution: The user's research idea proposes a U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans, trained on the BraTS dataset. The paper, 'Deep Learning and Computational Physics (Lecture Notes)', is a set of lecture notes introducing deep learning concepts and their connections to computational physics. While the paper mentions 'U-net' and 'Semantic Segmenter' in a general educational context, it does not claim any specific contributions related to brain tumor segmentation, multi-modal MRI, or the BraTS dataset.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_17",
+      "source": "arxiv",
+      "source_id": "2104.09648v2",
+      "arxiv_id": "2104.09648v2",
+      "title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+      "abstract": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge. The BraTS challenge consists of a 3D segmentation of a 240x240x155x4 input image into a set of tumor classes. Because of the large volume and need for 3D convolutional layers, this task is very memory intensive. To address this, prior approaches use smaller cropped images while constraining the model's depth and width. Our 3D U-Net uses a reversible version of the mobile inverted bottleneck block defined in MobileNetV2, MnasNet and the more recent EfficientNet architectures to save activation memory during training. Using reversible layers enables the model to recompute input activations given the outputs of that layer, saving memory by eliminating the need to store activations during the forward pass. The inverted residual bottleneck block uses lightweight depthwise separable convolutions to reduce computation by decomposing convolutions into a pointwise convolution and a depthwise convolution. Further, this block inverts traditional bottleneck blocks by placing an intermediate expansion layer between the input and output linear 1x1 convolution, reducing the total number of channels. Given a fixed memory budget, with these memory saving techniques, we are able to train image volumes up to 3x larger, models with 25% more depth, or models with up to 2x the number of channels than a corresponding non-reversible network.",
+      "url": "http://arxiv.org/abs/2104.09648v2",
+      "pdf_url": "https://arxiv.org/pdf/2104.09648v2",
+      "authors": [
+        "Mihir Pendse",
+        "Vithursan Thangarasa",
+        "Vitaliy Chiley",
+        "Ryan Holmdahl",
+        "Joel Hestness",
+        "Dennis DeCoste"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.925,
+      "reason": "Problem: The paper addresses the exact same problem as the user's research idea: 'automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.' The abstract explicitly states, 'We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge. The BraTS challenge consists of a 3D segmentation of a 240x240x155x4 input image into a set of tumor classes.' The 'Training Procedure' section further confirms the use of 'MRI exam with 4 240x240x155 images (T1weighted, Gadolinium enhanced T1-weighted, T2-weighted, and FLAIR) and a ground truth segmentation map' from the BraTS dataset. | Method: The paper proposes a U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), which directly aligns with the user's research idea. It is trained and evaluated on the BraTS benchmark dataset, as specified by the user. The primary difference is the paper's focus on memory-saving techniques using reversible mobile inverted bottlenecks, which is an architectural tweak to a U-Net, making the methodology very similar with incremental differences. | Domain: The paper directly addresses the user's research idea. It proposes a U-Net-based architecture for 3D segmentation of brain tumors using multi-modal MRI scans (T1, T1ce, T2, FLAIR) and is trained and evaluated on the BraTS challenge dataset, as explicitly stated in the abstract and 'Training Procedure' section. | Contribution: The paper's abstract and introduction explicitly state its contribution is a 'U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce)', which is trained and evaluated on the 'BraTS benchmark dataset'. This directly matches the user's research idea, indicating the paper already demonstrates the proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_30",
+      "source": "arxiv",
+      "source_id": "2011.03712v1",
+      "arxiv_id": "2011.03712v1",
+      "title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+      "abstract": "Recently, there is a vast interest in developing image feature learning methods that are independent of the training data, such as deep image prior, InGAN, SinGAN, and DCIL. These methods are unsupervised and are used to perform low-level vision tasks such as image restoration, image editing, and image synthesis. In this work, we proposed a new training data-independent framework, called Deep Contextual Features Learning (DeepCFL), to perform image synthesis and image restoration based on the semantics of the input image. The contextual features are simply the high dimensional vectors representing the semantics of the given image. DeepCFL is a single image GAN framework that learns the distribution of the context vectors from the input image. We show the performance of contextual learning in various challenging scenarios: outpainting, inpainting, and restoration of randomly removed pixels. DeepCFL is applicable when the input source image and the generated target image are not aligned. We illustrate image synthesis using DeepCFL for the task of image resizing.",
+      "url": "http://arxiv.org/abs/2011.03712v1",
+      "pdf_url": "https://arxiv.org/pdf/2011.03712v1",
+      "authors": [
+        "Indra Deep Mastan",
+        "Shanmuganathan Raman"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.1,
+      "reason": "Problem: The user's research idea focuses on automatic segmentation of brain tumors in multi-modal MRI scans using a U-Net architecture. In contrast, the paper \"DeepCFL\" addresses image synthesis and image restoration tasks such as outpainting, inpainting, and restoration of randomly removed pixels, using a single image GAN framework. These are fundamentally different research problems with distinct goals and applications. | Method: Both the user's idea and the paper utilize deep learning, specifically a type of neural network. However, the user's idea specifies a U-Net architecture for semantic segmentation, while the paper proposes DeepCFL, a single image GAN framework with an encoder-decoder network (not explicitly a U-Net) for image synthesis and restoration tasks like inpainting and outpainting, which are different applications and architectural specifics. | Domain: The user's research idea is in medical image segmentation, specifically brain tumor segmentation in multi-modal MRI scans. The paper focuses on general image synthesis and restoration tasks like outpainting, inpainting, and restoration of missing pixels, which are low-level vision tasks. While both involve image processing, the application contexts (medical diagnostics vs. general image manipulation) are distinct, placing them in related disciplines but different application contexts. | Contribution: The user's research idea focuses on U-Net-based automatic segmentation of brain tumors in multi-modal MRI scans using the BraTS dataset. In contrast, the paper 'DeepCFL' proposes a single image GAN framework for contextual features learning to perform image synthesis and restoration tasks like outpainting, inpainting, and restoration of missing pixels. These are distinct problems with different methodologies and applications, indicating unrelated contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.25,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_20",
+      "source": "arxiv",
+      "source_id": "2305.19369v1",
+      "arxiv_id": "2305.19369v1",
+      "title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+      "abstract": "Gliomas are the most common type of primary brain tumors. Although gliomas are relatively rare, they are among the deadliest types of cancer, with a survival rate of less than 2 years after diagnosis. Gliomas are challenging to diagnose, hard to treat and inherently resistant to conventional therapy. Years of extensive research to improve diagnosis and treatment of gliomas have decreased mortality rates across the Global North, while chances of survival among individuals in low- and middle-income countries (LMICs) remain unchanged and are significantly worse in Sub-Saharan Africa (SSA) populations. Long-term survival with glioma is associated with the identification of appropriate pathological features on brain MRI and confirmation by histopathology. Since 2012, the Brain Tumor Segmentation (BraTS) Challenge have evaluated state-of-the-art machine learning methods to detect, characterize, and classify gliomas. However, it is unclear if the state-of-the-art methods can be widely implemented in SSA given the extensive use of lower-quality MRI technology, which produces poor image contrast and resolution and more importantly, the propensity for late presentation of disease at advanced stages as well as the unique characteristics of gliomas in SSA (i.e., suspected higher rates of gliomatosis cerebri). Thus, the BraTS-Africa Challenge provides a unique opportunity to include brain MRI glioma cases from SSA in global efforts through the BraTS Challenge to develop and evaluate computer-aided-diagnostic (CAD) methods for the detection and characterization of glioma in resource-limited settings, where the potential for CAD tools to transform healthcare are more likely.",
+      "url": "http://arxiv.org/abs/2305.19369v1",
+      "pdf_url": "https://arxiv.org/pdf/2305.19369v1",
+      "authors": [
+        "Maruf Adewole",
+        "Jeffrey D. Rudie",
+        "Anu Gbadamosi",
+        "Oluyemisi Toyobo",
+        "Confidence Raymond",
+        "Dong Zhang",
+        "Olubukola Omidiji",
+        "Rachel Akinola",
+        "Mohammad Abba Suwaid",
+        "Adaobi Emegoakor",
+        "Nancy Ojo",
+        "Kenneth Aguh",
+        "Chinasa Kalaiwo",
+        "Gabriel Babatunde",
+        "Afolabi Ogunleye",
+        "Yewande Gbadamosi",
+        "Kator Iorpagher",
+        "Evan Calabrese",
+        "Mariam Aboian",
+        "Marius Linguraru",
+        "Jake Albrecht",
+        "Benedikt Wiestler",
+        "Florian Kofler",
+        "Anastasia Janas",
+        "Dominic LaBella",
+        "Anahita Fathi Kzerooni",
+        "Hongwei Bran Li",
+        "Juan Eugenio Iglesias",
+        "Keyvan Farahani",
+        "James Eddy",
+        "Timothy Bergquist",
+        "Verena Chung",
+        "Russell Takeshi Shinohara",
+        "Walter Wiggins",
+        "Zachary Reitman",
+        "Chunhao Wang",
+        "Xinyang Liu",
+        "Zhifan Jiang",
+        "Ariana Familiar",
+        "Koen Van Leemput",
+        "Christina Bukas",
+        "Maire Piraud",
+        "Gian-Marco Conte",
+        "Elaine Johansson",
+        "Zeke Meier",
+        "Bjoern H Menze",
+        "Ujjwal Baid",
+        "Spyridon Bakas",
+        "Farouk Dako",
+        "Abiodun Fatade",
+        "Udunna C Anazodo"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "physics.med-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5874999999999999,
+      "reason": "Problem: The user's idea focuses on 'automatic segmentation of brain tumors in multi-modal MRI scans' using a 'U-Net-based architecture' and the 'BraTS benchmark dataset'. The paper, while primarily introducing the BraTS-Africa Challenge, explicitly states that the BraTS Challenge 'evaluated state-of-the-art machine learning methods to detect, characterize, and classify gliomas' and mentions 'ML algorithms for assessment of tumor burden and treatment response based on tumor segmentation on brain MRI'. It also notes that 'initial automated segmentations were generated from an nnU-Net model trained on the BraTS 2021 dataset'. This indicates a very similar problem statement regarding brain tumor segmentation using ML on BraTS data, with the paper's primary difference being the focus on the SSA patient population and lower-quality MRI data, which represents a difference in scope and constraints rather than a fundamentally different problem. | Method: The user's idea proposes a U-Net-based architecture for brain tumor segmentation using multi-modal MRI and the BraTS dataset. The paper describes the BraTS-Africa Challenge, which aims to develop and evaluate computer-aided diagnostic methods for glioma, explicitly mentioning the use of machine learning for tumor segmentation. It also states that initial automated segmentations for BraTS 2021 were generated from an 'nnU-Net model trained on the BraTS 2021 dataset'. While the paper focuses on the challenge and dataset for SSA, it acknowledges and utilizes U-Net based methods (nnU-Net) within the broader BraTS context, indicating a shared general method family but not necessarily the exact same proposed architecture or primary focus of the research. | Domain: The paper directly addresses the 'Brain Tumor Segmentation (BraTS) Challenge' and focuses on 'glioma segmentation' using 'brain MRI' data, which perfectly aligns with the user's idea of 'automatic segmentation of brain tumors in multi-modal MRI scans' and training/evaluation on the 'BraTS benchmark dataset'. The paper also mentions the use of 'nnU-Net' for initial automated segmentations, indicating a direct overlap in architectural approaches. | Contribution: The user's idea proposes a U-Net-based architecture for automatic segmentation of brain tumors using multi-modal MRI scans and the BraTS dataset. The paper, 'The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)', describes a challenge focused on developing and evaluating computer-aided diagnostic methods for glioma in resource-limited settings, specifically using BraTS-Africa data. While the paper mentions that initial automated segmentations for BraTS 2021 were generated from an 'nnU-Net model trained on the BraTS 2021 dataset', indicating the use of U-Net and BraTS data for segmentation, the paper's primary contribution is the establishment of the BraTS-Africa challenge and dataset, not the development of a specific U-Net architecture. Therefore, there is partial overlap in the use of U-Net and BraTS data for segmentation, but the user's contribution is a specific model development, whereas the paper's contribution is a challenge and dataset for a specific population.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_36",
+      "source": "arxiv",
+      "source_id": "1907.07677v1",
+      "arxiv_id": "1907.07677v1",
+      "title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+      "abstract": "This paper proposes a novel cascaded U-Net for brain tumor segmentation. Inspired by the distinct hierarchical structure of brain tumor, we design a cascaded deep network framework, in which the whole tumor is segmented firstly and then the tumor internal substructures are further segmented. Considering that the increase of the network depth brought by cascade structures leads to a loss of accurate localization information in deeper layers, we construct many skip connections to link features at the same resolution and transmit detailed information from shallow layers to the deeper layers. Then we present a loss weighted sampling (LWS) scheme to eliminate the issue of imbalanced data during training the network. Experimental results on BraTS 2017 data show that our architecture framework outperforms the state-of-the-art segmentation algorithms, especially in terms of segmentation sensitivity.",
+      "url": "http://arxiv.org/abs/1907.07677v1",
+      "pdf_url": "https://arxiv.org/pdf/1907.07677v1",
+      "authors": [
+        "Hongying Liu",
+        "Xiongjie Shen",
+        "Fanhua Shang",
+        "Fei Wang"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.925,
+      "reason": "Problem: The paper addresses the problem of 'automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce)', which is essentially the same problem as the user's research idea. Both explicitly mention using T1, T2, FLAIR, and T1ce MRI modalities and focus on brain tumor segmentation. The paper also states it evaluates its method on the BraTS challenge 2017 dataset, which aligns with the user's mention of the 'BraTS benchmark dataset'. | Method: The paper proposes a 'cascaded U-Net' architecture for brain tumor segmentation, explicitly building upon the U-Net architecture mentioned in the user's idea. Both the user's idea and the paper utilize a U-Net based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce) and are trained/evaluated on the BraTS dataset. The 'cascaded' aspect and 'loss weighted sampling' are specific enhancements to the U-Net, making the methodology very similar with incremental differences. | Domain: Both the user's research idea and the paper focus on the automatic segmentation of brain tumors. Both specify using multi-modal MRI scans (T1, T2, FLAIR, T1ce) and training/evaluating on the BraTS benchmark dataset. This represents a direct and specific overlap in the application domain, data type, and target population. | Contribution: The paper proposes a 'cascaded U-Net for brain tumor segmentation' using 'multi-modal MRI scans: T1, T2, T1ce and FLAIR' and evaluates it on the 'BraTS challenge 2017' dataset. This directly aligns with the user's idea of a 'U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset'.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 1.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "BraTS Challenge Participants & Publications",
+        "similarity": 0.99,
+        "description": "The BraTS (Brain Tumor Segmentation) challenge itself is a benchmark for this exact problem. Numerous research groups and publications have used U-Net and its variants for multi-modal MRI brain tumor segmentation on BraTS datasets (e.g., Isensee et al. 2017, 2018, 2019, 2021 with nnU-Net, which is a highly successful U-Net-based framework). This is a very active and well-established research area."
+      },
+      {
+        "name": "nnU-Net",
+        "similarity": 0.95,
+        "description": "nnU-Net is an adaptive deep learning framework, heavily based on U-Net, that has consistently achieved top performance in various biomedical segmentation challenges, including BraTS. It is publicly available and widely used for this specific task."
+      },
+      {
+        "name": "Various academic papers and open-source implementations",
+        "similarity": 0.9,
+        "description": "A quick search on PubMed, Google Scholar, or arXiv for 'U-Net brain tumor segmentation MRI BraTS' will yield hundreds of results, many of which describe exactly this approach, often with minor architectural variations or training strategies."
+      }
+    ],
+    "assessment": "The idea describes a very common and well-established research approach in medical image analysis, specifically for brain tumor segmentation. U-Net architectures, multi-modal MRI data (T1, T2, FLAIR, T1ce), and the BraTS dataset are standard components in this field. This exact combination has been extensively researched, published, and benchmarked, with many highly successful implementations already existing.",
+    "novelty_aspects": [
+      "Specific novel architectural modifications to the U-Net (e.g., attention mechanisms, new skip connections, different encoder/decoder blocks)",
+      "Novel loss functions or regularization techniques tailored for brain tumor segmentation",
+      "Advanced data augmentation strategies beyond standard practices",
+      "Integration with clinical workflows or real-time inference capabilities not commonly found in research prototypes",
+      "Development of a new, highly robust, and generalizable framework that outperforms existing state-of-the-art methods across diverse datasets (beyond just BraTS)"
+    ],
+    "recommendation": "While the core idea is not novel, there is still room for incremental improvements or specific innovations. To make this research original, you would need to propose a *specific* novel contribution, such as a unique U-Net variant, a new training methodology, or a significantly improved performance metric that addresses known limitations of current methods on the BraTS dataset or similar challenges. Simply applying a U-Net to BraTS data is a solved problem."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **BraTS Challenge Participants & Publications** (similarity: 99%).\n\n*The idea describes a very common and well-established research approach in medical image analysis, specifically for brain tumor segmentation. U-Net architectures, multi-modal MRI data (T1, T2, FLAIR, T1ce), and the BraTS dataset are standard components in this field. This exact combination has been extensively researched, published, and benchmarked, with many highly successful implementations already existing.*\n\n**Recommendation:** While the core idea is not novel, there is still room for incremental improvements or specific innovations. To make this research original, you would need to propose a *specific* novel contribution, such as a unique U-Net variant, a new training methodology, or a significantly improved performance metric that addresses known limitations of current methods on the BraTS dataset or similar challenges. Simply applying a U-Net to BraTS data is a solved problem.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 89,
+    "unique_after_dedup": 89,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 645,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0382,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.036,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.",
+  "enriched_idea": "RESEARCH IDEA:\nA U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_13",
+      "paper_title": "Deep Learning and Computational Physics (Lecture Notes)",
+      "arxiv_id": "2301.00942v1",
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's research idea focuses on automatic segmentation of brain tumors using a U-Net architecture. The paper, while discussing deep learning and mentioning U-Net architectures in the context of 'Image-to-image transformations', is a set of lecture notes introducing deep learning concepts and their connections to computational physics. It does not address the specific problem of brain tumor segmentation. | Method: The user's idea proposes a U-Net-based architecture for brain tumor segmentation. The paper mentions 'U-net' and discusses its upscaling branch and activation sources, indicating it covers the general concept of U-Net. However, the paper is a set of lecture notes on deep learning and computational physics, not a research paper proposing a specific U-Net architecture for a particular task like brain tumor segmentation. It lacks details on the specific architecture, training, or application to medical imaging, which are central to the user's idea. | Domain: The user's idea is in medical image segmentation, specifically brain tumor segmentation using MRI. The paper is a set of lecture notes on deep learning and computational physics. While it mentions 'Semantic Segmenter' and 'Image-to-image transformations' and briefly discusses the U-Net architecture, it does not focus on medical imaging or brain tumor segmentation as an application domain. The paper's domain is broader, covering general deep learning concepts and their connection to computational physics. | Contribution: The user's research idea proposes a U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans, trained on the BraTS dataset. The paper, 'Deep Learning and Computational Physics (Lecture Notes)', is a set of lecture notes introducing deep learning concepts and their connections to computational physics. While the paper mentions 'U-net' and 'Semantic Segmenter' in a general educational context, it does not claim any specific contributions related to brain tumor segmentation, multi-modal MRI, or the BraTS dataset.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.",
+          "sentence_index": 0,
+          "similarity_score": 0.24999999999999997,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "Deep Learning and Computational Physics (Lecture Notes)",
+              "heading": "Image-to-image transformations",
+              "text_snippet": "In the upscaling branch of the U-net, if you consider the activation at one point, you will see they come from two different sources. One of these is the from the same spatial scale in the down-scaling branch of the U-net, and the other is from the coarser scales of the upscaling branch of the U-net.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions a 'U-Net-based architecture', and this section of the paper describes the specific architectural components and data flow within a U-Net, indicating a strong methodological overlap regarding the core network design.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "Deep Learning and Computational Physics (Lecture Notes)",
+              "heading": "Artificial Intelligence, Machine Learning and Deep Learning",
+              "text_snippet": "On the other hand, machine learning (ML) are the components of this system that are trained using data. That is they learn through data. In the example above, the Semantic Segmenter is one such system.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes 'automatic segmentation of brain tumors', which falls under the broader category of 'Semantic Segmenter' mentioned in the paper as an application of machine learning. While the specific domain (brain tumors) is not mentioned, the general application type (segmentation) is related.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.25,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 8048,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2301.00942v1"
+    },
+    {
+      "paper_id": "paper_17",
+      "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+      "arxiv_id": "2104.09648v2",
+      "paper_similarity_score": 0.925,
+      "reason": "Problem: The paper addresses the exact same problem as the user's research idea: 'automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.' The abstract explicitly states, 'We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge. The BraTS challenge consists of a 3D segmentation of a 240x240x155x4 input image into a set of tumor classes.' The 'Training Procedure' section further confirms the use of 'MRI exam with 4 240x240x155 images (T1weighted, Gadolinium enhanced T1-weighted, T2-weighted, and FLAIR) and a ground truth segmentation map' from the BraTS dataset. | Method: The paper proposes a U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), which directly aligns with the user's research idea. It is trained and evaluated on the BraTS benchmark dataset, as specified by the user. The primary difference is the paper's focus on memory-saving techniques using reversible mobile inverted bottlenecks, which is an architectural tweak to a U-Net, making the methodology very similar with incremental differences. | Domain: The paper directly addresses the user's research idea. It proposes a U-Net-based architecture for 3D segmentation of brain tumors using multi-modal MRI scans (T1, T1ce, T2, FLAIR) and is trained and evaluated on the BraTS challenge dataset, as explicitly stated in the abstract and 'Training Procedure' section. | Contribution: The paper's abstract and introduction explicitly state its contribution is a 'U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce)', which is trained and evaluated on the 'BraTS benchmark dataset'. This directly matches the user's research idea, indicating the paper already demonstrates the proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.",
+          "sentence_index": 0,
+          "similarity_score": 0.8125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+              "heading": "ABSTRACT",
+              "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge. The BraTS challenge consists of a 3D segmentation of a 240x240x155x4 input image into a set of tumor classes.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper address the problem of brain tumor segmentation using the BraTS challenge dataset.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+              "heading": "Introduction",
+              "text_snippet": "Because of the heterogeneous nature of the composition and morphology of gliomas segmentation of these tumors on the MRI is time consuming even for experienced radiologists [17].",
+              "similarity": 0.75,
+              "reason": "The paper highlights the difficulty and time-consuming nature of manual brain tumor segmentation on MRI, which is the underlying problem the user's idea aims to solve with automatic segmentation.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+              "heading": "ABSTRACT",
+              "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions a 'U-Net-based architecture', which directly aligns with the paper's focus on 'traditional U-Net architectures' for brain tumor segmentation.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+              "heading": "Introduction",
+              "text_snippet": "The U-Net [15] was shown to perform better on medical image segmentation. Instead of a single layer in the decoder, the UNet uses the same number of layers as in the encoder resulting in a symmetric U shaped architecture. The U-Net introduced skip connections between the output of each encoder layer and the input of the corresponding decoder layer.",
+              "similarity": 0.75,
+              "reason": "The user's idea specifies a 'U-Net-based architecture', and this section of the paper describes the U-Net architecture in detail, confirming the methodological overlap.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+              "heading": "ABSTRACT",
+              "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge. The BraTS challenge consists of a 3D segmentation of a 240x240x155x4 input image into a set of tumor classes.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on 'Brain Tumor Segmentation' and specifically mention the 'BraTS challenge' and 'multi-modal MRI scans (T1, T2, FLAIR, T1ce)' which are detailed in the paper as 'T1-weighted, Gadolinium enhanced T1-weighted, T2-weighted, and FLAIR'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+              "heading": "Introduction",
+              "text_snippet": "Magnetic resonance imaging (MRI) is one of the most commonly used imaging techniques used to identify neurological abnormalities including brain gliomas [5]. ... Typically, for diagnosis of gliomas an MRI exam consists of T1-weighted, T1-weighted with gadolinium, T2-weighted, and FLAIR scans.",
+              "similarity": 1.0,
+              "reason": "The user's idea specifies 'multi-modal MRI scans (T1, T2, FLAIR, T1ce)', which is directly matched by the paper's description of MRI modalities used for glioma diagnosis.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+              "heading": "Training Procedure",
+              "text_snippet": "Dataset: The provided BraTS [14,2,1,3,4] training dataset consists of 370 total examples each consisting of an MRI exam with 4 240x240x155 images (T1weighted, Gadolinium enhanced T1-weighted, T2-weighted, and FLAIR) and a ground truth segmentation map grouping each voxel into one of four categories.",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions 'BraTS benchmark dataset' and the paper confirms its use, including the specific MRI modalities.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+              "heading": "ABSTRACT",
+              "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge.",
+              "similarity": 0.75,
+              "reason": "The paper's contribution is a U-Net based architecture for brain tumor segmentation on BraTS, which is very similar to the user's proposed research idea. The user's idea does not specify 'memory saving techniques' as a novel aspect, but the core task and method are highly aligned.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_17",
+              "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+              "heading": "Introduction",
+              "text_snippet": "The U-Net model is very popular in biomedical image segmentation due to its ability to segment images efficiently with a very limited amount of labeled training data. In addition, several variants of U-Net models have also been successfully implemented in various kinds of computer vision applications [23,10,18].",
+              "similarity": 0.75,
+              "reason": "The paper discusses the U-Net's effectiveness in medical image segmentation, which is the goal of the user's idea. The paper then proposes a specific U-Net variant, indicating that a U-Net based approach for this problem is a known and explored contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 1.0,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 16821,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2104.09648v2"
+    },
+    {
+      "paper_id": "paper_30",
+      "paper_title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+      "arxiv_id": "2011.03712v1",
+      "paper_similarity_score": 0.1,
+      "reason": "Problem: The user's research idea focuses on automatic segmentation of brain tumors in multi-modal MRI scans using a U-Net architecture. In contrast, the paper \"DeepCFL\" addresses image synthesis and image restoration tasks such as outpainting, inpainting, and restoration of randomly removed pixels, using a single image GAN framework. These are fundamentally different research problems with distinct goals and applications. | Method: Both the user's idea and the paper utilize deep learning, specifically a type of neural network. However, the user's idea specifies a U-Net architecture for semantic segmentation, while the paper proposes DeepCFL, a single image GAN framework with an encoder-decoder network (not explicitly a U-Net) for image synthesis and restoration tasks like inpainting and outpainting, which are different applications and architectural specifics. | Domain: The user's research idea is in medical image segmentation, specifically brain tumor segmentation in multi-modal MRI scans. The paper focuses on general image synthesis and restoration tasks like outpainting, inpainting, and restoration of missing pixels, which are low-level vision tasks. While both involve image processing, the application contexts (medical diagnostics vs. general image manipulation) are distinct, placing them in related disciplines but different application contexts. | Contribution: The user's research idea focuses on U-Net-based automatic segmentation of brain tumors in multi-modal MRI scans using the BraTS dataset. In contrast, the paper 'DeepCFL' proposes a single image GAN framework for contextual features learning to perform image synthesis and restoration tasks like outpainting, inpainting, and restoration of missing pixels. These are distinct problems with different methodologies and applications, indicating unrelated contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.25,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+              "heading": "Introduction",
+              "text_snippet": "Here, G is an encoder-decoder network which outputs an image G ( x ) = y .",
+              "similarity": 0.25,
+              "reason": "The user's idea mentions a 'U-Net-based architecture', and U-Net is a type of encoder-decoder network. The paper mentions using an 'encoder-decoder network G'. While both use encoder-decoder structures, the specific U-Net architecture for segmentation is distinct from the paper's general encoder-decoder for image synthesis/restoration.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 16049,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2011.03712v1"
+    },
+    {
+      "paper_id": "paper_20",
+      "paper_title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+      "arxiv_id": "2305.19369v1",
+      "paper_similarity_score": 0.5874999999999999,
+      "reason": "Problem: The user's idea focuses on 'automatic segmentation of brain tumors in multi-modal MRI scans' using a 'U-Net-based architecture' and the 'BraTS benchmark dataset'. The paper, while primarily introducing the BraTS-Africa Challenge, explicitly states that the BraTS Challenge 'evaluated state-of-the-art machine learning methods to detect, characterize, and classify gliomas' and mentions 'ML algorithms for assessment of tumor burden and treatment response based on tumor segmentation on brain MRI'. It also notes that 'initial automated segmentations were generated from an nnU-Net model trained on the BraTS 2021 dataset'. This indicates a very similar problem statement regarding brain tumor segmentation using ML on BraTS data, with the paper's primary difference being the focus on the SSA patient population and lower-quality MRI data, which represents a difference in scope and constraints rather than a fundamentally different problem. | Method: The user's idea proposes a U-Net-based architecture for brain tumor segmentation using multi-modal MRI and the BraTS dataset. The paper describes the BraTS-Africa Challenge, which aims to develop and evaluate computer-aided diagnostic methods for glioma, explicitly mentioning the use of machine learning for tumor segmentation. It also states that initial automated segmentations for BraTS 2021 were generated from an 'nnU-Net model trained on the BraTS 2021 dataset'. While the paper focuses on the challenge and dataset for SSA, it acknowledges and utilizes U-Net based methods (nnU-Net) within the broader BraTS context, indicating a shared general method family but not necessarily the exact same proposed architecture or primary focus of the research. | Domain: The paper directly addresses the 'Brain Tumor Segmentation (BraTS) Challenge' and focuses on 'glioma segmentation' using 'brain MRI' data, which perfectly aligns with the user's idea of 'automatic segmentation of brain tumors in multi-modal MRI scans' and training/evaluation on the 'BraTS benchmark dataset'. The paper also mentions the use of 'nnU-Net' for initial automated segmentations, indicating a direct overlap in architectural approaches. | Contribution: The user's idea proposes a U-Net-based architecture for automatic segmentation of brain tumors using multi-modal MRI scans and the BraTS dataset. The paper, 'The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)', describes a challenge focused on developing and evaluating computer-aided diagnostic methods for glioma in resource-limited settings, specifically using BraTS-Africa data. While the paper mentions that initial automated segmentations for BraTS 2021 were generated from an 'nnU-Net model trained on the BraTS 2021 dataset', indicating the use of U-Net and BraTS data for segmentation, the paper's primary contribution is the establishment of the BraTS-Africa challenge and dataset, not the development of a specific U-Net architecture. Therefore, there is partial overlap in the use of U-Net and BraTS data for segmentation, but the user's contribution is a specific model development, whereas the paper's contribution is a challenge and dataset for a specific population.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+              "heading": "Introduction",
+              "text_snippet": "Computer-aided diagnosis using machine learning (ML) to segment brain tumors holds promise in increasing accuracy of tumor diagnosis, early detection, classification and in predicting tumor recurrence and patient survival 11-13 .",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of segmenting brain tumors using machine learning for diagnostic purposes.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+              "heading": "ABSTRACT",
+              "text_snippet": "Since 2012, the Brain Tumor Segmentation (BraTS) Challenge have evaluated state-of-the-art machine learning methods to detect, characterize, and classify gliomas.",
+              "similarity": 0.5,
+              "reason": "The paper discusses the BraTS Challenge's role in evaluating methods for glioma detection and characterization, which aligns with the user's goal of automatic segmentation of brain tumors.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+              "heading": "Tumor Annotation Protocol",
+              "text_snippet": "To facilitate the annotation process for BraTS 2021, initial automated segmentations were generated from an nnU-Net 28 model trained on the BraTS 2021 dataset 14-16 .",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'U-Net-based architecture' for segmentation, and the paper explicitly mentions using an 'nnU-Net model' for automated segmentations within the BraTS context, indicating a very similar methodological approach.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+              "heading": "ABSTRACT",
+              "text_snippet": "A U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on brain tumor segmentation using MRI scans and specifically mention the BraTS dataset, indicating a direct overlap in the application domain.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+              "heading": "Introduction",
+              "text_snippet": "Each year BraTS provides open and accessible multiparametric MRI training data, ground-truth annotations and quantitative metrics for benchmarking performance and clinical utility of ML methods for glioma diagnostics.",
+              "similarity": 1.0,
+              "reason": "The paper describes BraTS as providing multiparametric MRI data for benchmarking ML methods for glioma diagnostics, which directly matches the user's intention to use multi-modal MRI scans and the BraTS benchmark dataset.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+              "heading": "ABSTRACT",
+              "text_snippet": "Since 2012, the Brain Tumor Segmentation (BraTS) Challenge have evaluated state-of-the-art machine learning methods to detect, characterize, and classify gliomas.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes to train and evaluate a U-Net architecture on BraTS, which aligns with the BraTS Challenge's ongoing contribution of evaluating state-of-the-art methods for glioma segmentation.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+              "heading": "Introduction",
+              "text_snippet": "Since 2012, the Brain Tumor Segmentation (BraTS) Challenge has exploited the powerful role of ML in glioma diagnosis, focusing on evaluation of state-of-the art methods for tumor segmentation, classification and more recently survival prediction 14-16 .",
+              "similarity": 0.5,
+              "reason": "The user's idea contributes to the evaluation of a segmentation method on BraTS, which is a core activity of the BraTS Challenge as described in the paper.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 13122,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2305.19369v1"
+    },
+    {
+      "paper_id": "paper_36",
+      "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+      "arxiv_id": "1907.07677v1",
+      "paper_similarity_score": 0.925,
+      "reason": "Problem: The paper addresses the problem of 'automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce)', which is essentially the same problem as the user's research idea. Both explicitly mention using T1, T2, FLAIR, and T1ce MRI modalities and focus on brain tumor segmentation. The paper also states it evaluates its method on the BraTS challenge 2017 dataset, which aligns with the user's mention of the 'BraTS benchmark dataset'. | Method: The paper proposes a 'cascaded U-Net' architecture for brain tumor segmentation, explicitly building upon the U-Net architecture mentioned in the user's idea. Both the user's idea and the paper utilize a U-Net based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce) and are trained/evaluated on the BraTS dataset. The 'cascaded' aspect and 'loss weighted sampling' are specific enhancements to the U-Net, making the methodology very similar with incremental differences. | Domain: Both the user's research idea and the paper focus on the automatic segmentation of brain tumors. Both specify using multi-modal MRI scans (T1, T2, FLAIR, T1ce) and training/evaluating on the BraTS benchmark dataset. This represents a direct and specific overlap in the application domain, data type, and target population. | Contribution: The paper proposes a 'cascaded U-Net for brain tumor segmentation' using 'multi-modal MRI scans: T1, T2, T1ce and FLAIR' and evaluates it on the 'BraTS challenge 2017' dataset. This directly aligns with the user's idea of a 'U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset'.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.",
+          "sentence_index": 0,
+          "similarity_score": 0.8125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "ABSTRACT",
+              "text_snippet": "This paper proposes a novel cascaded U-Net for brain tumor segmentation.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper explicitly state the problem of 'brain tumor segmentation'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "Introduction",
+              "text_snippet": "Since deep learning has attracted considerable attentions from researchers, convolutional neural network (CNN) has been widely applied to the brain tumor segmentation.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper address the problem of brain tumor segmentation using deep learning.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "ABSTRACT",
+              "text_snippet": "This paper proposes a novel cascaded U-Net for brain tumor segmentation.",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'U-Net-based architecture' and the paper proposes a 'cascaded U-Net', indicating a strong methodological overlap in the core network architecture.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "Introduction",
+              "text_snippet": "Ronneberger et al. [6] proposed a U-shape convolutional network (called UNet) and introduced skip-connections to fuse multi-level features, so as to help the net decode more precisely. Many experimental results show that U-Net performs well in various medical image segmentation tasks. Dong et al. [1] applied U-Net to brain tumor segmentation...",
+              "similarity": 0.75,
+              "reason": "The user specifies a 'U-Net-based architecture' and the paper discusses U-Net's application to brain tumor segmentation and proposes a 'cascaded U-shape convolutional network'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "Our Cascaded U-Net Architecture",
+              "text_snippet": "Our network is a novel end-to-end architecture. In particular, our cascaded UNet is mainly composed of two cascaded U-Nets, which are for different tasks, as shown in Figure.",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'U-Net-based architecture' and the paper details its 'cascaded U-Net' architecture.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "Introduction",
+              "text_snippet": "For glioma diagnosis, four standard Magnetic Resonance Imaging (MRI) modalities are generally used: T1-weighted MRI (T1), T2-weighted MRI (T2), T1-weighted MRI with gadolinium contrast enhancement (T1ce) and Fluid Attenuated Inversion Recovery (FLAIR).",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper specify the use of 'multi-modal MRI scans (T1, T2, FLAIR, T1ce)'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "Datasets and Pre-processing",
+              "text_snippet": "In each case, four modal brain MRI scans: T1, T2, T1ce and FLAIR, are provided, respectively.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper specify the use of 'multi-modal MRI scans (T1, T2, FLAIR, T1ce)'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "ABSTRACT",
+              "text_snippet": "Experimental results on BraTS 2017 data show that our architecture framework outperforms the state-of-the-art segmentation algorithms, especially in terms of segmentation sensitivity.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper mention training and evaluating on the 'BraTS benchmark dataset'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "Datasets and Pre-processing",
+              "text_snippet": "We evaluate our method on the training data of BraTS challenge 2017.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper mention training and evaluating on the 'BraTS benchmark dataset'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "ABSTRACT",
+              "text_snippet": "This paper proposes a novel cascaded U-Net for brain tumor segmentation.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on 'brain tumor segmentation'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "Introduction",
+              "text_snippet": "For glioma diagnosis, four standard Magnetic Resonance Imaging (MRI) modalities are generally used: T1-weighted MRI (T1), T2-weighted MRI (T2), T1-weighted MRI with gadolinium contrast enhancement (T1ce) and Fluid Attenuated Inversion Recovery (FLAIR).",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper specify the use of 'multi-modal MRI scans (T1, T2, FLAIR, T1ce)' for brain tumor segmentation.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "Datasets and Pre-processing",
+              "text_snippet": "We evaluate our method on the training data of BraTS challenge 2017. It consists of 210 cases of high-grade glioma and 75 cases of low-grade glioma. In each case, four modal brain MRI scans: T1, T2, T1ce and FLAIR, are provided, respectively.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper use the 'BraTS benchmark dataset' which consists of brain MRI scans for tumor segmentation.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "ABSTRACT",
+              "text_snippet": "This paper proposes a novel cascaded U-Net for brain tumor segmentation.",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'U-Net-based architecture for automatic segmentation of brain tumors', which is a direct contribution of the paper, albeit with the paper specifying 'cascaded U-Net'.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+              "heading": "Introduction",
+              "text_snippet": "Inspired by the hierarchical structure within the brain tumor, we propose a novel cascaded U-shape convolutional network to realize a multistage segmentation of brain tumors.",
+              "similarity": 0.75,
+              "reason": "The user's idea of a 'U-Net-based architecture for automatic segmentation of brain tumors' is a core contribution of the paper.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 1.0,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 13185,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1907.07677v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 70,
+    "global_similarity_score": 0.5475,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A U-Net-based architecture for automatic segmentation of brain tumors in multi-modal MRI scans (T1, T2, FLAIR, T1ce), trained and evaluated on the BraTS benchmark dataset.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_17",
+            "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+            "heading": "ABSTRACT",
+            "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge. The BraTS challenge consists of a 3D segmentation of a 240x240x155x4 input image into a set of tumor classes.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper address the problem of brain tumor segmentation using the BraTS challenge dataset.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_13",
+            "paper_title": "Deep Learning and Computational Physics (Lecture Notes)",
+            "heading": "Image-to-image transformations",
+            "text_snippet": "In the upscaling branch of the U-net, if you consider the activation at one point, you will see they come from two different sources. One of these is the from the same spatial scale in the down-scaling branch of the U-net, and the other is from the coarser scales of the upscaling branch of the U-net.",
+            "similarity": 0.75,
+            "reason": "The user's idea explicitly mentions a 'U-Net-based architecture', and this section of the paper describes the specific architectural components and data flow within a U-Net, indicating a strong methodological overlap regarding the core network design.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_17",
+            "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+            "heading": "ABSTRACT",
+            "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge. The BraTS challenge consists of a 3D segmentation of a 240x240x155x4 input image into a set of tumor classes.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are focused on 'Brain Tumor Segmentation' and specifically mention the 'BraTS challenge' and 'multi-modal MRI scans (T1, T2, FLAIR, T1ce)' which are detailed in the paper as 'T1-weighted, Gadolinium enhanced T1-weighted, T2-weighted, and FLAIR'.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_17",
+            "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+            "heading": "ABSTRACT",
+            "text_snippet": "We propose combining memory saving techniques with traditional U-Net architectures to increase the complexity of the models on the Brain Tumor Segmentation (BraTS) challenge.",
+            "similarity": 0.75,
+            "reason": "The paper's contribution is a U-Net based architecture for brain tumor segmentation on BraTS, which is very similar to the user's proposed research idea. The user's idea does not specify 'memory saving techniques' as a novel aspect, but the core task and method are highly aligned.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research shows moderate originality, with significant overlap in problem formulation and domain with existing work, particularly in U-Net architectures for medical imaging. To enhance originality, consider differentiating your core method and contribution beyond existing U-Net applications.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.86,
+      "method_similarity": 0.6499999999999999,
+      "domain_similarity": 0.9,
+      "contribution_similarity": 0.8
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0382,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.036,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 195.6783790588379,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_13",
+        "paper_title": "Deep Learning and Computational Physics (Lecture Notes)",
+        "paper_similarity": 0.2,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_17",
+        "paper_title": "Memory Efficient 3D U-Net with Reversible Mobile Inverted Bottlenecks for Brain Tumor Segmentation",
+        "paper_similarity": 0.925,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_30",
+        "paper_title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+        "paper_similarity": 0.1,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.25,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_20",
+        "paper_title": "The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa Patient Population (BraTS-Africa)",
+        "paper_similarity": 0.5874999999999999,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_36",
+        "paper_title": "CU-Net: Cascaded U-Net with Loss Weighted Sampling for Brain Tumor Segmentation",
+        "paper_similarity": 0.925,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 89
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 89,
+    "after_dedup": 89,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

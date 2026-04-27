@@ -32,6 +32,7 @@ interface AnalysisState {
 
 const DEFAULT_SETTINGS: PipelineSettings = {
   papers_per_query: 150,
+  papers_per_variant_conversion: 40,
   embedding_topk: 100,
   rerank_topk: 20,
   final_papers: 5,

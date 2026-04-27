@@ -262,7 +262,7 @@ class Layer2Result:
     """
     # Global scores
     originality_score: int         # 0-100, higher = more original
-    global_similarity_score: float # 0-1, average overlap
+    global_similarity_score: float # 0-1, max per-paper overlap (best retrieval match)
     label: OriginalityLabel        # Overall label
     
     # Sentence annotations

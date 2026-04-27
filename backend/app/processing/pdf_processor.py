@@ -99,12 +99,31 @@ class PDFProcessor:
             return paper
 
         if not paper.pdf_url:
-            paper.processing_error = "No PDF URL provided"
+            if paper.abstract:
+                logger.warning(f"No PDF URL for {paper.paper_id} — using abstract as fallback")
+                fallback_content = f"# {paper.title}\n\n## Abstract\n\n{paper.abstract}"
+                paper.markdown_content = fallback_content
+                paper.headings = [
+                    Heading(
+                        heading_id="",
+                        paper_id=paper.paper_id,
+                        index=0,
+                        level=1,
+                        text=paper.title,
+                        raw_text=f"# {paper.title}",
+                        section_text=fallback_content,
+                        is_valid=True,
+                    )
+                ]
+                paper.is_processed = True
+                paper.processed_at = datetime.now()
+            else:
+                paper.processing_error = "No PDF URL and no abstract available"
             return paper
-        
+
         try:
             logger.info(f"Processing PDF: {paper.title[:50]}...")
-            
+
             # Add timeout and memory management for large patent PDFs
             import gc
             gc.collect()  # Clear memory before processing
@@ -146,9 +165,28 @@ class PDFProcessor:
                 markdown = None
             
             if not markdown:
-                logger.warning(f"No markdown generated for {paper.paper_id}, triggering fallback")
-                paper.processing_error = "Failed to convert PDF to markdown"
-                # Don't return here - trigger fallback instead
+                logger.warning(f"No markdown generated for {paper.paper_id} — falling back to metadata")
+                if paper.abstract:
+                    fallback_content = self._build_metadata_fallback(paper)
+                    paper.markdown_content = fallback_content
+                    paper.headings = [
+                        Heading(
+                            heading_id="",
+                            paper_id=paper.paper_id,
+                            index=0,
+                            level=1,
+                            text=paper.title,
+                            raw_text=f"# {paper.title}",
+                            section_text=fallback_content,
+                            is_valid=True,
+                        )
+                    ]
+                    paper.is_processed = True
+                    paper.processed_at = datetime.now()
+                    logger.warning(f"Using metadata fallback for {paper.paper_id} (PDF inaccessible)")
+                else:
+                    paper.processing_error = "PDF inaccessible and no abstract available"
+                return paper
             else:
                 # --- Patent-specific post-processing (arXiv papers skip this) ---
                 if paper.source == "google_patents":
@@ -187,10 +225,14 @@ class PDFProcessor:
                 paper.markdown_content = fallback_content
                 paper.headings = [
                     Heading(
+                        heading_id="",
                         paper_id=paper.paper_id,
+                        index=0,
                         level=1,
-                        title=paper.title,
-                        text=fallback_content
+                        text=paper.title,
+                        raw_text=f"# {paper.title}",
+                        section_text=fallback_content,
+                        is_valid=True,
                     )
                 ]
                 paper.is_processed = True
@@ -212,10 +254,14 @@ class PDFProcessor:
                 paper.markdown_content = fallback_content
                 paper.headings = [
                     Heading(
+                        heading_id="",
                         paper_id=paper.paper_id,
+                        index=0,
                         level=1,
-                        title=paper.title,
-                        text=fallback_content
+                        text=paper.title,
+                        raw_text=f"# {paper.title}",
+                        section_text=fallback_content,
+                        is_valid=True,
                     )
                 ]
                 paper.is_processed = True
@@ -502,4 +548,22 @@ class PDFProcessor:
                     abstract_lines.append(line.strip())
         
         return ' '.join(abstract_lines)[:2000]
+
+    def _build_metadata_fallback(self, paper) -> str:
+        """Build a pseudo-document from paper metadata when PDF is inaccessible."""
+        lines = [f"# {paper.title}", ""]
+        if paper.authors:
+            lines.append(f"**Authors:** {', '.join(paper.authors[:10])}")
+        year = (paper.published_date or "")[:4]
+        if year:
+            lines.append(f"**Year:** {year}")
+        doi = (paper.metadata or {}).get("doi")
+        if doi:
+            lines.append(f"**DOI:** {doi}")
+        if paper.url:
+            lines.append(f"**URL:** {paper.url}")
+        if paper.categories:
+            lines.append(f"**Topics:** {', '.join(paper.categories[:8])}")
+        lines += ["", "## Abstract", "", paper.abstract]
+        return "\n".join(lines)
 
