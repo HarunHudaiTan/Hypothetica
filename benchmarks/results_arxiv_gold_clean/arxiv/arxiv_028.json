@@ -1,0 +1,1050 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "7a7896ef8d8b",
+    "status": "completed"
+  },
+  "originality_score": 84,
+  "global_similarity_score": 0.3875,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_15",
+          "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+          "heading": "ABSTRACT",
+          "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper aim to predict thermodynamic stability using machine learning. The user specifies 'inorganic compound' which is broader than 'perovskite oxides' but the core problem is very similar.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_15",
+          "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+          "heading": "ABSTRACT",
+          "text_snippet": "For classification, the extra trees algorithm achieved the best prediction accuracy of 0.93 (+/- 0.02), with an F1 score of 0.88 (+/- 0.03).",
+          "similarity": 0.75,
+          "reason": "The user proposes a 'random forest model', and the paper uses 'extra trees algorithm', which is a variant of random forest and falls under the same general method family.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_34",
+          "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+          "heading": "ABSTRACT",
+          "text_snippet": "Surrogate machine-learning models are transforming computational materials science by predicting properties of materials with the accuracy of ab initio methods at a fraction of the computational cost.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are firmly within the domain of computational materials science, specifically using machine learning for materials prediction.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_15",
+          "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+          "heading": "ABSTRACT",
+          "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+          "similarity": 0.75,
+          "reason": "The paper's main contribution is developing ML models to predict thermodynamic stability, which is the exact aim of the user's research idea. The difference lies in the scope of compounds (perovskite oxides vs. general inorganic compounds).",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research shows strong originality in its proposed methods and contributions, but the problem formulation and application domain have significant overlap with existing work on predicting the thermodynamic stability of perovskite oxides. Consider further differentiating your specific problem framing or target application within this domain.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.8200000000000001,
+    "method_similarity": 0.46,
+    "domain_similarity": 0.8,
+    "contribution_similarity": 0.42
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0415,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0393,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.002,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 417.4403657913208,
+  "papers": [
+    {
+      "paper_id": "paper_15",
+      "source": "arxiv",
+      "source_id": "1806.01038v1",
+      "arxiv_id": "1806.01038v1",
+      "title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+      "abstract": "Perovskite materials have become ubiquitous in many technologically relevant applications, ranging from catalysts in solid oxide fuel cells to light absorbing layers in solar photovoltaics. The thermodynamic phase stability is a key parameter that broadly governs whether the material is expected to be synthesizable, and whether it may degrade under certain operating conditions. Phase stability can be calculated using Density Functional Theory (DFT), but the significant computational cost makes such calculation potentially prohibitive when screening large numbers of possible compounds. In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies. The phase stability was determined using convex hull analysis, with the energy above the convex hull (Ehull) providing a direct measure of the stability. We generated a set of 791 features based on elemental property data to correlate with the Ehull value of each perovskite compound. For classification, the extra trees algorithm achieved the best prediction accuracy of 0.93 (+/- 0.02), with an F1 score of 0.88 (+/- 0.03). For regression, leave-out 20% cross-validation tests with kernel ridge regression achieved the minimal root mean square error (RMSE) of 28.5 (+/- 7.5) meV/atom between cross-validation predicted Ehull values and DFT calculations, with the mean absolute error (MAE) in cross-validation energies of 16.7 (+/- 2.3) meV/atom. We further validated our model by predicting the stability of compounds not present in the training set and demonstrated our machine learning models are a fast and effective means of obtaining qualitatively useful guidance for a wide-range of perovskite oxide stability, potentially impacting materials design choices in a variety of technological applications.",
+      "url": "http://arxiv.org/abs/1806.01038v1",
+      "pdf_url": "https://arxiv.org/pdf/1806.01038v1",
+      "authors": [
+        "Wei Li",
+        "Ryan Jacobs",
+        "Dane Morgan"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.6,
+      "reason": "Problem: The user's research idea is to predict whether an inorganic compound will be thermodynamically stable. The paper's abstract states, \"we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides.\" Both the user's idea and the paper address the exact same problem of predicting thermodynamic stability using machine learning. | Method: The user's idea proposes a random forest model, while the paper uses an 'extra trees algorithm' for classification, which is a variant of random forests. Both approaches use compositional and structural descriptors to predict thermodynamic stability, with the paper specifically mentioning '791 features based on elemental property data' and 'convex hull analysis' for stability determination, which aligns with the user's idea of using Materials Project data for stability prediction. | Domain: Both the user's idea and the paper are in the domain of materials science, specifically predicting thermodynamic stability of inorganic compounds using machine learning. The paper focuses on 'perovskite oxides' and 'inorganic materials', which are a subset of the 'inorganic compound' domain mentioned in the user's idea. Both aim to predict 'thermodynamic stability' using 'DFT-calculated' data. | Contribution: The paper's contribution is predicting the thermodynamic stability of *perovskite oxides* using machine learning, specifically an extra trees classifier for classification and kernel ridge regression for regression. The user's idea is to predict the thermodynamic stability of *inorganic compounds* using a random forest model. While both aim to predict thermodynamic stability using machine learning on compositional/structural descriptors, the paper focuses on a specific subclass (perovskite oxides) and uses a different primary model (extra trees/kernel ridge regression vs. random forest), indicating partial overlap rather than full replication.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_34",
+      "source": "arxiv",
+      "source_id": "1809.09203v2",
+      "arxiv_id": "1809.09203v2",
+      "title": "Machine-learned multi-system surrogate models for materials prediction",
+      "abstract": "Surrogate machine-learning models are transforming computational materials science by predicting properties of materials with the accuracy of ab initio methods at a fraction of the computational cost. We demonstrate surrogate models that simultaneously interpolate energies of different materials on a dataset of 10 binary alloys (AgCu, AlFe, AlMg, AlNi, AlTi, CoNi, CuFe, CuNi, FeV, NbNi) with 10 different species and all possible fcc, bcc and hcp structures up to 8 atoms in the unit cell, 15\\,950 structures in total. We find that the deviation of prediction errors when increasing the number of simultaneously modeled alloys is less than 1\\,meV/atom. Several state-of-the-art materials representations and learning algorithms were found to qualitatively agree on the prediction errors of formation enthalpy with relative errors of $<$2.5\\% for all systems.",
+      "url": "http://arxiv.org/abs/1809.09203v2",
+      "pdf_url": "https://arxiv.org/pdf/1809.09203v2",
+      "authors": [
+        "Chandramouli Nyshadham",
+        "Matthias Rupp",
+        "Brayden Bekker",
+        "Alexander V. Shapeev",
+        "Tim Mueller",
+        "Conrad W. Rosenbrock",
+        "Gábor Csányi",
+        "David W. Wingate",
+        "Gus L. W. Hart"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "physics.comp-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5625,
+      "reason": "Problem: The user's idea is to predict thermodynamic stability, while the paper focuses on predicting formation enthalpy. Formation enthalpy is a key component of thermodynamic stability, making the problems very similar. The paper explicitly states its goal is to predict 'enthalpies of formation of materials across composition, lattice types, and atomic configurations' and 'formation enthalpy of materials'. | Method: Both the user's idea and the paper use machine learning models for materials prediction. The user specifies a 'random forest model trained on compositional and structural descriptors,' while the paper explores several state-of-the-art models including Kernel Ridge Regression, Deep Neural Networks, and Gaussian Process Regression, using representations like Many-Body Tensor Representation and Smooth Overlap of Atomic Positions. While both use ML for materials, the specific model (random forest vs. others) and descriptor types (compositional/structural vs. MBTR/SOAP/MTP) represent meaningful differences in design within the same general method family. | Domain: Both the user's idea and the paper operate within the domain of computational materials science, specifically using machine learning for materials prediction. The user's idea focuses on predicting thermodynamic stability of inorganic compounds, while the paper predicts formation enthalpy of binary alloys, which is a key component of thermodynamic stability. Both leverage materials databases and structural/compositional descriptors. | Contribution: The paper demonstrates machine-learned surrogate models for predicting formation enthalpy of inorganic compounds using compositional and structural descriptors (MBTR, SOAP, MTP) across multiple binary alloy systems. This partially overlaps with the user's idea of predicting thermodynamic stability using a random forest model on compositional and structural descriptors from the Materials Project. While both aim to predict material properties from descriptors, the user specifies a random forest model and thermodynamic stability, whereas the paper explores various models (KRR, GPR, DNN, polynomial regression) for formation enthalpy, which is a component of thermodynamic stability but not the sole determinant.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_15",
+      "source": "arxiv",
+      "source_id": "1806.01038v1",
+      "arxiv_id": "1806.01038v1",
+      "title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+      "abstract": "Perovskite materials have become ubiquitous in many technologically relevant applications, ranging from catalysts in solid oxide fuel cells to light absorbing layers in solar photovoltaics. The thermodynamic phase stability is a key parameter that broadly governs whether the material is expected to be synthesizable, and whether it may degrade under certain operating conditions. Phase stability can be calculated using Density Functional Theory (DFT), but the significant computational cost makes such calculation potentially prohibitive when screening large numbers of possible compounds. In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies. The phase stability was determined using convex hull analysis, with the energy above the convex hull (Ehull) providing a direct measure of the stability. We generated a set of 791 features based on elemental property data to correlate with the Ehull value of each perovskite compound. For classification, the extra trees algorithm achieved the best prediction accuracy of 0.93 (+/- 0.02), with an F1 score of 0.88 (+/- 0.03). For regression, leave-out 20% cross-validation tests with kernel ridge regression achieved the minimal root mean square error (RMSE) of 28.5 (+/- 7.5) meV/atom between cross-validation predicted Ehull values and DFT calculations, with the mean absolute error (MAE) in cross-validation energies of 16.7 (+/- 2.3) meV/atom. We further validated our model by predicting the stability of compounds not present in the training set and demonstrated our machine learning models are a fast and effective means of obtaining qualitatively useful guidance for a wide-range of perovskite oxide stability, potentially impacting materials design choices in a variety of technological applications.",
+      "url": "http://arxiv.org/abs/1806.01038v1",
+      "pdf_url": "https://arxiv.org/pdf/1806.01038v1",
+      "authors": [
+        "Wei Li",
+        "Ryan Jacobs",
+        "Dane Morgan"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.6,
+      "reason": "Problem: The user's research idea is to predict whether an inorganic compound will be thermodynamically stable. The paper's abstract states, \"we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides.\" Both the user's idea and the paper address the exact same problem of predicting thermodynamic stability using machine learning. | Method: The user's idea proposes a random forest model, while the paper uses an 'extra trees algorithm' for classification, which is a variant of random forests. Both approaches use compositional and structural descriptors to predict thermodynamic stability, with the paper specifically mentioning '791 features based on elemental property data' and 'convex hull analysis' for stability determination, which aligns with the user's idea of using Materials Project data for stability prediction. | Domain: Both the user's idea and the paper are in the domain of materials science, specifically predicting thermodynamic stability of inorganic compounds using machine learning. The paper focuses on 'perovskite oxides' and 'inorganic materials', which are a subset of the 'inorganic compound' domain mentioned in the user's idea. Both aim to predict 'thermodynamic stability' using 'DFT-calculated' data. | Contribution: The paper's contribution is predicting the thermodynamic stability of *perovskite oxides* using machine learning, specifically an extra trees classifier for classification and kernel ridge regression for regression. The user's idea is to predict the thermodynamic stability of *inorganic compounds* using a random forest model. While both aim to predict thermodynamic stability using machine learning on compositional/structural descriptors, the paper focuses on a specific subclass (perovskite oxides) and uses a different primary model (extra trees/kernel ridge regression vs. random forest), indicating partial overlap rather than full replication.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_13",
+      "source": "arxiv",
+      "source_id": "2304.08104v2",
+      "arxiv_id": "2304.08104v2",
+      "title": "GREX-PLUS Science Book",
+      "abstract": "GREX-PLUS (Galaxy Reionization EXplorer and PLanetary Universe Spectrometer) is a mission candidate for a JAXA's strategic L-class mission to be launched in the 2030s. Its primary sciences are two-fold: galaxy formation and evolution and planetary system formation and evolution. The GREX-PLUS spacecraft will carry a 1.2 m primary mirror aperture telescope cooled down to 50 K. The two science instruments will be onboard: a wide-field camera in the 2-8 $μ$m wavelength band and a high resolution spectrometer with a wavelength resolution of 30,000 in the 10-18 $μ$m band. The GREX-PLUS wide-field camera aims to detect the first generation of galaxies at redshift $z>15$. The GREX-PLUS high resolution spectrometer aims to identify the location of the water ``snow line'' in proto-planetary disks. Both instruments will provide unique data sets for a broad range of scientific topics including galaxy mass assembly, origin of supermassive blackholes, infrared background radiation, molecular spectroscopy in the interstellar medium, transit spectroscopy for exoplanet atmosphere, planetary atmosphere in the Solar system, and so on.",
+      "url": "http://arxiv.org/abs/2304.08104v2",
+      "pdf_url": "https://arxiv.org/pdf/2304.08104v2",
+      "authors": [
+        "GREX-PLUS Science Team",
+        ":",
+        "Akio K. Inoue",
+        "Yuichi Harikane",
+        "Takashi Moriya",
+        "Hideko Nomura",
+        "Shunsuke Baba",
+        "Yuka Fujii",
+        "Naoteru Gouda",
+        "Yasuhiro Hirahara",
+        "Yui Kawashima",
+        "Tadayuki Kodama",
+        "Yusei Koyama",
+        "Hiroyuki Kurokawa",
+        "Taro Matsuo",
+        "Yoshiki Matsuoka",
+        "Shuji Matsuura",
+        "Ken Mawatari",
+        "Toru Misawa",
+        "Kentaro Nagamine",
+        "Kimihiko Nakajima",
+        "Shota Notsu",
+        "Takafumi Ootsubo",
+        "Kazumasa Ohno",
+        "Hideo Sagawa",
+        "Takashi Shimonishi",
+        "Ken-ichi Tadaki",
+        "Michihiro Takami",
+        "Tsuyoshi Terai",
+        "Yoshiki Toba",
+        "Takuji Yamashita",
+        "Chikako Yasui"
+      ],
+      "categories": [
+        "astro-ph.CO",
+        "astro-ph.EP",
+        "astro-ph.GA",
+        "astro-ph.IM",
+        "astro-ph.SR"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on predicting the thermodynamic stability of inorganic compounds using a random forest model and materials science descriptors. In contrast, the GREX-PLUS paper describes a space mission concept for astronomical observations, primarily concerning galaxy formation and evolution and planetary system formation and evolution, using telescopes and spectrometers. There is no overlap in the research problem or question addressed. | Method: The user's research idea proposes a random forest model trained on compositional and structural descriptors to predict thermodynamic stability of inorganic compounds. The paper describes a space telescope mission (GREX-PLUS) with a wide-field camera and high-resolution spectrometer for astronomical observations. While the paper mentions 'Developing a machine learning classifier' in one instance, it does not specify random forests, nor does it apply machine learning to materials science or thermodynamic stability prediction, indicating no methodological overlap with the user's idea. | Domain: The user's research idea is in materials science, specifically predicting the thermodynamic stability of inorganic compounds using machine learning on compositional and structural descriptors. The paper, 'GREX-PLUS Science Book,' is entirely focused on astrophysics and planetary science, describing a space telescope mission to study galaxy formation and evolution, and planetary system formation and evolution. These are entirely different scientific fields with no overlap in application domain. | Contribution: The user's research idea proposes training a random forest model on materials data to predict thermodynamic stability of inorganic compounds. The paper describes a space mission (GREX-PLUS) focused on galaxy and planetary system formation and evolution, using telescopes and spectrometers. There is no overlap in the claimed contributions, as the paper's focus is on astronomical observations and related scientific questions, while the user's idea is on materials science and machine learning for stability prediction.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_07",
+      "source": "arxiv",
+      "source_id": "1506.03410v6",
+      "arxiv_id": "1506.03410v6",
+      "title": "Sparse Projection Oblique Randomer Forests",
+      "abstract": "Decision forests, including Random Forests and Gradient Boosting Trees, have recently demonstrated state-of-the-art performance in a variety of machine learning settings. Decision forests are typically ensembles of axis-aligned decision trees; that is, trees that split only along feature dimensions. In contrast, many recent extensions to decision forests are based on axis-oblique splits. Unfortunately, these extensions forfeit one or more of the favorable properties of decision forests based on axis-aligned splits, such as robustness to many noise dimensions, interpretability, or computational efficiency. We introduce yet another decision forest, called \"Sparse Projection Oblique Randomer Forests\" (SPORF). SPORF uses very sparse random projections, i.e., linear combinations of a small subset of features. SPORF significantly improves accuracy over existing state-of-the-art algorithms on a standard benchmark suite for classification with >100 problems of varying dimension, sample size, and number of classes. To illustrate how SPORF addresses the limitations of both axis-aligned and existing oblique decision forest methods, we conduct extensive simulated experiments. SPORF typically yields improved performance over existing decision forests, while mitigating computational efficiency and scalability and maintaining interpretability. SPORF can easily be incorporated into other ensemble methods such as boosting to obtain potentially similar gains.",
+      "url": "http://arxiv.org/abs/1506.03410v6",
+      "pdf_url": "https://arxiv.org/pdf/1506.03410v6",
+      "authors": [
+        "Tyler M. Tomita",
+        "James Browne",
+        "Cencheng Shen",
+        "Jaewon Chung",
+        "Jesse L. Patsolic",
+        "Benjamin Falk",
+        "Jason Yim",
+        "Carey E. Priebe",
+        "Randal Burns",
+        "Mauro Maggioni",
+        "Joshua T. Vogelstein"
+      ],
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.15,
+      "reason": "Problem: The user's research idea focuses on predicting the thermodynamic stability of inorganic compounds using a random forest model trained on specific material descriptors. The evaluated paper, 'Sparse Projection Oblique Randomer Forests,' is concerned with improving the accuracy and efficiency of random forest algorithms themselves, specifically through sparse projection oblique splits. The paper does not address any specific problem in materials science or compound stability prediction; it is a methodological paper in machine learning. | Method: Both the user's idea and the paper utilize random forest models. However, the paper introduces 'Sparse Projection Oblique Randomer Forests' (SPORF), which uses 'sparse random projections' and 'axis-oblique splits' as a variation on the traditional random forest, whereas the user's idea specifies a general random forest model without these specific modifications. | Domain: The user's research idea is in materials science, specifically predicting thermodynamic stability of inorganic compounds using machine learning. The paper focuses on developing a new machine learning algorithm (Sparse Projection Oblique Randomer Forests) for general classification tasks, without any mention of materials science, chemistry, or physics applications. The application domains are entirely different. | Contribution: The user's research idea proposes to use a random forest model to predict the thermodynamic stability of inorganic compounds based on compositional and structural descriptors from the Materials Project. The evaluated paper, 'Sparse Projection Oblique Randomer Forests,' focuses on introducing a new decision forest algorithm (SPORF) that improves accuracy and computational efficiency over existing methods for general classification problems. The contributions are unrelated; the paper focuses on algorithmic improvements to random forests, while the user's idea focuses on a specific application of random forests in materials science.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "Materials Project (MP)",
+        "similarity": 0.95,
+        "description": "The Materials Project itself provides calculated thermodynamic stability data (e.g., formation energies, Pourbaix diagrams) for a vast number of inorganic compounds. Their data is often used as ground truth for ML models."
+      },
+      {
+        "name": "Matminer library",
+        "similarity": 0.9,
+        "description": "A Python library developed by the Materials Project team and others, specifically designed for materials data mining. It includes tools for featurization (generating compositional and structural descriptors) and examples of using these features with machine learning models, including random forests, to predict properties like formation energy or stability."
+      },
+      {
+        "name": "Numerous research papers on ML for materials discovery/stability",
+        "similarity": 0.98,
+        "description": "There are many published research papers that use machine learning, including random forests, to predict materials properties, often using data from the Materials Project. Predicting thermodynamic stability (e.g., formation energy, energy above hull) is a very common application. Examples include works by Persson, Jain, Ceder, and many others in the field of computational materials science."
+      },
+      {
+        "name": "AFLOW (Automatic-FLOW for materials discovery)",
+        "similarity": 0.8,
+        "description": "Another high-throughput computational materials science database that also provides stability information and has been used as a data source for similar ML prediction tasks."
+      }
+    ],
+    "assessment": "The idea of using a random forest model trained on compositional and structural descriptors from the Materials Project to predict thermodynamic stability is a well-established and actively researched area within computational materials science and materials informatics. This specific approach has been implemented and published numerous times in academic literature and is a standard application of machine learning in this domain. Tools and datasets to facilitate this are readily available (e.g., Matminer, Materials Project API).",
+    "novelty_aspects": [
+      "Specific choice of descriptors (if unique and not commonly used)",
+      "Specific architecture or hyperparameter tuning of the random forest (though this is incremental novelty)",
+      "Application to a very specific, niche subset of inorganic compounds not previously studied in detail",
+      "Integration into a novel workflow or platform for automated materials design"
+    ],
+    "recommendation": "While the core idea is not novel, there is still significant value in this area. To make your research original, you should focus on a specific, unique contribution. This could involve: 1) Developing novel descriptors that capture materials physics more effectively. 2) Applying the model to predict stability for a new class of materials or under extreme conditions not typically covered. 3) Comparing the performance of random forests against other ML models (e.g., deep learning) for this specific task and explaining why one is superior. 4) Integrating this prediction into a larger autonomous materials discovery loop. Simply re-implementing a random forest on MP data for stability prediction will likely not be considered novel for publication."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Materials Project (MP)** (similarity: 95%).\n\n*The idea of using a random forest model trained on compositional and structural descriptors from the Materials Project to predict thermodynamic stability is a well-established and actively researched area within computational materials science and materials informatics. This specific approach has been implemented and published numerous times in academic literature and is a standard application of machine learning in this domain. Tools and datasets to facilitate this are readily available (e.g., Matminer, Materials Project API).*\n\n**Recommendation:** While the core idea is not novel, there is still significant value in this area. To make your research original, you should focus on a specific, unique contribution. This could involve: 1) Developing novel descriptors that capture materials physics more effectively. 2) Applying the model to predict stability for a new class of materials or under extreme conditions not typically covered. 3) Comparing the performance of random forests against other ML models (e.g., deep learning) for this specific task and explaining why one is superior. 4) Integrating this prediction into a larger autonomous materials discovery loop. Simply re-implementing a random forest on MP data for stability prediction will likely not be considered novel for publication.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 108,
+    "unique_after_dedup": 108,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 1137,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0415,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0393,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.002,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+  "enriched_idea": "RESEARCH IDEA:\nA random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_15",
+      "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+      "arxiv_id": "1806.01038v1",
+      "paper_similarity_score": 0.6,
+      "reason": "Problem: The user's research idea is to predict whether an inorganic compound will be thermodynamically stable. The paper's abstract states, \"we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides.\" Both the user's idea and the paper address the exact same problem of predicting thermodynamic stability using machine learning. | Method: The user's idea proposes a random forest model, while the paper uses an 'extra trees algorithm' for classification, which is a variant of random forests. Both approaches use compositional and structural descriptors to predict thermodynamic stability, with the paper specifically mentioning '791 features based on elemental property data' and 'convex hull analysis' for stability determination, which aligns with the user's idea of using Materials Project data for stability prediction. | Domain: Both the user's idea and the paper are in the domain of materials science, specifically predicting thermodynamic stability of inorganic compounds using machine learning. The paper focuses on 'perovskite oxides' and 'inorganic materials', which are a subset of the 'inorganic compound' domain mentioned in the user's idea. Both aim to predict 'thermodynamic stability' using 'DFT-calculated' data. | Contribution: The paper's contribution is predicting the thermodynamic stability of *perovskite oxides* using machine learning, specifically an extra trees classifier for classification and kernel ridge regression for regression. The user's idea is to predict the thermodynamic stability of *inorganic compounds* using a random forest model. While both aim to predict thermodynamic stability using machine learning on compositional/structural descriptors, the paper focuses on a specific subclass (perovskite oxides) and uses a different primary model (extra trees/kernel ridge regression vs. random forest), indicating partial overlap rather than full replication.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.75,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper aim to predict thermodynamic stability using machine learning. The user specifies 'inorganic compound' which is broader than 'perovskite oxides' but the core problem is very similar.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "In this work, we predict the thermodynamic phase stability of perovskite oxides using machine learning models and a subset of the perovskite stability data from Jacobs, et al.[2] of 1929 compounds (these 1929 were the subset of the 2145 compounds available at the time of writing this paper).",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states its goal is to predict thermodynamic phase stability using machine learning models, which directly aligns with the user's problem.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "For classification, the extra trees algorithm achieved the best prediction accuracy of 0.93 (+/- 0.02), with an F1 score of 0.88 (+/- 0.03).",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'random forest model', and the paper uses 'extra trees algorithm', which is a variant of random forest and falls under the same general method family.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "For classification of determining stable versus unstable compounds, we found that the extra trees classifier (also known as extremely randomized trees),[23] resulted in the best classification model as determined by its calculated precision, recall and F1 score of stable/unstable predictions.",
+              "similarity": 0.75,
+              "reason": "The paper uses 'extra trees classifier', which is a type of random forest model, matching the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Conclusion",
+              "text_snippet": "We selected the extra trees classifier as the best model for classification and the kernel ridge regression as the best model for regression from five candidate models, by comparing the performance in cross-validation.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions using an 'extra trees classifier', which is a direct variant of a random forest model, aligning with the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "We generated a set of 791 features based on elemental property data to correlate with the Ehull value of each perovskite compound.",
+              "similarity": 0.5,
+              "reason": "The user mentions 'compositional and structural descriptors', which are types of features. The paper also uses features based on elemental properties, which are compositional descriptors.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Conclusion",
+              "text_snippet": "We constructed a set of 791 features by considering combinations of the properties of the elements comprising each perovskite material, and used feature selection routines to select the top 70 features result in the best predictions of material stability without significant overfitting.",
+              "similarity": 0.5,
+              "reason": "The paper describes constructing features from elemental properties, which aligns with the user's 'compositional descriptors'. While the user also mentions 'structural descriptors' which are not explicitly detailed in the paper's feature generation, the compositional aspect is a strong overlap.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.5,
+              "reason": "The user proposes using data 'from the Materials Project'. The paper uses a DFT-calculated dataset, and the Materials Project is a known source of such data, implying a similar data source strategy.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "The phase diagram tools in Pymatgen enable one to perform convex hull analysis, where the stability of a particular material composition (e.g. LaFeO3) within a userprovided composition space (e.g. all inorganic crystalline compounds comprising the La-Fe-O system) can be performed. The main parameter governing stability is the energy above the convex hull (Ehull).",
+              "similarity": 0.5,
+              "reason": "The Materials Project (mentioned by the user) uses Pymatgen and convex hull analysis to determine stability, which is the underlying method for defining stability in the paper's dataset. This suggests a shared understanding of the target variable.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Jain, A., et al., Commentary: The Materials Project: A materials genome approach to accelerating materials innovation. Apl Materials, 2013. 1 (1): p. 011002.",
+              "similarity": 0.5,
+              "reason": "The paper references 'The Materials Project', indicating familiarity and potential use of data or concepts from it, aligning with the user's specified data source.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.75,
+              "reason": "Both focus on predicting thermodynamic stability of inorganic compounds. The paper specifically targets 'perovskite oxides', which are a subset of 'inorganic compounds'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "The thermodynamic phase stability is a key parameter that broadly governs whether the material is expected to be synthesizable, and whether it may degrade under certain operating conditions.",
+              "similarity": 1.0,
+              "reason": "Both the user and the paper are concerned with the thermodynamic stability of materials, a core concept in materials science.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "Recently, Jacobs, et al. used high-throughput DFT methods to screen the catalytic activity and thermodynamic phase stability of 2145 perovskite oxides for use as SOFC cathodes. [2] In general, the thermodynamic phase stability of a perovskite is a key materials property, the value of which may determine the utility of the perovskite in the given application of interest.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are situated within the domain of materials science, specifically focusing on predicting material properties (thermodynamic stability) for inorganic compounds.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.75,
+              "reason": "The paper's main contribution is developing ML models to predict thermodynamic stability, which is the exact aim of the user's research idea. The difference lies in the scope of compounds (perovskite oxides vs. general inorganic compounds).",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "In this work, we predict the thermodynamic phase stability of perovskite oxides using machine learning models and a subset of the perovskite stability data from Jacobs, et al.[2] of 1929 compounds (these 1929 were the subset of the 2145 compounds available at the time of writing this paper). The model can serve as a screening tool for fast discovery of potential stable compounds, significantly reducing DFT computational time and effort.",
+              "similarity": 0.75,
+              "reason": "The paper's stated contribution of predicting thermodynamic stability using ML models for fast screening directly aligns with the user's proposed contribution. The user's idea is a broader application of this same type of contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Conclusion",
+              "text_snippet": "In this work, we used machine learning algorithms to predict the stability of perovskite oxides. Our machine learning models were trained on a DFT-calculated dataset consisting of 1929 compounds, and proved to be a promising tool to successfully predict Ehull values within typical DFT calculation errors.",
+              "similarity": 0.75,
+              "reason": "The paper concludes by highlighting its success in using ML to predict stability, which is the core contribution the user's idea aims to achieve. The user's idea is a direct application of this type of contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 21072,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1806.01038v1"
+    },
+    {
+      "paper_id": "paper_34",
+      "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+      "arxiv_id": "1809.09203v2",
+      "paper_similarity_score": 0.5625,
+      "reason": "Problem: The user's idea is to predict thermodynamic stability, while the paper focuses on predicting formation enthalpy. Formation enthalpy is a key component of thermodynamic stability, making the problems very similar. The paper explicitly states its goal is to predict 'enthalpies of formation of materials across composition, lattice types, and atomic configurations' and 'formation enthalpy of materials'. | Method: Both the user's idea and the paper use machine learning models for materials prediction. The user specifies a 'random forest model trained on compositional and structural descriptors,' while the paper explores several state-of-the-art models including Kernel Ridge Regression, Deep Neural Networks, and Gaussian Process Regression, using representations like Many-Body Tensor Representation and Smooth Overlap of Atomic Positions. While both use ML for materials, the specific model (random forest vs. others) and descriptor types (compositional/structural vs. MBTR/SOAP/MTP) represent meaningful differences in design within the same general method family. | Domain: Both the user's idea and the paper operate within the domain of computational materials science, specifically using machine learning for materials prediction. The user's idea focuses on predicting thermodynamic stability of inorganic compounds, while the paper predicts formation enthalpy of binary alloys, which is a key component of thermodynamic stability. Both leverage materials databases and structural/compositional descriptors. | Contribution: The paper demonstrates machine-learned surrogate models for predicting formation enthalpy of inorganic compounds using compositional and structural descriptors (MBTR, SOAP, MTP) across multiple binary alloy systems. This partially overlaps with the user's idea of predicting thermodynamic stability using a random forest model on compositional and structural descriptors from the Materials Project. While both aim to predict material properties from descriptors, the user specifies a random forest model and thermodynamic stability, whereas the paper explores various models (KRR, GPR, DNN, polynomial regression) for formation enthalpy, which is a component of thermodynamic stability but not the sole determinant.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.7,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_34",
+              "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+              "heading": "INTRODUCTION",
+              "text_snippet": "We demonstrate the feasibility of machine-learned surrogate models for predicting enthalpies of formation of materials across composition, lattice types, and atomic configurations.",
+              "similarity": 0.75,
+              "reason": "The paper addresses the problem of predicting formation enthalpy, which is directly related to thermodynamic stability. The user's idea aims to predict thermodynamic stability, which is a direct consequence of formation enthalpy.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_34",
+              "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+              "heading": "Machine-learned multi-system surrogate models for materials prediction",
+              "text_snippet": "Several state-of-the-art materials representations and learning algorithms were found to qualitatively agree on the prediction errors of formation enthalpy with relative errors of < 2.5% for all systems.",
+              "similarity": 0.75,
+              "reason": "The paper's core problem is predicting formation enthalpy, which is a key indicator of thermodynamic stability, aligning closely with the user's goal.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_34",
+              "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+              "heading": "Table I. State-of-the-art surrogate machine-learning models investigated in this work.",
+              "text_snippet": "MBTR +DNN | Many-Body Tensor Representation + Deep Neural Network",
+              "similarity": 0.5,
+              "reason": "The user proposes a 'random forest model', which is a machine learning algorithm. The paper investigates various machine learning models, including Deep Neural Networks (DNN) and Kernel Ridge Regression (KRR), which are in the same general family of machine learning methods, though random forest is not explicitly listed.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_34",
+              "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The two major parts of a surrogate machine-learning model are the numerical representation of the input data 11,19 and the learning algorithm. We use the term 'representation' for a set of features (as opposed to a collection of unrelated or only loosely related descriptors) that satisfies certain physical requirements 12,13,18,20 such as invariance to translation, rotation, permutation of atoms, uniqueness (representation is variant against transformations changing the property, as systems with identical representation but differing in the property would introduce errors 21 ), differentiability, and computational efficiency.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions 'compositional and structural descriptors', which aligns with the paper's discussion of 'numerical representation of the input data' and 'features' for machine learning models in materials science.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_34",
+              "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+              "heading": "ABSTRACT",
+              "text_snippet": "Surrogate machine-learning models are transforming computational materials science by predicting properties of materials with the accuracy of ab initio methods at a fraction of the computational cost.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are firmly within the domain of computational materials science, specifically using machine learning for materials prediction.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_34",
+              "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Advances in computational power and electronic structure methods have enabled large materials databases 1-4 . Using high-throughput approaches, 5 these databases have proven a useful tool to predict the properties of materials.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper focus on predicting properties of materials using computational methods and databases.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_34",
+              "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+              "heading": "INTRODUCTION",
+              "text_snippet": "We demonstrate the feasibility of machine-learned surrogate models for predicting enthalpies of formation of materials across composition, lattice types, and atomic configurations.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly deals with predicting properties of 'materials' (specifically formation enthalpy), which directly maps to the user's goal of predicting stability for 'inorganic compounds'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_34",
+              "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+              "heading": "INTRODUCTION",
+              "text_snippet": "We demonstrate the feasibility of machine-learned surrogate models for predicting enthalpies of formation of materials across composition, lattice types, and atomic configurations.",
+              "similarity": 0.75,
+              "reason": "The paper demonstrates the feasibility of machine learning for predicting formation enthalpy, which is a direct precursor to predicting thermodynamic stability. The user's idea proposes to do something very similar, albeit with a specific model (random forest) and data source (Materials Project).",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_34",
+              "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+              "heading": "Machine-learned multi-system surrogate models for materials prediction",
+              "text_snippet": "Several state-of-the-art materials representations and learning algorithms were found to qualitatively agree on the prediction errors of formation enthalpy with relative errors of < 2.5% for all systems.",
+              "similarity": 0.75,
+              "reason": "The paper shows that machine learning can predict formation enthalpy with good accuracy. The user's idea aims to predict thermodynamic stability, which is a direct application of predicting formation enthalpy, suggesting a similar contribution in demonstrating predictive capability.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 15893,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1809.09203v2"
+    },
+    {
+      "paper_id": "paper_15",
+      "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+      "arxiv_id": "1806.01038v1",
+      "paper_similarity_score": 0.625,
+      "reason": "Problem: The paper directly addresses the problem of predicting the thermodynamic stability of inorganic compounds using machine learning, specifically stating, \"we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides.\" This is essentially the same problem as the user's idea of predicting \"whether a given inorganic compound will be thermodynamically stable.\" | Method: Both the user's idea and the paper use machine learning models trained on materials data to predict thermodynamic stability. The user specifies a random forest model, while the paper uses an 'extra trees algorithm' for classification, which is a type of random forest model ('extremely randomized trees'). However, the paper also employs 'kernel ridge regression' for regression, indicating a broader methodological approach than just random forests, and focuses specifically on perovskite oxides rather than general inorganic compounds. | Domain: Both the user's idea and the paper focus on predicting the thermodynamic stability of inorganic compounds using machine learning. The paper specifically uses a dataset of DFT-calculated perovskite oxide energies to predict thermodynamic phase stability, which directly aligns with the user's goal of predicting thermodynamic stability for inorganic compounds. The paper also mentions using 'elemental property data' for features, which is similar to 'compositional and structural descriptors' in the user's idea. | Contribution: The paper's contribution is predicting the thermodynamic stability of *perovskite oxides* using machine learning, specifically an extra trees classifier for classification and kernel ridge regression for regression, trained on DFT data. The user's idea is to predict thermodynamic stability for *inorganic compounds* using a random forest model trained on compositional and structural descriptors from the Materials Project. While both aim to predict thermodynamic stability of inorganic materials using machine learning and DFT data, the scope of materials (perovskite oxides vs. general inorganic compounds) and the specific machine learning model (extra trees/kernel ridge regression vs. random forest) differ, indicating partial overlap rather than a complete match.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.75,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper aim to predict thermodynamic stability using machine learning. The user specifies 'inorganic compound' which is broader than 'perovskite oxides' but the core problem is very similar.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "In this work, we predict the thermodynamic phase stability of perovskite oxides using machine learning models and a subset of the perovskite stability data from Jacobs, et al.[2] of 1929 compounds (these 1929 were the subset of the 2145 compounds available at the time of writing this paper).",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states its goal is to predict thermodynamic phase stability using machine learning models, which directly aligns with the user's stated problem.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "For classification, the extra trees algorithm achieved the best prediction accuracy of 0.93 (+/- 0.02), with an F1 score of 0.88 (+/- 0.03).",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'random forest model', and 'extra trees algorithm' (extremely randomized trees) is a type of ensemble learning method closely related to random forests, sharing the same underlying principles of decision trees and ensemble averaging.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Conclusion",
+              "text_snippet": "We selected the extra trees classifier as the best model for classification and the kernel ridge regression as the best model for regression from five candidate models, by comparing the performance in cross-validation.",
+              "similarity": 0.75,
+              "reason": "The paper uses 'extra trees classifier', which is a variant of random forest, for classification, directly overlapping with the user's proposed 'random forest model'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "In an effort to reduce the large amount of time required to conduct large-scale screening studies, either computational or experimental, we here apply machine learning approaches that have been demonstrated to efficiently predict many properties of materials given only relatively easily obtained structural or compositional information.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper utilize machine learning approaches and specifically mention using 'compositional and structural descriptors' (user) or 'compositional information' (paper) as input features.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are in the domain of materials science, specifically predicting properties of inorganic compounds. The paper focuses on 'perovskite oxides' while the user states 'inorganic compound', which is a broader category but includes perovskite oxides.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "The thermodynamic phase stability is a key parameter that broadly governs whether the material is expected to be synthesizable, and whether it may degrade under certain operating conditions.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are concerned with predicting the 'thermodynamic stability' of materials, a specific property within materials science.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "The Materials Project: A materials genome approach to accelerating materials innovation.",
+              "similarity": 1.0,
+              "reason": "The user explicitly mentions using data 'from the Materials Project', which is a key data source and concept within the materials science domain, also referenced in the paper's citations.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+              "similarity": 0.75,
+              "reason": "The paper's contribution is developing ML models to predict thermodynamic stability, which directly aligns with the user's proposed research idea. The user's idea is a specific instance of this contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+              "heading": "Introduction",
+              "text_snippet": "The model can serve as a screening tool for fast discovery of potential stable compounds, significantly reducing DFT computational time and effort.",
+              "similarity": 0.75,
+              "reason": "The paper's contribution is to provide a fast screening tool for stable compounds, which is the implicit goal of the user's idea to predict stability.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 20199,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1806.01038v1"
+    },
+    {
+      "paper_id": "paper_13",
+      "paper_title": "GREX-PLUS Science Book",
+      "arxiv_id": "2304.08104v2",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on predicting the thermodynamic stability of inorganic compounds using a random forest model and materials science descriptors. In contrast, the GREX-PLUS paper describes a space mission concept for astronomical observations, primarily concerning galaxy formation and evolution and planetary system formation and evolution, using telescopes and spectrometers. There is no overlap in the research problem or question addressed. | Method: The user's research idea proposes a random forest model trained on compositional and structural descriptors to predict thermodynamic stability of inorganic compounds. The paper describes a space telescope mission (GREX-PLUS) with a wide-field camera and high-resolution spectrometer for astronomical observations. While the paper mentions 'Developing a machine learning classifier' in one instance, it does not specify random forests, nor does it apply machine learning to materials science or thermodynamic stability prediction, indicating no methodological overlap with the user's idea. | Domain: The user's research idea is in materials science, specifically predicting the thermodynamic stability of inorganic compounds using machine learning on compositional and structural descriptors. The paper, 'GREX-PLUS Science Book,' is entirely focused on astrophysics and planetary science, describing a space telescope mission to study galaxy formation and evolution, and planetary system formation and evolution. These are entirely different scientific fields with no overlap in application domain. | Contribution: The user's research idea proposes training a random forest model on materials data to predict thermodynamic stability of inorganic compounds. The paper describes a space mission (GREX-PLUS) focused on galaxy and planetary system formation and evolution, using telescopes and spectrometers. There is no overlap in the claimed contributions, as the paper's focus is on astronomical observations and related scientific questions, while the user's idea is on materials science and machine learning for stability prediction.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.15,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_13",
+              "paper_title": "GREX-PLUS Science Book",
+              "heading": "Required observations and expected results",
+              "text_snippet": "Developing a machine learning classifier, Kojima et al. (2020) successfully construct a metal-poor galaxy sample in the local universe.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes using a 'random forest model', which is a type of machine learning classifier. The paper mentions 'Developing a machine learning classifier', indicating a shared general methodological approach of using machine learning for classification tasks, although the specific type of classifier and application differ.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 12881,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2304.08104v2"
+    },
+    {
+      "paper_id": "paper_07",
+      "paper_title": "Sparse Projection Oblique Randomer Forests",
+      "arxiv_id": "1506.03410v6",
+      "paper_similarity_score": 0.15,
+      "reason": "Problem: The user's research idea focuses on predicting the thermodynamic stability of inorganic compounds using a random forest model trained on specific material descriptors. The evaluated paper, 'Sparse Projection Oblique Randomer Forests,' is concerned with improving the accuracy and efficiency of random forest algorithms themselves, specifically through sparse projection oblique splits. The paper does not address any specific problem in materials science or compound stability prediction; it is a methodological paper in machine learning. | Method: Both the user's idea and the paper utilize random forest models. However, the paper introduces 'Sparse Projection Oblique Randomer Forests' (SPORF), which uses 'sparse random projections' and 'axis-oblique splits' as a variation on the traditional random forest, whereas the user's idea specifies a general random forest model without these specific modifications. | Domain: The user's research idea is in materials science, specifically predicting thermodynamic stability of inorganic compounds using machine learning. The paper focuses on developing a new machine learning algorithm (Sparse Projection Oblique Randomer Forests) for general classification tasks, without any mention of materials science, chemistry, or physics applications. The application domains are entirely different. | Contribution: The user's research idea proposes to use a random forest model to predict the thermodynamic stability of inorganic compounds based on compositional and structural descriptors from the Materials Project. The evaluated paper, 'Sparse Projection Oblique Randomer Forests,' focuses on introducing a new decision forest algorithm (SPORF) that improves accuracy and computational efficiency over existing methods for general classification problems. The contributions are unrelated; the paper focuses on algorithmic improvements to random forests, while the user's idea focuses on a specific application of random forests in materials science.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+          "sentence_index": 0,
+          "similarity_score": 0.22499999999999998,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Sparse Projection Oblique Randomer Forests",
+              "heading": "ABSTRACT",
+              "text_snippet": "Decision forests, including Random Forests and Gradient Boosting Trees, have recently demonstrated state-of-the-art performance in a variety of machine learning settings.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'A random forest model', which directly aligns with the 'Random Forests' mentioned in the paper's abstract as a type of decision forest.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Sparse Projection Oblique Randomer Forests",
+              "heading": "Background & Related Work",
+              "text_snippet": "The original random forest ( RF ) procedure popularized by Leo Breiman is one of the most commonly employed classification learning algorithms .",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes using 'A random forest model', which is a core concept discussed and elaborated upon in the 'Background & Related Work' section of the paper.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 6629,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1506.03410v6"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 84,
+    "global_similarity_score": 0.3875,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A random forest model trained on compositional and structural descriptors from the Materials Project to predict whether a given inorganic compound will be thermodynamically stable.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_15",
+            "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+            "heading": "ABSTRACT",
+            "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper aim to predict thermodynamic stability using machine learning. The user specifies 'inorganic compound' which is broader than 'perovskite oxides' but the core problem is very similar.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_15",
+            "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+            "heading": "ABSTRACT",
+            "text_snippet": "For classification, the extra trees algorithm achieved the best prediction accuracy of 0.93 (+/- 0.02), with an F1 score of 0.88 (+/- 0.03).",
+            "similarity": 0.75,
+            "reason": "The user proposes a 'random forest model', and the paper uses 'extra trees algorithm', which is a variant of random forest and falls under the same general method family.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_34",
+            "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+            "heading": "ABSTRACT",
+            "text_snippet": "Surrogate machine-learning models are transforming computational materials science by predicting properties of materials with the accuracy of ab initio methods at a fraction of the computational cost.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are firmly within the domain of computational materials science, specifically using machine learning for materials prediction.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_15",
+            "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+            "heading": "ABSTRACT",
+            "text_snippet": "In this work, we developed machine learning models to predict the thermodynamic phase stability of perovskite oxides using a dataset of more than 1900 DFT-calculated perovskite oxide energies.",
+            "similarity": 0.75,
+            "reason": "The paper's main contribution is developing ML models to predict thermodynamic stability, which is the exact aim of the user's research idea. The difference lies in the scope of compounds (perovskite oxides vs. general inorganic compounds).",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research shows strong originality in its proposed methods and contributions, but the problem formulation and application domain have significant overlap with existing work on predicting the thermodynamic stability of perovskite oxides. Consider further differentiating your specific problem framing or target application within this domain.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.8200000000000001,
+      "method_similarity": 0.46,
+      "domain_similarity": 0.8,
+      "contribution_similarity": 0.42
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0415,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0393,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.002,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 417.4403657913208,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_15",
+        "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+        "paper_similarity": 0.6,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_34",
+        "paper_title": "Machine-learned multi-system surrogate models for materials prediction",
+        "paper_similarity": 0.5625,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_15",
+        "paper_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+        "paper_similarity": 0.625,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_13",
+        "paper_title": "GREX-PLUS Science Book",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_07",
+        "paper_title": "Sparse Projection Oblique Randomer Forests",
+        "paper_similarity": 0.15,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 108
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 108,
+    "after_dedup": 108,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

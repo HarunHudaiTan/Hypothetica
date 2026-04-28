@@ -1,0 +1,967 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "a5785f978e78",
+    "status": "completed"
+  },
+  "originality_score": 5,
+  "global_similarity_score": 0.9602499999999998,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+          "heading": "Abstract",
+          "text_snippet": "We decompose the evidence lower bound to show the existence of a term measuring the total correlation between latent variables. We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+          "similarity": 1.0,
+          "reason": "The paper explicitly states its motivation for introducing the β-TCVAE as a way to learn disentangled representations by addressing the total correlation between latent variables, which directly aligns with the user's problem of disentangling the latent space.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+          "heading": "Abstract",
+          "text_snippet": "We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+          "similarity": 1.0,
+          "reason": "The paper introduces the β-TCVAE which uses a total correlation penalty, directly matching the user's proposed method of adding a total correlation penalty term to the ELBO loss for disentanglement.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_05",
+          "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+          "heading": "Abstract",
+          "text_snippet": "Disentangled representation learning aims to represent the underlying generative factors of a dataset in a latent representation independently of one another.",
+          "similarity": 1.0,
+          "reason": "The user's idea is about disentangled representation learning, which is the explicit domain of the paper.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+          "heading": "Abstract",
+          "text_snippet": "We decompose the evidence lower bound to show the existence of a term measuring the total correlation between latent variables. We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+          "similarity": 1.0,
+          "reason": "The paper's core contribution is the β-TCVAE, which is a variational autoencoder trained with a total correlation penalty to disentangle the latent space, directly matching the user's proposed contribution.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea shows very low originality, with significant overlap in problem, domain, and contribution across all analyzed papers, particularly in disentanglement in variational autoencoders. To improve originality, consider a completely different problem formulation or a novel application domain.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.98,
+    "method_similarity": 0.75,
+    "domain_overlap": 1.0,
+    "contribution_similarity": 1.0
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0859,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0841,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0015,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 142.8753945827484,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "1802.04942v5",
+      "arxiv_id": "1802.04942v5",
+      "title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+      "abstract": "We decompose the evidence lower bound to show the existence of a term measuring the total correlation between latent variables. We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training. We further propose a principled classifier-free measure of disentanglement called the mutual information gap (MIG). We perform extensive quantitative and qualitative experiments, in both restricted and non-restricted settings, and show a strong relation between total correlation and disentanglement, when the latent variables model is trained using our framework.",
+      "url": "https://arxiv.org/abs/1802.04942v5",
+      "pdf_url": "https://arxiv.org/pdf/1802.04942v5",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is to train a variational autoencoder with a total correlation penalty for disentangled latent space. The paper directly addresses this by proposing the 'β-TCVAE (Total Correlation Variational Autoencoder)' which is a 'refinement of the state-of-the-art β-VAE objective for learning disentangled representations' and explicitly states that it adds a 'total correlation penalty term to the ELBO loss' to encourage statistically independent latent dimensions, which is the exact problem described by the user. | Method: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper introduces the β-TCVAE, which is explicitly described as a 'refinement' of the β-VAE objective that adds a total correlation penalty term to the ELBO. The paper also states that 'While Kim & Mnih [8] have independently proposed augmenting VAEs with an equivalent total correlation penalty to the β -TCVAE, their proposed training method differs from ours and requires an auxiliary discriminator network.' This indicates a very similar methodological core, with the paper's contribution being a specific training method for this penalty. | Domain: The user's research idea is about training a variational autoencoder with a total correlation penalty for disentangled latent space. The paper directly addresses this by proposing the 'β-TCVAE (Total Correlation Variational Autoencoder)' which refines the β-VAE objective for learning disentangled representations by decomposing the ELBO to include a total correlation term. Both the user's idea and the paper are focused on the exact same technical approach and application domain within VAEs. | Contribution: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper's core contribution is the β-TCVAE, which is explicitly described as a 'Total Correlation Variational Autoencoder' that refines the β-VAE objective for learning disentangled representations by adding a total correlation penalty term to the ELBO. This directly matches the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2211.07700v1",
+      "arxiv_id": "2211.07700v1",
+      "title": "Disentangling Variational Autoencoders",
+      "abstract": "A variational autoencoder (VAE) is a probabilistic machine learning framework for posterior inference that projects an input set of high-dimensional data to a lower-dimensional, latent space. The latent space learned with a VAE offers exciting opportunities to develop new data-driven design processes in creative disciplines, in particular, to automate the generation of multiple novel designs that are aesthetically reminiscent of the input data but that were unseen during training. However, the learned latent space is typically disorganized and entangled: traversing the latent space along a single dimension does not result in changes to single visual attributes of the data. The lack of latent structure impedes designers from deliberately controlling the visual attributes of new designs generated from the latent space. This paper presents an experimental study that investigates latent space disentanglement. We implement three different VAE models from the literature and train them on a publicly available dataset of 60,000 images of hand-written digits. We perform a sensitivity analysis to find a small number of latent dimensions necessary to maximize a lower bound to the log marginal likelihood of the data. Furthermore, we investigate the trade-offs between the quality of the reconstruction of the decoded images and the level of disentanglement of the latent space. We are able to automatically align three latent dimensions with three interpretable visual properties of the digits: line weight, tilt and width. Our experiments suggest that i) increasing the contribution of the Kullback-Leibler divergence between the prior over the latents and the variational distribution to the evidence lower bound, and ii) conditioning input image class enhances the learning of a disentangled latent space with a VAE.",
+      "url": "https://arxiv.org/abs/2211.07700v1",
+      "pdf_url": "https://arxiv.org/pdf/2211.07700v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper directly addresses the problem of 'latent space disentanglement' in VAEs, stating 'The goal of attaining a disentangled latent space... is to find a low-dimensional representations of the data x where single latent dimensions zi are sensitive to changes in single generative factors'. While the paper explores multiple methodologies, including a 'standard VAE', '-VAE', and 'conditional -VAE', the core problem of achieving disentangled latent spaces in VAEs is identical to the user's idea. | Method: The user's research idea proposes training a VAE with a total correlation penalty for disentanglement. The paper directly investigates disentanglement in VAEs, specifically exploring the β-VAE which introduces a hyperparameter to scale the KL divergence term in the ELBO, a method known to encourage disentanglement by putting pressure on the VAE bottleneck to match the prior. This is a very similar methodological approach to adding a total correlation penalty, as both aim to encourage statistical independence in the latent dimensions through modifications to the ELBO. | Domain: The user's research idea is about training a VAE with a total correlation penalty for disentanglement. The paper directly addresses 'Disentangling Variational Autoencoders' and specifically investigates 'latent space disentanglement' using VAEs, including the 'β-VAE' framework which introduces a hyperparameter to scale the KL Divergence term in the ELBO, a method closely related to adding a total correlation penalty for disentanglement. Both the idea and the paper are focused on the same specific application area of disentangled representation learning in VAEs. | Contribution: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper explicitly investigates 'Disentangling Variational Autoencoders' and details the '-VAE' model, which 'include[s] an additional hyperparameter in the loss function proposed in the original formulation of the VAE. This hyperparameter scales the weight of the KL Divergence term in the ELBO', directly addressing the concept of adding a penalty term to the ELBO for disentanglement. The paper's abstract also states, 'increasing the contribution of the Kullback-Leibler divergence between the prior over the latents and the variational distribution to the evidence lower bound... enhances the learning of a disentangled latent space with a VAE', which is the core of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "2502.02279v1",
+      "arxiv_id": "2502.02279v1",
+      "title": "A Revisit of Total Correlation in Disentangled Variational Auto-Encoder with Partial Disentanglement",
+      "abstract": "A fully disentangled variational auto-encoder (VAE) aims to identify disentangled latent components from observations. However, enforcing full independence between all latent components may be too strict for certain datasets. In some cases, multiple factors may be entangled together in a non-separable manner, or a single independent semantic meaning could be represented by multiple latent components within a higher-dimensional manifold. To address such scenarios with greater flexibility, we develop the Partially Disentangled VAE (PDisVAE), which generalizes the total correlation (TC) term in fully disentangled VAEs to a partial correlation (PC) term. This framework can handle group-wise independence and can naturally reduce to either the standard VAE or the fully disentangled VAE. Validation through three synthetic experiments demonstrates the correctness and practicality of PDisVAE. When applied to real-world datasets, PDisVAE discovers valuable information that is difficult to find using fully disentangled VAEs, implying its versatility and effectiveness.",
+      "url": "https://arxiv.org/abs/2502.02279v1",
+      "pdf_url": "https://arxiv.org/pdf/2502.02279v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "q-bio.NC"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is to train a VAE with a total correlation penalty for disentangled latent space. The paper explicitly states that 'fully disentangled VAEs optimize: ... where ... The second term in Eq. (1) is the total correlation (TC)... That is why Eq. (1) can achieve full disentanglement compared with standard VAE.' This directly addresses the same problem and method as the user's idea, with the paper then generalizing this concept. | Method: The user's idea is to train a VAE with a total correlation penalty for disentanglement. The paper introduces PDisVAE, which generalizes the total correlation (TC) term to a partial correlation (PC) term for group-wise independence. The paper explicitly states that 'when G = K, PC is just the total correlation (TC) and Eq. (6) becomes Eq. (1), the fully disentangled VAE loss,' indicating that the user's idea is a specific instance of the method proposed in the paper, where G (number of groups) equals K (latent dimensionality). | Domain: The user's idea is about training a VAE with a total correlation penalty for disentanglement. The paper directly addresses this by discussing 'fully disentangled VAEs' that optimize 'ELBO(x(n)) - TC' and explicitly mentions 'β-TCVAE (Chen et al., 2018)' as a method that 'penalizes an extra TC term to achieve full disentanglement'. This indicates a direct overlap in the core domain and methodology. | Contribution: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper explicitly states that 'fully disentangled VAEs optimize: ... where ... The second term in Eq. (1) is the total correlation (TC)... That is why Eq. (1) can achieve full disentanglement compared with standard VAE.' It further mentions that 'Consequently, they developed Eq. (1) with β > 0, resulting in FactorVAE and β-TCVAE representing the fully disentangled VAEs.' This directly describes the user's proposed contribution as an existing and well-established method within the field, which the paper builds upon by generalizing it to partial correlation.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "1711.09159v1",
+      "arxiv_id": "1711.09159v1",
+      "title": "Quantifying the Effects of Enforcing Disentanglement on Variational Autoencoders",
+      "abstract": "The notion of disentangled autoencoders was proposed as an extension to the variational autoencoder by introducing a disentanglement parameter $β$, controlling the learning pressure put on the possible underlying latent representations. For certain values of $β$ this kind of autoencoders is capable of encoding independent input generative factors in separate elements of the code, leading to a more interpretable and predictable model behaviour. In this paper we quantify the effects of the parameter $β$ on the model performance and disentanglement. After training multiple models with the same value of $β$, we establish the existence of consistent variance in one of the disentanglement measures, proposed in literature. The negative consequences of the disentanglement to the autoencoder's discriminative ability are also asserted while varying the amount of examples available during training.",
+      "url": "https://arxiv.org/abs/1711.09159v1",
+      "pdf_url": "https://arxiv.org/pdf/1711.09159v1",
+      "authors": [],
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's idea focuses on training a VAE with a total correlation penalty for disentanglement. The paper evaluates 'disentangled autoencoders' which are explicitly defined as an extension of VAEs by introducing a disentanglement parameter β, controlling the learning pressure on latent representations, and states that 'choosing pθ(z) to be the isotropic normal distribution with perfectly uncorrelated components forces the model to learn representations which encode statistically independent features about the data separately'. This is very similar to the user's idea of encouraging statistically independent latent dimensions, differing mainly in the specific mathematical formulation of the penalty (total correlation vs. β-VAE's KL divergence scaling, which implicitly encourages independence). | Method: The paper directly evaluates a method that is a slight modification of the user's idea. The user's idea is to train a VAE with a total correlation penalty for disentanglement. The paper evaluates a 'disentangled autoencoder' which is described as a generalization of the VAE, derived by adding a 'disentanglement parameter β' to the ELBO loss, which serves a similar purpose to a total correlation penalty by forcing the model to learn statistically independent features. | Domain: The user's research idea is about training a variational autoencoder with a disentangled latent space using a total correlation penalty. The paper directly discusses 'disentangled autoencoders' as an extension of the variational autoencoder, specifically mentioning the 'disentanglement parameter β' and its effect on learning 'statistically independent features about the data separately, in different positions of the code'. This indicates a direct overlap in the core domain and specific technical approach. | Contribution: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper explicitly states that the 'disentangled autoencoder' (which is a VAE extension) uses a parameter β to control 'learning pressure' for independent latent representations, and its cost function is derived with β ≥ 0, forcing the model to learn representations which encode statistically independent features. The paper then quantifies the effects of this β parameter on disentanglement, directly aligning with the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2409.14851v3",
+      "arxiv_id": "2409.14851v3",
+      "title": "Disentanglement with Factor Quantized Variational Autoencoders",
+      "abstract": "Disentangled representation learning aims to represent the underlying generative factors of a dataset in a latent representation independently of one another. In our work, we propose a discrete variational autoencoder (VAE) based model where the ground truth information about the generative factors are not provided to the model. We demonstrate the advantages of learning discrete representations over learning continuous representations in facilitating disentanglement. Furthermore, we propose incorporating an inductive bias into the model to further enhance disentanglement. Precisely, we propose scalar quantization of the latent variables in a latent representation with scalar values from a global codebook, and we add a total correlation term to the optimization as an inductive bias. Our method called FactorQVAE combines optimization based disentanglement approaches with discrete representation learning, and it outperforms the former disentanglement methods in terms of two disentanglement metrics (DCI and InfoMEC) while improving the reconstruction performance. Our code can be found at https://github.com/ituvisionlab/FactorQVAE.",
+      "url": "https://arxiv.org/abs/2409.14851v3",
+      "pdf_url": "https://arxiv.org/pdf/2409.14851v3",
+      "authors": [],
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is 'Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.' The paper explicitly states, 'Precisely, we propose scalar quantization of the latent variables... and we add a total correlation term to the optimization as an inductive bias.' It also mentions, 'FactorVAE partially mitigates these issues by explicitly penalizing total correlation.' This directly aligns with the user's idea of using a total correlation penalty for disentanglement in a VAE. | Method: The user's research idea explicitly mentions 'Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss'. The paper's abstract states, 'we propose a discrete variational autoencoder (VAE) based model... and we add a total correlation term to the optimization as an inductive bias.' This directly aligns with the core methodological approach of the user's idea, with the primary difference being the paper's focus on discrete latent representations and scalar quantization. | Domain: Both the user's research idea and the paper focus on disentangled representation learning using variational autoencoders. The paper explicitly states its application to 'structured visual domains with well-defined generative factors' and uses 3D-object benchmarks (Shapes3D, Isaac3D, MPI3D), which are typical for evaluating disentanglement in VAEs, indicating a direct overlap in the specific application area and data type. | Contribution: The user's research idea proposes training a VAE with a total correlation penalty for disentangled latent dimensions. The paper's abstract explicitly states, \"we propose scalar quantization of the latent variables... and we add a total correlation term to the optimization as an inductive bias.\" The 'Related Work' section further mentions, \"Kim and Mnih [15]'s FactorVAE partially mitigates these issues by explicitly penalizing total correlation, yet the hyperparameter-sensitive trade-off persists,\" indicating that the paper builds upon and incorporates this exact mechanism.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "Beta-VAE",
+        "similarity": 0.95,
+        "description": "A well-known variant of VAEs that introduces a hyperparameter (beta) to weight the KL divergence term in the ELBO, which implicitly encourages disentanglement by penalizing the capacity of the latent bottleneck, often leading to more disentangled representations."
+      },
+      {
+        "name": "FactorVAE",
+        "similarity": 0.98,
+        "description": "Explicitly adds a total correlation (TC) penalty to the ELBO. The paper 'Disentangling by Factorizing Variation' (Kim and Mnih, 2018) introduces FactorVAE, which uses a discriminator to estimate the total correlation of the aggregated posterior and penalizes it."
+      },
+      {
+        "name": "InfoVAE",
+        "similarity": 0.9,
+        "description": "Another disentangled VAE variant that uses a mutual information regularization term to encourage disentanglement, which is related to total correlation."
+      },
+      {
+        "name": "Total Correlation (TC) in Information Theory",
+        "similarity": 0.99,
+        "description": "The concept of total correlation as a measure of statistical dependence among multiple random variables is a fundamental concept in information theory and has been applied to machine learning for disentanglement."
+      }
+    ],
+    "assessment": "The idea of training a variational autoencoder with a total correlation penalty term to disentangle the latent space is a well-established and widely researched area within the field of disentangled representation learning. Specifically, the FactorVAE model (Kim and Mnih, 2018) directly implements this approach by adding a total correlation penalty to the ELBO. Other related methods like Beta-VAE also aim for disentanglement, albeit through slightly different mechanisms.",
+    "novelty_aspects": [],
+    "recommendation": "This specific approach is a known and implemented technique in disentangled representation learning. If you are pursuing research, consider exploring novel ways to estimate or regularize total correlation, applying it to new domains, or combining it with other disentanglement objectives or architectural innovations to achieve superior or more robust disentanglement for specific tasks."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Beta-VAE** (similarity: 95%).\n\n*The idea of training a variational autoencoder with a total correlation penalty term to disentangle the latent space is a well-established and widely researched area within the field of disentangled representation learning. Specifically, the FactorVAE model (Kim and Mnih, 2018) directly implements this approach by adding a total correlation penalty to the ELBO. Other related methods like Beta-VAE also aim for disentanglement, albeit through slightly different mechanisms.*\n\n**Recommendation:** This specific approach is a known and implemented technique in disentangled representation learning. If you are pursuing research, consider exploring novel ways to estimate or regularize total correlation, applying it to new domains, or combining it with other disentanglement objectives or architectural innovations to achieve superior or more robust disentanglement for specific tasks.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 110,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 488,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0859,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0841,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0015,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.",
+  "enriched_idea": "RESEARCH IDEA:\nTraining a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+      "arxiv_id": "1802.04942v5",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is to train a variational autoencoder with a total correlation penalty for disentangled latent space. The paper directly addresses this by proposing the 'β-TCVAE (Total Correlation Variational Autoencoder)' which is a 'refinement of the state-of-the-art β-VAE objective for learning disentangled representations' and explicitly states that it adds a 'total correlation penalty term to the ELBO loss' to encourage statistically independent latent dimensions, which is the exact problem described by the user. | Method: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper introduces the β-TCVAE, which is explicitly described as a 'refinement' of the β-VAE objective that adds a total correlation penalty term to the ELBO. The paper also states that 'While Kim & Mnih [8] have independently proposed augmenting VAEs with an equivalent total correlation penalty to the β -TCVAE, their proposed training method differs from ours and requires an auxiliary discriminator network.' This indicates a very similar methodological core, with the paper's contribution being a specific training method for this penalty. | Domain: The user's research idea is about training a variational autoencoder with a total correlation penalty for disentangled latent space. The paper directly addresses this by proposing the 'β-TCVAE (Total Correlation Variational Autoencoder)' which refines the β-VAE objective for learning disentangled representations by decomposing the ELBO to include a total correlation term. Both the user's idea and the paper are focused on the exact same technical approach and application domain within VAEs. | Contribution: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper's core contribution is the β-TCVAE, which is explicitly described as a 'Total Correlation Variational Autoencoder' that refines the β-VAE objective for learning disentangled representations by adding a total correlation penalty term to the ELBO. This directly matches the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.",
+          "sentence_index": 0,
+          "similarity_score": 0.95,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "We decompose the evidence lower bound to show the existence of a term measuring the total correlation between latent variables. We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states its motivation for introducing the β-TCVAE as a way to learn disentangled representations by addressing the total correlation between latent variables, which directly aligns with the user's problem of disentangling the latent space.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Introduction",
+              "text_snippet": "It is also argued that encouraging independence between latent variables induces disentanglement [7].",
+              "similarity": 0.75,
+              "reason": "The paper discusses the idea that encouraging independence between latent variables leads to disentanglement, which is the core problem the user's idea aims to solve.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Sources of Disentanglement in the ELBO",
+              "text_snippet": "In information theory, ii is referred to as the total correlation (TC), one of many generalizations of mutual information to more than two random variables [20]. The naming is unfortunate as it is actually a measure of dependence between the variables. The penalty on TC forces the model to find statistically independent factors in the data distribution. We claim that a heavier penalty on this term induces a more disentangled representation, and that the existence of this term is the reason β -VAE has been successful.",
+              "similarity": 1.0,
+              "reason": "This section directly states that a penalty on total correlation forces the model to find statistically independent factors, leading to a more disentangled representation, which is the exact problem the user is trying to solve.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+              "similarity": 1.0,
+              "reason": "The paper introduces the β-TCVAE which uses a total correlation penalty, directly matching the user's proposed method of adding a total correlation penalty term to the ELBO loss for disentanglement.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Sources of Disentanglement in the ELBO",
+              "text_snippet": "In information theory, ii is referred to as the total correlation (TC), one of many generalizations of mutual information to more than two random variables [20]. The naming is unfortunate as it is actually a measure of dependence between the variables. The penalty on TC forces the model to find statistically independent factors in the data distribution. We claim that a heavier penalty on this term induces a more disentangled representation, and that the existence of this term is the reason β -VAE has been successful.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly describes using a penalty on total correlation to encourage statistically independent latent dimensions, which is the core of the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Special case: β -TCVAE",
+              "text_snippet": "While Kim & Mnih [8] have proposed an equivalent objective, they estimate TC using an auxiliary discriminator network.",
+              "similarity": 1.0,
+              "reason": "The paper mentions an 'equivalent objective' to β-TCVAE, which implies the method of adding a total correlation penalty to the ELBO loss is already established and used.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Related Work",
+              "text_snippet": "The existence of the index-code MI in the ELBO has been shown before [16], and as a result, FactorVAE, which uses an equivalent objective to the β -TCVAE, is independently proposed [8]. The main difference is they estimate the total correlation using the density ratio trick [35] which requires an auxiliary discriminator network and an inner optimization loop. In contrast, we emphasize the success of β -VAE using our refined decomposition, and propose a training method that allows assigning arbitrary weights to each term of the objective without requiring any additional networks.",
+              "similarity": 1.0,
+              "reason": "The paper discusses FactorVAE using an 'equivalent objective to the β-TCVAE', which is precisely the method of adding a total correlation penalty to the ELBO loss for disentanglement.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+              "similarity": 1.0,
+              "reason": "The paper focuses on Variational Autoencoders (VAEs) and learning disentangled representations, which is the specific domain of the user's idea.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Background: Learning and Evaluating Disentangled Representations",
+              "text_snippet": "VAE and β -VAE The variational autoencoder (VAE) [9, 10] is a latent variable model that pairs a top-down generator with a bottom-up inference network. Instead of directly performing maximum likelihood estimation on the intractable marginal log-likelihood, training is done by optimizing the tractable evidence lower bound (ELBO).",
+              "similarity": 1.0,
+              "reason": "The paper extensively discusses Variational Autoencoders (VAEs) and their training using the ELBO, which is the core domain of the user's research idea.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "We decompose the evidence lower bound to show the existence of a term measuring the total correlation between latent variables. We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+              "similarity": 1.0,
+              "reason": "The paper's core contribution is the β-TCVAE, which is a variational autoencoder trained with a total correlation penalty to disentangle the latent space, directly matching the user's proposed contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Sources of Disentanglement in the ELBO",
+              "text_snippet": "The penalty on TC forces the model to find statistically independent factors in the data distribution. We claim that a heavier penalty on this term induces a more disentangled representation, and that the existence of this term is the reason β -VAE has been successful.",
+              "similarity": 1.0,
+              "reason": "The paper claims that penalizing total correlation leads to more disentangled representations by encouraging statistically independent factors, which is the exact contribution the user is proposing.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+              "heading": "Conclusion",
+              "text_snippet": "We present a decomposition of the ELBO with the goal of explaining why β -VAE works. In particular, we find that a TC penalty in the objective encourages the model to find statistically independent factors in the data distribution. We then designate a special case as β -TCVAE, which can be trained stochastically using minibatch estimator with no additional hyperparameters compared to the β -VAE.",
+              "similarity": 1.0,
+              "reason": "The conclusion reiterates the paper's finding that a TC penalty encourages statistically independent factors and introduces β-TCVAE, which is precisely the user's proposed contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 1.0,
+            "method_similarity": 1.0,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 1.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 49871,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1802.04942v5"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Disentangling Variational Autoencoders",
+      "arxiv_id": "2211.07700v1",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper directly addresses the problem of 'latent space disentanglement' in VAEs, stating 'The goal of attaining a disentangled latent space... is to find a low-dimensional representations of the data x where single latent dimensions zi are sensitive to changes in single generative factors'. While the paper explores multiple methodologies, including a 'standard VAE', '-VAE', and 'conditional -VAE', the core problem of achieving disentangled latent spaces in VAEs is identical to the user's idea. | Method: The user's research idea proposes training a VAE with a total correlation penalty for disentanglement. The paper directly investigates disentanglement in VAEs, specifically exploring the β-VAE which introduces a hyperparameter to scale the KL divergence term in the ELBO, a method known to encourage disentanglement by putting pressure on the VAE bottleneck to match the prior. This is a very similar methodological approach to adding a total correlation penalty, as both aim to encourage statistical independence in the latent dimensions through modifications to the ELBO. | Domain: The user's research idea is about training a VAE with a total correlation penalty for disentanglement. The paper directly addresses 'Disentangling Variational Autoencoders' and specifically investigates 'latent space disentanglement' using VAEs, including the 'β-VAE' framework which introduces a hyperparameter to scale the KL Divergence term in the ELBO, a method closely related to adding a total correlation penalty for disentanglement. Both the idea and the paper are focused on the same specific application area of disentangled representation learning in VAEs. | Contribution: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper explicitly investigates 'Disentangling Variational Autoencoders' and details the '-VAE' model, which 'include[s] an additional hyperparameter in the loss function proposed in the original formulation of the VAE. This hyperparameter scales the weight of the KL Divergence term in the ELBO', directly addressing the concept of adding a penalty term to the ELBO for disentanglement. The paper's abstract also states, 'increasing the contribution of the Kullback-Leibler divergence between the prior over the latents and the variational distribution to the evidence lower bound... enhances the learning of a disentangled latent space with a VAE', which is the core of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.",
+          "sentence_index": 0,
+          "similarity_score": 0.75,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Disentangling Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "However, the learned latent space is typically disorganized and entangled: traversing the latent space along a single dimension does not result in changes to single visual attributes of the data. The lack of latent structure impedes designers from deliberately controlling the visual attributes of new designs generated from the latent space. This paper presents an experimental study that investigates latent space disentanglement.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper identify the problem of entangled latent spaces in VAEs and the need for disentanglement.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Disentangling Variational Autoencoders",
+              "heading": "Introduction",
+              "text_snippet": "However, the latent space spanned by z and learned with a VAE is typically entangled and thus lacks two important factors to operationalize it in design tasks: independence and interpretability [4]. The goal of attaining a disentangled latent space, on the other hand, is to find a low-dimensional representations of the data x where single latent dimensions zi are sensitive to changes in single generative factors while being relatively invariant to changes in others [5].",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states the problem of entangled latent spaces in VAEs and the goal of achieving disentanglement, which aligns with the user's research idea.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Disentangling Variational Autoencoders",
+              "heading": "-VAE",
+              "text_snippet": "To focus on learning statistically independent latent factors, the authors of [7] include an additional hyperparameter in the loss function proposed in the original formulation of the V AE. This hyperparameter scales the weight of the KL Divergence term in the ELBO: ... A -VAE with = 1 corresponds to the original VAE formulation. Employing values of > 1 hypothetically put pressure on the V AE bottleneck to match the prior p ( z ) and thus promote the learning of a more e cient latent data representation.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes adding a 'total correlation penalty term to the ELBO loss' to disentangle the latent space. The paper discusses the -VAE, which introduces a hyperparameter to scale the KL Divergence term in the ELBO, effectively acting as a penalty to encourage a more efficient latent representation and disentanglement. While 'total correlation penalty' is a specific term not directly used, the mechanism of adding a penalty to the ELBO to encourage disentanglement is very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Disentangling Variational Autoencoders",
+              "heading": "Theoretical background",
+              "text_snippet": "Therefore, we maximize a lower bound to the log marginal likelihood of the data, the Evidence Lower Bound (ELBO), and fit instead the parameters of an variational distribution q ( z ). ... The first term of this approximation can be understood as the reconstruction loss of e.g. Bernoulli- or Gaussian-decoded data points, while the second corresponds to a regularization term which penalizes the Kullback-Leibler (KL) divergence between the variational posterior q ( z j x ) and a prior p ( z ) over the latent z .",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper refer to the ELBO loss as the core objective function for VAE training.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Disentangling Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "A variational autoencoder (VAE) is a probabilistic machine learning framework for posterior inference that projects an input set of high-dimensional data to a lower-dimensional, latent space. The latent space learned with a VAE offers exciting opportunities to develop new data-driven design processes in creative disciplines, in particular, to automate the generation of multiple novel designs that are aesthetically reminiscent of the input data but that were unseen during training.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are situated within the domain of variational autoencoders and latent space learning.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Disentangling Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "Our experiments suggest that i) increasing the contribution of the Kullback-Leibler divergence between the prior over the latents and the variational distribution to the evidence lower bound, and ii) conditioning input image class enhances the learning of a disentangled latent space with a VAE.",
+              "similarity": 0.75,
+              "reason": "The paper's findings directly relate to methods for achieving a disentangled latent space, specifically by modifying the ELBO (increasing KL divergence contribution) which is analogous to adding a penalty term as proposed by the user.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Disentangling Variational Autoencoders",
+              "heading": "Conclusion",
+              "text_snippet": "We found that using = 10 together with label-conditioned data led to the clearest level of disentanglement through our experiments, revealing single latent directions that allowed for individual control of three generative factors in the images supplied to the VAE. ... However, our experiments also suggest that using a moderate value of to scale the KL divergence in the ELBO is also instrumental to arrive at a disentangled latent space.",
+              "similarity": 0.75,
+              "reason": "The paper concludes that scaling the KL divergence in the ELBO (which is a form of penalty) is instrumental in achieving a disentangled latent space, directly aligning with the user's proposed contribution of disentangling the latent space via a penalty term.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 31612,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2211.07700v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "A Revisit of Total Correlation in Disentangled Variational Auto-Encoder with Partial Disentanglement",
+      "arxiv_id": "2502.02279v1",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is to train a VAE with a total correlation penalty for disentangled latent space. The paper explicitly states that 'fully disentangled VAEs optimize: ... where ... The second term in Eq. (1) is the total correlation (TC)... That is why Eq. (1) can achieve full disentanglement compared with standard VAE.' This directly addresses the same problem and method as the user's idea, with the paper then generalizing this concept. | Method: The user's idea is to train a VAE with a total correlation penalty for disentanglement. The paper introduces PDisVAE, which generalizes the total correlation (TC) term to a partial correlation (PC) term for group-wise independence. The paper explicitly states that 'when G = K, PC is just the total correlation (TC) and Eq. (6) becomes Eq. (1), the fully disentangled VAE loss,' indicating that the user's idea is a specific instance of the method proposed in the paper, where G (number of groups) equals K (latent dimensionality). | Domain: The user's idea is about training a VAE with a total correlation penalty for disentanglement. The paper directly addresses this by discussing 'fully disentangled VAEs' that optimize 'ELBO(x(n)) - TC' and explicitly mentions 'β-TCVAE (Chen et al., 2018)' as a method that 'penalizes an extra TC term to achieve full disentanglement'. This indicates a direct overlap in the core domain and methodology. | Contribution: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper explicitly states that 'fully disentangled VAEs optimize: ... where ... The second term in Eq. (1) is the total correlation (TC)... That is why Eq. (1) can achieve full disentanglement compared with standard VAE.' It further mentions that 'Consequently, they developed Eq. (1) with β > 0, resulting in FactorVAE and β-TCVAE representing the fully disentangled VAEs.' This directly describes the user's proposed contribution as an existing and well-established method within the field, which the paper builds upon by generalizing it to partial correlation.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.",
+          "sentence_index": 0,
+          "similarity_score": 0.7749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "A Revisit of Total Correlation in Disentangled Variational Auto-Encoder with Partial Disentanglement",
+              "heading": "Abstract",
+              "text_snippet": "A fully disentangled variational auto-encoder (VAE) aims to identify disentangled latent components from observations. However, enforcing full independence between all latent components may be too strict for certain datasets.",
+              "similarity": 0.75,
+              "reason": "The user's idea directly addresses the problem of disentangling latent space in VAEs, which is the core problem discussed in the paper's abstract, specifically the 'fully disentangled' aspect.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "A Revisit of Total Correlation in Disentangled Variational Auto-Encoder with Partial Disentanglement",
+              "heading": "Introduction",
+              "text_snippet": "Disentangling independent latent components from observations is a desirable goal in representational learning... To disentangle latent components in an unsupervised manner, most models employ techniques that combine optimizing a variational auto-encoder (VAE) (Kingma, 2013) with an additional penalty term known as total correlation (mutual information) (Kraskov et al., 2004), classified as fully disentangled VAEs (Higgins et al., 2017; Kim & Mnih, 2018; Chen et al., 2018).",
+              "similarity": 0.75,
+              "reason": "The user's idea aligns with the problem of disentangling latent components in VAEs using a penalty term, which the paper identifies as a common approach for 'fully disentangled VAEs'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "A Revisit of Total Correlation in Disentangled Variational Auto-Encoder with Partial Disentanglement",
+              "heading": "By total correlation (TC)",
+              "text_snippet": "fully disentangled VAEs aim to identify K statistically independent (disentangled) latent components... To achieve full disentanglement, fully disentangled VAEs optimize: ... where ELBO(x(n)) = E q(z|x(n))[ln p(x(n)|z)] -KL(q(z||x(n))||p(z)) (Blei et al., 2017) is the standard VAE loss. ... The second term in Eq. (1) is the total correlation (TC)... The goal of this TC term is to achieve q(z) = \\prod_{K k=1} q(z_k), which is the rigorous definition of independence among z_1, ..., z_k. That is why Eq. (1) can achieve full disentanglement compared with standard VAE.",
+              "similarity": 1.0,
+              "reason": "The user's idea proposes 'Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.' This is an exact description of the method for 'fully disentangled VAEs' detailed in this section, including the use of a total correlation term with the ELBO loss to encourage statistically independent latent dimensions.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "A Revisit of Total Correlation in Disentangled Variational Auto-Encoder with Partial Disentanglement",
+              "heading": "By total correlation (TC)",
+              "text_snippet": "It was found later by Kim & Mnih (2018) and Chen et al. (2018) and summarized by Dubois et al. (2019) that the effective term for enhancing the latent disentanglement is indeed the TC. Consequently, they developed Eq. (1) with \\beta > 0, resulting in FactorVAE and \\beta-TCVAE representing the fully disentangled VAEs.",
+              "similarity": 1.0,
+              "reason": "The user's idea directly describes the methodology of adding a total correlation penalty to the ELBO loss for disentanglement, which the paper attributes to methods like FactorVAE and \\beta-TCVAE, confirming the identical methodological approach.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "A Revisit of Total Correlation in Disentangled Variational Auto-Encoder with Partial Disentanglement",
+              "heading": "Abstract",
+              "text_snippet": "A fully disentangled variational auto-encoder (VAE) aims to identify disentangled latent components from observations. However, enforcing full independence between all latent components may be too strict for certain datasets. ... To address such scenarios with greater flexibility, we develop the Partially Disentangled VAE (PDisVAE), which generalizes the total correlation (TC) term in fully disentangled VAEs to a partial correlation (PC) term.",
+              "similarity": 0.75,
+              "reason": "The user's idea describes a standard 'fully disentangled VAE' approach. The paper's main contribution is to generalize this by introducing 'partial correlation' (PC) instead of 'total correlation' (TC) for more flexible disentanglement, indicating the user's idea is a known, foundational method that the paper builds upon and generalizes.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "A Revisit of Total Correlation in Disentangled Variational Auto-Encoder with Partial Disentanglement",
+              "heading": "By total correlation (TC)",
+              "text_snippet": "Consequently, they developed Eq. (1) with \\beta > 0, resulting in FactorVAE and \\beta-TCVAE representing the fully disentangled VAEs.",
+              "similarity": 0.75,
+              "reason": "The user's idea describes the core mechanism of FactorVAE and \\beta-TCVAE, which are established methods for fully disentangled VAEs. The paper discusses these as existing contributions that PDisVAE generalizes.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 1.0,
+            "domain_overlap": 0.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 66571,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2502.02279v1"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Quantifying the Effects of Enforcing Disentanglement on Variational Autoencoders",
+      "arxiv_id": "1711.09159v1",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The user's idea focuses on training a VAE with a total correlation penalty for disentanglement. The paper evaluates 'disentangled autoencoders' which are explicitly defined as an extension of VAEs by introducing a disentanglement parameter β, controlling the learning pressure on latent representations, and states that 'choosing pθ(z) to be the isotropic normal distribution with perfectly uncorrelated components forces the model to learn representations which encode statistically independent features about the data separately'. This is very similar to the user's idea of encouraging statistically independent latent dimensions, differing mainly in the specific mathematical formulation of the penalty (total correlation vs. β-VAE's KL divergence scaling, which implicitly encourages independence). | Method: The paper directly evaluates a method that is a slight modification of the user's idea. The user's idea is to train a VAE with a total correlation penalty for disentanglement. The paper evaluates a 'disentangled autoencoder' which is described as a generalization of the VAE, derived by adding a 'disentanglement parameter β' to the ELBO loss, which serves a similar purpose to a total correlation penalty by forcing the model to learn statistically independent features. | Domain: The user's research idea is about training a variational autoencoder with a disentangled latent space using a total correlation penalty. The paper directly discusses 'disentangled autoencoders' as an extension of the variational autoencoder, specifically mentioning the 'disentanglement parameter β' and its effect on learning 'statistically independent features about the data separately, in different positions of the code'. This indicates a direct overlap in the core domain and specific technical approach. | Contribution: The user's research idea is to train a VAE with a total correlation penalty for disentanglement. The paper explicitly states that the 'disentangled autoencoder' (which is a VAE extension) uses a parameter β to control 'learning pressure' for independent latent representations, and its cost function is derived with β ≥ 0, forcing the model to learn representations which encode statistically independent features. The paper then quantifies the effects of this β parameter on disentanglement, directly aligning with the user's proposed contribution.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.",
+          "sentence_index": 0,
+          "similarity_score": 0.7,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Quantifying the Effects of Enforcing Disentanglement on Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "The notion of disentangled autoencoders was proposed as an extension to the variational autoencoder by introducing a disentanglement parameter β , controlling the learning pressure put on the possible underlying latent representations.",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions 'variational autoencoder' and 'disentangled', which are core to the paper's method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Quantifying the Effects of Enforcing Disentanglement on Variational Autoencoders",
+              "heading": "Background",
+              "text_snippet": "Kingma and Welling [13] derived the variational autoencoder framework by rearranging the evidence lower bound (ELBO) so that the intractable posterior p θ ( z | x ) can be eliminated. ... with β ≥ 0 , deriving the final disentangled autoencoder cost function.",
+              "similarity": 1.0,
+              "reason": "The user's idea directly refers to 'variational autoencoder', 'ELBO loss', and 'disentangled', which are fundamental components of the method described in the paper's background section.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Quantifying the Effects of Enforcing Disentanglement on Variational Autoencoders",
+              "heading": "Background",
+              "text_snippet": "In this way not only the D KL term can be evaluated analytically [13], but choosing p θ ( z ) to be the isotropic normal distribution with perfectly uncorrelated components forces the model to learn representations which encode statistically independent features about the data separately, in different positions of the code.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions 'encouraging statistically independent latent dimensions', which directly aligns with the paper's description of how the disentangled autoencoder aims to learn representations with 'statistically independent features'. The 'total correlation penalty term' in the user's idea is a common way to achieve this, and the paper's β-VAE formulation implicitly addresses this by regularizing the KL divergence to encourage independence.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Quantifying the Effects of Enforcing Disentanglement on Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "For certain values of β this kind of autoencoders is capable of encoding independent input generative factors in separate elements of the code, leading to a more interpretable and predictable model behaviour. In this paper we quantify the effects of the parameter β on the model performance and disentanglement.",
+              "similarity": 0.5,
+              "reason": "The user's idea focuses on achieving disentanglement in the latent space, which is the core problem addressed by the paper's β-VAE. While the user proposes a specific penalty term, the overall goal of disentanglement for independent latent dimensions is shared.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Quantifying the Effects of Enforcing Disentanglement on Variational Autoencoders",
+              "heading": "Data",
+              "text_snippet": "In accordance to this considerations, we have constructed a synthetic dataset of 64x64 binarised images containing each a single shape. The generative factors defining each image are: a shape - square ( /square ), ellipse ( ) or triangle ( /triangle ); position X (16 values); position Y (16 values); scale (6 levels); rotation (60 values over the [0 , π ] range).",
+              "similarity": 0.75,
+              "reason": "The paper applies disentangled autoencoders to image data, specifically synthetic images with known generative factors, which is a common domain for VAE research and aligns with the general application of the user's proposed method.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 1.0,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 17832,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1711.09159v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+      "arxiv_id": "2409.14851v3",
+      "paper_similarity_score": 0.9249999999999998,
+      "reason": "Problem: The user's research idea is 'Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.' The paper explicitly states, 'Precisely, we propose scalar quantization of the latent variables... and we add a total correlation term to the optimization as an inductive bias.' It also mentions, 'FactorVAE partially mitigates these issues by explicitly penalizing total correlation.' This directly aligns with the user's idea of using a total correlation penalty for disentanglement in a VAE. | Method: The user's research idea explicitly mentions 'Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss'. The paper's abstract states, 'we propose a discrete variational autoencoder (VAE) based model... and we add a total correlation term to the optimization as an inductive bias.' This directly aligns with the core methodological approach of the user's idea, with the primary difference being the paper's focus on discrete latent representations and scalar quantization. | Domain: Both the user's research idea and the paper focus on disentangled representation learning using variational autoencoders. The paper explicitly states its application to 'structured visual domains with well-defined generative factors' and uses 3D-object benchmarks (Shapes3D, Isaac3D, MPI3D), which are typical for evaluating disentanglement in VAEs, indicating a direct overlap in the specific application area and data type. | Contribution: The user's research idea proposes training a VAE with a total correlation penalty for disentangled latent dimensions. The paper's abstract explicitly states, \"we propose scalar quantization of the latent variables... and we add a total correlation term to the optimization as an inductive bias.\" The 'Related Work' section further mentions, \"Kim and Mnih [15]'s FactorVAE partially mitigates these issues by explicitly penalizing total correlation, yet the hyperparameter-sensitive trade-off persists,\" indicating that the paper builds upon and incorporates this exact mechanism.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.",
+          "sentence_index": 0,
+          "similarity_score": 0.9500000000000001,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "Disentangled representation learning aims to represent the underlying generative factors of a dataset in a latent representation independently of one another.",
+              "similarity": 1.0,
+              "reason": "The user's idea directly addresses the problem of disentangling latent space, which is the core problem statement in the paper's abstract.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "Precisely, we propose scalar quantization of the latent variables in a latent representation with scalar values from a global codebook, and we add a total correlation term to the optimization as an inductive bias.",
+              "similarity": 1.0,
+              "reason": "The user's idea proposes 'adding a total correlation penalty term to the ELBO loss' to achieve disentanglement in a VAE. The paper explicitly states 'we add a total correlation term to the optimization as an inductive bias' in the context of a VAE-based model for disentanglement.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+              "heading": "Related Work",
+              "text_snippet": "Kim and Mnih [15]'s FactorVAE partially mitigates these issues by explicitly penalizing total correlation, yet the hyperparameter-sensitive trade-off persists.",
+              "similarity": 0.75,
+              "reason": "The user's idea mentions 'adding a total correlation penalty term to the ELBO loss'. The paper discusses FactorVAE, which 'explicitly penalizing total correlation' as a method for disentanglement, indicating this is a known technique within the field.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+              "heading": "Discrete Variational Autoencoders",
+              "text_snippet": "Discrete VAEs aim to represent high-dimensional data x using a low dimensional, discrete latent representation z by maximizing the Evidence Lower Bound (ELBO) objective: where the generative model p ( x | z ) is implemented as a decoder, the approximated posterior q ( z | x ) is implemented as an encoder, and p ( z ) is the prior.",
+              "similarity": 1.0,
+              "reason": "The user's idea specifies 'training a variational autoencoder' and refers to the 'ELBO loss'. The paper details Discrete VAEs which maximize the ELBO objective, confirming the foundational method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "Disentangled representation learning aims to represent the underlying generative factors of a dataset in a latent representation independently of one another.",
+              "similarity": 1.0,
+              "reason": "The user's idea is about disentangled representation learning, which is the explicit domain of the paper.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+              "heading": "Abstract",
+              "text_snippet": "Precisely, we propose scalar quantization of the latent variables in a latent representation with scalar values from a global codebook, and we add a total correlation term to the optimization as an inductive bias. Our method called FactorQVAE combines optimization based disentanglement approaches with discrete representation learning, and it outperforms the former disentanglement methods in terms of two disentanglement metrics (DCI and InfoMEC) while improving the reconstruction performance.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes to train a VAE with a total correlation penalty for disentanglement. The paper's FactorQVAE method incorporates a total correlation term for disentanglement and claims improved performance, indicating a significant overlap in the proposed approach and expected contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 1.0,
+            "method_similarity": 1.0,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 47343,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2409.14851v3"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 5,
+    "global_similarity_score": 0.9602499999999998,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Training a variational autoencoder where the latent space is disentangled by adding a total correlation penalty term to the ELBO loss, encouraging statistically independent latent dimensions.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+            "heading": "Abstract",
+            "text_snippet": "We decompose the evidence lower bound to show the existence of a term measuring the total correlation between latent variables. We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+            "similarity": 1.0,
+            "reason": "The paper explicitly states its motivation for introducing the β-TCVAE as a way to learn disentangled representations by addressing the total correlation between latent variables, which directly aligns with the user's problem of disentangling the latent space.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+            "heading": "Abstract",
+            "text_snippet": "We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+            "similarity": 1.0,
+            "reason": "The paper introduces the β-TCVAE which uses a total correlation penalty, directly matching the user's proposed method of adding a total correlation penalty term to the ELBO loss for disentanglement.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_05",
+            "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+            "heading": "Abstract",
+            "text_snippet": "Disentangled representation learning aims to represent the underlying generative factors of a dataset in a latent representation independently of one another.",
+            "similarity": 1.0,
+            "reason": "The user's idea is about disentangled representation learning, which is the explicit domain of the paper.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+            "heading": "Abstract",
+            "text_snippet": "We decompose the evidence lower bound to show the existence of a term measuring the total correlation between latent variables. We use this to motivate our $β$-TCVAE (Total Correlation Variational Autoencoder), a refinement of the state-of-the-art $β$-VAE objective for learning disentangled representations, requiring no additional hyperparameters during training.",
+            "similarity": 1.0,
+            "reason": "The paper's core contribution is the β-TCVAE, which is a variational autoencoder trained with a total correlation penalty to disentangle the latent space, directly matching the user's proposed contribution.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea shows very low originality, with significant overlap in problem, domain, and contribution across all analyzed papers, particularly in disentanglement in variational autoencoders. To improve originality, consider a completely different problem formulation or a novel application domain.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.98,
+      "method_similarity": 0.75,
+      "domain_overlap": 1.0,
+      "contribution_similarity": 1.0
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0859,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0841,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0015,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 142.8753945827484,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "Isolating Sources of Disentanglement in Variational Autoencoders",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Disentangling Variational Autoencoders",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "A Revisit of Total Correlation in Disentangled Variational Auto-Encoder with Partial Disentanglement",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Quantifying the Effects of Enforcing Disentanglement on Variational Autoencoders",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "Disentanglement with Factor Quantized Variational Autoencoders",
+        "paper_similarity": 0.9624999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 110
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 110
+    },
+    "total_papers_fetched": 110,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.8181818181818181,
+    "llm_selection_rate": 0.75
+  }
+}

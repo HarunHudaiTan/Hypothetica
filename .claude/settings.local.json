@@ -11,8 +11,7 @@
       "WebSearch",
       "WebFetch(domain:info.arxiv.org)",
       "WebFetch(domain:groups.google.com)",
-      "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(python3:*)"
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

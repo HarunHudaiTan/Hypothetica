@@ -1,0 +1,904 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "cfbf8c7ed03f",
+    "status": "completed"
+  },
+  "originality_score": 89,
+  "global_similarity_score": 0.325,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_30",
+          "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+          "heading": "ABSTRACT",
+          "text_snippet": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes. However, clinical notes often contain more comprehensive SDOH information, detailing aspects such as status, severity, and temporality. This work has two primary objectives: i) develop a natural language processing (NLP) information extraction model to capture detailed SDOH information and ii) evaluate the information gain achieved by applying the SDOH extractor to clinical narratives and combining the extracted representations with existing structured data.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper aim to extract social determinants of health from unstructured clinical notes in EHR systems using NLP.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_30",
+          "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+          "heading": "ABSTRACT",
+          "text_snippet": "Materials and Methods: We developed a novel SDOH extractor using a deep learning entity and relation extraction architecture to characterize SDOH across various dimensions.",
+          "similarity": 0.75,
+          "reason": "The paper uses a deep learning entity and relation extraction architecture for SDOH extraction, which is a type of NLP model. While the user specifies 'domain-adapted BERT model', BERT is a deep learning model commonly used for entity and relation extraction in NLP, indicating a very similar methodological approach.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_30",
+          "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+          "heading": "ABSTRACT",
+          "text_snippet": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper operate within the domain of clinical NLP, specifically targeting the extraction of SDOH from unstructured clinical notes in EHR systems.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_30",
+          "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+          "heading": "ABSTRACT",
+          "text_snippet": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes. However, clinical notes often contain more comprehensive SDOH information, detailing aspects such as status, severity, and temporality. This work has two primary objectives: i) develop a natural language processing (NLP) information extraction model to capture detailed SDOH information and ii) evaluate the information gain achieved by applying the SDOH extractor to clinical narratives and combining the extracted representations with existing structured data.",
+          "similarity": 0.75,
+          "reason": "The paper's first objective is to develop an NLP information extraction model for detailed SDOH, which directly overlaps with the user's proposed contribution of a clinical NLP pipeline using a BERT model to extract SDOH.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea demonstrates strong originality, particularly in its methodological approach and overall contribution. While there is some overlap in the problem and domain with existing work, focusing on the unique aspects of your method will further differentiate your research.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.76,
+    "method_similarity": 0.4,
+    "domain_similarity": 0.8200000000000001,
+    "contribution_similarity": 0.72
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0432,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0411,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0019,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 216.97796988487244,
+  "papers": [
+    {
+      "paper_id": "paper_37",
+      "source": "arxiv",
+      "source_id": "2008.08370v2",
+      "arxiv_id": "2008.08370v2",
+      "title": "Coordinated Behavior on Social Media in 2019 UK General Election",
+      "abstract": "Coordinated online behaviors are an essential part of information and influence operations, as they allow a more effective disinformation's spread. Most studies on coordinated behaviors involved manual investigations, and the few existing computational approaches make bold assumptions or oversimplify the problem to make it tractable. Here, we propose a new network-based framework for uncovering and studying coordinated behaviors on social media. Our research extends existing systems and goes beyond limiting binary classifications of coordinated and uncoordinated behaviors. It allows to expose different coordination patterns and to estimate the degree of coordination that characterizes diverse communities. We apply our framework to a dataset collected during the 2019 UK General Election, detecting and characterizing coordinated communities that participated in the electoral debate. Our work conveys both theoretical and practical implications and provides more nuanced and fine-grained results for studying online information manipulation.",
+      "url": "http://arxiv.org/abs/2008.08370v2",
+      "pdf_url": "https://arxiv.org/pdf/2008.08370v2",
+      "authors": [
+        "Leonardo Nizzoli",
+        "Serena Tardelli",
+        "Marco Avvenuti",
+        "Stefano Cresci",
+        "Maurizio Tesconi"
+      ],
+      "categories": [
+        "cs.SI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on extracting social determinants of health from clinical notes using NLP. The paper, however, addresses the problem of uncovering and studying coordinated online behaviors on social media, specifically in the context of the 2019 UK General Election. These two problems are fundamentally different in their domain, data sources, and objectives. | Method: The user's research idea proposes a clinical NLP pipeline using a domain-adapted BERT model for extracting social determinants of health from clinical notes. The paper, however, proposes a network-based framework for uncovering and studying coordinated behaviors on social media, specifically in the context of the 2019 UK General Election. There is no methodological overlap in terms of NLP techniques, model architectures (BERT vs. network-based framework), or application domains (clinical notes vs. social media coordination detection). | Domain: The user's research idea is in the clinical NLP domain, focusing on extracting social determinants of health from EHR notes. The paper, however, is about detecting and analyzing coordinated online behaviors on social media during the 2019 UK General Election. These are entirely different application domains and data types (clinical notes vs. social media posts). | Contribution: The user's research idea proposes a clinical NLP pipeline using a domain-adapted BERT model to extract social determinants of health from EHR notes. The paper, however, focuses on a network-based framework for uncovering and studying coordinated behaviors on social media during the 2019 UK General Election. The contributions address entirely different problems and domains (clinical NLP vs. social media coordination detection).",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_30",
+      "source": "arxiv",
+      "source_id": "2212.07538v2",
+      "arxiv_id": "2212.07538v2",
+      "title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+      "abstract": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes. However, clinical notes often contain more comprehensive SDOH information, detailing aspects such as status, severity, and temporality. This work has two primary objectives: i) develop a natural language processing (NLP) information extraction model to capture detailed SDOH information and ii) evaluate the information gain achieved by applying the SDOH extractor to clinical narratives and combining the extracted representations with existing structured data.\n  Materials and Methods: We developed a novel SDOH extractor using a deep learning entity and relation extraction architecture to characterize SDOH across various dimensions. In an EHR case study, we applied the SDOH extractor to a large clinical data set with 225,089 patients and 430,406 notes with social history sections and compared the extracted SDOH information with existing structured data.\n  Results: The SDOH extractor achieved 0.86 F1 on a withheld test set. In the EHR case study, we found extracted SDOH information complements existing structured data with 32% of homeless patients, 19% of current tobacco users, and 10% of drug users only having these health risk factors documented in the clinical narrative.\n  Conclusions: Utilizing EHR data to identify SDOH health risk factors and social needs may improve patient care and outcomes. Semantic representations of text-encoded SDOH information can augment existing structured data, and this more comprehensive SDOH representation can assist health systems in identifying and addressing these social needs.",
+      "url": "http://arxiv.org/abs/2212.07538v2",
+      "pdf_url": "https://arxiv.org/pdf/2212.07538v2",
+      "authors": [
+        "Kevin Lybarger",
+        "Nicholas J Dobbins",
+        "Ritche Long",
+        "Angad Singh",
+        "Patrick Wedgeworth",
+        "Ozlem Ozuner",
+        "Meliha Yetisgen"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8500000000000001,
+      "reason": "Problem: The user's research idea is a 'clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.' The paper's objective is to 'develop a natural language processing (NLP) information extraction model to capture detailed SDOH information' from 'unstructured clinical notes in the electronic health record (EHR).' Both explicitly aim to extract SDOH from clinical notes using NLP, with the paper specifically mentioning 'housing instability' (living status (homeless)) as one of the SDOH extracted, directly aligning with the user's idea. | Method: Both the user's idea and the paper propose a clinical NLP pipeline for extracting social determinants of health from unstructured clinical notes in EHR systems. The user specifies a 'domain-adapted BERT model,' while the paper uses a 'deep learning entity and relation extraction architecture' and mentions 'mSpERT' (a BERT-based model for clinical text). While both use deep learning for information extraction, the paper's method is more broadly described as an entity and relation extraction architecture, which is a specific type of NLP task that BERT can be adapted for, but not necessarily identical in its full pipeline or specific model adaptation strategy. | Domain: The paper directly addresses the user's research idea of using NLP to extract social determinants of health (SDOH) from unstructured clinical notes in EHR systems. Specifically, the paper's objective is to \"develop a natural language processing (NLP) information extraction model to capture detailed SDOH information\" and it focuses on SDOH like \"housing instability\" (referred to as 'Living Status (homeless)' in Table 5) and 'food insecurity' (though not explicitly listed, the general SDOH focus aligns). The paper also mentions using a \"deep learning entity and relation extraction architecture\" which is a type of model that could include domain-adapted BERT. | Contribution: The paper's primary objective is to \"develop a natural language processing (NLP) information extraction model to capture detailed SDOH information\" and specifically mentions extracting 'housing instability' (referred to as 'Living Status (homeless)' in Table 5) from unstructured clinical notes. This directly aligns with the user's research idea of a clinical NLP pipeline using a domain-adapted BERT model to extract social determinants of health like housing instability and food insecurity from clinical notes in EHR systems. The paper also discusses 'information gain achieved by applying the SDOH extractor to clinical narratives and combining the extracted representations with existing structured data,' which is a key aspect of the user's proposed pipeline.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_25",
+      "source": "arxiv",
+      "source_id": "2501.12571v2",
+      "arxiv_id": "2501.12571v2",
+      "title": "Exploring Unknown Social Networks for Discovering Hidden Nodes",
+      "abstract": "In this paper, we address the challenge of discovering hidden nodes in unknown social networks, formulating three types of hidden-node discovery problems, namely, Sybil-node discovery, peripheral-node discovery, and influencer discovery. We tackle these problems by employing a graph exploration framework grounded in machine learning. Leveraging the structure of the subgraph gradually obtained from graph exploration, we construct prediction models to identify target hidden nodes in unknown social graphs. Through empirical investigations of real social graphs, we investigate the efficiency of graph exploration strategies in uncovering hidden nodes. Our results show that our graph exploration strategies discover hidden nodes with an efficiency comparable to that when the graph structure is known. Specifically, the query cost of discovering 10% of the hidden nodes is at most only 1.2 times that when the topology is known, and the query-cost multiplier for discovering 90% of the hidden nodes is at most only 1.4. Furthermore, our results suggest that using node embeddings, which are low-dimensional vector representations of nodes, for hidden-node discovery is a double-edged sword: it is effective in certain scenarios but sometimes degrades the efficiency of node discovery. Guided by this observation, we examine the effectiveness of using a bandit algorithm to combine the prediction models that use node embeddings with those that do not, and our analysis shows that the bandit-based graph exploration strategy achieves efficient node discovery across a wide array of settings.",
+      "url": "http://arxiv.org/abs/2501.12571v2",
+      "pdf_url": "https://arxiv.org/pdf/2501.12571v2",
+      "authors": [
+        "Sho Tsugawa",
+        "Hiroyuki Ohsaki"
+      ],
+      "categories": [
+        "cs.SI",
+        "cs.CY"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0625,
+      "reason": "Problem: The user's research idea focuses on extracting social determinants of health from clinical notes using NLP and BERT models. The paper, however, addresses the problem of discovering hidden nodes (Sybil, peripheral, influencer) in unknown social networks using graph exploration and machine learning. While both involve 'discovery' and machine learning, the specific domain (clinical notes vs. social networks) and the nature of the 'hidden' information (SDOH vs. network roles/maliciousness) are distinct, leading to different research questions and methodologies. | Method: The user's research idea proposes a clinical NLP pipeline using a domain-adapted BERT model for information extraction from unstructured clinical notes. The paper, however, focuses on graph exploration and machine learning models (including node embeddings and bandit algorithms) for discovering hidden nodes in social networks with unknown topologies. There is no methodological overlap in terms of NLP, BERT, clinical notes, or information extraction. | Domain: The user's idea is in clinical NLP for extracting social determinants of health from EHR notes, which is a healthcare application. The paper, while discussing 'hidden populations' in domains like epidemiology and social welfare, primarily focuses on discovering nodes in 'unknown social networks' (e.g., Sybil nodes, influencers, peripheral nodes) using graph exploration and machine learning, which is a different application context within social network analysis, not clinical NLP or EHR data. | Contribution: The user's research idea focuses on a clinical NLP pipeline for extracting social determinants of health from unstructured clinical notes using a domain-adapted BERT model. In contrast, the paper addresses the discovery of hidden nodes (Sybil, peripheral, influencer) in unknown social networks using graph exploration and machine learning, which is a different domain and methodological approach. The paper does not mention clinical NLP, EHR systems, or social determinants of health.",
+      "criteria_scores": {
+        "problem_similarity": 0.25,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.25,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_16",
+      "source": "arxiv",
+      "source_id": "2507.07421v1",
+      "arxiv_id": "2507.07421v1",
+      "title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+      "abstract": "Eviction is a significant yet understudied social determinants of health (SDoH), linked to housing instability, unemployment, and mental health. While eviction appears in unstructured electronic health records (EHRs), it is rarely coded in structured fields, limiting downstream applications. We introduce SynthEHR-Eviction, a scalable pipeline combining LLMs, human-in-the-loop annotation, and automated prompt optimization (APO) to extract eviction statuses from clinical notes. Using this pipeline, we created the largest public eviction-related SDoH dataset to date, comprising 14 fine-grained categories. Fine-tuned LLMs (e.g., Qwen2.5, LLaMA3) trained on SynthEHR-Eviction achieved Macro-F1 scores of 88.8% (eviction) and 90.3% (other SDoH) on human validated data, outperforming GPT-4o-APO (87.8%, 87.3%), GPT-4o-mini-APO (69.1%, 78.1%), and BioBERT (60.7%, 68.3%), while enabling cost-effective deployment across various model sizes. The pipeline reduces annotation effort by over 80%, accelerates dataset creation, enables scalable eviction detection, and generalizes to other information extraction tasks.",
+      "url": "http://arxiv.org/abs/2507.07421v1",
+      "pdf_url": "https://arxiv.org/pdf/2507.07421v1",
+      "authors": [
+        "Zonghai Yao",
+        "Youxia Zhao",
+        "Avijit Mitra",
+        "David A. Levy",
+        "Emily Druhl",
+        "Jack Tsai",
+        "Hong Yu"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5874999999999999,
+      "reason": "Problem: The paper addresses a very similar problem statement: extracting social determinants of health (SDoH) from unstructured clinical notes in EHR systems. Both the user's idea and the paper focus on using NLP to extract SDoH from clinical notes, specifically mentioning 'housing instability' and 'food insecurity' in the user's idea, and the paper focusing on 'eviction' (a form of housing instability) and stating its pipeline 'generalizes to other SDoH domains such as food insecurity'. The primary difference is the paper's specific focus on eviction and its use of LLMs for synthetic data generation, which is a method rather than a different problem. | Method: The user's idea proposes a clinical NLP pipeline using a domain-adapted BERT model. The paper describes a clinical NLP pipeline, but it primarily uses LLMs (Qwen2.5, LLaMA3) and LLM-augmented synthetic data, outperforming BioBERT (a BERT-like model). While both involve clinical NLP pipelines and extract SDoH from EHR notes, the core model architecture and data generation strategy differ significantly, with the paper focusing on LLMs and synthetic data generation rather than a domain-adapted BERT as the primary extraction model. | Domain: The paper directly addresses the user's research idea by focusing on a clinical NLP pipeline to extract social determinants of health (SDoH) from unstructured clinical notes in EHR systems. Specifically, it extracts 'eviction statuses' which are a form of housing instability, and mentions generalizability to 'food insecurity,' directly aligning with the user's specified SDoH categories and data source. | Contribution: The user's idea proposes a clinical NLP pipeline using a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity). The paper introduces 'SynthEHR-Eviction,' a pipeline that uses LLMs (outperforming BioBERT, a BERT-based model) to extract eviction statuses and other SDoH (including housing instability, which is a form of housing instability) from clinical notes. While both aim to extract SDoH from clinical notes using NLP, the paper's primary focus is on eviction and LLMs, whereas the user's idea specifies BERT and includes food insecurity, which is mentioned as a generalizable SDoH but not a primary focus of the paper's specific contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_15",
+      "source": "arxiv",
+      "source_id": "2210.15417v1",
+      "arxiv_id": "2210.15417v1",
+      "title": "Dynamic Survival Transformers for Causal Inference with Electronic Health Records",
+      "abstract": "In medicine, researchers often seek to infer the effects of a given treatment on patients' outcomes. However, the standard methods for causal survival analysis make simplistic assumptions about the data-generating process and cannot capture complex interactions among patient covariates. We introduce the Dynamic Survival Transformer (DynST), a deep survival model that trains on electronic health records (EHRs). Unlike previous transformers used in survival analysis, DynST can make use of time-varying information to predict evolving survival probabilities. We derive a semi-synthetic EHR dataset from MIMIC-III to show that DynST can accurately estimate the causal effect of a treatment intervention on restricted mean survival time (RMST). We demonstrate that DynST achieves better predictive and causal estimation than two alternative models.",
+      "url": "http://arxiv.org/abs/2210.15417v1",
+      "pdf_url": "https://arxiv.org/pdf/2210.15417v1",
+      "authors": [
+        "Prayag Chatha",
+        "Yixin Wang",
+        "Zhenke Wu",
+        "Jeffrey Regier"
+      ],
+      "categories": [
+        "cs.LG",
+        "stat.ME"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on extracting social determinants of health from unstructured clinical notes using NLP. In contrast, the paper addresses the problem of causal inference in survival analysis using EHR data to estimate treatment effects on time-to-event outcomes, which is a fundamentally different research question. | Method: Both the user's idea and the paper utilize deep learning models, specifically Transformer architectures, for processing EHR data. However, their applications and specific model designs differ significantly: the user's idea focuses on an NLP pipeline with a domain-adapted BERT for information extraction (SDOH), while the paper proposes the Dynamic Survival Transformer (DynST) for causal inference and survival analysis. | Domain: Both the user's idea and the paper operate within the healthcare domain, specifically utilizing Electronic Health Records (EHRs). However, their application targets differ: the user's idea focuses on extracting social determinants of health using NLP, while the paper focuses on causal inference for treatment effects and survival analysis using transformer models on EHR data. | Contribution: The user's research idea focuses on extracting social determinants of health from unstructured clinical notes using a domain-adapted BERT model. In contrast, the paper introduces DynST, a deep survival model based on Transformers, to estimate causal treatment effects on survival outcomes from EHR data, including time-varying information. These are distinct contributions addressing different research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "Numerous Academic Research Projects (e.g., NIH-funded, university labs)",
+        "similarity": 0.95,
+        "description": "Many research groups have published extensively on using NLP, including BERT and its variants (BioBERT, ClinicalBERT), to extract SDOH from clinical notes. This is a very active area of research."
+      },
+      {
+        "name": "Commercial NLP Vendors (e.g., Linguamatics, Health Fidelity, IBM Watson Health - prior to sale)",
+        "similarity": 0.8,
+        "description": "Commercial solutions exist that offer clinical NLP capabilities, some of which are tailored or adaptable to extract specific information like SDOH from EHRs, though they might not always explicitly market 'SDOH extraction' as a standalone product but rather as a capability."
+      },
+      {
+        "name": "ClinicalBERT / BioBERT and other domain-adapted BERT models",
+        "similarity": 0.99,
+        "description": "The concept of domain-adapting BERT for clinical text is a well-established technique, with models like ClinicalBERT and BioBERT being publicly available and widely used as baselines for such tasks."
+      },
+      {
+        "name": "ONC's 'SDOH Data Exchange' Initiatives",
+        "similarity": 0.7,
+        "description": "The Office of the National Coordinator for Health Information Technology (ONC) has initiatives and grants focused on improving SDOH data capture and exchange, often involving NLP as a key technology."
+      }
+    ],
+    "assessment": "The idea of using a domain-adapted BERT model within a clinical NLP pipeline to extract social determinants of health (like housing instability, food insecurity) from unstructured clinical notes in EHR systems is a very active and well-researched area. Numerous academic papers, grants, and even some commercial offerings already address this specific problem. The methodology described (domain-adapted BERT, clinical NLP pipeline, SDOH extraction from EHRs) is a standard approach within this field.",
+    "novelty_aspects": [
+      "Specific novel architecture or fine-tuning strategy for BERT beyond existing methods",
+      "Integration into a novel clinical workflow or decision support system",
+      "Extraction of a highly specific or nuanced SDOH aspect not previously targeted",
+      "Achieving significantly higher accuracy or efficiency than state-of-the-art methods"
+    ],
+    "recommendation": "While the core idea is not novel, there is still room for innovation. To make this research original, you would need to identify a specific gap. This could involve developing a significantly more accurate or robust model for a particular SDOH, creating a novel method for handling data sparsity, integrating the extracted information into a unique clinical decision support system, or focusing on a specific under-researched population or data type. Clearly articulate what makes your approach superior or uniquely different from existing solutions and research."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Numerous Academic Research Projects (e.g., NIH-funded, university labs)** (similarity: 95%).\n\n*The idea of using a domain-adapted BERT model within a clinical NLP pipeline to extract social determinants of health (like housing instability, food insecurity) from unstructured clinical notes in EHR systems is a very active and well-researched area. Numerous academic papers, grants, and even some commercial offerings already address this specific problem. The methodology described (domain-adapted BERT, clinical NLP pipeline, SDOH extraction from EHRs) is a standard approach within this field.*\n\n**Recommendation:** While the core idea is not novel, there is still room for innovation. To make this research original, you would need to identify a specific gap. This could involve developing a significantly more accurate or robust model for a particular SDOH, creating a novel method for handling data sparsity, integrating the extracted information into a unique clinical decision support system, or focusing on a specific under-researched population or data type. Clearly articulate what makes your approach superior or uniquely different from existing solutions and research.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 94,
+    "unique_after_dedup": 94,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 671,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0432,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0411,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.",
+  "enriched_idea": "RESEARCH IDEA:\nA clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_37",
+      "paper_title": "Coordinated Behavior on Social Media in 2019 UK General Election",
+      "arxiv_id": "2008.08370v2",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on extracting social determinants of health from clinical notes using NLP. The paper, however, addresses the problem of uncovering and studying coordinated online behaviors on social media, specifically in the context of the 2019 UK General Election. These two problems are fundamentally different in their domain, data sources, and objectives. | Method: The user's research idea proposes a clinical NLP pipeline using a domain-adapted BERT model for extracting social determinants of health from clinical notes. The paper, however, proposes a network-based framework for uncovering and studying coordinated behaviors on social media, specifically in the context of the 2019 UK General Election. There is no methodological overlap in terms of NLP techniques, model architectures (BERT vs. network-based framework), or application domains (clinical notes vs. social media coordination detection). | Domain: The user's research idea is in the clinical NLP domain, focusing on extracting social determinants of health from EHR notes. The paper, however, is about detecting and analyzing coordinated online behaviors on social media during the 2019 UK General Election. These are entirely different application domains and data types (clinical notes vs. social media posts). | Contribution: The user's research idea proposes a clinical NLP pipeline using a domain-adapted BERT model to extract social determinants of health from EHR notes. The paper, however, focuses on a network-based framework for uncovering and studying coordinated behaviors on social media during the 2019 UK General Election. The contributions address entirely different problems and domains (clinical NLP vs. social media coordination detection).",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_37",
+              "paper_title": "Coordinated Behavior on Social Media in 2019 UK General Election",
+              "heading": "Introduction",
+              "text_snippet": "Meanwhile, groundbreaking advances in specific areas of computing are causing profound changes to the online information landscape. Advances in artificial intelligence brought to the rise of deepfakes - synthetic media where the source has been modified via deep learning techniques.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper mention 'deep learning techniques' or 'AI' as a broad category of methods. The user specifies 'BERT model', which is a type of deep learning model, while the paper mentions 'deepfakes' which are also based on deep learning.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 12967,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2008.08370v2"
+    },
+    {
+      "paper_id": "paper_30",
+      "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+      "arxiv_id": "2212.07538v2",
+      "paper_similarity_score": 0.8500000000000001,
+      "reason": "Problem: The user's research idea is a 'clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.' The paper's objective is to 'develop a natural language processing (NLP) information extraction model to capture detailed SDOH information' from 'unstructured clinical notes in the electronic health record (EHR).' Both explicitly aim to extract SDOH from clinical notes using NLP, with the paper specifically mentioning 'housing instability' (living status (homeless)) as one of the SDOH extracted, directly aligning with the user's idea. | Method: Both the user's idea and the paper propose a clinical NLP pipeline for extracting social determinants of health from unstructured clinical notes in EHR systems. The user specifies a 'domain-adapted BERT model,' while the paper uses a 'deep learning entity and relation extraction architecture' and mentions 'mSpERT' (a BERT-based model for clinical text). While both use deep learning for information extraction, the paper's method is more broadly described as an entity and relation extraction architecture, which is a specific type of NLP task that BERT can be adapted for, but not necessarily identical in its full pipeline or specific model adaptation strategy. | Domain: The paper directly addresses the user's research idea of using NLP to extract social determinants of health (SDOH) from unstructured clinical notes in EHR systems. Specifically, the paper's objective is to \"develop a natural language processing (NLP) information extraction model to capture detailed SDOH information\" and it focuses on SDOH like \"housing instability\" (referred to as 'Living Status (homeless)' in Table 5) and 'food insecurity' (though not explicitly listed, the general SDOH focus aligns). The paper also mentions using a \"deep learning entity and relation extraction architecture\" which is a type of model that could include domain-adapted BERT. | Contribution: The paper's primary objective is to \"develop a natural language processing (NLP) information extraction model to capture detailed SDOH information\" and specifically mentions extracting 'housing instability' (referred to as 'Living Status (homeless)' in Table 5) from unstructured clinical notes. This directly aligns with the user's research idea of a clinical NLP pipeline using a domain-adapted BERT model to extract social determinants of health like housing instability and food insecurity from clinical notes in EHR systems. The paper also discusses 'information gain achieved by applying the SDOH extractor to clinical narratives and combining the extracted representations with existing structured data,' which is a key aspect of the user's proposed pipeline.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.",
+          "sentence_index": 0,
+          "similarity_score": 0.8125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+              "heading": "ABSTRACT",
+              "text_snippet": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes. However, clinical notes often contain more comprehensive SDOH information, detailing aspects such as status, severity, and temporality. This work has two primary objectives: i) develop a natural language processing (NLP) information extraction model to capture detailed SDOH information and ii) evaluate the information gain achieved by applying the SDOH extractor to clinical narratives and combining the extracted representations with existing structured data.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper aim to extract social determinants of health from unstructured clinical notes in EHR systems using NLP.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Patient SDOH information is captured in the Electronic Health Record (EHR) through structured data and unstructured clinical narrative text. The clinical narrative contains a more nuanced and detailed representation of many SDOH than is available through structured data. This information can be automatically extracted using natural language processing (NLP) information extraction techniques, which map the unstructured text to a structured SDOH representation.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states the problem of extracting SDOH information from unstructured clinical narrative text in EHRs using NLP, which directly aligns with the user's research idea.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+              "heading": "ABSTRACT",
+              "text_snippet": "Materials and Methods: We developed a novel SDOH extractor using a deep learning entity and relation extraction architecture to characterize SDOH across various dimensions.",
+              "similarity": 0.75,
+              "reason": "The paper uses a deep learning entity and relation extraction architecture for SDOH extraction, which is a type of NLP model. While the user specifies 'domain-adapted BERT model', BERT is a deep learning model commonly used for entity and relation extraction in NLP, indicating a very similar methodological approach.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+              "heading": "DISCUSSION",
+              "text_snippet": "Unlike previous studies which extracted SDOH using text classification or NER, our detailed SDOH representation may better aid clinicians in identifying SDOH documented in notes by determining chronicity, duration, frequency, and type.",
+              "similarity": 0.75,
+              "reason": "The paper discusses its SDOH extraction approach, which is a deep learning NLP model. The user's mention of a 'domain-adapted BERT model' falls within the scope of advanced NLP models for information extraction, making the methods very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+              "heading": "ABSTRACT",
+              "text_snippet": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper operate within the domain of clinical NLP, specifically targeting the extraction of SDOH from unstructured clinical notes in EHR systems.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Patient SDOH information is captured in the Electronic Health Record (EHR) through structured data and unstructured clinical narrative text.",
+              "similarity": 1.0,
+              "reason": "The paper's domain is precisely the extraction of SDOH from clinical notes in EHRs, matching the user's specified domain.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+              "heading": "ABSTRACT",
+              "text_snippet": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes. However, clinical notes often contain more comprehensive SDOH information, detailing aspects such as status, severity, and temporality. This work has two primary objectives: i) develop a natural language processing (NLP) information extraction model to capture detailed SDOH information and ii) evaluate the information gain achieved by applying the SDOH extractor to clinical narratives and combining the extracted representations with existing structured data.",
+              "similarity": 0.75,
+              "reason": "The paper's first objective is to develop an NLP information extraction model for detailed SDOH, which directly overlaps with the user's proposed contribution of a clinical NLP pipeline using a BERT model to extract SDOH.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+              "heading": "Contributions",
+              "text_snippet": "Our second contribution is a large scale EHR case study that demonstrates the utility of NLP for SDOH extraction. We measured the prevalence of substance use, living situation, and employment information in the clinical narrative and structured SDOH data.",
+              "similarity": 0.75,
+              "reason": "The paper's contribution includes demonstrating the utility of NLP for SDOH extraction, which is the core contribution implied by the user's idea of building such a pipeline.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 1.0,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 14873,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2212.07538v2"
+    },
+    {
+      "paper_id": "paper_25",
+      "paper_title": "Exploring Unknown Social Networks for Discovering Hidden Nodes",
+      "arxiv_id": "2501.12571v2",
+      "paper_similarity_score": 0.0625,
+      "reason": "Problem: The user's research idea focuses on extracting social determinants of health from clinical notes using NLP and BERT models. The paper, however, addresses the problem of discovering hidden nodes (Sybil, peripheral, influencer) in unknown social networks using graph exploration and machine learning. While both involve 'discovery' and machine learning, the specific domain (clinical notes vs. social networks) and the nature of the 'hidden' information (SDOH vs. network roles/maliciousness) are distinct, leading to different research questions and methodologies. | Method: The user's research idea proposes a clinical NLP pipeline using a domain-adapted BERT model for information extraction from unstructured clinical notes. The paper, however, focuses on graph exploration and machine learning models (including node embeddings and bandit algorithms) for discovering hidden nodes in social networks with unknown topologies. There is no methodological overlap in terms of NLP, BERT, clinical notes, or information extraction. | Domain: The user's idea is in clinical NLP for extracting social determinants of health from EHR notes, which is a healthcare application. The paper, while discussing 'hidden populations' in domains like epidemiology and social welfare, primarily focuses on discovering nodes in 'unknown social networks' (e.g., Sybil nodes, influencers, peripheral nodes) using graph exploration and machine learning, which is a different application context within social network analysis, not clinical NLP or EHR data. | Contribution: The user's research idea focuses on a clinical NLP pipeline for extracting social determinants of health from unstructured clinical notes using a domain-adapted BERT model. In contrast, the paper addresses the discovery of hidden nodes (Sybil, peripheral, influencer) in unknown social networks using graph exploration and machine learning, which is a different domain and methodological approach. The paper does not mention clinical NLP, EHR systems, or social determinants of health.",
+      "criteria_scores": {
+        "problem_similarity": 0.25,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.25,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.",
+          "sentence_index": 0,
+          "similarity_score": 0.175,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_25",
+              "paper_title": "Exploring Unknown Social Networks for Discovering Hidden Nodes",
+              "heading": "Introduction",
+              "text_snippet": "Typically, the problem of identifying individuals with specific characteristics can be formulated as that of estimating node labels in a given social graph based on a supervised or semi-supervised machine learning (ML) framework.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper propose using a machine learning framework for identification/extraction. The user specifies BERT, while the paper mentions general ML frameworks and graph neural networks.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_25",
+              "paper_title": "Exploring Unknown Social Networks for Discovering Hidden Nodes",
+              "heading": "Introduction",
+              "text_snippet": "To estimate the node labels, techniques such as label propagation (Zhu, Ghahramani, and Lafferty 2003) and graph neural networks (Kipf and Welling 2017) have been used, assuming known graph structure and labels for some nodes.",
+              "similarity": 0.5,
+              "reason": "The paper discusses using machine learning techniques like graph neural networks for node label estimation, which broadly aligns with the user's idea of using a BERT model (a type of neural network) for information extraction, although the specific models and data structures (graph vs. clinical notes) differ.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_25",
+              "paper_title": "Exploring Unknown Social Networks for Discovering Hidden Nodes",
+              "heading": "Introduction",
+              "text_snippet": "For instance, in domains such as epidemiology and social welfare, investigations have been undertaken into HIVinfected individuals (Pando et al. 2012; Gile 2011), populations at high risk of sexually transmitted infections (Pando et al. 2012), injecting drug users (Heckathorn et al. 2002), and populations afflicted by poverty (Heckathorn 1997).",
+              "similarity": 0.25,
+              "reason": "The paper mentions 'social welfare' and 'populations afflicted by poverty' as domains where identifying hidden populations is relevant. While the user's idea focuses on 'social determinants of health' from clinical notes, there's a conceptual overlap in addressing social factors impacting health, even if the specific data source and method are different.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.25,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 17790,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2501.12571v2"
+    },
+    {
+      "paper_id": "paper_16",
+      "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+      "arxiv_id": "2507.07421v1",
+      "paper_similarity_score": 0.5874999999999999,
+      "reason": "Problem: The paper addresses a very similar problem statement: extracting social determinants of health (SDoH) from unstructured clinical notes in EHR systems. Both the user's idea and the paper focus on using NLP to extract SDoH from clinical notes, specifically mentioning 'housing instability' and 'food insecurity' in the user's idea, and the paper focusing on 'eviction' (a form of housing instability) and stating its pipeline 'generalizes to other SDoH domains such as food insecurity'. The primary difference is the paper's specific focus on eviction and its use of LLMs for synthetic data generation, which is a method rather than a different problem. | Method: The user's idea proposes a clinical NLP pipeline using a domain-adapted BERT model. The paper describes a clinical NLP pipeline, but it primarily uses LLMs (Qwen2.5, LLaMA3) and LLM-augmented synthetic data, outperforming BioBERT (a BERT-like model). While both involve clinical NLP pipelines and extract SDoH from EHR notes, the core model architecture and data generation strategy differ significantly, with the paper focusing on LLMs and synthetic data generation rather than a domain-adapted BERT as the primary extraction model. | Domain: The paper directly addresses the user's research idea by focusing on a clinical NLP pipeline to extract social determinants of health (SDoH) from unstructured clinical notes in EHR systems. Specifically, it extracts 'eviction statuses' which are a form of housing instability, and mentions generalizability to 'food insecurity,' directly aligning with the user's specified SDoH categories and data source. | Contribution: The user's idea proposes a clinical NLP pipeline using a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity). The paper introduces 'SynthEHR-Eviction,' a pipeline that uses LLMs (outperforming BioBERT, a BERT-based model) to extract eviction statuses and other SDoH (including housing instability, which is a form of housing instability) from clinical notes. While both aim to extract SDoH from clinical notes using NLP, the paper's primary focus is on eviction and LLMs, whereas the user's idea specifies BERT and includes food insecurity, which is mentioned as a generalizable SDoH but not a primary focus of the paper's specific contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.",
+          "sentence_index": 0,
+          "similarity_score": 0.5874999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+              "heading": "ABSTRACT",
+              "text_snippet": "While eviction appears in unstructured electronic health records (EHRs), it is rarely coded in structured fields, limiting downstream applications. We introduce SynthEHR-Eviction, a scalable pipeline combining LLMs, human-in-the-loop annotation, and automated prompt optimization (APO) to extract eviction statuses from clinical notes.",
+              "similarity": 0.75,
+              "reason": "The paper identifies the problem of extracting social determinants of health (SDoH), specifically eviction, from unstructured clinical notes in EHRs, which is very similar to the user's stated problem of extracting SDoH from unstructured clinical notes in EHR systems.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+              "heading": "Introduction",
+              "text_snippet": "Yet, in current electronic health records (EHRs), SDoH information is often embedded within unstructured free-text clinical notes, lacking systematic, structured documentation 11 . This results in 'information silos', where crucial social risk factors are underutilized in real-world healthcare delivery, limiting clinicians' ability to assess patients' broader health risks and restricting healthcare institutions and policymakers from designing proactive, targeted intervention strategies 12 .",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states that SDoH information is embedded in unstructured clinical notes in EHRs, which aligns with the user's problem statement.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+              "heading": "ABSTRACT",
+              "text_snippet": "Fine-tuned LLMs (e.g., Qwen2.5, LLaMA3) trained on SynthEHR-Eviction achieved Macro-F1 scores of 88.8% (eviction) and 90.3% (other SDoH) on human validated data, outperforming GPT-4o-APO (87.8%, 87.3%), GPT-4o-mini-APO (69.1%, 78.1%), and BioBERT (60.7%, 68.3%), while enabling cost-effective deployment across various model sizes.",
+              "similarity": 0.5,
+              "reason": "The user proposes a 'domain-adapted BERT model' while the paper uses 'fine-tuned LLMs' and mentions 'BioBERT' as a baseline. Both approaches involve adapting pre-trained language models for the clinical domain, but the paper focuses on LLMs beyond just BERT.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+              "heading": "Discussion",
+              "text_snippet": "On the challenging PMC multi-class classification task, a general-domain LLaMA-3.1-8B model achieved a Micro-F1 of 0.861, while the BERT-base-cased model fell to just 0.444-a difference of over 40 percentage points. This substantial gap underscores LLMs' superior ability to handle diverse and noisy clinical narratives, likely due to their larger parameter counts, broader pretraining corpora, and emergent reasoning capabilities 11 .",
+              "similarity": 0.5,
+              "reason": "The paper explicitly discusses and compares BERT-based models with LLMs for SDoH extraction, indicating a shared methodological space, although the paper's primary method is LLM-based rather than BERT.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+              "heading": "ABSTRACT",
+              "text_snippet": "A clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.",
+              "similarity": 1.0,
+              "reason": "The user's idea and the paper both focus on clinical NLP, extracting social determinants of health (SDoH), and specifically mention 'housing instability' and 'food insecurity' as examples, from 'unstructured clinical notes in EHR systems'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+              "heading": "Introduction",
+              "text_snippet": "Among various categories of SDoH, eviction is a highly impactful but long-overlooked factor affecting patient health. Eviction can trigger a chain reaction of adverse outcomes, including housing instability, unemployment, homelessness, mental health issues, and long-term poverty 13,14 .",
+              "similarity": 1.0,
+              "reason": "The paper discusses SDoH, including housing instability, which directly overlaps with the user's specified SDoH categories.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+              "heading": "Introduction",
+              "text_snippet": "Moreover, its modular structure generalizes to other SDoH domains such as food insecurity, utility shutoff, or intimate partner violence 30 .",
+              "similarity": 1.0,
+              "reason": "The paper explicitly mentions 'food insecurity' as another SDoH domain to which its methods can generalize, directly matching one of the user's examples.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+              "heading": "ABSTRACT",
+              "text_snippet": "We introduce SynthEHR-Eviction, a scalable pipeline combining LLMs, human-in-the-loop annotation, and automated prompt optimization (APO) to extract eviction statuses from clinical notes.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is a pipeline to extract SDoH from clinical notes, which is a core component of the user's proposed research idea.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_16",
+              "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+              "heading": "Introduction",
+              "text_snippet": "In response to these challenges and transformative demands, we develop a novel, scalable information extraction (IE) pipeline tailored for eviction-related SDoH annotation. IE has long been a central goal in clinical NLP 21 , with traditional approaches relying on rule-based extraction 22 or small model fine-tuning methods 23 that are time-consuming, difficult to scale, and often institution-specific.",
+              "similarity": 0.5,
+              "reason": "The paper contributes a pipeline for SDoH information extraction, which is the overall goal of the user's research idea. While the user specifies a BERT model, the general contribution of an NLP pipeline for SDoH extraction is shared.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 33177,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2507.07421v1"
+    },
+    {
+      "paper_id": "paper_15",
+      "paper_title": "Dynamic Survival Transformers for Causal Inference with Electronic Health Records",
+      "arxiv_id": "2210.15417v1",
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on extracting social determinants of health from unstructured clinical notes using NLP. In contrast, the paper addresses the problem of causal inference in survival analysis using EHR data to estimate treatment effects on time-to-event outcomes, which is a fundamentally different research question. | Method: Both the user's idea and the paper utilize deep learning models, specifically Transformer architectures, for processing EHR data. However, their applications and specific model designs differ significantly: the user's idea focuses on an NLP pipeline with a domain-adapted BERT for information extraction (SDOH), while the paper proposes the Dynamic Survival Transformer (DynST) for causal inference and survival analysis. | Domain: Both the user's idea and the paper operate within the healthcare domain, specifically utilizing Electronic Health Records (EHRs). However, their application targets differ: the user's idea focuses on extracting social determinants of health using NLP, while the paper focuses on causal inference for treatment effects and survival analysis using transformer models on EHR data. | Contribution: The user's research idea focuses on extracting social determinants of health from unstructured clinical notes using a domain-adapted BERT model. In contrast, the paper introduces DynST, a deep survival model based on Transformers, to estimate causal treatment effects on survival outcomes from EHR data, including time-varying information. These are distinct contributions addressing different research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.",
+          "sentence_index": 0,
+          "similarity_score": 0.25,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Dynamic Survival Transformers for Causal Inference with Electronic Health Records",
+              "heading": "Introduction",
+              "text_snippet": "DynST is built on the Transformer [3], a recent neural network architecture that has achieved state-of-the-art results in sequence-to-sequence learning, particularly in NLP [4].",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes using a 'domain-adapted BERT model', which is a type of Transformer model widely used in NLP. The paper also uses a Transformer-based model (DynST) and explicitly mentions its NLP capabilities, indicating a shared foundational method family.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Dynamic Survival Transformers for Causal Inference with Electronic Health Records",
+              "heading": "Introduction",
+              "text_snippet": "Several works have applied transformers to prediction problems in EHR data [8, 9, 10, 11], motivated by similarities between EHRs and text, but DynST is the first transformer used to estimate the average effect of a treatment intervention on survival outcomes.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper leverage Transformer models (BERT is a Transformer) for processing EHR data. The paper notes that Transformers are applied to EHR data due to similarities with text, which aligns with the user's NLP approach to unstructured clinical notes.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Dynamic Survival Transformers for Causal Inference with Electronic Health Records",
+              "heading": "ABSTRACT",
+              "text_snippet": "We introduce the Dynamic Survival Transformer (DynST), a deep survival model that trains on electronic health records (EHRs).",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper explicitly state their application domain as 'electronic health records (EHRs)'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Dynamic Survival Transformers for Causal Inference with Electronic Health Records",
+              "heading": "Introduction",
+              "text_snippet": "Meanwhile, the rise of electronic health records (EHRs) has led to an abundance of multi-concept longitudinal data: a setting for observational causal inference, if randomized controlled trials prove impractical or unethical.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper focus on leveraging 'electronic health records (EHRs)' as their primary data source.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Dynamic Survival Transformers for Causal Inference with Electronic Health Records",
+              "heading": "Introduction",
+              "text_snippet": "With this observational setting in mind, we propose the Dynamic Survival Transformer (DynST), a deep-learning survival model that estimates individual survival probabilities over time from EHR data.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are centered on processing and extracting information from 'EHR data'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Dynamic Survival Transformers for Causal Inference with Electronic Health Records",
+              "heading": "Semi-synthetic dataset",
+              "text_snippet": "Wederived a semi-synthetic longitudinal survival dataset from MIMIC-III, a freely accessible database of de-identified EHRs from intensive care stays [12, 16].",
+              "similarity": 1.0,
+              "reason": "The paper explicitly uses 'de-identified EHRs' from MIMIC-III, which directly aligns with the user's focus on 'unstructured clinical notes in EHR systems'.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 9616,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2210.15417v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 89,
+    "global_similarity_score": 0.325,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A clinical NLP pipeline that uses a domain-adapted BERT model to extract social determinants of health (housing instability, food insecurity) from unstructured clinical notes in EHR systems.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_30",
+            "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+            "heading": "ABSTRACT",
+            "text_snippet": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes. However, clinical notes often contain more comprehensive SDOH information, detailing aspects such as status, severity, and temporality. This work has two primary objectives: i) develop a natural language processing (NLP) information extraction model to capture detailed SDOH information and ii) evaluate the information gain achieved by applying the SDOH extractor to clinical narratives and combining the extracted representations with existing structured data.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper aim to extract social determinants of health from unstructured clinical notes in EHR systems using NLP.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_30",
+            "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+            "heading": "ABSTRACT",
+            "text_snippet": "Materials and Methods: We developed a novel SDOH extractor using a deep learning entity and relation extraction architecture to characterize SDOH across various dimensions.",
+            "similarity": 0.75,
+            "reason": "The paper uses a deep learning entity and relation extraction architecture for SDOH extraction, which is a type of NLP model. While the user specifies 'domain-adapted BERT model', BERT is a deep learning model commonly used for entity and relation extraction in NLP, indicating a very similar methodological approach.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_30",
+            "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+            "heading": "ABSTRACT",
+            "text_snippet": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper operate within the domain of clinical NLP, specifically targeting the extraction of SDOH from unstructured clinical notes in EHR systems.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_30",
+            "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+            "heading": "ABSTRACT",
+            "text_snippet": "Objective: Social determinants of health (SDOH) impact health outcomes and are documented in the electronic health record (EHR) through structured data and unstructured clinical notes. However, clinical notes often contain more comprehensive SDOH information, detailing aspects such as status, severity, and temporality. This work has two primary objectives: i) develop a natural language processing (NLP) information extraction model to capture detailed SDOH information and ii) evaluate the information gain achieved by applying the SDOH extractor to clinical narratives and combining the extracted representations with existing structured data.",
+            "similarity": 0.75,
+            "reason": "The paper's first objective is to develop an NLP information extraction model for detailed SDOH, which directly overlaps with the user's proposed contribution of a clinical NLP pipeline using a BERT model to extract SDOH.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea demonstrates strong originality, particularly in its methodological approach and overall contribution. While there is some overlap in the problem and domain with existing work, focusing on the unique aspects of your method will further differentiate your research.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.76,
+      "method_similarity": 0.4,
+      "domain_similarity": 0.8200000000000001,
+      "contribution_similarity": 0.72
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0432,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0411,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 216.97796988487244,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_37",
+        "paper_title": "Coordinated Behavior on Social Media in 2019 UK General Election",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_30",
+        "paper_title": "Leveraging Natural Language Processing to Augment Structured Social Determinants of Health Data in the Electronic Health Record",
+        "paper_similarity": 0.8500000000000001,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_25",
+        "paper_title": "Exploring Unknown Social Networks for Discovering Hidden Nodes",
+        "paper_similarity": 0.0625,
+        "criteria_scores": {
+          "problem_similarity": 0.25,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.25,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_16",
+        "paper_title": "SynthEHR-Eviction: Enhancing Eviction SDoH Detection with LLM-Augmented Synthetic EHR Data",
+        "paper_similarity": 0.5874999999999999,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_15",
+        "paper_title": "Dynamic Survival Transformers for Causal Inference with Electronic Health Records",
+        "paper_similarity": 0.125,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 94
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 94,
+    "after_dedup": 94,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

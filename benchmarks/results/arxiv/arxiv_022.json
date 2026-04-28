@@ -1,0 +1,1001 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "5489b05a67af",
+    "status": "completed"
+  },
+  "originality_score": 30,
+  "global_similarity_score": 0.7865,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_05",
+          "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+          "heading": "Abstract",
+          "text_snippet": "The discovery of Metal-Organic Frameworks (MOFs) with application-specific properties remains a central challenge in materials chemistry, owing to the immense size and complexity of their structural design space.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper address the challenge of designing MOFs with specific properties, indicating a shared core problem of inverse design in MOFs.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+          "heading": "Abstract",
+          "text_snippet": "We outline the progress of employing deep learning models, such as variational autoencoders, diffusion models, and large language model-based agents, that are fueled by the growing amount of available data from the MOF community and suggest novel crystalline materials designs.",
+          "similarity": 0.75,
+          "reason": "The paper explicitly mentions 'diffusion models' as a type of deep learning model used for novel crystalline materials designs, which directly matches the 'latent diffusion process' in the user's idea.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+          "heading": "Abstract",
+          "text_snippet": "Advances in generative artificial intelligence are transforming how metal-organic frameworks (MOFs) are designed and discovered.",
+          "similarity": 1.0,
+          "reason": "The paper's entire focus is on Metal-Organic Frameworks (MOFs), which are a type of porous material. The user's idea is about 'porous material design' and specifically mentions 'MOFs', indicating a direct domain overlap.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_05",
+          "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+          "heading": "Abstract",
+          "text_snippet": "This work demonstrates the potential of large language models, when coupled with reinforcement learning, to accelerate inverse design in reticular chemistry and unlock new frontiers in computational MOF discovery.",
+          "similarity": 0.75,
+          "reason": "The user's idea aims to enable 'inverse design of MOFs' through a generative model conditioned on properties. The paper's contribution is demonstrating 'inverse design in reticular chemistry' using a generative model with property-guided optimization. The core contribution of enabling inverse design for MOFs is very similar.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research shows low originality, primarily due to high overlap in problem formulation and domain with existing work on generative AI for Metal-Organic Framework design. To improve originality, focus on differentiating your specific problem or application within this domain.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.8799999999999999,
+    "method_similarity": 0.48,
+    "domain_overlap": 0.9,
+    "contribution_similarity": 0.48
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.1049,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.1026,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0019,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 393.8257985115051,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2508.13197v1",
+      "arxiv_id": "2508.13197v1",
+      "title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+      "abstract": "Advances in generative artificial intelligence are transforming how metal-organic frameworks (MOFs) are designed and discovered. This Perspective introduces the shift from laborious enumeration of MOF candidates to generative approaches that can autonomously propose and synthesize in the laboratory new porous reticular structures on demand. We outline the progress of employing deep learning models, such as variational autoencoders, diffusion models, and large language model-based agents, that are fueled by the growing amount of available data from the MOF community and suggest novel crystalline materials designs. These generative tools can be combined with high-throughput computational screening and even automated experiments to form accelerated, closed-loop discovery pipelines. The result is a new paradigm for reticular chemistry in which AI algorithms more efficiently direct the search for high-performance MOF materials for clean air and energy applications. Finally, we highlight remaining challenges such as synthetic feasibility, dataset diversity, and the need for further integration of domain knowledge.",
+      "url": "http://arxiv.org/abs/2508.13197v1",
+      "pdf_url": "http://arxiv.org/pdf/2508.13197v1",
+      "authors": [],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The paper addresses the very similar problem of designing MOFs using generative models, specifically mentioning diffusion models for generating novel crystalline materials designs. It discusses inverse design of materials with user-specified properties, which aligns closely with the user's idea of conditioning on target gas adsorption capacity and thermal stability for inverse design of MOFs. The paper is a perspective outlining progress and challenges rather than presenting a new model, but the problem it discusses is highly similar. | Method: The user's idea specifies a generative model using a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability for inverse design of MOFs. The paper is a perspective outlining the progress of generative AI for MOF design, explicitly mentioning diffusion models as a type of deep learning model used for generating novel crystalline materials designs. It also notes that some generative models condition on desired properties and mentions a conditional diffusion model that generates signed-distance-function (SDF) volume, which is a 3D representation. However, the paper does not detail a specific method using a *latent* diffusion process on *voxelized unit cell representations* conditioned on *gas adsorption capacity and thermal stability* for *inverse design*, but rather discusses the broader application of diffusion models and property conditioning in MOF design. | Domain: Both the user's research idea and the paper are focused on the inverse design of Metal-Organic Frameworks (MOFs) using generative models. The paper explicitly discusses 'generative models for porous material design' and 'inverse-design materials with user-specified properties' in the context of MOFs, which directly aligns with the user's stated application domain. | Contribution: The paper is a perspective outlining the progress of generative AI for MOF design, including diffusion models for 3D structures and inverse design conditioned on properties. It mentions 'a building-block-aware diffusion model that samples edges, nets and nodes to assemble MOFs stochastically' and 'a multi-modal conditional diffusion model that generates signed-distance-function (SDF) volume' (Figure 3b), which aligns with the user's idea of a latent diffusion process on voxelized representations. However, the paper does not claim to specifically develop a new generative model for porous material design conditioned on *target gas adsorption capacity and thermal stability* using *voxelized unit cell representations* for inverse design of MOFs, but rather reviews existing and emerging approaches.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2602.12045v1",
+      "arxiv_id": "2602.12045v1",
+      "title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+      "abstract": "The discovery of new crystalline materials calls for generative models that handle periodic boundary conditions, crystallographic symmetries, and physical constraints, while scaling to large and structurally diverse unit cells. We propose a reciprocal-space generative pipeline that represents crystals through a truncated Fourier transform of the species-resolved unit-cell density, rather than modeling atomic coordinates directly. This representation is periodicity-native, admits simple algebraic actions of space-group symmetries, and naturally supports variable atomic multiplicities during generation, addressing a common limitation of particle-based approaches. Using only nine Fourier basis functions per spatial dimension, our approach reconstructs unit cells containing up to 108 atoms per chemical species. We instantiate this pipeline with a transformer variational autoencoder over complex-valued Fourier coefficients, and a latent diffusion model that generates in the compressed latent space. We evaluate reconstruction and latent diffusion on the LeMaterial benchmark and compare unconditional generation against coordinate-based baselines in the small-cell regime ($\\leq 16$ atoms per unit cell).",
+      "url": "http://arxiv.org/abs/2602.12045v1",
+      "pdf_url": "http://arxiv.org/pdf/2602.12045v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.625,
+      "reason": "Problem: The paper addresses the problem of generative models for crystalline materials, which is very similar to the user's idea of a generative model for porous material design. Both aim for inverse design of materials using generative models. The paper focuses on handling periodic boundary conditions, crystallographic symmetries, and scaling to large unit cells, which are also relevant aspects for porous materials like MOFs, even though the paper does not explicitly mention 'porous materials' or 'MOFs' in its problem statement. | Method: Both the user's idea and the paper propose a generative model for material design using a latent diffusion process. The paper uses a 'reciprocal-space generative pipeline' with a 'latent diffusion model that generates in the compressed latent space' on a 'truncated Fourier transform of the species-resolved unit-cell density'. This is similar to the user's 'latent diffusion process on voxelized unit cell representations'. However, the paper does not explicitly mention conditioning on 'target gas adsorption capacity and thermal stability' or enabling 'inverse design of MOFs', which are key aspects of the user's idea, focusing instead on unconditional generation and crystallographic symmetries. | Domain: The user's idea focuses on 'porous material design' and 'inverse design of MOFs', which falls under the broader domain of 'new crystalline materials discovery'. The paper explicitly addresses 'generative models for crystalline materials' and 'discovery of new crystalline materials', making the application domains closely related. While the paper does not specifically mention MOFs or porous materials, it deals with the fundamental generative modeling of crystal structures, which is a prerequisite for such specialized material design. | Contribution: The paper proposes a generative model for crystalline materials using a latent diffusion process on Fourier transforms of unit cell densities, which aligns with the user's idea of a generative model using latent diffusion on voxelized unit cell representations. However, the paper focuses on unconditional generation and does not explicitly claim contributions related to conditioning on target gas adsorption capacity and thermal stability for inverse design, which are key aspects of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "2509.00062v3",
+      "arxiv_id": "2509.00062v3",
+      "title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+      "abstract": "Generating realistic sparse multi-category 3D voxel structures is difficult due to the cubic memory scaling of voxel structures and moreover the significant class imbalance caused by sparsity. We introduce Scaffold Diffusion, a generative model designed for sparse multi-category 3D voxel structures. By treating voxels as tokens, Scaffold Diffusion uses a discrete diffusion language model to generate 3D voxel structures. We show that discrete diffusion language models can be extended beyond inherently sequential domains such as text to generate spatially coherent 3D structures. We evaluate on Minecraft house structures from the 3D-Craft dataset and demonstrate that, unlike prior baselines and an auto-regressive formulation, Scaffold Diffusion produces realistic and coherent structures even when trained on data with over 98% sparsity. We provide an interactive viewer where readers can visualize generated samples and the generation process: https://scaffold.deepexploration.org/",
+      "url": "http://arxiv.org/abs/2509.00062v3",
+      "pdf_url": "http://arxiv.org/pdf/2509.00062v3",
+      "authors": [],
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The user's idea focuses on inverse design of MOFs for specific properties (gas adsorption, thermal stability) using a generative model for porous material design. The paper, 'Scaffold Diffusion,' addresses the generation of sparse multi-category 3D voxel structures, specifically evaluating on Minecraft house structures. While both involve generative models for voxelized structures, the paper's problem is general 3D structure generation, whereas the user's idea is specifically for material design with functional conditioning, representing a different specific problem within the same broad topic. | Method: Both the user's idea and the paper propose a generative model using a diffusion process on voxelized representations. The user specifies a 'latent diffusion process' and 'voxelized unit cell representations,' while the paper uses a 'discrete diffusion language model' on 'sparse multi-category 3D voxel structures' by treating 'voxels as tokens.' The key difference lies in the specific type of diffusion (latent vs. discrete/masked language model) and the conditioning (target gas adsorption capacity and thermal stability vs. a boolean occupancy map). | Domain: The user's idea focuses on 'porous material design' and 'inverse design of MOFs,' which falls under materials science or chemistry. The paper, 'Scaffold Diffusion,' is applied to 'Minecraft house structures' from the '3D-Craft dataset,' which is in the domain of computer graphics, gaming, or entertainment. While both involve generative models for 3D voxel structures, the specific application targets and scientific fields are different, placing them in the same discipline (computer science/AI) but different sub-areas or application targets. | Contribution: The paper's contribution is a generative model (Scaffold Diffusion) for sparse multi-category 3D voxel structures using discrete diffusion, evaluated on Minecraft houses. The user's idea also proposes a generative model using latent diffusion on voxelized unit cells for porous material design, specifically MOFs, conditioned on gas adsorption and thermal stability. While both use diffusion on voxelized representations for generative design, the specific application domain (Minecraft vs. MOFs), conditioning targets (none vs. gas adsorption/thermal stability), and the 'latent' aspect of the user's idea introduce distinct claims, leading to partial overlap.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2405.00998v5",
+      "arxiv_id": "2405.00998v5",
+      "title": "Part-aware Shape Generation with Latent 3D Diffusion of Neural Voxel Fields",
+      "abstract": "This paper presents a novel latent 3D diffusion model for the generation of neural voxel fields, aiming to achieve accurate part-aware structures. Compared to existing methods, there are two key designs to ensure high-quality and accurate part-aware generation. On one hand, we introduce a latent 3D diffusion process for neural voxel fields, enabling generation at significantly higher resolutions that can accurately capture rich textural and geometric details. On the other hand, a part-aware shape decoder is introduced to integrate the part codes into the neural voxel fields, guiding the accurate part decomposition and producing high-quality rendering results. Through extensive experimentation and comparisons with state-of-the-art methods, we evaluate our approach across four different classes of data. The results demonstrate the superior generative capabilities of our proposed method in part-aware shape generation, outperforming existing state-of-the-art methods.",
+      "url": "http://arxiv.org/abs/2405.00998v5",
+      "pdf_url": "http://arxiv.org/pdf/2405.00998v5",
+      "authors": [],
+      "categories": [
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.45,
+      "reason": "Problem: The user's idea focuses on inverse design of MOFs for porous material design, conditioned on gas adsorption and thermal stability. The paper, however, addresses 'part-aware shape generation with latent 3D diffusion of neural voxel fields' for general 3D objects (e.g., chairs, tables, airplanes), conditioned on image or text. While both use latent 3D diffusion on voxelized representations for generative design, the specific application domain (porous materials vs. general objects) and conditioning targets (material properties vs. visual cues) are distinct, indicating a different specific problem within the same broad topic of 3D generative modeling. | Method: Both the user's idea and the paper propose a generative model using a latent diffusion process on voxelized representations. However, the paper focuses on 'part-aware shape generation' for general 3D objects (e.g., chairs, airplanes) and conditions on image/text, whereas the user's idea is specifically for 'porous material design' (MOFs) and conditions on 'target gas adsorption capacity and thermal stability', indicating a different application domain and conditioning mechanism. | Domain: The user's idea focuses on 'porous material design' and 'inverse design of MOFs', which falls under materials science or chemistry. The paper, however, is categorized under 'cs.CV' and focuses on 'part-aware shape generation' for general 3D objects like 'Chair, Table, Airplane, Car, Lamp, Guitar, Laptop, and Pistol' from ShapeNet. While both use generative models and voxel representations, the specific application domains (materials science vs. general object generation) are different sub-areas within computer graphics/vision or machine learning. | Contribution: The paper focuses on generating part-aware neural voxel fields for general 3D shapes (Chair, Table, Airplane, Car, etc.) using a latent 3D diffusion process, conditioned on image or text. The user's idea specifically targets porous material design (MOFs) with conditioning on gas adsorption capacity and thermal stability, which is a distinct application domain and conditioning strategy not addressed by the paper's contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2506.00198v1",
+      "arxiv_id": "2506.00198v1",
+      "title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+      "abstract": "The discovery of Metal-Organic Frameworks (MOFs) with application-specific properties remains a central challenge in materials chemistry, owing to the immense size and complexity of their structural design space. Conventional computational screening techniques such as molecular simulations and density functional theory (DFT), while accurate, are computationally prohibitive at scale. Machine learning offers an exciting alternative by leveraging data-driven approaches to accelerate materials discovery. The complexity of MOFs, with their extended periodic structures and diverse topologies, creates both opportunities and challenges for generative modeling approaches. To address these challenges, we present a reinforcement learning-enhanced, transformer-based framework for the de novo design of MOFs. Central to our approach is MOFid, a chemically-informed string representation encoding both connectivity and topology, enabling scalable generative modeling. Our pipeline comprises three components: (1) a generative GPT model trained on MOFid sequences, (2) MOFormer, a transformer-based property predictor, and (3) a reinforcement learning (RL) module that optimizes generated candidates via property-guided reward functions. By integrating property feedback into sequence generation, our method drives the model toward synthesizable, topologically valid MOFs with desired functional attributes. This work demonstrates the potential of large language models, when coupled with reinforcement learning, to accelerate inverse design in reticular chemistry and unlock new frontiers in computational MOF discovery.",
+      "url": "http://arxiv.org/abs/2506.00198v1",
+      "pdf_url": "http://arxiv.org/pdf/2506.00198v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cond-mat.mtrl-sci",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The user's research idea focuses on a generative model for porous material design, specifically MOFs, enabling inverse design conditioned on target properties. The paper directly addresses the 'Generative Design of Metal-Organic Frameworks' using a 'reinforcement learning-enhanced, transformer-based framework for the de novo design of MOFs' to accelerate 'inverse design in reticular chemistry' with 'property-targeted optimization'. Both the user's idea and the paper aim to inversely design MOFs with desired properties using generative models. | Method: The user's idea proposes a generative model using a latent diffusion process on voxelized unit cell representations. The paper, however, uses a reinforcement learning-enhanced, transformer-based framework with a chemically-informed string representation (MOFid) for MOF design. While both use generative models and deep learning, the core generative mechanism (latent diffusion vs. transformer/GPT) and the material representation (voxelized unit cells vs. string representation) are fundamentally different. | Domain: Both the user's research idea and the paper focus on the generative design of Metal-Organic Frameworks (MOFs) for gas adsorption. The user specifies 'target gas adsorption capacity' and the paper explicitly evaluates 'CH4 adsorption' and 'CO2 adsorption' at various pressures, which are direct measures of gas adsorption capacity. Both aim for inverse design of MOFs based on desired properties. | Contribution: The user's idea proposes a generative model for porous material design using a latent diffusion process on voxelized unit cell representations, conditioned on gas adsorption capacity and thermal stability. The paper, 'MOFGPT', also focuses on generative design of MOFs conditioned on target properties like gas adsorption (CH4 and CO2) and electronic band gap, enabling inverse design. However, the paper uses a transformer-based framework with a string representation (MOFid) and reinforcement learning, which is a different generative approach (language model vs. latent diffusion on voxelized representations) and does not explicitly mention thermal stability as a conditioning target.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.25,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Generative Models for MOF Design (e.g., GANs, VAEs, Diffusion Models)",
+        "similarity": 0.8,
+        "description": "Numerous research efforts exist on using various generative models (GANs, VAEs, and more recently, diffusion models) for de novo design of MOFs and other porous materials. These often aim to generate structures with desired properties."
+      },
+      {
+        "name": "Inverse Design of Materials",
+        "similarity": 0.9,
+        "description": "Inverse design, where desired properties dictate the material structure, is a well-established and active research area across materials science, including for MOFs. This often involves machine learning approaches."
+      },
+      {
+        "name": "Conditioned Generative Models",
+        "similarity": 0.85,
+        "description": "Conditioning generative models on target properties (like adsorption capacity, stability, band gap, etc.) is a standard technique in machine learning for materials design to guide the generation process."
+      },
+      {
+        "name": "Voxelized/Grid Representations for Materials",
+        "similarity": 0.75,
+        "description": "Representing materials as voxelized grids or 3D tensors is a common approach for inputting structural information into deep learning models, especially for porous materials where spatial arrangement is key."
+      }
+    ],
+    "assessment": "The core idea of using a generative model (specifically latent diffusion) for inverse design of MOFs, conditioned on properties like adsorption and stability, is a very active and well-established research area. While the specific combination of 'latent diffusion process' on 'voxelized unit cell representations' for 'MOFs' conditioned on 'gas adsorption capacity and thermal stability' might not be found in one single, identical published paper, all individual components and the overall methodology are standard practices in computational materials science and machine learning for materials discovery. Many research groups are working on similar problems, often using diffusion models or other generative architectures for MOF design.",
+    "novelty_aspects": [
+      "The specific architecture of the latent diffusion model and its integration with the voxelized representation might have unique implementation details.",
+      "The precise combination of target properties (gas adsorption capacity AND thermal stability) as conditioning variables might be a specific focus, though conditioning on multiple properties is common.",
+      "The novelty would lie in the specific performance, efficiency, and fidelity of the proposed model compared to existing methods, or in addressing specific challenges not yet fully solved."
+    ],
+    "recommendation": "While the overarching concept is not novel, there is still significant room for novel contributions in the details. Focus on demonstrating superior performance (e.g., higher generation fidelity, better property prediction, faster inverse design, ability to handle more complex constraints) compared to existing state-of-the-art models. Clearly articulate what specific gaps your approach fills or how it significantly improves upon current methods. A thorough literature review of recent diffusion models for materials design (especially MOFs) would be crucial."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Generative Models for MOF Design (e.g., GANs, VAEs, Diffusion Models)** (similarity: 80%).\n\n*The core idea of using a generative model (specifically latent diffusion) for inverse design of MOFs, conditioned on properties like adsorption and stability, is a very active and well-established research area. While the specific combination of 'latent diffusion process' on 'voxelized unit cell representations' for 'MOFs' conditioned on 'gas adsorption capacity and thermal stability' might not be found in one single, identical published paper, all individual components and the overall methodology are standard practices in computational materials science and machine learning for materials discovery. Many research groups are working on similar problems, often using diffusion models or other generative architectures for MOF design.*\n\n**Recommendation:** While the overarching concept is not novel, there is still significant room for novel contributions in the details. Focus on demonstrating superior performance (e.g., higher generation fidelity, better property prediction, faster inverse design, ability to handle more complex constraints) compared to existing state-of-the-art models. Clearly articulate what specific gaps your approach fills or how it significantly improves upon current methods. A thorough literature review of recent diffusion models for materials design (especially MOFs) would be crucial.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 122,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 647,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.1049,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.1026,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+  "enriched_idea": "RESEARCH IDEA:\nA generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+      "arxiv_id": "2508.13197v1",
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The paper addresses the very similar problem of designing MOFs using generative models, specifically mentioning diffusion models for generating novel crystalline materials designs. It discusses inverse design of materials with user-specified properties, which aligns closely with the user's idea of conditioning on target gas adsorption capacity and thermal stability for inverse design of MOFs. The paper is a perspective outlining progress and challenges rather than presenting a new model, but the problem it discusses is highly similar. | Method: The user's idea specifies a generative model using a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability for inverse design of MOFs. The paper is a perspective outlining the progress of generative AI for MOF design, explicitly mentioning diffusion models as a type of deep learning model used for generating novel crystalline materials designs. It also notes that some generative models condition on desired properties and mentions a conditional diffusion model that generates signed-distance-function (SDF) volume, which is a 3D representation. However, the paper does not detail a specific method using a *latent* diffusion process on *voxelized unit cell representations* conditioned on *gas adsorption capacity and thermal stability* for *inverse design*, but rather discusses the broader application of diffusion models and property conditioning in MOF design. | Domain: Both the user's research idea and the paper are focused on the inverse design of Metal-Organic Frameworks (MOFs) using generative models. The paper explicitly discusses 'generative models for porous material design' and 'inverse-design materials with user-specified properties' in the context of MOFs, which directly aligns with the user's stated application domain. | Contribution: The paper is a perspective outlining the progress of generative AI for MOF design, including diffusion models for 3D structures and inverse design conditioned on properties. It mentions 'a building-block-aware diffusion model that samples edges, nets and nodes to assemble MOFs stochastically' and 'a multi-modal conditional diffusion model that generates signed-distance-function (SDF) volume' (Figure 3b), which aligns with the user's idea of a latent diffusion process on voxelized representations. However, the paper does not claim to specifically develop a new generative model for porous material design conditioned on *target gas adsorption capacity and thermal stability* using *voxelized unit cell representations* for inverse design of MOFs, but rather reviews existing and emerging approaches.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "Abstract",
+              "text_snippet": "Advances in generative artificial intelligence are transforming how metal-organic frameworks (MOFs) are designed and discovered. This Perspective introduces the shift from laborious enumeration of MOF candidates to generative approaches that can autonomously propose and synthesize in the laboratory new porous reticular structures on demand.",
+              "similarity": 0.5,
+              "reason": "The paper discusses the general problem of designing MOFs using generative AI, which aligns with the user's idea of a generative model for porous material design and inverse design of MOFs. The user's idea specifies conditioning on target properties, which is a more specific problem framing than the general 'design and discovery' mentioned in the abstract.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "Introduction",
+              "text_snippet": "generative models offer a way to unlock creativity at the atomic scale, proposing candidates that meet multiple design objectives simultaneously (e.g. high gas uptake and selectivity/stability / reduced cost).",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions generative models proposing candidates that meet multiple design objectives simultaneously, such as high gas uptake and stability, which directly relates to the user's idea of conditioning on target gas adsorption capacity and thermal stability.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "Abstract",
+              "text_snippet": "We outline the progress of employing deep learning models, such as variational autoencoders, diffusion models, and large language model-based agents, that are fueled by the growing amount of available data from the MOF community and suggest novel crystalline materials designs.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions 'diffusion models' as a type of deep learning model used for novel crystalline materials designs, which directly matches the 'latent diffusion process' in the user's idea.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "From 2D Linkers to 3D frameworks design",
+              "text_snippet": "Park et al. fine-tuned the DiffLinker (a diffusion model for 3D organic molecule generation) to design organic linkers predicted to boost CO₂ uptake, then inserted them into a prototypical MOF architecture by fixing the metal nodes (e.g., Cu paddlewheels and Zn tetramers) and constraining the topology to the pcu net, which is a primitive 3 -D cubic network frequently seen in MOF crystal structures.",
+              "similarity": 0.75,
+              "reason": "This section describes a 'diffusion model' (DiffLinker) used for 3D organic molecule generation for MOFs, which is a specific instance of a latent diffusion process for material design. While the user specifies 'voxelized unit cell representations' and the paper mentions 3D organic molecule generation, the core method of diffusion models for 3D material components is highly similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "From 2D Linkers to 3D frameworks design",
+              "text_snippet": "By learning from known structures and conditioning on desired properties, GenAI models have potentials of accelerating the discovery of novel frameworks with high validity rates and tailor pore environments to specific applications.",
+              "similarity": 0.75,
+              "reason": "The paper states that GenAI models can learn from known structures and be 'conditioning on desired properties' to accelerate discovery of novel frameworks. This aligns with the user's idea of a model 'conditioned on target gas adsorption capacity and thermal stability'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "Figure 3 | Generative design strategies for metal-organic frameworks.",
+              "text_snippet": "b) Representative deep-learning architectures used for MOF generation. From left to right: ... a building-block-aware diffusion model that samples edges, nets and nodes to assemble MOFs stochastically; and a multi-modal conditional diffusion model that generates signed-distance-function (SDF) volume",
+              "similarity": 0.75,
+              "reason": "The figure caption explicitly mentions 'diffusion model' and 'conditional diffusion model' for MOF generation, which directly matches the 'latent diffusion process' and 'conditioned on target' aspects of the user's idea.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "Abstract",
+              "text_snippet": "Advances in generative artificial intelligence are transforming how metal-organic frameworks (MOFs) are designed and discovered.",
+              "similarity": 1.0,
+              "reason": "The paper's entire focus is on Metal-Organic Frameworks (MOFs), which are a type of porous material. The user's idea is about 'porous material design' and specifically mentions 'MOFs', indicating a direct domain overlap.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "Introduction",
+              "text_snippet": "Reticular synthesis of metal-organic frameworks (MOFs) epitomizes a materials design paradigm where modular inorganic nodes and organic linkers are linked into crystalline networks to engineer a periodic structure at the atomic level.",
+              "similarity": 1.0,
+              "reason": "The paper is entirely dedicated to MOFs, which are the specific type of porous material the user's idea targets, confirming a perfect domain match.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "Abstract",
+              "text_snippet": "This Perspective introduces the shift from laborious enumeration of MOF candidates to generative approaches that can autonomously propose and synthesize in the laboratory new porous reticular structures on demand.",
+              "similarity": 0.5,
+              "reason": "The paper discusses the broader shift towards generative approaches for MOF design, which includes the concept of inverse design. The user's idea proposes a specific model for inverse design, contributing to this broader goal.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+              "heading": "Introduction",
+              "text_snippet": "generative models offer a way to unlock creativity at the atomic scale, proposing candidates that meet multiple design objectives simultaneously (e.g. high gas uptake and selectivity/stability / reduced cost).",
+              "similarity": 0.5,
+              "reason": "The paper highlights the capability of generative models to propose materials meeting multiple design objectives, such as gas uptake and stability. The user's idea aims to enable inverse design conditioned on these specific properties, which is a concrete realization of this general capability.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 32181,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2508.13197v1"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+      "arxiv_id": "2602.12045v1",
+      "paper_similarity_score": 0.625,
+      "reason": "Problem: The paper addresses the problem of generative models for crystalline materials, which is very similar to the user's idea of a generative model for porous material design. Both aim for inverse design of materials using generative models. The paper focuses on handling periodic boundary conditions, crystallographic symmetries, and scaling to large unit cells, which are also relevant aspects for porous materials like MOFs, even though the paper does not explicitly mention 'porous materials' or 'MOFs' in its problem statement. | Method: Both the user's idea and the paper propose a generative model for material design using a latent diffusion process. The paper uses a 'reciprocal-space generative pipeline' with a 'latent diffusion model that generates in the compressed latent space' on a 'truncated Fourier transform of the species-resolved unit-cell density'. This is similar to the user's 'latent diffusion process on voxelized unit cell representations'. However, the paper does not explicitly mention conditioning on 'target gas adsorption capacity and thermal stability' or enabling 'inverse design of MOFs', which are key aspects of the user's idea, focusing instead on unconditional generation and crystallographic symmetries. | Domain: The user's idea focuses on 'porous material design' and 'inverse design of MOFs', which falls under the broader domain of 'new crystalline materials discovery'. The paper explicitly addresses 'generative models for crystalline materials' and 'discovery of new crystalline materials', making the application domains closely related. While the paper does not specifically mention MOFs or porous materials, it deals with the fundamental generative modeling of crystal structures, which is a prerequisite for such specialized material design. | Contribution: The paper proposes a generative model for crystalline materials using a latent diffusion process on Fourier transforms of unit cell densities, which aligns with the user's idea of a generative model using latent diffusion on voxelized unit cell representations. However, the paper focuses on unconditional generation and does not explicitly claim contributions related to conditioning on target gas adsorption capacity and thermal stability for inverse design, which are key aspects of the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+              "heading": "Abstract",
+              "text_snippet": "The discovery of new crystalline materials calls for generative models that handle periodic boundary conditions, crystallographic symmetries, and physical constraints, while scaling to large and structurally diverse unit cells.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of designing new materials using generative models, specifically crystalline materials. The user's idea focuses on MOFs, which are a type of porous crystalline material.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+              "heading": "Abstract",
+              "text_snippet": "We instantiate this pipeline with a transformer variational autoencoder over complex-valued Fourier coefficients, and a latent diffusion model that generates in the compressed latent space.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a 'latent diffusion process' for a 'generative model', which directly aligns with the paper's core methodology of using a 'latent diffusion model' for generation.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+              "heading": "Related Work",
+              "text_snippet": "Early approaches discretize unit cells into 3D voxel grids and model atomic or electron density as images using convolutional VAEs and GANs (Noh et al., 2019; Hoffmann et al., 2019; Court et al., 2020; Kim et al., 2020; Long et al., 2021; Kingma, 2013; Goodfellow et al., 2014), but these representations are memory-intensive and scale poorly with increasing unit-cell complexity.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'voxelized unit cell representations'. While the paper critiques this approach for its memory intensity, it acknowledges its existence as an 'early approach' in crystal generative modeling, indicating a shared conceptual space for representing unit cells, even if the paper's preferred method is Fourier-based.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+              "heading": "Overview and Crystal representation",
+              "text_snippet": "Second, a latent diffusion model generates these latent codes, enabling unconditional sampling followed by decoding and coordinate recovery.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions a 'latent diffusion process', which is a key component of the paper's two-stage generative pipeline.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+              "heading": "Abstract",
+              "text_snippet": "The discovery of new crystalline materials calls for generative models that handle periodic boundary conditions, crystallographic symmetries, and physical constraints, while scaling to large and structurally diverse unit cells.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are focused on the domain of 'crystalline materials' and their design. The user's specific mention of 'MOFs' falls within this broader category.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+              "heading": "Introduction",
+              "text_snippet": "The discovery of new crystalline materials underpins progress in energy storage, catalysis, and ionic transport.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are concerned with the discovery and design of 'crystalline materials'. The user's mention of 'MOFs' (Metal-Organic Frameworks) are a specific type of crystalline material.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+              "heading": "Conclusion",
+              "text_snippet": "We presented a reciprocal-space generative pipeline for crystalline materials based on a truncated Fourier representation of species-resolved unit-cell density. This encoding makes periodicity exact, exposes crystallographic symmetries as simple algebraic structure in reciprocal space, and avoids fixed-size point-set assumptions to enable variable atomic multiplicities during generation. We instantiate this representation with a complex-valued transformer VAE that compresses Fourier content into a structured auxiliary latent ladder, together with a latent reverse diffusion model that operates directly in this compressed space.",
+              "similarity": 0.5,
+              "reason": "The paper's conclusion highlights its contribution of a 'generative pipeline for crystalline materials' using a 'latent reverse diffusion model'. The user's idea proposes a 'generative model for porous material design' using a 'latent diffusion process', indicating a similar high-level contribution in developing generative models for materials.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 80496,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2602.12045v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+      "arxiv_id": "2509.00062v3",
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The user's idea focuses on inverse design of MOFs for specific properties (gas adsorption, thermal stability) using a generative model for porous material design. The paper, 'Scaffold Diffusion,' addresses the generation of sparse multi-category 3D voxel structures, specifically evaluating on Minecraft house structures. While both involve generative models for voxelized structures, the paper's problem is general 3D structure generation, whereas the user's idea is specifically for material design with functional conditioning, representing a different specific problem within the same broad topic. | Method: Both the user's idea and the paper propose a generative model using a diffusion process on voxelized representations. The user specifies a 'latent diffusion process' and 'voxelized unit cell representations,' while the paper uses a 'discrete diffusion language model' on 'sparse multi-category 3D voxel structures' by treating 'voxels as tokens.' The key difference lies in the specific type of diffusion (latent vs. discrete/masked language model) and the conditioning (target gas adsorption capacity and thermal stability vs. a boolean occupancy map). | Domain: The user's idea focuses on 'porous material design' and 'inverse design of MOFs,' which falls under materials science or chemistry. The paper, 'Scaffold Diffusion,' is applied to 'Minecraft house structures' from the '3D-Craft dataset,' which is in the domain of computer graphics, gaming, or entertainment. While both involve generative models for 3D voxel structures, the specific application targets and scientific fields are different, placing them in the same discipline (computer science/AI) but different sub-areas or application targets. | Contribution: The paper's contribution is a generative model (Scaffold Diffusion) for sparse multi-category 3D voxel structures using discrete diffusion, evaluated on Minecraft houses. The user's idea also proposes a generative model using latent diffusion on voxelized unit cells for porous material design, specifically MOFs, conditioned on gas adsorption and thermal stability. While both use diffusion on voxelized representations for generative design, the specific application domain (Minecraft vs. MOFs), conditioning targets (none vs. gas adsorption/thermal stability), and the 'latent' aspect of the user's idea introduce distinct claims, leading to partial overlap.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.575,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "Abstract",
+              "text_snippet": "We introduce Scaffold Diffusion, a generative model designed for sparse multi-category 3D voxel structures. By treating voxels as tokens, Scaffold Diffusion uses a discrete diffusion language model to generate 3D voxel structures.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose a generative model that uses a diffusion process on voxelized representations to generate 3D structures. The paper specifies 'discrete diffusion language model' and 'sparse multi-category 3D voxel structures', which aligns with the user's 'latent diffusion process on voxelized unit cell representations'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "Introduction",
+              "text_snippet": "Thus we present Scaffold Diffusion, a discrete diffusion based model for sparse multicategory voxel structure generation. We formulate multi-category voxels as tokens and integrate 3D positional encoding into a masked diffusion language model (MDLM) to yield spatially coherent and realistic generated 3D structures.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions a 'discrete diffusion based model for sparse multicategory voxel structure generation' and formulating 'multi-category voxels as tokens', which is very similar to the user's 'latent diffusion process on voxelized unit cell representations'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "3D and Voxel Generative Models",
+              "text_snippet": "PointVoxelDiffusion [18] demonstrates the effectiveness of diffusion models for point cloud generation using point-voxel representations. LiON [17] introduces a hierarchical latent diffusion model capable of both point cloud and mesh generation. For large scale generation, XCube [12] presents a hierarchical latent diffusion model for sparse binary-valued voxel maps; for textured structures they apply an off the shelf. Most relevant to our work, Lee et al. [8] pioneer the application of discrete diffusion models for 3D categorical data. They apply multinomial diffusion [6] to 3D segmentation map generation, and develop both a standalone multinomial diffusion model which simply operates on an entire segmentation map and a two stage VQ-VAE latent multinomial diffusion model which operates on a smaller latent.",
+              "similarity": 0.75,
+              "reason": "The paper discusses various diffusion models for 3D data, including 'diffusion models for point cloud generation using point-voxel representations' and 'hierarchical latent diffusion model for sparse binary-valued voxel maps', and 'discrete diffusion models for 3D categorical data', which are all closely related to the user's 'latent diffusion process on voxelized unit cell representations'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "Preliminary",
+              "text_snippet": "While diffusion models were initially popularized for continuous data generation, such as image synthesis [5], discrete diffusion models have been extended to discrete data, such as text [1]. D3PM [1] introduces a general framework of discrete diffusion models and evaluates on different forward transition matrices, such as uniform, absorbing state, and discretized gaussian transition matrices. Masked Discrete Language Model (MDLM) is an absorbing state variant of discrete diffusion that has shown effective performance under a simplified training objective [13].",
+              "similarity": 0.75,
+              "reason": "The paper details the underlying discrete diffusion models, which is the core method proposed by the user, even if the user specifies 'latent diffusion' and the paper focuses on 'discrete diffusion'. The concept of diffusion on discrete data is shared.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "Abstract",
+              "text_snippet": "Generating realistic sparse multi-category 3D voxel structures is difficult due to the cubic memory scaling of voxel structures and moreover the significant class imbalance caused by sparsity.",
+              "similarity": 0.5,
+              "reason": "The paper identifies the problem of generating 3D voxel structures, which is a foundational aspect of the user's idea for 'porous material design'. While the specific material (MOFs) differs, the underlying challenge of 3D voxel generation is shared.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "Introduction",
+              "text_snippet": "Sparse multi-category 3D voxel structures are important data structures in many applications such as computer vision and robotics, entertainment and games, and environment simulation and modeling. However, accurate and realistic generation of sparse multi-category 3D voxel structure come with unique challenges: the cubic nature of voxel structures quickly lead to memory limitations and the sparsity of the data presents a significant class imbalance which makes accurate generation difficult.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are concerned with the generation of 3D voxel structures. The paper highlights challenges in generating such structures, which is the problem the user's idea aims to address for porous materials.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "Abstract",
+              "text_snippet": "We evaluate on Minecraft house structures from the 3D-Craft dataset and demonstrate that, unlike prior baselines and an auto-regressive formulation, Scaffold Diffusion produces realistic and coherent structures even when trained on data with over 98% sparsity.",
+              "similarity": 0.5,
+              "reason": "The paper focuses on generating Minecraft structures, which are a type of 3D voxelized structure. The user's idea is about 'porous material design' and 'MOFs', which are also 3D structures, but from a different scientific domain (materials science vs. gaming/computer graphics). Both involve 3D voxel data.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "Introduction",
+              "text_snippet": "Sparse multi-category 3D voxel structures are important data structures in many applications such as computer vision and robotics, entertainment and games, and environment simulation and modeling.",
+              "similarity": 0.5,
+              "reason": "The paper broadly discusses applications of 3D voxel structures. While the user's specific application is 'porous material design' and 'MOFs', both fall under the general umbrella of generating complex 3D structures for specific purposes.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "Abstract",
+              "text_snippet": "We introduce Scaffold Diffusion, a generative model designed for sparse multi-category 3D voxel structures. By treating voxels as tokens, Scaffold Diffusion uses a discrete diffusion language model to generate 3D voxel structures.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is a generative model for 3D voxel structures using discrete diffusion. The user's idea also proposes a generative model for 3D structures (porous materials) using a latent diffusion process. The core contribution of developing a generative model for 3D voxel data using diffusion is shared, although the specific application and conditioning differ.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+              "heading": "Conclusion",
+              "text_snippet": "We introduced Scaffold Diffusion, a discrete diffusion model for generating sparse multi-category voxel structures. We show that in comparison to previous work and other formulations, Scaffold Diffusion is able to generate consistent and realistic 3D structures, extending the practical applicability of discrete diffusion beyond naturally sequential data into the 3D spatial domain.",
+              "similarity": 0.5,
+              "reason": "Both the paper and the user's idea aim to contribute a generative model for 3D voxel structures using diffusion. The paper demonstrates its applicability to Minecraft, while the user proposes it for MOFs, but the fundamental contribution of a diffusion-based generative model for 3D voxel data is similar.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.5,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 21666,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2509.00062v3"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Part-aware Shape Generation with Latent 3D Diffusion of Neural Voxel Fields",
+      "arxiv_id": "2405.00998v5",
+      "paper_similarity_score": 0.45,
+      "reason": "Problem: The user's idea focuses on inverse design of MOFs for porous material design, conditioned on gas adsorption and thermal stability. The paper, however, addresses 'part-aware shape generation with latent 3D diffusion of neural voxel fields' for general 3D objects (e.g., chairs, tables, airplanes), conditioned on image or text. While both use latent 3D diffusion on voxelized representations for generative design, the specific application domain (porous materials vs. general objects) and conditioning targets (material properties vs. visual cues) are distinct, indicating a different specific problem within the same broad topic of 3D generative modeling. | Method: Both the user's idea and the paper propose a generative model using a latent diffusion process on voxelized representations. However, the paper focuses on 'part-aware shape generation' for general 3D objects (e.g., chairs, airplanes) and conditions on image/text, whereas the user's idea is specifically for 'porous material design' (MOFs) and conditions on 'target gas adsorption capacity and thermal stability', indicating a different application domain and conditioning mechanism. | Domain: The user's idea focuses on 'porous material design' and 'inverse design of MOFs', which falls under materials science or chemistry. The paper, however, is categorized under 'cs.CV' and focuses on 'part-aware shape generation' for general 3D objects like 'Chair, Table, Airplane, Car, Lamp, Guitar, Laptop, and Pistol' from ShapeNet. While both use generative models and voxel representations, the specific application domains (materials science vs. general object generation) are different sub-areas within computer graphics/vision or machine learning. | Contribution: The paper focuses on generating part-aware neural voxel fields for general 3D shapes (Chair, Table, Airplane, Car, etc.) using a latent 3D diffusion process, conditioned on image or text. The user's idea specifically targets porous material design (MOFs) with conditioning on gas adsorption capacity and thermal stability, which is a distinct application domain and conditioning strategy not addressed by the paper's contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.575,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Part-aware Shape Generation with Latent 3D Diffusion of Neural Voxel Fields",
+              "heading": "Abstract",
+              "text_snippet": "This paper presents a novel latent 3D diffusion model for the generation of neural voxel fields, aiming to achieve accurate part-aware structures. ... On one hand, we introduce a latent 3D diffusion process for neural voxel fields, enabling generation at significantly higher resolutions that can accurately capture rich textural and geometric details.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose using a 'latent diffusion process' for 'voxelized unit cell representations' (neural voxel fields in the paper). The core generative mechanism is very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Part-aware Shape Generation with Latent 3D Diffusion of Neural Voxel Fields",
+              "heading": "Latent 3D Diffusion Model",
+              "text_snippet": "Inspired by the preliminary work, we introduce a latent 3D diffusion model for the generation of high-resolution neural voxel fields. ... As shown in Fig. 2, the proposed latent 3D diffusion model comprises a 3D autoencoder and a 3D denoising UNet. ... After obtaining the latent code, we adopt a 3D UNet architecture to conduct the diffusion process in the latent space.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly details a 'latent 3D diffusion model' that operates on 'neural voxel fields' (which are voxelized representations), aligning closely with the user's 'latent diffusion process on voxelized unit cell representations'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Part-aware Shape Generation with Latent 3D Diffusion of Neural Voxel Fields",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Recent generative models have emerged for generating 3D shapes with different representations [1]-[11], among which neural field representation [12]-[15] receives increasing attention due to many advantages such as integrated texture and shape generation.",
+              "similarity": 0.5,
+              "reason": "The user's idea is about 'porous material design' and 'MOFs', which are specific types of 3D shapes. The paper focuses on 'generating 3D shapes' using 'neural voxel fields'. While the specific materials differ, both are in the domain of 3D shape generation.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Part-aware Shape Generation with Latent 3D Diffusion of Neural Voxel Fields",
+              "heading": "Abstract",
+              "text_snippet": "This paper presents a novel latent 3D diffusion model for the generation of neural voxel fields, aiming to achieve accurate part-aware structures.",
+              "similarity": 0.5,
+              "reason": "The paper focuses on generating 3D shapes (neural voxel fields) with 'part-aware structures'. The user's idea aims for 'inverse design of MOFs' which implies generating specific material structures. While the specific problem (part-aware vs. inverse design of MOFs) differs, both involve generating 3D structures.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Part-aware Shape Generation with Latent 3D Diffusion of Neural Voxel Fields",
+              "heading": "CONCLUSION",
+              "text_snippet": "In this paper, we introduce a method for generating part-aware neural voxel fields using latent 3D diffusion models. ... We incorporate part codes into the latent 3D diffusion model, allowing the model to learn part-aware information in field generation.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is a 'latent 3D diffusion model' for 'generating part-aware neural voxel fields'. The user's idea proposes a 'generative model' using a 'latent diffusion process on voxelized unit cell representations'. Both contribute a generative model using latent diffusion on voxelized structures, but the user adds conditioning for 'inverse design' of 'MOFs', which is a distinct application and contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.5,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 51524,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2405.00998v5"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+      "arxiv_id": "2506.00198v1",
+      "paper_similarity_score": 0.6749999999999999,
+      "reason": "Problem: The user's research idea focuses on a generative model for porous material design, specifically MOFs, enabling inverse design conditioned on target properties. The paper directly addresses the 'Generative Design of Metal-Organic Frameworks' using a 'reinforcement learning-enhanced, transformer-based framework for the de novo design of MOFs' to accelerate 'inverse design in reticular chemistry' with 'property-targeted optimization'. Both the user's idea and the paper aim to inversely design MOFs with desired properties using generative models. | Method: The user's idea proposes a generative model using a latent diffusion process on voxelized unit cell representations. The paper, however, uses a reinforcement learning-enhanced, transformer-based framework with a chemically-informed string representation (MOFid) for MOF design. While both use generative models and deep learning, the core generative mechanism (latent diffusion vs. transformer/GPT) and the material representation (voxelized unit cells vs. string representation) are fundamentally different. | Domain: Both the user's research idea and the paper focus on the generative design of Metal-Organic Frameworks (MOFs) for gas adsorption. The user specifies 'target gas adsorption capacity' and the paper explicitly evaluates 'CH4 adsorption' and 'CO2 adsorption' at various pressures, which are direct measures of gas adsorption capacity. Both aim for inverse design of MOFs based on desired properties. | Contribution: The user's idea proposes a generative model for porous material design using a latent diffusion process on voxelized unit cell representations, conditioned on gas adsorption capacity and thermal stability. The paper, 'MOFGPT', also focuses on generative design of MOFs conditioned on target properties like gas adsorption (CH4 and CO2) and electronic band gap, enabling inverse design. However, the paper uses a transformer-based framework with a string representation (MOFid) and reinforcement learning, which is a different generative approach (language model vs. latent diffusion on voxelized representations) and does not explicitly mention thermal stability as a conditioning target.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.25,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+          "sentence_index": 0,
+          "similarity_score": 0.65,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+              "heading": "Abstract",
+              "text_snippet": "The discovery of Metal-Organic Frameworks (MOFs) with application-specific properties remains a central challenge in materials chemistry, owing to the immense size and complexity of their structural design space.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the challenge of designing MOFs with specific properties, indicating a shared core problem of inverse design in MOFs.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+              "heading": "Abstract",
+              "text_snippet": "This work demonstrates the potential of large language models, when coupled with reinforcement learning, to accelerate inverse design in reticular chemistry and unlock new frontiers in computational MOF discovery.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions 'inverse design in reticular chemistry' which directly aligns with the user's goal of 'enabling inverse design of MOFs'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+              "heading": "Abstract",
+              "text_snippet": "The complexity of MOFs, with their extended periodic structures and diverse topologies, creates both opportunities and challenges for generative modeling approaches.",
+              "similarity": 0.25,
+              "reason": "Both the user's idea and the paper propose a 'generative model' for MOF design. However, the specific generative process (latent diffusion vs. transformer-based language model) differs significantly.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+              "heading": "Abstract",
+              "text_snippet": "By integrating property feedback into sequence generation, our method drives the model toward synthesizable, topologically valid MOFs with desired functional attributes.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions conditioning on 'target gas adsorption capacity and thermal stability', which is a form of property-guided generation. The paper also uses 'property-guided reward functions' and 'integrating property feedback into sequence generation' to achieve 'desired functional attributes'. While the conditioning mechanism differs (latent diffusion vs. RL with language models), the principle of property-guided generation is shared.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+              "heading": "Abstract",
+              "text_snippet": "The discovery of Metal-Organic Frameworks (MOFs) with application-specific properties remains a central challenge in materials chemistry, owing to the immense size and complexity of their structural design space.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on the design and discovery of Metal-Organic Frameworks (MOFs), indicating a complete overlap in the application domain.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+              "heading": "Data Representation",
+              "text_snippet": "For the same, we leverage two distinct property datasets: (1) the hMOF dataset for gas adsorption properties, which consists of gas adsorption values (in mol/kg) for CO 2 and CH 4 at various pressures, and (2) the QMOF dataset for electronic band gap values (in eV), thereby providing diverse objective functions for our optimization framework.",
+              "similarity": 0.75,
+              "reason": "The user's idea specifies 'target gas adsorption capacity and thermal stability'. The paper extensively discusses 'gas adsorption properties' (e.g., for CO2 and CH4) and 'thermal stability' is a known property of MOFs, although not explicitly a target in the paper's RL framework, it is mentioned as a general MOF characteristic.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+              "heading": "Abstract",
+              "text_snippet": "This work demonstrates the potential of large language models, when coupled with reinforcement learning, to accelerate inverse design in reticular chemistry and unlock new frontiers in computational MOF discovery.",
+              "similarity": 0.75,
+              "reason": "The user's idea aims to enable 'inverse design of MOFs' through a generative model conditioned on properties. The paper's contribution is demonstrating 'inverse design in reticular chemistry' using a generative model with property-guided optimization. The core contribution of enabling inverse design for MOFs is very similar.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.25,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 91409,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2506.00198v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 30,
+    "global_similarity_score": 0.7865,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A generative model for porous material design that uses a latent diffusion process on voxelized unit cell representations, conditioned on target gas adsorption capacity and thermal stability, enabling inverse design of MOFs.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_05",
+            "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+            "heading": "Abstract",
+            "text_snippet": "The discovery of Metal-Organic Frameworks (MOFs) with application-specific properties remains a central challenge in materials chemistry, owing to the immense size and complexity of their structural design space.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper address the challenge of designing MOFs with specific properties, indicating a shared core problem of inverse design in MOFs.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+            "heading": "Abstract",
+            "text_snippet": "We outline the progress of employing deep learning models, such as variational autoencoders, diffusion models, and large language model-based agents, that are fueled by the growing amount of available data from the MOF community and suggest novel crystalline materials designs.",
+            "similarity": 0.75,
+            "reason": "The paper explicitly mentions 'diffusion models' as a type of deep learning model used for novel crystalline materials designs, which directly matches the 'latent diffusion process' in the user's idea.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+            "heading": "Abstract",
+            "text_snippet": "Advances in generative artificial intelligence are transforming how metal-organic frameworks (MOFs) are designed and discovered.",
+            "similarity": 1.0,
+            "reason": "The paper's entire focus is on Metal-Organic Frameworks (MOFs), which are a type of porous material. The user's idea is about 'porous material design' and specifically mentions 'MOFs', indicating a direct domain overlap.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_05",
+            "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+            "heading": "Abstract",
+            "text_snippet": "This work demonstrates the potential of large language models, when coupled with reinforcement learning, to accelerate inverse design in reticular chemistry and unlock new frontiers in computational MOF discovery.",
+            "similarity": 0.75,
+            "reason": "The user's idea aims to enable 'inverse design of MOFs' through a generative model conditioned on properties. The paper's contribution is demonstrating 'inverse design in reticular chemistry' using a generative model with property-guided optimization. The core contribution of enabling inverse design for MOFs is very similar.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research shows low originality, primarily due to high overlap in problem formulation and domain with existing work on generative AI for Metal-Organic Framework design. To improve originality, focus on differentiating your specific problem or application within this domain.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.8799999999999999,
+      "method_similarity": 0.48,
+      "domain_overlap": 0.9,
+      "contribution_similarity": 0.48
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.1049,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.1026,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 393.8257985115051,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "The Rise of Generative AI for Metal-Organic Framework Design and Synthesis",
+        "paper_similarity": 0.8374999999999999,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Fourier Transformers for Latent Crystallographic Diffusion and Generative Modeling",
+        "paper_similarity": 0.6875,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.75,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Scaffold Diffusion: Sparse Multi-Category Voxel Structure Generation with Discrete Diffusion",
+        "paper_similarity": 0.5,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Part-aware Shape Generation with Latent 3D Diffusion of Neural Voxel Fields",
+        "paper_similarity": 0.475,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "MOFGPT: Generative Design of Metal-Organic Frameworks using Language Models",
+        "paper_similarity": 0.8374999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.25,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 122
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 122
+    },
+    "total_papers_fetched": 122,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.8360655737704918,
+    "llm_selection_rate": 0.75
+  }
+}

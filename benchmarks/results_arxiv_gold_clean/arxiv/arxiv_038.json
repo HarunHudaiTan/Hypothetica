@@ -1,0 +1,1028 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "c49edc652c37",
+    "status": "completed"
+  },
+  "originality_score": 88,
+  "global_similarity_score": 0.33249999999999996,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Using a recurrent neural network (LSTM) trained on time-series EHR data (vitals, labs, medications) to predict in-hospital mortality for ICU patients.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_19",
+          "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+          "heading": "Introduction",
+          "text_snippet": "This has led to a surge of research in medical artificial intelligence (AI), with many studies leveraging publicly available EHR datasets in combination with machine learning techniques for tasks such as early warning, outcome prediction and patient stratification [1, 2, 3, 4, 5, 6, 7, 8, 9]",
+          "similarity": 0.75,
+          "reason": "The user's idea of predicting in-hospital mortality is a type of 'outcome prediction' using EHR data, which the paper mentions as a common research task.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_07",
+          "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+          "heading": "Introduction",
+          "text_snippet": "Recurrent neural networks (RNNs), in particular those based on Long Short-Term Memory (LSTM) [1], powerfully model varying-length sequential data...",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper explicitly mention using Recurrent Neural Networks (RNNs) and specifically Long Short-Term Memory (LSTM) networks as the core methodology.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_19",
+          "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+          "heading": "Introduction",
+          "text_snippet": "Electronic Health Records (EHRs) digitally capture a wealth of patient data generated during routine clinical care. In particular, the Intensive Care Unit (ICU) is a data-rich environment due to the need for continuous, highresolution patient monitoring.",
+          "similarity": 1.0,
+          "reason": "The user's idea explicitly targets 'ICU patients' and 'EHR data', which is the exact domain and data source highlighted in the paper.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_19",
+          "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+          "heading": "Introduction",
+          "text_snippet": "This has led to a surge of research in medical artificial intelligence (AI), with many studies leveraging publicly available EHR datasets in combination with machine learning techniques for tasks such as early warning, outcome prediction and patient stratification [1, 2, 3, 4, 5, 6, 7, 8, 9]",
+          "similarity": 0.5,
+          "reason": "The user's proposed task of 'predict in-hospital mortality' falls under 'outcome prediction', which the paper identifies as a common research area and a type of contribution in medical AI.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea shows strong originality, particularly in its method and contribution. While the application domain has some overlap with existing work, focusing on the unique aspects of your proposed approach will further differentiate it.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.46,
+    "method_similarity": 0.43999999999999995,
+    "domain_similarity": 0.8200000000000001,
+    "contribution_similarity": 0.4
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0421,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.04,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0018,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 152.1571969985962,
+  "papers": [
+    {
+      "paper_id": "paper_19",
+      "source": "arxiv",
+      "source_id": "2509.22121v1",
+      "arxiv_id": "2509.22121v1",
+      "title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+      "abstract": "Irregular sampling and high missingness are intrinsic challenges in modeling time series derived from electronic health records (EHRs),where clinical variables are measured at uneven intervals depending on workflow and intervention timing. To address this, we propose VITAL, a variable-aware, large language model (LLM) based framework tailored for learning from irregularly sampled physiological time series. VITAL differentiates between two distinct types of clinical variables: vital signs, which are frequently recorded and exhibit temporal patterns, and laboratory tests, which are measured sporadically and lack temporal structure. It reprograms vital signs into the language space, enabling the LLM to capture temporal context and reason over missing values through explicit encoding. In contrast, laboratory variables are embedded either using representative summary values or a learnable [Not measured] token, depending on their availability. Extensive evaluations on the benchmark datasets from the PhysioNet demonstrate that VITAL outperforms state of the art methods designed for irregular time series. Furthermore, it maintains robust performance under high levels of missingness, which is prevalent in real world clinical scenarios where key variables are often unavailable.",
+      "url": "http://arxiv.org/abs/2509.22121v1",
+      "pdf_url": "https://arxiv.org/pdf/2509.22121v1",
+      "authors": [
+        "Jeong Eul Kwon",
+        "Joo Heung Yoon",
+        "Hyo Kyung Lee"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.3625,
+      "reason": "Problem: The user's idea focuses on predicting in-hospital mortality for ICU patients using an LSTM on time-series EHR data. The paper, while also using EHR time series from ICU patients (P19 and P12 datasets are mentioned as 'representative healthcare datasets'), primarily addresses the problem of 'variable-aware representation learning for irregular EHR time series using Large Language Models' to handle 'irregular sampling and high missingness'. While outcome prediction is a downstream task mentioned in the paper's introduction ('outcome prediction and patient stratification'), the core research problem of the paper is about developing a novel representation learning framework (VITAL) for irregular EHR data, which is a different angle than directly predicting mortality. | Method: The user's idea proposes using a recurrent neural network (LSTM) for prediction, while the paper introduces VITAL, a framework based on Large Language Models (LLMs) for representation learning. Although both approaches use deep learning on time-series EHR data, their core methodologies (LSTM vs. LLM with variable-aware reprogramming) are fundamentally different in architecture and how they process temporal information and missingness. | Domain: Both the user's research idea and the paper focus on predicting outcomes for ICU patients using EHR time-series data. The paper explicitly mentions 'outcome prediction' and uses datasets (P19, P12) derived from ICU settings, dealing with 'irregularly sampled physiological time series in EHR'. This directly aligns with the user's focus on 'in-hospital mortality for ICU patients' using 'time-series EHR data (vitals, labs, medications)'. | Contribution: The user's idea proposes using an LSTM for in-hospital mortality prediction, while the paper introduces VITAL, an LLM-based framework for representation learning from irregular EHR time series, specifically addressing missingness and variable-aware processing. While both use EHR time series and deep learning, the specific models (LSTM vs. LLM) and the primary methodological contributions (predicting mortality vs. variable-aware representation learning for irregular data) are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_07",
+      "source": "arxiv",
+      "source_id": "1510.07641v2",
+      "arxiv_id": "1510.07641v2",
+      "title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+      "abstract": "We present a novel application of LSTM recurrent neural networks to multilabel classification of diagnoses given variable-length time series of clinical measurements. Our method outperforms a strong baseline on a variety of metrics.",
+      "url": "http://arxiv.org/abs/1510.07641v2",
+      "pdf_url": "https://arxiv.org/pdf/1510.07641v2",
+      "authors": [
+        "Zachary C. Lipton",
+        "David C. Kale",
+        "Randall C. Wetzel"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.525,
+      "reason": "Problem: The paper addresses the problem of 'multilabel classification of diagnoses' or 'phenotyping critical care patients' using LSTM RNNs on clinical time series data, which is related to predicting patient outcomes. However, the user's idea specifically targets 'in-hospital mortality' as the prediction target, which is a single, specific outcome, whereas the paper focuses on classifying 'one or more diagnoses from among over one hundred possibilities'. | Method: Both the user's idea and the paper utilize recurrent neural networks (LSTMs) trained on time-series EHR data (vitals, labs) for prediction in ICU patients. However, the paper focuses on multilabel classification of diagnoses (phenotyping) at the final sequence step, whereas the user's idea specifically targets predicting in-hospital mortality, which is a different prediction task. The paper also mentions extending its work to include treatments and medications in the future, which the user's idea already incorporates. | Domain: Both the user's idea and the paper operate within the domain of critical care patients using EHR time-series data. The paper specifically uses 'PICU episodes' (pediatric intensive care unit) and 'clinical time series data' including 'vital signs, lab results, and subjective assessments,' which closely aligns with the user's 'ICU patients' and 'time-series EHR data (vitals, labs, medications).' While the paper focuses on 'multilabel classification of diagnoses' (phenotyping), the user's idea is to predict 'in-hospital mortality,' which is a closely related application target within the same sub-area of critical care patient outcomes. | Contribution: The paper's contribution is 'multilabel classification of diagnoses given variable-length time series of clinical measurements' (phenotyping), while the user's idea is to predict 'in-hospital mortality'. Both use LSTMs on time-series EHR data (vitals, labs, medications) for ICU patients, showing a partial overlap in methodology and data domain, but the specific prediction task (diagnosis vs. mortality) is distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_35",
+      "source": "arxiv",
+      "source_id": "2110.00998v1",
+      "arxiv_id": "2110.00998v1",
+      "title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+      "abstract": "Recently, there is great interest to investigate the application of deep learning models for the prediction of clinical events using electronic health records (EHR) data. In EHR data, a patient's history is often represented as a sequence of visits, and each visit contains multiple events. As a result, deep learning models developed for sequence modeling, like recurrent neural networks (RNNs) are common architecture for EHR-based clinical events predictive models. While a large variety of RNN models were proposed in the literature, it is unclear if complex architecture innovations will offer superior predictive performance. In order to move this field forward, a rigorous evaluation of various methods is needed. In this study, we conducted a thorough benchmark of RNN architectures in modeling EHR data. We used two prediction tasks: the risk for developing heart failure and the risk of early readmission for inpatient hospitalization. We found that simple gated RNN models, including GRUs and LSTMs, often offer competitive results when properly tuned with Bayesian Optimization, which is in line with similar to findings in the natural language processing (NLP) domain. For reproducibility, Our codebase is shared at https://github.com/ZhiGroup/pytorch_ehr.",
+      "url": "http://arxiv.org/abs/2110.00998v1",
+      "pdf_url": "https://arxiv.org/pdf/2110.00998v1",
+      "authors": [
+        "Laila Rasmy",
+        "Jie Zhu",
+        "Zhiheng Li",
+        "Xin Hao",
+        "Hong Thoai Tran",
+        "Yujia Zhou",
+        "Firat Tiryaki",
+        "Yang Xiang",
+        "Hua Xu",
+        "Degui Zhi"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL",
+        "cs.NE"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.38749999999999996,
+      "reason": "Problem: The paper addresses the broad topic of using RNNs for clinical event prediction using EHR data, which is similar to the user's idea. However, the specific prediction tasks in the paper are 'risk for developing heart failure' and 'risk of early readmission for inpatient hospitalization', which are different from the user's specific problem of 'predict in-hospital mortality for ICU patients'. | Method: Both the user's idea and the paper utilize recurrent neural networks (RNNs), specifically LSTMs, trained on time-series EHR data. However, the paper focuses on benchmarking various RNN architectures for predicting heart failure and early readmission, while the user's idea specifically targets in-hospital mortality for ICU patients, which is a different prediction task and patient cohort. | Domain: The user's idea and the paper both operate within the domain of healthcare, specifically using recurrent neural networks on EHR data for clinical event prediction. However, the specific application targets differ: the user aims to predict in-hospital mortality for ICU patients, while the paper focuses on predicting heart failure risk and early readmission for inpatient hospitalization. | Contribution: The paper focuses on benchmarking various RNN architectures (including LSTM) for general clinical event predictions using EHR data, specifically heart failure risk and early readmission. While the user's idea also uses LSTM and EHR data, its specific contribution is predicting in-hospital mortality for ICU patients, which is a different prediction task than those addressed in the paper.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_37",
+      "source": "arxiv",
+      "source_id": "2505.06774v2",
+      "arxiv_id": "2505.06774v2",
+      "title": "Quantum RNNs and LSTMs Through Entangling and Disentangling Power of Unitary Transformations",
+      "abstract": "In this paper, we present a framework for modeling quantum recurrent neural networks (RNNs) and their enhanced version, long short-term memory (LSTM) networks using the core ideas presented by Linden et al. (2009), where the entangling and disentangling power of unitary transformations is investigated. In particular, we interpret entangling and disentangling power as information retention and forgetting mechanisms in LSTMs. Thus, entanglement emerges as a key component of the optimization (training) process. We believe that, by leveraging prior knowledge of the entangling power of unitaries, the proposed quantum-classical framework can guide the design of better-parameterized quantum circuits for various real-world applications.",
+      "url": "http://arxiv.org/abs/2505.06774v2",
+      "pdf_url": "https://arxiv.org/pdf/2505.06774v2",
+      "authors": [
+        "Ammar Daskin"
+      ],
+      "categories": [
+        "quant-ph",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on predicting in-hospital mortality for ICU patients using LSTMs trained on EHR data. In contrast, the paper evaluates quantum RNNs and LSTMs, specifically how entanglement relates to information retention and forgetting, and demonstrates its model on noisy random sine data and weather data. The problem domains are completely unrelated. | Method: Both the user's idea and the paper utilize Long Short-Term Memory (LSTM) networks, which falls under the broad category of recurrent neural networks. However, the paper explicitly focuses on 'Quantum RNNs and LSTMs' and models them using 'entangling and disentangling power of unitary transformations' with 'quantum memory' and 'ancilla registers', which is a fundamentally different approach from a classical LSTM trained on time-series EHR data. | Domain: The user's research idea is in the domain of clinical healthcare, specifically predicting in-hospital mortality for ICU patients using EHR data. The evaluated paper focuses on quantum computing, specifically modeling quantum RNNs and LSTMs and demonstrating them on 'noisy random sine data' and 'weather data'. There is no overlap in the application domains. | Contribution: The user's research idea focuses on using LSTMs with time-series EHR data to predict in-hospital mortality for ICU patients. The paper, however, focuses on developing a framework for quantum RNNs and LSTMs, interpreting entanglement as information retention and forgetting mechanisms, and demonstrating it on synthetic sine data and weather data. The contributions are fundamentally different, with the paper addressing quantum computing advancements for LSTMs and the user's idea addressing a specific medical prediction task using classical LSTMs.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_27",
+      "source": "arxiv",
+      "source_id": "1204.4927v1",
+      "arxiv_id": "1204.4927v1",
+      "title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+      "abstract": "Objectives: Electronic health records (EHRs) are only a first step in capturing and utilizing health-related data - the challenge is turning that data into useful information. Furthermore, EHRs are increasingly likely to include data relating to patient outcomes, functionality such as clinical decision support, and genetic information as well, and, as such, can be seen as repositories of increasingly valuable information about patients' health conditions and responses to treatment over time. Methods: We describe a case study of 423 patients treated by Centerstone within Tennessee and Indiana in which we utilized electronic health record data to generate predictive algorithms of individual patient treatment response. Multiple models were constructed using predictor variables derived from clinical, financial and geographic data. Results: For the 423 patients, 101 deteriorated, 223 improved and in 99 there was no change in clinical condition. Based on modeling of various clinical indicators at baseline, the highest accuracy in predicting individual patient response ranged from 70-72% within the models tested. In terms of individual predictors, the Centerstone Assessment of Recovery Level - Adult (CARLA) baseline score was most significant in predicting outcome over time (odds ratio 4.1 + 2.27). Other variables with consistently significant impact on outcome included payer, diagnostic category, location and provision of case management services. Conclusions: This approach represents a promising avenue toward reducing the current gap between research and practice across healthcare, developing data-driven clinical decision support based on real-world populations, and serving as a component of embedded clinical artificial intelligences that \"learn\" over time.",
+      "url": "http://arxiv.org/abs/1204.4927v1",
+      "pdf_url": "https://arxiv.org/pdf/1204.4927v1",
+      "authors": [
+        "Casey Bennett",
+        "Tom Doub",
+        "Rebecca Selove"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.DB",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The user's research idea focuses on predicting in-hospital mortality for ICU patients using LSTM on time-series EHR data. The paper, while broadly discussing predictive modeling with EHR data for clinical decision support, specifically presents a case study predicting 'individual patient treatment response' for mental health patients, with outcomes like 'deteriorated, improved and in 99 there was no change in clinical condition'. This represents a different specific problem and outcome prediction, although both use EHR data for predictive modeling in healthcare. | Method: The paper discusses 'predictive modeling and data mining' and 'artificial intelligence' using EHR data to predict patient outcomes, which broadly aligns with the user's idea of using a neural network for prediction. However, the paper does not specify the use of recurrent neural networks (LSTMs) or any specific deep learning architecture, nor does it mention time-series data explicitly in the context of the models used, focusing more on 'predictor variables derived from clinical, financial and geographic data' and 'clinical indicators at baseline'. | Domain: Both the user's idea and the paper are within the healthcare domain and utilize EHR data for predictive modeling. However, the user's idea specifically targets 'in-hospital mortality for ICU patients' using 'recurrent neural network (LSTM) trained on time-series EHR data', while the paper focuses on 'predicting individual patient treatment response' for '423 patients treated by Centerstone within Tennessee and Indiana' in a mental health context, without specifying LSTM or ICU patients. | Contribution: The paper discusses using EHR data for predictive modeling and clinical decision support to predict individual patient treatment response, achieving 70-72% accuracy. While both the user's idea and the paper use EHR data for prediction, the paper focuses on general treatment response in mental health patients, whereas the user's idea specifically targets in-hospital mortality for ICU patients using LSTMs on time-series data, which is a different specific prediction task and methodology.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.98,
+    "existing_examples": [
+      {
+        "name": "Numerous Academic Research Papers (e.g., MIMIC-III database studies)",
+        "similarity": 0.95,
+        "description": "Many research groups have published extensively on using various machine learning models, including LSTMs and other RNNs, on time-series EHR data (like MIMIC-III) to predict in-hospital mortality, sepsis, readmission, and other adverse events in ICU patients. This is a very active and well-established research area in medical informatics and AI in healthcare."
+      },
+      {
+        "name": "Commercial AI/ML Platforms for Healthcare (e.g., Epic's Sepsis Prediction, Google Health AI)",
+        "similarity": 0.75,
+        "description": "While specific mortality prediction models might not be directly productized for general sale due to regulatory hurdles, major EHR vendors and health tech companies are developing and deploying predictive analytics using similar methodologies for various clinical outcomes, including risk of deterioration or sepsis, which are closely related to mortality prediction. The underlying technology and data types are very similar."
+      },
+      {
+        "name": "Early Warning Scores (EWS) and Clinical Risk Calculators",
+        "similarity": 0.6,
+        "description": "These are traditional, non-AI methods that also aim to predict patient deterioration or mortality using clinical data, albeit with simpler statistical models or rule-based systems. They represent the clinical problem that AI/ML methods are now addressing with more sophistication."
+      }
+    ],
+    "assessment": "The idea of using LSTMs on time-series EHR data to predict in-hospital mortality for ICU patients is a very well-established and actively researched area in medical artificial intelligence. There are numerous academic publications demonstrating this exact approach, often using publicly available datasets like MIMIC-III. While a specific commercial product might not be universally deployed under this exact description, the underlying research and technological feasibility are proven and widely known.",
+    "novelty_aspects": [
+      "Specific architectural variations of the LSTM or other RNNs (e.g., attention mechanisms, transformers)",
+      "Novel feature engineering or data representation techniques for EHR data",
+      "Integration with a specific clinical workflow or decision support system",
+      "Application to a unique patient cohort or rare disease where existing models are not optimized",
+      "Demonstrating superior performance or interpretability compared to state-of-the-art models"
+    ],
+    "recommendation": "This specific problem and approach are not novel. To make this a novel research contribution, you would need to identify a very specific gap in the existing literature or a unique methodological improvement. For example, focus on a novel model architecture, a new way to handle missing data, a method for improving model interpretability for clinicians, or a robust demonstration of clinical utility in a real-world, prospective setting that significantly outperforms current benchmarks."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Numerous Academic Research Papers (e.g., MIMIC-III database studies)** (similarity: 95%).\n\n*The idea of using LSTMs on time-series EHR data to predict in-hospital mortality for ICU patients is a very well-established and actively researched area in medical artificial intelligence. There are numerous academic publications demonstrating this exact approach, often using publicly available datasets like MIMIC-III. While a specific commercial product might not be universally deployed under this exact description, the underlying research and technological feasibility are proven and widely known.*\n\n**Recommendation:** This specific problem and approach are not novel. To make this a novel research contribution, you would need to identify a very specific gap in the existing literature or a unique methodological improvement. For example, focus on a novel model architecture, a new way to handle missing data, a method for improving model interpretability for clinicians, or a robust demonstration of clinical utility in a real-world, prospective setting that significantly outperforms current benchmarks.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 132,
+    "unique_after_dedup": 132,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 313,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0421,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.04,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Using a recurrent neural network (LSTM) trained on time-series EHR data (vitals, labs, medications) to predict in-hospital mortality for ICU patients.",
+  "enriched_idea": "RESEARCH IDEA:\nUsing a recurrent neural network (LSTM) trained on time-series EHR data (vitals, labs, medications) to predict in-hospital mortality for ICU patients.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_19",
+      "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+      "arxiv_id": "2509.22121v1",
+      "paper_similarity_score": 0.3625,
+      "reason": "Problem: The user's idea focuses on predicting in-hospital mortality for ICU patients using an LSTM on time-series EHR data. The paper, while also using EHR time series from ICU patients (P19 and P12 datasets are mentioned as 'representative healthcare datasets'), primarily addresses the problem of 'variable-aware representation learning for irregular EHR time series using Large Language Models' to handle 'irregular sampling and high missingness'. While outcome prediction is a downstream task mentioned in the paper's introduction ('outcome prediction and patient stratification'), the core research problem of the paper is about developing a novel representation learning framework (VITAL) for irregular EHR data, which is a different angle than directly predicting mortality. | Method: The user's idea proposes using a recurrent neural network (LSTM) for prediction, while the paper introduces VITAL, a framework based on Large Language Models (LLMs) for representation learning. Although both approaches use deep learning on time-series EHR data, their core methodologies (LSTM vs. LLM with variable-aware reprogramming) are fundamentally different in architecture and how they process temporal information and missingness. | Domain: Both the user's research idea and the paper focus on predicting outcomes for ICU patients using EHR time-series data. The paper explicitly mentions 'outcome prediction' and uses datasets (P19, P12) derived from ICU settings, dealing with 'irregularly sampled physiological time series in EHR'. This directly aligns with the user's focus on 'in-hospital mortality for ICU patients' using 'time-series EHR data (vitals, labs, medications)'. | Contribution: The user's idea proposes using an LSTM for in-hospital mortality prediction, while the paper introduces VITAL, an LLM-based framework for representation learning from irregular EHR time series, specifically addressing missingness and variable-aware processing. While both use EHR time series and deep learning, the specific models (LSTM vs. LLM) and the primary methodological contributions (predicting mortality vs. variable-aware representation learning for irregular data) are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a recurrent neural network (LSTM) trained on time-series EHR data (vitals, labs, medications) to predict in-hospital mortality for ICU patients.",
+          "sentence_index": 0,
+          "similarity_score": 0.5874999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Introduction",
+              "text_snippet": "This has led to a surge of research in medical artificial intelligence (AI), with many studies leveraging publicly available EHR datasets in combination with machine learning techniques for tasks such as early warning, outcome prediction and patient stratification [1, 2, 3, 4, 5, 6, 7, 8, 9]",
+              "similarity": 0.75,
+              "reason": "The user's idea of predicting in-hospital mortality is a type of 'outcome prediction' using EHR data, which the paper mentions as a common research task.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Introduction",
+              "text_snippet": "To comprehensively evaluate the effectiveness of VITAL, we conducted comparative experiments against several state-of-the-art (SoTA) methods specifically designed for irregularly sampled time series. Using two representative healthcare datasets, P19 [15] and P12 [16], VITAL achieved superior performance, outperforming previous SoTA models by absolute AUROC margins of 0.1% and 0.9%, and absolute AUPRC improvements of 4.4% and 3.4%, respectively.",
+              "similarity": 0.75,
+              "reason": "The paper evaluates its model on tasks that include outcome prediction, which aligns with the user's goal of predicting in-hospital mortality.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Introduction",
+              "text_snippet": "A common approach in these studies is to model patient records as multivariate time series, capturing the temporal evolution of physiological and clinical variables.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper deal with modeling patient records as multivariate time series, capturing temporal evolution.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Introduction",
+              "text_snippet": "many existing AI models treat all variables uniformly, often by imputing missing values and feeding the resulting time series into deep learning architectures.",
+              "similarity": 0.5,
+              "reason": "The user proposes a recurrent neural network (LSTM), which is a deep learning architecture, for time-series data, similar to how 'many existing AI models' are described, although the paper then proposes a different LLM-based approach.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Introduction",
+              "text_snippet": "Vital signs such as heart rate, blood pressure, and respiratory rate are automatically and frequently recorded via bedside monitors, leading to regular sampling and relatively low missingness. However, even among vital signs, missingness is not uncommon due to temporary disconnections, interruptions in monitoring, or asynchronous logging. In contrast, laboratory test results such as lactate, leukocyte count, and platelets are measured manually and less frequently, often only when clinically indicated. These measurements also involve multi-step delays, including physician ordering, sample collection, lab processing, and result reporting, resulting in sparse and temporally delayed time series.",
+              "similarity": 0.75,
+              "reason": "The user's idea specifies using 'time-series EHR data (vitals, labs, medications)', which directly overlaps with the types of clinical variables (vital signs, laboratory tests) discussed in the paper as components of EHR time series.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Introduction",
+              "text_snippet": "Electronic Health Records (EHRs) digitally capture a wealth of patient data generated during routine clinical care. In particular, the Intensive Care Unit (ICU) is a data-rich environment due to the need for continuous, highresolution patient monitoring.",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly targets 'ICU patients' and 'EHR data', which is the exact domain and data source highlighted in the paper.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Abstract",
+              "text_snippet": "Irregular sampling and high missingness are intrinsic challenges in modeling time series derived from electronic health records (EHRs),where clinical variables are measured at uneven intervals depending on workflow and intervention timing.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper focus on modeling time series derived from Electronic Health Records (EHRs).",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Conclusion",
+              "text_snippet": "In this study, we propose VITAL, a novel tool designed for learning from irregularly sampled physiological time series in EHRs.",
+              "similarity": 1.0,
+              "reason": "The paper's focus on 'physiological time series in EHRs' directly matches the user's use of 'time-series EHR data (vitals, labs, medications)'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Introduction",
+              "text_snippet": "This has led to a surge of research in medical artificial intelligence (AI), with many studies leveraging publicly available EHR datasets in combination with machine learning techniques for tasks such as early warning, outcome prediction and patient stratification [1, 2, 3, 4, 5, 6, 7, 8, 9]",
+              "similarity": 0.5,
+              "reason": "The user's proposed task of 'predict in-hospital mortality' falls under 'outcome prediction', which the paper identifies as a common research area and a type of contribution in medical AI.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_19",
+              "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+              "heading": "Conclusion",
+              "text_snippet": "We believe that this work provides both practical contributions and conceptual insights, highlighting a promising direction for future research in medical AI, particularly in the development of early warning systems and foundation models capable of capturing complex, irregular time series data.",
+              "similarity": 0.5,
+              "reason": "The user's idea of predicting in-hospital mortality can be seen as contributing to 'early warning systems' in medical AI, which the paper also highlights as a future research direction and practical contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 14478,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2509.22121v1"
+    },
+    {
+      "paper_id": "paper_07",
+      "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+      "arxiv_id": "1510.07641v2",
+      "paper_similarity_score": 0.525,
+      "reason": "Problem: The paper addresses the problem of 'multilabel classification of diagnoses' or 'phenotyping critical care patients' using LSTM RNNs on clinical time series data, which is related to predicting patient outcomes. However, the user's idea specifically targets 'in-hospital mortality' as the prediction target, which is a single, specific outcome, whereas the paper focuses on classifying 'one or more diagnoses from among over one hundred possibilities'. | Method: Both the user's idea and the paper utilize recurrent neural networks (LSTMs) trained on time-series EHR data (vitals, labs) for prediction in ICU patients. However, the paper focuses on multilabel classification of diagnoses (phenotyping) at the final sequence step, whereas the user's idea specifically targets predicting in-hospital mortality, which is a different prediction task. The paper also mentions extending its work to include treatments and medications in the future, which the user's idea already incorporates. | Domain: Both the user's idea and the paper operate within the domain of critical care patients using EHR time-series data. The paper specifically uses 'PICU episodes' (pediatric intensive care unit) and 'clinical time series data' including 'vital signs, lab results, and subjective assessments,' which closely aligns with the user's 'ICU patients' and 'time-series EHR data (vitals, labs, medications).' While the paper focuses on 'multilabel classification of diagnoses' (phenotyping), the user's idea is to predict 'in-hospital mortality,' which is a closely related application target within the same sub-area of critical care patient outcomes. | Contribution: The paper's contribution is 'multilabel classification of diagnoses given variable-length time series of clinical measurements' (phenotyping), while the user's idea is to predict 'in-hospital mortality'. Both use LSTMs on time-series EHR data (vitals, labs, medications) for ICU patients, showing a partial overlap in methodology and data domain, but the specific prediction task (diagnosis vs. mortality) is distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a recurrent neural network (LSTM) trained on time-series EHR data (vitals, labs, medications) to predict in-hospital mortality for ICU patients.",
+          "sentence_index": 0,
+          "similarity_score": 0.675,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+              "heading": "Introduction",
+              "text_snippet": "Recurrent neural networks (RNNs), in particular those based on Long Short-Term Memory (LSTM) [1], powerfully model varying-length sequential data...",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper explicitly mention using Recurrent Neural Networks (RNNs) and specifically Long Short-Term Memory (LSTM) networks as the core methodology.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+              "heading": "Methods and Experiments",
+              "text_snippet": "We cast the problem of phenotyping clinical time series as multilabel classification, and our proposed LSTM RNN uses memory cells with forget gates as described in but without peephole connections as described in .",
+              "similarity": 1.0,
+              "reason": "The paper details the use of an LSTM RNN for clinical time series, which directly aligns with the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+              "heading": "Introduction",
+              "text_snippet": "Clinical time series data, as recorded in the pediatric intensive care unit (PICU), exhibit these properties and others, including irregular sampling and non-random missing values [11].",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper focus on clinical time series data from an Intensive Care Unit (ICU), specifically mentioning EHR data and PICU data respectively.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+              "heading": "Data Description",
+              "text_snippet": "Our experiments use a collection of fully anonymized clinical time series extracted from the electronic health records system at Children's Hospital LA [11, 20] as a part of an IRB-approved study. The data consist of 10 , 401 PICU episodes, each a multivariate time series of 13 variables including vital signs, lab results, and subjective assessments.",
+              "similarity": 0.75,
+              "reason": "The paper uses EHR data, specifically time-series data including vital signs and lab results from PICU patients, which is very similar to the user's proposed EHR data (vitals, labs, medications) for ICU patients.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+              "heading": "Introduction",
+              "text_snippet": "This paper presents a preliminary empirical study of LSTM RNNs applied to supervised phenotyping of multivariate PICU time series. We classify each episode as having one or more diagnoses from among over one hundred possibilities.",
+              "similarity": 0.5,
+              "reason": "The paper addresses 'phenotyping' and 'classification of diagnoses' from clinical time series, which is related to the user's problem of 'predicting in-hospital mortality'. Both are predictive tasks on clinical time series, though the specific target (mortality vs. diagnoses) differs.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+              "heading": "Discussion",
+              "text_snippet": "Our results indicate that LSTM RNNs can be successfully applied to the problem of phenotyping critical care patients given clinical time series data.",
+              "similarity": 0.5,
+              "reason": "The paper demonstrates the successful application of LSTMs to critical care patient data, which partially overlaps with the user's goal of using LSTMs to predict mortality in ICU patients. Both contribute to showing the utility of LSTMs in critical care.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 1.0,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 8627,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1510.07641v2"
+    },
+    {
+      "paper_id": "paper_35",
+      "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+      "arxiv_id": "2110.00998v1",
+      "paper_similarity_score": 0.38749999999999996,
+      "reason": "Problem: The paper addresses the broad topic of using RNNs for clinical event prediction using EHR data, which is similar to the user's idea. However, the specific prediction tasks in the paper are 'risk for developing heart failure' and 'risk of early readmission for inpatient hospitalization', which are different from the user's specific problem of 'predict in-hospital mortality for ICU patients'. | Method: Both the user's idea and the paper utilize recurrent neural networks (RNNs), specifically LSTMs, trained on time-series EHR data. However, the paper focuses on benchmarking various RNN architectures for predicting heart failure and early readmission, while the user's idea specifically targets in-hospital mortality for ICU patients, which is a different prediction task and patient cohort. | Domain: The user's idea and the paper both operate within the domain of healthcare, specifically using recurrent neural networks on EHR data for clinical event prediction. However, the specific application targets differ: the user aims to predict in-hospital mortality for ICU patients, while the paper focuses on predicting heart failure risk and early readmission for inpatient hospitalization. | Contribution: The paper focuses on benchmarking various RNN architectures (including LSTM) for general clinical event predictions using EHR data, specifically heart failure risk and early readmission. While the user's idea also uses LSTM and EHR data, its specific contribution is predicting in-hospital mortality for ICU patients, which is a different prediction task than those addressed in the paper.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a recurrent neural network (LSTM) trained on time-series EHR data (vitals, labs, medications) to predict in-hospital mortality for ICU patients.",
+          "sentence_index": 0,
+          "similarity_score": 0.6,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "ABSTRACT",
+              "text_snippet": "Recently, there is great interest to investigate the application of deep learning models for the prediction of clinical events using electronic health records (EHR) data.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are interested in using deep learning models for clinical event prediction using EHR data. The user's specific problem of in-hospital mortality is a type of clinical event prediction.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "Introduction",
+              "text_snippet": "Recently it is of great interest to investigate the application of deep learning models for the prediction of clinical events using electronic health records (EHR) data.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are interested in using deep learning models for clinical event prediction using EHR data. The user's specific problem of in-hospital mortality is a type of clinical event prediction.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "ABSTRACT",
+              "text_snippet": "As a result, deep learning models developed for sequence modeling, like recurrent neural networks (RNNs) are common architecture for EHR-based clinical events predictive models. ... We found that simple gated RNN models, including GRUs and LSTMs, often offer competitive results when properly tuned with Bayesian Optimization...",
+              "similarity": 0.75,
+              "reason": "The user proposes using a recurrent neural network (LSTM), which is explicitly mentioned and benchmarked in the paper as a common and effective architecture for EHR-based clinical event prediction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "Introduction",
+              "text_snippet": "As a result, deep learning models developed for sequence modeling, especially recurrent neural networks (RNNs), were developed for EHR-based clinical events prediction [1].",
+              "similarity": 0.75,
+              "reason": "The user proposes using a recurrent neural network (LSTM), which is a type of RNN, and the paper discusses RNNs as developed for EHR-based clinical event prediction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "Results and Discussions",
+              "text_snippet": "Table 1 - Benchmarking Results ... LSTM | 83.9 | 73.8",
+              "similarity": 0.75,
+              "reason": "The paper explicitly benchmarks LSTM models, which is the specific recurrent neural network type the user proposes to use.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "Methods",
+              "text_snippet": "we tested 3 cells variations namely vanilla RNN cell with tanh activation, long short term memory (LSTM), and gated recurrent unit (GRU)...",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states that it tested LSTM as one of its recurrent neural network variations, matching the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "ABSTRACT",
+              "text_snippet": "Using electronic health records (EHR) data. In EHR data, a patient's history is often represented as a sequence of visits, and each visit contains multiple events.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper use time-series EHR data. The paper describes EHR data as a sequence of visits with multiple events, which aligns with the user's mention of 'time-series EHR data (vitals, labs, medications)'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "Introduction",
+              "text_snippet": "Using electronic health records (EHR) data. In EHR data, the longitudinal history of a patient is often represented as sequence data, where each patient can be represented as a sequence of visits, and each visit contains multiple events.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper use time-series EHR data. The paper describes EHR data as sequence data representing a patient's longitudinal history, which aligns with the user's mention of 'time-series EHR data (vitals, labs, medications)'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "text_snippet": "We used the diagnosis, medication, and encounter administrative information for a patient as input.",
+              "similarity": 0.5,
+              "reason": "The paper mentions using 'medication' as input, which is one of the data types specified by the user ('vitals, labs, medications'). While 'vitals' and 'labs' are not explicitly listed as inputs in this specific sentence, they are common components of EHR data.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "ABSTRACT",
+              "text_snippet": "Recently, there is great interest to investigate the application of deep learning models for the prediction of clinical events using electronic health records (EHR) data.",
+              "similarity": 0.5,
+              "reason": "The paper acknowledges the general interest in applying deep learning to EHR for clinical event prediction, which is the broad goal of the user's idea. However, the paper's specific contribution is a benchmark of RNN architectures, not the prediction of in-hospital mortality itself.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+              "heading": "Introduction",
+              "text_snippet": "Recently it is of great interest to investigate the application of deep learning models for the prediction of clinical events using electronic health records (EHR) data.",
+              "similarity": 0.5,
+              "reason": "The paper acknowledges the general interest in applying deep learning to EHR for clinical event prediction, which is the broad goal of the user's idea. However, the paper's specific contribution is a benchmark of RNN architectures, not the prediction of in-hospital mortality itself.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 12009,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2110.00998v1"
+    },
+    {
+      "paper_id": "paper_37",
+      "paper_title": "Quantum RNNs and LSTMs Through Entangling and Disentangling Power of Unitary Transformations",
+      "arxiv_id": "2505.06774v2",
+      "paper_similarity_score": 0.075,
+      "reason": "Problem: The user's research idea focuses on predicting in-hospital mortality for ICU patients using LSTMs trained on EHR data. In contrast, the paper evaluates quantum RNNs and LSTMs, specifically how entanglement relates to information retention and forgetting, and demonstrates its model on noisy random sine data and weather data. The problem domains are completely unrelated. | Method: Both the user's idea and the paper utilize Long Short-Term Memory (LSTM) networks, which falls under the broad category of recurrent neural networks. However, the paper explicitly focuses on 'Quantum RNNs and LSTMs' and models them using 'entangling and disentangling power of unitary transformations' with 'quantum memory' and 'ancilla registers', which is a fundamentally different approach from a classical LSTM trained on time-series EHR data. | Domain: The user's research idea is in the domain of clinical healthcare, specifically predicting in-hospital mortality for ICU patients using EHR data. The evaluated paper focuses on quantum computing, specifically modeling quantum RNNs and LSTMs and demonstrating them on 'noisy random sine data' and 'weather data'. There is no overlap in the application domains. | Contribution: The user's research idea focuses on using LSTMs with time-series EHR data to predict in-hospital mortality for ICU patients. The paper, however, focuses on developing a framework for quantum RNNs and LSTMs, interpreting entanglement as information retention and forgetting mechanisms, and demonstrating it on synthetic sine data and weather data. The contributions are fundamentally different, with the paper addressing quantum computing advancements for LSTMs and the user's idea addressing a specific medical prediction task using classical LSTMs.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a recurrent neural network (LSTM) trained on time-series EHR data (vitals, labs, medications) to predict in-hospital mortality for ICU patients.",
+          "sentence_index": 0,
+          "similarity_score": 0.24999999999999997,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_37",
+              "paper_title": "Quantum RNNs and LSTMs Through Entangling and Disentangling Power of Unitary Transformations",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this paper, we present a framework for modeling quantum recurrent neural networks (RNNs) and their enhanced version, long short-term memory (LSTM) networks using the core ideas presented by Linden et al. (2009), where the entangling and disentangling power of unitary transformations is investigated.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper explicitly mention using recurrent neural networks (RNNs) and Long Short-Term Memory (LSTM) networks as the core methodology.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_37",
+              "paper_title": "Quantum RNNs and LSTMs Through Entangling and Disentangling Power of Unitary Transformations",
+              "heading": "INTRODUCTION",
+              "text_snippet": "The recurrent neural network (RNN) or long shortterm memory (LSTM) cell models require a dynamic memory to retain or forget previous information.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper refer to RNNs and LSTMs as a type of model, indicating a shared methodological approach at a high level.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_37",
+              "paper_title": "Quantum RNNs and LSTMs Through Entangling and Disentangling Power of Unitary Transformations",
+              "heading": "CONCLUSION",
+              "text_snippet": "In this paper, we have described a quantum LSTM model in which the entanglement between system and ancilla registers directly encodes temporal memory by mimicking the entangling and disentangling power difference of unitary transformations.",
+              "similarity": 0.75,
+              "reason": "The paper discusses an LSTM model, which aligns with the user's proposed method of using an LSTM.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_37",
+              "paper_title": "Quantum RNNs and LSTMs Through Entangling and Disentangling Power of Unitary Transformations",
+              "heading": "NUMERICAL SIMULATIONS",
+              "text_snippet": "- We have also taken 365 days of weather data between 10 May 2024 and 10 May 2025 for Ontario, Canada (Meteostat, 2025; Lamprecht, 2025).",
+              "similarity": 0.25,
+              "reason": "The user's idea mentions 'time-series EHR data' and the paper mentions 'weather data', both of which are types of time-series data, indicating a general overlap in the type of data handled, though the specific domains differ.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_37",
+              "paper_title": "Quantum RNNs and LSTMs Through Entangling and Disentangling Power of Unitary Transformations",
+              "heading": "[THE HYBRID GENERAL FRAMEWORK]",
+              "text_snippet": "In a practical time-series task (such as forecasting), the model processes an ordered sequence of inputs: { x 1 , x 2 , . . . , x T } , where each x t is a scalar (or a feature vector) at time t .",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper deal with processing 'time-series' data, which is a fundamental aspect of the methodology for RNN/LSTM models.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.25,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 15389,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2505.06774v2"
+    },
+    {
+      "paper_id": "paper_27",
+      "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+      "arxiv_id": "1204.4927v1",
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The user's research idea focuses on predicting in-hospital mortality for ICU patients using LSTM on time-series EHR data. The paper, while broadly discussing predictive modeling with EHR data for clinical decision support, specifically presents a case study predicting 'individual patient treatment response' for mental health patients, with outcomes like 'deteriorated, improved and in 99 there was no change in clinical condition'. This represents a different specific problem and outcome prediction, although both use EHR data for predictive modeling in healthcare. | Method: The paper discusses 'predictive modeling and data mining' and 'artificial intelligence' using EHR data to predict patient outcomes, which broadly aligns with the user's idea of using a neural network for prediction. However, the paper does not specify the use of recurrent neural networks (LSTMs) or any specific deep learning architecture, nor does it mention time-series data explicitly in the context of the models used, focusing more on 'predictor variables derived from clinical, financial and geographic data' and 'clinical indicators at baseline'. | Domain: Both the user's idea and the paper are within the healthcare domain and utilize EHR data for predictive modeling. However, the user's idea specifically targets 'in-hospital mortality for ICU patients' using 'recurrent neural network (LSTM) trained on time-series EHR data', while the paper focuses on 'predicting individual patient treatment response' for '423 patients treated by Centerstone within Tennessee and Indiana' in a mental health context, without specifying LSTM or ICU patients. | Contribution: The paper discusses using EHR data for predictive modeling and clinical decision support to predict individual patient treatment response, achieving 70-72% accuracy. While both the user's idea and the paper use EHR data for prediction, the paper focuses on general treatment response in mental health patients, whereas the user's idea specifically targets in-hospital mortality for ICU patients using LSTMs on time-series data, which is a different specific prediction task and methodology.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using a recurrent neural network (LSTM) trained on time-series EHR data (vitals, labs, medications) to predict in-hospital mortality for ICU patients.",
+          "sentence_index": 0,
+          "similarity_score": 0.45,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_27",
+              "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+              "heading": "ABSTRACT",
+              "text_snippet": "Objectives: Electronic health records (EHRs) are only a first step in capturing and utilizing health-related data - the challenge is turning that data into useful information. Furthermore, EHRs are increasingly likely to include data relating to patient outcomes, functionality such as clinical decision support, and genetic information as well, and, as such, can be seen as repositories of increasingly valuable information about patients' health conditions and responses to treatment over time.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to leverage EHR data for predictive purposes to improve patient outcomes. The user focuses on in-hospital mortality, while the paper focuses on individual patient treatment response, which is a related but distinct problem.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_27",
+              "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+              "heading": "Introduction",
+              "text_snippet": "The use of predictive models for informing healthcare treatment algorithms accentuates the tension that exists between the art and science of treating common health disorders, between the knowledge of experienced clinicians and predictive recommendations derived from data.",
+              "similarity": 0.5,
+              "reason": "The paper discusses the use of predictive models for informing healthcare treatment algorithms, which aligns with the user's goal of predicting mortality to potentially inform clinical decisions.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_27",
+              "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+              "heading": "Introduction",
+              "text_snippet": "Predictive modeling and data mining (PM/DM) are two interrelated approaches to this issue. Data mining is the process of discovering patterns in data, typically through automatic or semi-automatic means (also sometimes referred to as machine learning).",
+              "similarity": 0.25,
+              "reason": "The paper broadly discusses predictive modeling and machine learning, which includes neural networks. However, it does not specify recurrent neural networks or LSTMs, which is a more specific method proposed by the user.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_27",
+              "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+              "heading": "ABSTRACT",
+              "text_snippet": "Objectives: Electronic health records (EHRs) are only a first step in capturing and utilizing health-related data - the challenge is turning that data into useful information. Furthermore, EHRs are increasingly likely to include data relating to patient outcomes, functionality such as clinical decision support, and genetic information as well, and, as such, can be seen as repositories of increasingly valuable information about patients' health conditions and responses to treatment over time.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper explicitly use Electronic Health Records (EHR) data as the primary data source for their predictive models.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_27",
+              "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+              "heading": "Introduction",
+              "text_snippet": "Collecting data in an electronic health record (EHR) is only the first step - indeed, we must further leverage that data through technology in order to provide useable, actionable information.",
+              "similarity": 1.0,
+              "reason": "The paper emphasizes leveraging EHR data, which is the core data domain for the user's research idea.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_27",
+              "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+              "heading": "Conclusions",
+              "text_snippet": "Recent years have the seen the proliferation of electronic health records (EHRs) across the mental healthcare field and the healthcare industry in general. The current challenge is turning data collected within EHRs into information useful for healthcare providers and addressing the 17-year research-practice gap in healthcare.",
+              "similarity": 1.0,
+              "reason": "The paper discusses the use of EHRs in healthcare, which is the domain of the user's idea.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_27",
+              "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+              "heading": "ABSTRACT",
+              "text_snippet": "Conclusions: This approach represents a promising avenue toward reducing the current gap between research and practice across healthcare, developing data-driven clinical decision support based on real-world populations, and serving as a component of embedded clinical artificial intelligences that \"learn\" over time.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to contribute to data-driven clinical decision support and potentially embedded AI in healthcare. The user's specific prediction of mortality contributes to this broader goal.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_27",
+              "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+              "heading": "Introduction",
+              "text_snippet": "However, data mining or clinical decision support alone is not sufficient for delivering personalized recommendations at the point of care. Utilizing them in conjunction can create a system of real-time data-driven clinical decision support, or 'adaptive' clinical decision support. The result is a more responsive and personalized model. One advantage of this approach is that the system can improve over time by evaluating its predictions and 'learning' from its mistakes. In a sense, this represents a form of artificial intelligence embedded within the live clinical system.",
+              "similarity": 0.5,
+              "reason": "The paper discusses the contribution of creating adaptive clinical decision support systems that 'learn' over time, which aligns with the user's use of a recurrent neural network for prediction, implying an adaptive learning system.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 24952,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1204.4927v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 88,
+    "global_similarity_score": 0.33249999999999996,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Using a recurrent neural network (LSTM) trained on time-series EHR data (vitals, labs, medications) to predict in-hospital mortality for ICU patients.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_19",
+            "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+            "heading": "Introduction",
+            "text_snippet": "This has led to a surge of research in medical artificial intelligence (AI), with many studies leveraging publicly available EHR datasets in combination with machine learning techniques for tasks such as early warning, outcome prediction and patient stratification [1, 2, 3, 4, 5, 6, 7, 8, 9]",
+            "similarity": 0.75,
+            "reason": "The user's idea of predicting in-hospital mortality is a type of 'outcome prediction' using EHR data, which the paper mentions as a common research task.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_07",
+            "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+            "heading": "Introduction",
+            "text_snippet": "Recurrent neural networks (RNNs), in particular those based on Long Short-Term Memory (LSTM) [1], powerfully model varying-length sequential data...",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper explicitly mention using Recurrent Neural Networks (RNNs) and specifically Long Short-Term Memory (LSTM) networks as the core methodology.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_19",
+            "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+            "heading": "Introduction",
+            "text_snippet": "Electronic Health Records (EHRs) digitally capture a wealth of patient data generated during routine clinical care. In particular, the Intensive Care Unit (ICU) is a data-rich environment due to the need for continuous, highresolution patient monitoring.",
+            "similarity": 1.0,
+            "reason": "The user's idea explicitly targets 'ICU patients' and 'EHR data', which is the exact domain and data source highlighted in the paper.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_19",
+            "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+            "heading": "Introduction",
+            "text_snippet": "This has led to a surge of research in medical artificial intelligence (AI), with many studies leveraging publicly available EHR datasets in combination with machine learning techniques for tasks such as early warning, outcome prediction and patient stratification [1, 2, 3, 4, 5, 6, 7, 8, 9]",
+            "similarity": 0.5,
+            "reason": "The user's proposed task of 'predict in-hospital mortality' falls under 'outcome prediction', which the paper identifies as a common research area and a type of contribution in medical AI.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea shows strong originality, particularly in its method and contribution. While the application domain has some overlap with existing work, focusing on the unique aspects of your proposed approach will further differentiate it.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.46,
+      "method_similarity": 0.43999999999999995,
+      "domain_similarity": 0.8200000000000001,
+      "contribution_similarity": 0.4
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0421,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.04,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0018,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 152.1571969985962,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_19",
+        "paper_title": "Mind the Missing: Variable-Aware Representation Learning for Irregular EHR Time Series using Large Language Models",
+        "paper_similarity": 0.3625,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_07",
+        "paper_title": "Phenotyping of Clinical Time Series with LSTM Recurrent Neural Networks",
+        "paper_similarity": 0.525,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_35",
+        "paper_title": "Simple Recurrent Neural Networks is all we need for clinical events predictions using EHR data",
+        "paper_similarity": 0.38749999999999996,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_37",
+        "paper_title": "Quantum RNNs and LSTMs Through Entangling and Disentangling Power of Unitary Transformations",
+        "paper_similarity": 0.075,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_27",
+        "paper_title": "EHRs Connect Research and Practice: Where Predictive Modeling, Artificial Intelligence, and Clinical Decision Support Intersect",
+        "paper_similarity": 0.3125,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 132
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 132,
+    "after_dedup": 132,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

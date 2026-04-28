@@ -1,0 +1,995 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "6d22c2b88536",
+    "status": "completed"
+  },
+  "originality_score": 11,
+  "global_similarity_score": 0.92475,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+          "heading": "ABSTRACT",
+          "text_snippet": "To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper aim to address the problem of integrating histopathology and genomic data for cancer prognosis, specifically using a multimodal approach to capture interactions.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+          "heading": "ABSTRACT",
+          "text_snippet": "To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment.",
+          "similarity": 1.0,
+          "reason": "The user proposes a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities'. The paper proposes 'Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features'. This is an almost identical methodological description.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+          "heading": "ABSTRACT",
+          "text_snippet": "The rapidly emerging field of deep learning-based computational pathology has shown promising results in utilizing whole slide images (WSIs) to objectively prognosticate cancer patients. ... To validate the effectiveness of MGCT, we conduct experiments using nearly 3,600 gigapixel WSIs across five different cancer types sourced from The Cancer Genome Atlas (TCGA).",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are focused on computational pathology, specifically using multi-modal data (histopathology images and genomic profiles) for cancer subtype prediction and survival prognosis.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+          "heading": "ABSTRACT",
+          "text_snippet": "To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment. ... Extensive experimental results consistently emphasize that MGCT outperforms the state-of-the-art (SOTA) methods.",
+          "similarity": 0.75,
+          "reason": "The user proposes to 'predict cancer subtype and survival prognosis simultaneously'. The paper's main contribution is a framework for 'predicting survival outcomes' by integrating histology and genomic features, which is a direct overlap with the survival prognosis aspect. While the paper focuses on survival, the user adds 'cancer subtype' prediction, making it a very similar but slightly broader contribution.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea shows very low originality, with significant overlap in problem, domain, and contribution with existing work, particularly in multimodal transformers for survival prediction. To improve originality, consider a novel problem formulation or a significantly differentiated methodological approach.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.94,
+    "method_similarity": 0.6699999999999999,
+    "domain_overlap": 1.0,
+    "contribution_similarity": 0.94
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0833,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0815,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0015,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 321.1355633735657,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2311.11659v1",
+      "arxiv_id": "2311.11659v1",
+      "title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+      "abstract": "The rapidly emerging field of deep learning-based computational pathology has shown promising results in utilizing whole slide images (WSIs) to objectively prognosticate cancer patients. However, most prognostic methods are currently limited to either histopathology or genomics alone, which inevitably reduces their potential to accurately predict patient prognosis. Whereas integrating WSIs and genomic features presents three main challenges: (1) the enormous heterogeneity of gigapixel WSIs which can reach sizes as large as 150,000x150,000 pixels; (2) the absence of a spatially corresponding relationship between histopathology images and genomic molecular data; and (3) the existing early, late, and intermediate multimodal feature fusion strategies struggle to capture the explicit interactions between WSIs and genomics. To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment. To validate the effectiveness of MGCT, we conduct experiments using nearly 3,600 gigapixel WSIs across five different cancer types sourced from The Cancer Genome Atlas (TCGA). Extensive experimental results consistently emphasize that MGCT outperforms the state-of-the-art (SOTA) methods.",
+      "url": "http://arxiv.org/abs/2311.11659v1",
+      "pdf_url": "http://arxiv.org/pdf/2311.11659v1",
+      "authors": [],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.725,
+      "reason": "Problem: The user's idea aims to predict cancer subtype and survival prognosis simultaneously using multi-modal data. The paper focuses on 'survival outcome prediction' using 'integrative histopathology-genomic features' and explicitly states its objective as 'to develop and optimize the function T ( · ) responsible for integrating the WSI bag X i and the feature vector g i to estimate the hazard function'. While the user's idea includes 'cancer subtype' prediction, the core problem of integrating histopathology images and genomic data for prognosis is very similar, differing mainly in the additional 'cancer subtype' prediction in the user's idea. | Method: The user's idea proposes a multi-modal transformer using cross-attention for joint processing of image patches and RNA-seq to predict cancer subtype and survival. The paper introduces MGCT, a 'Mutual-Guided Cross-Modality Transformer' that integrates 'histology features and genomic features' using 'Mutual-Guided Cross-Modality Attention' for 'survival outcome prediction'. While both use multi-modal transformers with cross-attention for survival prediction, the paper's method focuses on 'genomic features such as transcript abundance (bulk RNA-Seq), gene mutation status, and copy number variation' and specifically mentions 'weakly-supervised' learning and 'gated attention pooling', which are meaningful differences from the user's more general description of RNA-seq and cancer subtype prediction. | Domain: The user's research idea focuses on predicting cancer subtype and survival prognosis using whole-slide histopathology images and RNA-seq gene expression profiles. The paper's title, 'Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features,' and its abstract explicitly state its aim to predict 'survival outcomes' by integrating 'histology features and genomic features' from 'whole slide images (WSIs) and genomic molecular data' in cancer patients. This directly matches the application domain, data types, and prediction target of the user's idea. | Contribution: The paper's MGCT framework proposes a 'Mutual-Guided Cross-Modality Transformer' that 'combine histology features and genomic features to model the genotype-phenotype interactions' for 'survival outcome prediction'. This directly aligns with the user's idea of a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously'. The primary difference is the paper focuses on survival prognosis, while the user's idea also includes cancer subtype prediction, which is a minor addition given the extensive overlap in methodology and primary task.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2211.16632v1",
+      "arxiv_id": "2211.16632v1",
+      "title": "Hierarchical Transformer for Survival Prediction Using Multimodality Whole Slide Images and Genomics",
+      "abstract": "Learning good representation of giga-pixel level whole slide pathology images (WSI) for downstream tasks is critical. Previous studies employ multiple instance learning (MIL) to represent WSIs as bags of sampled patches because, for most occasions, only slide-level labels are available, and only a tiny region of the WSI is disease-positive area. However, WSI representation learning still remains an open problem due to: (1) patch sampling on a higher resolution may be incapable of depicting microenvironment information such as the relative position between the tumor cells and surrounding tissues, while patches at lower resolution lose the fine-grained detail; (2) extracting patches from giant WSI results in large bag size, which tremendously increases the computational cost. To solve the problems, this paper proposes a hierarchical-based multimodal transformer framework that learns a hierarchical mapping between pathology images and corresponding genes. Precisely, we randomly extract instant-level patch features from WSIs with different magnification. Then a co-attention mapping between imaging and genomics is learned to uncover the pairwise interaction and reduce the space complexity of imaging features. Such early fusion makes it computationally feasible to use MIL Transformer for the survival prediction task. Our architecture requires fewer GPU resources compared with benchmark methods while maintaining better WSI representation ability. We evaluate our approach on five cancer types from the Cancer Genome Atlas database and achieved an average c-index of $0.673$, outperforming the state-of-the-art multimodality methods.",
+      "url": "http://arxiv.org/abs/2211.16632v1",
+      "pdf_url": "http://arxiv.org/pdf/2211.16632v1",
+      "authors": [],
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8749999999999999,
+      "reason": "Problem: The paper addresses the same core problem as the user's idea: 'survival prediction' using 'multimodality whole slide images and genomics'. The abstract explicitly states, 'This paper proposes a hierarchical-based multimodal transformer framework that learns a hierarchical mapping between pathology images and corresponding genes... for the survival prediction task.' This directly aligns with the user's goal of predicting 'cancer subtype and survival prognosis simultaneously'. | Method: Both the user's idea and the paper propose a multi-modal transformer that processes whole-slide image patches and RNA-seq gene expression. The paper explicitly mentions using 'co-attention mapping between imaging and genomics' for 'early fusion' and 'MIL Transformer for the survival prediction task', which aligns very closely with the user's idea of 'cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously'. | Domain: Both the user's research idea and the paper focus on predicting cancer subtype and survival prognosis using multi-modal data, specifically whole-slide histopathology images and RNA-seq gene expression profiles. The paper's abstract explicitly states its goal is 'survival prediction using multimodality whole slide images and genomics', which directly aligns with the user's idea of predicting 'cancer subtype and survival prognosis simultaneously' using the same data types. | Contribution: The paper proposes a 'hierarchical-based multimodal transformer framework that learns a hierarchical mapping between pathology images and corresponding genes' for 'survival prediction'. It uses 'co-attention mapping between imaging and genomics' for 'early fusion'. The user's idea is a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously'. The core methodology of a multimodal transformer with cross-attention (co-attention) for joint processing of histopathology and genomics for prognosis is highly similar, with the user's addition of 'cancer subtype' prediction being a minor novel addition to the paper's 'survival prediction' task.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "1912.08937v3",
+      "arxiv_id": "1912.08937v3",
+      "title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+      "abstract": "Cancer diagnosis, prognosis, and therapeutic response predictions are based on morphological information from histology slides and molecular profiles from genomic data. However, most deep learning-based objective outcome prediction and grading paradigms are based on histology or genomics alone and do not make use of the complementary information in an intuitive manner. In this work, we propose Pathomic Fusion, an interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction. Our approach models pairwise feature interactions across modalities by taking the Kronecker product of unimodal feature representations and controls the expressiveness of each representation via a gating-based attention mechanism. Following supervised learning, we are able to interpret and saliently localize features across each modality, and understand how feature importance shifts when conditioning on multimodal input. We validate our approach using glioma and clear cell renal cell carcinoma datasets from the Cancer Genome Atlas (TCGA), which contains paired whole-slide image, genotype, and transcriptome data with ground truth survival and histologic grade labels. In a 15-fold cross-validation, our results demonstrate that the proposed multimodal fusion paradigm improves prognostic determinations from ground truth grading and molecular subtyping, as well as unimodal deep networks trained on histology and genomic data alone. The proposed method establishes insight and theory on how to train deep networks on multimodal biomedical data in an intuitive manner, which will be useful for other problems in medicine that seek to combine heterogeneous data streams for understanding diseases and predicting response and resistance to treatment.",
+      "url": "http://arxiv.org/abs/1912.08937v3",
+      "pdf_url": "http://arxiv.org/pdf/1912.08937v3",
+      "authors": [],
+      "categories": [
+        "cs.CV",
+        "q-bio.GN",
+        "q-bio.TO"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper addresses the exact same problem as the user's research idea: 'A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.' The paper's abstract states, 'In this work, we propose Pathomic Fusion, an interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction' and later mentions 'patient stratification into subtypes and treatment groups' and 'grade classification' as objectives. Both the user's idea and the paper aim to combine histopathology images and RNA-seq data to predict cancer subtype and survival prognosis. | Method: Both the user's idea and the paper propose a multi-modal approach for cancer prognosis using histopathology images and RNA-seq data. The paper uses a 'Kronecker product of unimodal feature representations' and 'gating-based attention mechanism' for fusion, which differs from the user's explicit mention of 'cross-attention between modalities' in a transformer architecture. While both use deep learning for multimodal fusion, the specific fusion mechanism and overall architecture (transformer vs. CNN/GCN/SNN with Kronecker product) represent meaningful differences. | Domain: The paper directly addresses the user's research idea. It proposes 'Pathomic Fusion', an 'interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction' and 'cancer diagnosis, prognosis, and therapeutic response predictions'. This aligns perfectly with the user's idea of a multi-modal transformer processing histopathology images and RNA-seq to predict cancer subtype and survival prognosis. | Contribution: The user's idea proposes a multi-modal transformer for joint processing of histopathology image patches and RNA-seq to predict cancer subtype and survival prognosis using cross-attention. The paper 'Pathomic Fusion' explicitly claims to be 'an interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction' and 'improves prognostic determinations from ground truth grading and molecular subtyping'. The paper also uses a 'gating-based attention mechanism' for multimodal fusion, which serves a similar purpose to cross-attention in integrating modalities. The core claims and methodology for joint prediction and multimodal integration are nearly identical.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2503.02849v1",
+      "arxiv_id": "2503.02849v1",
+      "title": "Multimodal Deep Learning for Subtype Classification in Breast Cancer Using Histopathological Images and Gene Expression Data",
+      "abstract": "Molecular subtyping of breast cancer is crucial for personalized treatment and prognosis. Traditional classification approaches rely on either histopathological images or gene expression profiling, limiting their predictive power. In this study, we propose a deep multimodal learning framework that integrates histopathological images and gene expression data to classify breast cancer into BRCA.Luminal and BRCA.Basal / Her2 subtypes. Our approach employs a ResNet-50 model for image feature extraction and fully connected layers for gene expression processing, with a cross-attention fusion mechanism to enhance modality interaction. We conduct extensive experiments using five-fold cross-validation, demonstrating that our multimodal integration outperforms unimodal approaches in terms of classification accuracy, precision-recall AUC, and F1-score. Our findings highlight the potential of deep learning for robust and interpretable breast cancer subtype classification, paving the way for improved clinical decision-making.",
+      "url": "http://arxiv.org/abs/2503.02849v1",
+      "pdf_url": "http://arxiv.org/pdf/2503.02849v1",
+      "authors": [],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.725,
+      "reason": "Problem: The paper addresses a very similar problem statement to the user's idea. Both aim to predict cancer subtype using multimodal data (histopathological images and gene expression profiles) with a cross-attention mechanism. The paper's goal is 'to classify breast cancer into BRCA.Luminal and BRCA.Basal / Her2 subtypes,' which is a specific instance of cancer subtype prediction. The user's idea also includes 'survival prognosis simultaneously,' which is a difference in scope, but the core problem of multimodal subtype prediction is highly aligned. | Method: Both the user's idea and the paper propose a multi-modal deep learning approach integrating histopathology images and gene expression data using cross-attention. However, the user's idea specifies a 'multi-modal transformer' that 'jointly processes' and uses 'cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously,' implying a more integrated transformer-based architecture for both modalities. The paper uses a ResNet-50 for image feature extraction and fully connected layers for gene expression, with a cross-attention fusion mechanism, and only predicts cancer subtype, not survival prognosis. | Domain: Both the user's research idea and the paper focus on the same specific application area: predicting cancer (breast cancer in the paper) using histopathology images and gene expression data. Both aim to predict cancer subtype, and the paper also mentions prognosis, which is closely related to the user's idea of survival prognosis. The data types (whole-slide histopathology image patches and RNA-seq gene expression profiles) are identical. | Contribution: The paper's claimed contributions largely overlap with the user's idea. The paper proposes a 'deep multimodal learning framework that integrates histopathological images and gene expression data to classify breast cancer into BRCA.Luminal and BRCA.Basal / Her2 subtypes' using a 'cross-attention fusion mechanism'. This directly aligns with the user's idea of a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype'. The primary difference is the user's additional claim of predicting 'survival prognosis simultaneously', which is not explicitly mentioned as a contribution in the paper, making it a minor novel addition.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "2509.20022v1",
+      "arxiv_id": "2509.20022v1",
+      "title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+      "abstract": "Current multimodal fusion approaches in computational oncology primarily focus on integrating multi-gigapixel histology whole slide images (WSIs) with genomic or transcriptomic data, demonstrating improved survival prediction. We hypothesize that incorporating pathology reports can further enhance prognostic performance. Pathology reports, as essential components of clinical workflows, offer readily available complementary information by summarizing histopathological findings and integrating expert interpretations and clinical context. However, fusing these modalities poses challenges due to their heterogeneous nature. WSIs are high-dimensional, each containing several billion pixels, whereas pathology reports consist of concise text summaries of varying lengths, leading to potential modality imbalance. To address this, we propose a prototype-based approach to generate balanced representations, which are then integrated using a Transformer-based fusion model for survival prediction that we term PS3 (Predicting Survival from Three Modalities). Specifically, we present: (1) Diagnostic prototypes from pathology reports, leveraging self-attention to extract diagnostically relevant sections and standardize text representation; (2) Histological prototypes to compactly represent key morphological patterns in WSIs; and (3) Biological pathway prototypes to encode transcriptomic expressions, accurately capturing cellular functions. PS3, the three-modal transformer model, processes the resulting prototype-based multimodal tokens and models intra-modal and cross-modal interactions across pathology reports, WSIs and transcriptomic data. The proposed model outperforms state-of-the-art methods when evaluated against clinical, unimodal and multimodal baselines on six datasets from The Cancer Genome Atlas (TCGA). The code is available at: https://github.com/manahilr/PS3.",
+      "url": "http://arxiv.org/abs/2509.20022v1",
+      "pdf_url": "http://arxiv.org/pdf/2509.20022v1",
+      "authors": [],
+      "categories": [
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.7749999999999999,
+      "reason": "Problem: The user's idea proposes predicting cancer subtype and survival prognosis. The paper focuses on 'cancer survival prediction' and explicitly states that 'patient prognosis in oncology refers to the predicted progression and outcome of cancer'. While the user's idea includes 'cancer subtype' prediction, the core problem of predicting patient outcomes (survival/prognosis) is highly similar, differing mainly in the scope of the prediction task. | Method: Both the user's idea and the paper propose a multi-modal transformer for cancer prognosis using histopathology images and RNA-seq data, employing cross-attention between modalities. However, the paper introduces a key difference by also incorporating pathology reports as a third modality and uses a prototype-based approach to generate balanced representations for all modalities before fusion, which is not explicitly mentioned in the user's idea. | Domain: Both the user's research idea and the paper focus on predicting cancer prognosis using multi-modal data, specifically whole-slide histopathology images and RNA-seq gene expression profiles. The paper explicitly states its goal is \"cancer survival prediction\" and integrates \"histology whole slide images (WSIs) with genomic or transcriptomic data,\" directly aligning with the user's proposed application domain. | Contribution: The user's idea proposes a multi-modal transformer that jointly processes whole-slide histopathology image patches and RNA-seq gene expression profiles using cross-attention to predict cancer subtype and survival prognosis. The paper, PS3, explicitly states its contribution as a 'prototype-based multimodal fusion framework that integrates cancer aggressiveness-related signals from WSIs, pathology reports and transcriptomic data for improved survival prediction' using a 'multimodal transformer [that] effectively modeled cross-modal interactions across all three modalities'. The paper also details the use of 'histological prototypes for WSIs' and 'pathway prototypes for transcriptomic data' and evaluates its performance on 'survival prediction', demonstrating a direct overlap with the user's proposed contributions, including the use of cross-attention between modalities.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Multi-modal learning in computational pathology",
+        "similarity": 0.9,
+        "description": "Numerous research papers and projects explore combining histopathology images with genomic data (including RNA-seq) for cancer prognosis and subtype prediction. Many use transformer architectures and cross-attention mechanisms."
+      },
+      {
+        "name": "Deep learning for cancer prognosis from WSI and genomics",
+        "similarity": 0.88,
+        "description": "This is a well-established research area. Models often integrate image features (from CNNs or vision transformers) with genomic features (from MLPs or other transformers) to predict outcomes."
+      },
+      {
+        "name": "Cross-attention mechanisms in multi-modal AI",
+        "similarity": 0.8,
+        "description": "Cross-attention is a standard technique in multi-modal transformer architectures to allow information flow between different data types (e.g., text and image, or in this case, image and gene expression)."
+      }
+    ],
+    "assessment": "The core idea of using a multi-modal transformer to jointly process whole-slide histopathology images and RNA-seq data with cross-attention for cancer subtype and survival prediction is a very active and well-researched area in computational pathology and medical AI. While the exact architecture might have minor variations, the fundamental approach and components (multi-modal learning, transformers, cross-attention, WSI + RNA-seq, cancer prognosis/subtype) are not novel.",
+    "novelty_aspects": [
+      "Specific architectural choices (e.g., how patches are encoded, specific cross-attention implementation, fusion strategy)",
+      "Novel dataset or specific cancer type focus that hasn't been thoroughly explored with this exact method",
+      "Demonstrating superior performance or interpretability compared to existing state-of-the-art methods"
+    ],
+    "recommendation": "While the general concept exists, there is still room for novel contributions. Focus on specific innovations in the model architecture, data integration strategy, interpretability, or demonstrating significant performance improvements on challenging datasets or specific cancer types. Clearly articulate what makes your approach distinct and superior to existing multi-modal models in this domain."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Multi-modal learning in computational pathology** (similarity: 90%).\n\n*The core idea of using a multi-modal transformer to jointly process whole-slide histopathology images and RNA-seq data with cross-attention for cancer subtype and survival prediction is a very active and well-researched area in computational pathology and medical AI. While the exact architecture might have minor variations, the fundamental approach and components (multi-modal learning, transformers, cross-attention, WSI + RNA-seq, cancer prognosis/subtype) are not novel.*\n\n**Recommendation:** While the general concept exists, there is still room for novel contributions. Focus on specific innovations in the model architecture, data integration strategy, interpretability, or demonstrating significant performance improvements on challenging datasets or specific cancer types. Clearly articulate what makes your approach distinct and superior to existing multi-modal models in this domain.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 131,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 442,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0833,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0815,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0015,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.",
+  "enriched_idea": "RESEARCH IDEA:\nA multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+      "arxiv_id": "2311.11659v1",
+      "paper_similarity_score": 0.725,
+      "reason": "Problem: The user's idea aims to predict cancer subtype and survival prognosis simultaneously using multi-modal data. The paper focuses on 'survival outcome prediction' using 'integrative histopathology-genomic features' and explicitly states its objective as 'to develop and optimize the function T ( · ) responsible for integrating the WSI bag X i and the feature vector g i to estimate the hazard function'. While the user's idea includes 'cancer subtype' prediction, the core problem of integrating histopathology images and genomic data for prognosis is very similar, differing mainly in the additional 'cancer subtype' prediction in the user's idea. | Method: The user's idea proposes a multi-modal transformer using cross-attention for joint processing of image patches and RNA-seq to predict cancer subtype and survival. The paper introduces MGCT, a 'Mutual-Guided Cross-Modality Transformer' that integrates 'histology features and genomic features' using 'Mutual-Guided Cross-Modality Attention' for 'survival outcome prediction'. While both use multi-modal transformers with cross-attention for survival prediction, the paper's method focuses on 'genomic features such as transcript abundance (bulk RNA-Seq), gene mutation status, and copy number variation' and specifically mentions 'weakly-supervised' learning and 'gated attention pooling', which are meaningful differences from the user's more general description of RNA-seq and cancer subtype prediction. | Domain: The user's research idea focuses on predicting cancer subtype and survival prognosis using whole-slide histopathology images and RNA-seq gene expression profiles. The paper's title, 'Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features,' and its abstract explicitly state its aim to predict 'survival outcomes' by integrating 'histology features and genomic features' from 'whole slide images (WSIs) and genomic molecular data' in cancer patients. This directly matches the application domain, data types, and prediction target of the user's idea. | Contribution: The paper's MGCT framework proposes a 'Mutual-Guided Cross-Modality Transformer' that 'combine histology features and genomic features to model the genotype-phenotype interactions' for 'survival outcome prediction'. This directly aligns with the user's idea of a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously'. The primary difference is the paper focuses on survival prognosis, while the user's idea also includes cancer subtype prediction, which is a minor addition given the extensive overlap in methodology and primary task.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      },
+      "sentence_level": [
+        {
+          "sentence": "A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.",
+          "sentence_index": 0,
+          "similarity_score": 0.8749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+              "heading": "ABSTRACT",
+              "text_snippet": "To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper aim to address the problem of integrating histopathology and genomic data for cancer prognosis, specifically using a multimodal approach to capture interactions.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+              "heading": "Problem Formulation",
+              "text_snippet": "The main objective is to develop and optimize the function T ( · ) responsible for integrating the WSI bag X i and the feature vector g i to estimate the hazard function:",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states its objective as integrating WSI and genomic features to estimate the hazard function, which is directly related to predicting survival prognosis, a key goal in the user's idea.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+              "heading": "ABSTRACT",
+              "text_snippet": "To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment.",
+              "similarity": 1.0,
+              "reason": "The user proposes a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities'. The paper proposes 'Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features'. This is an almost identical methodological description.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+              "heading": "Mutual-Guided Cross-Modality Transformer Layer",
+              "text_snippet": "Given the WSI bag representation H i and genomic bag representation G i , we propose a Mutual-Guided Cross-Modality Attention (MGCA) to generate a genomic-guided feature embedding R G → H . MGCA is a variant of Multi-Head Self-Attention (MHSA) within vanilla transformer encoder layer [10], for MGCA, Q is derived from one modality's features while K , V are obtained from another modality features, the remaining architectures and calculation are analogous to the MHSA.",
+              "similarity": 1.0,
+              "reason": "The user's idea explicitly mentions 'cross-attention between modalities'. The paper details its 'Mutual-Guided Cross-Modality Attention (MGCA)' which is a variant of Multi-Head Self-Attention where Q is from one modality and K, V from another, directly matching the cross-attention mechanism.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+              "heading": "WSI and Genomic Feature Construction",
+              "text_snippet": "To process each WSI X i , we employ the CLAM open-source repository [16] for automated tissue segmentation. Following segmentation, we extract 256 × 256 image patches { x k } N i k =1 without spatial overlapping at the 20 × equivalent pyramid level from all tissue regions identified. ... Genomic features such as transcript abundance (bulk RNA-Seq), gene mutation status, and copy number variation are typically represented as 1 × 1 measurements, denoted as g i ∈ R 1 × 1 .",
+              "similarity": 1.0,
+              "reason": "The user's idea specifies processing 'whole-slide histopathology image patches and matched RNA-seq gene expression profiles'. The paper describes extracting '256 × 256 image patches' from WSIs and using 'Genomic features such as transcript abundance (bulk RNA-Seq)', showing direct overlap in the input data types and processing of image patches.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+              "heading": "ABSTRACT",
+              "text_snippet": "The rapidly emerging field of deep learning-based computational pathology has shown promising results in utilizing whole slide images (WSIs) to objectively prognosticate cancer patients. ... To validate the effectiveness of MGCT, we conduct experiments using nearly 3,600 gigapixel WSIs across five different cancer types sourced from The Cancer Genome Atlas (TCGA).",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on computational pathology, specifically using multi-modal data (histopathology images and genomic profiles) for cancer subtype prediction and survival prognosis.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+              "heading": "Datasets and Evaluation Metrics",
+              "text_snippet": "To validate the effectiveness of the proposed MGCT, we used five cancer datasets from The Cancer Genome Atlas (TCGA) 1 , a public cancer data consortium that contains matched diagnostic WSIs and genomic data with labeled survival times and censorship statuses. ... We meticulously paired molecular data, encompassing mutation status, copy number variation, and RNA-Seq abundance for each patient sample.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly uses 'matched diagnostic WSIs and genomic data' including 'RNA-Seq abundance' for 'cancer datasets' from TCGA, which perfectly aligns with the user's proposed domain of 'whole-slide histopathology image patches and matched RNA-seq gene expression profiles' for 'cancer subtype and survival prognosis'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+              "heading": "ABSTRACT",
+              "text_snippet": "To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment. ... Extensive experimental results consistently emphasize that MGCT outperforms the state-of-the-art (SOTA) methods.",
+              "similarity": 0.75,
+              "reason": "The user proposes to 'predict cancer subtype and survival prognosis simultaneously'. The paper's main contribution is a framework for 'predicting survival outcomes' by integrating histology and genomic features, which is a direct overlap with the survival prognosis aspect. While the paper focuses on survival, the user adds 'cancer subtype' prediction, making it a very similar but slightly broader contribution.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+              "heading": "CONCLUSION",
+              "text_snippet": "In this paper, we present an innovative weakly-supervised, attention-based multimodal learning framework called MutualGuided Cross-Modality Transformer (MGCT) for predicting survival outcomes in computational pathology. By leveraging mutual-guided cross-modality attention, we effectively integrate histology and genomic features to capture crucial genotype-phenotype interactions in the tumor microenvironment.",
+              "similarity": 0.75,
+              "reason": "The paper's conclusion highlights its contribution in predicting 'survival outcomes' by integrating 'histology and genomic features' using 'mutual-guided cross-modality attention', which is a core part of the user's proposed contribution for 'survival prognosis'.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 1.0,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 37398,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2311.11659v1"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Hierarchical Transformer for Survival Prediction Using Multimodality Whole Slide Images and Genomics",
+      "arxiv_id": "2211.16632v1",
+      "paper_similarity_score": 0.8749999999999999,
+      "reason": "Problem: The paper addresses the same core problem as the user's idea: 'survival prediction' using 'multimodality whole slide images and genomics'. The abstract explicitly states, 'This paper proposes a hierarchical-based multimodal transformer framework that learns a hierarchical mapping between pathology images and corresponding genes... for the survival prediction task.' This directly aligns with the user's goal of predicting 'cancer subtype and survival prognosis simultaneously'. | Method: Both the user's idea and the paper propose a multi-modal transformer that processes whole-slide image patches and RNA-seq gene expression. The paper explicitly mentions using 'co-attention mapping between imaging and genomics' for 'early fusion' and 'MIL Transformer for the survival prediction task', which aligns very closely with the user's idea of 'cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously'. | Domain: Both the user's research idea and the paper focus on predicting cancer subtype and survival prognosis using multi-modal data, specifically whole-slide histopathology images and RNA-seq gene expression profiles. The paper's abstract explicitly states its goal is 'survival prediction using multimodality whole slide images and genomics', which directly aligns with the user's idea of predicting 'cancer subtype and survival prognosis simultaneously' using the same data types. | Contribution: The paper proposes a 'hierarchical-based multimodal transformer framework that learns a hierarchical mapping between pathology images and corresponding genes' for 'survival prediction'. It uses 'co-attention mapping between imaging and genomics' for 'early fusion'. The user's idea is a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously'. The core methodology of a multimodal transformer with cross-attention (co-attention) for joint processing of histopathology and genomics for prognosis is highly similar, with the user's addition of 'cancer subtype' prediction being a minor novel addition to the paper's 'survival prediction' task.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.75,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      },
+      "sentence_level": [
+        {
+          "sentence": "A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.",
+          "sentence_index": 0,
+          "similarity_score": 0.7999999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Hierarchical Transformer for Survival Prediction Using Multimodality Whole Slide Images and Genomics",
+              "heading": "Abstract",
+              "text_snippet": "To solve the problems, this paper proposes a hierarchical-based multimodal transformer framework that learns a hierarchical mapping between pathology images and corresponding genes. Such early fusion makes it computationally feasible to use MIL Transformer for the survival prediction task.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper aim to use multimodal data (histopathology images and gene expression) with a transformer framework for prediction tasks, specifically survival prediction in the paper's case.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Hierarchical Transformer for Survival Prediction Using Multimodality Whole Slide Images and Genomics",
+              "heading": "Abstract",
+              "text_snippet": "To solve the problems, this paper proposes a hierarchical-based multimodal transformer framework that learns a hierarchical mapping between pathology images and corresponding genes. Precisely, we randomly extract instant-level patch features from WSIs with different magnification. Then a co-attention mapping between imaging and genomics is learned to uncover the pairwise interaction and reduce the space complexity of imaging features.",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities'. The paper describes a 'multimodal transformer framework' that learns a 'mapping between pathology images and corresponding genes' using 'co-attention mapping between imaging and genomics'. The core components and their interaction mechanism are very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Hierarchical Transformer for Survival Prediction Using Multimodality Whole Slide Images and Genomics",
+              "heading": "Multimodality Feature Aggregation",
+              "text_snippet": "To capture interpretable interactions between genes and pathological images, we use an early fusion mechanism, Genomic-Guided Co-Attention (GCA) [8], to discover the genotype-phenotype interactions from the tumor microenvironment. Inspired by Transformer attention [22], GCA directly model the pairwise relationship by learning a co-attention matrix A coa between patch embeddings in H bag ∈ R M × d k and gene embeddings G bag ∈ R N × d k .",
+              "similarity": 1.0,
+              "reason": "The user explicitly mentions 'cross-attention between modalities'. The paper details the use of 'Genomic-Guided Co-Attention (GCA)' which learns a 'co-attention matrix' between image patch embeddings and gene embeddings, directly aligning with the user's proposed mechanism.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Hierarchical Transformer for Survival Prediction Using Multimodality Whole Slide Images and Genomics",
+              "heading": "Abstract",
+              "text_snippet": "Learning good representation of giga-pixel level whole slide pathology images (WSI) for downstream tasks is critical. To solve the problems, this paper proposes a hierarchical-based multimodal transformer framework that learns a hierarchical mapping between pathology images and corresponding genes. Such early fusion makes it computationally feasible to use MIL Transformer for the survival prediction task.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on cancer research, specifically using whole-slide histopathology images and gene expression data for cancer-related predictions (subtype and survival prognosis).",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Hierarchical Transformer for Survival Prediction Using Multimodality Whole Slide Images and Genomics",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Survival analysis is an essential task in cancer study and diagnosis. Instead of observing the biopsies under the microscope, whole slide pathology images (WSI) are widely used to present tumor growth and morphology information. Automatically analyzing histology provides valuable help for histologists on precision medicine and reduces diagnosis bias.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on cancer research, specifically using whole-slide histopathology images and gene expression data for cancer-related predictions (subtype and survival prognosis).",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Hierarchical Transformer for Survival Prediction Using Multimodality Whole Slide Images and Genomics",
+              "heading": "Abstract",
+              "text_snippet": "To solve the problems, this paper proposes a hierarchical-based multimodal transformer framework that learns a hierarchical mapping between pathology images and corresponding genes. Such early fusion makes it computationally feasible to use MIL Transformer for the survival prediction task. We evaluate our approach on five cancer types from the Cancer Genome Atlas database and achieved an average c-index of 0.673, outperforming the state-of-the-art multimodality methods.",
+              "similarity": 0.75,
+              "reason": "The user proposes to predict 'cancer subtype and survival prognosis simultaneously'. The paper focuses on 'survival prediction' and mentions 'multimodality methods'. While the paper doesn't explicitly mention 'cancer subtype' prediction, the core contribution of using multimodal transformers for cancer prognosis is highly similar.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 37840,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2211.16632v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+      "arxiv_id": "1912.08937v3",
+      "paper_similarity_score": 0.8499999999999999,
+      "reason": "Problem: The paper addresses the exact same problem as the user's research idea: 'A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.' The paper's abstract states, 'In this work, we propose Pathomic Fusion, an interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction' and later mentions 'patient stratification into subtypes and treatment groups' and 'grade classification' as objectives. Both the user's idea and the paper aim to combine histopathology images and RNA-seq data to predict cancer subtype and survival prognosis. | Method: Both the user's idea and the paper propose a multi-modal approach for cancer prognosis using histopathology images and RNA-seq data. The paper uses a 'Kronecker product of unimodal feature representations' and 'gating-based attention mechanism' for fusion, which differs from the user's explicit mention of 'cross-attention between modalities' in a transformer architecture. While both use deep learning for multimodal fusion, the specific fusion mechanism and overall architecture (transformer vs. CNN/GCN/SNN with Kronecker product) represent meaningful differences. | Domain: The paper directly addresses the user's research idea. It proposes 'Pathomic Fusion', an 'interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction' and 'cancer diagnosis, prognosis, and therapeutic response predictions'. This aligns perfectly with the user's idea of a multi-modal transformer processing histopathology images and RNA-seq to predict cancer subtype and survival prognosis. | Contribution: The user's idea proposes a multi-modal transformer for joint processing of histopathology image patches and RNA-seq to predict cancer subtype and survival prognosis using cross-attention. The paper 'Pathomic Fusion' explicitly claims to be 'an interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction' and 'improves prognostic determinations from ground truth grading and molecular subtyping'. The paper also uses a 'gating-based attention mechanism' for multimodal fusion, which serves a similar purpose to cross-attention in integrating modalities. The core claims and methodology for joint prediction and multimodal integration are nearly identical.",
+      "criteria_scores": {
+        "problem_similarity": 1.0,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.",
+          "sentence_index": 0,
+          "similarity_score": 0.7999999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we propose Pathomic Fusion, an interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction.",
+              "similarity": 0.75,
+              "reason": "The paper addresses the problem of multimodal fusion of histology images and genomic data for survival outcome prediction, which is very similar to the user's stated goal of predicting cancer subtype and survival prognosis.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "Multimodal Tensor Fusion via Kronecker Product and Gating-Based Attention",
+              "text_snippet": "Our motivation for multimodal learning is that the inter-modality interactions between histology and genomic features would be able to improve patient stratification into subtypes and treatment groups.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states the motivation for multimodal learning to improve patient stratification into subtypes and treatment groups, which aligns with the user's goal of predicting cancer subtype and survival prognosis.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "ABSTRACT",
+              "text_snippet": "Our approach models pairwise feature interactions across modalities by taking the Kronecker product of unimodal feature representations and controls the expressiveness of each representation via a gating-based attention mechanism.",
+              "similarity": 0.75,
+              "reason": "The paper uses a multimodal fusion approach with a gating-based attention mechanism, which is a form of attention between modalities, similar to the user's 'cross-attention between modalities'. While the user specifies 'transformer' and 'cross-attention', the paper's 'gating-based attention mechanism' serves a similar purpose in controlling feature expressiveness across modalities.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "Multimodal Tensor Fusion via Kronecker Product and Gating-Based Attention",
+              "text_snippet": "In this work, we aim to explicitly capture these important interactions using the Kronecker Product, which model feature interactions across unimodal feature representations, that would otherwise not be explicitly captured in feedforward layers. ... The joint multimodal tensor computed by the matrix outer product of these feature vectors would capture important unimodal, bimodal and trimodal interactions of all features of these three modalities, shown in Fig. 1 and in the equation below: ... To use the unperturbed unimodal features, we appended 1 to each feature vector before computing the Kronecker Product. Dropout layers with probability ( p = 0 . 25) were inserted after gating and computing the multimodal tensor.",
+              "similarity": 0.75,
+              "reason": "The paper describes a method for multimodal fusion using the Kronecker Product and a gating-based attention mechanism to capture interactions between modalities, which is functionally similar to the user's 'cross-attention between modalities' for joint processing.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "Network Architectures",
+              "text_snippet": "Our multimodal network architectures consist of two components: 1) Gating-based Modality Attention, and 2) fusion by Kronecker Product. Each modality was gated using three linear layers, with the second linear layer used to compute the attention scores. ... For feature fusion, the Kronecker product of the respective unimodal feature representations for each modality was computed, creating feature maps of size: [33 × 33] , [33 × 33] , [33 × 17 × 17] for our CNN ⊗ SNN, GCN ⊗ SNN, and CNN ⊗ GCN ⊗ SNN.",
+              "similarity": 0.75,
+              "reason": "The paper details a 'Gating-based Modality Attention' mechanism and fusion via Kronecker Product to combine features from different modalities, which aligns with the user's concept of 'cross-attention between modalities' for joint processing.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we propose Pathomic Fusion, an interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction.",
+              "similarity": 1.0,
+              "reason": "The paper's domain is cancer diagnosis and prognosis using histopathology images and genomic data (RNA-Seq), which perfectly matches the user's specified domain of whole-slide histopathology image patches and matched RNA-seq gene expression profiles for cancer.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "INTRODUCTION",
+              "text_snippet": "C ANCER diagnosis, prognosis and therapeutic response prediction is usually accomplished using heterogeneous data sources including histology slides, molecular profiles, as well as clinical data such as the patient's age and comorbidities. ... As the field of anatomic pathology migrates from glass slides to digitized whole slide images, there is a critical opportunity for development of algorithmic approaches for joint image-omic assays that make use of phenotypic and genotypic information in an integrative manner.",
+              "similarity": 1.0,
+              "reason": "The paper explicitly discusses cancer diagnosis and prognosis using histology slides (whole-slide images) and molecular profiles (genomic data), directly aligning with the user's domain and data types.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "Data Description",
+              "text_snippet": "To validate our proposed multimodal paradigm for integrating histology and genomic features, we collected glioma and clear cell renal cell carcinoma data from the TCGA, a cancer data consortium that contains paired high-throughput genome analysis and diagnostic whole slide images with ground-truth survival outcome and histologic grade labels. ... 320 genomic features from CNV (79), mutation status (1), and bulk RNA-Seq expression from the top 240 differentially expressed genes (240) were curated from the TCGA and the cBioPortal [65] for each patient.",
+              "similarity": 1.0,
+              "reason": "The paper uses TCGA data, specifically whole-slide images and RNA-Seq expression, for cancer prognosis and subtype prediction, which is the exact domain and data types mentioned by the user.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this work, we propose Pathomic Fusion, an interpretable strategy for end-to-end multimodal fusion of histology image and genomic (mutations, CNV, RNA-Seq) features for survival outcome prediction. ... In a 15-fold cross-validation, our results demonstrate that the proposed multimodal fusion paradigm improves prognostic determinations from ground truth grading and molecular subtyping, as well as unimodal deep networks trained on histology and genomic data alone.",
+              "similarity": 0.75,
+              "reason": "The paper's main contribution is a multimodal fusion framework for predicting survival outcome and improving prognostic determinations from molecular subtyping, which directly overlaps with the user's proposed contribution of predicting cancer subtype and survival prognosis simultaneously.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "Pathomic Fusion Outperforms Unimodal Networks and the WHO Paradigm",
+              "text_snippet": "In combining histology image, cell graph, and genomic features via Pathomic Fusion, our approach outperforms Cox models, unimodal networks, and previous deep learningbased feature fusion approaches on image-omic-based survival outcome prediction (Table I, II). On glioma, Pathomic Fusion outperforms the WHO paradigm and the previous state-of-the-art (concatenation-based fusion [29]) with 6.31% and 5.76% improvements respectively, reaching a c-Index of 0.826 .",
+              "similarity": 0.75,
+              "reason": "The paper demonstrates improved performance in survival outcome prediction using its multimodal fusion approach, which aligns with the user's implicit contribution of achieving better predictions for cancer subtype and survival prognosis through their proposed method.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+              "heading": "Pathomic Fusion Improves Patient Stratification",
+              "text_snippet": "To further investigate the ability of Pathomic Fusion for improving objective image-omic-based patient stratification, we plot Kaplan-Meier (KM) curves of our trained networks against the WHO paradigm (which uses molecular subtyping) on glioma (Fig. 3), and against the Fuhrman Grading System on CCRCC (Fig. 4). Overall, we observe that Pathomic Fusion allows for fine-grained stratification of survival curves beyond low vs. high survival, and that these digital grades may be useful in clinical settings in defining treatment cohorts.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly claims improved patient stratification based on molecular subtyping and survival, which is a direct outcome of predicting cancer subtype and survival prognosis, matching the user's contribution.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 60047,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1912.08937v3"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Multimodal Deep Learning for Subtype Classification in Breast Cancer Using Histopathological Images and Gene Expression Data",
+      "arxiv_id": "2503.02849v1",
+      "paper_similarity_score": 0.725,
+      "reason": "Problem: The paper addresses a very similar problem statement to the user's idea. Both aim to predict cancer subtype using multimodal data (histopathological images and gene expression profiles) with a cross-attention mechanism. The paper's goal is 'to classify breast cancer into BRCA.Luminal and BRCA.Basal / Her2 subtypes,' which is a specific instance of cancer subtype prediction. The user's idea also includes 'survival prognosis simultaneously,' which is a difference in scope, but the core problem of multimodal subtype prediction is highly aligned. | Method: Both the user's idea and the paper propose a multi-modal deep learning approach integrating histopathology images and gene expression data using cross-attention. However, the user's idea specifies a 'multi-modal transformer' that 'jointly processes' and uses 'cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously,' implying a more integrated transformer-based architecture for both modalities. The paper uses a ResNet-50 for image feature extraction and fully connected layers for gene expression, with a cross-attention fusion mechanism, and only predicts cancer subtype, not survival prognosis. | Domain: Both the user's research idea and the paper focus on the same specific application area: predicting cancer (breast cancer in the paper) using histopathology images and gene expression data. Both aim to predict cancer subtype, and the paper also mentions prognosis, which is closely related to the user's idea of survival prognosis. The data types (whole-slide histopathology image patches and RNA-seq gene expression profiles) are identical. | Contribution: The paper's claimed contributions largely overlap with the user's idea. The paper proposes a 'deep multimodal learning framework that integrates histopathological images and gene expression data to classify breast cancer into BRCA.Luminal and BRCA.Basal / Her2 subtypes' using a 'cross-attention fusion mechanism'. This directly aligns with the user's idea of a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype'. The primary difference is the user's additional claim of predicting 'survival prognosis simultaneously', which is not explicitly mentioned as a contribution in the paper, making it a minor novel addition.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 0.75
+      },
+      "sentence_level": [
+        {
+          "sentence": "A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.",
+          "sentence_index": 0,
+          "similarity_score": 0.6749999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Multimodal Deep Learning for Subtype Classification in Breast Cancer Using Histopathological Images and Gene Expression Data",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this study, we propose a deep multimodal learning framework that integrates histopathological images and gene expression data to classify breast cancer into BRCA.Luminal and BRCA.Basal / Her2 subtypes.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address a problem involving multimodal data (histopathology and gene expression) for cancer analysis. The paper focuses on subtype classification, which is part of the user's broader goal of 'cancer subtype and survival prognosis simultaneously'.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Multimodal Deep Learning for Subtype Classification in Breast Cancer Using Histopathological Images and Gene Expression Data",
+              "heading": "ABSTRACT",
+              "text_snippet": "Our approach employs a ResNet-50 model for image feature extraction and fully connected layers for gene expression processing, with a cross-attention fusion mechanism to enhance modality interaction.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose using a 'multi-modal transformer' (user) or 'deep multimodal learning framework' (paper) that 'jointly processes' (user) or 'integrates' (paper) 'histopathology image patches' (user) or 'histopathological images' (paper) and 'RNA-seq gene expression profiles' (user) or 'gene expression data' (paper), specifically mentioning 'cross-attention between modalities' (user) or 'cross-attention fusion mechanism' (paper). The user specifies a 'transformer' which is a more specific architecture than the paper's 'deep multimodal learning framework' but the core components are very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Multimodal Deep Learning for Subtype Classification in Breast Cancer Using Histopathological Images and Gene Expression Data",
+              "heading": "Model Implementation",
+              "text_snippet": "The deep learning model consists of two parallel pathways for feature extraction, followed by a fusion mechanism, in figure 5. ... and cross-attention fusion, where a multi-head attention mechanism is applied to align features from histopathological images and gene expression data. The cross-attention mechanism was designed to enhance feature interactions by dynamically weighting the importance of each modality's features.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly describes a model with parallel pathways for histopathology and gene expression, using a 'cross-attention fusion' mechanism, which directly aligns with the user's mention of 'cross-attention between modalities'. The user's idea specifies a 'transformer', which is a type of architecture that commonly uses attention mechanisms, making the methodological overlap strong.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Multimodal Deep Learning for Subtype Classification in Breast Cancer Using Histopathological Images and Gene Expression Data",
+              "heading": "ABSTRACT",
+              "text_snippet": "Molecular subtyping of breast cancer is crucial for personalized treatment and prognosis. Traditional classification approaches rely on either histopathological images or gene expression profiling, limiting their predictive power. In this study, we propose a deep multimodal learning framework that integrates histopathological images and gene expression data to classify breast cancer into BRCA.Luminal and BRCA.Basal / Her2 subtypes.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper operate in the domain of cancer research, specifically using 'whole-slide histopathology image patches'/'histopathological images' and 'RNA-seq gene expression profiles'/'gene expression data' to predict 'cancer subtype'. The paper focuses on breast cancer, a specific type of cancer, while the user's idea is more general ('cancer subtype'), but the data types and overall application area are identical.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Multimodal Deep Learning for Subtype Classification in Breast Cancer Using Histopathological Images and Gene Expression Data",
+              "heading": "ABSTRACT",
+              "text_snippet": "In this study, we propose a deep multimodal learning framework that integrates histopathological images and gene expression data to classify breast cancer into BRCA.Luminal and BRCA.Basal / Her2 subtypes.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is a framework for 'subtype classification', which directly overlaps with the user's proposed contribution of predicting 'cancer subtype'. The user's idea also includes 'survival prognosis', which is not explicitly a primary contribution of the paper, making the overlap partial.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Multimodal Deep Learning for Subtype Classification in Breast Cancer Using Histopathological Images and Gene Expression Data",
+              "heading": "Discussion",
+              "text_snippet": "Clinically, this approach has the potential to improve patient stratification and treatment selection by providing more accurate molecular subtype predictions. ... Future work will explore transformer-based fusion models and interpretability techniques to enhance clinical applicability.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is a framework for 'subtype classification', which directly overlaps with the user's proposed contribution of predicting 'cancer subtype'. The paper also mentions 'prognosis' in the abstract as something molecular subtyping is crucial for, and the user's idea explicitly includes 'survival prognosis'. The paper also mentions 'transformer-based fusion models' as future work, which the user proposes as part of their current idea.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 15187,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2503.02849v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+      "arxiv_id": "2509.20022v1",
+      "paper_similarity_score": 0.7749999999999999,
+      "reason": "Problem: The user's idea proposes predicting cancer subtype and survival prognosis. The paper focuses on 'cancer survival prediction' and explicitly states that 'patient prognosis in oncology refers to the predicted progression and outcome of cancer'. While the user's idea includes 'cancer subtype' prediction, the core problem of predicting patient outcomes (survival/prognosis) is highly similar, differing mainly in the scope of the prediction task. | Method: Both the user's idea and the paper propose a multi-modal transformer for cancer prognosis using histopathology images and RNA-seq data, employing cross-attention between modalities. However, the paper introduces a key difference by also incorporating pathology reports as a third modality and uses a prototype-based approach to generate balanced representations for all modalities before fusion, which is not explicitly mentioned in the user's idea. | Domain: Both the user's research idea and the paper focus on predicting cancer prognosis using multi-modal data, specifically whole-slide histopathology images and RNA-seq gene expression profiles. The paper explicitly states its goal is \"cancer survival prediction\" and integrates \"histology whole slide images (WSIs) with genomic or transcriptomic data,\" directly aligning with the user's proposed application domain. | Contribution: The user's idea proposes a multi-modal transformer that jointly processes whole-slide histopathology image patches and RNA-seq gene expression profiles using cross-attention to predict cancer subtype and survival prognosis. The paper, PS3, explicitly states its contribution as a 'prototype-based multimodal fusion framework that integrates cancer aggressiveness-related signals from WSIs, pathology reports and transcriptomic data for improved survival prediction' using a 'multimodal transformer [that] effectively modeled cross-modal interactions across all three modalities'. The paper also details the use of 'histological prototypes for WSIs' and 'pathway prototypes for transcriptomic data' and evaluates its performance on 'survival prediction', demonstrating a direct overlap with the user's proposed contributions, including the use of cross-attention between modalities.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 1.0,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.",
+          "sentence_index": 0,
+          "similarity_score": 0.7499999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+              "heading": "Abstract",
+              "text_snippet": "Current multimodal fusion approaches in computational oncology primarily focus on integrating multi-gigapixel histology whole slide images (WSIs) with genomic or transcriptomic data, demonstrating improved survival prediction.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of integrating histology images and transcriptomic data for cancer survival prediction.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+              "heading": "Introduction",
+              "text_snippet": "Recently, integrating multiple data modalities have been shown to improve survival prediction in cancer research, with most studies focusing on combining genomic data such as transcriptomic data with histology whole slide images (WSIs) [10, 66, 68].",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states that integrating transcriptomic data with histology WSIs for survival prediction is a common research focus, aligning with the user's problem statement.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+              "heading": "Multimodal Survival Prediction",
+              "text_snippet": "Many models utilize transformers [80], incorporating co-attention [7, 43, 89] and cross-attention mechanisms [12, 26, 46, 65] to enhance feature integration.",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'multi-modal transformer' using 'cross-attention between modalities', which directly aligns with the methods discussed in the paper for multimodal fusion.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+              "heading": "Multimodal Fusion",
+              "text_snippet": "We aim to design a multimodal fusion model that extends the standard Transformer attention mechanism [13, 74] to capture both intra-modal and cross-modal interactions.",
+              "similarity": 0.75,
+              "reason": "The paper's methodology for multimodal fusion explicitly uses a Transformer attention mechanism to capture cross-modal interactions, which is a core component of the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+              "heading": "Multimodal Fusion",
+              "text_snippet": "The approach results in a total of nine attention mechanisms categorized into (1) three self-attention (intra-modal) interactions: A p → p (pathways attending to pathways) , A h → h (histology attending to histology) and A t → t (text attending to text) (2) six cross-attention (inter-modal) interactions: A p → h , A p → t (pathways attending to histology and text), A h → p , A h → t (histology attending to pathways and text) and A t → p , A t → h (text attending to pathways and histology).",
+              "similarity": 0.75,
+              "reason": "The paper details the use of cross-attention mechanisms between different modalities (histology, pathways/RNA-seq, and text), which is a direct match to the user's proposed 'cross-attention between modalities'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+              "heading": "Abstract",
+              "text_snippet": "Current multimodal fusion approaches in computational oncology primarily focus on integrating multi-gigapixel histology whole slide images (WSIs) with genomic or transcriptomic data, demonstrating improved survival prediction.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are in the domain of computational oncology, specifically integrating histology images and RNA-seq (transcriptomic) data for cancer prediction.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+              "heading": "Introduction",
+              "text_snippet": "Recently, integrating multiple data modalities have been shown to improve survival prediction in cancer research, with most studies focusing on combining genomic data such as transcriptomic data with histology whole slide images (WSIs) [10, 66, 68].",
+              "similarity": 1.0,
+              "reason": "The paper explicitly states the domain as cancer research, focusing on transcriptomic data and histology WSIs, which perfectly matches the user's specified data types and application.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 48522,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2509.20022v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 11,
+    "global_similarity_score": 0.92475,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities to predict cancer subtype and survival prognosis simultaneously.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+            "heading": "ABSTRACT",
+            "text_snippet": "To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper aim to address the problem of integrating histopathology and genomic data for cancer prognosis, specifically using a multimodal approach to capture interactions.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+            "heading": "ABSTRACT",
+            "text_snippet": "To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment.",
+            "similarity": 1.0,
+            "reason": "The user proposes a 'multi-modal transformer that jointly processes whole-slide histopathology image patches and matched RNA-seq gene expression profiles, using cross-attention between modalities'. The paper proposes 'Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features'. This is an almost identical methodological description.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+            "heading": "ABSTRACT",
+            "text_snippet": "The rapidly emerging field of deep learning-based computational pathology has shown promising results in utilizing whole slide images (WSIs) to objectively prognosticate cancer patients. ... To validate the effectiveness of MGCT, we conduct experiments using nearly 3,600 gigapixel WSIs across five different cancer types sourced from The Cancer Genome Atlas (TCGA).",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are focused on computational pathology, specifically using multi-modal data (histopathology images and genomic profiles) for cancer subtype prediction and survival prognosis.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+            "heading": "ABSTRACT",
+            "text_snippet": "To ameliorate these issues, we propose the Mutual-Guided Cross-Modality Transformer (MGCT), a weakly-supervised, attention-based multimodal learning framework that can combine histology features and genomic features to model the genotype-phenotype interactions within the tumor microenvironment. ... Extensive experimental results consistently emphasize that MGCT outperforms the state-of-the-art (SOTA) methods.",
+            "similarity": 0.75,
+            "reason": "The user proposes to 'predict cancer subtype and survival prognosis simultaneously'. The paper's main contribution is a framework for 'predicting survival outcomes' by integrating histology and genomic features, which is a direct overlap with the survival prognosis aspect. While the paper focuses on survival, the user adds 'cancer subtype' prediction, making it a very similar but slightly broader contribution.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea shows very low originality, with significant overlap in problem, domain, and contribution with existing work, particularly in multimodal transformers for survival prediction. To improve originality, consider a novel problem formulation or a significantly differentiated methodological approach.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.94,
+      "method_similarity": 0.6699999999999999,
+      "domain_overlap": 1.0,
+      "contribution_similarity": 0.94
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0833,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0815,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0015,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 321.1355633735657,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "MGCT: Mutual-Guided Cross-Modality Transformer for Survival Outcome Prediction using Integrative Histopathology-Genomic Features",
+        "paper_similarity": 0.8625,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.75
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Hierarchical Transformer for Survival Prediction Using Multimodality Whole Slide Images and Genomics",
+        "paper_similarity": 0.9375,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.75,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.75
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Pathomic Fusion: An Integrated Framework for Fusing Histopathology and Genomic Features for Cancer Diagnosis and Prognosis",
+        "paper_similarity": 0.9249999999999999,
+        "criteria_scores": {
+          "problem_similarity": 1.0,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Multimodal Deep Learning for Subtype Classification in Breast Cancer Using Histopathological Images and Gene Expression Data",
+        "paper_similarity": 0.8625,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 0.75
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+        "paper_similarity": 0.8875,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 1.0,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 131
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 131
+    },
+    "total_papers_fetched": 131,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.8473282442748091,
+    "llm_selection_rate": 0.75
+  }
+}

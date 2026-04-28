@@ -1,0 +1,903 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "ec214ea5f650",
+    "status": "completed"
+  },
+  "originality_score": 77,
+  "global_similarity_score": 0.4725,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_35",
+          "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+          "heading": "Efficient Phase Diagram Sampling by Active Learning",
+          "text_snippet": "We address the problem of efficient phase diagram sampling by adopting active learning techniques from machine learning, and achieve an 80% reduction in the sample size (number of sampled statepoints) needed to establish the phase boundary up to a given precision in example application.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper address the problem of efficiently sampling phase diagrams to reduce the number of calculations/samples needed.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_35",
+          "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+          "heading": "Efficient Phase Diagram Sampling by Active Learning",
+          "text_snippet": "We propose an active learning approach to overcome this deficiency by adaptively choosing the next most informative statepoint(s) every round. This is done by interpolating the sampled statepoints' phases by Gaussian Process regression.",
+          "similarity": 1.0,
+          "reason": "The user explicitly mentions 'active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next', which directly matches the paper's core methodology of using active learning and Gaussian Process regression to adaptively choose the next most informative statepoints.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_08",
+          "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+          "heading": "ABSTRACT",
+          "text_snippet": "Alloy design can be framed as a constraint-satisfaction problem. ... (1) Phase Stability: By incorporating CALPHAD predictions as priors for solid-solution phase stability, we enhance model validation using a publicly available XRD dataset. (2) Phase Stability Prediction Refinement: We demonstrate an in silico active learning approach to efficiently correct phase diagrams.",
+          "similarity": 1.0,
+          "reason": "The user's idea is explicitly about 'alloy compositions' and 'binary alloy phase diagram', which is the core application domain of 'Alloy design' and 'Phase Stability Prediction Refinement' in the paper.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_35",
+          "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+          "heading": "Efficient Phase Diagram Sampling by Active Learning",
+          "text_snippet": "We address the problem of efficient phase diagram sampling by adopting active learning techniques from machine learning, and achieve an 80% reduction in the sample size (number of sampled statepoints) needed to establish the phase boundary up to a given precision in example application.",
+          "similarity": 0.75,
+          "reason": "The user's idea aims at 'reducing the number of calculations needed to map out a binary alloy phase diagram', which directly mirrors the paper's claimed contribution of '80% reduction in the sample size... needed to establish the phase boundary'.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research shows moderate originality, with significant overlap in methodology and domain with existing work, particularly in \"Efficient Phase Diagram Sampling by Active Learning.\" To enhance originality, consider refining your problem formulation and differentiating your methodological approach.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.61,
+    "method_similarity": 0.8200000000000001,
+    "domain_similarity": 0.78,
+    "contribution_similarity": 0.78
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0394,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0377,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0014,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 185.82493996620178,
+  "papers": [
+    {
+      "paper_id": "paper_35",
+      "source": "arxiv",
+      "source_id": "1803.03296v1",
+      "arxiv_id": "1803.03296v1",
+      "title": "Efficient Phase Diagram Sampling by Active Learning",
+      "abstract": "We address the problem of efficient phase diagram sampling by adopting active learning techniques from machine learning, and achieve an 80% reduction in the sample size (number of sampled statepoints) needed to establish the phase boundary up to a given precision in example application. Traditionally, data is collected on a uniform grid of predetermined statepoints. This approach, also known as grid search in the machine learning community, suffers from low efficiency by sampling statepoints that provide no information about the phase boundaries. We propose an active learning approach to overcome this deficiency by adaptively choosing the next most informative statepoint(s) every round. This is done by interpolating the sampled statepoints' phases by Gaussian Process regression. An acquisition function quantifies the informativeness of possible next statepoints, maximizing the information content in each subsequently sampled statepoint. We also generalize our approach with state-of-the-art batch sampling techniques to better utilize parallel computing resources. We demonstrate the usefulness of our approach in a few example simulations relevant to soft matter physics, although our algorithms are general. Our active learning enhanced phase diagram sampling method greatly accelerates research and opens up opportunities for extra-large scale exploration of a wide range of phase diagrams by simulations or experiments.",
+      "url": "http://arxiv.org/abs/1803.03296v1",
+      "pdf_url": "https://arxiv.org/pdf/1803.03296v1",
+      "authors": [
+        "Chengyu Dai",
+        "Isaac R. Bruss",
+        "Sharon C. Glotzer"
+      ],
+      "categories": [
+        "physics.comp-ph",
+        "cond-mat.soft"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.9125,
+      "reason": "Problem: The paper addresses the problem of 'efficient phase diagram sampling by adopting active learning techniques' to 'reduce the number of calculations needed to map out a binary alloy phase diagram.' This is very similar to the user's idea of 'Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.' Both focus on using active learning to efficiently map phase diagrams by reducing the number of samples/calculations, with the paper explicitly mentioning 'Gaussian Process regression' for interpolation, which aligns with the user's 'Gaussian process uncertainty'. | Method: The paper's method is identical to the user's research idea. Both propose using active learning with Gaussian Process regression to adaptively choose the next most informative statepoints to sample, thereby reducing the number of calculations needed to map out a phase diagram. The paper explicitly states, 'This is done by interpolating the sampled statepoints' phases by Gaussian Process regression. An acquisition function quantifies the informativeness of possible next statepoints, maximizing the information content in each subsequently sampled statepoint.' | Domain: The paper's application domain is general phase diagram sampling, demonstrated with a 2D Lennard-Jones system relevant to soft matter physics. The user's idea specifically targets binary alloy phase diagrams using DFT computations. While both involve phase diagrams and computational methods, the specific material system (soft matter vs. alloys) and computational method (general simulations/experiments vs. DFT) represent different sub-areas within materials science/physics. | Contribution: The paper's abstract states, \"We address the problem of efficient phase diagram sampling by adopting active learning techniques from machine learning... This is done by interpolating the sampled statepoints' phases by Gaussian Process regression.\" This directly matches the user's idea of \"Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.\" Both the method (active learning with Gaussian process) and the goal (reducing calculations for phase diagram mapping) are identical, even though the paper applies it to soft matter physics examples rather than specifically DFT for alloys.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 1.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_08",
+      "source": "arxiv",
+      "source_id": "2502.11369v1",
+      "arxiv_id": "2502.11369v1",
+      "title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+      "abstract": "Alloy design can be framed as a constraint-satisfaction problem. Building on previous methodologies, we propose equipping Gaussian Process Classifiers (GPCs) with physics-informed prior mean functions to model the boundaries of feasible design spaces. Through three case studies, we highlight the utility of informative priors for handling constraints on continuous and categorical properties. (1) Phase Stability: By incorporating CALPHAD predictions as priors for solid-solution phase stability, we enhance model validation using a publicly available XRD dataset. (2) Phase Stability Prediction Refinement: We demonstrate an in silico active learning approach to efficiently correct phase diagrams. (3) Continuous Property Thresholds: By embedding priors into continuous property models, we accelerate the discovery of alloys meeting specific property thresholds via active learning. In each case, integrating physics-based insights into the classification framework substantially improved model performance, demonstrating an efficient strategy for constraint-aware alloy design.",
+      "url": "http://arxiv.org/abs/2502.11369v1",
+      "pdf_url": "https://arxiv.org/pdf/2502.11369v1",
+      "authors": [
+        "Christofer Hardcastle",
+        "Ryan O Mullan",
+        "Raymundo Arroyave",
+        "Brent Vela"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.775,
+      "reason": "Problem: The paper addresses a very similar problem statement to the user's idea. Both focus on using active learning with Gaussian processes to efficiently map out alloy phase diagrams, reducing the number of calculations needed. The paper explicitly states, 'We demonstrate an in silico active learning approach to efficiently correct phase diagrams' and 'Physics-constrained active learning of phase diagrams have been achived using graph-based techniques such as in the CAMEO framework.' The main difference is the user specifies DFT calculations for binary alloys, while the paper discusses general phase stability and uses physics-informed priors, but the core problem of efficient phase diagram construction via active learning is shared. | Method: Both the user's idea and the paper utilize active learning with Gaussian processes for materials design, specifically for phase diagrams. The user's idea focuses on using Gaussian process uncertainty for selecting alloy compositions for DFT calculations to map binary alloy phase diagrams, while the paper uses physics-informed Gaussian Process Classifiers for active learning to efficiently correct phase diagrams and construct accurate phase stability predictions with minimal ground-truth data. The core methodology of active learning driven by Gaussian processes for phase diagram exploration is very similar, with the paper adding physics-informed priors and applying it to categorical constraints. | Domain: Both the user's research idea and the paper focus on using active learning with Gaussian processes to accelerate the mapping or correction of alloy phase diagrams. The user specifically mentions 'reducing the number of calculations needed to map out a binary alloy phase diagram,' while the paper's abstract states 'Phase Stability Prediction Refinement: We demonstrate an in silico active learning approach to efficiently correct phase diagrams' and a case study is 'Active Learning of Categorical Constraints' to 'construct the most accurate isopleth phase stability predictions with the fewest possible queries of the ground truth.' This indicates a direct overlap in the specific application area, data type (alloy compositions/phase stability), and target system (phase diagrams). | Contribution: The paper's second case study, 'Phase Stability Prediction Refinement,' demonstrates an 'in silico active learning approach to efficiently correct phase diagrams,' which directly aligns with the user's idea of reducing calculations to map out a binary alloy phase diagram using active learning. The paper also mentions 'physics-constrained active learning of phase diagrams' and 'accelerate the construction of phase diagrams by incorporating prior physical knowledge into the model's covariance structure,' indicating a strong overlap in the core contribution of using active learning for phase diagram construction. The user's specific mention of 'Gaussian process uncertainty' is a detail within the broader active learning framework that the paper also employs with GPCs.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.75,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.75
+      }
+    },
+    {
+      "paper_id": "paper_26",
+      "source": "arxiv",
+      "source_id": "2506.09781v2",
+      "arxiv_id": "2506.09781v2",
+      "title": "On the Similarities of Embeddings in Contrastive Learning",
+      "abstract": "Contrastive learning operates on a simple yet effective principle: Embeddings of positive pairs are pulled together, while those of negative pairs are pushed apart. In this paper, we propose a unified framework for understanding contrastive learning through the lens of cosine similarity, and present two key theoretical insights derived from this framework. First, in full-batch settings, we show that perfect alignment of positive pairs is unattainable when negative-pair similarities fall below a threshold, and this misalignment can be mitigated by incorporating within-view negative pairs into the objective. Second, in mini-batch settings, smaller batch sizes induce stronger separation among negative pairs in the embedding space, i.e., higher variance in their similarities, which in turn degrades the quality of learned representations compared to full-batch settings. To address this, we propose an auxiliary loss that reduces the variance of negative-pair similarities in mini-batch settings. Empirical results show that incorporating the proposed loss improves performance in small-batch settings.",
+      "url": "http://arxiv.org/abs/2506.09781v2",
+      "pdf_url": "https://arxiv.org/pdf/2506.09781v2",
+      "authors": [
+        "Chungpa Lee",
+        "Sehee Lim",
+        "Kibok Lee",
+        "Jy-yong Sohn"
+      ],
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on using active learning with Gaussian processes for materials science (alloy phase diagrams via DFT calculations). The paper, however, addresses theoretical aspects of contrastive learning, specifically analyzing embedding similarities and proposing methods to mitigate issues in mini-batch settings. These are fundamentally different research problems with no overlap in domain or specific question. | Method: The user's research idea proposes using active learning with Gaussian process uncertainty for selecting alloy compositions in DFT calculations. The paper, however, focuses on theoretical insights into contrastive learning, analyzing embedding similarities and proposing an auxiliary loss to reduce variance in mini-batch settings. There is no methodological overlap between these two distinct areas of research. | Domain: The user's research idea is in materials science, specifically using active learning and Gaussian processes for alloy phase diagram mapping via DFT calculations. The paper, 'On the Similarities of Embeddings in Contrastive Learning,' is purely theoretical and empirical within the field of machine learning (cs.LG, stat.ML), focusing on contrastive learning algorithms and their properties, without any mention of materials science, alloys, DFT, or similar application domains. | Contribution: The user's research idea focuses on using active learning with Gaussian process uncertainty for selecting alloy compositions in DFT calculations to map phase diagrams. The paper, in contrast, is about theoretical insights into contrastive learning, specifically analyzing embedding similarities in full-batch and mini-batch settings and proposing an auxiliary loss to reduce variance. There is no overlap in the claimed contributions or the problem domains addressed.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2508.03278v1",
+      "arxiv_id": "2508.03278v1",
+      "title": "Artificial Intelligence and Generative Models for Materials Discovery -- A Review",
+      "abstract": "High throughput experimentation tools, machine learning (ML) methods, and open material databases are radically changing the way new materials are discovered. From the experimentally driven approach in the past, we are moving quickly towards the artificial intelligence (AI) driven approach, realizing the 'inverse design' capabilities that allow the discovery of new materials given the desired properties. This review aims to discuss different principles of AI-driven generative models that are applicable for materials discovery, including different materials representations available for this purpose. We will also highlight specific applications of generative models in designing new catalysts, semiconductors, polymers, or crystals while addressing challenges such as data scarcity, computational cost, interpretability, synthesizability, and dataset biases. Emerging approaches to overcome limitations and integrate AI with experimental workflows will be discussed, including multimodal models, physics informed architectures, and closed-loop discovery systems. This review aims to provide insights for researchers aiming to harness AI's transformative potential in accelerating materials discovery for sustainability, healthcare, and energy innovation.",
+      "url": "http://arxiv.org/abs/2508.03278v1",
+      "pdf_url": "https://arxiv.org/pdf/2508.03278v1",
+      "authors": [
+        "Albertus Denny Handoko",
+        "Riko I Made"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "cs.AI",
+        "physics.app-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.525,
+      "reason": "Problem: The paper reviews the application of AI and generative models for materials discovery, which broadly covers the user's idea of using active learning to reduce DFT calculations. It mentions 'active learning' and 'reducing experiments' in the context of VAEs and Bayesian optimization for shape-memory alloys, and 'computational cost' as a challenge. However, the paper does not specifically address the problem of mapping out binary alloy phase diagrams or using Gaussian process uncertainty for selecting compositions, making the specific problem different from the user's idea. | Method: The user's idea specifies 'active learning with Gaussian process uncertainty' for selecting alloy compositions. The paper mentions 'active learning' in several contexts, including 'Advances in active learning, coupled with models like CrystalFormer-RL' and 'VAEs have been used in active learning frameworks, with Zuo et al. 141 using a VAE with Bayesian optimization'. While active learning is a shared concept, the paper does not specifically mention Gaussian processes for uncertainty quantification or the application to binary alloy phase diagrams, indicating a general method family with meaningful differences in specific components. | Domain: The paper discusses the application of AI and generative models for materials discovery, specifically mentioning 'high-entropy alloy catalysts' and 'crystallographic alloy structures' as targets for GANs. It also references 'active learning' and 'closed-loop discovery systems' for optimizing experimental workflows and prioritizing candidates for 'shape-memory alloys,' which aligns with the user's idea of using active learning to select alloy compositions to compute via DFT for mapping a binary alloy phase diagram. | Contribution: The paper discusses the integration of generative models with active learning and computational methods, mentioning 'Advances in active learning, coupled with models like CrystalFormer-RL 20 , optimize experimental workflows by prioritizing high-value candidates' and 'VAEs have been used in active learning frameworks, with Zuo et al. 141 using a VAE with Bayesian optimization, trained on OQMD data, to prioritize candidates for shape-memory alloys, reducing experiments by 50%.' This shows a general overlap in using active learning to reduce computational cost in materials discovery. However, the user's idea is specific to 'Gaussian process uncertainty' for 'alloy compositions' to 'map out a binary alloy phase diagram' using 'DFT,' which is a more specific application not explicitly detailed in the paper's general review of AI in materials discovery.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "1805.00861v1",
+      "arxiv_id": "1805.00861v1",
+      "title": "Modelling cross-dependencies between Spain's regional tourism markets with an extension of the Gaussian process regression model",
+      "abstract": "This study presents an extension of the Gaussian process regression model for multiple-input multiple-output forecasting. This approach allows modelling the cross-dependencies between a given set of input variables and generating a vectorial prediction. Making use of the existing correlations in international tourism demand to all seventeen regions of Spain, the performance of the proposed model is assessed in a multiple-step-ahead forecasting comparison. The results of the experiment in a multivariate setting show that the Gaussian process regression model significantly improves the forecasting accuracy of a multi-layer perceptron neural network used as a benchmark. The results reveal that incorporating the connections between different markets in the modelling process may prove very useful to refine predictions at a regional level.",
+      "url": "http://arxiv.org/abs/1805.00861v1",
+      "pdf_url": "https://arxiv.org/pdf/1805.00861v1",
+      "authors": [
+        "Oscar Claveria",
+        "Enric Monte",
+        "Salvador Torra"
+      ],
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.15,
+      "reason": "Problem: The user's research idea focuses on using active learning with Gaussian processes to optimize DFT calculations for binary alloy phase diagrams. The paper, in contrast, addresses the problem of forecasting regional tourism markets using an extension of the Gaussian process regression model for multiple-input multiple-output forecasting. These are fundamentally different research problems in distinct domains. | Method: Both the user's idea and the paper utilize Gaussian Process Regression (GPR) and its uncertainty estimates. However, the paper focuses on extending GPR for multiple-input multiple-output (MIMO) forecasting in tourism, while the user's idea applies GPR with active learning for selecting alloy compositions in materials science, which represents a different application and an additional methodological component (active learning for selection). | Domain: The user's research idea is in materials science, specifically using DFT to map alloy phase diagrams. The paper, however, focuses on economic forecasting, particularly modeling tourism markets in Spain. These are entirely different scientific and application domains. | Contribution: The user's research idea focuses on using active learning with Gaussian process uncertainty for materials science (alloy phase diagrams via DFT calculations) to reduce computational cost. The paper, however, extends Gaussian process regression for multiple-input multiple-output forecasting in regional tourism markets to model cross-dependencies and improve prediction accuracy. The application domains and specific contributions are entirely different.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.9,
+    "existing_examples": [
+      {
+        "name": "Active Learning for Materials Discovery",
+        "similarity": 0.9,
+        "description": "Numerous research efforts apply active learning, often with Gaussian Processes, to accelerate materials discovery and optimization, including phase diagram mapping. Examples include work by the Materials Project, Citrine Informatics (software platform), and various academic groups (e.g., looking at high-entropy alloys, catalysts, etc.)."
+      },
+      {
+        "name": "Gaussian Process Regression in Materials Science",
+        "similarity": 0.85,
+        "description": "Gaussian Processes are a well-established machine learning technique used in materials science for uncertainty quantification and surrogate modeling, particularly when data is scarce or expensive to obtain (like DFT calculations)."
+      },
+      {
+        "name": "DFT-driven Phase Diagram Calculations",
+        "similarity": 0.8,
+        "description": "Using Density Functional Theory (DFT) to compute energies and properties for constructing phase diagrams is a standard approach in computational materials science. The challenge is the computational cost."
+      }
+    ],
+    "assessment": "The core idea of using active learning, specifically with Gaussian process uncertainty, to guide DFT calculations for efficiently mapping out alloy phase diagrams is a well-established and active area of research in computational materials science. Many groups and platforms are already employing or developing similar methodologies to reduce the computational burden of DFT calculations for materials discovery and characterization.",
+    "novelty_aspects": [
+      "Specific choice of acquisition function for active learning",
+      "Novel application to a particularly challenging binary alloy system",
+      "Integration with a unique DFT workflow or specific software tools",
+      "Development of new uncertainty quantification metrics beyond standard GP variance"
+    ],
+    "recommendation": "While the general concept exists, there is still room for novel contributions. Focus on a specific, unsolved problem within alloy phase diagram mapping where your approach offers a significant advantage (e.g., handling complex phases, high-throughput screening of many systems, or a specific type of alloy where existing methods struggle). Clearly articulate what makes your implementation or application unique compared to existing active learning frameworks in materials science."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Active Learning for Materials Discovery** (similarity: 90%).\n\n*The core idea of using active learning, specifically with Gaussian process uncertainty, to guide DFT calculations for efficiently mapping out alloy phase diagrams is a well-established and active area of research in computational materials science. Many groups and platforms are already employing or developing similar methodologies to reduce the computational burden of DFT calculations for materials discovery and characterization.*\n\n**Recommendation:** While the general concept exists, there is still room for novel contributions. Focus on a specific, unsolved problem within alloy phase diagram mapping where your approach offers a significant advantage (e.g., handling complex phases, high-throughput screening of many systems, or a specific type of alloy where existing methods struggle). Clearly articulate what makes your implementation or application unique compared to existing active learning frameworks in materials science.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 105,
+    "unique_after_dedup": 105,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 686,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0394,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0377,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0014,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+  "enriched_idea": "RESEARCH IDEA:\nUsing active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_35",
+      "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+      "arxiv_id": "1803.03296v1",
+      "paper_similarity_score": 0.9125,
+      "reason": "Problem: The paper addresses the problem of 'efficient phase diagram sampling by adopting active learning techniques' to 'reduce the number of calculations needed to map out a binary alloy phase diagram.' This is very similar to the user's idea of 'Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.' Both focus on using active learning to efficiently map phase diagrams by reducing the number of samples/calculations, with the paper explicitly mentioning 'Gaussian Process regression' for interpolation, which aligns with the user's 'Gaussian process uncertainty'. | Method: The paper's method is identical to the user's research idea. Both propose using active learning with Gaussian Process regression to adaptively choose the next most informative statepoints to sample, thereby reducing the number of calculations needed to map out a phase diagram. The paper explicitly states, 'This is done by interpolating the sampled statepoints' phases by Gaussian Process regression. An acquisition function quantifies the informativeness of possible next statepoints, maximizing the information content in each subsequently sampled statepoint.' | Domain: The paper's application domain is general phase diagram sampling, demonstrated with a 2D Lennard-Jones system relevant to soft matter physics. The user's idea specifically targets binary alloy phase diagrams using DFT computations. While both involve phase diagrams and computational methods, the specific material system (soft matter vs. alloys) and computational method (general simulations/experiments vs. DFT) represent different sub-areas within materials science/physics. | Contribution: The paper's abstract states, \"We address the problem of efficient phase diagram sampling by adopting active learning techniques from machine learning... This is done by interpolating the sampled statepoints' phases by Gaussian Process regression.\" This directly matches the user's idea of \"Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.\" Both the method (active learning with Gaussian process) and the goal (reducing calculations for phase diagram mapping) are identical, even though the paper applies it to soft matter physics examples rather than specifically DFT for alloys.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 1.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.825,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+              "heading": "Efficient Phase Diagram Sampling by Active Learning",
+              "text_snippet": "We address the problem of efficient phase diagram sampling by adopting active learning techniques from machine learning, and achieve an 80% reduction in the sample size (number of sampled statepoints) needed to establish the phase boundary up to a given precision in example application.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of efficiently sampling phase diagrams to reduce the number of calculations/samples needed.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Mapping phase diagrams is a central task in many branches of both physical and chemical sciences. ... Despite its ubiquitous utility, constructing phase diagrams - whether by experiments or simulations - remains a laborious and costly task, even for simple systems with only a few thermodynamic phases.",
+              "similarity": 0.75,
+              "reason": "The paper highlights the laborious and costly nature of constructing phase diagrams, which aligns with the user's goal of reducing calculations.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+              "heading": "Efficient Phase Diagram Sampling by Active Learning",
+              "text_snippet": "We propose an active learning approach to overcome this deficiency by adaptively choosing the next most informative statepoint(s) every round. This is done by interpolating the sampled statepoints' phases by Gaussian Process regression.",
+              "similarity": 1.0,
+              "reason": "The user explicitly mentions 'active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next', which directly matches the paper's core methodology of using active learning and Gaussian Process regression to adaptively choose the next most informative statepoints.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Problems similar to the construction of phase diagrams arise naturally in the field of active learning [1, 79], where an algorithm actively queries a particular subset of labeled data rather than passively using a predetermined training dataset. ... Combining some of the latest advancements in both fields, we present an active learning framework for efficient phase boundary sampling.",
+              "similarity": 1.0,
+              "reason": "The paper describes its method as an 'active learning framework for efficient phase boundary sampling', which is precisely what the user proposes.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Mapping phase diagrams is a central task in many branches of both physical and chemical sciences. Phase diagrams map macroscopic, thermodynamic phases onto statepoint variables such as pressure, density, temperature, and concentration. Alchemical parameters can be varied to produce 'phase' diagrams mapped onto stoichiometry, interaction range, patchiness, and even particle shape.",
+              "similarity": 0.75,
+              "reason": "The user's idea focuses on 'alloy compositions' and 'binary alloy phase diagram', which falls under the 'physical and chemical sciences' and 'stoichiometry' mentioned in the paper as relevant domains for phase diagrams.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+              "heading": "Efficient Phase Diagram Sampling by Active Learning",
+              "text_snippet": "Our active learning enhanced phase diagram sampling method greatly accelerates research and opens up opportunities for extra-large scale exploration of a wide range of phase diagrams by simulations or experiments.",
+              "similarity": 0.75,
+              "reason": "The paper discusses 'exploration of a wide range of phase diagrams by simulations or experiments', which aligns with the user's mention of 'compute via DFT' for 'alloy compositions'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+              "heading": "Efficient Phase Diagram Sampling by Active Learning",
+              "text_snippet": "We address the problem of efficient phase diagram sampling by adopting active learning techniques from machine learning, and achieve an 80% reduction in the sample size (number of sampled statepoints) needed to establish the phase boundary up to a given precision in example application.",
+              "similarity": 0.75,
+              "reason": "The user's idea aims at 'reducing the number of calculations needed to map out a binary alloy phase diagram', which directly mirrors the paper's claimed contribution of '80% reduction in the sample size... needed to establish the phase boundary'.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "By sequentially sampling only the most informative statepoints, our approach to finding a phase boundary reduces the number of statepoints needing to be sampled to only 20% of the number of statepoints needed in the conventional grid search method, while maintaining roughly the same precision on the location of the phase boundaries.",
+              "similarity": 0.75,
+              "reason": "Both the user and the paper aim to reduce the number of samples/calculations required for phase diagram mapping.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 1.0,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 12805,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1803.03296v1"
+    },
+    {
+      "paper_id": "paper_08",
+      "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+      "arxiv_id": "2502.11369v1",
+      "paper_similarity_score": 0.775,
+      "reason": "Problem: The paper addresses a very similar problem statement to the user's idea. Both focus on using active learning with Gaussian processes to efficiently map out alloy phase diagrams, reducing the number of calculations needed. The paper explicitly states, 'We demonstrate an in silico active learning approach to efficiently correct phase diagrams' and 'Physics-constrained active learning of phase diagrams have been achived using graph-based techniques such as in the CAMEO framework.' The main difference is the user specifies DFT calculations for binary alloys, while the paper discusses general phase stability and uses physics-informed priors, but the core problem of efficient phase diagram construction via active learning is shared. | Method: Both the user's idea and the paper utilize active learning with Gaussian processes for materials design, specifically for phase diagrams. The user's idea focuses on using Gaussian process uncertainty for selecting alloy compositions for DFT calculations to map binary alloy phase diagrams, while the paper uses physics-informed Gaussian Process Classifiers for active learning to efficiently correct phase diagrams and construct accurate phase stability predictions with minimal ground-truth data. The core methodology of active learning driven by Gaussian processes for phase diagram exploration is very similar, with the paper adding physics-informed priors and applying it to categorical constraints. | Domain: Both the user's research idea and the paper focus on using active learning with Gaussian processes to accelerate the mapping or correction of alloy phase diagrams. The user specifically mentions 'reducing the number of calculations needed to map out a binary alloy phase diagram,' while the paper's abstract states 'Phase Stability Prediction Refinement: We demonstrate an in silico active learning approach to efficiently correct phase diagrams' and a case study is 'Active Learning of Categorical Constraints' to 'construct the most accurate isopleth phase stability predictions with the fewest possible queries of the ground truth.' This indicates a direct overlap in the specific application area, data type (alloy compositions/phase stability), and target system (phase diagrams). | Contribution: The paper's second case study, 'Phase Stability Prediction Refinement,' demonstrates an 'in silico active learning approach to efficiently correct phase diagrams,' which directly aligns with the user's idea of reducing calculations to map out a binary alloy phase diagram using active learning. The paper also mentions 'physics-constrained active learning of phase diagrams' and 'accelerate the construction of phase diagrams by incorporating prior physical knowledge into the model's covariance structure,' indicating a strong overlap in the core contribution of using active learning for phase diagram construction. The user's specific mention of 'Gaussian process uncertainty' is a detail within the broader active learning framework that the paper also employs with GPCs.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.75,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.75
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.775,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "ABSTRACT",
+              "text_snippet": "(2) Phase Stability Prediction Refinement: We demonstrate an in silico active learning approach to efficiently correct phase diagrams.",
+              "similarity": 0.75,
+              "reason": "The user's idea aims to map out a binary alloy phase diagram, which is a form of phase stability prediction and refinement, directly aligning with the problem addressed in the paper's abstract.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "The objective of this case study is to construct the most accurate isopleth phase stability predictions with the fewest possible queries of the ground truth.",
+              "similarity": 0.75,
+              "reason": "The user's goal of reducing calculations to map out a phase diagram is very similar to the paper's objective of constructing accurate phase stability predictions with minimal queries.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "ABSTRACT",
+              "text_snippet": "We propose equipping Gaussian Process Classifiers (GPCs) with physics-informed prior mean functions to model the boundaries of feasible design spaces. ... (2) Phase Stability Prediction Refinement: We demonstrate an in silico active learning approach to efficiently correct phase diagrams.",
+              "similarity": 0.75,
+              "reason": "The user proposes 'active learning with Gaussian process uncertainty' which directly matches the paper's use of 'Gaussian Process Classifiers' and 'active learning approach' for phase diagram refinement.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "Introduction",
+              "text_snippet": "In our previous work [11, 22], we demonstrated that incorporating physics-informed priors into Gaussian Process Regressors (GPRs) significantly improved both the physical accuracy and predictive performance of the models, leading to more e ffi cient Bayesian optimization strategies [11]. In other research [7], we explored how active learning could be used to refine the feasible design space in Bayesian optimization; however, the Gaussian Process Classifiers (GPCs) employed were purely data-driven and lacked informative priors mean functions.",
+              "similarity": 0.75,
+              "reason": "The user's mention of 'active learning with Gaussian process uncertainty' aligns with the paper's discussion of active learning and Gaussian Process models (GPRs/GPCs) for refining design spaces.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Of particular interest to this work, Ament et al. employed a physics-informed kernel within a GP-based active learning framework to accelerate the construction of phase diagrams by incorporating prior physical knowledge into the model's covariance structure.",
+              "similarity": 0.75,
+              "reason": "The user's method of 'active learning with Gaussian process uncertainty' is a direct match to the 'GP-based active learning framework' mentioned in the paper for accelerating phase diagram construction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "ABSTRACT",
+              "text_snippet": "Alloy design can be framed as a constraint-satisfaction problem. ... (1) Phase Stability: By incorporating CALPHAD predictions as priors for solid-solution phase stability, we enhance model validation using a publicly available XRD dataset. (2) Phase Stability Prediction Refinement: We demonstrate an in silico active learning approach to efficiently correct phase diagrams.",
+              "similarity": 1.0,
+              "reason": "The user's idea is explicitly about 'alloy compositions' and 'binary alloy phase diagram', which is the core application domain of 'Alloy design' and 'Phase Stability Prediction Refinement' in the paper.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "Introduction",
+              "text_snippet": "Due to the multitude of performance requirements in materials development, alloy design is often more accurately framed as a constraint satisfaction problem rather than a pure optimization problem [1-4]. ... For example, phase stability constraints are particularly common in alloy design [8, 9], as specific phases are often desired while deleterious phases need to be avoided.",
+              "similarity": 1.0,
+              "reason": "The user's focus on 'alloy compositions' and 'binary alloy phase diagram' is directly within the 'alloy design' domain and specifically addresses 'phase stability constraints' as discussed in the paper.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "ABSTRACT",
+              "text_snippet": "(2) Phase Stability Prediction Refinement: We demonstrate an in silico active learning approach to efficiently correct phase diagrams.",
+              "similarity": 0.75,
+              "reason": "The user's proposed contribution to 'reducing the number of calculations needed to map out a binary alloy phase diagram' is very similar to the paper's demonstrated contribution of an 'in silico active learning approach to efficiently correct phase diagrams'.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "Conclusion",
+              "text_snippet": "Given the improvements in active learning-based discovery demonstrated in our case studies, we conclude that incorporating physics-informed priors into the alloy design workflow has the potential to significantly reduce computational and experimental costs while enhancing model accuracy and efficiency.",
+              "similarity": 0.75,
+              "reason": "The user's goal of 'reducing the number of calculations' directly aligns with the paper's conclusion that their method 'has the potential to significantly reduce computational and experimental costs'.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "The objective of this case study is to construct the most accurate isopleth phase stability predictions with the fewest possible queries of the ground truth.",
+              "similarity": 0.75,
+              "reason": "The user's aim to reduce calculations for mapping phase diagrams is a direct parallel to the paper's objective of achieving accurate phase stability predictions with the 'fewest possible queries'.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 13610,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2502.11369v1"
+    },
+    {
+      "paper_id": "paper_26",
+      "paper_title": "On the Similarities of Embeddings in Contrastive Learning",
+      "arxiv_id": "2506.09781v2",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on using active learning with Gaussian processes for materials science (alloy phase diagrams via DFT calculations). The paper, however, addresses theoretical aspects of contrastive learning, specifically analyzing embedding similarities and proposing methods to mitigate issues in mini-batch settings. These are fundamentally different research problems with no overlap in domain or specific question. | Method: The user's research idea proposes using active learning with Gaussian process uncertainty for selecting alloy compositions in DFT calculations. The paper, however, focuses on theoretical insights into contrastive learning, analyzing embedding similarities and proposing an auxiliary loss to reduce variance in mini-batch settings. There is no methodological overlap between these two distinct areas of research. | Domain: The user's research idea is in materials science, specifically using active learning and Gaussian processes for alloy phase diagram mapping via DFT calculations. The paper, 'On the Similarities of Embeddings in Contrastive Learning,' is purely theoretical and empirical within the field of machine learning (cs.LG, stat.ML), focusing on contrastive learning algorithms and their properties, without any mention of materials science, alloys, DFT, or similar application domains. | Contribution: The user's research idea focuses on using active learning with Gaussian process uncertainty for selecting alloy compositions in DFT calculations to map phase diagrams. The paper, in contrast, is about theoretical insights into contrastive learning, specifically analyzing embedding similarities in full-batch and mini-batch settings and proposing an auxiliary loss to reduce variance. There is no overlap in the claimed contributions or the problem domains addressed.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.15,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "On the Similarities of Embeddings in Contrastive Learning",
+              "heading": "Abstract",
+              "text_snippet": "Contrastive learning operates on a simple yet effective principle: Embeddings of positive pairs are pulled together, while those of negative pairs are pushed apart.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'active learning' and 'Gaussian process uncertainty', which are machine learning techniques. The paper focuses on 'contrastive learning', also a machine learning technique. While both are machine learning, the specific methods (active learning with Gaussian processes vs. contrastive learning) are distinct, leading to a score of 3.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_26",
+              "paper_title": "On the Similarities of Embeddings in Contrastive Learning",
+              "heading": "Introduction",
+              "text_snippet": "Contrastive learning (CL) has emerged as a powerful approach to representation learning (Chen &amp; He, 2021; Chen et al., 2020; He et al., 2020; Radford et al., 2021; Zhai et al., 2023; Khosla et al., 2020). In CL, an embedding model is trained to produce similar representations for two different views of the same data instance-referred to as a positive pair-and dissimilar representations for views from different data instances-referred to as negative pairs.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are rooted in machine learning. The user proposes 'active learning' and 'Gaussian process uncertainty', while the paper details 'contrastive learning'. These are different sub-fields and specific algorithms within machine learning, but they share the general methodological family of data-driven learning approaches.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 16018,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2506.09781v2"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Artificial Intelligence and Generative Models for Materials Discovery -- A Review",
+      "arxiv_id": "2508.03278v1",
+      "paper_similarity_score": 0.525,
+      "reason": "Problem: The paper reviews the application of AI and generative models for materials discovery, which broadly covers the user's idea of using active learning to reduce DFT calculations. It mentions 'active learning' and 'reducing experiments' in the context of VAEs and Bayesian optimization for shape-memory alloys, and 'computational cost' as a challenge. However, the paper does not specifically address the problem of mapping out binary alloy phase diagrams or using Gaussian process uncertainty for selecting compositions, making the specific problem different from the user's idea. | Method: The user's idea specifies 'active learning with Gaussian process uncertainty' for selecting alloy compositions. The paper mentions 'active learning' in several contexts, including 'Advances in active learning, coupled with models like CrystalFormer-RL' and 'VAEs have been used in active learning frameworks, with Zuo et al. 141 using a VAE with Bayesian optimization'. While active learning is a shared concept, the paper does not specifically mention Gaussian processes for uncertainty quantification or the application to binary alloy phase diagrams, indicating a general method family with meaningful differences in specific components. | Domain: The paper discusses the application of AI and generative models for materials discovery, specifically mentioning 'high-entropy alloy catalysts' and 'crystallographic alloy structures' as targets for GANs. It also references 'active learning' and 'closed-loop discovery systems' for optimizing experimental workflows and prioritizing candidates for 'shape-memory alloys,' which aligns with the user's idea of using active learning to select alloy compositions to compute via DFT for mapping a binary alloy phase diagram. | Contribution: The paper discusses the integration of generative models with active learning and computational methods, mentioning 'Advances in active learning, coupled with models like CrystalFormer-RL 20 , optimize experimental workflows by prioritizing high-value candidates' and 'VAEs have been used in active learning frameworks, with Zuo et al. 141 using a VAE with Bayesian optimization, trained on OQMD data, to prioritize candidates for shape-memory alloys, reducing experiments by 50%.' This shows a general overlap in using active learning to reduce computational cost in materials discovery. However, the user's idea is specific to 'Gaussian process uncertainty' for 'alloy compositions' to 'map out a binary alloy phase diagram' using 'DFT,' which is a more specific application not explicitly detailed in the paper's general review of AI in materials discovery.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.7375,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Artificial Intelligence and Generative Models for Materials Discovery -- A Review",
+              "heading": "Integration with Experimental and Computational Methods",
+              "text_snippet": "Advances in active learning, coupled with models like CrystalFormer-RL 20 , optimize experimental workflows by prioritizing high-value candidates.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'active learning' as a core method, which is directly referenced here as an advance that optimizes experimental workflows by prioritizing candidates.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Artificial Intelligence and Generative Models for Materials Discovery -- A Review",
+              "heading": "Integration with Experimental Workflows",
+              "text_snippet": "Normalizing Flows, via conditional NFs 123 , integrate with active learning to optimize thermal composites in closed-loop systems, trained in experimental data sets, streamline synthesis and characterization.",
+              "similarity": 0.75,
+              "reason": "This section again mentions 'active learning' as an integrated method to optimize materials, aligning with the user's proposed approach.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Artificial Intelligence and Generative Models for Materials Discovery -- A Review",
+              "heading": "Integration with Experimental Workflows",
+              "text_snippet": "VAEs have been used in active learning frameworks, with Zuo et al. 141 using a VAE with Bayesian optimization, trained on OQMD data, to prioritize candidates for shape-memory alloys, reducing experiments by 50%.",
+              "similarity": 1.0,
+              "reason": "This passage describes VAEs being used in 'active learning frameworks' with 'Bayesian optimization' to 'prioritize candidates' and 'reducing experiments', which strongly aligns with the user's method of using active learning with Gaussian process uncertainty (a form of Bayesian optimization) to select compositions and reduce calculations.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Artificial Intelligence and Generative Models for Materials Discovery -- A Review",
+              "heading": "Catalysis and Chemical Conversion",
+              "text_snippet": "GANs have been used to design high-entropy alloy catalysts, with 56 employing a GAN trained on DFTcalculated adsorption energies from NOMAD to generate heterogeneous catalysts for CO oxidation, achieving enhanced catalytic activity and validated through first-principles microkinetics 56 . CrystalGAN was applied to generate crystallographic alloy structures, improving catalytic stability for methanol oxidation 89 .",
+              "similarity": 1.0,
+              "reason": "The user's idea focuses on 'alloy compositions' and 'DFT', which are directly mentioned in the context of designing 'high-entropy alloy catalysts' and generating 'crystallographic alloy structures' using 'DFT-calculated' data.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Artificial Intelligence and Generative Models for Materials Discovery -- A Review",
+              "heading": "Introduction",
+              "text_snippet": "The fourth is the application of ML in the computational modeling of the force field 119 . This is a significant advancement in computational chemistry that bridges between very precise atomic modeling through ab initio density functional theory (DFT) calculation and the force field model that drives molecular dynamics (MD).",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'DFT', which is discussed here as a method for 'atomic modeling' in 'computational chemistry', confirming the domain overlap.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Artificial Intelligence and Generative Models for Materials Discovery -- A Review",
+              "heading": "Integration with Experimental Workflows",
+              "text_snippet": "VAEs have been used in active learning frameworks, with Zuo et al. 141 using a VAE with Bayesian optimization, trained on OQMD data, to prioritize candidates for shape-memory alloys, reducing experiments by 50%.",
+              "similarity": 0.75,
+              "reason": "The user's idea aims at 'reducing the number of calculations needed to map out a binary alloy phase diagram' by selecting compositions. This aligns with the paper's mention of 'reducing experiments by 50%' through prioritizing candidates using active learning, indicating a similar goal of efficiency.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 19006,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2508.03278v1"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Modelling cross-dependencies between Spain's regional tourism markets with an extension of the Gaussian process regression model",
+      "arxiv_id": "1805.00861v1",
+      "paper_similarity_score": 0.15,
+      "reason": "Problem: The user's research idea focuses on using active learning with Gaussian processes to optimize DFT calculations for binary alloy phase diagrams. The paper, in contrast, addresses the problem of forecasting regional tourism markets using an extension of the Gaussian process regression model for multiple-input multiple-output forecasting. These are fundamentally different research problems in distinct domains. | Method: Both the user's idea and the paper utilize Gaussian Process Regression (GPR) and its uncertainty estimates. However, the paper focuses on extending GPR for multiple-input multiple-output (MIMO) forecasting in tourism, while the user's idea applies GPR with active learning for selecting alloy compositions in materials science, which represents a different application and an additional methodological component (active learning for selection). | Domain: The user's research idea is in materials science, specifically using DFT to map alloy phase diagrams. The paper, however, focuses on economic forecasting, particularly modeling tourism markets in Spain. These are entirely different scientific and application domains. | Contribution: The user's research idea focuses on using active learning with Gaussian process uncertainty for materials science (alloy phase diagrams via DFT calculations) to reduce computational cost. The paper, however, extends Gaussian process regression for multiple-input multiple-output forecasting in regional tourism markets to model cross-dependencies and improve prediction accuracy. The application domains and specific contributions are entirely different.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.22499999999999998,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Modelling cross-dependencies between Spain's regional tourism markets with an extension of the Gaussian process regression model",
+              "heading": "Introduction",
+              "text_snippet": "Whilst SVR and ANN models have been widely used in economic modelling and forecasting, other ML techniques such as Gaussian process regression (GPR) have been barely applied for forecasting purposes... GPR models present one fundamental advantage over other ML techniques: they provide full probabilistic predictive distributions, including estimations of the uncertainty of the predictions. These features make GPR an ideal tool for forecasting purposes.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'Gaussian process uncertainty' and the paper discusses Gaussian process regression (GPR) and its ability to provide 'estimations of the uncertainty of the predictions', which aligns with the method's core capability.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Modelling cross-dependencies between Spain's regional tourism markets with an extension of the Gaussian process regression model",
+              "heading": "ABSTRACT",
+              "text_snippet": "This study presents an extension of the Gaussian process regression model for multiple-input multiple-output forecasting. This approach allows modelling the cross-dependencies between a given set of input variables and generating a vectorial prediction.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes 'Using active learning with Gaussian process uncertainty' and the paper focuses on an 'extension of the Gaussian process regression model', indicating a shared core methodology of using Gaussian processes.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 15034,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1805.00861v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 77,
+    "global_similarity_score": 0.4725,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_35",
+            "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+            "heading": "Efficient Phase Diagram Sampling by Active Learning",
+            "text_snippet": "We address the problem of efficient phase diagram sampling by adopting active learning techniques from machine learning, and achieve an 80% reduction in the sample size (number of sampled statepoints) needed to establish the phase boundary up to a given precision in example application.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper address the problem of efficiently sampling phase diagrams to reduce the number of calculations/samples needed.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_35",
+            "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+            "heading": "Efficient Phase Diagram Sampling by Active Learning",
+            "text_snippet": "We propose an active learning approach to overcome this deficiency by adaptively choosing the next most informative statepoint(s) every round. This is done by interpolating the sampled statepoints' phases by Gaussian Process regression.",
+            "similarity": 1.0,
+            "reason": "The user explicitly mentions 'active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next', which directly matches the paper's core methodology of using active learning and Gaussian Process regression to adaptively choose the next most informative statepoints.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_08",
+            "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+            "heading": "ABSTRACT",
+            "text_snippet": "Alloy design can be framed as a constraint-satisfaction problem. ... (1) Phase Stability: By incorporating CALPHAD predictions as priors for solid-solution phase stability, we enhance model validation using a publicly available XRD dataset. (2) Phase Stability Prediction Refinement: We demonstrate an in silico active learning approach to efficiently correct phase diagrams.",
+            "similarity": 1.0,
+            "reason": "The user's idea is explicitly about 'alloy compositions' and 'binary alloy phase diagram', which is the core application domain of 'Alloy design' and 'Phase Stability Prediction Refinement' in the paper.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_35",
+            "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+            "heading": "Efficient Phase Diagram Sampling by Active Learning",
+            "text_snippet": "We address the problem of efficient phase diagram sampling by adopting active learning techniques from machine learning, and achieve an 80% reduction in the sample size (number of sampled statepoints) needed to establish the phase boundary up to a given precision in example application.",
+            "similarity": 0.75,
+            "reason": "The user's idea aims at 'reducing the number of calculations needed to map out a binary alloy phase diagram', which directly mirrors the paper's claimed contribution of '80% reduction in the sample size... needed to establish the phase boundary'.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research shows moderate originality, with significant overlap in methodology and domain with existing work, particularly in \"Efficient Phase Diagram Sampling by Active Learning.\" To enhance originality, consider refining your problem formulation and differentiating your methodological approach.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.61,
+      "method_similarity": 0.8200000000000001,
+      "domain_similarity": 0.78,
+      "contribution_similarity": 0.78
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0394,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0377,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0014,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 185.82493996620178,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_35",
+        "paper_title": "Efficient Phase Diagram Sampling by Active Learning",
+        "paper_similarity": 0.9125,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 1.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_08",
+        "paper_title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+        "paper_similarity": 0.775,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.75,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.75
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_26",
+        "paper_title": "On the Similarities of Embeddings in Contrastive Learning",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Artificial Intelligence and Generative Models for Materials Discovery -- A Review",
+        "paper_similarity": 0.525,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Modelling cross-dependencies between Spain's regional tourism markets with an extension of the Gaussian process regression model",
+        "paper_similarity": 0.15,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 105
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 105,
+    "after_dedup": 105,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

@@ -135,11 +135,9 @@ class AnalysisService:
             benchmark_mode = job.settings.get("benchmark_mode", False)
             selected_adapter = job.settings.get("selected_adapter", "arxiv")
 
-            # Parallel reality check (skipped in benchmark mode)
-            rc_thread = None
-            if not benchmark_mode:
-                rc_thread = threading.Thread(target=cls.run_reality_check, args=(job_id,), daemon=True)
-                rc_thread.start()
+            # Parallel reality check
+            rc_thread = threading.Thread(target=cls.run_reality_check, args=(job_id,), daemon=True)
+            rc_thread.start()
 
             cls.process_answers(job_id, answers)
 
@@ -155,8 +153,7 @@ class AnalysisService:
             if not benchmark_mode:
                 OriginalityService.generate_comprehensive_report(job_id, cls._update_progress)
 
-            if rc_thread is not None:
-                rc_thread.join(timeout=10)
+            rc_thread.join(timeout=10)
 
             # Finalize results
             result = job.state.layer2_result

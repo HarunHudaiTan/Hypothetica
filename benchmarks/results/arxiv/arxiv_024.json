@@ -1,0 +1,946 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "61683ae35c69",
+    "status": "completed"
+  },
+  "originality_score": 30,
+  "global_similarity_score": 0.783,
+  "label": "low",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_overlap": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+          "heading": "ABSTRACT",
+          "text_snippet": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper aim to reduce the number of calculations/evaluations needed for materials discovery using active learning.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+          "heading": "ABSTRACT",
+          "text_snippet": "However, current AL relies predominantly on Gaussian Process (GP) and Random Forest (RF) surrogates, which suffer from complementary limitations: GP underfits complex composition-property landscapes due to rigid kernel assumptions, while RF produces unreliable heuristic uncertainty estimates in small-data regimes.",
+          "similarity": 0.75,
+          "reason": "The user explicitly mentions 'Gaussian process uncertainty' as part of their method, which is a key method discussed and benchmarked in the paper.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+          "heading": "ABSTRACT",
+          "text_snippet": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are squarely focused on 'materials discovery' and specifically mention 'alloy compositions' and 'binary alloy phase diagram', which falls under materials science.",
+          "criterion": "domain_overlap"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_01",
+          "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+          "heading": "ABSTRACT",
+          "text_snippet": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials.",
+          "similarity": 0.75,
+          "reason": "The user's proposed contribution of 'reducing the number of calculations needed to map out a binary alloy phase diagram' is a specific instance of the broader contribution of 'reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials' that the paper aims for and demonstrates.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research shows significant overlap in its problem formulation, domain, and especially its contribution with existing work, particularly \"Foundation-Model Surrogates Enable Data-Efficient Active Lea.\" To improve originality, focus on clearly differentiating your specific contribution and how it uniquely advances the field beyond the identified similar papers.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.6699999999999999,
+    "method_similarity": 0.5,
+    "domain_overlap": 0.6699999999999999,
+    "contribution_similarity": 0.84
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0591,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0574,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0014,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 267.8668637275696,
+  "papers": [
+    {
+      "paper_id": "paper_01",
+      "source": "arxiv",
+      "source_id": "2603.12567v3",
+      "arxiv_id": "2603.12567v3",
+      "title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+      "abstract": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials. However, current AL relies predominantly on Gaussian Process (GP) and Random Forest (RF) surrogates, which suffer from complementary limitations: GP underfits complex composition-property landscapes due to rigid kernel assumptions, while RF produces unreliable heuristic uncertainty estimates in small-data regimes. This small-data challenge is pervasive in materials science, making reliable surrogate modeling extremely difficult with models trained from scratch on each new dataset. Here we propose In-Context Active Learning (ICAL), which addresses this bottleneck by replacing conventional surrogates with TabPFN, a transformer-based foundation model (FM) pre-trained on millions of synthetic regression tasks to meta-learn a universal prior over tabular data, upon which TabPFN performs principled Bayesian inference in a single forward pass without dataset-specific retraining, delivering strong small-data regression performance and well-calibrated predictive uncertainty (required for effective AL). We benchmark ICAL against GP and RF across 10 materials datasets and TabPFN wins on 8 out of 10 datasets, achieving a mean saving of 52% in extra evaluations relative to GP and 29.77% relative to RF. Cross-validation analysis confirms that TabPFN's advantage stems from superior uncertainty calibration, achieving the lowest Negative Log-Likelihood and Area Under the Sparsification Error curve among all surrogates. These results demonstrate that pre-trained FMs can serve as effective surrogates for active learning, enabling data-efficient discovery across diverse materials systems and small-data experimental sciences.",
+      "url": "http://arxiv.org/abs/2603.12567v3",
+      "pdf_url": "http://arxiv.org/pdf/2603.12567v3",
+      "authors": [],
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.7250000000000001,
+      "reason": "Problem: The user's research idea focuses on reducing DFT calculations for binary alloy phase diagrams using active learning with Gaussian process uncertainty. The paper addresses the broader problem of accelerating materials discovery using active learning, specifically mentioning 'alloy systems' and 'catalyst design' as applications. While the paper's primary contribution is replacing GP with foundation models, it explicitly discusses the limitations of GP in active learning for materials discovery, including 'alloy discovery,' indicating a very similar problem statement, differing mainly in the specific surrogate model proposed and the scope of materials systems. | Method: Both the user's idea and the paper utilize active learning with uncertainty quantification for materials discovery. The user specifically mentions Gaussian Process uncertainty, which the paper uses as a baseline ('GP underfits complex composition-property landscapes due to rigid kernel assumptions'). However, the paper's core contribution is replacing conventional surrogates like GP with a 'transformer-based foundation model (FM) pre-trained on millions of synthetic regression tasks' (TabPFN), representing a meaningful difference in the specific surrogate model used for uncertainty estimation. | Domain: The user's idea focuses on mapping binary alloy phase diagrams, which falls under materials discovery and specifically alloy systems. The paper evaluates active learning for materials discovery across various datasets, including 'copper alloys' and 'glass-forming alloy datasets', which are directly relevant application targets within alloy systems. While the paper doesn't explicitly mention 'binary alloy phase diagrams', the focus on 'alloy systems' and 'composition-property landscapes' for materials discovery is a closely related application target. | Contribution: The user's research idea proposes using active learning with Gaussian process uncertainty to select alloy compositions for DFT, reducing calculations for phase diagrams. The paper directly addresses this by evaluating active learning, including GP surrogates, for materials discovery, specifically mentioning 'alloy systems' and 'copper alloys' datasets. The paper's core contribution is to improve upon GP-based active learning for materials discovery, which is the exact method the user proposes to use.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 1.0
+      }
+    },
+    {
+      "paper_id": "paper_02",
+      "source": "arxiv",
+      "source_id": "2210.10964v1",
+      "arxiv_id": "2210.10964v1",
+      "title": "Uncertainty Disentanglement with Non-stationary Heteroscedastic Gaussian Processes for Active Learning",
+      "abstract": "Gaussian processes are Bayesian non-parametric models used in many areas. In this work, we propose a Non-stationary Heteroscedastic Gaussian process model which can be learned with gradient-based techniques. We demonstrate the interpretability of the proposed model by separating the overall uncertainty into aleatoric (irreducible) and epistemic (model) uncertainty. We illustrate the usability of derived epistemic uncertainty on active learning problems. We demonstrate the efficacy of our model with various ablations on multiple datasets.",
+      "url": "http://arxiv.org/abs/2210.10964v1",
+      "pdf_url": "http://arxiv.org/pdf/2210.10964v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The paper addresses the general problem of using Gaussian processes and active learning to reduce calculations by separating uncertainty, which is a core component of the user's idea. However, the paper focuses on the methodological development of a 'Non-stationary Heteroscedastic Gaussian process model' and its application to general regression tasks and sensor placement, rather than the specific application of mapping binary alloy phase diagrams via DFT calculations. | Method: The paper proposes a Non-stationary Heteroscedastic Gaussian process model that disentangles aleatoric and epistemic uncertainty for active learning, which aligns with the user's idea of using Gaussian process uncertainty for active learning. However, the paper focuses on the methodological advancements of the GP model itself (e.g., using Gibbs kernel, inducing point approximations, and gradient-based learning for hyperparameters) and demonstrates it on general regression and active learning tasks, rather than specifically applying it to alloy phase diagrams or DFT computations as in the user's idea. | Domain: The paper focuses on the methodological advancements of Gaussian processes for active learning, specifically disentangling uncertainty, and demonstrates its efficacy on general regression tasks and sensor placement. While the user's idea applies active learning with Gaussian processes to a specific materials science problem (alloy phase diagrams via DFT), the paper does not mention materials science, DFT, or alloy compositions. The application domains are different, but the core methodology (active learning with GPs) is the same discipline. | Contribution: The paper's contribution is a 'Non-stationary Heteroscedastic Gaussian process model' that disentangles aleatoric and epistemic uncertainty for active learning, which is a methodological contribution. The user's idea applies active learning with Gaussian process uncertainty to a specific domain (alloy compositions via DFT to map phase diagrams), which is an application-specific contribution. While both use active learning and Gaussian processes with uncertainty, the paper focuses on the model's interpretability and efficiency, while the user focuses on a specific application, leading to partial overlap in contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_03",
+      "source": "arxiv",
+      "source_id": "1911.09946v3",
+      "arxiv_id": "1911.09946v3",
+      "title": "Actively Learning Gaussian Process Dynamics",
+      "abstract": "Despite the availability of ever more data enabled through modern sensor and computer technology, it still remains an open problem to learn dynamical systems in a sample-efficient way. We propose active learning strategies that leverage information-theoretical properties arising naturally during Gaussian process regression, while respecting constraints on the sampling process imposed by the system dynamics. Sample points are selected in regions with high uncertainty, leading to exploratory behavior and data-efficient training of the model. All results are finally verified in an extensive numerical benchmark.",
+      "url": "http://arxiv.org/abs/1911.09946v3",
+      "pdf_url": "http://arxiv.org/pdf/1911.09946v3",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cs.RO",
+        "stat.ML"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The paper addresses the problem of sample-efficient learning of dynamical systems using active learning and Gaussian processes, selecting sample points in regions of high uncertainty. While the user's idea also uses active learning with Gaussian process uncertainty to reduce calculations, it applies this to a specific materials science problem (alloy phase diagrams via DFT), which is a different domain and specific application than the general dynamical systems explored in the paper. | Method: Both the user's idea and the paper utilize active learning with Gaussian processes and uncertainty (specifically differential entropy) to select new data points. However, the paper focuses on learning dynamical systems by selecting control inputs to excite the system, whereas the user's idea applies this to selecting alloy compositions for DFT calculations, which is a static mapping problem. The paper explicitly distinguishes between static and dynamic problems, noting that the static problem (like the user's) is 'fundamentally different' and 'amenable to a clean information-theoretical treatment' that is lost for dynamical systems. | Domain: The user's idea is in materials science (alloy phase diagrams, DFT calculations), while the paper is in control systems and robotics (dynamical systems, system identification, control inputs, state-action space, pendulum, robots, unicycle, half-cheetah). Both use active learning with Gaussian processes for sample-efficient learning, but the application domains are distinct: materials discovery vs. control of physical systems. | Contribution: The paper's core contribution is 'active learning strategies that leverage information-theoretical properties arising naturally during Gaussian process regression' for 'learning dynamical systems in a sample-efficient way,' which aligns with the user's idea of 'Using active learning with Gaussian process uncertainty to select which alloy compositions to compute.' Both use active learning and Gaussian processes with uncertainty for sample efficiency. However, the paper focuses on 'dynamical systems' and 'control inputs' for system identification, whereas the user's idea is specifically about 'alloy compositions' and 'DFT calculations' for 'mapping out a binary alloy phase diagram,' representing a distinct application domain and specific computational task.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_04",
+      "source": "arxiv",
+      "source_id": "2506.14828v1",
+      "arxiv_id": "2506.14828v1",
+      "title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+      "abstract": "Surrogate modeling techniques have become indispensable in accelerating the discovery and optimization of high-entropy alloys(HEAs), especially when integrating computational predictions with sparse experimental observations. This study systematically evaluates the fitting performance of four prominent surrogate models conventional Gaussian Processes(cGP), Deep Gaussian Processes(DGP), encoder-decoder neural networks for multi-output regression and XGBoost applied to a hybrid dataset of experimental and computational properties in the AlCoCrCuFeMnNiV HEA system. We specifically assess their capabilities in predicting correlated material properties, including yield strength, hardness, modulus, ultimate tensile strength, elongation, and average hardness under dynamic and quasi-static conditions, alongside auxiliary computational properties. The comparison highlights the strengths of hierarchical and deep modeling approaches in handling heteroscedastic, heterotopic, and incomplete data commonly encountered in materials informatics. Our findings illustrate that DGP infused with machine learning-based prior outperform other surrogates by effectively capturing inter-property correlations and input-dependent uncertainty. This enhanced predictive accuracy positions advanced surrogate models as powerful tools for robust and data-efficient materials design.",
+      "url": "http://arxiv.org/abs/2506.14828v1",
+      "pdf_url": "http://arxiv.org/pdf/2506.14828v1",
+      "authors": [],
+      "categories": [
+        "cs.LG",
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.45,
+      "reason": "Problem: The paper addresses the problem of predicting HEA properties using surrogate models, specifically evaluating Deep Gaussian Processes for multi-task prediction and uncertainty quantification. While both the user's idea and the paper use Gaussian processes and aim to reduce computational effort in materials science, the user's idea specifically focuses on active learning to select alloy compositions for DFT calculations to map binary alloy phase diagrams, which is a different specific problem than the paper's focus on property prediction in a complex HEA system. | Method: Both the user's idea and the paper utilize Gaussian Processes (GPs) and uncertainty quantification in materials science. The user's idea specifically mentions 'active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next,' while the paper focuses on 'Deep Gaussian Processes (DGPs)' for 'multi-task prediction of HEA properties' and discusses their 'uncertainty-awareness' and use within a 'BO loop' (Bayesian optimization, a form of active learning). However, the paper's primary focus is on evaluating different surrogate models for property prediction and incorporating prior knowledge, rather than the specific active learning strategy for phase diagram mapping via DFT as outlined by the user. | Domain: Both the user's idea and the paper are within the same discipline of materials science, specifically materials informatics and alloy design. However, the user's idea focuses on mapping binary alloy phase diagrams using DFT calculations, while the paper focuses on predicting properties of high-entropy alloys (HEAs) using a hybrid dataset of experimental and computational properties. | Contribution: The user's idea focuses on using active learning with Gaussian process uncertainty to select alloy compositions for DFT calculations to map binary alloy phase diagrams. The paper, while using Deep Gaussian Processes with uncertainty quantification for materials, applies it to predict properties of high-entropy alloys (HEAs) from a hybrid dataset and does not mention active learning for DFT calculations or mapping phase diagrams. The general direction of using GPs for materials property prediction is similar, but the specific application and methodology for contribution are different.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_05",
+      "source": "arxiv",
+      "source_id": "1910.03962v1",
+      "arxiv_id": "1910.03962v1",
+      "title": "Optimal experimental design via Bayesian optimization: active causal structure learning for Gaussian process networks",
+      "abstract": "We study the problem of causal discovery through targeted interventions. Starting from few observational measurements, we follow a Bayesian active learning approach to perform those experiments which, in expectation with respect to the current model, are maximally informative about the underlying causal structure. Unlike previous work, we consider the setting of continuous random variables with non-linear functional relationships, modelled with Gaussian process priors. To address the arising problem of choosing from an uncountable set of possible interventions, we propose to use Bayesian optimisation to efficiently maximise a Monte Carlo estimate of the expected information gain.",
+      "url": "http://arxiv.org/abs/1910.03962v1",
+      "pdf_url": "http://arxiv.org/pdf/1910.03962v1",
+      "authors": [],
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.55,
+      "reason": "Problem: The paper addresses the problem of 'causal discovery through targeted interventions' to learn a 'causal model of its environment through targeted experimentation,' using active learning and Gaussian processes. While the user's idea also uses active learning and Gaussian processes for experimental design, the paper's focus is on learning 'causal structure and functional relationships' in a general setting, rather than the specific application of mapping alloy phase diagrams to reduce DFT calculations. | Method: Both the user's idea and the paper utilize active learning with Gaussian processes for uncertainty-guided selection. The paper, however, focuses on 'causal discovery' and 'causal structure learning' in Gaussian process networks, while the user's idea applies this to 'selecting which alloy compositions to compute via DFT next' to map out a phase diagram. The core methodology of using GPs for active learning is similar, but the specific problem formulation and application domain differ significantly. | Domain: The user's idea is in materials science (alloy phase diagrams, DFT calculations), while the paper is in the general domain of causal discovery and experimental design, with examples like a robot exploring its surroundings or a scientist in a lab. Both involve active learning and Gaussian processes for scientific discovery, placing them in the same discipline (machine learning/statistics for scientific applications) but different sub-areas and application targets. | Contribution: The paper's core contribution is 'the first work to address the Bayesian experimental design problem for continuous variables, allowing for flexible non-linear relationships through the use of GP networks' and 'actively choosing interventions using an information theoretic approach' (Related work). This directly aligns with the user's idea of 'Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.' The paper's focus on 'active Bayesian causal discovery' using Gaussian processes for 'targeted interventions' to learn 'functional relationships' is highly similar to the user's proposed method, differing mainly in the specific application domain (causal discovery vs. alloy phase diagrams).",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.75
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.9,
+    "existing_examples": [
+      {
+        "name": "Active Learning for Materials Discovery",
+        "similarity": 0.95,
+        "description": "Numerous research groups and publications have explored active learning, often with Gaussian processes, to accelerate materials discovery and optimization, including predicting phase stability and properties. This directly applies to reducing DFT calculations for phase diagrams."
+      },
+      {
+        "name": "Bayesian Optimization in Materials Science",
+        "similarity": 0.9,
+        "description": "Bayesian optimization, which commonly uses Gaussian processes to model objective functions and acquisition functions (like UCB or Expected Improvement, related to uncertainty), is a well-established technique in materials science for optimizing synthesis, properties, and computational exploration."
+      },
+      {
+        "name": "CALPHAD (CALculation of PHAse Diagrams) with Machine Learning",
+        "similarity": 0.75,
+        "description": "While CALPHAD itself is an older method, modern approaches often integrate machine learning, including active learning strategies, to more efficiently generate or refine thermodynamic databases and phase diagrams, sometimes leveraging DFT data."
+      }
+    ],
+    "assessment": "The core idea of using active learning, specifically with Gaussian process uncertainty, to guide DFT calculations for efficiently mapping out phase diagrams is a well-established and active area of research in computational materials science. Many studies have demonstrated and implemented this approach to reduce the computational cost of exploring materials space.",
+    "novelty_aspects": [
+      "Specific acquisition function design tailored for phase diagram boundaries",
+      "Application to a particularly challenging or complex alloy system",
+      "Integration with novel DFT methodologies or experimental validation techniques"
+    ],
+    "recommendation": "While the general concept is not novel, there is still room for specific contributions. Focus on a unique application, a novel refinement to the active learning strategy (e.g., a new uncertainty metric or acquisition function), or a robust demonstration on a previously unaddressed or particularly difficult alloy system. Clearly articulate how your approach improves upon existing methods in terms of efficiency, accuracy, or applicability."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Active Learning for Materials Discovery** (similarity: 95%).\n\n*The core idea of using active learning, specifically with Gaussian process uncertainty, to guide DFT calculations for efficiently mapping out phase diagrams is a well-established and active area of research in computational materials science. Many studies have demonstrated and implemented this approach to reduce the computational cost of exploring materials space.*\n\n**Recommendation:** While the general concept is not novel, there is still room for specific contributions. Focus on a unique application, a novel refinement to the active learning strategy (e.g., a new uncertainty metric or acquisition function), or a robust demonstration on a previously unaddressed or particularly difficult alloy system. Clearly articulate how your approach improves upon existing methods in terms of efficiency, accuracy, or applicability.",
+  "patent_warnings": null,
+  "github_analysis": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 111,
+    "unique_after_dedup": 0,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 454,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0591,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0574,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0014,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+  "enriched_idea": "RESEARCH IDEA:\nUsing active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "layer1_results": [
+    {
+      "paper_id": "paper_01",
+      "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+      "arxiv_id": "2603.12567v3",
+      "paper_similarity_score": 0.7250000000000001,
+      "reason": "Problem: The user's research idea focuses on reducing DFT calculations for binary alloy phase diagrams using active learning with Gaussian process uncertainty. The paper addresses the broader problem of accelerating materials discovery using active learning, specifically mentioning 'alloy systems' and 'catalyst design' as applications. While the paper's primary contribution is replacing GP with foundation models, it explicitly discusses the limitations of GP in active learning for materials discovery, including 'alloy discovery,' indicating a very similar problem statement, differing mainly in the specific surrogate model proposed and the scope of materials systems. | Method: Both the user's idea and the paper utilize active learning with uncertainty quantification for materials discovery. The user specifically mentions Gaussian Process uncertainty, which the paper uses as a baseline ('GP underfits complex composition-property landscapes due to rigid kernel assumptions'). However, the paper's core contribution is replacing conventional surrogates like GP with a 'transformer-based foundation model (FM) pre-trained on millions of synthetic regression tasks' (TabPFN), representing a meaningful difference in the specific surrogate model used for uncertainty estimation. | Domain: The user's idea focuses on mapping binary alloy phase diagrams, which falls under materials discovery and specifically alloy systems. The paper evaluates active learning for materials discovery across various datasets, including 'copper alloys' and 'glass-forming alloy datasets', which are directly relevant application targets within alloy systems. While the paper doesn't explicitly mention 'binary alloy phase diagrams', the focus on 'alloy systems' and 'composition-property landscapes' for materials discovery is a closely related application target. | Contribution: The user's research idea proposes using active learning with Gaussian process uncertainty to select alloy compositions for DFT, reducing calculations for phase diagrams. The paper directly addresses this by evaluating active learning, including GP surrogates, for materials discovery, specifically mentioning 'alloy systems' and 'copper alloys' datasets. The paper's core contribution is to improve upon GP-based active learning for materials discovery, which is the exact method the user proposes to use.",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.75,
+        "contribution_similarity": 1.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.7999999999999999,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+              "heading": "ABSTRACT",
+              "text_snippet": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper aim to reduce the number of calculations/evaluations needed for materials discovery using active learning.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+              "heading": "Introduction",
+              "text_snippet": "Active learning (AL), especially Bayesian Optimization (BO), has emerged as a powerful paradigm to address this challenge by coupling machine learning (ML) predictions with adaptive data acquisition, iteratively steering experiments toward the most informative or highest-performing candidates and thereby reducing the number of costly evaluations required to reach a design target.",
+              "similarity": 0.75,
+              "reason": "The core problem of reducing costly evaluations in materials discovery through active learning is shared.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+              "heading": "ABSTRACT",
+              "text_snippet": "However, current AL relies predominantly on Gaussian Process (GP) and Random Forest (RF) surrogates, which suffer from complementary limitations: GP underfits complex composition-property landscapes due to rigid kernel assumptions, while RF produces unreliable heuristic uncertainty estimates in small-data regimes.",
+              "similarity": 0.75,
+              "reason": "The user explicitly mentions 'Gaussian process uncertainty' as part of their method, which is a key method discussed and benchmarked in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+              "heading": "Current Practice and Limitations of Surrogate Models in Materials Active Learning",
+              "text_snippet": "A recent comprehensive survey [3] and benchmark study [27] show that Gaussian Process (GP) regression has historically been the dominant surrogate model in Bayesian Optimization (BO)-based AL, valued for its native probabilistic output and its principled uncertainty estimates that directly enable the exploration-exploitation trade-off inherent to acquisition functions such as Expected Improvement (EI) and Upper Confidence Bound (UCB) [28, 1].",
+              "similarity": 0.75,
+              "reason": "The user's method involves 'Gaussian process uncertainty' which is a well-established method in active learning, and the paper extensively discusses and benchmarks GP, particularly its use for uncertainty estimates.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+              "heading": "ABSTRACT",
+              "text_snippet": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely focused on 'materials discovery' and specifically mention 'alloy compositions' and 'binary alloy phase diagram', which falls under materials science.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+              "heading": "Introduction",
+              "text_snippet": "The discovery and optimization of new materials is a central challenge in science and engineering, with far-reaching implications for energy storage, structural alloys, catalysis, semiconductors, and drug design [1, 2, 3, 4, 5, 6, 7].",
+              "similarity": 1.0,
+              "reason": "The user's idea is about 'alloy compositions' and 'binary alloy phase diagram', which is a direct application within 'materials discovery' as discussed in the paper.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+              "heading": "Benchmark Datasets",
+              "text_snippet": "The second group of datasets are on predicting hardness and and electrical conductivity of copper-based alloys [54].",
+              "similarity": 1.0,
+              "reason": "The paper explicitly mentions 'copper-based alloys' and 'glass-forming alloy datasets', directly aligning with the user's focus on 'alloy compositions' and 'binary alloy phase diagram'.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+              "heading": "ABSTRACT",
+              "text_snippet": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials.",
+              "similarity": 0.75,
+              "reason": "The user's proposed contribution of 'reducing the number of calculations needed to map out a binary alloy phase diagram' is a specific instance of the broader contribution of 'reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials' that the paper aims for and demonstrates.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_01",
+              "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+              "heading": "Introduction",
+              "text_snippet": "Across all these domains, the common thread is that AL enables order-of-magnitude reductions in the number of experiments required relative to conventional design-of-experiments or random search [23, 1, 24, 25, 26].",
+              "similarity": 0.75,
+              "reason": "The user's idea aims to reduce the number of calculations, which is a direct form of 'reducing the number of experiments required' as a contribution of active learning, a concept the paper extensively supports and demonstrates.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_overlap": 1.0,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "high",
+      "similarity_level": "high",
+      "tokens_used": 40738,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2603.12567v3"
+    },
+    {
+      "paper_id": "paper_02",
+      "paper_title": "Uncertainty Disentanglement with Non-stationary Heteroscedastic Gaussian Processes for Active Learning",
+      "arxiv_id": "2210.10964v1",
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The paper addresses the general problem of using Gaussian processes and active learning to reduce calculations by separating uncertainty, which is a core component of the user's idea. However, the paper focuses on the methodological development of a 'Non-stationary Heteroscedastic Gaussian process model' and its application to general regression tasks and sensor placement, rather than the specific application of mapping binary alloy phase diagrams via DFT calculations. | Method: The paper proposes a Non-stationary Heteroscedastic Gaussian process model that disentangles aleatoric and epistemic uncertainty for active learning, which aligns with the user's idea of using Gaussian process uncertainty for active learning. However, the paper focuses on the methodological advancements of the GP model itself (e.g., using Gibbs kernel, inducing point approximations, and gradient-based learning for hyperparameters) and demonstrates it on general regression and active learning tasks, rather than specifically applying it to alloy phase diagrams or DFT computations as in the user's idea. | Domain: The paper focuses on the methodological advancements of Gaussian processes for active learning, specifically disentangling uncertainty, and demonstrates its efficacy on general regression tasks and sensor placement. While the user's idea applies active learning with Gaussian processes to a specific materials science problem (alloy phase diagrams via DFT), the paper does not mention materials science, DFT, or alloy compositions. The application domains are different, but the core methodology (active learning with GPs) is the same discipline. | Contribution: The paper's contribution is a 'Non-stationary Heteroscedastic Gaussian process model' that disentangles aleatoric and epistemic uncertainty for active learning, which is a methodological contribution. The user's idea applies active learning with Gaussian process uncertainty to a specific domain (alloy compositions via DFT to map phase diagrams), which is an application-specific contribution. While both use active learning and Gaussian processes with uncertainty, the paper focuses on the model's interpretability and efficiency, while the user focuses on a specific application, leading to partial overlap in contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.525,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Uncertainty Disentanglement with Non-stationary Heteroscedastic Gaussian Processes for Active Learning",
+              "heading": "Abstract",
+              "text_snippet": "We illustrate the usability of derived epistemic uncertainty on active learning problems.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'active learning with Gaussian process uncertainty' which directly aligns with the paper's focus on using epistemic uncertainty for active learning.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Uncertainty Disentanglement with Non-stationary Heteroscedastic Gaussian Processes for Active Learning",
+              "heading": "Introduction",
+              "text_snippet": "This distinction is crucial for problems such as active learning and efficient sensor placement.",
+              "similarity": 0.75,
+              "reason": "The paper highlights the importance of distinguishing epistemic and aleatoric uncertainty for active learning, which is a core component of the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Uncertainty Disentanglement with Non-stationary Heteroscedastic Gaussian Processes for Active Learning",
+              "heading": "Active learning",
+              "text_snippet": "Active learning (see e.g., [7]) uses some measure of uncertainty to decide which points to label so as to learn the underlying function as quickly as possible. ... Thus, we use the epistemic uncertainty var ( f ( x )) for active learning.",
+              "similarity": 1.0,
+              "reason": "The paper details how active learning uses uncertainty to select points and specifically states the use of epistemic uncertainty for active learning, which is precisely what the user proposes with 'Gaussian process uncertainty to select which alloy compositions'.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Uncertainty Disentanglement with Non-stationary Heteroscedastic Gaussian Processes for Active Learning",
+              "heading": "Active learning",
+              "text_snippet": "Active learning (see e.g., [7]) uses some measure of uncertainty to decide which points to label so as to learn the underlying function as quickly as possible. This can also be useful for tasks such as deciding where to place air quality (AQ) sensors (see e.g., [2]), where the goal is to infer the underlying AQ values at all spatial locations based on sensors of varying quality.",
+              "similarity": 0.5,
+              "reason": "While the specific application differs, the underlying problem of efficiently selecting points to query to map out a function or diagram (like a phase diagram) is similar to the general active learning problem described in the paper, such as placing sensors to infer AQ values.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_02",
+              "paper_title": "Uncertainty Disentanglement with Non-stationary Heteroscedastic Gaussian Processes for Active Learning",
+              "heading": "Active learning",
+              "text_snippet": "Active learning (see e.g., [7]) uses some measure of uncertainty to decide which points to label so as to learn the underlying function as quickly as possible.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims at 'reducing the number of calculations needed to map out a binary alloy phase diagram', which aligns with the general goal of active learning to 'learn the underlying function as quickly as possible' by selecting points efficiently.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.25,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 19321,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2210.10964v1"
+    },
+    {
+      "paper_id": "paper_03",
+      "paper_title": "Actively Learning Gaussian Process Dynamics",
+      "arxiv_id": "1911.09946v3",
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The paper addresses the problem of sample-efficient learning of dynamical systems using active learning and Gaussian processes, selecting sample points in regions of high uncertainty. While the user's idea also uses active learning with Gaussian process uncertainty to reduce calculations, it applies this to a specific materials science problem (alloy phase diagrams via DFT), which is a different domain and specific application than the general dynamical systems explored in the paper. | Method: Both the user's idea and the paper utilize active learning with Gaussian processes and uncertainty (specifically differential entropy) to select new data points. However, the paper focuses on learning dynamical systems by selecting control inputs to excite the system, whereas the user's idea applies this to selecting alloy compositions for DFT calculations, which is a static mapping problem. The paper explicitly distinguishes between static and dynamic problems, noting that the static problem (like the user's) is 'fundamentally different' and 'amenable to a clean information-theoretical treatment' that is lost for dynamical systems. | Domain: The user's idea is in materials science (alloy phase diagrams, DFT calculations), while the paper is in control systems and robotics (dynamical systems, system identification, control inputs, state-action space, pendulum, robots, unicycle, half-cheetah). Both use active learning with Gaussian processes for sample-efficient learning, but the application domains are distinct: materials discovery vs. control of physical systems. | Contribution: The paper's core contribution is 'active learning strategies that leverage information-theoretical properties arising naturally during Gaussian process regression' for 'learning dynamical systems in a sample-efficient way,' which aligns with the user's idea of 'Using active learning with Gaussian process uncertainty to select which alloy compositions to compute.' Both use active learning and Gaussian processes with uncertainty for sample efficiency. However, the paper focuses on 'dynamical systems' and 'control inputs' for system identification, whereas the user's idea is specifically about 'alloy compositions' and 'DFT calculations' for 'mapping out a binary alloy phase diagram,' representing a distinct application domain and specific computational task.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.475,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Actively Learning Gaussian Process Dynamics",
+              "heading": "Abstract",
+              "text_snippet": "We propose active learning strategies that leverage information-theoretical properties arising naturally during Gaussian process regression, while respecting constraints on the sampling process imposed by the system dynamics. Sample points are selected in regions with high uncertainty, leading to exploratory behavior and data-efficient training of the model.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'active learning with Gaussian process uncertainty' to select compositions, which directly aligns with the paper's core methodology of using active learning and Gaussian process regression, selecting sample points in regions of high uncertainty for data-efficient training.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Actively Learning Gaussian Process Dynamics",
+              "heading": "Introduction",
+              "text_snippet": "We consider Gaussian process (GP) regression, which has been proven to be an efficient framework in many related applications, including model learning (Nguyen-Tuong and Peters, 2011) or reinforcement learning (Deisenroth and Rasmussen, 2011; Doerr et al., 2017). These probabilistic models have many advantageous properties for learning dynamical systems (Jain et al., 2018; Eleftheriadis et al., 2017; Doerr et al., 2018), such as taking uncertainty into account, coping with small datasets and incorporating prior knowledge. Active learning, i.e., sequentially choosing where to sample in order to build an informative dataset, has been investigated in many domains (see (Aggarwal, 2014) for an overview).",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes 'Using active learning with Gaussian process uncertainty'. The paper extensively discusses Gaussian process regression and active learning as a method for sequentially choosing where to sample, highlighting its ability to take uncertainty into account.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Actively Learning Gaussian Process Dynamics",
+              "heading": "Introduction",
+              "text_snippet": "Indeed, in the case of physical systems, sampling data often requires practically involved and time-consuming experiments. Further, sampling at informative locations of the state space is challenging, since the system is constrained by the underlying dynamics. Hence, it is essential to excite the system in such a way that the generated data enables sample-efficient learning.",
+              "similarity": 0.5,
+              "reason": "The user's problem of 'reducing the number of calculations needed' for DFT computations aligns with the paper's general problem of 'sample-efficient learning' in time-consuming experiments, though the specific application domain differs.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Actively Learning Gaussian Process Dynamics",
+              "heading": "Abstract",
+              "text_snippet": "We propose active learning strategies that leverage information-theoretical properties arising naturally during Gaussian process regression, while respecting constraints on the sampling process imposed by the system dynamics. Sample points are selected in regions with high uncertainty, leading to exploratory behavior and data-efficient training of the model.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to 'reduce the number of calculations needed' by selecting compositions based on uncertainty. This aligns with the paper's contribution of achieving 'data-efficient training of the model' by selecting sample points in regions of high uncertainty.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_03",
+              "paper_title": "Actively Learning Gaussian Process Dynamics",
+              "heading": "Problem statement",
+              "text_snippet": "We address the following question: how should one excite (1) to generate samples ( Z, Y ) for learning f in a sample-efficient way? We derive control inputs that optimize information criteria such as differential entropy, while taking the autoregressive structure of (1) explicitly into account. Ultimately, this reduces the prediction error given a fixed number of samples, by choosing informative control inputs that lead to exploratory system behavior.",
+              "similarity": 0.5,
+              "reason": "The user's goal of 'reducing the number of calculations needed' is a form of sample-efficient learning, which is a direct contribution of the paper: 'generate samples... in a sample-efficient way' and 'reduces the prediction error given a fixed number of samples'.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 26159,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1911.09946v3"
+    },
+    {
+      "paper_id": "paper_04",
+      "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+      "arxiv_id": "2506.14828v1",
+      "paper_similarity_score": 0.45,
+      "reason": "Problem: The paper addresses the problem of predicting HEA properties using surrogate models, specifically evaluating Deep Gaussian Processes for multi-task prediction and uncertainty quantification. While both the user's idea and the paper use Gaussian processes and aim to reduce computational effort in materials science, the user's idea specifically focuses on active learning to select alloy compositions for DFT calculations to map binary alloy phase diagrams, which is a different specific problem than the paper's focus on property prediction in a complex HEA system. | Method: Both the user's idea and the paper utilize Gaussian Processes (GPs) and uncertainty quantification in materials science. The user's idea specifically mentions 'active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next,' while the paper focuses on 'Deep Gaussian Processes (DGPs)' for 'multi-task prediction of HEA properties' and discusses their 'uncertainty-awareness' and use within a 'BO loop' (Bayesian optimization, a form of active learning). However, the paper's primary focus is on evaluating different surrogate models for property prediction and incorporating prior knowledge, rather than the specific active learning strategy for phase diagram mapping via DFT as outlined by the user. | Domain: Both the user's idea and the paper are within the same discipline of materials science, specifically materials informatics and alloy design. However, the user's idea focuses on mapping binary alloy phase diagrams using DFT calculations, while the paper focuses on predicting properties of high-entropy alloys (HEAs) using a hybrid dataset of experimental and computational properties. | Contribution: The user's idea focuses on using active learning with Gaussian process uncertainty to select alloy compositions for DFT calculations to map binary alloy phase diagrams. The paper, while using Deep Gaussian Processes with uncertainty quantification for materials, applies it to predict properties of high-entropy alloys (HEAs) from a hybrid dataset and does not mention active learning for DFT calculations or mapping phase diagrams. The general direction of using GPs for materials property prediction is similar, but the specific application and methodology for contribution are different.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Abstract",
+              "text_snippet": "Surrogate modeling techniques have become indispensable in accelerating the discovery and optimization of high-entropy alloys(HEAs), especially when integrating computational predictions with sparse experimental observations.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to accelerate materials discovery and optimization using computational predictions, specifically for alloys. The user focuses on reducing calculations for phase diagrams, while the paper focuses on predicting HEA properties.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Introduction",
+              "text_snippet": "Surrogate models serve as computationally efficient approximations of complex structure-property relationships and are widely used to accelerate materials discovery. Gaussian Processes (GPs) provide calibrated uncertainty estimates, making them effective for sparse, high-fidelity datasets [7], while multi-task extensions and co-kriging allow for correlated output modeling [8].",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to reduce calculations for mapping phase diagrams, which aligns with the paper's general goal of accelerating materials discovery using computationally efficient surrogate models like GPs.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Introduction",
+              "text_snippet": "Gaussian Processes (GPs) provide calibrated uncertainty estimates, making them effective for sparse, high-fidelity datasets [7], while multi-task extensions and co-kriging allow for correlated output modeling [8]. Deep Gaussian Processes (DGPs) extend this capability to hierarchical, nonlinear functions [9], offering an advantage in capturing complex material behavior.",
+              "similarity": 0.75,
+              "reason": "The user explicitly mentions 'active learning with Gaussian process uncertainty' as a method. The paper extensively discusses Gaussian Processes (GPs) and Deep Gaussian Processes (DGPs) and their ability to provide uncertainty estimates, which is a core component of active learning.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Conventional Gaussian Processes (cGP)",
+              "text_snippet": "cGPs provide a flexible Bayesian framework widely used for regression tasks due to their ability to explicitly quantify predictive uncertainty [7].",
+              "similarity": 0.75,
+              "reason": "The user's method involves 'Gaussian process uncertainty'. This section directly states that cGPs quantify predictive uncertainty, which is a key aspect of the user's proposed method.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Deep Gaussian Processes (DGP)",
+              "text_snippet": "Building directly on the fundamental concepts introduced above, Deep Gaussian Processes (DGPs) extend conventional GPs by incorporating a hierarchical structure. This hierarchical arrangement enables the modeling of more intricate, non-linear relationships and input-dependent uncertainties, thereby addressing challenges that arise in complex datasets [9, 22].",
+              "similarity": 0.75,
+              "reason": "The user's method uses 'Gaussian process uncertainty'. DGPs, as described here, are an advanced form of GPs that handle 'input-dependent uncertainties', which is directly relevant to using uncertainty for active learning.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Abstract",
+              "text_snippet": "Surrogate modeling techniques have become indispensable in accelerating the discovery and optimization of high-entropy alloys(HEAs), especially when integrating computational predictions with sparse experimental observations.",
+              "similarity": 0.75,
+              "reason": "The user's idea is about 'alloy compositions' and 'binary alloy phase diagram'. The paper focuses on 'high-entropy alloys (HEAs)' and their properties, which is a specific type of alloy, indicating a strong domain overlap.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Introduction",
+              "text_snippet": "High-entropy alloys (HEAs) are multicomponent alloys with five or more principal elements in high concentrations that offer a vast compositional design space and often exhibit exceptional mechanical properties [1, 2]. The exploration of this space is challenged by limited experimental data and complex composition-property relationships [1, 3].",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are concerned with 'alloys' and their 'compositions' and 'properties'. The paper specifically discusses HEAs, which are a type of alloy, making the domain very similar.",
+              "criterion": "domain_overlap"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Abstract",
+              "text_snippet": "This enhanced predictive accuracy positions advanced surrogate models as powerful tools for robust and data-efficient materials design.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims at 'reducing the number of calculations needed to map out a binary alloy phase diagram', which aligns with the paper's contribution of 'data-efficient materials design' using advanced surrogate models.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Introduction",
+              "text_snippet": "Surrogate models serve as computationally efficient approximations of complex structure-property relationships and are widely used to accelerate materials discovery. Gaussian Processes (GPs) provide calibrated uncertainty estimates, making them effective for sparse, high-fidelity datasets [7], while multi-task extensions and co-kriging allow for correlated output modeling [8].",
+              "similarity": 0.5,
+              "reason": "The user proposes 'reducing the number of calculations needed' for phase diagrams. The paper highlights surrogate models as 'computationally efficient approximations' to 'accelerate materials discovery', which is a similar goal of efficiency.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_04",
+              "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+              "heading": "Discussion",
+              "text_snippet": "In general, our findings strongly advocate the adoption of advanced hierarchical surrogate models with uncertainty-awareness such as DGP in materials discovery and optimization campaigns. These models provide substantial advantages by effectively capturing complex property interdependencies, robustly managing uncertainty, and maximizing predictive accuracy even with sparse and heterogeneous data sets.",
+              "similarity": 0.5,
+              "reason": "The user's idea uses 'Gaussian process uncertainty' for active learning to 'reduce the number of calculations'. The paper advocates for 'uncertainty-awareness' models like DGP for 'materials discovery and optimization campaigns' to maximize predictive accuracy with sparse data, implying efficiency gains.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 26409,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2506.14828v1"
+    },
+    {
+      "paper_id": "paper_05",
+      "paper_title": "Optimal experimental design via Bayesian optimization: active causal structure learning for Gaussian process networks",
+      "arxiv_id": "1910.03962v1",
+      "paper_similarity_score": 0.55,
+      "reason": "Problem: The paper addresses the problem of 'causal discovery through targeted interventions' to learn a 'causal model of its environment through targeted experimentation,' using active learning and Gaussian processes. While the user's idea also uses active learning and Gaussian processes for experimental design, the paper's focus is on learning 'causal structure and functional relationships' in a general setting, rather than the specific application of mapping alloy phase diagrams to reduce DFT calculations. | Method: Both the user's idea and the paper utilize active learning with Gaussian processes for uncertainty-guided selection. The paper, however, focuses on 'causal discovery' and 'causal structure learning' in Gaussian process networks, while the user's idea applies this to 'selecting which alloy compositions to compute via DFT next' to map out a phase diagram. The core methodology of using GPs for active learning is similar, but the specific problem formulation and application domain differ significantly. | Domain: The user's idea is in materials science (alloy phase diagrams, DFT calculations), while the paper is in the general domain of causal discovery and experimental design, with examples like a robot exploring its surroundings or a scientist in a lab. Both involve active learning and Gaussian processes for scientific discovery, placing them in the same discipline (machine learning/statistics for scientific applications) but different sub-areas and application targets. | Contribution: The paper's core contribution is 'the first work to address the Bayesian experimental design problem for continuous variables, allowing for flexible non-linear relationships through the use of GP networks' and 'actively choosing interventions using an information theoretic approach' (Related work). This directly aligns with the user's idea of 'Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.' The paper's focus on 'active Bayesian causal discovery' using Gaussian processes for 'targeted interventions' to learn 'functional relationships' is highly similar to the user's proposed method, differing mainly in the specific application domain (causal discovery vs. alloy phase diagrams).",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_overlap": 0.5,
+        "contribution_similarity": 0.75
+      },
+      "sentence_level": [
+        {
+          "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+          "sentence_index": 0,
+          "similarity_score": 0.525,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Optimal experimental design via Bayesian optimization: active causal structure learning for Gaussian process networks",
+              "heading": "Abstract",
+              "text_snippet": "We follow a Bayesian active learning approach to perform those experiments which, in expectation with respect to the current model, are maximally informative about the underlying causal structure. ... we consider the setting of continuous random variables with non-linear functional relationships, modelled with Gaussian process priors.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'active learning with Gaussian process uncertainty' which directly aligns with the paper's core methodology of using Bayesian active learning and Gaussian process priors for continuous variables.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Optimal experimental design via Bayesian optimization: active causal structure learning for Gaussian process networks",
+              "heading": "Proposed approach",
+              "text_snippet": "We propose to tackle the first of these computational challenges while allowing for flexible non-linear relationships by using Gaussian processes (GPs) [13] as priors over the functions f i in (1), see Figure 2 for an illustration.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly states the use of Gaussian processes as priors for functions, which is a direct match to the 'Gaussian process uncertainty' mentioned in the user's idea.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Optimal experimental design via Bayesian optimization: active causal structure learning for Gaussian process networks",
+              "heading": "Abstract",
+              "text_snippet": "We study the problem of causal discovery through targeted interventions. ... we follow a Bayesian active learning approach to perform those experiments which, in expectation with respect to the current model, are maximally informative about the underlying causal structure.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper focus on using active learning to 'select which... to compute next' or 'perform those experiments which... are maximally informative', aiming to reduce the number of necessary computations/experiments. While the specific target (alloy compositions vs. causal structure) differs, the underlying problem of efficient selection for information gain is similar.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Optimal experimental design via Bayesian optimization: active causal structure learning for Gaussian process networks",
+              "heading": "Abstract",
+              "text_snippet": "We follow a Bayesian active learning approach to perform those experiments which, in expectation with respect to the current model, are maximally informative about the underlying causal structure.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is about efficiently selecting experiments to gain information, which aligns with the user's goal of 'reducing the number of calculations needed to map out a binary alloy phase diagram' by selecting compositions to compute next.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_05",
+              "paper_title": "Optimal experimental design via Bayesian optimization: active causal structure learning for Gaussian process networks",
+              "heading": "Related work",
+              "text_snippet": "To the best of our knowledge, ours is the first work to address the Bayesian experimental design problem for continuous variables, allowing for flexible non-linear relationships through the use of GP networks [31].",
+              "similarity": 0.25,
+              "reason": "The paper's domain is 'causal discovery' and 'experimental design' in a general machine learning context, while the user's idea is specifically in 'materials science' (alloy compositions, DFT, phase diagrams). Both involve experimental design for continuous variables, but the application context is different.",
+              "criterion": "domain_overlap"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_overlap": 0.25,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 22821,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1910.03962v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 30,
+    "global_similarity_score": 0.783,
+    "label": "low",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Using active learning with Gaussian process uncertainty to select which alloy compositions to compute via DFT next, reducing the number of calculations needed to map out a binary alloy phase diagram.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_overlap": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+            "heading": "ABSTRACT",
+            "text_snippet": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper aim to reduce the number of calculations/evaluations needed for materials discovery using active learning.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+            "heading": "ABSTRACT",
+            "text_snippet": "However, current AL relies predominantly on Gaussian Process (GP) and Random Forest (RF) surrogates, which suffer from complementary limitations: GP underfits complex composition-property landscapes due to rigid kernel assumptions, while RF produces unreliable heuristic uncertainty estimates in small-data regimes.",
+            "similarity": 0.75,
+            "reason": "The user explicitly mentions 'Gaussian process uncertainty' as part of their method, which is a key method discussed and benchmarked in the paper.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+            "heading": "ABSTRACT",
+            "text_snippet": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are squarely focused on 'materials discovery' and specifically mention 'alloy compositions' and 'binary alloy phase diagram', which falls under materials science.",
+            "criterion": "domain_overlap"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_01",
+            "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+            "heading": "ABSTRACT",
+            "text_snippet": "Active learning (AL) has emerged as a powerful paradigm for accelerating materials discovery by iteratively steering experiments toward promising candidates, reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials.",
+            "similarity": 0.75,
+            "reason": "The user's proposed contribution of 'reducing the number of calculations needed to map out a binary alloy phase diagram' is a specific instance of the broader contribution of 'reducing the number of costly synthesis-and-characterization cycles needed to identify optimal materials' that the paper aims for and demonstrates.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research shows significant overlap in its problem formulation, domain, and especially its contribution with existing work, particularly \"Foundation-Model Surrogates Enable Data-Efficient Active Lea.\" To improve originality, focus on clearly differentiating your specific contribution and how it uniquely advances the field beyond the identified similar papers.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.6699999999999999,
+      "method_similarity": 0.5,
+      "domain_overlap": 0.6699999999999999,
+      "contribution_similarity": 0.84
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0591,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0574,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0014,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 267.8668637275696,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_01",
+        "paper_title": "Foundation-Model Surrogates Enable Data-Efficient Active Learning for Materials Discovery",
+        "paper_similarity": 0.8625,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.75,
+          "contribution_similarity": 1.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_02",
+        "paper_title": "Uncertainty Disentanglement with Non-stationary Heteroscedastic Gaussian Processes for Active Learning",
+        "paper_similarity": 0.5,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_03",
+        "paper_title": "Actively Learning Gaussian Process Dynamics",
+        "paper_similarity": 0.5,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_04",
+        "paper_title": "Accurate and Uncertainty-Aware Multi-Task Prediction of HEA Properties Using Prior-Guided Deep Gaussian Processes",
+        "paper_similarity": 0.475,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_05",
+        "paper_title": "Optimal experimental design via Bayesian optimization: active causal structure learning for Gaussian process networks",
+        "paper_similarity": 0.65,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_overlap": 0.5,
+          "contribution_similarity": 0.75
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 111
+  },
+  "search_funnel": {
+    "selected_sources": [
+      "arxiv"
+    ],
+    "source_results": {
+      "arxiv": 111
+    },
+    "total_papers_fetched": 111,
+    "papers_after_rerank": 20,
+    "final_papers_selected": 5,
+    "semantic_filter_rate": 0.8198198198198199,
+    "llm_selection_rate": 0.75
+  }
+}

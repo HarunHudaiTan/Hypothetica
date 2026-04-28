@@ -1,0 +1,851 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "03a461aaef00",
+    "status": "completed"
+  },
+  "originality_score": 97,
+  "global_similarity_score": 0.1675,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A curriculum learning schedule for instruction-tuning large language models where training examples are ordered by reward model score (low to high), so the model sees easier instructions first and harder ones later.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "low",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "low"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_08",
+          "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+          "heading": "ABSTRACT",
+          "text_snippet": "Curriculum learning is a widely adopted training strategy in natural language processing (NLP), where models are exposed to examples organized by increasing difficulty to enhance learning efficiency and performance.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper address the problem of improving model training efficiency and performance using curriculum learning, specifically by ordering examples by difficulty.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_08",
+          "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+          "heading": "Naive Sequential Sampling",
+          "text_snippet": "The most straightforward approach, akin to curriculum learning, is to arrange the training examples based on their difficulty scores and train the model using a fixed order. Let X = { x n } N n =1 be the training examples, sorted by their associated difficulty scores s n in either ascending or descending order . We propose two sampling strategies.",
+          "similarity": 1.0,
+          "reason": "The paper describes 'Naive sequential sampling' which directly aligns with the user's idea of ordering training examples based on difficulty scores (ascending/low-to-high) and training in that fixed order.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_28",
+          "paper_title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+          "heading": "ABSTRACT",
+          "text_snippet": "Therefore, we propose using the likelihood of follow-up utterances as rewards to differentiate preferred responses from less favored ones, without relying on human or commercial LLM-based preference annotations. Our proposed reward mechanism, ``Follow-up Likelihood as Reward\" (FLR), matches the performance of strong reward models trained on large-scale human or GPT-4 annotated data on 8 pairwise-preference and 4 rating-based benchmarks.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are focused on instruction-tuning large language models and using reward models to guide this process. The core domain of LLM alignment and training is identical.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_08",
+          "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+          "heading": "ABSTRACT",
+          "text_snippet": "To overcome this limitation, we present a self-adaptive curriculum learning paradigm that prioritizes fine-tuning examples based on difficulty scores predicted by pre-trained language models (PLMs) themselves. Building on these scores, we explore various training strategies that differ in the ordering of examples for the fine-tuning: from easy-to-hard, hard-to-easy, to mixed sampling.",
+          "similarity": 0.75,
+          "reason": "The paper's contribution includes proposing a curriculum learning paradigm based on model-predicted difficulty scores and exploring 'easy-to-hard' ordering, which directly overlaps with the user's proposed contribution of a curriculum learning schedule ordered by reward model score (low to high).",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research demonstrates high originality, particularly in its methodological approach and proposed contributions. While there's some overlap in the problem domain, consider further differentiating your application or specific problem formulation to enhance overall novelty.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.5499999999999999,
+    "method_similarity": 0.33999999999999997,
+    "domain_similarity": 0.6699999999999999,
+    "contribution_similarity": 0.33999999999999997
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0383,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0359,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0022,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 164.27208995819092,
+  "papers": [
+    {
+      "paper_id": "paper_07",
+      "source": "arxiv",
+      "source_id": "2410.08355v3",
+      "arxiv_id": "2410.08355v3",
+      "title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+      "abstract": "Predicting the biophysical and functional properties of proteins is essential for in silico protein design. Machine learning has emerged as a promising technique for such prediction tasks. However, the relative scarcity of in vitro annotations means that these models often have little, or no, specific data on the desired fitness prediction task. As a result of limited data, protein language models (PLMs) are typically trained on general protein sequence modeling tasks, and then fine-tuned, or applied zero-shot, to protein fitness prediction. When no task data is available, the models make strong assumptions about the correlation between the protein sequence likelihood and fitness scores. In contrast, we propose meta-learning over a distribution of standard fitness prediction tasks, and demonstrate positive transfer to unseen fitness prediction tasks. Our method, called Metalic (Meta-Learning In-Context), uses in-context learning and fine-tuning, when data is available, to adapt to new tasks. Crucially, fine-tuning enables considerable generalization, even though it is not accounted for during meta-training. Our fine-tuned models achieve strong results with 18 times fewer parameters than state-of-the-art models. Moreover, our method sets a new state-of-the-art in low-data settings on ProteinGym, an established fitness-prediction benchmark. Due to data scarcity, we believe meta-learning will play a pivotal role in advancing protein engineering.",
+      "url": "http://arxiv.org/abs/2410.08355v3",
+      "pdf_url": "https://arxiv.org/pdf/2410.08355v3",
+      "authors": [
+        "Jacob Beck",
+        "Shikha Surana",
+        "Manus McAuliffe",
+        "Oliver Bent",
+        "Thomas D. Barrett",
+        "Juan Jose Garau Luis",
+        "Paul Duckworth"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on a curriculum learning schedule for instruction-tuning large language models, ordering training examples by reward model score. The paper, 'Metalic: Meta-Learning In-Context with Protein Language Models,' addresses the problem of predicting protein properties (fitness) in low-data settings using meta-learning and protein language models. These are fundamentally different research problems with no overlap in domain, methodology, or specific goals. | Method: The user's research idea proposes a curriculum learning schedule for instruction-tuning large language models, ordering training examples by reward model score. The paper 'Metalic' focuses on meta-learning for protein fitness prediction using protein language models, in-context learning, and fine-tuning. There is no mention of curriculum learning, reward models, or ordering training examples by difficulty in the paper, indicating completely different methodologies. | Domain: The user's research idea focuses on curriculum learning for instruction-tuning large language models (LLMs) in a general NLP context. The paper, 'Metalic: Meta-Learning In-Context with Protein Language Models,' applies meta-learning to protein language models (PLMs) for protein fitness prediction. While both involve language models and meta-learning concepts, the application domains are distinct: general LLMs for instruction following versus specialized PLMs for protein engineering. | Contribution: The user's research idea focuses on a curriculum learning schedule for instruction-tuning large language models, specifically ordering training examples by reward model score. The paper 'Metalic' focuses on meta-learning for protein fitness prediction in low-data settings, combining in-context meta-learning and fine-tuning with protein language models. The domains, models, and specific training methodologies are entirely different, addressing unrelated gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_36",
+      "source": "arxiv",
+      "source_id": "1706.06749v1",
+      "arxiv_id": "1706.06749v1",
+      "title": "Cross-language Learning with Adversarial Neural Networks: Application to Community Question Answering",
+      "abstract": "We address the problem of cross-language adaptation for question-question similarity reranking in community question answering, with the objective to port a system trained on one input language to another input language given labeled training data for the first language and only unlabeled data for the second language. In particular, we propose to use adversarial training of neural networks to learn high-level features that are discriminative for the main learning task, and at the same time are invariant across the input languages. The evaluation results show sizable improvements for our cross-language adversarial neural network (CLANN) model over a strong non-adversarial system.",
+      "url": "http://arxiv.org/abs/1706.06749v1",
+      "pdf_url": "https://arxiv.org/pdf/1706.06749v1",
+      "authors": [
+        "Shafiq Joty",
+        "Preslav Nakov",
+        "Lluís Màrquez",
+        "Israa Jaradat"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on curriculum learning for instruction-tuning large language models, ordering training examples by reward model score. The paper, however, addresses cross-language adaptation for question-question similarity reranking in community question answering using adversarial neural networks to learn language-invariant features. These are fundamentally different research problems with distinct goals and methodologies. | Method: The user's research idea proposes a curriculum learning schedule for instruction-tuning large language models, ordering training examples by reward model score. The paper, however, focuses on cross-language adaptation using adversarial neural networks for question-question similarity reranking. There is no mention of curriculum learning, reward models, or instruction-tuning in the paper, indicating completely different methodologies. | Domain: The user's research idea is in the domain of instruction-tuning large language models, specifically focusing on curriculum learning schedules. The paper, on the other hand, addresses cross-language adaptation for question-question similarity reranking in community question answering. Both fall under Natural Language Processing (NLP), but they represent different sub-areas and application targets within the field. | Contribution: The user's research idea proposes a curriculum learning schedule for instruction-tuning large language models, ordering examples by reward model score. The paper, however, focuses on cross-language adaptation using adversarial neural networks for question-question similarity reranking, aiming to learn language-invariant features. These are distinct contributions addressing different research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_08",
+      "source": "arxiv",
+      "source_id": "2507.09758v1",
+      "arxiv_id": "2507.09758v1",
+      "title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+      "abstract": "Curriculum learning is a widely adopted training strategy in natural language processing (NLP), where models are exposed to examples organized by increasing difficulty to enhance learning efficiency and performance. However, most existing approaches rely on manually defined difficulty metrics -- such as text length -- which may not accurately reflect the model's own perspective. To overcome this limitation, we present a self-adaptive curriculum learning paradigm that prioritizes fine-tuning examples based on difficulty scores predicted by pre-trained language models (PLMs) themselves. Building on these scores, we explore various training strategies that differ in the ordering of examples for the fine-tuning: from easy-to-hard, hard-to-easy, to mixed sampling. We evaluate our method on four natural language understanding (NLU) datasets covering both binary and multi-class classification tasks. Experimental results show that our approach leads to faster convergence and improved performance compared to standard random sampling.",
+      "url": "http://arxiv.org/abs/2507.09758v1",
+      "pdf_url": "https://arxiv.org/pdf/2507.09758v1",
+      "authors": [
+        "Qi Feng",
+        "Yihong Liu",
+        "Hinrich Schütze"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5375,
+      "reason": "Problem: The paper addresses a very similar problem statement to the user's idea, focusing on curriculum learning for language models by ordering training examples based on difficulty. Both aim to improve training efficiency and performance by presenting easier examples first. The primary difference lies in the specific method of determining 'difficulty' and the scope of application (NLU tasks vs. instruction-tuning LLMs). | Method: The paper proposes a curriculum learning schedule where training examples are ordered by a difficulty score predicted by the PLM itself, which is conceptually similar to the user's idea of ordering by reward model score. However, the paper focuses on Natural Language Understanding (NLU) classification tasks and uses a confidence measure (maximum absolute difference among predicted class probabilities) as its difficulty metric, rather than a reward model score for instruction-tuning LLMs. While both use a model-derived difficulty for curriculum learning, the specific mechanism for determining difficulty and the application domain (NLU vs. instruction-tuning LLMs) differ meaningfully. | Domain: The user's idea focuses on instruction-tuning large language models, while the paper evaluates fine-tuning pre-trained language models (PLMs) for Natural Language Understanding (NLU) tasks like sentiment analysis and hate speech detection. While both are in NLP and involve fine-tuning language models, the specific application target (instruction-tuning vs. NLU classification) and the type of language model (LLM vs. PLM for NLU) represent different sub-areas within the broader NLP domain. | Contribution: The paper proposes a self-adaptive curriculum learning paradigm where difficulty is estimated by the PLM's own confidence and explores various sampling strategies, including 'easy-to-hard' ordering. The user's idea specifically focuses on a curriculum learning schedule for instruction-tuning LLMs ordered by reward model score (low to high), which is a distinct method for determining difficulty and a different application (instruction-tuning vs. NLU tasks).",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_28",
+      "source": "arxiv",
+      "source_id": "2409.13948v3",
+      "arxiv_id": "2409.13948v3",
+      "title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+      "abstract": "In natural human-to-human conversations, participants often receive feedback signals from one another based on their follow-up reactions. These reactions can include verbal responses, facial expressions, changes in emotional state, and other non-verbal cues. Similarly, in human-machine interactions, the machine can leverage the user's follow-up utterances as feedback signals to assess whether it has appropriately addressed the user's request. Therefore, we propose using the likelihood of follow-up utterances as rewards to differentiate preferred responses from less favored ones, without relying on human or commercial LLM-based preference annotations. Our proposed reward mechanism, ``Follow-up Likelihood as Reward\" (FLR), matches the performance of strong reward models trained on large-scale human or GPT-4 annotated data on 8 pairwise-preference and 4 rating-based benchmarks. Building upon the FLR mechanism, we propose to automatically mine preference data from the online generations of a base policy model. The preference data are subsequently used to boost the helpfulness of the base model through direct alignment from preference (DAP) methods, such as direct preference optimization (DPO). Lastly, we demonstrate that fine-tuning the language model that provides follow-up likelihood with natural language feedback significantly enhances FLR's performance on reward modeling benchmarks and effectiveness in aligning the base policy model's helpfulness.",
+      "url": "http://arxiv.org/abs/2409.13948v3",
+      "pdf_url": "https://arxiv.org/pdf/2409.13948v3",
+      "authors": [
+        "Chen Zhang",
+        "Dading Chong",
+        "Feng Jiang",
+        "Chengguang Tang",
+        "Anningzhe Gao",
+        "Guohua Tang",
+        "Haizhou Li"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's research idea focuses on a curriculum learning schedule for instruction-tuning LLMs, ordering training examples by reward model score from low to high. The paper, however, primarily addresses the problem of automatically generating reward signals for aligning LLMs without human or commercial LLM-based preference annotations, using 'Follow-up Likelihood as Reward' (FLR). While both involve reward models and LLM alignment, the paper's core problem is reward signal generation, not the curriculum learning schedule for instruction-tuning based on reward scores. | Method: The user's research idea proposes a curriculum learning schedule where training examples are ordered by reward model score (low to high) for instruction-tuning LLMs. The evaluated paper, however, focuses on a novel reward mechanism called 'Follow-up Likelihood as Reward' (FLR) for automatically mining preference data and aligning LLMs, without any mention of curriculum learning or ordering training examples based on difficulty or reward scores during instruction-tuning. | Domain: Both the user's idea and the paper operate within the domain of large language models (LLMs) and instruction-tuning. The paper focuses on 'Aligning Language Models Using Follow-up Likelihood as Reward Signal' and discusses 'instruction-tuned LLMs' and 'fine-tuning the language model' for 'alignment' and 'helpfulness'. This aligns closely with the user's idea of a curriculum learning schedule for 'instruction-tuning large language models'. | Contribution: The paper focuses on developing a novel reward mechanism (FLR) using follow-up likelihood to automatically generate preference data for aligning LLMs, as stated in its contributions: \"We introduce a 'Follow-up Likelihood as Reward' (FLR) that automatically annotates preference data from base policy outputs.\" The user's idea, however, is about a curriculum learning schedule where training examples are ordered by reward model score (low to high) for instruction-tuning. These are distinct contributions addressing different aspects of LLM training.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_25",
+      "source": "arxiv",
+      "source_id": "2407.08029v1",
+      "arxiv_id": "2407.08029v1",
+      "title": "A Critical Review of Causal Reasoning Benchmarks for Large Language Models",
+      "abstract": "Numerous benchmarks aim to evaluate the capabilities of Large Language Models (LLMs) for causal inference and reasoning. However, many of them can likely be solved through the retrieval of domain knowledge, questioning whether they achieve their purpose. In this review, we present a comprehensive overview of LLM benchmarks for causality. We highlight how recent benchmarks move towards a more thorough definition of causal reasoning by incorporating interventional or counterfactual reasoning. We derive a set of criteria that a useful benchmark or set of benchmarks should aim to satisfy. We hope this work will pave the way towards a general framework for the assessment of causal understanding in LLMs and the design of novel benchmarks.",
+      "url": "http://arxiv.org/abs/2407.08029v1",
+      "pdf_url": "https://arxiv.org/pdf/2407.08029v1",
+      "authors": [
+        "Linying Yang",
+        "Vik Shirvaikar",
+        "Oscar Clivio",
+        "Fabian Falck"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on a curriculum learning schedule for instruction-tuning LLMs, specifically ordering training examples by reward model score. The paper, however, critically reviews benchmarks for evaluating LLMs' causal reasoning capabilities, aiming to define criteria for useful benchmarks. These are fundamentally different research problems. | Method: The user's research idea proposes a curriculum learning schedule for instruction-tuning LLMs based on reward model scores. The paper, however, is a critical review of causal reasoning benchmarks for LLMs, focusing on evaluation criteria and existing datasets. There is no methodological overlap between the proposed training schedule and the paper's focus on benchmark analysis. | Domain: The user's research idea is about curriculum learning for instruction-tuning LLMs, which falls under machine learning and natural language processing. The paper evaluates causal reasoning benchmarks for LLMs, also within machine learning and natural language processing. While both are in the same discipline (NLP/LLMs), the user's idea focuses on a training methodology (curriculum learning) and the paper focuses on evaluation and benchmarking of a specific capability (causal reasoning), representing different sub-areas or application targets within the broader field. | Contribution: The user's research idea proposes a curriculum learning schedule for instruction-tuning LLMs based on reward model scores, ordering examples from easy to hard. The paper, in contrast, is a critical review of causal reasoning benchmarks for LLMs, focusing on evaluating existing benchmarks and proposing criteria for better ones. The contributions are unrelated, addressing different gaps in LLM research.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.9,
+    "existing_examples": [
+      {
+        "name": "Curriculum Learning (General)",
+        "similarity": 0.95,
+        "description": "The general concept of curriculum learning, where a model is trained on easier examples first and gradually exposed to harder ones, is a well-established research area in machine learning, dating back to the early 2000s (e.g., Bengio et al., 2009)."
+      },
+      {
+        "name": "Curriculum Learning for LLMs/NLP",
+        "similarity": 0.85,
+        "description": "Specific applications of curriculum learning have been explored for large language models and NLP tasks, often using metrics like perplexity, length, or syntactic complexity to order examples. For instance, 'Self-Paced Learning' is a related concept."
+      },
+      {
+        "name": "Reward Model-based Filtering/Sampling",
+        "similarity": 0.75,
+        "description": "Using reward models (or similar preference models) to filter, sample, or weight training data for LLMs, especially in the context of Reinforcement Learning from Human Feedback (RLHF) or instruction tuning, is a common practice. While often used for quality control or preference alignment, the idea of using its score for difficulty ordering is a direct extension."
+      },
+      {
+        "name": "Difficulty-based Data Ordering in Instruction Tuning",
+        "similarity": 0.8,
+        "description": "Research in instruction tuning often explores different strategies for data selection and ordering. While not always explicitly 'reward model score', using proxies for difficulty to order instructions is a known technique to improve training efficiency and performance."
+      }
+    ],
+    "assessment": "The core idea of curriculum learning, where training examples are ordered from easy to hard, is a well-established and widely researched technique in machine learning. Applying this specifically to instruction-tuning large language models by using a reward model's score as the 'difficulty' metric (ordering low to high score, assuming low score implies 'easier' or 'less complex' for the reward model to evaluate, or perhaps 'less aligned' if the reward model is trained on 'good' responses) is a direct and logical extension of existing curriculum learning principles combined with common practices in RLHF/instruction tuning. While the exact combination of 'reward model score' as the sole difficulty metric for curriculum learning in instruction tuning might have specific nuances, the underlying components and the overall approach are not novel.",
+    "novelty_aspects": [
+      "The specific definition of 'easier' as 'lower reward model score' might be a point of exploration, as reward models are typically trained to give high scores to 'good' responses. If 'low score' means 'easy to generate a good response for', then it aligns. If it means 'hard for the reward model to evaluate', it's different. Clarifying this definition could reveal minor novelty.",
+      "Empirical demonstration of its effectiveness compared to other curriculum strategies or random ordering specifically for instruction tuning with this exact difficulty metric."
+    ],
+    "recommendation": "While the core concept is not novel, there is still value in rigorous empirical studies. Focus on demonstrating the specific benefits (e.g., faster convergence, better final performance, reduced catastrophic forgetting) of using reward model scores for curriculum learning in instruction tuning, especially compared to other established curriculum strategies or random ordering. Clearly define what 'low reward model score' signifies in terms of instruction difficulty. Consider exploring different reward model architectures or training objectives that might yield more effective difficulty signals."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Curriculum Learning (General)** (similarity: 95%).\n\n*The core idea of curriculum learning, where training examples are ordered from easy to hard, is a well-established and widely researched technique in machine learning. Applying this specifically to instruction-tuning large language models by using a reward model's score as the 'difficulty' metric (ordering low to high score, assuming low score implies 'easier' or 'less complex' for the reward model to evaluate, or perhaps 'less aligned' if the reward model is trained on 'good' responses) is a direct and logical extension of existing curriculum learning principles combined with common practices in RLHF/instruction tuning. While the exact combination of 'reward model score' as the sole difficulty metric for curriculum learning in instruction tuning might have specific nuances, the underlying components and the overall approach are not novel.*\n\n**Recommendation:** While the core concept is not novel, there is still value in rigorous empirical studies. Focus on demonstrating the specific benefits (e.g., faster convergence, better final performance, reduced catastrophic forgetting) of using reward model scores for curriculum learning in instruction tuning, especially compared to other established curriculum strategies or random ordering. Clearly define what 'low reward model score' signifies in terms of instruction difficulty. Consider exploring different reward model architectures or training objectives that might yield more effective difficulty signals.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 96,
+    "unique_after_dedup": 96,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 550,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0383,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0359,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0022,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A curriculum learning schedule for instruction-tuning large language models where training examples are ordered by reward model score (low to high), so the model sees easier instructions first and harder ones later.",
+  "enriched_idea": "RESEARCH IDEA:\nA curriculum learning schedule for instruction-tuning large language models where training examples are ordered by reward model score (low to high), so the model sees easier instructions first and harder ones later.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_07",
+      "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+      "arxiv_id": "2410.08355v3",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on a curriculum learning schedule for instruction-tuning large language models, ordering training examples by reward model score. The paper, 'Metalic: Meta-Learning In-Context with Protein Language Models,' addresses the problem of predicting protein properties (fitness) in low-data settings using meta-learning and protein language models. These are fundamentally different research problems with no overlap in domain, methodology, or specific goals. | Method: The user's research idea proposes a curriculum learning schedule for instruction-tuning large language models, ordering training examples by reward model score. The paper 'Metalic' focuses on meta-learning for protein fitness prediction using protein language models, in-context learning, and fine-tuning. There is no mention of curriculum learning, reward models, or ordering training examples by difficulty in the paper, indicating completely different methodologies. | Domain: The user's research idea focuses on curriculum learning for instruction-tuning large language models (LLMs) in a general NLP context. The paper, 'Metalic: Meta-Learning In-Context with Protein Language Models,' applies meta-learning to protein language models (PLMs) for protein fitness prediction. While both involve language models and meta-learning concepts, the application domains are distinct: general LLMs for instruction following versus specialized PLMs for protein engineering. | Contribution: The user's research idea focuses on a curriculum learning schedule for instruction-tuning large language models, specifically ordering training examples by reward model score. The paper 'Metalic' focuses on meta-learning for protein fitness prediction in low-data settings, combining in-context meta-learning and fine-tuning with protein language models. The domains, models, and specific training methodologies are entirely different, addressing unrelated gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A curriculum learning schedule for instruction-tuning large language models where training examples are ordered by reward model score (low to high), so the model sees easier instructions first and harder ones later.",
+          "sentence_index": 0,
+          "similarity_score": 0.33749999999999997,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "ABSTRACT",
+              "text_snippet": "Predicting the biophysical and functional properties of proteins is essential for in silico protein design. Machine learning has emerged as a promising technique for such prediction tasks. However, the relative scarcity of in vitro annotations means that these models often have little, or no, specific data on the desired fitness prediction task.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address challenges in training machine learning models, specifically related to data scarcity or effective use of data. The paper focuses on protein fitness prediction with limited data, while the user's idea addresses instruction-tuning LLMs with a specific curriculum learning strategy.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "RELATED WORK",
+              "text_snippet": "Meta-Learning Meta-learning aims to create a sample-efficient learning algorithm by training over a distribution of tasks. The goal is to learn algorithms such that they can rapidly adapt to new tasks during inference. This inference-time adaptation is often called the inner loop , for which there are two primary forms found in the literature: gradient-based meta-learning (Finn et al., 2017; Zintgraf et al., 2019) and in-context meta-learning (Mishra et al., 2017; Nguyen & Grover, 2022).",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'curriculum learning schedule', which is a training strategy. The paper extensively discusses 'meta-learning', which is also a training strategy designed to improve learning efficiency and adaptation. While curriculum learning and meta-learning are distinct, they both fall under the umbrella of advanced training methodologies for machine learning models.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "INTRODUCTION",
+              "text_snippet": "By predicting masked amino acids, or subsequent amino acids, over known proteins at scale, PLMs can capture much of the structure and resultant properties deriving from the amino acid sequence. While PLMs are not directly trained to predict fitness, they are trained to model the likelihood of naturally occurring proteins, which has been found to correlate strongly with their fitness (Truong Jr & Bepler, 2024). In practice, large PLMs are fine-tuned on downstream protein fitness data for regression.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'instruction-tuning large language models'. The paper discusses 'protein language models (PLMs)' and their 'fine-tuning'. Both involve training large language models, but the specific tuning objective (instruction-tuning vs. protein fitness prediction) and the proposed training strategy (curriculum learning vs. meta-learning) differ.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_07",
+              "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+              "heading": "ABSTRACT",
+              "text_snippet": "In contrast, we propose meta-learning over a distribution of standard fitness prediction tasks, and demonstrate positive transfer to unseen fitness prediction tasks. Our method, called Metalic (Meta-Learning In-Context), uses in-context learning and fine-tuning, when data is available, to adapt to new tasks.",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes a novel training schedule for LLMs. The paper proposes a novel meta-learning method for PLMs. Both aim to improve model training and performance, but the specific methods and target models are different, leading to distinct contributions.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 15359,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2410.08355v3"
+    },
+    {
+      "paper_id": "paper_36",
+      "paper_title": "Cross-language Learning with Adversarial Neural Networks: Application to Community Question Answering",
+      "arxiv_id": "1706.06749v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on curriculum learning for instruction-tuning large language models, ordering training examples by reward model score. The paper, however, addresses cross-language adaptation for question-question similarity reranking in community question answering using adversarial neural networks to learn language-invariant features. These are fundamentally different research problems with distinct goals and methodologies. | Method: The user's research idea proposes a curriculum learning schedule for instruction-tuning large language models, ordering training examples by reward model score. The paper, however, focuses on cross-language adaptation using adversarial neural networks for question-question similarity reranking. There is no mention of curriculum learning, reward models, or instruction-tuning in the paper, indicating completely different methodologies. | Domain: The user's research idea is in the domain of instruction-tuning large language models, specifically focusing on curriculum learning schedules. The paper, on the other hand, addresses cross-language adaptation for question-question similarity reranking in community question answering. Both fall under Natural Language Processing (NLP), but they represent different sub-areas and application targets within the field. | Contribution: The user's research idea proposes a curriculum learning schedule for instruction-tuning large language models, ordering examples by reward model score. The paper, however, focuses on cross-language adaptation using adversarial neural networks for question-question similarity reranking, aiming to learn language-invariant features. These are distinct contributions addressing different research gaps.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A curriculum learning schedule for instruction-tuning large language models where training examples are ordered by reward model score (low to high), so the model sees easier instructions first and harder ones later.",
+          "sentence_index": 0,
+          "similarity_score": 0.125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "Cross-language Learning with Adversarial Neural Networks: Application to Community Question Answering",
+              "heading": "Introduction",
+              "text_snippet": "Developing natural language processing (NLP) systems that can work indistinctly with different input languages is a challenging task; yet, such a setup is useful for many real-world applications.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are within the broader field of Natural Language Processing (NLP). The user's idea focuses on large language models, while the paper focuses on cross-language adaptation for question answering, both sub-areas of NLP.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_36",
+              "paper_title": "Cross-language Learning with Adversarial Neural Networks: Application to Community Question Answering",
+              "heading": "Algorithm 1: Model Training with SGD",
+              "text_snippet": "Input : data D S , D T , batch size b Output: learned model parameters { U, V, w , U l , w l } 1. Initialize model parameters; 2. repeat ( a ) Randomly sample b 2 labeled examples from D S ( b ) Randomly Sample b 2 unlabeled examples from D T ( c ) Compute L c ( θ ) and L l ( ω ) ( d ) Take a gradient step for 2 b ∇ θ L c ( θ ) ( e ) Take a gradient step for 2 λ b ∇ U l , w l L l ( ω ) // Gradient reversal ( f ) Take a gradient step for -2 λ b ∇ θ L l ( ω ) until convergence ;",
+              "similarity": 0.25,
+              "reason": "The user's idea proposes a 'curriculum learning schedule' for ordering training examples, which implies a specific training methodology. The paper also describes a training methodology using SGD, including sampling examples and taking gradient steps. While both involve training, the specific curriculum learning approach (ordering by reward model score) is not present in the paper's adversarial training method.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14381,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1706.06749v1"
+    },
+    {
+      "paper_id": "paper_08",
+      "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+      "arxiv_id": "2507.09758v1",
+      "paper_similarity_score": 0.5375,
+      "reason": "Problem: The paper addresses a very similar problem statement to the user's idea, focusing on curriculum learning for language models by ordering training examples based on difficulty. Both aim to improve training efficiency and performance by presenting easier examples first. The primary difference lies in the specific method of determining 'difficulty' and the scope of application (NLU tasks vs. instruction-tuning LLMs). | Method: The paper proposes a curriculum learning schedule where training examples are ordered by a difficulty score predicted by the PLM itself, which is conceptually similar to the user's idea of ordering by reward model score. However, the paper focuses on Natural Language Understanding (NLU) classification tasks and uses a confidence measure (maximum absolute difference among predicted class probabilities) as its difficulty metric, rather than a reward model score for instruction-tuning LLMs. While both use a model-derived difficulty for curriculum learning, the specific mechanism for determining difficulty and the application domain (NLU vs. instruction-tuning LLMs) differ meaningfully. | Domain: The user's idea focuses on instruction-tuning large language models, while the paper evaluates fine-tuning pre-trained language models (PLMs) for Natural Language Understanding (NLU) tasks like sentiment analysis and hate speech detection. While both are in NLP and involve fine-tuning language models, the specific application target (instruction-tuning vs. NLU classification) and the type of language model (LLM vs. PLM for NLU) represent different sub-areas within the broader NLP domain. | Contribution: The paper proposes a self-adaptive curriculum learning paradigm where difficulty is estimated by the PLM's own confidence and explores various sampling strategies, including 'easy-to-hard' ordering. The user's idea specifically focuses on a curriculum learning schedule for instruction-tuning LLMs ordered by reward model score (low to high), which is a distinct method for determining difficulty and a different application (instruction-tuning vs. NLU tasks).",
+      "criteria_scores": {
+        "problem_similarity": 0.75,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A curriculum learning schedule for instruction-tuning large language models where training examples are ordered by reward model score (low to high), so the model sees easier instructions first and harder ones later.",
+          "sentence_index": 0,
+          "similarity_score": 0.725,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+              "heading": "ABSTRACT",
+              "text_snippet": "Curriculum learning is a widely adopted training strategy in natural language processing (NLP), where models are exposed to examples organized by increasing difficulty to enhance learning efficiency and performance.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper address the problem of improving model training efficiency and performance using curriculum learning, specifically by ordering examples by difficulty.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+              "heading": "Introduction",
+              "text_snippet": "This paradigm involves structuring training data from simpler to more complex examples, enabling models to build knowledge incrementally and learn more efficiently. A central challenge in applying curriculum learning lies in defining difficulty.",
+              "similarity": 0.75,
+              "reason": "The paper identifies the challenge of defining difficulty for curriculum learning, which is directly addressed by the user's proposed method of using reward model scores.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+              "heading": "ABSTRACT",
+              "text_snippet": "To overcome this limitation, we present a self-adaptive curriculum learning paradigm that prioritizes fine-tuning examples based on difficulty scores predicted by pre-trained language models (PLMs) themselves. Building on these scores, we explore various training strategies that differ in the ordering of examples for the fine-tuning: from easy-to-hard, hard-to-easy, to mixed sampling.",
+              "similarity": 0.75,
+              "reason": "The core method of both is curriculum learning based on difficulty scores. The paper uses PLM-predicted difficulty, while the user proposes reward model scores, both serving a similar function for ordering. The 'easy-to-hard' ordering is explicitly mentioned in both.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+              "heading": "Introduction",
+              "text_snippet": "To this end, we propose a self-adaptive curriculum learning paradigm that explores various sampling strategies driven by the model's own confidence. Rather than relying on manually defined difficulty heuristics based on the surface feature of an example, we leverage the PLM itself to compute a difficulty score - specifically, a confidence measure that reflects how certain the model is when classifying an example using a prompt template and a verbalizer component (Schick and Schütze, 2021a).",
+              "similarity": 0.75,
+              "reason": "Both approaches use a model's internal mechanism (reward model score for the user, confidence/difficulty score from PLM for the paper) to determine example difficulty for curriculum learning. The paper explicitly mentions 'easy-to-hard' ordering as a sampling strategy.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+              "heading": "Naive Sequential Sampling",
+              "text_snippet": "The most straightforward approach, akin to curriculum learning, is to arrange the training examples based on their difficulty scores and train the model using a fixed order. Let X = { x n } N n =1 be the training examples, sorted by their associated difficulty scores s n in either ascending or descending order . We propose two sampling strategies.",
+              "similarity": 1.0,
+              "reason": "The paper describes 'Naive sequential sampling' which directly aligns with the user's idea of ordering training examples based on difficulty scores (ascending/low-to-high) and training in that fixed order.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+              "heading": "ABSTRACT",
+              "text_snippet": "Curriculum learning is a widely adopted training strategy in natural language processing (NLP), where models are exposed to examples organized by increasing difficulty to enhance learning efficiency and performance.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are situated within the Natural Language Processing (NLP) domain, specifically concerning the training of language models.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+              "heading": "Introduction",
+              "text_snippet": "Although large language models (LLMs) are highly valued in the NLP community for their broad capabilities (Naveed et al., 2024; Chang et al., 2024), their substantial computational cost often makes them impractical for many real-world scenarios - particularly for simple classification tasks that require rapid responses or deployment on resourceconstrained infrastructure (Bai et al., 2024; Cunningham et al., 2024).",
+              "similarity": 0.5,
+              "reason": "The user's idea explicitly mentions 'large language models' and 'instruction-tuning,' which falls under the broader NLP domain that the paper addresses, although the paper focuses more on NLU tasks rather than instruction-tuning specifically.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+              "heading": "ABSTRACT",
+              "text_snippet": "To overcome this limitation, we present a self-adaptive curriculum learning paradigm that prioritizes fine-tuning examples based on difficulty scores predicted by pre-trained language models (PLMs) themselves. Building on these scores, we explore various training strategies that differ in the ordering of examples for the fine-tuning: from easy-to-hard, hard-to-easy, to mixed sampling.",
+              "similarity": 0.75,
+              "reason": "The paper's contribution includes proposing a curriculum learning paradigm based on model-predicted difficulty scores and exploring 'easy-to-hard' ordering, which directly overlaps with the user's proposed contribution of a curriculum learning schedule ordered by reward model score (low to high).",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+              "heading": "Introduction",
+              "text_snippet": "(i) We propose a self-adaptive curriculum paradigm that prioritizes fine-tuning examples based on difficulty scores predicted by the PLM itself. (ii) We propose three categories of sampling strategies based on ranked lists of examples accord- ing to their difficulty scores.",
+              "similarity": 0.75,
+              "reason": "The paper's contributions include proposing a curriculum paradigm based on model-predicted difficulty scores and sampling strategies based on ranked lists of examples, which aligns with the user's contribution of a curriculum learning schedule ordered by reward model score.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.75,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.75
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 13846,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2507.09758v1"
+    },
+    {
+      "paper_id": "paper_28",
+      "paper_title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+      "arxiv_id": "2409.13948v3",
+      "paper_similarity_score": 0.15000000000000002,
+      "reason": "Problem: The user's research idea focuses on a curriculum learning schedule for instruction-tuning LLMs, ordering training examples by reward model score from low to high. The paper, however, primarily addresses the problem of automatically generating reward signals for aligning LLMs without human or commercial LLM-based preference annotations, using 'Follow-up Likelihood as Reward' (FLR). While both involve reward models and LLM alignment, the paper's core problem is reward signal generation, not the curriculum learning schedule for instruction-tuning based on reward scores. | Method: The user's research idea proposes a curriculum learning schedule where training examples are ordered by reward model score (low to high) for instruction-tuning LLMs. The evaluated paper, however, focuses on a novel reward mechanism called 'Follow-up Likelihood as Reward' (FLR) for automatically mining preference data and aligning LLMs, without any mention of curriculum learning or ordering training examples based on difficulty or reward scores during instruction-tuning. | Domain: Both the user's idea and the paper operate within the domain of large language models (LLMs) and instruction-tuning. The paper focuses on 'Aligning Language Models Using Follow-up Likelihood as Reward Signal' and discusses 'instruction-tuned LLMs' and 'fine-tuning the language model' for 'alignment' and 'helpfulness'. This aligns closely with the user's idea of a curriculum learning schedule for 'instruction-tuning large language models'. | Contribution: The paper focuses on developing a novel reward mechanism (FLR) using follow-up likelihood to automatically generate preference data for aligning LLMs, as stated in its contributions: \"We introduce a 'Follow-up Likelihood as Reward' (FLR) that automatically annotates preference data from base policy outputs.\" The user's idea, however, is about a curriculum learning schedule where training examples are ordered by reward model score (low to high) for instruction-tuning. These are distinct contributions addressing different aspects of LLM training.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.75,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A curriculum learning schedule for instruction-tuning large language models where training examples are ordered by reward model score (low to high), so the model sees easier instructions first and harder ones later.",
+          "sentence_index": 0,
+          "similarity_score": 0.43749999999999994,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_28",
+              "paper_title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+              "heading": "Aligning Base Language Model",
+              "text_snippet": "Figure 2 presents the overall procedure of aligning a base policy model π . The main idea is to first sample instruction prompts p i from a prompt source and π generates k response candidates, { r 1 i , r 2 i , . . . , r k i } . Each candidate is assigned a reward score as defined in Eq.2. The candidate with the highest score is treated as the positive response r + i . The candidate with the lowest score is treated as the negative response r -i .",
+              "similarity": 0.5,
+              "reason": "The paper discusses assigning reward scores to response candidates and using these scores for alignment, which is related to the idea of ordering examples by reward model score for training. While the paper uses scores to select positive/negative pairs for DPO, the user proposes ordering for curriculum learning.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_28",
+              "paper_title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+              "heading": "Aligning Base Language Model",
+              "text_snippet": "Figure 2 presents the overall procedure of aligning a base policy model π . The main idea is to first sample instruction prompts p i from a prompt source and π generates k response candidates, { r 1 i , r 2 i , . . . , r k i } . Each candidate is assigned a reward score as defined in Eq.2. The candidate with the highest score is treated as the positive response r + i . The candidate with the lowest score is treated as the negative response r -i .",
+              "similarity": 0.5,
+              "reason": "The paper uses reward scores to select positive and negative examples for direct alignment from preference (DAP) methods. The user's idea also involves using reward model scores to order training examples. Both leverage reward scores for training data manipulation, though the specific mechanism (curriculum learning vs. preference pair selection) differs.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_28",
+              "paper_title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+              "heading": "ABSTRACT",
+              "text_snippet": "Therefore, we propose using the likelihood of follow-up utterances as rewards to differentiate preferred responses from less favored ones, without relying on human or commercial LLM-based preference annotations. Our proposed reward mechanism, ``Follow-up Likelihood as Reward\" (FLR), matches the performance of strong reward models trained on large-scale human or GPT-4 annotated data on 8 pairwise-preference and 4 rating-based benchmarks.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on instruction-tuning large language models and using reward models to guide this process. The core domain of LLM alignment and training is identical.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_28",
+              "paper_title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+              "heading": "Introduction",
+              "text_snippet": "Many chat-based LLMs are trained to align a large-scale pretrained language model to human preferences using techniques such as supervised fine-tuning (SFT) (Wei et al. 2022; Chung et al. 2022), reinforcement learning from human feedback (RLHF) (Christiano et al. 2017; Ziegler et al. 2019; Ouyang et al. 2022), or direct alignment from preferences (DAP) (Rafailov et al. 2023;",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are focused on instruction-tuning large language models and using reward models to guide this process. The core domain of LLM alignment and training is identical.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_28",
+              "paper_title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+              "heading": "ABSTRACT",
+              "text_snippet": "Building upon the FLR mechanism, we propose to automatically mine preference data from the online generations of a base policy model. The preference data are subsequently used to boost the helpfulness of the base model through direct alignment from preference (DAP) methods, such as direct preference optimization (DPO).",
+              "similarity": 0.25,
+              "reason": "The paper's contribution is a novel reward mechanism (FLR) and its use for automatic preference data mining and DPO alignment. The user proposes a curriculum learning schedule based on reward scores. While both use reward models for training, the specific contribution of a 'curriculum learning schedule' is distinct from the paper's focus on FLR and DPO.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 15836,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2409.13948v3"
+    },
+    {
+      "paper_id": "paper_25",
+      "paper_title": "A Critical Review of Causal Reasoning Benchmarks for Large Language Models",
+      "arxiv_id": "2407.08029v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on a curriculum learning schedule for instruction-tuning LLMs, specifically ordering training examples by reward model score. The paper, however, critically reviews benchmarks for evaluating LLMs' causal reasoning capabilities, aiming to define criteria for useful benchmarks. These are fundamentally different research problems. | Method: The user's research idea proposes a curriculum learning schedule for instruction-tuning LLMs based on reward model scores. The paper, however, is a critical review of causal reasoning benchmarks for LLMs, focusing on evaluation criteria and existing datasets. There is no methodological overlap between the proposed training schedule and the paper's focus on benchmark analysis. | Domain: The user's research idea is about curriculum learning for instruction-tuning LLMs, which falls under machine learning and natural language processing. The paper evaluates causal reasoning benchmarks for LLMs, also within machine learning and natural language processing. While both are in the same discipline (NLP/LLMs), the user's idea focuses on a training methodology (curriculum learning) and the paper focuses on evaluation and benchmarking of a specific capability (causal reasoning), representing different sub-areas or application targets within the broader field. | Contribution: The user's research idea proposes a curriculum learning schedule for instruction-tuning LLMs based on reward model scores, ordering examples from easy to hard. The paper, in contrast, is a critical review of causal reasoning benchmarks for LLMs, focusing on evaluating existing benchmarks and proposing criteria for better ones. The contributions are unrelated, addressing different gaps in LLM research.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A curriculum learning schedule for instruction-tuning large language models where training examples are ordered by reward model score (low to high), so the model sees easier instructions first and harder ones later.",
+          "sentence_index": 0,
+          "similarity_score": 0.125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_25",
+              "paper_title": "A Critical Review of Causal Reasoning Benchmarks for Large Language Models",
+              "heading": "ABSTRACT",
+              "text_snippet": "Numerous benchmarks aim to evaluate the capabilities of Large Language Models (LLMs) for causal inference and reasoning.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper discuss Large Language Models (LLMs). The user's idea focuses on instruction-tuning LLMs, while the paper reviews benchmarks for evaluating LLMs' causal reasoning capabilities.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_25",
+              "paper_title": "A Critical Review of Causal Reasoning Benchmarks for Large Language Models",
+              "heading": "Introduction",
+              "text_snippet": "The recent explosion in Large Language Models (LLMs) has led to widespread consideration of their capabilities across a spectrum of human endeavors (Srivastava et al. 2022).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are situated within the field of Large Language Models (LLMs). The user's idea proposes a training schedule for LLMs, and the paper reviews LLM capabilities.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14358,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2407.08029v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 97,
+    "global_similarity_score": 0.1675,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A curriculum learning schedule for instruction-tuning large language models where training examples are ordered by reward model score (low to high), so the model sees easier instructions first and harder ones later.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "low",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "low"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_08",
+            "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+            "heading": "ABSTRACT",
+            "text_snippet": "Curriculum learning is a widely adopted training strategy in natural language processing (NLP), where models are exposed to examples organized by increasing difficulty to enhance learning efficiency and performance.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper address the problem of improving model training efficiency and performance using curriculum learning, specifically by ordering examples by difficulty.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_08",
+            "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+            "heading": "Naive Sequential Sampling",
+            "text_snippet": "The most straightforward approach, akin to curriculum learning, is to arrange the training examples based on their difficulty scores and train the model using a fixed order. Let X = { x n } N n =1 be the training examples, sorted by their associated difficulty scores s n in either ascending or descending order . We propose two sampling strategies.",
+            "similarity": 1.0,
+            "reason": "The paper describes 'Naive sequential sampling' which directly aligns with the user's idea of ordering training examples based on difficulty scores (ascending/low-to-high) and training in that fixed order.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_28",
+            "paper_title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+            "heading": "ABSTRACT",
+            "text_snippet": "Therefore, we propose using the likelihood of follow-up utterances as rewards to differentiate preferred responses from less favored ones, without relying on human or commercial LLM-based preference annotations. Our proposed reward mechanism, ``Follow-up Likelihood as Reward\" (FLR), matches the performance of strong reward models trained on large-scale human or GPT-4 annotated data on 8 pairwise-preference and 4 rating-based benchmarks.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are focused on instruction-tuning large language models and using reward models to guide this process. The core domain of LLM alignment and training is identical.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_08",
+            "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+            "heading": "ABSTRACT",
+            "text_snippet": "To overcome this limitation, we present a self-adaptive curriculum learning paradigm that prioritizes fine-tuning examples based on difficulty scores predicted by pre-trained language models (PLMs) themselves. Building on these scores, we explore various training strategies that differ in the ordering of examples for the fine-tuning: from easy-to-hard, hard-to-easy, to mixed sampling.",
+            "similarity": 0.75,
+            "reason": "The paper's contribution includes proposing a curriculum learning paradigm based on model-predicted difficulty scores and exploring 'easy-to-hard' ordering, which directly overlaps with the user's proposed contribution of a curriculum learning schedule ordered by reward model score (low to high).",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research demonstrates high originality, particularly in its methodological approach and proposed contributions. While there's some overlap in the problem domain, consider further differentiating your application or specific problem formulation to enhance overall novelty.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.5499999999999999,
+      "method_similarity": 0.33999999999999997,
+      "domain_similarity": 0.6699999999999999,
+      "contribution_similarity": 0.33999999999999997
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0383,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0359,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0022,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 164.27208995819092,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_07",
+        "paper_title": "Metalic: Meta-Learning In-Context with Protein Language Models",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_36",
+        "paper_title": "Cross-language Learning with Adversarial Neural Networks: Application to Community Question Answering",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_08",
+        "paper_title": "Your Pretrained Model Tells the Difficulty Itself: A Self-Adaptive Curriculum Learning Paradigm for Natural Language Understanding",
+        "paper_similarity": 0.5375,
+        "criteria_scores": {
+          "problem_similarity": 0.75,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_28",
+        "paper_title": "Aligning Language Models Using Follow-up Likelihood as Reward Signal",
+        "paper_similarity": 0.15000000000000002,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.75,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_25",
+        "paper_title": "A Critical Review of Causal Reasoning Benchmarks for Large Language Models",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 96
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 96,
+    "after_dedup": 96,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

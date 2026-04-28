@@ -1,0 +1,874 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "8b35c0dcaad1",
+    "status": "completed"
+  },
+  "originality_score": 95,
+  "global_similarity_score": 0.2125,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates from a lightweight auxiliary head, forcing the model to reconstruct context and thereby adapt its representations to distribution shift.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_22",
+          "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+          "heading": "ABSTRACT",
+          "text_snippet": "Despite the success of transformers on various computer vision tasks, they suffer from excessive memory and computational cost. Some works present dynamic vision transformers to accelerate inference by pruning redundant tokens.",
+          "similarity": 0.5,
+          "reason": "The paper addresses the problem of excessive memory and computational cost in vision transformers, specifically through token pruning for acceleration. The user's idea also deals with adapting vision transformers, implying a goal of improving their performance or efficiency under certain conditions, which aligns with the broader problem of making transformers more robust or efficient.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_22",
+          "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+          "heading": "ABSTRACT",
+          "text_snippet": "Inspired by MAE which performs masking and reconstruction self-supervised task, we devise masked fine-tuning to bridge the gaps between pre-trained base models used for initialization and token pruning based dynamic vision transformers, by masking image patches and predicting the image class label based on left unmasked patches.",
+          "similarity": 0.75,
+          "reason": "The user's idea proposes 'patch tokens are selectively masked' and 'forcing the model to reconstruct context'. The paper's method, 'masked fine-tuning', also involves 'masking image patches' and is 'inspired by MAE which performs masking and reconstruction self-supervised task'. While the paper's primary task is classification on unmasked patches rather than explicit reconstruction, the core idea of masking patches to adapt representations is very similar.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_22",
+          "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+          "heading": "ABSTRACT",
+          "text_snippet": "Despite the success of transformers on various computer vision tasks, they suffer from excessive memory and computational cost. Some works present dynamic vision transformers to accelerate inference by pruning redundant tokens.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are explicitly focused on 'vision transformers' and their adaptation/improvement for computer vision tasks.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_22",
+          "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+          "heading": "ABSTRACT",
+          "text_snippet": "Inspired by MAE which performs masking and reconstruction self-supervised task, we devise masked fine-tuning to bridge the gaps between pre-trained base models used for initialization and token pruning based dynamic vision transformers, by masking image patches and predicting the image class label based on left unmasked patches. Extensive experiments on ImageNet demonstrate that base models via masked fine-tuning gain strong occlusion robustness and ability against information loss.",
+          "similarity": 0.5,
+          "reason": "The paper's contribution includes devising 'masked fine-tuning' to bridge gaps and improve 'occlusion robustness and ability against information loss'. The user's idea proposes a 'test-time adaptation strategy' using selective masking and reconstruction to 'adapt its representations to distribution shift'. Both aim to improve model robustness/adaptation through masking, which is a related contribution, though the user's idea specifies 'test-time adaptation' and 'uncertainty estimates' as novel aspects.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea demonstrates high originality, particularly in its unique contribution compared to existing work. While there's some overlap in problem and domain with papers on token pruning, your overall approach appears distinct.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.42,
+    "method_similarity": 0.38,
+    "domain_similarity": 0.46,
+    "contribution_similarity": 0.21
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0381,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0359,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0019,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 141.11783599853516,
+  "papers": [
+    {
+      "paper_id": "paper_22",
+      "source": "arxiv",
+      "source_id": "2310.17177v1",
+      "arxiv_id": "2310.17177v1",
+      "title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+      "abstract": "Despite the success of transformers on various computer vision tasks, they suffer from excessive memory and computational cost. Some works present dynamic vision transformers to accelerate inference by pruning redundant tokens. A key to improving token pruning is using well-trained models as initialization for faster convergence and better performance. However, current base models usually adopt full image training, i.e., using full images as inputs and keeping the whole feature maps through the forward process, which causes inconsistencies with dynamic models that gradually reduce tokens, including calculation pattern, information amount and token selection strategy inconsistencies. Inspired by MAE which performs masking and reconstruction self-supervised task, we devise masked fine-tuning to bridge the gaps between pre-trained base models used for initialization and token pruning based dynamic vision transformers, by masking image patches and predicting the image class label based on left unmasked patches. Extensive experiments on ImageNet demonstrate that base models via masked fine-tuning gain strong occlusion robustness and ability against information loss. With this better initialization, Dynamic ViT achieves higher accuracies, especially under large token pruning ratios (e.g., 81.9% vs. 81.3%, and 62.3% vs. 58.9% for DeiT based Dynamic ViT/0.8 and Dynamic ViT/0.3). Moreover, we apply our method into different token pruning based dynamic vision transformers, different pre-trained models and randomly initialized models to demonstrate the generalization ability.",
+      "url": "http://arxiv.org/abs/2310.17177v1",
+      "pdf_url": "https://arxiv.org/pdf/2310.17177v1",
+      "authors": [
+        "Fengyuan Shi",
+        "Limin Wang"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The user's idea focuses on test-time adaptation for vision transformers by selectively masking tokens based on uncertainty to adapt to distribution shift. The paper, however, addresses the problem of inconsistencies between full pre-training base models and token pruning based dynamic vision transformers, aiming to improve initialization for token pruning by using masked fine-tuning to enhance occlusion robustness and reduce information loss. While both involve masking and vision transformers, the core problems—test-time adaptation for distribution shift vs. improving initialization for token pruning—are distinct. | Method: The user's idea proposes a test-time adaptation strategy where patch tokens are selectively masked based on uncertainty estimates from an auxiliary head, forcing reconstruction for adaptation to distribution shift. The paper, however, focuses on a masked fine-tuning strategy during training to improve initialization for token pruning in dynamic vision transformers, where patches are randomly masked and the model predicts class labels based on unmasked patches. While both involve masking patches in vision transformers, the purpose (test-time adaptation vs. training initialization), masking strategy (uncertainty-based vs. random), and objective (reconstruction for adaptation vs. classification for robustness) are fundamentally different. | Domain: Both the user's idea and the paper operate within the domain of computer vision and vision transformers. However, the user's idea focuses on 'test-time adaptation' for 'distribution shift' by masking based on 'uncertainty estimates' for 'reconstruction context', while the paper focuses on 'masked fine-tuning' to 'bridge the gaps between pre-trained base models used for initialization and token pruning based dynamic vision transformers' for 'occlusion robustness' and 'information loss' during training. | Contribution: The user's idea proposes a test-time adaptation strategy where patch tokens are selectively masked based on uncertainty estimates to reconstruct context and adapt representations to distribution shift. The paper, in contrast, introduces 'masked fine-tuning' as a pre-training/initialization strategy to bridge inconsistencies between full pre-training and token pruning, by masking patches and predicting class labels, aiming for better initialization for dynamic vision transformers. While both involve masking and vision transformers, the core claims regarding the purpose (test-time adaptation vs. initialization for pruning) and the masking mechanism (uncertainty-based vs. random) are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_09",
+      "source": "arxiv",
+      "source_id": "2504.01690v2",
+      "arxiv_id": "2504.01690v2",
+      "title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+      "abstract": "Vision Transformers (ViTs) have achieved state-of-the-art performance across various computer vision tasks, but their high computational cost remains a challenge. Token pruning has been proposed to reduce this cost by selectively removing less important tokens. While effective in vision tasks by discarding non-object regions, applying this technique to audio tasks presents unique challenges, as distinguishing relevant from irrelevant regions in time-frequency representations is less straightforward. In this study, for the first time, we applied token pruning to ViT-based audio classification models using Mel-spectrograms and analyzed the trade-offs between model performance and computational cost: TopK token pruning can reduce MAC operations of AudioMAE and AST by 30-40%, with less than a 1% drop in accuracy. Our analysis reveals that while high-intensity or high-variation tokens contribute significantly to model accuracy, low-intensity or low variation tokens also remain important when token pruning is applied; pruning solely based on the intensity or variation of signals in a patch leads to a noticeable drop in accuracy. We support our claim by measuring high correlation between attention scores and these statistical features and by showing retained tokens consistently receive distinct attention compared to pruned ones. We also show that AudioMAE retains more low-intensity tokens than AST. This can be explained by AudioMAE's self-supervised reconstruction objective, which encourages attention to all patches, whereas AST's supervised training focuses on label-relevant tokens.",
+      "url": "http://arxiv.org/abs/2504.01690v2",
+      "pdf_url": "https://arxiv.org/pdf/2504.01690v2",
+      "authors": [
+        "Taehan Lee",
+        "Hyukjun Lee"
+      ],
+      "categories": [
+        "cs.SD",
+        "cs.AI",
+        "eess.AS"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The user's idea focuses on 'test-time adaptation' to 'distribution shift' by 'selectively masking patch tokens based on uncertainty estimates' to 'reconstruct context'. The paper, however, addresses 'token pruning' to 'reduce computational cost' in audio transformers, analyzing 'trade-offs between model performance and computational cost' and 'decoding patch importance'. While both involve selective masking/pruning of tokens in transformers, the core problem (adaptation vs. computational efficiency) and the mechanism (uncertainty estimates for reconstruction vs. attention scores for pruning) are distinct. | Method: The user's idea proposes test-time adaptation for vision transformers by selectively masking patch tokens based on uncertainty estimates from an auxiliary head to reconstruct context. The paper, however, focuses on token pruning in audio transformers to optimize performance and reduce computational cost by removing 'less important tokens' based on attention scores, not for adaptation or reconstruction during test time. While both involve 'masking' or 'pruning' tokens in transformers, their objectives, mechanisms (uncertainty vs. attention scores), and application contexts (test-time adaptation vs. computational efficiency) are distinct. | Domain: The user's research idea focuses on 'vision transformers' and 'reconstruct context' for 'test-time adaptation' to 'distribution shift'. The paper, while also dealing with 'transformers' and 'token pruning' (a form of masking), applies these techniques to 'audio classification models using Mel-spectrograms' to optimize 'performance and computational cost'. Both are in the domain of deep learning with transformers and masking, but the application domains (vision vs. audio) and primary objectives (adaptation to distribution shift vs. computational efficiency) differ. | Contribution: The paper focuses on token pruning for computational efficiency in audio transformers, selectively removing 'less important tokens' to reduce MAC operations. In contrast, the user's idea proposes a test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates, forcing reconstruction for adaptation to distribution shift. While both involve selective token manipulation and reconstruction (AudioMAE in the paper), the core objectives (efficiency vs. test-time adaptation for distribution shift) and the mechanism for selection (attention scores/statistical features vs. uncertainty estimates from an auxiliary head) are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_24",
+      "source": "arxiv",
+      "source_id": "2507.06543v2",
+      "arxiv_id": "2507.06543v2",
+      "title": "Token Bottleneck: One Token to Remember Dynamics",
+      "abstract": "Deriving compact and temporally aware visual representations from dynamic scenes is essential for successful execution of sequential scene understanding tasks such as visual tracking and robotic manipulation. In this paper, we introduce Token Bottleneck (ToBo), a simple yet intuitive self-supervised learning pipeline that squeezes a scene into a bottleneck token and predicts the subsequent scene using minimal patches as hints. The ToBo pipeline facilitates the learning of sequential scene representations by conservatively encoding the reference scene into a compact bottleneck token during the squeeze step. In the reconstruction step, we guide the model to capture temporal dynamics by predicting the target scene using the bottleneck token along with few target patches as hints. This design encourages the vision backbone to embed temporal dependencies, thereby enabling understanding of dynamic transitions across scenes. Extensive experiments in diverse sequential tasks, including video label propagation and robot manipulation in simulated environments demonstrate the superiority of \\ours~over baselines. Moreover, deploying our pre-trained model on physical robots confirms its robustness and effectiveness in real-world environments. We further validate the scalability of ToBo across different model scales. Code is available at https://github.com/naver-ai/tobo.",
+      "url": "http://arxiv.org/abs/2507.06543v2",
+      "pdf_url": "https://arxiv.org/pdf/2507.06543v2",
+      "authors": [
+        "Taekyung Kim",
+        "Dongyoon Han",
+        "Byeongho Heo",
+        "Jeongeun Park",
+        "Sangdoo Yun"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.38749999999999996,
+      "reason": "Problem: The user's idea focuses on test-time adaptation for vision transformers by selectively masking tokens based on uncertainty to adapt to distribution shift. The paper, 'Token Bottleneck,' addresses learning compact and temporally aware visual representations from dynamic scenes for sequential scene understanding tasks. While both involve masking and vision transformers, the paper's core problem is about learning robust representations for sequential tasks during pre-training, rather than test-time adaptation to distribution shift. | Method: Both the user's idea and the paper utilize masked image modeling within vision transformers for adaptation/representation learning. The user's idea proposes selective masking based on uncertainty for test-time adaptation, while the paper uses a fixed high masking ratio (0.9) on target scenes during pre-training, relying on a 'bottleneck token' for reconstruction and temporal dynamics. While both involve masking and reconstruction, the masking strategy (selective vs. fixed high ratio) and the primary objective (test-time adaptation vs. self-supervised pre-training for sequential scene understanding) represent meaningful differences in their methodological design and application. | Domain: The user's idea focuses on test-time adaptation for vision transformers to handle distribution shifts, which is a general computer vision problem. The paper, 'Token Bottleneck,' is also within computer vision, specifically focusing on self-supervised learning for sequential scene understanding tasks like visual tracking, robot manipulation, and video label propagation. While both are in computer vision and use vision transformers, the specific application targets and problem settings (test-time adaptation vs. learning robust sequential representations) differ. | Contribution: The paper introduces Token Bottleneck (ToBo) for self-supervised learning of sequential scene representations by squeezing a scene into a bottleneck token and predicting the subsequent scene using minimal patches. While both the user's idea and the paper use masked reconstruction and vision transformers, the paper's contribution focuses on learning temporal dynamics and compact scene summarization for sequential tasks, rather than test-time adaptation based on uncertainty estimates for distribution shift as proposed by the user.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_23",
+      "source": "arxiv",
+      "source_id": "2103.08157v1",
+      "arxiv_id": "2103.08157v1",
+      "title": "Pretraining Neural Architecture Search Controllers with Locality-based Self-Supervised Learning",
+      "abstract": "Neural architecture search (NAS) has fostered various fields of machine learning. Despite its prominent dedications, many have criticized the intrinsic limitations of high computational cost. We aim to ameliorate this by proposing a pretraining scheme that can be generally applied to controller-based NAS. Our method, locality-based self-supervised classification task, leverages the structural similarity of network architectures to obtain good architecture representations. We incorporate our method into neural architecture optimization (NAO) to analyze the pretrained embeddings and its effectiveness and highlight that adding metric learning loss brings a favorable impact on NAS. Our code is available at \\url{https://github.com/Multi-Objective-NAS/self-supervised-nas}.",
+      "url": "http://arxiv.org/abs/2103.08157v1",
+      "pdf_url": "https://arxiv.org/pdf/2103.08157v1",
+      "authors": [
+        "Kwanghee Choi",
+        "Minyoung Choe",
+        "Hyelee Lee"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on test-time adaptation for vision transformers using uncertainty-based masking and reconstruction to handle distribution shifts. In contrast, the paper addresses the problem of high computational cost in Neural Architecture Search (NAS) by proposing a pretraining scheme for NAS controllers using locality-based self-supervised learning to obtain good architecture representations. These are fundamentally different research problems in distinct subfields of machine learning. | Method: The user's idea proposes a test-time adaptation strategy for vision transformers using selective patch masking based on uncertainty estimates and reconstruction. In contrast, the paper focuses on pretraining Neural Architecture Search (NAS) controllers using a locality-based self-supervised classification task to learn architecture embeddings, leveraging structural similarity of network architectures. The core techniques, models (vision transformers vs. NAS controllers), and objectives are entirely different. | Domain: The user's research idea is in the domain of vision transformers and test-time adaptation for distribution shift in computer vision. The paper, 'Pretraining Neural Architecture Search Controllers with Locality-based Self-Supervised Learning,' is in the domain of Neural Architecture Search (NAS), which is a sub-area of machine learning that can be applied to computer vision ('NAS has been successful in multiple domains, such as computer vision'). While both are within machine learning and can relate to computer vision, the specific application targets are different: adapting vision models at test time versus optimizing neural network architectures. | Contribution: The user's research idea focuses on test-time adaptation for vision transformers by selectively masking patch tokens based on uncertainty estimates for reconstruction. In contrast, the paper proposes a pretraining scheme for Neural Architecture Search (NAS) controllers using a locality-based self-supervised classification task to learn architecture representations. The contributions address entirely different problems and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_37",
+      "source": "arxiv",
+      "source_id": "1608.01695v3",
+      "arxiv_id": "1608.01695v3",
+      "title": "Masking quantum information is impossible",
+      "abstract": "Classical information encoded in composite quantum states can be completely hidden from the reduced subsystems and may be found only in the correlations. Can the same be true for quantum information? If quantum information is hidden from subsystems and spread over quantum correlation, we call it as masking of quantum information. We show that while this may still be true for some restricted sets of non-orthogonal quantum states, it is not possible for arbitrary quantum states. This result suggests that quantum qubit commitment -- a stronger version of the quantum bit commitment is not possible in general. Our findings may have potential applications in secret sharing and future quantum communication protocols.",
+      "url": "http://arxiv.org/abs/1608.01695v3",
+      "pdf_url": "https://arxiv.org/pdf/1608.01695v3",
+      "authors": [
+        "Kavan Modi",
+        "Arun Kumar Pati",
+        "Aditi Sen De",
+        "Ujjwal Sen"
+      ],
+      "categories": [
+        "quant-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on a test-time adaptation strategy for vision transformers using uncertainty-based masking to reconstruct context and adapt representations to distribution shifts. In contrast, the paper investigates the theoretical possibility of 'masking quantum information' in composite quantum states, a problem entirely within quantum physics and information theory. The problems are fundamentally different, with no overlap in domain, methodology, or objectives. | Method: The user's research idea proposes a test-time adaptation strategy for vision transformers using selective masking of patch tokens based on uncertainty estimates. The paper, 'Masking quantum information is impossible,' discusses the theoretical impossibility of masking arbitrary quantum states and its implications for quantum communication protocols. There is no methodological overlap; one is in classical machine learning (computer vision) and the other in quantum information theory. | Domain: The user's research idea is in the domain of computer vision and machine learning, specifically focusing on test-time adaptation for vision transformers. The paper, 'Masking quantum information is impossible,' is firmly in the domain of quantum physics and quantum information theory, discussing concepts like quantum states, qubits, and quantum communication protocols. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on a test-time adaptation strategy for vision transformers using uncertainty-based masking for representation adaptation in machine learning. The paper, 'Masking quantum information is impossible,' discusses the theoretical impossibility of masking arbitrary quantum states in quantum information theory, which is a fundamentally different domain and problem. There is no overlap in the claimed contributions or the scientific fields addressed.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Test-Time Adaptation (TTA) / Test-Time Training (TTT)",
+        "similarity": 0.95,
+        "description": "General research area focused on adapting models at inference time to unseen distribution shifts. Many methods exist, including self-training, entropy minimization, and feature alignment."
+      },
+      {
+        "name": "Masked Autoencoders (MAE) / Masked Image Modeling (MIM)",
+        "similarity": 0.8,
+        "description": "Pre-training strategies for Vision Transformers (ViTs) that involve masking parts of the input (e.g., patch tokens) and reconstructing them. This forces the model to learn robust representations and context."
+      },
+      {
+        "name": "Uncertainty-guided adaptation/selection",
+        "similarity": 0.7,
+        "description": "Using uncertainty estimates to guide various machine learning processes, including active learning, data selection for fine-tuning, and even for guiding adaptation in TTA. For example, some TTA methods adapt more strongly on uncertain samples."
+      },
+      {
+        "name": "Self-supervised learning for TTA",
+        "similarity": 0.75,
+        "description": "Many TTA methods leverage self-supervision (e.g., rotation prediction, contrastive learning, or reconstruction tasks) to adapt models without ground truth labels at test time. The proposed idea uses reconstruction as a self-supervised task."
+      }
+    ],
+    "assessment": "The core idea combines several well-established research concepts: Test-Time Adaptation (TTA), the use of masked reconstruction (similar to Masked Autoencoders) for representation learning, and uncertainty estimation to guide the masking process. While the specific combination of 'selectively masking patch tokens based on uncertainty from a lightweight auxiliary head to force reconstruction for TTA in ViTs' might not be an exact, single published paper, each component and the overall strategy are highly similar to existing research directions in TTA and self-supervised learning for adaptation. The novelty would lie in the specific implementation details, the 'lightweight auxiliary head' design, and the effectiveness of this particular combination.",
+    "novelty_aspects": [
+      "Specific design and integration of the 'lightweight auxiliary head' for uncertainty estimation in a TTA context for ViTs.",
+      "The precise mechanism and effectiveness of 'selectively masking patch tokens' based on this uncertainty for adaptation.",
+      "Empirical demonstration of superior performance compared to existing TTA methods using this specific strategy."
+    ],
+    "recommendation": "This idea is a strong combination of existing techniques. To make it truly novel and impactful, focus on the specific technical contributions: how the auxiliary head is designed, how uncertainty is quantified and used for masking, and demonstrate a significant improvement over state-of-the-art TTA methods, especially those using self-supervision or reconstruction. Clearly articulate the unique advantages of this selective, uncertainty-guided masking approach over random masking or other TTA strategies."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Test-Time Adaptation (TTA) / Test-Time Training (TTT)** (similarity: 95%).\n\n*The core idea combines several well-established research concepts: Test-Time Adaptation (TTA), the use of masked reconstruction (similar to Masked Autoencoders) for representation learning, and uncertainty estimation to guide the masking process. While the specific combination of 'selectively masking patch tokens based on uncertainty from a lightweight auxiliary head to force reconstruction for TTA in ViTs' might not be an exact, single published paper, each component and the overall strategy are highly similar to existing research directions in TTA and self-supervised learning for adaptation. The novelty would lie in the specific implementation details, the 'lightweight auxiliary head' design, and the effectiveness of this particular combination.*\n\n**Recommendation:** This idea is a strong combination of existing techniques. To make it truly novel and impactful, focus on the specific technical contributions: how the auxiliary head is designed, how uncertainty is quantified and used for masking, and demonstrate a significant improvement over state-of-the-art TTA methods, especially those using self-supervision or reconstruction. Clearly articulate the unique advantages of this selective, uncertainty-guided masking approach over random masking or other TTA strategies.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 132,
+    "unique_after_dedup": 132,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 436,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0381,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0359,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates from a lightweight auxiliary head, forcing the model to reconstruct context and thereby adapt its representations to distribution shift.",
+  "enriched_idea": "RESEARCH IDEA:\nA test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates from a lightweight auxiliary head, forcing the model to reconstruct context and thereby adapt its representations to distribution shift.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_22",
+      "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+      "arxiv_id": "2310.17177v1",
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The user's idea focuses on test-time adaptation for vision transformers by selectively masking tokens based on uncertainty to adapt to distribution shift. The paper, however, addresses the problem of inconsistencies between full pre-training base models and token pruning based dynamic vision transformers, aiming to improve initialization for token pruning by using masked fine-tuning to enhance occlusion robustness and reduce information loss. While both involve masking and vision transformers, the core problems—test-time adaptation for distribution shift vs. improving initialization for token pruning—are distinct. | Method: The user's idea proposes a test-time adaptation strategy where patch tokens are selectively masked based on uncertainty estimates from an auxiliary head, forcing reconstruction for adaptation to distribution shift. The paper, however, focuses on a masked fine-tuning strategy during training to improve initialization for token pruning in dynamic vision transformers, where patches are randomly masked and the model predicts class labels based on unmasked patches. While both involve masking patches in vision transformers, the purpose (test-time adaptation vs. training initialization), masking strategy (uncertainty-based vs. random), and objective (reconstruction for adaptation vs. classification for robustness) are fundamentally different. | Domain: Both the user's idea and the paper operate within the domain of computer vision and vision transformers. However, the user's idea focuses on 'test-time adaptation' for 'distribution shift' by masking based on 'uncertainty estimates' for 'reconstruction context', while the paper focuses on 'masked fine-tuning' to 'bridge the gaps between pre-trained base models used for initialization and token pruning based dynamic vision transformers' for 'occlusion robustness' and 'information loss' during training. | Contribution: The user's idea proposes a test-time adaptation strategy where patch tokens are selectively masked based on uncertainty estimates to reconstruct context and adapt representations to distribution shift. The paper, in contrast, introduces 'masked fine-tuning' as a pre-training/initialization strategy to bridge inconsistencies between full pre-training and token pruning, by masking patches and predicting class labels, aiming for better initialization for dynamic vision transformers. While both involve masking and vision transformers, the core claims regarding the purpose (test-time adaptation vs. initialization for pruning) and the masking mechanism (uncertainty-based vs. random) are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates from a lightweight auxiliary head, forcing the model to reconstruct context and thereby adapt its representations to distribution shift.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Despite the success of transformers on various computer vision tasks, they suffer from excessive memory and computational cost. Some works present dynamic vision transformers to accelerate inference by pruning redundant tokens.",
+              "similarity": 0.5,
+              "reason": "The paper addresses the problem of excessive memory and computational cost in vision transformers, specifically through token pruning for acceleration. The user's idea also deals with adapting vision transformers, implying a goal of improving their performance or efficiency under certain conditions, which aligns with the broader problem of making transformers more robust or efficient.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "However, there are some inconsistencies between the current full pre-training base models like DeiT and token pruning based dynamic vision transformers. First, the calculation pattern is inconsistent. ... Second, the amount of information is inconsistent. ... Third, the token selection mechanism is inconsistent.",
+              "similarity": 0.5,
+              "reason": "The paper identifies inconsistencies between pre-trained models and dynamic vision transformers, particularly regarding information loss and token selection. The user's idea aims to 'adapt its representations to distribution shift' by forcing the model to 'reconstruct context', which can be seen as addressing a related problem of model robustness or adaptation to varying input conditions, similar to how the paper addresses inconsistencies caused by information loss.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Inspired by MAE which performs masking and reconstruction self-supervised task, we devise masked fine-tuning to bridge the gaps between pre-trained base models used for initialization and token pruning based dynamic vision transformers, by masking image patches and predicting the image class label based on left unmasked patches.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes 'patch tokens are selectively masked' and 'forcing the model to reconstruct context'. The paper's method, 'masked fine-tuning', also involves 'masking image patches' and is 'inspired by MAE which performs masking and reconstruction self-supervised task'. While the paper's primary task is classification on unmasked patches rather than explicit reconstruction, the core idea of masking patches to adapt representations is very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "To eliminate the inconsistencies and enables stronger token pruning based dynamic vision transformer, we introduce masked fine-tuning, inspired by MAE [17] which learns occlusion robustness via masking and reconstruction [19]. As shown in Figure 3, we randomly mask part of the image, and make classification based on unmasked image patches. We also introduce knowledge distillation to further improve the performance of base models. Unlike MAE, we do not reconstruct the masked input patches, but predict the class label based on the masked input image.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper utilize masking of image patches. The user's idea explicitly mentions 'forcing the model to reconstruct context', which is directly related to the 'masking and reconstruction' inspiration for the paper's method, even if the paper's specific implementation for masked fine-tuning is classification rather than pixel reconstruction. The selective masking based on 'uncertainty estimates' in the user's idea is a specific refinement not explicitly in the paper's general masking strategy, but the core masking mechanism is shared.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+              "heading": "Discussion With MAE",
+              "text_snippet": "Our masked fine-tuning follows MAE [17], randomly samples image patches and only inputs the unmasked patches into the vision transformer. Both methods can improve the ability against occlusion and information loss. However, there are some differences between our method and MAE. As shown in Table I, MAE adopts an encoderdecoder framework and decode the pixels of the masked input patches for reconstruction, while our method predicts the class label based on the masked input image.",
+              "similarity": 0.75,
+              "reason": "The paper discusses its masked fine-tuning in relation to MAE, which performs reconstruction. The user's idea explicitly states 'forcing the model to reconstruct context', aligning with the reconstruction aspect of MAE and the general masking strategy of the paper, even if the paper's specific masked fine-tuning predicts class labels. The 'selectively masked based on uncertainty estimates' is a specific addition by the user, but the fundamental masking and context reconstruction/adaptation mechanism is shared.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Despite the success of transformers on various computer vision tasks, they suffer from excessive memory and computational cost. Some works present dynamic vision transformers to accelerate inference by pruning redundant tokens.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are explicitly focused on 'vision transformers' and their adaptation/improvement for computer vision tasks.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "V ISION transformers have achieved significant successes on many computer vision tasks, such as image classification [1], [2], [3], object detection [4], [5], semantic segmentation [6], [7] action recognition [8], [9] and action detection [10].",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are situated within the domain of 'vision transformers' and their application to 'computer vision tasks'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+              "heading": "ABSTRACT",
+              "text_snippet": "Inspired by MAE which performs masking and reconstruction self-supervised task, we devise masked fine-tuning to bridge the gaps between pre-trained base models used for initialization and token pruning based dynamic vision transformers, by masking image patches and predicting the image class label based on left unmasked patches. Extensive experiments on ImageNet demonstrate that base models via masked fine-tuning gain strong occlusion robustness and ability against information loss.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution includes devising 'masked fine-tuning' to bridge gaps and improve 'occlusion robustness and ability against information loss'. The user's idea proposes a 'test-time adaptation strategy' using selective masking and reconstruction to 'adapt its representations to distribution shift'. Both aim to improve model robustness/adaptation through masking, which is a related contribution, though the user's idea specifies 'test-time adaptation' and 'uncertainty estimates' as novel aspects.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_22",
+              "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+              "heading": "INTRODUCTION",
+              "text_snippet": "To eliminate the inconsistencies and enables stronger token pruning based dynamic vision transformer, we introduce masked fine-tuning, inspired by MAE [17] which learns occlusion robustness via masking and reconstruction [19]. ... masked fine-tuning makes a more complex task, requiring to recognize the class label under the information loss. By masked fine-tuning, base model learns to recognize the most distinctive parts and strengthens ability against occlusion and information loss.",
+              "similarity": 0.5,
+              "reason": "The paper contributes a method to strengthen models against 'occlusion and information loss' by masking. The user's idea aims to 'adapt its representations to distribution shift' by forcing 'reconstruct context' through masking. Both contributions involve improving model robustness/adaptability via masking and context handling, but the user's idea specifies 'test-time adaptation' and 'uncertainty estimates' as distinct elements.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 20443,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2310.17177v1"
+    },
+    {
+      "paper_id": "paper_09",
+      "paper_title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+      "arxiv_id": "2504.01690v2",
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The user's idea focuses on 'test-time adaptation' to 'distribution shift' by 'selectively masking patch tokens based on uncertainty estimates' to 'reconstruct context'. The paper, however, addresses 'token pruning' to 'reduce computational cost' in audio transformers, analyzing 'trade-offs between model performance and computational cost' and 'decoding patch importance'. While both involve selective masking/pruning of tokens in transformers, the core problem (adaptation vs. computational efficiency) and the mechanism (uncertainty estimates for reconstruction vs. attention scores for pruning) are distinct. | Method: The user's idea proposes test-time adaptation for vision transformers by selectively masking patch tokens based on uncertainty estimates from an auxiliary head to reconstruct context. The paper, however, focuses on token pruning in audio transformers to optimize performance and reduce computational cost by removing 'less important tokens' based on attention scores, not for adaptation or reconstruction during test time. While both involve 'masking' or 'pruning' tokens in transformers, their objectives, mechanisms (uncertainty vs. attention scores), and application contexts (test-time adaptation vs. computational efficiency) are distinct. | Domain: The user's research idea focuses on 'vision transformers' and 'reconstruct context' for 'test-time adaptation' to 'distribution shift'. The paper, while also dealing with 'transformers' and 'token pruning' (a form of masking), applies these techniques to 'audio classification models using Mel-spectrograms' to optimize 'performance and computational cost'. Both are in the domain of deep learning with transformers and masking, but the application domains (vision vs. audio) and primary objectives (adaptation to distribution shift vs. computational efficiency) differ. | Contribution: The paper focuses on token pruning for computational efficiency in audio transformers, selectively removing 'less important tokens' to reduce MAC operations. In contrast, the user's idea proposes a test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates, forcing reconstruction for adaptation to distribution shift. While both involve selective token manipulation and reconstruction (AudioMAE in the paper), the core objectives (efficiency vs. test-time adaptation for distribution shift) and the mechanism for selection (attention scores/statistical features vs. uncertainty estimates from an auxiliary head) are distinct.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates from a lightweight auxiliary head, forcing the model to reconstruct context and thereby adapt its representations to distribution shift.",
+          "sentence_index": 0,
+          "similarity_score": 0.46249999999999997,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+              "heading": "ABSTRACT",
+              "text_snippet": "Token pruning has been proposed to reduce this cost by selectively removing less important tokens.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper discuss 'selectively masking' or 'selectively removing' tokens, which is a core methodological overlap.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+              "heading": "ABSTRACT",
+              "text_snippet": "This can be explained by AudioMAE's self-supervised reconstruction objective, which encourages attention to all patches, whereas AST's supervised training focuses on label-relevant tokens.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions 'forcing the model to reconstruct context', which aligns with the concept of a 'self-supervised reconstruction objective' discussed in the paper, even if the specific application differs.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+              "heading": "Introduction",
+              "text_snippet": "In image classification tasks, various token pruning methods based on attention scores [11, 22, 24] or DNN predictors [20, 34] have demonstrated favorable trade-offs between accuracy and computational cost.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes 'selectively masked based on uncertainty estimates from a lightweight auxiliary head', which is a form of token selection/pruning. The paper discusses 'token pruning methods based on attention scores or DNN predictors', indicating a shared high-level methodological approach of using some form of estimation to guide token removal.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+              "heading": "ABSTRACT",
+              "text_snippet": "Vision Transformers (ViTs) have achieved state-of-the-art performance across various computer vision tasks, but their high computational cost remains a challenge.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'vision transformers', which is the primary domain of the paper, even though the paper then applies it to audio.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+              "heading": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+              "text_snippet": "Vision Transformers (ViTs) have achieved state-of-the-art performance across various computer vision tasks, but their high computational cost remains a challenge.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are centered around 'Vision Transformers (ViTs)', establishing a strong domain overlap at the model architecture level.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+              "heading": "ABSTRACT",
+              "text_snippet": "Vision Transformers (ViTs) have achieved state-of-the-art performance across various computer vision tasks, but their high computational cost remains a challenge. Token pruning has been proposed to reduce this cost by selectively removing less important tokens.",
+              "similarity": 0.5,
+              "reason": "While the user's idea focuses on 'test-time adaptation' and 'distribution shift', the underlying mechanism of 'selectively masking' or 'token pruning' is related to managing computational aspects or improving model robustness, which the paper addresses through token pruning for cost reduction and performance optimization.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_09",
+              "paper_title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+              "heading": "Introduction",
+              "text_snippet": "To reduce the high computational demands of Transformer-based models, token reduction methods have been proposed, as the number of tokens is a quadratic factor in both time and memory complexity.",
+              "similarity": 0.5,
+              "reason": "The user's idea uses token masking for adaptation to distribution shift, which is a different problem from computational cost reduction. However, both involve modifying token processing in transformers, suggesting a shared area of interest in improving transformer efficiency or robustness.",
+              "criterion": "problem_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 13879,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2504.01690v2"
+    },
+    {
+      "paper_id": "paper_24",
+      "paper_title": "Token Bottleneck: One Token to Remember Dynamics",
+      "arxiv_id": "2507.06543v2",
+      "paper_similarity_score": 0.38749999999999996,
+      "reason": "Problem: The user's idea focuses on test-time adaptation for vision transformers by selectively masking tokens based on uncertainty to adapt to distribution shift. The paper, 'Token Bottleneck,' addresses learning compact and temporally aware visual representations from dynamic scenes for sequential scene understanding tasks. While both involve masking and vision transformers, the paper's core problem is about learning robust representations for sequential tasks during pre-training, rather than test-time adaptation to distribution shift. | Method: Both the user's idea and the paper utilize masked image modeling within vision transformers for adaptation/representation learning. The user's idea proposes selective masking based on uncertainty for test-time adaptation, while the paper uses a fixed high masking ratio (0.9) on target scenes during pre-training, relying on a 'bottleneck token' for reconstruction and temporal dynamics. While both involve masking and reconstruction, the masking strategy (selective vs. fixed high ratio) and the primary objective (test-time adaptation vs. self-supervised pre-training for sequential scene understanding) represent meaningful differences in their methodological design and application. | Domain: The user's idea focuses on test-time adaptation for vision transformers to handle distribution shifts, which is a general computer vision problem. The paper, 'Token Bottleneck,' is also within computer vision, specifically focusing on self-supervised learning for sequential scene understanding tasks like visual tracking, robot manipulation, and video label propagation. While both are in computer vision and use vision transformers, the specific application targets and problem settings (test-time adaptation vs. learning robust sequential representations) differ. | Contribution: The paper introduces Token Bottleneck (ToBo) for self-supervised learning of sequential scene representations by squeezing a scene into a bottleneck token and predicting the subsequent scene using minimal patches. While both the user's idea and the paper use masked reconstruction and vision transformers, the paper's contribution focuses on learning temporal dynamics and compact scene summarization for sequential tasks, rather than test-time adaptation based on uncertainty estimates for distribution shift as proposed by the user.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates from a lightweight auxiliary head, forcing the model to reconstruct context and thereby adapt its representations to distribution shift.",
+          "sentence_index": 0,
+          "similarity_score": 0.575,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Token Bottleneck: One Token to Remember Dynamics",
+              "heading": "Introduction",
+              "text_snippet": "With the increasing interest in deploying machines in real-world environments, ensuring seamless perception and interaction with their surroundings has emerged a crucial challenge. These operations are inherently sequential in nature, requiring the ability to trace objects (e.g., visual tracking) and predict future actions (e.g., manipulation) based on current and immediate past observations. Such understanding of the surrounding environments primarily depends on vision backbones. Therefore, a strong and robust backbone capable of generalizing across diverse tasks and environments is essential for effective sequential scene understanding.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of adapting vision models to new or changing environments, particularly for robust performance in real-world scenarios and handling distribution shifts. The paper focuses on sequential scene understanding and temporal dynamics, while the user's idea is more general about 'distribution shift' for vision transformers.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Token Bottleneck: One Token to Remember Dynamics",
+              "heading": "The Proposed Method - Token Bottleneck (ToBo)",
+              "text_snippet": "The target scene { x t + k i } N i =1 is masked with an extremely high ratio r ∈ (0 , 1) , where M⊂{ 1 , 2 , ..., N } and |M| = ⌊ rN ⌋ . The unmasked target patches { x t + k i } i ∈M c are processed by the same encoder f θ , producing { u t + k i } i ∈M c for the target scene. We then concatenate the bottleneck token u tobo with the target representations { u t + k i } i ∈M c and fill mask tokens m for missing regions i ∈ M . These are passed to the decoder d ϕ , which predicts the masked image patches { ˆ x t + k i } i ∈M by using u tobo and { u t + k i } i ∈M c .",
+              "similarity": 0.75,
+              "reason": "The core methodological overlap is the use of masking patch tokens and reconstructing context. The paper explicitly states, 'randomly mask the target scenes with an extremely high masking ratio of 0.9' and 'predicts the masked image patches'. The user's idea proposes 'patch tokens are selectively masked... forcing the model to reconstruct context'. While the paper's masking is random and the user's is 'selective based on uncertainty estimates', the underlying mechanism of masking and reconstruction for adaptation/representation learning is very similar.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Token Bottleneck: One Token to Remember Dynamics",
+              "heading": "1 Pre-training",
+              "text_snippet": "To drive the learning mechanism of our proposed method, we randomly mask the target scenes with an extremely high masking ratio of 0.9. Our decoder is composed of eight vision transformer blocks, i.e., each block contains self-attention layers and multi-layer perceptrons. We follow the default hyperparameters of the baselines for their pre-training on Kinetics-400 .",
+              "similarity": 0.75,
+              "reason": "This section reinforces the masking and reconstruction aspect of the paper's method, which aligns with the user's proposal of masking patch tokens and forcing reconstruction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Token Bottleneck: One Token to Remember Dynamics",
+              "heading": "Ablation Study on Mask Ratio of Target Scenes",
+              "text_snippet": "As shown in Figure 6, the effectiveness of our proposed method increases as the masking ratio of target scenes increases until 0.9, verifying our claim that scarce target scene information facilitates the exploitation of the compressed reference information. Besides, the models pre-trained with a masking ratio of 0.95 yield degraded performance in some tasks, demonstrating that minimal clues are necessary for the prediction of the missing information.",
+              "similarity": 0.75,
+              "reason": "This section further details the masking strategy, which is a central component of both the user's idea and the paper's method. Both involve masking and subsequent reconstruction.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Token Bottleneck: One Token to Remember Dynamics",
+              "heading": "Introduction",
+              "text_snippet": "Deriving compact and temporally aware visual representations from dynamic scenes is essential for successful execution of sequential scene understanding tasks such as visual tracking and robotic manipulation. In this paper, we introduce Token Bottleneck (ToBo), a simple yet intuitive self-supervised learning pipeline that squeezes a scene into a bottleneck token and predicts the subsequent scene using minimal patches as hints.",
+              "similarity": 0.5,
+              "reason": "The paper focuses on 'sequential scene understanding tasks such as visual tracking and robotic manipulation' and 'dynamic scenes'. The user's idea is for 'vision transformers' and 'adapting its representations to distribution shift', which is a general computer vision domain but could apply to these specific dynamic scene tasks.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Token Bottleneck: One Token to Remember Dynamics",
+              "heading": "Introduction",
+              "text_snippet": "This design encourages the vision backbone to embed temporal dependencies, thereby enabling understanding of dynamic transitions across scenes. Extensive experiments in diverse sequential tasks, including video label propagation and robot manipulation in simulated environments demonstrate the superiority of \\ours~over baselines. Moreover, deploying our pre-trained model on physical robots confirms its robustness and effectiveness in real-world environments.",
+              "similarity": 0.5,
+              "reason": "The paper's contribution is about learning representations that capture temporal dependencies and are robust in real-world environments. The user's idea aims to 'adapt its representations to distribution shift', which is a related goal of improving robustness and generalization, though the paper's focus is more on temporal dynamics and sequential tasks.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 18091,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2507.06543v2"
+    },
+    {
+      "paper_id": "paper_23",
+      "paper_title": "Pretraining Neural Architecture Search Controllers with Locality-based Self-Supervised Learning",
+      "arxiv_id": "2103.08157v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on test-time adaptation for vision transformers using uncertainty-based masking and reconstruction to handle distribution shifts. In contrast, the paper addresses the problem of high computational cost in Neural Architecture Search (NAS) by proposing a pretraining scheme for NAS controllers using locality-based self-supervised learning to obtain good architecture representations. These are fundamentally different research problems in distinct subfields of machine learning. | Method: The user's idea proposes a test-time adaptation strategy for vision transformers using selective patch masking based on uncertainty estimates and reconstruction. In contrast, the paper focuses on pretraining Neural Architecture Search (NAS) controllers using a locality-based self-supervised classification task to learn architecture embeddings, leveraging structural similarity of network architectures. The core techniques, models (vision transformers vs. NAS controllers), and objectives are entirely different. | Domain: The user's research idea is in the domain of vision transformers and test-time adaptation for distribution shift in computer vision. The paper, 'Pretraining Neural Architecture Search Controllers with Locality-based Self-Supervised Learning,' is in the domain of Neural Architecture Search (NAS), which is a sub-area of machine learning that can be applied to computer vision ('NAS has been successful in multiple domains, such as computer vision'). While both are within machine learning and can relate to computer vision, the specific application targets are different: adapting vision models at test time versus optimizing neural network architectures. | Contribution: The user's research idea focuses on test-time adaptation for vision transformers by selectively masking patch tokens based on uncertainty estimates for reconstruction. In contrast, the paper proposes a pretraining scheme for Neural Architecture Search (NAS) controllers using a locality-based self-supervised classification task to learn architecture representations. The contributions address entirely different problems and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates from a lightweight auxiliary head, forcing the model to reconstruct context and thereby adapt its representations to distribution shift.",
+          "sentence_index": 0,
+          "similarity_score": 0.05,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "Pretraining Neural Architecture Search Controllers with Locality-based Self-Supervised Learning",
+              "heading": "Introduction",
+              "text_snippet": "Neural architecture search (NAS) has been successful in multiple domains, such as computer vision [55, 37] or natural language processing [35].",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper operate within the broader field of machine learning, specifically mentioning computer vision as a domain. However, the user's idea focuses on vision transformers and test-time adaptation, while the paper focuses on Neural Architecture Search.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.0,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 9820,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2103.08157v1"
+    },
+    {
+      "paper_id": "paper_37",
+      "paper_title": "Masking quantum information is impossible",
+      "arxiv_id": "1608.01695v3",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on a test-time adaptation strategy for vision transformers using uncertainty-based masking to reconstruct context and adapt representations to distribution shifts. In contrast, the paper investigates the theoretical possibility of 'masking quantum information' in composite quantum states, a problem entirely within quantum physics and information theory. The problems are fundamentally different, with no overlap in domain, methodology, or objectives. | Method: The user's research idea proposes a test-time adaptation strategy for vision transformers using selective masking of patch tokens based on uncertainty estimates. The paper, 'Masking quantum information is impossible,' discusses the theoretical impossibility of masking arbitrary quantum states and its implications for quantum communication protocols. There is no methodological overlap; one is in classical machine learning (computer vision) and the other in quantum information theory. | Domain: The user's research idea is in the domain of computer vision and machine learning, specifically focusing on test-time adaptation for vision transformers. The paper, 'Masking quantum information is impossible,' is firmly in the domain of quantum physics and quantum information theory, discussing concepts like quantum states, qubits, and quantum communication protocols. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on a test-time adaptation strategy for vision transformers using uncertainty-based masking for representation adaptation in machine learning. The paper, 'Masking quantum information is impossible,' discusses the theoretical impossibility of masking arbitrary quantum states in quantum information theory, which is a fundamentally different domain and problem. There is no overlap in the claimed contributions or the scientific fields addressed.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates from a lightweight auxiliary head, forcing the model to reconstruct context and thereby adapt its representations to distribution shift.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_37",
+              "paper_title": "Masking quantum information is impossible",
+              "heading": "Masking quantum information is impossible",
+              "text_snippet": "Otherwise a simple application of SWAP gate will mask the information for A by simply transferring it to B . Therefore, we demand that masked information solely lies in the correlations between A and B . This means that the final state must be an entangled pure state and the marginal states A and B contain exactly the same information.",
+              "similarity": 0.25,
+              "reason": "The user's idea mentions 'selectively masked' tokens, which broadly relates to the concept of 'masking' information. However, the paper's method of masking is specific to quantum information using SWAP gates and entanglement, which is fundamentally different from masking patch tokens in vision transformers.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_37",
+              "paper_title": "Masking quantum information is impossible",
+              "heading": "Theorem 3 An arbitrary quantum state cannot be masked.",
+              "text_snippet": "It is also possible to see that one can consider variations of the maskers considers here, in particular as partial maskers, local maskers, and stochastic approximate maskers.",
+              "similarity": 0.25,
+              "reason": "The user's idea involves 'selectively masked' tokens, which could be seen as a form of 'partial masking'. The paper mentions 'partial maskers' in the context of quantum information. While the concept of partial masking exists in both, the specific implementation and domain are entirely different.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 6257,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1608.01695v3"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 95,
+    "global_similarity_score": 0.2125,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A test-time adaptation strategy for vision transformers where patch tokens are selectively masked based on uncertainty estimates from a lightweight auxiliary head, forcing the model to reconstruct context and thereby adapt its representations to distribution shift.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_22",
+            "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+            "heading": "ABSTRACT",
+            "text_snippet": "Despite the success of transformers on various computer vision tasks, they suffer from excessive memory and computational cost. Some works present dynamic vision transformers to accelerate inference by pruning redundant tokens.",
+            "similarity": 0.5,
+            "reason": "The paper addresses the problem of excessive memory and computational cost in vision transformers, specifically through token pruning for acceleration. The user's idea also deals with adapting vision transformers, implying a goal of improving their performance or efficiency under certain conditions, which aligns with the broader problem of making transformers more robust or efficient.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_22",
+            "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+            "heading": "ABSTRACT",
+            "text_snippet": "Inspired by MAE which performs masking and reconstruction self-supervised task, we devise masked fine-tuning to bridge the gaps between pre-trained base models used for initialization and token pruning based dynamic vision transformers, by masking image patches and predicting the image class label based on left unmasked patches.",
+            "similarity": 0.75,
+            "reason": "The user's idea proposes 'patch tokens are selectively masked' and 'forcing the model to reconstruct context'. The paper's method, 'masked fine-tuning', also involves 'masking image patches' and is 'inspired by MAE which performs masking and reconstruction self-supervised task'. While the paper's primary task is classification on unmasked patches rather than explicit reconstruction, the core idea of masking patches to adapt representations is very similar.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_22",
+            "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+            "heading": "ABSTRACT",
+            "text_snippet": "Despite the success of transformers on various computer vision tasks, they suffer from excessive memory and computational cost. Some works present dynamic vision transformers to accelerate inference by pruning redundant tokens.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are explicitly focused on 'vision transformers' and their adaptation/improvement for computer vision tasks.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_22",
+            "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+            "heading": "ABSTRACT",
+            "text_snippet": "Inspired by MAE which performs masking and reconstruction self-supervised task, we devise masked fine-tuning to bridge the gaps between pre-trained base models used for initialization and token pruning based dynamic vision transformers, by masking image patches and predicting the image class label based on left unmasked patches. Extensive experiments on ImageNet demonstrate that base models via masked fine-tuning gain strong occlusion robustness and ability against information loss.",
+            "similarity": 0.5,
+            "reason": "The paper's contribution includes devising 'masked fine-tuning' to bridge gaps and improve 'occlusion robustness and ability against information loss'. The user's idea proposes a 'test-time adaptation strategy' using selective masking and reconstruction to 'adapt its representations to distribution shift'. Both aim to improve model robustness/adaptation through masking, which is a related contribution, though the user's idea specifies 'test-time adaptation' and 'uncertainty estimates' as novel aspects.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea demonstrates high originality, particularly in its unique contribution compared to existing work. While there's some overlap in problem and domain with papers on token pruning, your overall approach appears distinct.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.42,
+      "method_similarity": 0.38,
+      "domain_similarity": 0.46,
+      "contribution_similarity": 0.21
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0381,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0359,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0019,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 141.11783599853516,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_22",
+        "paper_title": "Bridging The Gaps Between Token Pruning and Full Pre-training via Masked Fine-tuning",
+        "paper_similarity": 0.3125,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_09",
+        "paper_title": "Token Pruning in Audio Transformers: Optimizing Performance and Decoding Patch Importance",
+        "paper_similarity": 0.3125,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_24",
+        "paper_title": "Token Bottleneck: One Token to Remember Dynamics",
+        "paper_similarity": 0.38749999999999996,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_23",
+        "paper_title": "Pretraining Neural Architecture Search Controllers with Locality-based Self-Supervised Learning",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_37",
+        "paper_title": "Masking quantum information is impossible",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 132
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 132,
+    "after_dedup": 132,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

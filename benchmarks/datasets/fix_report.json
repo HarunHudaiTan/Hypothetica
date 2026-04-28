@@ -1,0 +1,919 @@
+{
+  "fixed": [
+    {
+      "case_id": "arxiv_001",
+      "claimed_title": "PruneFL: Adaptive and Distributed Model Pruning Enabling Efficient Federated Learning",
+      "old_id": "2102.06704",
+      "new_id": "2307.07172",
+      "found_title": "FedBIAD: Communication-Efficient and Accuracy-Guaranteed Federated Learning with Bayesian Inference-Based Adaptive Dropout",
+      "overlap": 0.5,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Distributed AND all:Efficient AND all:Federated AND all:Adaptive"
+    },
+    {
+      "case_id": "arxiv_002",
+      "claimed_title": "Continual Learning with Experience Replay: A Technical Survey",
+      "old_id": "2109.00514",
+      "new_id": "2403.11373",
+      "found_title": "Reconstruct before Query: Continual Missing Modality Learning with Decomposed Prompt Collaboration",
+      "overlap": 0.375,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Experience AND all:Continual AND all:Technical AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_002",
+      "claimed_title": "Gradient-based Editing of Memory in Task-Incremental Learning",
+      "old_id": "2103.13672",
+      "new_id": "2312.01188",
+      "found_title": "Efficient Expansion and Gradient Based Task Inference for Replay Free Incremental Learning",
+      "overlap": 0.5555555555555556,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Task-Incremental AND all:Gradient-based AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_003",
+      "claimed_title": "TTT++: When Does Self-Supervised Test-Time Training Fail or Thrive?",
+      "old_id": "2203.13274",
+      "new_id": "2103.16201",
+      "found_title": "MT3: Meta Test-Time Training for Self-Supervised Test-Time Adaption",
+      "overlap": 0.45454545454545453,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Self-Supervised AND all:Test-Time AND all:Training"
+    },
+    {
+      "case_id": "arxiv_008",
+      "claimed_title": "PKD: Patient Knowledge Distillation for BERT Compression",
+      "old_id": "1909.10121",
+      "new_id": "1908.09355",
+      "found_title": "Patient Knowledge Distillation for BERT Model Compression",
+      "overlap": 0.8571428571428571,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Distillation AND all:Compression AND all:Knowledge AND all:Patient"
+    },
+    {
+      "case_id": "arxiv_009",
+      "claimed_title": "GATv2: How Attentive Are Graph Attention Networks?",
+      "old_id": "1905.07953",
+      "new_id": "2105.14491",
+      "found_title": "How Attentive are Graph Attention Networks?",
+      "overlap": 0.8571428571428571,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Attentive AND all:Attention AND all:Networks AND all:GATv2"
+    },
+    {
+      "case_id": "arxiv_009",
+      "claimed_title": "Deeper Insights into GNNs for Semi-Supervised Classification",
+      "old_id": "2003.00982",
+      "new_id": "2010.16245",
+      "found_title": "On the Impact of Communities on Semi-supervised Classification Using Graph Neural Networks",
+      "overlap": 0.375,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Semi-Supervised AND all:Classification AND all:Insights AND all:Deeper"
+    },
+    {
+      "case_id": "arxiv_011",
+      "claimed_title": "Inference Attacks Against Machine Learning: A Survey",
+      "old_id": "2101.04898",
+      "new_id": "1909.08526",
+      "found_title": "Defending against Machine Learning based Inference Attacks via Adversarial Examples: Opportunities and Challenges",
+      "overlap": 0.7142857142857143,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Inference AND all:Learning AND all:Attacks AND all:Against"
+    },
+    {
+      "case_id": "arxiv_012",
+      "claimed_title": "Network Intrusion Detection with GNN on Graph Data",
+      "old_id": "1902.10041",
+      "new_id": "2503.14284",
+      "found_title": "Entente: Cross-silo Intrusion Detection on Network Log Graphs with Federated Learning",
+      "overlap": 0.625,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Intrusion AND all:Detection AND all:Network AND all:Graph"
+    },
+    {
+      "case_id": "arxiv_012",
+      "claimed_title": "DeepLog: Anomaly Detection and Diagnosis from System Logs through Deep Learning",
+      "old_id": "2006.07595",
+      "new_id": "2412.00146",
+      "found_title": "Knowledge-Augmented Explainable and Interpretable Learning for Anomaly Detection and Diagnosis",
+      "overlap": 0.45454545454545453,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Detection AND all:Diagnosis AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_014",
+      "claimed_title": "Malware Detection with Convolutional Neural Networks on Raw Byte Sequences",
+      "old_id": "2108.02435",
+      "new_id": "1708.04299",
+      "found_title": "Emotion Detection on TV Show Transcripts with Sequence-based Convolutional Neural Networks",
+      "overlap": 0.6,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Convolutional AND all:Detection AND all:Sequences AND all:Networks"
+    },
+    {
+      "case_id": "arxiv_014",
+      "claimed_title": "A Survey of ML Methods for Malware Detection",
+      "old_id": "2006.14651",
+      "new_id": "2101.06232",
+      "found_title": "Towards interpreting ML-based automated malware detection models: a survey",
+      "overlap": 0.625,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Detection AND all:Methods AND all:Malware AND all:Survey"
+    },
+    {
+      "case_id": "arxiv_015",
+      "claimed_title": "Evading Machine Learning Malware Detection with Adversarial Examples",
+      "old_id": "1811.03804",
+      "new_id": "1911.05268",
+      "found_title": "Adversarial Examples in Modern Machine Learning: A Review",
+      "overlap": 0.5,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Adversarial AND all:Detection AND all:Learning AND all:Examples"
+    },
+    {
+      "case_id": "arxiv_015",
+      "claimed_title": "Adversarially Robust Network Intrusion Detection Systems",
+      "old_id": "2205.02609",
+      "new_id": "2008.03677",
+      "found_title": "Enhancing Robustness Against Adversarial Examples in Network Intrusion Detection Systems",
+      "overlap": 0.6666666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Adversarially AND all:Intrusion AND all:Detection AND all:Network"
+    },
+    {
+      "case_id": "arxiv_016",
+      "claimed_title": "Phishing URL Detection via CNN and Attention-Based Hierarchical RNN",
+      "old_id": "2007.04163",
+      "new_id": "1805.01554",
+      "found_title": "A Deep Learning Model with Hierarchical LSTMs and Supervised Attention for Anti-Phishing",
+      "overlap": 0.4,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Attention-Based AND all:Hierarchical AND all:Detection AND all:Phishing"
+    },
+    {
+      "case_id": "arxiv_016",
+      "claimed_title": "Detecting Phishing Websites using Machine Learning",
+      "old_id": "2106.05273",
+      "new_id": "2404.09802",
+      "found_title": "The Performance of Sequential Deep Learning Models in Detecting Phishing Websites Using Contextual Features of URLs",
+      "overlap": 0.8333333333333334,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Detecting AND all:Phishing AND all:Websites AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_016",
+      "claimed_title": "A Comprehensive Survey of AI for Cybersecurity",
+      "old_id": "2201.05578",
+      "new_id": "2506.12088",
+      "found_title": "Risks & Benefits of LLMs & GenAI for Platform Integrity, Healthcare Diagnostics, Financial Trust and Compliance, Cybersecurity, Privacy & AI Safety: A Comprehensive Survey, Roadmap & Implementation Blueprint",
+      "overlap": 1.0,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Comprehensive AND all:Cybersecurity AND all:Survey AND all:AI"
+    },
+    {
+      "case_id": "arxiv_017",
+      "claimed_title": "Synthetic Data Augmentation for Imbalanced Traffic Classification",
+      "old_id": "2006.13527",
+      "new_id": "2602.02955",
+      "found_title": "Synthetic Data Augmentation for Medical Audio Classification: A Preliminary Evaluation",
+      "overlap": 0.7142857142857143,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Classification AND all:Augmentation AND all:Imbalanced AND all:Synthetic"
+    },
+    {
+      "case_id": "arxiv_017",
+      "claimed_title": "Conditional GAN for Network Traffic Generation",
+      "old_id": "1905.11783",
+      "new_id": "2506.05844",
+      "found_title": "$\\text{C}^{2}\\text{BNVAE}$: Dual-Conditional Deep Generation of Network Traffic Data for Network Intrusion Detection System Balancing",
+      "overlap": 0.8333333333333334,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Conditional AND all:Generation AND all:Network AND all:Traffic"
+    },
+    {
+      "case_id": "arxiv_017",
+      "claimed_title": "Using Generative Adversarial Networks for Data Augmentation in IDS",
+      "old_id": "1909.04905",
+      "new_id": "2302.09119",
+      "found_title": "A Review on Generative Adversarial Networks for Data Augmentation in Person Re-Identification Systems",
+      "overlap": 0.7777777777777778,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Augmentation AND all:Adversarial AND all:Generative AND all:Networks"
+    },
+    {
+      "case_id": "arxiv_018",
+      "claimed_title": "A Survey on Federated Learning for Cybersecurity",
+      "old_id": "2106.04925",
+      "new_id": "2509.21389",
+      "found_title": "Towards Adapting Federated & Quantum Machine Learning for Network Intrusion Detection: A Survey",
+      "overlap": 0.7142857142857143,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Cybersecurity AND all:Federated AND all:Learning AND all:Survey"
+    },
+    {
+      "case_id": "arxiv_018",
+      "claimed_title": "Privacy-Preserving Collaborative IDS using Federated Learning",
+      "old_id": "2104.05693",
+      "new_id": "2305.11414",
+      "found_title": "Federated Foundation Models: Privacy-Preserving and Collaborative Learning for Large Models",
+      "overlap": 0.7142857142857143,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Privacy-Preserving AND all:Collaborative AND all:Federated AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_018",
+      "claimed_title": "Towards Privacy-Preserving Threat Sharing in Federated Networks",
+      "old_id": "2007.10987",
+      "new_id": "2412.01650",
+      "found_title": "Privacy-Preserving Federated Learning via Homomorphic Adversarial Networks",
+      "overlap": 0.5,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Privacy-Preserving AND all:Federated AND all:Networks AND all:Sharing"
+    },
+    {
+      "case_id": "arxiv_019",
+      "claimed_title": "SecBERT: A Domain-Specific BERT for Cybersecurity Text",
+      "old_id": "2106.09701",
+      "new_id": "2204.02685",
+      "found_title": "SecureBERT: A Domain-Specific Language Model for Cybersecurity",
+      "overlap": 0.625,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Domain-Specific AND all:Cybersecurity"
+    },
+    {
+      "case_id": "arxiv_020",
+      "claimed_title": "Detecting Deepfake Voices Using Audio Spectrograms",
+      "old_id": "2202.05735",
+      "new_id": "2512.21702",
+      "found_title": "Zero-Shot to Zero-Lies: Detecting Bengali Deepfake Audio through Transfer Learning",
+      "overlap": 0.5,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Spectrograms AND all:Detecting AND all:Deepfake AND all:Voices"
+    },
+    {
+      "case_id": "arxiv_021",
+      "claimed_title": "Equivariant Neural Networks for Crystal Property Prediction",
+      "old_id": "2102.02390",
+      "new_id": "2601.02213",
+      "found_title": "Quantized SO(3)-Equivariant Graph Neural Networks for Efficient Molecular Property Prediction",
+      "overlap": 0.8571428571428571,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Equivariant AND all:Prediction AND all:Networks AND all:Property"
+    },
+    {
+      "case_id": "arxiv_021",
+      "claimed_title": "Elastic constants of materials from DFT",
+      "old_id": "2204.02338",
+      "new_id": "2409.13489",
+      "found_title": "Probing Elastic Isotropy in Entropy Stabilized Transition Metal Oxides: Experimental Estimation of Single Crystal Elastic Constants from Polycrystalline Materials",
+      "overlap": 0.8333333333333334,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:constants AND all:materials AND all:Elastic AND all:DFT"
+    },
+    {
+      "case_id": "arxiv_021",
+      "claimed_title": "SE(3)-Transformers for Equivariant Atomistic Simulations",
+      "old_id": "2106.02331",
+      "new_id": "2310.02428",
+      "found_title": "EGraFFBench: Evaluation of Equivariant Graph Neural Network Force Fields for Atomistic Simulations",
+      "overlap": 0.5714285714285714,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Transformers AND all:Equivariant AND all:Simulations AND all:Atomistic"
+    },
+    {
+      "case_id": "arxiv_022",
+      "claimed_title": "MOFNet: Deep Learning for Metal-Organic Framework Discovery",
+      "old_id": "2110.02701",
+      "new_id": "2108.06667",
+      "found_title": "Realizing the Data-Driven, Computational Discovery of Metal-Organic Framework Catalysts",
+      "overlap": 0.5,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Metal-Organic AND all:Framework AND all:Discovery AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_022",
+      "claimed_title": "Crystal Structure Prediction with Generative Flow Networks",
+      "old_id": "2209.14327",
+      "new_id": "1812.01943",
+      "found_title": "Prediction of typhoon tracks using a generative adversarial network with observational and meteorological data",
+      "overlap": 0.42857142857142855,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Prediction AND all:Generative AND all:Structure AND all:Networks"
+    },
+    {
+      "case_id": "arxiv_022",
+      "claimed_title": "Latent Diffusion Models for Crystal Structure Generation",
+      "old_id": "2212.10655",
+      "new_id": "2308.02165",
+      "found_title": "Diffusion probabilistic models enhance variational autoencoder for crystal structure generative modeling",
+      "overlap": 0.7142857142857143,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Generation AND all:Diffusion AND all:Structure AND all:Crystal"
+    },
+    {
+      "case_id": "arxiv_022",
+      "claimed_title": "Inverse Design of Porous Materials with Deep Generative Models",
+      "old_id": "2109.07068",
+      "new_id": "2409.19124",
+      "found_title": "Generative deep learning for the inverse design of materials",
+      "overlap": 0.6666666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Generative AND all:Materials AND all:Inverse AND all:Design"
+    },
+    {
+      "case_id": "arxiv_023",
+      "claimed_title": "MatErials Graph Network (MEGNet) for Molecular and Crystal Property Prediction",
+      "old_id": "2004.04168",
+      "new_id": "2409.06080",
+      "found_title": "Regression with Large Language Models for Materials and Molecular Property Prediction",
+      "overlap": 0.6,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Prediction AND all:MatErials AND all:Molecular AND all:Property"
+    },
+    {
+      "case_id": "arxiv_023",
+      "claimed_title": "Perovskite Band Gap Prediction with Machine Learning",
+      "old_id": "2012.01559",
+      "new_id": "2301.03372",
+      "found_title": "Machine-Learning Prediction of the Computed Band Gaps of Double Perovskite Materials",
+      "overlap": 0.7142857142857143,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Perovskite AND all:Prediction AND all:Learning AND all:Machine"
+    },
+    {
+      "case_id": "arxiv_023",
+      "claimed_title": "Transfer Learning for Materials Property Prediction",
+      "old_id": "2110.06905",
+      "new_id": "2106.02225",
+      "found_title": "Materials Representation and Transfer Learning for Multi-Property Prediction",
+      "overlap": 1.0,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Prediction AND all:Materials AND all:Transfer AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_024",
+      "claimed_title": "Autonomous Phase Diagram Mapping with Machine Learning",
+      "old_id": "2111.03503",
+      "new_id": "2111.07478",
+      "found_title": "Physics in the Machine: Integrating Physical Knowledge in Autonomous Phase-Mapping",
+      "overlap": 0.5714285714285714,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Autonomous AND all:Learning AND all:Diagram AND all:Mapping"
+    },
+    {
+      "case_id": "arxiv_025",
+      "claimed_title": "Machine Learning for Dielectric Property Prediction of Polymers",
+      "old_id": "2103.02698",
+      "new_id": "2407.08390",
+      "found_title": "A chemical bond-based machine learning model for dipole moment: Application to dielectric properties of liquid methanol and ethanol",
+      "overlap": 0.625,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Dielectric AND all:Prediction AND all:Learning AND all:Property"
+    },
+    {
+      "case_id": "arxiv_025",
+      "claimed_title": "Generative Models for Polymer Property Optimization",
+      "old_id": "2202.01789",
+      "new_id": "2506.02129",
+      "found_title": "Benchmarking Large Language Models for Polymer Property Predictions",
+      "overlap": 0.6666666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Optimization AND all:Generative AND all:Property AND all:Polymer"
+    },
+    {
+      "case_id": "arxiv_026",
+      "claimed_title": "CNN-Based Defect Classification in TEM Images of Semiconductor Materials",
+      "old_id": "2101.09215",
+      "new_id": "2211.02185",
+      "found_title": "Deep Learning based Defect classification and detection in SEM images: A Mask R-CNN approach",
+      "overlap": 0.6,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Classification AND all:Semiconductor AND all:CNN-Based"
+    },
+    {
+      "case_id": "arxiv_026",
+      "claimed_title": "Automated Grain Boundary Segmentation with Machine Learning",
+      "old_id": "2003.09882",
+      "new_id": "2305.07790",
+      "found_title": "Automated Grain Boundary (GB) Segmentation and Microstructural Analysis in 347H Stainless Steel Using Deep Learning and Multimodal Microscopy",
+      "overlap": 0.7142857142857143,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Segmentation AND all:Automated AND all:Boundary AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_026",
+      "claimed_title": "Machine Learning for Materials Characterization via Electron Microscopy",
+      "old_id": "2108.09476",
+      "new_id": "2105.09729",
+      "found_title": "The Adoption of Image-Driven Machine Learning for Microstructure Characterization and Materials Design: A Perspective",
+      "overlap": 0.625,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Characterization AND all:Microscopy AND all:Materials AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_027",
+      "claimed_title": "Machine Learning Interatomic Potentials for Battery Materials",
+      "old_id": "2203.09697",
+      "new_id": "2102.06163",
+      "found_title": "Machine-learning interatomic potentials for materials science",
+      "overlap": 0.8571428571428571,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Interatomic AND all:Potentials AND all:Materials AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_027",
+      "claimed_title": "NequIP: E(3)-equivariant graph neural networks for data-efficient interatomic potentials",
+      "old_id": "2105.06551",
+      "new_id": "2101.03164",
+      "found_title": "E(3)-Equivariant Graph Neural Networks for Data-Efficient and Accurate Interatomic Potentials",
+      "overlap": 0.9166666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:data-efficient AND all:equivariant AND all:interatomic AND all:potentials"
+    },
+    {
+      "case_id": "arxiv_028",
+      "claimed_title": "Machine Learning for Phase Stability Prediction",
+      "old_id": "1702.00049",
+      "new_id": "2001.11757",
+      "found_title": "Statistical stability indices for LIME: obtaining reliable explanations for Machine Learning models",
+      "overlap": 0.6666666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Prediction AND all:Stability AND all:Learning AND all:Machine"
+    },
+    {
+      "case_id": "arxiv_028",
+      "claimed_title": "Predicting Thermodynamic Stability of Materials via Machine Learning",
+      "old_id": "2003.10939",
+      "new_id": "1806.01038",
+      "found_title": "Predicting the thermodynamic stability of perovskite oxides using machine learning models",
+      "overlap": 0.75,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Thermodynamic AND all:Predicting AND all:Stability AND all:Materials"
+    },
+    {
+      "case_id": "arxiv_028",
+      "claimed_title": "Benchmarking ML Models for Thermodynamic Stability Prediction",
+      "old_id": "2012.02830",
+      "new_id": "2507.18873",
+      "found_title": "Prediction of Mechanical Properties and Thermodynamic Stability of Ti-N system using MTP Interatomic Potential",
+      "overlap": 0.42857142857142855,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Thermodynamic AND all:Benchmarking AND all:Prediction AND all:Stability"
+    },
+    {
+      "case_id": "arxiv_029",
+      "claimed_title": "Symmetry-Aware Neural Networks for Molecules and Materials",
+      "old_id": "2104.04670",
+      "new_id": "2101.03164",
+      "found_title": "E(3)-Equivariant Graph Neural Networks for Data-Efficient and Accurate Interatomic Potentials",
+      "overlap": 0.5,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Symmetry-Aware AND all:Molecules AND all:Materials AND all:Networks"
+    },
+    {
+      "case_id": "arxiv_029",
+      "claimed_title": "Contrastive Learning of Crystal Representations",
+      "old_id": "2210.06877",
+      "new_id": "2502.16451",
+      "found_title": "Contrastive Learning of English Language and Crystal Graphs for Multimodal Representation of Materials Knowledge",
+      "overlap": 0.8,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Representations AND all:Contrastive AND all:Learning AND all:Crystal"
+    },
+    {
+      "case_id": "arxiv_030",
+      "claimed_title": "PaiNN: Equivariant Message Passing for the Modeling of Scalar and Tensorial Properties",
+      "old_id": "2205.06643",
+      "new_id": "2102.03150",
+      "found_title": "Equivariant message passing for the prediction of tensorial properties and molecular spectra",
+      "overlap": 0.75,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Equivariant AND all:Properties AND all:Tensorial AND all:Modeling"
+    },
+    {
+      "case_id": "arxiv_030",
+      "claimed_title": "Physically Informed Neural Networks for Force-Field Learning",
+      "old_id": "2102.03150",
+      "new_id": "1808.01696",
+      "found_title": "Physically-informed artificial neural networks for atomistic modeling of materials",
+      "overlap": 0.625,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Force-Field AND all:Physically AND all:Informed AND all:Networks"
+    },
+    {
+      "case_id": "arxiv_030",
+      "claimed_title": "DimeNet++: Fast and Uncertainty-Aware Directional Message Passing for Molecular Property Prediction",
+      "old_id": "2010.05460",
+      "new_id": "2604.16586",
+      "found_title": "A Systematic Survey and Benchmark of Deep Learning for Molecular Property Prediction in the Foundation Model Era",
+      "overlap": 0.4166666666666667,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Uncertainty-Aware AND all:Directional AND all:Prediction AND all:Molecular"
+    },
+    {
+      "case_id": "arxiv_031",
+      "claimed_title": "Multimodal Co-Attention Transformer for Survival Prediction in Gigapixel Whole Slide Images",
+      "old_id": "2107.12505",
+      "new_id": "2306.08330",
+      "found_title": "Multimodal Optimal Transport-based Co-Attention Transformer with Global Structure Consistency for Survival Prediction",
+      "overlap": 0.5833333333333334,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Co-Attention AND all:Transformer AND all:Multimodal AND all:Prediction"
+    },
+    {
+      "case_id": "arxiv_031",
+      "claimed_title": "PORPOISE: Multimodal Integration of Radiology, Pathology and Genomics for Survival Prediction",
+      "old_id": "2104.12719",
+      "new_id": "2407.00129",
+      "found_title": "Multimodal Learning and Cognitive Processes in Radiology: MedGaze for Chest X-ray Scanpath Prediction",
+      "overlap": 0.45454545454545453,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Integration AND all:Multimodal AND all:Prediction AND all:Radiology"
+    },
+    {
+      "case_id": "arxiv_031",
+      "claimed_title": "TransPath: Transformer-based Self-supervised Learning for Histopathological Image Analysis",
+      "old_id": "2110.04905",
+      "new_id": "2405.00908",
+      "found_title": "Transformer-Based Self-Supervised Learning for Histopathological Classification of Ischemic Stroke Clot Origin",
+      "overlap": 0.7,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Transformer-based AND all:Histopathological AND all:Self-supervised"
+    },
+    {
+      "case_id": "arxiv_031",
+      "claimed_title": "Hierarchical Image Pyramid Transformer for Whole Slide Image Analysis",
+      "old_id": "2206.04885",
+      "new_id": "2309.07400",
+      "found_title": "HIGT: Hierarchical Interaction Graph-Transformer for Whole Slide Image Analysis",
+      "overlap": 0.875,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Hierarchical AND all:Transformer AND all:Analysis AND all:Pyramid"
+    },
+    {
+      "case_id": "arxiv_032",
+      "claimed_title": "Predicting Drug-Drug Interactions over Knowledge Graphs",
+      "old_id": "1901.05534",
+      "new_id": "1712.08875",
+      "found_title": "Predicting Rich Drug-Drug Interactions via Biomedical Knowledge Graphs and Text Jointly Embedding",
+      "overlap": 0.8333333333333334,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Interactions AND all:Predicting AND all:Drug-Drug AND all:Knowledge"
+    },
+    {
+      "case_id": "arxiv_032",
+      "claimed_title": "EHR-Based Knowledge Graph for Drug Interaction Prediction",
+      "old_id": "2109.03089",
+      "new_id": "2502.13555",
+      "found_title": "Democratizing Large Language Model-Based Graph Data Augmentation via Latent Knowledge Graphs",
+      "overlap": 0.375,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Interaction AND all:Prediction AND all:EHR-Based AND all:Knowledge"
+    },
+    {
+      "case_id": "arxiv_033",
+      "claimed_title": "Deep Reinforcement Learning for Adaptive Radiation Therapy Planning",
+      "old_id": "2005.02327",
+      "new_id": "2601.03486",
+      "found_title": "Adaptive Model-Based Reinforcement Learning for Orbit Feedback Control in NSLS-II Storage Ring",
+      "overlap": 0.5,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Reinforcement AND all:Radiation AND all:Learning AND all:Adaptive"
+    },
+    {
+      "case_id": "arxiv_033",
+      "claimed_title": "Personalized Radiotherapy Planning with Patient-Specific Biological Modeling",
+      "old_id": "2201.07812",
+      "new_id": "2602.18496",
+      "found_title": "A Patient-Specific Digital Twin for Adaptive Radiotherapy of Non-Small Cell Lung Cancer",
+      "overlap": 0.375,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Patient-Specific AND all:Personalized AND all:Radiotherapy AND all:Biological"
+    },
+    {
+      "case_id": "arxiv_033",
+      "claimed_title": "RL for Dynamic Treatment Regimes in Oncology",
+      "old_id": "2108.09034",
+      "new_id": "1405.2656",
+      "found_title": "Bayesian Nonparametric Estimation for Dynamic Treatment Regimes with Sequential Transition Times",
+      "overlap": 0.5714285714285714,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Treatment AND all:Oncology AND all:Dynamic AND all:Regimes"
+    },
+    {
+      "case_id": "arxiv_033",
+      "claimed_title": "Fractionation Optimization with Machine Learning for Adaptive RT",
+      "old_id": "2303.01450",
+      "new_id": "2404.11354",
+      "found_title": "Distributed Fractional Bayesian Learning for Adaptive Optimization",
+      "overlap": 0.5,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Fractionation AND all:Optimization AND all:Learning AND all:Adaptive"
+    },
+    {
+      "case_id": "arxiv_034",
+      "claimed_title": "Language models of protein sequences at the scale of evolution enable accurate structure prediction",
+      "old_id": "2202.03036",
+      "new_id": "2311.06034",
+      "found_title": "Structure of the space of folding protein sequences defined by large language models",
+      "overlap": 0.5384615384615384,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:prediction AND all:sequences AND all:evolution AND all:structure"
+    },
+    {
+      "case_id": "arxiv_034",
+      "claimed_title": "Evolutionary Scale Modeling: ESM Protein Language Models",
+      "old_id": "2112.04139",
+      "new_id": "2108.07435",
+      "found_title": "Modeling Protein Using Large-scale Pretrain Language Model",
+      "overlap": 0.5714285714285714,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Evolutionary AND all:Modeling AND all:Language AND all:Protein"
+    },
+    {
+      "case_id": "arxiv_034",
+      "claimed_title": "Predicting Antibiotic Resistance from Protein Sequences with Language Models",
+      "old_id": "2205.11139",
+      "new_id": "1904.13240",
+      "found_title": "Generating protein sequences from antibiotic resistance genes data using Generative Adversarial Networks",
+      "overlap": 0.5555555555555556,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Predicting AND all:Antibiotic AND all:Resistance AND all:Sequences"
+    },
+    {
+      "case_id": "arxiv_034",
+      "claimed_title": "Fine-tuning Protein Language Models for Functional Property Prediction",
+      "old_id": "2301.04780",
+      "new_id": "2405.06729",
+      "found_title": "Fine-tuning Protein Language Models with Deep Mutational Scanning improves Variant Effect Prediction",
+      "overlap": 0.6666666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Fine-tuning AND all:Functional AND all:Prediction AND all:Language"
+    },
+    {
+      "case_id": "arxiv_035",
+      "claimed_title": "Semi-Supervised Learning for Medical Image Analysis: A Survey",
+      "old_id": "2107.06175",
+      "new_id": "1804.06353",
+      "found_title": "Not-so-supervised: a survey of semi-supervised, multi-instance, and transfer learning in medical image analysis",
+      "overlap": 0.8888888888888888,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Semi-Supervised AND all:Learning AND all:Analysis AND all:Medical"
+    },
+    {
+      "case_id": "arxiv_036",
+      "claimed_title": "Clinical-BERT: Domain-adapted BERT for Clinical NLP",
+      "old_id": "2010.15407",
+      "new_id": "2305.03788",
+      "found_title": "Harnessing the Power of BERT in the Turkish Clinical Domain: Pretraining Approaches for Limited Data Scenarios",
+      "overlap": 0.6666666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Domain-adapted AND all:Clinical-BERT AND all:Clinical AND all:BERT"
+    },
+    {
+      "case_id": "arxiv_036",
+      "claimed_title": "Extracting Social Determinants of Health from Clinical Notes with NLP",
+      "old_id": "2105.03204",
+      "new_id": "2301.11386",
+      "found_title": "Task formulation for Extracting Social Determinants of Health from Clinical Narratives",
+      "overlap": 0.7,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Determinants AND all:Extracting AND all:Clinical AND all:Social"
+    },
+    {
+      "case_id": "arxiv_036",
+      "claimed_title": "NLP for Social Determinants of Health in Clinical Text",
+      "old_id": "2205.09232",
+      "new_id": "2406.06056",
+      "found_title": "Synth-SBDH: A Synthetic Dataset of Social and Behavioral Determinants of Health for Clinical Text",
+      "overlap": 0.7777777777777778,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Determinants AND all:Clinical AND all:Social AND all:Health"
+    },
+    {
+      "case_id": "arxiv_039",
+      "claimed_title": "Grading Diabetic Retinopathy from Fundus Photographs Using Deep Learning",
+      "old_id": "1901.07600",
+      "new_id": "1803.04337",
+      "found_title": "Replication study: Development and validation of deep learning algorithm for detection of diabetic retinopathy in retinal fundus photographs",
+      "overlap": 0.6666666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Retinopathy AND all:Photographs AND all:Diabetic AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_039",
+      "claimed_title": "Development and Validation of a Deep Learning Algorithm for DR Detection",
+      "old_id": "1811.07831",
+      "new_id": "1803.04337",
+      "found_title": "Replication study: Development and validation of deep learning algorithm for detection of diabetic retinopathy in retinal fundus photographs",
+      "overlap": 0.8181818181818182,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Development AND all:Validation AND all:Algorithm AND all:Detection"
+    },
+    {
+      "case_id": "arxiv_039",
+      "claimed_title": "Attention-Based Deep Learning for Retinal Disease Detection",
+      "old_id": "2004.11166",
+      "new_id": "2001.01815",
+      "found_title": "Regression and Learning with Pixel-wise Attention for Retinal Fundus Glaucoma Segmentation and Detection",
+      "overlap": 0.625,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Attention-Based AND all:Detection AND all:Learning AND all:Retinal"
+    },
+    {
+      "case_id": "arxiv_039",
+      "claimed_title": "Systematic Review of Deep Learning for Diabetic Retinopathy Screening",
+      "old_id": "2101.00035",
+      "new_id": "1912.10481",
+      "found_title": "A Systematic Comparison of Bayesian Deep Learning Robustness in Diabetic Retinopathy Tasks",
+      "overlap": 0.6666666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Retinopathy AND all:Systematic AND all:Screening AND all:Learning"
+    },
+    {
+      "case_id": "arxiv_040",
+      "claimed_title": "Highly accurate protein structure prediction with AlphaFold",
+      "old_id": "2106.04101",
+      "new_id": "1911.05531",
+      "found_title": "Accurate Protein Structure Prediction by Embeddings and Deep Learning Representations",
+      "overlap": 0.5714285714285714,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:prediction AND all:structure AND all:AlphaFold AND all:accurate"
+    },
+    {
+      "case_id": "arxiv_040",
+      "claimed_title": "Predicting Protein-Protein Interaction Affinity from AlphaFold Structures",
+      "old_id": "2205.04421",
+      "new_id": "1707.06846",
+      "found_title": "Predicting disease-related genes by path-based similarity and community structure in protein-protein interaction network",
+      "overlap": 0.42857142857142855,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Protein-Protein AND all:Interaction AND all:Predicting AND all:Structures"
+    },
+    {
+      "case_id": "arxiv_040",
+      "claimed_title": "Structure-Based Binding Affinity Prediction with Graph Neural Networks",
+      "old_id": "2204.11109",
+      "new_id": "2005.07704",
+      "found_title": "Improved Protein-ligand Binding Affinity Prediction with Structure-Based Deep Fusion Inference",
+      "overlap": 0.6666666666666666,
+      "search_tier": "keyword",
+      "keyword_query_tried": "all:Structure-Based AND all:Prediction AND all:Affinity AND all:Networks"
+    }
+  ],
+  "needs_manual_fix": [
+    {
+      "case_id": "arxiv_010",
+      "claimed_title": "Beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework",
+      "old_id": "1811.00741",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2603.06755",
+        "real_title": "Implementation of Quantum Implicit Neural Representation in Deterministic and Probabilistic Autoencoders for Image Reconstruction/Generation Tasks",
+        "overlap": 0.0
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Constrained AND all:Variational AND all:Framework AND all:Beta-VAE",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_015",
+      "claimed_title": "Constraints Satisfaction for Adversarial Robustness in Network Intrusion Detection",
+      "old_id": "2007.01434",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2112.01156",
+        "real_title": "A Unified Framework for Adversarial Attack and Defense in Constrained Feature Space",
+        "overlap": 0.3333333333333333
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Satisfaction AND all:Constraints AND all:Adversarial AND all:Robustness",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_019",
+      "claimed_title": "Automated Vulnerability Severity Rating from Bug Reports using NLP",
+      "old_id": "2009.09227",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2108.06590",
+        "real_title": "Few-Sample Named Entity Recognition for Security Vulnerability Reports by Fine-Tuning Pre-Trained Language Models",
+        "overlap": 0.2222222222222222
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Vulnerability AND all:Automated AND all:Severity AND all:Reports",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_019",
+      "claimed_title": "CVE-NLP: Extracting Software Vulnerability Information with BERT",
+      "old_id": "2105.05639",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2411.18347",
+        "real_title": "TransferFuzz: Fuzzing with Historical Trace for Verifying Propagated Vulnerability Code",
+        "overlap": 0.25
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Vulnerability AND all:Information AND all:Extracting AND all:Software",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_020",
+      "claimed_title": "RawNet2: Enhanced RawNet with Deep Filter Banks for Spoofing Detection",
+      "old_id": "2109.01234",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2510.05562",
+        "real_title": "Generative Dynamic Graph Representation Learning for Conspiracy Spoofing Detection",
+        "overlap": 0.3
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Detection AND all:Enhanced AND all:Spoofing",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_026",
+      "claimed_title": "Deep Learning for Automated Defect Detection in Crystalline Materials",
+      "old_id": "2005.13082",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2202.10983",
+        "real_title": "Tracking perovskite crystallization via deep learning-based feature detection on 2D X-ray scattering data",
+        "overlap": 0.3333333333333333
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Crystalline AND all:Automated AND all:Detection AND all:Materials",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_028",
+      "claimed_title": "Matminer: An Open Source Toolkit for Materials Data Mining",
+      "old_id": "1906.02192",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2602.22950",
+        "real_title": "A Comparative Study of Structural Representations for 2D Materials: Insights from Dynamic Collision Fingerprint and Matminer",
+        "overlap": 0.3333333333333333
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Materials AND all:Matminer",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_030",
+      "claimed_title": "Constraint-Aware Loss Functions for Physics-Consistent ML Potentials",
+      "old_id": "2301.12578",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2510.16723",
+        "real_title": "Thermal Conductivity Estimation of Thermoelectric Materials with Uncertainty Quantification Using Bayesian Physics-Informed Neural Networks",
+        "overlap": 0.1111111111111111
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:Physics-Consistent AND all:Constraint-Aware AND all:Potentials AND all:Functions",
+      "search_tier": "keyword"
+    },
+    {
+      "case_id": "arxiv_040",
+      "claimed_title": "AlphaFold-Based Features for PPI Prediction: A Benchmark",
+      "old_id": "2301.09163",
+      "failure": "low_overlap",
+      "search_result": {
+        "arxiv_id": "2202.01079",
+        "real_title": "AlphaDesign: A graph protein design method and benchmark on AlphaFoldDB",
+        "overlap": 0.25
+      },
+      "attempts": [
+        "strict",
+        "keyword"
+      ],
+      "keyword_query_tried": "all:AlphaFold-Based AND all:Prediction AND all:Benchmark AND all:Features",
+      "search_tier": "keyword"
+    }
+  ]
+}

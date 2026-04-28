@@ -1,0 +1,883 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "5bbccee964f3",
+    "status": "completed"
+  },
+  "originality_score": 98,
+  "global_similarity_score": 0.11000000000000001,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "Adding a physically motivated loss term to a GNN-based force field that penalizes predicted forces that violate Newton's third law (action-reaction symmetry) during training, to improve physical consistency of simulations.",
+      "originality_score": 0.0,
+      "similarity_score": 1.0,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "low",
+        "domain_similarity": "low",
+        "contribution_similarity": "medium"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_23",
+          "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+          "heading": "ABSTRACT",
+          "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets. Specifically, universal interatomic potentials based on GNN, usually trained with crystalline geometries, often exhibit remarkable extrapolative behavior towards untrained domains, such as surfaces or amorphous configurations. However, the origin of this extrapolation capability is not well understood.",
+          "similarity": 0.5,
+          "reason": "The paper focuses on understanding and improving the extrapolative behavior and physical consistency of GNN-IPs, which is a related high-level goal to improving physical consistency of simulations. While the user's specific problem is about enforcing Newton's third law, both are concerned with the physical accuracy of GNN-based force fields.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_23",
+          "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+          "heading": "ABSTRACT",
+          "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets.",
+          "similarity": 0.75,
+          "reason": "The user proposes a 'GNN-based force field', which directly aligns with the paper's focus on 'Graph neural network interatomic potentials (GNN-IPs)'. The method involves adding a 'physically motivated loss term' during training, which is a common approach in machine learning to enforce physical constraints, similar to how GNN-IPs are trained to learn physical interactions.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_23",
+          "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+          "heading": "ABSTRACT",
+          "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets.",
+          "similarity": 1.0,
+          "reason": "Both the user's idea and the paper are squarely in the domain of Graph Neural Network Interatomic Potentials (GNN-IPs) and their application to force fields for molecular simulations.",
+          "criterion": "domain_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_23",
+          "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+          "heading": "ABSTRACT",
+          "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets. Specifically, universal interatomic potentials based on GNN, usually trained with crystalline geometries, often exhibit remarkable extrapolative behavior towards untrained domains, such as surfaces or amorphous configurations. However, the origin of this extrapolation capability is not well understood.",
+          "similarity": 0.5,
+          "reason": "The user's contribution is to improve physical consistency by enforcing Newton's third law. The paper's contribution is to explain the extrapolation capability and improve the understanding of GNN-IPs' physical behavior, particularly regarding non-local electrostatic interactions. Both aim to improve the physical consistency and accuracy of GNN-IPs, but the specific mechanism and focus of the contribution differ.",
+          "criterion": "contribution_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "Your research idea shows very high originality, particularly in its methodological approach and proposed contribution. While there is some domain overlap with existing work, your specific problem and method appear distinct, suggesting a strong potential for novel impact.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.38,
+    "method_similarity": 0.19,
+    "domain_similarity": 0.8,
+    "contribution_similarity": 0.0
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0472,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0448,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0022,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 254.74703311920166,
+  "papers": [
+    {
+      "paper_id": "paper_12",
+      "source": "arxiv",
+      "source_id": "1003.3081v1",
+      "arxiv_id": "1003.3081v1",
+      "title": "Optimal hierarchical modular topologies for producing limited sustained activation of neural networks",
+      "abstract": "An essential requirement for the representation of functional patterns in complex neural networks, such as the mammalian cerebral cortex, is the existence of stable regimes of network activation, typically arising from a limited parameter range. In this range of limited sustained activity (LSA), the activity of neural populations in the network persists between the extremes of either quickly dying out or activating the whole network. Hierarchical modular networks were previously found to show a wider parameter range for LSA than random or small-world networks not possessing hierarchical organization or multiple modules. Here we explored how variation in the number of hierarchical levels and modules per level influenced network dynamics and occurrence of LSA. We tested hierarchical configurations of different network sizes, approximating the large-scale networks linking cortical columns in one hemisphere of the rat, cat, or macaque monkey brain. Scaling of the network size affected the number of hierarchical levels and modules in the optimal networks, also depending on whether global edge density or the numbers of connections per node were kept constant. For constant edge density, only few network configurations, possessing an intermediate number of levels and a large number of modules, led to a large range of LSA independent of brain size. For a constant number of node connections, there was a trend for optimal configurations in larger-size networks to possess a larger number of hierarchical levels or more modules. These results may help to explain the trend to greater network complexity apparent in larger brains and may indicate that this complexity is required for maintaining stable levels of neural activation.",
+      "url": "http://arxiv.org/abs/1003.3081v1",
+      "pdf_url": "https://arxiv.org/pdf/1003.3081v1",
+      "authors": [
+        "Marcus Kaiser",
+        "Claus C. Hilgetag"
+      ],
+      "categories": [
+        "q-bio.NC",
+        "cond-mat.dis-nn",
+        "physics.soc-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving the physical consistency of GNN-based force fields by penalizing violations of Newton's third law. In contrast, the paper investigates optimal hierarchical modular topologies for producing limited sustained activation in neural networks, a problem in computational neuroscience. These are fundamentally different research questions with no overlap in problem domain or objectives. | Method: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law. The evaluated paper, however, focuses on simulating activity spreading in hierarchical modular neural networks using a deactivation probability and activation threshold, without any mention of GNNs, force fields, or physical laws like Newton's third law. The methodologies are entirely different. | Domain: The user's research idea is in the domain of physics-based simulations and force fields, specifically applying GNNs to enforce physical laws like Newton's third law. The paper, however, is in the domain of computational neuroscience, focusing on neural network topologies and their dynamics to produce 'limited sustained activation' in models of the mammalian cerebral cortex. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law for improved physical consistency in simulations. The paper, in contrast, investigates optimal hierarchical modular topologies for producing limited sustained activation in neural networks, exploring how network structure influences dynamic stability. These are entirely different research contributions addressing distinct problems in different domains (physics-informed machine learning for force fields vs. neural network dynamics and topology).",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_23",
+      "source": "arxiv",
+      "source_id": "2405.00290v3",
+      "arxiv_id": "2405.00290v3",
+      "title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+      "abstract": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets. Specifically, universal interatomic potentials based on GNN, usually trained with crystalline geometries, often exhibit remarkable extrapolative behavior towards untrained domains, such as surfaces or amorphous configurations. However, the origin of this extrapolation capability is not well understood. This work provides a theoretical explanation of how GNN-IPs extrapolate to untrained geometries. First, we demonstrate that GNN-IPs can capture non-local electrostatic interactions through the message-passing algorithm, as evidenced by tests on toy models and DFT data. We find that GNN-IP models, SevenNet and MACE, accurately predict electrostatic forces in untrained domains, indicating that they have learned the exact functional form of the Coulomb interaction. Based on these results, we suggest that the ability to learn non-local electrostatic interactions, coupled with the embedding nature of GNN-IPs, explains their extrapolation ability. We find that the universal GNN-IP, SevenNet-0, effectively infers non-local Coulomb interactions in untrained domains but fails to extrapolate the non-local forces arising from the kinetic term, which supports the suggested theory. Finally, we address the impact of hyperparameters on the extrapolation performance of universal potentials, such as SevenNet-0 and MACE-MP-0, and discuss the limitations of the extrapolation capabilities.",
+      "url": "http://arxiv.org/abs/2405.00290v3",
+      "pdf_url": "https://arxiv.org/pdf/2405.00290v3",
+      "authors": [
+        "Sungwoo Kang"
+      ],
+      "categories": [
+        "cond-mat.mtrl-sci"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law during training. The paper, however, investigates how GNN-IPs extrapolate to untrained geometries by analyzing their ability to capture non-local electrostatic interactions. These are distinct research problems with different objectives. | Method: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law during training. The evaluated paper, however, focuses on explaining the extrapolation capabilities of GNN-IPs by demonstrating their ability to learn non-local electrostatic interactions through the message-passing algorithm. There is no mention of adding a specific loss term for Newton's third law or action-reaction symmetry in the paper's abstract, introduction, conclusion, or relevant sections. | Domain: Both the user's idea and the paper are within the same discipline of machine learning for interatomic potentials, specifically using Graph Neural Networks (GNNs) in materials science. However, the user's idea focuses on adding a physically motivated loss term for Newton's third law symmetry during training, while the paper investigates how GNN-IPs extrapolate to untrained geometries by learning non-local electrostatic interactions. While both deal with GNN-IPs and physical consistency, their specific application targets (training objective vs. extrapolation mechanism) are different sub-areas. | Contribution: The user's research idea proposes adding a physically motivated loss term to penalize forces violating Newton's third law during training to improve physical consistency. The paper, however, focuses on explaining the extrapolation capabilities of GNN-IPs by demonstrating their ability to learn non-local electrostatic interactions through the message-passing algorithm. The contributions are unrelated, addressing different gaps in the field.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_30",
+      "source": "arxiv",
+      "source_id": "2305.16325v2",
+      "arxiv_id": "2305.16325v2",
+      "title": "Graph Neural Network Interatomic Potential Ensembles with Calibrated Aleatoric and Epistemic Uncertainty on Energy and Forces",
+      "abstract": "Inexpensive machine learning potentials are increasingly being used to speed up structural optimization and molecular dynamics simulations of materials by iteratively predicting and applying interatomic forces. In these settings, it is crucial to detect when predictions are unreliable to avoid wrong or misleading results. Here, we present a complete framework for training and recalibrating graph neural network ensemble models to produce accurate predictions of energy and forces with calibrated uncertainty estimates. The proposed method considers both epistemic and aleatoric uncertainty and the total uncertainties are recalibrated post hoc using a nonlinear scaling function to achieve good calibration on previously unseen data, without loss of predictive accuracy. The method is demonstrated and evaluated on two challenging, publicly available datasets, ANI-1x (Smith et al.) and Transition1x (Schreiner et al.), both containing diverse conformations far from equilibrium. A detailed analysis of the predictive performance and uncertainty calibration is provided. In all experiments, the proposed method achieved low prediction error and good uncertainty calibration, with predicted uncertainty correlating with expected error, on energy and forces. To the best of our knowledge, the method presented in this paper is the first to consider a complete framework for obtaining calibrated epistemic and aleatoric uncertainty predictions on both energy and forces in ML potentials.",
+      "url": "http://arxiv.org/abs/2305.16325v2",
+      "pdf_url": "https://arxiv.org/pdf/2305.16325v2",
+      "authors": [
+        "Jonas Busk",
+        "Mikkel N. Schmidt",
+        "Ole Winther",
+        "Tejs Vegge",
+        "Peter Bjørn Jørgensen"
+      ],
+      "categories": [
+        "physics.chem-ph",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.1,
+      "reason": "Problem: The user's research idea focuses on adding a physically motivated loss term to enforce Newton's third law during training to improve physical consistency. The evaluated paper, however, focuses on developing a framework for calibrated uncertainty quantification (UQ) in GNN-based force fields, considering both epistemic and aleatoric uncertainty, to detect unreliable predictions. These are distinct research problems with different objectives. | Method: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law. The evaluated paper focuses on uncertainty quantification and calibration for GNN interatomic potentials, using ensemble models and post-hoc recalibration. While both use GNNs for force fields, the core methodological contribution of the paper (uncertainty quantification) is distinct from the user's idea of enforcing physical symmetries via a specific loss term. | Domain: Both the user's research idea and the paper operate within the domain of GNN-based force fields for molecular dynamics simulations. The paper explicitly discusses 'Graph Neural Network Interatomic Potential Ensembles' and 'iteratively predicting and applying interatomic forces' to speed up 'molecular dynamics simulations of materials,' which directly aligns with the user's focus on improving physical consistency in simulations using GNN-based force fields. | Contribution: The user's research idea proposes adding a physically motivated loss term to penalize violations of Newton's third law to improve physical consistency. The evaluated paper focuses on developing a framework for calibrated uncertainty quantification (epistemic and aleatoric) in GNN-based force fields, as stated in its abstract and introduction. There is no mention of Newton's third law or a loss term related to action-reaction symmetry in the provided text.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_20",
+      "source": "arxiv",
+      "source_id": "2602.16213v2",
+      "arxiv_id": "2602.16213v2",
+      "title": "Graph neural network for colliding particles with an application to sea ice floe modeling",
+      "abstract": "This paper introduces a novel approach to sea ice modeling using Graph Neural Networks (GNNs), utilizing the natural graph structure of sea ice, where nodes represent individual ice pieces, and edges model the physical interactions, including collisions. This concept is developed within a one-dimensional framework as a foundational step. Traditional numerical methods, while effective, are computationally intensive and less scalable. By utilizing GNNs, the proposed model, termed the Collision-captured Network (CN), integrates data assimilation (DA) techniques to effectively learn and predict sea ice dynamics under various conditions. The approach was validated using synthetic data, both with and without observed data points, and it was found that the model accelerates the simulation of trajectories without compromising accuracy. This advancement offers a more efficient tool for forecasting in marginal ice zones (MIZ) and highlights the potential of combining machine learning with data assimilation for more effective and efficient modeling.",
+      "url": "http://arxiv.org/abs/2602.16213v2",
+      "pdf_url": "https://arxiv.org/pdf/2602.16213v2",
+      "authors": [
+        "Ruibiao Zhu"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV",
+        "physics.comp-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's idea focuses on adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law. The paper uses a GNN for sea ice modeling and aims to improve simulation efficiency and accuracy, stating that the GNN-based model is 'capable of accurately simulating the dynamics of sea ice, adhering to physical laws'. While both use GNNs for physical simulations and aim for physical consistency, the paper does not explicitly mention or implement a loss term specifically for Newton's third law or action-reaction symmetry, focusing instead on general velocity prediction loss. | Method: Both the user's idea and the paper utilize GNNs for physical simulations. However, the paper's method focuses on a GNN-based model (Collision-captured Network) coupled with data assimilation to predict sea ice dynamics and velocities, minimizing a loss function based on the difference between predicted and ground truth velocities. The user's idea specifically proposes adding a physically motivated loss term that penalizes violations of Newton's third law, which is not mentioned or implemented in the paper's methodology. | Domain: The user's idea is about GNN-based force fields for physical simulations. The paper also uses GNNs for physical simulations, specifically sea ice dynamics, which involves modeling forces and collisions. While both are in the domain of GNNs for physical simulations, the specific application targets (general force fields vs. sea ice floe modeling) represent different sub-areas within this broader domain. | Contribution: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field that penalizes forces violating Newton's third law during training. The paper, while using GNNs for sea ice modeling and aiming for physical consistency, does not mention or implement any loss term specifically designed to enforce Newton's third law or action-reaction symmetry. The paper's loss function focuses on minimizing the difference between predicted and ground truth velocity.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_24",
+      "source": "arxiv",
+      "source_id": "2207.07810v2",
+      "arxiv_id": "2207.07810v2",
+      "title": "Interatomic force from neural network based variational quantum Monte Carlo",
+      "abstract": "Accurate ab initio calculations are of fundamental importance in physics, chemistry, biology, and materials science, which have witnessed rapid development in the last couple of years with the help of machine learning computational techniques such as neural networks. Most of the recent efforts applying neural networks to ab initio calculation have been focusing on the energy of the system. In this study, we take a step forward and look at the interatomic force obtained with neural network wavefunction methods by implementing and testing several commonly used force estimators in variational quantum Monte Carlo (VMC). Our results show that neural network ansatz can improve the calculation of interatomic force upon traditional VMC. The relation between the force error and the quality of neural network, the contribution of different force terms, and the computational cost of each term are also discussed to provide guidelines for future applications. Our work demonstrates that it is promising to apply neural network wavefunction methods in simulating structures/dynamics of molecules/materials and provide training data for developing accurate force fields.",
+      "url": "http://arxiv.org/abs/2207.07810v2",
+      "pdf_url": "https://arxiv.org/pdf/2207.07810v2",
+      "authors": [
+        "Yubing Qian",
+        "Weizhong Fu",
+        "Weiluo Ren",
+        "Ji Chen"
+      ],
+      "categories": [
+        "physics.chem-ph"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's idea focuses on adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law during training. The paper, while also concerned with interatomic forces and neural networks for force fields, focuses on improving the calculation of interatomic forces from neural network-based variational quantum Monte Carlo (VMC) by implementing and testing different force estimators. Both works aim to improve force fields using neural networks, but the specific problem of enforcing Newton's third law via a loss term is not addressed in the paper. | Method: The user's idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law. The paper focuses on calculating interatomic forces using neural network-based variational quantum Monte Carlo (VMC) methods, specifically implementing and testing different force estimators (AC-ZV, AC-ZVZB, SWCT) within a FermiNet-VMC framework. While both involve neural networks and forces, the paper's method is about improving the *calculation* of forces from a quantum mechanical perspective, not about adding a physical symmetry loss to a GNN-based force field during training. | Domain: Both the user's idea and the paper are in the domain of computational chemistry/materials science, specifically related to interatomic force fields and molecular simulations. The paper focuses on improving the calculation of interatomic forces using neural network wavefunctions within Variational Quantum Monte Carlo, and mentions its relevance for 'force field developments, structure optimization, and molecular dynamics.' The user's idea also targets improving GNN-based force fields for 'physical consistency of simulations.' While both are in the same discipline and aim to improve force fields, the paper's core method is about quantum mechanical force estimation, whereas the user's idea is about adding a specific physically motivated loss term (Newton's third law) to a GNN-based force field during training, representing different sub-areas or approaches within the broader field. | Contribution: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law during training. The paper focuses on improving the calculation of interatomic forces using neural network wavefunction methods within variational quantum Monte Carlo, and evaluating different force estimators. There is no mention of GNNs, physically motivated loss terms, or enforcing Newton's third law in the paper's contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.85,
+    "existing_examples": [
+      {
+        "name": "Physically-informed Neural Networks (PINNs)",
+        "similarity": 0.75,
+        "description": "PINNs incorporate physical laws (like conservation laws, PDEs) directly into the neural network's loss function during training to ensure physical consistency. While not always GNN-specific or Newton's Third Law specific, the principle of adding physics-based penalties is identical."
+      },
+      {
+        "name": "Force field development with symmetry constraints",
+        "similarity": 0.8,
+        "description": "In traditional and machine learning force field development, ensuring symmetries (like translational, rotational, and action-reaction) is a well-known challenge and an active area of research. Explicitly enforcing Newton's Third Law (pairwise force symmetry) in the loss function for GNN-based force fields is a direct application of this principle."
+      },
+      {
+        "name": "Symmetry-preserving GNNs for molecular dynamics",
+        "similarity": 0.9,
+        "description": "There is existing research specifically on designing GNN architectures and loss functions for molecular dynamics simulations that inherently preserve physical symmetries, including Newton's Third Law. For example, some models explicitly enforce pairwise interactions to ensure action-reaction symmetry, or use equivariant architectures that are inherently symmetric. Adding a loss term is a common method to achieve this if the architecture itself doesn't guarantee it."
+      },
+      {
+        "name": "Equivariant Graph Neural Networks",
+        "similarity": 0.7,
+        "description": "Equivariant GNNs are designed to be invariant or equivariant to certain transformations (e.g., rotations, translations). While not directly about Newton's Third Law, the underlying motivation is to embed physical symmetries into the model, which often leads to more physically consistent predictions, including implicitly or explicitly satisfying action-reaction."
+      }
+    ],
+    "assessment": "The core idea of adding a physically motivated loss term to a neural network (specifically a GNN) to enforce physical consistency, such as Newton's Third Law, is a well-established and actively researched area. This falls under the broader umbrella of physically-informed machine learning, symmetry-preserving neural networks, and the development of robust machine learning force fields. While the exact phrasing 'penalizes predicted forces that violate Newton's third law' might be specific, the methodology of incorporating physical laws as loss terms or architectural constraints to ensure action-reaction symmetry in GNN-based force fields is not novel.",
+    "novelty_aspects": [
+      "Specific mathematical formulation of the loss term for a particular GNN architecture",
+      "Application to a very specific material system or simulation type where this hasn't been thoroughly explored",
+      "Demonstrating significant, quantifiable improvements over existing symmetry-preserving methods in certain benchmarks"
+    ],
+    "recommendation": "While the general concept is not novel, there might be novelty in the specific implementation, the exact mathematical form of the loss term, or its effectiveness on particular GNN architectures or material systems. Focus on demonstrating a novel approach to formulating this loss, or showing a significant, quantifiable improvement in accuracy, stability, or computational efficiency compared to existing methods that also aim to enforce Newton's Third Law in GNN-based force fields. A thorough literature review on 'physically informed neural networks for molecular dynamics', 'equivariant GNNs for force fields', and 'symmetry-preserving machine learning potentials' is highly recommended."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **Physically-informed Neural Networks (PINNs)** (similarity: 75%).\n\n*The core idea of adding a physically motivated loss term to a neural network (specifically a GNN) to enforce physical consistency, such as Newton's Third Law, is a well-established and actively researched area. This falls under the broader umbrella of physically-informed machine learning, symmetry-preserving neural networks, and the development of robust machine learning force fields. While the exact phrasing 'penalizes predicted forces that violate Newton's third law' might be specific, the methodology of incorporating physical laws as loss terms or architectural constraints to ensure action-reaction symmetry in GNN-based force fields is not novel.*\n\n**Recommendation:** While the general concept is not novel, there might be novelty in the specific implementation, the exact mathematical form of the loss term, or its effectiveness on particular GNN architectures or material systems. Focus on demonstrating a novel approach to formulating this loss, or showing a significant, quantifiable improvement in accuracy, stability, or computational efficiency compared to existing methods that also aim to enforce Newton's Third Law in GNN-based force fields. A thorough literature review on 'physically informed neural networks for molecular dynamics', 'equivariant GNNs for force fields', and 'symmetry-preserving machine learning potentials' is highly recommended.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "total_fetched": 128,
+    "unique_after_dedup": 128,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 742,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0472,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0448,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0022,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "Adding a physically motivated loss term to a GNN-based force field that penalizes predicted forces that violate Newton's third law (action-reaction symmetry) during training, to improve physical consistency of simulations.",
+  "enriched_idea": "RESEARCH IDEA:\nAdding a physically motivated loss term to a GNN-based force field that penalizes predicted forces that violate Newton's third law (action-reaction symmetry) during training, to improve physical consistency of simulations.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_12",
+      "paper_title": "Optimal hierarchical modular topologies for producing limited sustained activation of neural networks",
+      "arxiv_id": "1003.3081v1",
+      "paper_similarity_score": 0.0,
+      "reason": "Problem: The user's research idea focuses on improving the physical consistency of GNN-based force fields by penalizing violations of Newton's third law. In contrast, the paper investigates optimal hierarchical modular topologies for producing limited sustained activation in neural networks, a problem in computational neuroscience. These are fundamentally different research questions with no overlap in problem domain or objectives. | Method: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law. The evaluated paper, however, focuses on simulating activity spreading in hierarchical modular neural networks using a deactivation probability and activation threshold, without any mention of GNNs, force fields, or physical laws like Newton's third law. The methodologies are entirely different. | Domain: The user's research idea is in the domain of physics-based simulations and force fields, specifically applying GNNs to enforce physical laws like Newton's third law. The paper, however, is in the domain of computational neuroscience, focusing on neural network topologies and their dynamics to produce 'limited sustained activation' in models of the mammalian cerebral cortex. These are entirely different fields with no overlapping application domains. | Contribution: The user's research idea focuses on adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law for improved physical consistency in simulations. The paper, in contrast, investigates optimal hierarchical modular topologies for producing limited sustained activation in neural networks, exploring how network structure influences dynamic stability. These are entirely different research contributions addressing distinct problems in different domains (physics-informed machine learning for force fields vs. neural network dynamics and topology).",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Adding a physically motivated loss term to a GNN-based force field that penalizes predicted forces that violate Newton's third law (action-reaction symmetry) during training, to improve physical consistency of simulations.",
+          "sentence_index": 0,
+          "similarity_score": 0.075,
+          "matched_sections": [],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.0,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 32970,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1003.3081v1"
+    },
+    {
+      "paper_id": "paper_23",
+      "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+      "arxiv_id": "2405.00290v3",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law during training. The paper, however, investigates how GNN-IPs extrapolate to untrained geometries by analyzing their ability to capture non-local electrostatic interactions. These are distinct research problems with different objectives. | Method: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law during training. The evaluated paper, however, focuses on explaining the extrapolation capabilities of GNN-IPs by demonstrating their ability to learn non-local electrostatic interactions through the message-passing algorithm. There is no mention of adding a specific loss term for Newton's third law or action-reaction symmetry in the paper's abstract, introduction, conclusion, or relevant sections. | Domain: Both the user's idea and the paper are within the same discipline of machine learning for interatomic potentials, specifically using Graph Neural Networks (GNNs) in materials science. However, the user's idea focuses on adding a physically motivated loss term for Newton's third law symmetry during training, while the paper investigates how GNN-IPs extrapolate to untrained geometries by learning non-local electrostatic interactions. While both deal with GNN-IPs and physical consistency, their specific application targets (training objective vs. extrapolation mechanism) are different sub-areas. | Contribution: The user's research idea proposes adding a physically motivated loss term to penalize forces violating Newton's third law during training to improve physical consistency. The paper, however, focuses on explaining the extrapolation capabilities of GNN-IPs by demonstrating their ability to learn non-local electrostatic interactions through the message-passing algorithm. The contributions are unrelated, addressing different gaps in the field.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Adding a physically motivated loss term to a GNN-based force field that penalizes predicted forces that violate Newton's third law (action-reaction symmetry) during training, to improve physical consistency of simulations.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+              "heading": "ABSTRACT",
+              "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets. Specifically, universal interatomic potentials based on GNN, usually trained with crystalline geometries, often exhibit remarkable extrapolative behavior towards untrained domains, such as surfaces or amorphous configurations. However, the origin of this extrapolation capability is not well understood.",
+              "similarity": 0.5,
+              "reason": "The paper focuses on understanding and improving the extrapolative behavior and physical consistency of GNN-IPs, which is a related high-level goal to improving physical consistency of simulations. While the user's specific problem is about enforcing Newton's third law, both are concerned with the physical accuracy of GNN-based force fields.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+              "heading": "ABSTRACT",
+              "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets.",
+              "similarity": 0.75,
+              "reason": "The user proposes a 'GNN-based force field', which directly aligns with the paper's focus on 'Graph neural network interatomic potentials (GNN-IPs)'. The method involves adding a 'physically motivated loss term' during training, which is a common approach in machine learning to enforce physical constraints, similar to how GNN-IPs are trained to learn physical interactions.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+              "heading": "2. Atomic energy mapping",
+              "text_snippet": "Consequently, the atomic energies of these neighboring atoms incorporate a functional form related to r i and r j , and the correct atomic force can be obtained when differentiating the total energy by r i or r j . That being said, the atomic energy learned by a GNN-IP is hard to be considered as a physical quantity but rather a numerical outcome resulting from the message-passing algorithm.",
+              "similarity": 0.75,
+              "reason": "The user's idea of penalizing forces that violate Newton's third law during training is a specific type of loss term. The paper discusses how GNN-IPs learn atomic energies and forces, implying that the training process and the resulting physical quantities are central to their work. While the paper doesn't propose this specific loss term, it operates within the same methodological framework of training GNNs for interatomic potentials.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+              "heading": "ABSTRACT",
+              "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely in the domain of Graph Neural Network Interatomic Potentials (GNN-IPs) and their application to force fields for molecular simulations.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Machine-learned interatomic potentials (MLIPs), which are machine learning models that predict the energies of given atomic configurations based on reference quantum mechanical calculation data, have gained much attention due to their speed, linear scalability, and high accuracy compared to density-functional theory (DFT) calculations.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are squarely in the domain of Graph Neural Network Interatomic Potentials (GNN-IPs) and their application to force fields for molecular simulations.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+              "heading": "ABSTRACT",
+              "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets. Specifically, universal interatomic potentials based on GNN, usually trained with crystalline geometries, often exhibit remarkable extrapolative behavior towards untrained domains, such as surfaces or amorphous configurations. However, the origin of this extrapolation capability is not well understood.",
+              "similarity": 0.5,
+              "reason": "The user's contribution is to improve physical consistency by enforcing Newton's third law. The paper's contribution is to explain the extrapolation capability and improve the understanding of GNN-IPs' physical behavior, particularly regarding non-local electrostatic interactions. Both aim to improve the physical consistency and accuracy of GNN-IPs, but the specific mechanism and focus of the contribution differ.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_23",
+              "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+              "heading": "CONCLUSION",
+              "text_snippet": "In summary, we provide a theoretical explanation for how GNN-IPs accurately predict untrained configurations. First, we prove that GNN-IPs learn non-local electrostatic interactions via the message-passing algorithm. This is tested with toy models consisting of point charges, which verifies that GNN-IPs accurately predict Coulomb interactions over a range of distances not included in the training set.",
+              "similarity": 0.5,
+              "reason": "The user's contribution is to improve physical consistency by enforcing Newton's third law. The paper's contribution is to explain the extrapolation capability and improve the understanding of GNN-IPs' physical behavior, particularly regarding non-local electrostatic interactions. Both aim to improve the physical consistency and accuracy of GNN-IPs, but the specific mechanism and focus of the contribution differ.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 17051,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2405.00290v3"
+    },
+    {
+      "paper_id": "paper_30",
+      "paper_title": "Graph Neural Network Interatomic Potential Ensembles with Calibrated Aleatoric and Epistemic Uncertainty on Energy and Forces",
+      "arxiv_id": "2305.16325v2",
+      "paper_similarity_score": 0.1,
+      "reason": "Problem: The user's research idea focuses on adding a physically motivated loss term to enforce Newton's third law during training to improve physical consistency. The evaluated paper, however, focuses on developing a framework for calibrated uncertainty quantification (UQ) in GNN-based force fields, considering both epistemic and aleatoric uncertainty, to detect unreliable predictions. These are distinct research problems with different objectives. | Method: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law. The evaluated paper focuses on uncertainty quantification and calibration for GNN interatomic potentials, using ensemble models and post-hoc recalibration. While both use GNNs for force fields, the core methodological contribution of the paper (uncertainty quantification) is distinct from the user's idea of enforcing physical symmetries via a specific loss term. | Domain: Both the user's research idea and the paper operate within the domain of GNN-based force fields for molecular dynamics simulations. The paper explicitly discusses 'Graph Neural Network Interatomic Potential Ensembles' and 'iteratively predicting and applying interatomic forces' to speed up 'molecular dynamics simulations of materials,' which directly aligns with the user's focus on improving physical consistency in simulations using GNN-based force fields. | Contribution: The user's research idea proposes adding a physically motivated loss term to penalize violations of Newton's third law to improve physical consistency. The evaluated paper focuses on developing a framework for calibrated uncertainty quantification (epistemic and aleatoric) in GNN-based force fields, as stated in its abstract and introduction. There is no mention of Newton's third law or a loss term related to action-reaction symmetry in the provided text.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 1.0,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Adding a physically motivated loss term to a GNN-based force field that penalizes predicted forces that violate Newton's third law (action-reaction symmetry) during training, to improve physical consistency of simulations.",
+          "sentence_index": 0,
+          "similarity_score": 0.625,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Graph Neural Network Interatomic Potential Ensembles with Calibrated Aleatoric and Epistemic Uncertainty on Energy and Forces",
+              "heading": "ABSTRACT",
+              "text_snippet": "Inexpensive machine learning potentials are increasingly being used to speed up structural optimization and molecular dynamics simulations of materials by iteratively predicting and applying interatomic forces. In these settings, it is crucial to detect when predictions are unreliable to avoid wrong or misleading results.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are concerned with improving the reliability and physical consistency of force field predictions in molecular dynamics simulations. The user proposes a specific method to address this, while the paper focuses on uncertainty quantification.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Graph Neural Network Interatomic Potential Ensembles with Calibrated Aleatoric and Epistemic Uncertainty on Energy and Forces",
+              "heading": "ABSTRACT",
+              "text_snippet": "Here, we present a complete framework for training and recalibrating graph neural network ensemble models to produce accurate predictions of energy and forces with calibrated uncertainty estimates.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes adding a loss term to a 'GNN-based force field' during training. The paper explicitly discusses 'graph neural network ensemble models' for predicting 'energy and forces', indicating a shared underlying model architecture and prediction target.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Graph Neural Network Interatomic Potential Ensembles with Calibrated Aleatoric and Epistemic Uncertainty on Energy and Forces",
+              "heading": "ANI-1x results",
+              "text_snippet": "Importantly, training with NLL loss on either energy or forces or both did not result in worse performance in terms of prediction error.",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes adding a 'physically motivated loss term' during training. The paper discusses 'training with NLL loss' on forces, showing that the concept of using specific loss functions during training for force fields is a shared methodological aspect.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Graph Neural Network Interatomic Potential Ensembles with Calibrated Aleatoric and Epistemic Uncertainty on Energy and Forces",
+              "heading": "ABSTRACT",
+              "text_snippet": "Inexpensive machine learning potentials are increasingly being used to speed up structural optimization and molecular dynamics simulations of materials by iteratively predicting and applying interatomic forces.",
+              "similarity": 1.0,
+              "reason": "Both the user's idea and the paper are directly focused on improving 'molecular dynamics simulations' and 'interatomic forces' using machine learning potentials, indicating a very high overlap in the application domain.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Graph Neural Network Interatomic Potential Ensembles with Calibrated Aleatoric and Epistemic Uncertainty on Energy and Forces",
+              "heading": "ABSTRACT",
+              "text_snippet": "Inexpensive machine learning potentials are increasingly being used to speed up structural optimization and molecular dynamics simulations of materials by iteratively predicting and applying interatomic forces.",
+              "similarity": 0.5,
+              "reason": "The user's idea aims to 'improve physical consistency of simulations', which aligns with the paper's broader goal of making ML potentials more reliable and accurate for molecular dynamics simulations. While the specific approach (loss term vs. UQ) differs, the ultimate goal of improving simulation quality is shared.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_30",
+              "paper_title": "Graph Neural Network Interatomic Potential Ensembles with Calibrated Aleatoric and Epistemic Uncertainty on Energy and Forces",
+              "heading": "Introduction",
+              "text_snippet": "Accurate and computationally inexpensive machine learning (ML) potentials are increasingly being used to accelerate atomic structure optimization and molecular dynamics simulations by iteratively predicting and applying interatomic energies and forces 3,4 . This development has the potential to revolutionise disciplines of computational chemistry such as predicting molecular properties and structures, predicting reaction mechanisms and networks, as well as discovering new materials, e.g., for energy conversion and storage of renewable energy.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper aim to enhance the utility and reliability of ML potentials in computational chemistry and materials science, specifically for molecular dynamics simulations. The user's proposed contribution is a specific method to achieve this, while the paper focuses on uncertainty quantification.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 1.0,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "moderate",
+      "tokens_used": 23009,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2305.16325v2"
+    },
+    {
+      "paper_id": "paper_20",
+      "paper_title": "Graph neural network for colliding particles with an application to sea ice floe modeling",
+      "arxiv_id": "2602.16213v2",
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's idea focuses on adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law. The paper uses a GNN for sea ice modeling and aims to improve simulation efficiency and accuracy, stating that the GNN-based model is 'capable of accurately simulating the dynamics of sea ice, adhering to physical laws'. While both use GNNs for physical simulations and aim for physical consistency, the paper does not explicitly mention or implement a loss term specifically for Newton's third law or action-reaction symmetry, focusing instead on general velocity prediction loss. | Method: Both the user's idea and the paper utilize GNNs for physical simulations. However, the paper's method focuses on a GNN-based model (Collision-captured Network) coupled with data assimilation to predict sea ice dynamics and velocities, minimizing a loss function based on the difference between predicted and ground truth velocities. The user's idea specifically proposes adding a physically motivated loss term that penalizes violations of Newton's third law, which is not mentioned or implemented in the paper's methodology. | Domain: The user's idea is about GNN-based force fields for physical simulations. The paper also uses GNNs for physical simulations, specifically sea ice dynamics, which involves modeling forces and collisions. While both are in the domain of GNNs for physical simulations, the specific application targets (general force fields vs. sea ice floe modeling) represent different sub-areas within this broader domain. | Contribution: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field that penalizes forces violating Newton's third law during training. The paper, while using GNNs for sea ice modeling and aiming for physical consistency, does not mention or implement any loss term specifically designed to enforce Newton's third law or action-reaction symmetry. The paper's loss function focuses on minimizing the difference between predicted and ground truth velocity.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Adding a physically motivated loss term to a GNN-based force field that penalizes predicted forces that violate Newton's third law (action-reaction symmetry) during training, to improve physical consistency of simulations.",
+          "sentence_index": 0,
+          "similarity_score": 0.575,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Graph neural network for colliding particles with an application to sea ice floe modeling",
+              "heading": "Conclusions",
+              "text_snippet": "The findings indicate that the GNNbased model is capable of accurately simulating the dynamics of sea ice, adhering to physical laws, and handling data from various sources, thus confirming the robustness and versatility of the proposed approach.",
+              "similarity": 0.5,
+              "reason": "The paper aims for its GNN model to adhere to physical laws, which aligns with the user's goal of improving physical consistency. The user's idea specifies a particular physical law (Newton's third law) and a method (loss term) to achieve this, making the problem similar in its general aim but more specific in its approach.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Graph neural network for colliding particles with an application to sea ice floe modeling",
+              "heading": "The CN model framework",
+              "text_snippet": "To train the proposed model, the training pairs ( X t j -2 : t j -1 , v t j ) are randomly sampled, and be computed above loss function between the predicted velocity and ground truth velocity of each floe. Based on Equation 6, the optimization problem is to minimize the loss with θ 1 and θ 2 .",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper propose using a loss function during training to optimize a GNN-based force field/model. The user specifies adding a 'physically motivated loss term' to penalize violations of Newton's third law, which is a specific type of loss function, while the paper uses a loss function based on predicted vs. ground truth velocity. This is a very similar methodological approach of using loss functions for GNN training.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Graph neural network for colliding particles with an application to sea ice floe modeling",
+              "heading": "Introduction",
+              "text_snippet": "This study contributes to this area by introducing a GNN-based sea ice simulation model: proposed Collision-captured Network (CN) as Figure 1 coupled with data assimilation (DA) techniques, inspired by the Interaction Network [35].",
+              "similarity": 0.75,
+              "reason": "The user's idea proposes a 'GNN-based force field', and the paper introduces a 'GNN-based sea ice simulation model'. Both leverage GNNs for physical simulations, indicating a strong methodological overlap in the core architecture.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Graph neural network for colliding particles with an application to sea ice floe modeling",
+              "heading": "Introduction",
+              "text_snippet": "The motivation for applying GNNs to sea ice modeling is supported by other proven successes in similarly complex systems in other scientific domains [26-28]. Given these capabilities, the application of GNNs to sea ice modeling presents a promising new avenue. GNNs could capture more insights by conceptualizing sea ice dynamics into graphs, where nodes represent sea ice features, including position and velocity, and edges capture interactions such as collisions.",
+              "similarity": 0.5,
+              "reason": "The paper explicitly discusses applying GNNs to model physical interactions (like collisions) in complex systems, specifically sea ice dynamics. The user's idea is about a GNN-based force field, which implies modeling physical interactions. While the user's idea is general, the paper's domain of 'physical interactions' and 'collisions' aligns with the concept of a 'force field'.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "Graph neural network for colliding particles with an application to sea ice floe modeling",
+              "heading": "Conclusions",
+              "text_snippet": "The findings indicate that the GNNbased model is capable of accurately simulating the dynamics of sea ice, adhering to physical laws, and handling data from various sources, thus confirming the robustness and versatility of the proposed approach.",
+              "similarity": 0.5,
+              "reason": "The paper claims its GNN model adheres to physical laws, which is a direct outcome of improving 'physical consistency'. The user's proposed contribution is to improve physical consistency through a specific mechanism (Newton's third law loss term). The general goal of improving physical consistency is shared, but the specific mechanism and the explicit focus on Newton's third law are distinct contributions.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14961,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2602.16213v2"
+    },
+    {
+      "paper_id": "paper_24",
+      "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+      "arxiv_id": "2207.07810v2",
+      "paper_similarity_score": 0.2,
+      "reason": "Problem: The user's idea focuses on adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law during training. The paper, while also concerned with interatomic forces and neural networks for force fields, focuses on improving the calculation of interatomic forces from neural network-based variational quantum Monte Carlo (VMC) by implementing and testing different force estimators. Both works aim to improve force fields using neural networks, but the specific problem of enforcing Newton's third law via a loss term is not addressed in the paper. | Method: The user's idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law. The paper focuses on calculating interatomic forces using neural network-based variational quantum Monte Carlo (VMC) methods, specifically implementing and testing different force estimators (AC-ZV, AC-ZVZB, SWCT) within a FermiNet-VMC framework. While both involve neural networks and forces, the paper's method is about improving the *calculation* of forces from a quantum mechanical perspective, not about adding a physical symmetry loss to a GNN-based force field during training. | Domain: Both the user's idea and the paper are in the domain of computational chemistry/materials science, specifically related to interatomic force fields and molecular simulations. The paper focuses on improving the calculation of interatomic forces using neural network wavefunctions within Variational Quantum Monte Carlo, and mentions its relevance for 'force field developments, structure optimization, and molecular dynamics.' The user's idea also targets improving GNN-based force fields for 'physical consistency of simulations.' While both are in the same discipline and aim to improve force fields, the paper's core method is about quantum mechanical force estimation, whereas the user's idea is about adding a specific physically motivated loss term (Newton's third law) to a GNN-based force field during training, representing different sub-areas or approaches within the broader field. | Contribution: The user's research idea proposes adding a physically motivated loss term to a GNN-based force field to enforce Newton's third law during training. The paper focuses on improving the calculation of interatomic forces using neural network wavefunction methods within variational quantum Monte Carlo, and evaluating different force estimators. There is no mention of GNNs, physically motivated loss terms, or enforcing Newton's third law in the paper's contributions.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "Adding a physically motivated loss term to a GNN-based force field that penalizes predicted forces that violate Newton's third law (action-reaction symmetry) during training, to improve physical consistency of simulations.",
+          "sentence_index": 0,
+          "similarity_score": 0.525,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+              "heading": "ABSTRACT",
+              "text_snippet": "Our work demonstrates that it is promising to apply neural network wavefunction methods in simulating structures/dynamics of molecules/materials and provide training data for developing accurate force fields.",
+              "similarity": 0.5,
+              "reason": "The paper discusses developing accurate force fields and simulating structures/dynamics, which aligns with the user's goal of improving physical consistency of simulations through a GNN-based force field. However, the paper focuses on interatomic force calculation from VMC, not specifically on adding physically motivated loss terms for symmetry.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+              "heading": "INTRODUCTION",
+              "text_snippet": "For example, forces are needed for relaxing the structure, performing molecular dynamics, and training force fields.",
+              "similarity": 0.5,
+              "reason": "The paper acknowledges the need for forces in training force fields and performing molecular dynamics, which is the ultimate goal of the user's idea (improving physical consistency of simulations).",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+              "heading": "INTRODUCTION",
+              "text_snippet": "Recently, with the development of computational capabilities and efficient algorithms, deep neural networks have shown great potential to push ab initio calculations towards the exact 5-12 . The Fermionic Neural Network (FermiNet) developed by Pfau et al. is one of those promising approaches which can provide accurate ground state energy of molecules 6,13,14 .",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper utilize neural networks (GNN-based force field vs. FermiNet-based VMC) for calculations related to molecular systems. The user proposes a specific loss term, while the paper focuses on force estimators, but both are methodological aspects of NN-based approaches.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+              "heading": "RELEVANT SECTIONS",
+              "text_snippet": "Specifically, in atomic units, the force bias is about one percent of the local energy variance. For geometry optimization, molecular dynamics, and force field training, it is often required to have interatomic force within an error of 10 -3 a.u., 10 -2 a.u., and 10 -2 a.u., respectively. Therefore, when such tasks are aimed, a simple criterion for neural network training is to reduce the variance of local energy within 10 -1 a.u., 10 0 a.u., and 10 0 a.u., respectively.",
+              "similarity": 0.5,
+              "reason": "The paper discusses criteria for neural network training related to force accuracy for force field training, which is a methodological aspect. The user proposes adding a loss term during training, which is a specific method for improving force accuracy.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+              "heading": "ABSTRACT",
+              "text_snippet": "Our work demonstrates that it is promising to apply neural network wavefunction methods in simulating structures/dynamics of molecules/materials and provide training data for developing accurate force fields.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper are in the domain of simulating structures/dynamics of molecules/materials and developing accurate force fields.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+              "heading": "INTRODUCTION",
+              "text_snippet": "For example, forces are needed for relaxing the structure, performing molecular dynamics, and training force fields.",
+              "similarity": 0.75,
+              "reason": "The paper explicitly mentions molecular dynamics and training force fields, which are the application areas targeted by the user's research idea.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+              "heading": "ABSTRACT",
+              "text_snippet": "Our work demonstrates that it is promising to apply neural network wavefunction methods in simulating structures/dynamics of molecules/materials and provide training data for developing accurate force fields.",
+              "similarity": 0.5,
+              "reason": "The paper contributes to the development of accurate force fields for simulating molecular dynamics, which is a similar high-level goal to the user's idea of improving physical consistency of simulations through a GNN-based force field.",
+              "criterion": "contribution_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_24",
+              "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+              "heading": "CONCLUSIONS",
+              "text_snippet": "We compared the estimators on both well-trained and undertrained network wavefunction and found that the quality of neural network benefits the accuracy of force significantly, which indicates the promising future of the application of neural network wavefunction methods in force field developments, structure optimization, and molecular dynamics.",
+              "similarity": 0.5,
+              "reason": "The paper concludes on the promising future of neural network wavefunction methods in force field developments and molecular dynamics, aligning with the user's aim to improve physical consistency of simulations. While the paper focuses on estimators, the overall contribution direction is similar.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.5,
+            "domain_similarity": 0.75,
+            "contribution_similarity": 0.5
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 12223,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2207.07810v2"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 98,
+    "global_similarity_score": 0.11000000000000001,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "Adding a physically motivated loss term to a GNN-based force field that penalizes predicted forces that violate Newton's third law (action-reaction symmetry) during training, to improve physical consistency of simulations.",
+        "originality_score": 0.0,
+        "similarity_score": 1.0,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "low",
+          "domain_similarity": "low",
+          "contribution_similarity": "medium"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_23",
+            "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+            "heading": "ABSTRACT",
+            "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets. Specifically, universal interatomic potentials based on GNN, usually trained with crystalline geometries, often exhibit remarkable extrapolative behavior towards untrained domains, such as surfaces or amorphous configurations. However, the origin of this extrapolation capability is not well understood.",
+            "similarity": 0.5,
+            "reason": "The paper focuses on understanding and improving the extrapolative behavior and physical consistency of GNN-IPs, which is a related high-level goal to improving physical consistency of simulations. While the user's specific problem is about enforcing Newton's third law, both are concerned with the physical accuracy of GNN-based force fields.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_23",
+            "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+            "heading": "ABSTRACT",
+            "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets.",
+            "similarity": 0.75,
+            "reason": "The user proposes a 'GNN-based force field', which directly aligns with the paper's focus on 'Graph neural network interatomic potentials (GNN-IPs)'. The method involves adding a 'physically motivated loss term' during training, which is a common approach in machine learning to enforce physical constraints, similar to how GNN-IPs are trained to learn physical interactions.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_23",
+            "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+            "heading": "ABSTRACT",
+            "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets.",
+            "similarity": 1.0,
+            "reason": "Both the user's idea and the paper are squarely in the domain of Graph Neural Network Interatomic Potentials (GNN-IPs) and their application to force fields for molecular simulations.",
+            "criterion": "domain_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_23",
+            "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+            "heading": "ABSTRACT",
+            "text_snippet": "Graph neural network interatomic potentials (GNN-IPs) are gaining significant attention due to their capability of learning from large datasets. Specifically, universal interatomic potentials based on GNN, usually trained with crystalline geometries, often exhibit remarkable extrapolative behavior towards untrained domains, such as surfaces or amorphous configurations. However, the origin of this extrapolation capability is not well understood.",
+            "similarity": 0.5,
+            "reason": "The user's contribution is to improve physical consistency by enforcing Newton's third law. The paper's contribution is to explain the extrapolation capability and improve the understanding of GNN-IPs' physical behavior, particularly regarding non-local electrostatic interactions. Both aim to improve the physical consistency and accuracy of GNN-IPs, but the specific mechanism and focus of the contribution differ.",
+            "criterion": "contribution_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "Your research idea shows very high originality, particularly in its methodological approach and proposed contribution. While there is some domain overlap with existing work, your specific problem and method appear distinct, suggesting a strong potential for novel impact.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.38,
+      "method_similarity": 0.19,
+      "domain_similarity": 0.8,
+      "contribution_similarity": 0.0
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0472,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0448,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0022,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 254.74703311920166,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_12",
+        "paper_title": "Optimal hierarchical modular topologies for producing limited sustained activation of neural networks",
+        "paper_similarity": 0.0,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_23",
+        "paper_title": "How Graph Neural Network Interatomic Potentials Extrapolate: Role of the Message-Passing Algorithm",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_30",
+        "paper_title": "Graph Neural Network Interatomic Potential Ensembles with Calibrated Aleatoric and Epistemic Uncertainty on Energy and Forces",
+        "paper_similarity": 0.1,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 1.0,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_20",
+        "paper_title": "Graph neural network for colliding particles with an application to sea ice floe modeling",
+        "paper_similarity": 0.2,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_24",
+        "paper_title": "Interatomic force from neural network based variational quantum Monte Carlo",
+        "paper_similarity": 0.2,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 128
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 128,
+    "after_dedup": 128,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

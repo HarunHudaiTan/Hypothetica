@@ -1,0 +1,819 @@
+{
+  "_job_status_snapshot": {
+    "job_id": "71310afbfa89",
+    "status": "completed"
+  },
+  "originality_score": 91,
+  "global_similarity_score": 0.2975,
+  "label": "high",
+  "sentence_annotations": [
+    {
+      "index": 0,
+      "sentence": "A convolutional neural network trained on the ImageNet dataset to classify images into 1000 categories using residual skip connections between layers.",
+      "originality_score": 0.25,
+      "similarity_score": 0.75,
+      "label": "low",
+      "criteria_labels": {
+        "problem_similarity": "medium",
+        "method_similarity": "low",
+        "domain_similarity": "medium",
+        "contribution_similarity": "high"
+      },
+      "linked_sections": [
+        {
+          "chunk_id": "",
+          "paper_id": "paper_20",
+          "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+          "heading": "Introduction",
+          "text_snippet": "Deep learning is considered a significant technology breakthrough as it has exhibited good performance in image object classification for various applications, and many attempts have been made in using CNN for cancer recognition from US images (Litjens et al., 2017).",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper address the problem of image classification using CNNs. The user's problem is general image classification into 1000 categories, while the paper's problem is specific to breast cancer recognition from ultrasound images. They share the broad problem of 'image object classification'.",
+          "criterion": "problem_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_20",
+          "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+          "heading": "ABSTRACT",
+          "text_snippet": "Deep Convolutional Neural Networks (CNN) provides an \"end-to-end\" solution for image pattern recognition with impressive performance in many areas of application including medical imaging.",
+          "similarity": 0.75,
+          "reason": "Both the user's idea and the paper utilize Convolutional Neural Networks (CNNs) for image classification.",
+          "criterion": "method_similarity"
+        },
+        {
+          "chunk_id": "",
+          "paper_id": "paper_20",
+          "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+          "heading": "Introduction",
+          "text_snippet": "Deep learning is considered a significant technology breakthrough as it has exhibited good performance in image object classification for various applications, and many attempts have been made in using CNN for cancer recognition from US images (Litjens et al., 2017).",
+          "similarity": 0.5,
+          "reason": "Both the user's idea and the paper are in the domain of image classification using CNNs. While the user specifies '1000 categories' and the paper focuses on medical images, the underlying domain of 'image object classification' is shared.",
+          "criterion": "domain_similarity"
+        }
+      ]
+    }
+  ],
+  "summary": "This research idea appears highly original across all criteria, with low similarity detected to existing work. While your application domain shows the highest (yet still low) overlap, consider further differentiating your approach to image structure analysis from existing embedding methods.",
+  "comprehensive_report": "",
+  "aggregated_criteria": {
+    "problem_similarity": 0.42,
+    "method_similarity": 0.42,
+    "domain_similarity": 0.5,
+    "contribution_similarity": 0.4
+  },
+  "papers_analyzed": 5,
+  "cost": {
+    "estimated_cost_usd": 0.0315,
+    "breakdown": {
+      "retrieval": 0.0,
+      "layer1": 0.0298,
+      "layer2": 0.0003,
+      "followup": 0.0,
+      "keywords": 0.0,
+      "reality_check": 0.0014,
+      "github": 0.0
+    }
+  },
+  "total_processing_time": 115.00872302055359,
+  "papers": [
+    {
+      "paper_id": "paper_20",
+      "source": "arxiv",
+      "source_id": "2005.13695v1",
+      "arxiv_id": "2005.13695v1",
+      "title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+      "abstract": "Deep Convolutional Neural Networks (CNN) provides an \"end-to-end\" solution for image pattern recognition with impressive performance in many areas of application including medical imaging. Most CNN models of high performance use hand-crafted network architectures that require expertise in CNNs to utilise their potentials. In this paper, we applied the Efficient Neural Architecture Search (ENAS) method to find optimal CNN architectures for classifying breast lesions from ultrasound (US) images. Our empirical study with a dataset of 524 US images shows that the optimal models generated by using ENAS achieve an average accuracy of 89.3%, surpassing other hand-crafted alternatives. Furthermore, the models are simpler in complexity and more efficient. Our study demonstrates that the ENAS approach to CNN model design is a promising direction for classifying ultrasound images of breast lesions.",
+      "url": "http://arxiv.org/abs/2005.13695v1",
+      "pdf_url": "https://arxiv.org/pdf/2005.13695v1",
+      "authors": [
+        "Mohammed Ahmed",
+        "Hongbo Du",
+        "Alaa AlZoubi"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The user's research idea focuses on classifying images into 1000 categories using a CNN with residual skip connections, trained on ImageNet. The paper, however, addresses the problem of classifying breast lesions from ultrasound images using ENAS to find optimal CNN architectures. While both involve image classification with CNNs, the specific application domain (natural images vs. medical ultrasound) and the primary research question (fixed architecture vs. architecture search) are different. | Method: Both the user's idea and the paper utilize convolutional neural networks. However, the user's idea specifies a CNN with residual skip connections trained on ImageNet for 1000-category classification, while the paper uses Efficient Neural Architecture Search (ENAS) to find optimal CNN architectures for breast cancer classification from ultrasound images, which is a different training approach and application domain. | Domain: The user's idea is about general image classification using ImageNet, a large dataset of natural images. The paper, however, focuses on a specific medical imaging application: breast cancer recognition from ultrasound images. While both involve image classification using CNNs, the application domains (general natural images vs. specific medical ultrasound images) are distinct, placing them in the same discipline (computer vision) but different sub-areas/application targets. | Contribution: The user's idea proposes a convolutional neural network with residual skip connections trained on ImageNet for 1000-category classification. The paper, however, focuses on using Efficient Neural Architecture Search (ENAS) to find optimal CNN architectures for breast cancer classification from ultrasound images, a different dataset and application. While both involve CNNs, the core contribution of the paper is architecture search for a specific medical imaging task, which is distinct from the user's proposed contribution of a specific CNN architecture with residual connections for general image classification.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      }
+    },
+    {
+      "paper_id": "paper_15",
+      "source": "arxiv",
+      "source_id": "2404.09226v2",
+      "arxiv_id": "2404.09226v2",
+      "title": "Breast Cancer Image Classification Method Based on Deep Transfer Learning",
+      "abstract": "To address the issues of limited samples, time-consuming feature design, and low accuracy in detection and classification of breast cancer pathological images, a breast cancer image classification model algorithm combining deep learning and transfer learning is proposed. This algorithm is based on the DenseNet structure of deep neural networks, and constructs a network model by introducing attention mechanisms, and trains the enhanced dataset using multi-level transfer learning. Experimental results demonstrate that the algorithm achieves an efficiency of over 84.0\\% in the test set, with a significantly improved classification accuracy compared to previous models, making it applicable to medical breast cancer detection tasks.",
+      "url": "http://arxiv.org/abs/2404.09226v2",
+      "pdf_url": "https://arxiv.org/pdf/2404.09226v2",
+      "authors": [
+        "Weimin Wang",
+        "Yufeng Li",
+        "Xu Yan",
+        "Mingxuan Xiao",
+        "Min Gao"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The user's research idea focuses on general image classification using a CNN with residual skip connections on ImageNet. The paper addresses the specific problem of breast cancer image classification, which is a medical image classification task. While both involve image classification and deep learning architectures (DenseNet, which is related to ResNet mentioned in the paper), the specific problem domain and application are different, moving from general object recognition to a specialized medical diagnostic task. | Method: Both the user's idea and the paper utilize a convolutional neural network and transfer learning from ImageNet. However, the user specifies a ResNet architecture with residual skip connections, while the paper uses a DenseNet architecture, albeit with improvements like attention mechanisms. The application also differs, with the user focusing on general image classification and the paper on medical image classification. | Domain: The user's idea focuses on general image classification using ImageNet, while the paper applies deep learning to medical image classification, specifically breast cancer detection. Both involve image classification and deep learning, but the application domains (general natural images vs. specific medical images) are distinct, placing them in the same discipline but different sub-areas. | Contribution: The user's idea proposes a CNN with residual skip connections trained on ImageNet for 1000-category classification. The paper uses DenseNet (a type of CNN with dense connections, related to residual connections) and performs transfer learning from ImageNet. While both use CNNs and ImageNet, the paper's primary contribution is breast cancer classification, not general 1000-category classification, and it integrates attention mechanisms, which is distinct from the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_08",
+      "source": "arxiv",
+      "source_id": "2011.03712v1",
+      "arxiv_id": "2011.03712v1",
+      "title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+      "abstract": "Recently, there is a vast interest in developing image feature learning methods that are independent of the training data, such as deep image prior, InGAN, SinGAN, and DCIL. These methods are unsupervised and are used to perform low-level vision tasks such as image restoration, image editing, and image synthesis. In this work, we proposed a new training data-independent framework, called Deep Contextual Features Learning (DeepCFL), to perform image synthesis and image restoration based on the semantics of the input image. The contextual features are simply the high dimensional vectors representing the semantics of the given image. DeepCFL is a single image GAN framework that learns the distribution of the context vectors from the input image. We show the performance of contextual learning in various challenging scenarios: outpainting, inpainting, and restoration of randomly removed pixels. DeepCFL is applicable when the input source image and the generated target image are not aligned. We illustrate image synthesis using DeepCFL for the task of image resizing.",
+      "url": "http://arxiv.org/abs/2011.03712v1",
+      "pdf_url": "https://arxiv.org/pdf/2011.03712v1",
+      "authors": [
+        "Indra Deep Mastan",
+        "Shanmuganathan Raman"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on image classification using a CNN with residual skip connections trained on ImageNet. In contrast, the paper 'DeepCFL' addresses image synthesis and restoration tasks (e.g., outpainting, inpainting) using a single-image GAN framework that learns contextual features without training data. These are fundamentally different research problems with distinct goals. | Method: The user's idea proposes a convolutional neural network trained on ImageNet for image classification using residual skip connections. The paper, DeepCFL, proposes a single image GAN framework for image synthesis and restoration, which is 'independent of the training data' and focuses on 'contextual features learning' rather than large-scale classification. While both use deep learning, their specific architectures, training paradigms (data-independent vs. ImageNet-trained), and objectives (restoration/synthesis vs. classification) are distinct. | Domain: The user's research idea is about image classification using a CNN trained on ImageNet. The paper, DeepCFL, focuses on image synthesis and image restoration tasks like outpainting and inpainting, which are different application targets within the broader discipline of computer vision and deep learning. While both involve CNNs and image processing, their specific goals (classification vs. generation/restoration) differ. | Contribution: The user's research idea focuses on training a convolutional neural network with residual skip connections on ImageNet for image classification into 1000 categories. In contrast, the paper 'DeepCFL' proposes a single image GAN framework for contextual features learning to perform image synthesis and restoration tasks like outpainting and inpainting, without using training data. These are distinct contributions addressing different research gaps and applications.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    },
+    {
+      "paper_id": "paper_35",
+      "source": "arxiv",
+      "source_id": "2506.00992v1",
+      "arxiv_id": "2506.00992v1",
+      "title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+      "abstract": "The emergence of ResNet provides a powerful tool for training extremely deep networks. The core idea behind it is to change the learning goals of the network. It no longer learns new features from scratch but learns the difference between the target and existing features. However, the difference between the two kinds of features does not have an independent and clear meaning, and the amount of learning is based on the absolute rather than the relative difference, which is sensitive to the size of existing features. We propose a new network that perfectly solves these two problems while still having the advantages of ResNet. Specifically, it chooses to learn the quotient of the target features with the existing features, so we call it the quotient network. In order to enable this network to learn successfully and achieve higher performance, we propose some design rules for this network so that it can be trained efficiently and achieve better performance than ResNet. Experiments on the CIFAR10, CIFAR100, and SVHN datasets prove that this network can stably achieve considerable improvements over ResNet by simply making tiny corresponding changes to the original ResNet network without adding new parameters.",
+      "url": "http://arxiv.org/abs/2506.00992v1",
+      "pdf_url": "https://arxiv.org/pdf/2506.00992v1",
+      "authors": [
+        "Peng Hui",
+        "Jiamuyang Zhao",
+        "Changxin Li",
+        "Qingzhen Zhu"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The user's research idea focuses on classifying images using a convolutional neural network with residual skip connections. The paper addresses a similar broad topic of improving deep network training, specifically by proposing a 'quotient network' as an alternative to ResNet's residual learning. While both involve deep networks and image classification, the paper's core problem is about finding a more effective learning target (quotient vs. difference) for skip connections, which is a different specific problem than simply using residual skip connections for classification. | Method: Both the user's idea and the paper utilize convolutional neural networks with skip connections. However, the paper proposes a 'quotient network' which fundamentally changes the learning objective from learning residual differences (as in ResNet, which the user's idea implies) to learning the quotient of features, a meaningful difference in the core design of the skip connection mechanism. The paper also explicitly states it uses CIFAR10, CIFAR100, and SVHN datasets, not ImageNet as specified in the user's idea, and aims to classify into 10 or 100 categories, not 1000. | Domain: Both the user's idea and the paper are within the same discipline of computer vision and deep learning, specifically focusing on convolutional neural networks and architectural improvements. However, the paper primarily evaluates its method on CIFAR10, CIFAR100, and SVHN datasets, which are different from the ImageNet dataset specified in the user's idea. The paper also mentions not using large-scale datasets like ImageNet due to constraints. | Contribution: The user's idea proposes a convolutional neural network with residual skip connections for image classification on ImageNet. The paper introduces a 'quotient network' which is a modification of ResNet (which uses residual skip connections) and is also for image classification. While the paper's core contribution is the 'quotient' learning mechanism, which differs from the user's explicit mention of 'residual skip connections,' it acknowledges and builds upon the concept of ResNet and its 'shortcut' (skip connection) idea. The paper also explicitly states that due to constraints, they 'did not use large-scale datasets such as ImageNet to learn,' which is a key part of the user's idea, indicating a partial overlap in the general approach (CNNs, skip connections for classification) but a divergence in the specific learning mechanism and the dataset used for evaluation.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.5
+      }
+    },
+    {
+      "paper_id": "paper_28",
+      "source": "arxiv",
+      "source_id": "1908.09288v1",
+      "arxiv_id": "1908.09288v1",
+      "title": "Locally Linear Image Structural Embedding for Image Structure Manifold Learning",
+      "abstract": "Most of existing manifold learning methods rely on Mean Squared Error (MSE) or $\\ell_2$ norm. However, for the problem of image quality assessment, these are not promising measure. In this paper, we introduce the concept of an image structure manifold which captures image structure features and discriminates image distortions. We propose a new manifold learning method, Locally Linear Image Structural Embedding (LLISE), and kernel LLISE for learning this manifold. The LLISE is inspired by Locally Linear Embedding (LLE) but uses SSIM rather than MSE. This paper builds a bridge between manifold learning and image fidelity assessment and it can open a new area for future investigations.",
+      "url": "http://arxiv.org/abs/1908.09288v1",
+      "pdf_url": "https://arxiv.org/pdf/1908.09288v1",
+      "authors": [
+        "Benyamin Ghojogh",
+        "Fakhri Karray",
+        "Mark Crowley"
+      ],
+      "categories": [
+        "stat.ML",
+        "cs.CV",
+        "cs.LG",
+        "eess.IV"
+      ],
+      "is_processed": true,
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on image classification using a convolutional neural network trained on ImageNet to categorize images into 1000 classes. In contrast, the paper addresses the problem of image quality assessment and discriminating image distortions by introducing an 'image structure manifold' and a new manifold learning method called LLISE. These are fundamentally different research problems with distinct goals and methodologies. | Method: The user's research idea proposes a convolutional neural network (CNN) with residual skip connections for image classification on ImageNet. The paper, however, introduces Locally Linear Image Structural Embedding (LLISE), a manifold learning method inspired by Locally Linear Embedding (LLE) that uses SSIM for image quality assessment and distortion discrimination. These are fundamentally different methodological approaches; one is a deep learning classification model, and the other is a manifold learning technique. | Domain: The user's research idea is in image classification using a convolutional neural network. The paper focuses on image quality assessment and learning an 'image structure manifold' to discriminate image distortions. Both fall under the broader discipline of computer vision and machine learning applied to images, but their specific application targets (classification of general objects vs. assessment of image quality/distortion) are different sub-areas. | Contribution: The user's research idea proposes a convolutional neural network for image classification on ImageNet using residual skip connections. In contrast, the paper introduces a manifold learning method (LLISE) for image structure manifold learning, focusing on image quality assessment and discriminating image distortions using SSIM. These contributions address entirely different problems and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      }
+    }
+  ],
+  "reality_check": {
+    "already_exists": true,
+    "confidence": 0.99,
+    "existing_examples": [
+      {
+        "name": "ResNet (Residual Networks)",
+        "similarity": 0.98,
+        "description": "ResNet models, specifically ResNet-50, ResNet-101, ResNet-152, etc., were introduced in 2015 and famously use residual skip connections. They were trained on ImageNet and achieved state-of-the-art results for image classification into 1000 categories."
+      },
+      {
+        "name": "ImageNet Large Scale Visual Recognition Challenge (ILSVRC)",
+        "similarity": 0.9,
+        "description": "The ImageNet dataset and its associated challenge have been a cornerstone for image classification research. Many architectures, including ResNet, VGG, Inception, and AlexNet, were developed and trained on ImageNet to classify images into its 1000 categories."
+      },
+      {
+        "name": "Deep Learning Frameworks (TensorFlow, PyTorch)",
+        "similarity": 0.85,
+        "description": "Pre-trained models like ResNet are readily available in these frameworks, allowing users to directly use or fine-tune models that fit this exact description."
+      }
+    ],
+    "assessment": "This idea precisely describes the architecture and training methodology of Residual Networks (ResNet), which were introduced by He et al. in 2015 and won the ILSVRC 2015. ResNet models are a foundational and widely adopted architecture in deep learning, specifically for image classification on the ImageNet dataset using residual skip connections to address vanishing gradients in very deep networks.",
+    "novelty_aspects": [],
+    "recommendation": "This specific combination of CNN, ImageNet, 1000 categories, and residual skip connections is a well-established and widely implemented solution (ResNet). If you are looking for novel research, you would need to introduce a significant modification to the architecture, training methodology, application domain, or achieve superior performance with a novel technique. Simply replicating ResNet's core idea would not be considered novel research."
+  },
+  "reality_check_warning": "⚠️ **Warning: This idea may already exist!**\n\nYour idea closely resembles **ResNet (Residual Networks)** (similarity: 98%).\n\n*This idea precisely describes the architecture and training methodology of Residual Networks (ResNet), which were introduced by He et al. in 2015 and won the ILSVRC 2015. ResNet models are a foundational and widely adopted architecture in deep learning, specifically for image classification on the ImageNet dataset using residual skip connections to address vanishing gradients in very deep networks.*\n\n**Recommendation:** This specific combination of CNN, ImageNet, 1000 categories, and residual skip connections is a well-established and widely implemented solution (ResNet). If you are looking for novel research, you would need to introduce a significant modification to the architecture, training methodology, application domain, or achieve superior performance with a novel technique. Simply replicating ResNet's core idea would not be considered novel research.",
+  "patent_warnings": null,
+  "stats": {
+    "query_variants": 4,
+    "query_variants_list": [
+      {
+        "type": "raw",
+        "query": "convolutional neural network ImageNet classification residual skip connections"
+      },
+      {
+        "type": "academic",
+        "query": "deep residual learning for large-scale image classification"
+      },
+      {
+        "type": "academic",
+        "query": "ImageNet classification with very deep convolutional networks"
+      },
+      {
+        "type": "synonyms",
+        "query": "CNN OR ResNet OR deep learning OR image recognition"
+      }
+    ],
+    "total_fetched": 104,
+    "unique_after_dedup": 104,
+    "after_rerank": 20,
+    "papers_found": 20,
+    "papers_analyzed": 5,
+    "papers_processed": 5,
+    "total_chunks": 402,
+    "keywords": [],
+    "cost": {
+      "estimated_cost_usd": 0.0315,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0298,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0014,
+        "github": 0.0
+      }
+    }
+  },
+  "user_idea": "A convolutional neural network trained on the ImageNet dataset to classify images into 1000 categories using residual skip connections between layers.",
+  "enriched_idea": "RESEARCH IDEA:\nA convolutional neural network trained on the ImageNet dataset to classify images into 1000 categories using residual skip connections between layers.\n\nCLARIFICATIONS:",
+  "followup_questions": [],
+  "followup_answers": [],
+  "github_result": null,
+  "layer1_results": [
+    {
+      "paper_id": "paper_20",
+      "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+      "arxiv_id": "2005.13695v1",
+      "paper_similarity_score": 0.3125,
+      "reason": "Problem: The user's research idea focuses on classifying images into 1000 categories using a CNN with residual skip connections, trained on ImageNet. The paper, however, addresses the problem of classifying breast lesions from ultrasound images using ENAS to find optimal CNN architectures. While both involve image classification with CNNs, the specific application domain (natural images vs. medical ultrasound) and the primary research question (fixed architecture vs. architecture search) are different. | Method: Both the user's idea and the paper utilize convolutional neural networks. However, the user's idea specifies a CNN with residual skip connections trained on ImageNet for 1000-category classification, while the paper uses Efficient Neural Architecture Search (ENAS) to find optimal CNN architectures for breast cancer classification from ultrasound images, which is a different training approach and application domain. | Domain: The user's idea is about general image classification using ImageNet, a large dataset of natural images. The paper, however, focuses on a specific medical imaging application: breast cancer recognition from ultrasound images. While both involve image classification using CNNs, the application domains (general natural images vs. specific medical ultrasound images) are distinct, placing them in the same discipline (computer vision) but different sub-areas/application targets. | Contribution: The user's idea proposes a convolutional neural network with residual skip connections trained on ImageNet for 1000-category classification. The paper, however, focuses on using Efficient Neural Architecture Search (ENAS) to find optimal CNN architectures for breast cancer classification from ultrasound images, a different dataset and application. While both involve CNNs, the core contribution of the paper is architecture search for a specific medical imaging task, which is distinct from the user's proposed contribution of a specific CNN architecture with residual connections for general image classification.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.25
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on the ImageNet dataset to classify images into 1000 categories using residual skip connections between layers.",
+          "sentence_index": 0,
+          "similarity_score": 0.46249999999999997,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+              "heading": "ABSTRACT",
+              "text_snippet": "Deep Convolutional Neural Networks (CNN) provides an \"end-to-end\" solution for image pattern recognition with impressive performance in many areas of application including medical imaging.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper utilize Convolutional Neural Networks (CNNs) for image classification.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+              "heading": "Experiment Results and Discussion",
+              "text_snippet": "AlexNet (Krizhevsky et al., 2012) is one of the commonly use CNN architecture that is originally designed for natural image classification.",
+              "similarity": 0.5,
+              "reason": "The user's idea mentions a CNN trained on ImageNet to classify images into 1000 categories, which is a common characteristic of architectures like AlexNet, a hand-crafted CNN mentioned in the paper for natural image classification.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+              "heading": "Introduction",
+              "text_snippet": "Although the method outperforms the hand-crafted CNN architectures for natural image classification, the optimisation process is time consuming and the resulting models still have complex structures (Elsken et al., 2018).",
+              "similarity": 0.5,
+              "reason": "The paper discusses hand-crafted CNN architectures for natural image classification, which aligns with the general method of using a CNN for image classification as proposed by the user.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+              "heading": "Introduction",
+              "text_snippet": "Deep learning is considered a significant technology breakthrough as it has exhibited good performance in image object classification for various applications, and many attempts have been made in using CNN for cancer recognition from US images (Litjens et al., 2017).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper are in the domain of image classification using CNNs. While the user specifies '1000 categories' and the paper focuses on medical images, the underlying domain of 'image object classification' is shared.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_20",
+              "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+              "heading": "Introduction",
+              "text_snippet": "Deep learning is considered a significant technology breakthrough as it has exhibited good performance in image object classification for various applications, and many attempts have been made in using CNN for cancer recognition from US images (Litjens et al., 2017).",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper address the problem of image classification using CNNs. The user's problem is general image classification into 1000 categories, while the paper's problem is specific to breast cancer recognition from ultrasound images. They share the broad problem of 'image object classification'.",
+              "criterion": "problem_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 11876,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2005.13695v1"
+    },
+    {
+      "paper_id": "paper_15",
+      "paper_title": "Breast Cancer Image Classification Method Based on Deep Transfer Learning",
+      "arxiv_id": "2404.09226v2",
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The user's research idea focuses on general image classification using a CNN with residual skip connections on ImageNet. The paper addresses the specific problem of breast cancer image classification, which is a medical image classification task. While both involve image classification and deep learning architectures (DenseNet, which is related to ResNet mentioned in the paper), the specific problem domain and application are different, moving from general object recognition to a specialized medical diagnostic task. | Method: Both the user's idea and the paper utilize a convolutional neural network and transfer learning from ImageNet. However, the user specifies a ResNet architecture with residual skip connections, while the paper uses a DenseNet architecture, albeit with improvements like attention mechanisms. The application also differs, with the user focusing on general image classification and the paper on medical image classification. | Domain: The user's idea focuses on general image classification using ImageNet, while the paper applies deep learning to medical image classification, specifically breast cancer detection. Both involve image classification and deep learning, but the application domains (general natural images vs. specific medical images) are distinct, placing them in the same discipline but different sub-areas. | Contribution: The user's idea proposes a CNN with residual skip connections trained on ImageNet for 1000-category classification. The paper uses DenseNet (a type of CNN with dense connections, related to residual connections) and performs transfer learning from ImageNet. While both use CNNs and ImageNet, the paper's primary contribution is breast cancer classification, not general 1000-category classification, and it integrates attention mechanisms, which is distinct from the user's idea.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on the ImageNet dataset to classify images into 1000 categories using residual skip connections between layers.",
+          "sentence_index": 0,
+          "similarity_score": 0.27499999999999997,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Breast Cancer Image Classification Method Based on Deep Transfer Learning",
+              "heading": "Breast cancer, Medical image classification, Transfer learning, DenseNet",
+              "text_snippet": "Then, the improved DenseNet is subjected to the first transfer learning using the ImageNet natural image dataset.",
+              "similarity": 0.75,
+              "reason": "Both the user's idea and the paper mention training a neural network using the ImageNet dataset.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Breast Cancer Image Classification Method Based on Deep Transfer Learning",
+              "heading": "Breast cancer, Medical image classification, Transfer learning, DenseNet",
+              "text_snippet": "For instance, Pawer M M et al. proposed a multi-scale multi-channel feature network (MuSCFNet) combining ResNet (Residual Network) with attention mechanisms and employing a knowledge sharing strategy, achieving a classification accuracy of up to 98.85% in the binary classification task of breast pathological tissue images.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'residual skip connections between layers', which is a core component of ResNet, a network architecture mentioned in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Breast Cancer Image Classification Method Based on Deep Transfer Learning",
+              "heading": "Breast cancer, Medical image classification, Transfer learning, DenseNet",
+              "text_snippet": "Firstly, the Densely Connected Convolutional Networks (DenseNet) is selected as the network architecture for this study and is improved by integrating attention mechanisms to enhance its performance.",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'convolutional neural network', which is a general category that includes DenseNet, the architecture used in the paper.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_15",
+              "paper_title": "Breast Cancer Image Classification Method Based on Deep Transfer Learning",
+              "heading": "Breast cancer, Medical image classification, Transfer learning, DenseNet",
+              "text_snippet": "Then, the improved DenseNet is subjected to the first transfer learning using the ImageNet natural image dataset.",
+              "similarity": 0.5,
+              "reason": "The user's idea focuses on classifying 'images', and the paper uses ImageNet, a natural image dataset, for transfer learning, indicating a shared general domain of image classification.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 6387,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2404.09226v2"
+    },
+    {
+      "paper_id": "paper_08",
+      "paper_title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+      "arxiv_id": "2011.03712v1",
+      "paper_similarity_score": 0.125,
+      "reason": "Problem: The user's research idea focuses on image classification using a CNN with residual skip connections trained on ImageNet. In contrast, the paper 'DeepCFL' addresses image synthesis and restoration tasks (e.g., outpainting, inpainting) using a single-image GAN framework that learns contextual features without training data. These are fundamentally different research problems with distinct goals. | Method: The user's idea proposes a convolutional neural network trained on ImageNet for image classification using residual skip connections. The paper, DeepCFL, proposes a single image GAN framework for image synthesis and restoration, which is 'independent of the training data' and focuses on 'contextual features learning' rather than large-scale classification. While both use deep learning, their specific architectures, training paradigms (data-independent vs. ImageNet-trained), and objectives (restoration/synthesis vs. classification) are distinct. | Domain: The user's research idea is about image classification using a CNN trained on ImageNet. The paper, DeepCFL, focuses on image synthesis and image restoration tasks like outpainting and inpainting, which are different application targets within the broader discipline of computer vision and deep learning. While both involve CNNs and image processing, their specific goals (classification vs. generation/restoration) differ. | Contribution: The user's research idea focuses on training a convolutional neural network with residual skip connections on ImageNet for image classification into 1000 categories. In contrast, the paper 'DeepCFL' proposes a single image GAN framework for contextual features learning to perform image synthesis and restoration tasks like outpainting and inpainting, without using training data. These are distinct contributions addressing different research gaps and applications.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.25,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on the ImageNet dataset to classify images into 1000 categories using residual skip connections between layers.",
+          "sentence_index": 0,
+          "similarity_score": 0.125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+              "heading": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+              "text_snippet": "Ulyanov et al. proposed deep image prior (DIP) , which shows that the handcrafted structure of the convolution neural network (CNN) provides an implicit image prior .",
+              "similarity": 0.25,
+              "reason": "The user's idea explicitly mentions a 'convolutional neural network', which is a general type of network architecture. The paper also mentions 'convolution neural network (CNN)' in the context of image prior learning, indicating a shared broad category of methods.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_08",
+              "paper_title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+              "heading": "Introduction",
+              "text_snippet": "Recently, there has been a remarkable success for image restoration and image synthesis methods that do not use training data [7,8,27,28,30,31,35] .",
+              "similarity": 0.5,
+              "reason": "The user's idea is about image classification, which falls under the broader domain of computer vision and image processing. The paper focuses on 'image restoration and image synthesis methods', which are also sub-areas within computer vision, indicating a shared general discipline.",
+              "criterion": "domain_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 15412,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2011.03712v1"
+    },
+    {
+      "paper_id": "paper_35",
+      "paper_title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+      "arxiv_id": "2506.00992v1",
+      "paper_similarity_score": 0.5,
+      "reason": "Problem: The user's research idea focuses on classifying images using a convolutional neural network with residual skip connections. The paper addresses a similar broad topic of improving deep network training, specifically by proposing a 'quotient network' as an alternative to ResNet's residual learning. While both involve deep networks and image classification, the paper's core problem is about finding a more effective learning target (quotient vs. difference) for skip connections, which is a different specific problem than simply using residual skip connections for classification. | Method: Both the user's idea and the paper utilize convolutional neural networks with skip connections. However, the paper proposes a 'quotient network' which fundamentally changes the learning objective from learning residual differences (as in ResNet, which the user's idea implies) to learning the quotient of features, a meaningful difference in the core design of the skip connection mechanism. The paper also explicitly states it uses CIFAR10, CIFAR100, and SVHN datasets, not ImageNet as specified in the user's idea, and aims to classify into 10 or 100 categories, not 1000. | Domain: Both the user's idea and the paper are within the same discipline of computer vision and deep learning, specifically focusing on convolutional neural networks and architectural improvements. However, the paper primarily evaluates its method on CIFAR10, CIFAR100, and SVHN datasets, which are different from the ImageNet dataset specified in the user's idea. The paper also mentions not using large-scale datasets like ImageNet due to constraints. | Contribution: The user's idea proposes a convolutional neural network with residual skip connections for image classification on ImageNet. The paper introduces a 'quotient network' which is a modification of ResNet (which uses residual skip connections) and is also for image classification. While the paper's core contribution is the 'quotient' learning mechanism, which differs from the user's explicit mention of 'residual skip connections,' it acknowledges and builds upon the concept of ResNet and its 'shortcut' (skip connection) idea. The paper also explicitly states that due to constraints, they 'did not use large-scale datasets such as ImageNet to learn,' which is a key part of the user's idea, indicating a partial overlap in the general approach (CNNs, skip connections for classification) but a divergence in the specific learning mechanism and the dataset used for evaluation.",
+      "criteria_scores": {
+        "problem_similarity": 0.5,
+        "method_similarity": 0.5,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.5
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on the ImageNet dataset to classify images into 1000 categories using residual skip connections between layers.",
+          "sentence_index": 0,
+          "similarity_score": 0.46249999999999997,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+              "heading": "Introduction",
+              "text_snippet": "It changes the learning target to the residual value through a shortcut so that the network does not need to learn new features from scratch but learns the difference between the new and old features, thereby reducing the learning difficulty.",
+              "similarity": 0.75,
+              "reason": "The user's idea explicitly mentions 'residual skip connections between layers', which directly refers to the core mechanism of ResNet, a method discussed extensively in the paper's introduction as a landmark breakthrough using 'shortcut' connections to learn residual values.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+              "heading": "Abstract",
+              "text_snippet": "The emergence of ResNet provides a powerful tool for training extremely deep networks. The core idea behind it is to change the learning goals of the network. It no longer learns new features from scratch but learns the difference between the target and existing features.",
+              "similarity": 0.75,
+              "reason": "The user's idea describes a 'convolutional neural network' with 'residual skip connections', which is a direct reference to the ResNet architecture. The paper's abstract discusses ResNet's core idea of learning differences, which is enabled by these skip connections.",
+              "criterion": "method_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+              "heading": "Conclusion",
+              "text_snippet": "Due to time and hardware constraints, we did not use large-scale datasets such as ImageNet to learn and did not perform tasks such as object detection based on models pre-trained on ImageNet.",
+              "similarity": 0.5,
+              "reason": "The user's idea specifies training on the 'ImageNet dataset' to 'classify images into 1000 categories'. The paper explicitly mentions ImageNet as a 'large-scale dataset' for learning, indicating it's within the same domain of image classification, although the paper itself did not use it.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+              "heading": "Introduction",
+              "text_snippet": "Convolutional neural networks have demonstrated strong performance in computer vision tasks[1-4].",
+              "similarity": 0.5,
+              "reason": "The user's idea proposes a 'convolutional neural network' for 'classify images', which falls under 'computer vision tasks' as mentioned in the paper's introduction.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+              "heading": "Introduction",
+              "text_snippet": "These two problems will eventually cause ResNet to be unable to utilize the performance of the deep network fully.",
+              "similarity": 0.5,
+              "reason": "The user's idea describes a standard application of a ResNet-like architecture for image classification. While the paper proposes an alternative (quotient network) to address limitations of ResNet, it acknowledges the general problem of improving deep network performance for image classification, which ResNet aims to solve.",
+              "criterion": "problem_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_35",
+              "paper_title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+              "heading": "Abstract",
+              "text_snippet": "We propose a new network that perfectly solves these two problems while still having the advantages of ResNet. Specifically, it chooses to learn the quotient of the target features with the existing features, so we call it the quotient network.",
+              "similarity": 0.25,
+              "reason": "The user's idea describes a standard application of a ResNet-like network. The paper's contribution is to propose a 'quotient network' as an improvement over ResNet, implying that the user's idea is a baseline or existing approach that the paper seeks to surpass, rather than a novel contribution in itself compared to the paper.",
+              "criterion": "contribution_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.5,
+            "method_similarity": 0.75,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.25
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 14771,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "2506.00992v1"
+    },
+    {
+      "paper_id": "paper_28",
+      "paper_title": "Locally Linear Image Structural Embedding for Image Structure Manifold Learning",
+      "arxiv_id": "1908.09288v1",
+      "paper_similarity_score": 0.05,
+      "reason": "Problem: The user's research idea focuses on image classification using a convolutional neural network trained on ImageNet to categorize images into 1000 classes. In contrast, the paper addresses the problem of image quality assessment and discriminating image distortions by introducing an 'image structure manifold' and a new manifold learning method called LLISE. These are fundamentally different research problems with distinct goals and methodologies. | Method: The user's research idea proposes a convolutional neural network (CNN) with residual skip connections for image classification on ImageNet. The paper, however, introduces Locally Linear Image Structural Embedding (LLISE), a manifold learning method inspired by Locally Linear Embedding (LLE) that uses SSIM for image quality assessment and distortion discrimination. These are fundamentally different methodological approaches; one is a deep learning classification model, and the other is a manifold learning technique. | Domain: The user's research idea is in image classification using a convolutional neural network. The paper focuses on image quality assessment and learning an 'image structure manifold' to discriminate image distortions. Both fall under the broader discipline of computer vision and machine learning applied to images, but their specific application targets (classification of general objects vs. assessment of image quality/distortion) are different sub-areas. | Contribution: The user's research idea proposes a convolutional neural network for image classification on ImageNet using residual skip connections. In contrast, the paper introduces a manifold learning method (LLISE) for image structure manifold learning, focusing on image quality assessment and discriminating image distortions using SSIM. These contributions address entirely different problems and methodologies.",
+      "criteria_scores": {
+        "problem_similarity": 0.0,
+        "method_similarity": 0.0,
+        "domain_similarity": 0.5,
+        "contribution_similarity": 0.0
+      },
+      "sentence_level": [
+        {
+          "sentence": "A convolutional neural network trained on the ImageNet dataset to classify images into 1000 categories using residual skip connections between layers.",
+          "sentence_index": 0,
+          "similarity_score": 0.125,
+          "matched_sections": [
+            {
+              "chunk_id": "",
+              "paper_id": "paper_28",
+              "paper_title": "Locally Linear Image Structural Embedding for Image Structure Manifold Learning",
+              "heading": "Experiments",
+              "text_snippet": "Training Dataset: We made a dataset out of the standard Lena image. Six different types of distortions were applied on the original Lena image (see Figure), each of which has 20 images in the dataset with different MSE values.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper deal with image datasets and image processing. The paper mentions using a dataset of images with distortions, which broadly aligns with image classification tasks, though the specific dataset and task differ.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_28",
+              "paper_title": "Locally Linear Image Structural Embedding for Image Structure Manifold Learning",
+              "heading": "Experiments",
+              "text_snippet": "used the 1-Nearest Neighbor (1NN) classifier to recognize the distortion type of every block. The 1NN is useful to show how to evaluate the manifold by closeness of the embedded distortions. The distortion type of an image comes from a majority vote among the blocks.",
+              "similarity": 0.5,
+              "reason": "Both the user's idea and the paper involve image classification, although the paper's classification is specifically for distortion types using 1NN, while the user proposes a CNN for general image classification.",
+              "criterion": "domain_similarity"
+            },
+            {
+              "chunk_id": "",
+              "paper_id": "paper_28",
+              "paper_title": "Locally Linear Image Structural Embedding for Image Structure Manifold Learning",
+              "heading": "Experiments",
+              "text_snippet": "used the 1-Nearest Neighbor (1NN) classifier to recognize the distortion type of every block.",
+              "similarity": 0.25,
+              "reason": "The paper mentions using a 'classifier' (1NN) for image distortion recognition, which is a very broad overlap with the user's idea of using a 'convolutional neural network' to 'classify images'. However, the specific methods (1NN vs. CNN) are different.",
+              "criterion": "method_similarity"
+            }
+          ],
+          "sentence_criteria_scores": {
+            "problem_similarity": 0.0,
+            "method_similarity": 0.25,
+            "domain_similarity": 0.5,
+            "contribution_similarity": 0.0
+          }
+        }
+      ],
+      "confidence": "medium",
+      "similarity_level": "low",
+      "tokens_used": 12599,
+      "processing_time": 0.0,
+      "literature_source": "arxiv",
+      "literature_source_id": "1908.09288v1"
+    }
+  ],
+  "layer2_full": {
+    "originality_score": 91,
+    "global_similarity_score": 0.2975,
+    "label": "high",
+    "sentence_annotations": [
+      {
+        "index": 0,
+        "sentence": "A convolutional neural network trained on the ImageNet dataset to classify images into 1000 categories using residual skip connections between layers.",
+        "originality_score": 0.25,
+        "similarity_score": 0.75,
+        "label": "low",
+        "criteria_labels": {
+          "problem_similarity": "medium",
+          "method_similarity": "low",
+          "domain_similarity": "medium",
+          "contribution_similarity": "high"
+        },
+        "linked_sections": [
+          {
+            "chunk_id": "",
+            "paper_id": "paper_20",
+            "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+            "heading": "Introduction",
+            "text_snippet": "Deep learning is considered a significant technology breakthrough as it has exhibited good performance in image object classification for various applications, and many attempts have been made in using CNN for cancer recognition from US images (Litjens et al., 2017).",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper address the problem of image classification using CNNs. The user's problem is general image classification into 1000 categories, while the paper's problem is specific to breast cancer recognition from ultrasound images. They share the broad problem of 'image object classification'.",
+            "criterion": "problem_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_20",
+            "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+            "heading": "ABSTRACT",
+            "text_snippet": "Deep Convolutional Neural Networks (CNN) provides an \"end-to-end\" solution for image pattern recognition with impressive performance in many areas of application including medical imaging.",
+            "similarity": 0.75,
+            "reason": "Both the user's idea and the paper utilize Convolutional Neural Networks (CNNs) for image classification.",
+            "criterion": "method_similarity"
+          },
+          {
+            "chunk_id": "",
+            "paper_id": "paper_20",
+            "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+            "heading": "Introduction",
+            "text_snippet": "Deep learning is considered a significant technology breakthrough as it has exhibited good performance in image object classification for various applications, and many attempts have been made in using CNN for cancer recognition from US images (Litjens et al., 2017).",
+            "similarity": 0.5,
+            "reason": "Both the user's idea and the paper are in the domain of image classification using CNNs. While the user specifies '1000 categories' and the paper focuses on medical images, the underlying domain of 'image object classification' is shared.",
+            "criterion": "domain_similarity"
+          }
+        ]
+      }
+    ],
+    "summary": "This research idea appears highly original across all criteria, with low similarity detected to existing work. While your application domain shows the highest (yet still low) overlap, consider further differentiating your approach to image structure analysis from existing embedding methods.",
+    "comprehensive_report": "",
+    "aggregated_criteria": {
+      "problem_similarity": 0.42,
+      "method_similarity": 0.42,
+      "domain_similarity": 0.5,
+      "contribution_similarity": 0.4
+    },
+    "papers_analyzed": 5,
+    "cost": {
+      "estimated_cost_usd": 0.0315,
+      "breakdown": {
+        "retrieval": 0.0,
+        "layer1": 0.0298,
+        "layer2": 0.0003,
+        "followup": 0.0,
+        "keywords": 0.0,
+        "reality_check": 0.0014,
+        "github": 0.0
+      }
+    },
+    "total_processing_time": 115.00872302055359,
+    "per_paper_threats": [
+      {
+        "paper_id": "paper_20",
+        "paper_title": "An ENAS Based Approach for Constructing Deep Learning Models for Breast Cancer Recognition from Ultrasound Images",
+        "paper_similarity": 0.3125,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.25
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_15",
+        "paper_title": "Breast Cancer Image Classification Method Based on Deep Transfer Learning",
+        "paper_similarity": 0.5,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_08",
+        "paper_title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+        "paper_similarity": 0.125,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.25,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_35",
+        "paper_title": "Quotient Network -- A Network Similar to ResNet but Learning Quotients",
+        "paper_similarity": 0.5,
+        "criteria_scores": {
+          "problem_similarity": 0.5,
+          "method_similarity": 0.5,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.5
+        },
+        "literature_source": "arxiv"
+      },
+      {
+        "paper_id": "paper_28",
+        "paper_title": "Locally Linear Image Structural Embedding for Image Structure Manifold Learning",
+        "paper_similarity": 0.05,
+        "criteria_scores": {
+          "problem_similarity": 0.0,
+          "method_similarity": 0.0,
+          "domain_similarity": 0.5,
+          "contribution_similarity": 0.0
+        },
+        "literature_source": "arxiv"
+      }
+    ]
+  },
+  "selected_sources": [
+    "arxiv"
+  ],
+  "source_results": {
+    "arxiv": 104
+  },
+  "search_funnel": {
+    "adapter": "arxiv",
+    "total_fetched": 104,
+    "after_dedup": 104,
+    "after_embedding": 20,
+    "after_rerank": 20,
+    "final_selected": 5
+  }
+}

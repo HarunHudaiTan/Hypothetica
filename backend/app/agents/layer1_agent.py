@@ -70,8 +70,8 @@ CRITERION_RUBRICS: Dict[str, Dict[str, str]] = {
         "rubric": (
             "1 = Different fields entirely (e.g., NLP vs. robotics).\n"
             "2 = Related disciplines but different application contexts (e.g., both in healthcare but radiology vs. genomics).\n"
-            "3 = Same discipline AND same sub-area, but targeting a different specific task, dataset, or system.\n"
-            "4 = Same sub-area, same task type, AND same target population or data modality — differs only in minor application details.\n"
+            "3 = Same discipline, different sub-area or application target.\n"
+            "4 = Same sub-area with closely related application targets.\n"
             "5 = Same specific application area, same data type, same target population or system."
         ),
     },
@@ -80,7 +80,7 @@ CRITERION_RUBRICS: Dict[str, Dict[str, str]] = {
         "rubric": (
             "1 = Unrelated contributions addressing different gaps.\n"
             "2 = Contributions in the same general direction but clearly different claims.\n"
-            "3 = Substantial overlap: the paper's core contribution directly addresses the same research gap with the same general approach, differing only in scope or scale. Papers that merely work in the same area but tackle a different gap do not qualify for a 3.\n"
+            "3 = Partial overlap: some contributions are related, others are distinct.\n"
             "4 = Most contributions overlap, with only minor novel additions in the user's idea.\n"
             "5 = Same claims and results. The paper already demonstrates what the user proposes to contribute."
         ),
@@ -134,7 +134,6 @@ class Layer1Agent:
         user_sentences: List[str],
         paper: Paper,
         retriever: Retriever = None,
-        benchmark_mode: bool = False,
     ) -> Layer1Result:
         """
         Full analysis of one paper: 4 criterion calls + 1 sentence call.
@@ -206,22 +205,19 @@ class Layer1Agent:
             similarity_level = "low"
             confidence = "medium"
 
-        # Phase 2 — sentence-level analysis (skipped in benchmark mode)
-        if benchmark_mode:
-            logger.info(f"[Layer1] Skipping sentence analysis for {paper.paper_id} (benchmark_mode)")
-            sentence_analyses = []
-        else:
-            sentence_paper_text = paper_text
-            logger.info(f"[Layer1] Phase 2: Sentence analysis for {paper.paper_id} ({len(user_sentences)} sentences)")
-            sentence_analyses, sent_tokens, sent_inp, sent_out = self._analyze_sentences(
-                user_idea, user_sentences, sentence_paper_text, paper
-            )
-            self.total_tokens += sent_tokens
-            self.total_input_tokens += sent_inp
-            self.total_output_tokens += sent_out
+        # Phase 2 — sentence-level analysis: same paper_text as criterion calls
+        sentence_paper_text = paper_text
 
-            # Phase 3 — filter sentence criteria against paper-level scores
-            sentence_analyses = self._filter_sentence_criteria(sentence_analyses, criteria_results)
+        logger.info(f"[Layer1] Phase 2: Sentence analysis for {paper.paper_id} ({len(user_sentences)} sentences)")
+        sentence_analyses, sent_tokens, sent_inp, sent_out = self._analyze_sentences(
+            user_idea, user_sentences, sentence_paper_text, paper
+        )
+        self.total_tokens += sent_tokens
+        self.total_input_tokens += sent_inp
+        self.total_output_tokens += sent_out
+
+        # Phase 3 — filter sentence criteria against paper-level scores
+        sentence_analyses = self._filter_sentence_criteria(sentence_analyses, criteria_results)
 
         for sa in sentence_analyses:
             sc = sa.sentence_criteria_scores
