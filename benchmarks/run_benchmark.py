@@ -187,13 +187,19 @@ def _float_to_likert(value: float) -> int:
     return 1
 
 
+def extract_predicted_label_benchmark(result: dict) -> str:
+    """Map API label (low/medium/high) to benchmark gold label names."""
+    api = (result.get("label") or "").strip().lower()
+    return API_LABEL_TO_BENCHMARK.get(api, api or "")
+
+
 def upload_benchmark_row(
     case: dict,
     result: dict,
     source_name: str,
     job_id: str | None = None,
 ) -> bool:
-    """Insert one benchmark row into public.benchmark. Returns True on success."""
+    """Insert one benchmark row into public.benchmark2. Returns True on success."""
     client = _get_supabase()
     if client is None:
         return False
@@ -244,7 +250,7 @@ def upload_benchmark_row(
     }
 
     try:
-        resp = client.table("benchmark").insert(row).execute()
+        resp = client.table("benchmark2").insert(row).execute()
         if resp.data:
             log(f"  ✓ Uploaded {case['case_id']} to Supabase benchmark table")
             return True

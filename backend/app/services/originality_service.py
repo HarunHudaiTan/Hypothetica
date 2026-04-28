@@ -39,6 +39,7 @@ class OriginalityService:
         layer1_cost = 0.0
 
         idea = job.state.enriched_idea or job.user_idea
+        benchmark_mode = (job.settings or {}).get("benchmark_mode", False)
 
         # Create a fresh agent per job for thread safety
         agent = Layer1Agent()
@@ -59,6 +60,7 @@ class OriginalityService:
                 user_sentences=job.state.user_sentences,
                 paper=paper,
                 retriever=retriever,
+                benchmark_mode=benchmark_mode,
             )
             results.append(result)
             layer1_cost += agent.get_cost()
@@ -106,10 +108,12 @@ class OriginalityService:
 
         logger.info(f"Starting Layer 2 aggregation with {len(job.state.layer1_results)} paper results")
 
+        benchmark_mode = (job.settings or {}).get("benchmark_mode", False)
         result = cls._layer2_aggregator.aggregate(
             layer1_results=job.state.layer1_results,
             user_sentences=job.state.user_sentences,
-            cost_breakdown=job.state.cost
+            cost_breakdown=job.state.cost,
+            benchmark_mode=benchmark_mode,
         )
         job.state.layer2_result = result
 

@@ -1,0 +1,302 @@
+[
+    {
+      "id": "idea_001",
+      "label": "already_exists",
+      "domain": "Developer Tools",
+      "idea": "A command-line tool that formats source code automatically according to a fixed style guide, supports multiple programming languages, and can be integrated into CI pipelines."
+    },
+    {
+      "id": "idea_002",
+      "label": "already_exists",
+      "domain": "Web Development",
+      "idea": "A React component library providing reusable buttons, forms, modals, tables, and navigation components with theme customization and TypeScript support."
+    },
+    {
+      "id": "idea_003",
+      "label": "already_exists",
+      "domain": "DevOps",
+      "idea": "A Docker Compose setup that runs a web application, PostgreSQL database, Redis cache, and Nginx reverse proxy for local development."
+    },
+    {
+      "id": "idea_004",
+      "label": "already_exists",
+      "domain": "Machine Learning",
+      "idea": "A Python repository that trains an image classifier on CIFAR-10 using PyTorch, convolutional neural networks, data augmentation, and validation accuracy tracking."
+    },
+    {
+      "id": "idea_005",
+      "label": "already_exists",
+      "domain": "Backend",
+      "idea": "A REST API built with FastAPI that supports user registration, JWT authentication, CRUD operations, database models, and automatic OpenAPI documentation."
+    },
+    {
+      "id": "idea_006",
+      "label": "already_exists",
+      "domain": "Data Engineering",
+      "idea": "An ETL pipeline that extracts CSV files, transforms columns using pandas, loads the cleaned data into PostgreSQL, and schedules jobs with Airflow."
+    },
+    {
+      "id": "idea_007",
+      "label": "already_exists",
+      "domain": "Cybersecurity",
+      "idea": "A password strength checker that evaluates length, character diversity, dictionary words, entropy estimates, and common breached password patterns."
+    },
+    {
+      "id": "idea_008",
+      "label": "already_exists",
+      "domain": "LLM Applications",
+      "idea": "A retrieval-augmented generation chatbot that loads PDF documents, chunks text, embeds chunks into a vector database, retrieves relevant passages, and answers user questions with source citations."
+    },
+    {
+      "id": "idea_009",
+      "label": "already_exists",
+      "domain": "Mobile Development",
+      "idea": "A Flutter todo application with local persistence, task categories, due dates, dark mode, and basic notification reminders."
+    },
+    {
+      "id": "idea_010",
+      "label": "already_exists",
+      "domain": "Testing",
+      "idea": "A JavaScript testing setup that uses Jest and React Testing Library to run unit tests, component tests, mocks, and coverage reports."
+    },
+    {
+      "id": "idea_011",
+      "label": "already_exists",
+      "domain": "Automation",
+      "idea": "A GitHub Actions workflow that runs linting, unit tests, type checks, Docker builds, and deployment steps whenever code is pushed to the main branch."
+    },
+    {
+      "id": "idea_012",
+      "label": "already_exists",
+      "domain": "Computer Vision",
+      "idea": "An object detection project using YOLO to detect people, cars, and bicycles in images and videos, with pretrained weights and inference scripts."
+    },
+    {
+      "id": "idea_013",
+      "label": "already_exists",
+      "domain": "NLP",
+      "idea": "A sentiment analysis repository that fine-tunes a transformer model on movie reviews and exposes predictions through a simple web API."
+    },
+    {
+      "id": "idea_014",
+      "label": "already_exists",
+      "domain": "Frontend",
+      "idea": "A dashboard template built with React, charts, tables, authentication pages, sidebar navigation, and responsive layouts."
+    },
+    {
+      "id": "idea_015",
+      "label": "already_exists",
+      "domain": "Blockchain",
+      "idea": "A Solidity smart contract project implementing an ERC-20 token with deployment scripts, unit tests, and Hardhat configuration."
+    },
+    {
+      "id": "idea_016",
+      "label": "already_exists",
+      "domain": "Game Development",
+      "idea": "A Unity 2D platformer game with player movement, jumping, enemies, collectibles, score tracking, and level transitions."
+    },
+    {
+      "id": "idea_017",
+      "label": "already_exists",
+      "domain": "Monitoring",
+      "idea": "A Prometheus and Grafana monitoring stack that collects application metrics, visualizes CPU and memory usage, and triggers alerts when thresholds are exceeded."
+    },
+    {
+      "id": "idea_018",
+      "label": "incremental",
+      "domain": "Developer Tools",
+      "idea": "A code formatter that adapts formatting decisions based on project-specific style patterns learned from the existing repository history instead of relying only on a fixed global style configuration."
+    },
+    {
+      "id": "idea_019",
+      "label": "incremental",
+      "domain": "LLM Applications",
+      "idea": "A RAG framework that detects when retrieved chunks contain tables and routes those chunks through a table-aware parser before sending them to the language model."
+    },
+    {
+      "id": "idea_020",
+      "label": "incremental",
+      "domain": "DevOps",
+      "idea": "A CI pipeline optimizer that analyzes previous GitHub Actions runs and automatically skips test suites unaffected by the files changed in a pull request."
+    },
+    {
+      "id": "idea_021",
+      "label": "incremental",
+      "domain": "Cybersecurity",
+      "idea": "A static analysis tool that scans Python repositories for insecure API key handling, detects hardcoded secrets, and suggests safer environment-variable based replacements."
+    },
+    {
+      "id": "idea_022",
+      "label": "incremental",
+      "domain": "Machine Learning",
+      "idea": "A training framework that automatically logs model metrics, hyperparameters, dataset versions, and generated plots to both a local dashboard and Weights & Biases."
+    },
+    {
+      "id": "idea_023",
+      "label": "incremental",
+      "domain": "Web Development",
+      "idea": "A React form generator that reads a JSON schema, creates validated UI forms, and supports conditional fields based on previous user inputs."
+    },
+    {
+      "id": "idea_024",
+      "label": "incremental",
+      "domain": "Backend",
+      "idea": "A FastAPI boilerplate that includes role-based access control, background task queues, automatic database migrations, and OpenTelemetry tracing out of the box."
+    },
+    {
+      "id": "idea_025",
+      "label": "incremental",
+      "domain": "Data Engineering",
+      "idea": "A lightweight data quality framework that validates CSV and Parquet datasets against schema rules, missing-value constraints, and distribution drift checks before ingestion."
+    },
+    {
+      "id": "idea_026",
+      "label": "incremental",
+      "domain": "Mobile Development",
+      "idea": "A Flutter habit tracking app that uses on-device machine learning to predict when the user is likely to miss a habit and adjusts reminder timing accordingly."
+    },
+    {
+      "id": "idea_027",
+      "label": "incremental",
+      "domain": "Testing",
+      "idea": "A test generation tool that analyzes changed functions in a pull request and asks an LLM to propose missing unit tests with explanations."
+    },
+    {
+      "id": "idea_028",
+      "label": "incremental",
+      "domain": "Computer Vision",
+      "idea": "An object detection repository that improves small-object detection by combining YOLO inference with image tiling and automatic result merging."
+    },
+    {
+      "id": "idea_029",
+      "label": "incremental",
+      "domain": "NLP",
+      "idea": "A multilingual text classification library that automatically detects input language, routes text to language-specific tokenizers, and fine-tunes a shared transformer backbone."
+    },
+    {
+      "id": "idea_030",
+      "label": "incremental",
+      "domain": "Blockchain",
+      "idea": "A smart contract auditing tool that combines symbolic execution results with LLM-generated explanations of potential vulnerabilities."
+    },
+    {
+      "id": "idea_031",
+      "label": "incremental",
+      "domain": "Game Development",
+      "idea": "A Unity enemy AI package that uses behavior trees with reinforcement-learning-tuned parameters to adapt enemy difficulty to player performance."
+    },
+    {
+      "id": "idea_032",
+      "label": "incremental",
+      "domain": "Monitoring",
+      "idea": "A log analysis dashboard that clusters similar error messages using sentence embeddings and shows representative root-cause summaries for each cluster."
+    },
+    {
+      "id": "idea_033",
+      "label": "incremental",
+      "domain": "Documentation",
+      "idea": "A documentation generator that builds API docs from source code comments and also creates LLM-generated usage examples for each public function."
+    },
+    {
+      "id": "idea_034",
+      "label": "incremental",
+      "domain": "Accessibility",
+      "idea": "A browser extension that scans web pages for accessibility violations and uses an LLM to suggest corrected ARIA labels and semantic HTML replacements."
+    },
+    {
+      "id": "idea_035",
+      "label": "novel",
+      "domain": "Developer Tools",
+      "idea": "A version control system where commits are not stored as file diffs but as executable semantic transformations over an abstract syntax forest, allowing code history to be replayed across different programming languages."
+    },
+    {
+      "id": "idea_036",
+      "label": "novel",
+      "domain": "LLM Applications",
+      "idea": "A repository assistant that maintains a living causal graph of software behavior, where every function, test, issue, and production incident becomes a node, allowing developers to query not only what changed but why a bug emerged."
+    },
+    {
+      "id": "idea_037",
+      "label": "novel",
+      "domain": "DevOps",
+      "idea": "A deployment system that treats infrastructure as an immune system, where services emit biochemical-inspired danger signals and autonomous repair agents migrate through the cluster to isolate, heal, or replace failing components."
+    },
+    {
+      "id": "idea_038",
+      "label": "novel",
+      "domain": "Cybersecurity",
+      "idea": "A malware analysis sandbox where suspicious programs are executed inside a procedurally generated fake operating system whose APIs mutate in real time to force malware to reveal hidden assumptions about its target environment."
+    },
+    {
+      "id": "idea_039",
+      "label": "novel",
+      "domain": "Machine Learning",
+      "idea": "A neural network training library where model parameters are represented as compressed symbolic programs that rewrite themselves during training instead of being updated as numeric tensors."
+    },
+    {
+      "id": "idea_040",
+      "label": "novel",
+      "domain": "Web Development",
+      "idea": "A frontend framework where UI components are specified as user-intent constraints and the runtime continuously synthesizes the actual interface layout from interaction traces rather than rendering a fixed component tree."
+    },
+    {
+      "id": "idea_041",
+      "label": "novel",
+      "domain": "Data Engineering",
+      "idea": "A database migration system that models schema evolution as a reversible biological development process, where tables differentiate, merge, and specialize according to lineage rules while preserving query compatibility across generations."
+    },
+    {
+      "id": "idea_042",
+      "label": "novel",
+      "domain": "Mobile Development",
+      "idea": "A mobile app runtime that compiles user behavior into temporary personalized micro-features on device, allowing the app interface to grow new functions that disappear if they stop being useful."
+    },
+    {
+      "id": "idea_043",
+      "label": "novel",
+      "domain": "Testing",
+      "idea": "A software testing framework that generates tests by simulating adversarial future maintainers who misunderstand the codebase in different ways, exposing bugs caused by likely human misinterpretations rather than only input edge cases."
+    },
+    {
+      "id": "idea_044",
+      "label": "novel",
+      "domain": "Computer Vision",
+      "idea": "A vision pipeline where image models are debugged through counterfactual synthetic worlds that evolve until they discover the minimal physical law change needed to make the model fail."
+    },
+    {
+      "id": "idea_045",
+      "label": "novel",
+      "domain": "NLP",
+      "idea": "A text editor where documents are stored as competing semantic interpretations instead of token sequences, and edits collapse, split, or merge interpretation branches depending on the writer's intent."
+    },
+    {
+      "id": "idea_046",
+      "label": "novel",
+      "domain": "Blockchain",
+      "idea": "A smart contract platform where contracts are represented as living state machines that negotiate their own interface changes with dependent contracts before accepting upgrades."
+    },
+    {
+      "id": "idea_047",
+      "label": "novel",
+      "domain": "Game Development",
+      "idea": "A game engine where non-player characters do not use scripted AI or learned policies but inherit behavioral memories from previous players, creating cultures that evolve across game installations."
+    },
+    {
+      "id": "idea_048",
+      "label": "novel",
+      "domain": "Monitoring",
+      "idea": "An observability platform that represents distributed system health as a synthetic organism, where traces, metrics, and logs become organs whose interactions reveal disease-like failure patterns before alerts fire."
+    },
+    {
+      "id": "idea_049",
+      "label": "novel",
+      "domain": "Documentation",
+      "idea": "A documentation system where explanations are not written directly but grown through simulated novice misunderstandings, with each documentation page optimized to reduce the probability of future conceptual errors."
+    },
+    {
+      "id": "idea_050",
+      "label": "novel",
+      "domain": "Programming Languages",
+      "idea": "A programming language where functions carry explicit uncertainty fields describing how their behavior may change under missing context, enabling programs to propagate ambiguity as a first-class runtime value."
+    }
+  ]

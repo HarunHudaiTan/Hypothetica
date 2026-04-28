@@ -1,2 +1,0 @@
-case_id,domain,true_label,predicted_label,label_correct,n_retrieved,n_gold_all,n_gold_core,avg_precision_all,avg_precision_core,P@3_all,R@3_all,P@3_core,R@3_core,P@5_all,R@5_all,P@5_core,R@5_core,P@10_all,R@10_all,P@10_core,R@10_core
-ad_hoc_001,,,novel,0,5,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

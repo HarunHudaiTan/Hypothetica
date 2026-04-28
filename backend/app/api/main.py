@@ -13,6 +13,7 @@ from sse_starlette.sse import EventSourceResponse
 from app.api.schemas.analysis import AnalyzeRequest, AnswersRequest, PaperSource
 from app.api.schemas.job import JobStatus, JobStatusResponse
 from app.api.schemas.matches import SentenceMatchRequest
+from app.api.benchmark_routes import router as benchmark_router
 
 from app.api.managers.job_manager import job_manager
 from app.services.analysis_service import AnalysisService
@@ -41,6 +42,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(benchmark_router)
 
 
 @app.post("/api/analyze")

@@ -153,6 +153,8 @@ class PDFProcessor:
             convert_kwargs = {"raises_on_error": False}
             if is_patent:
                 convert_kwargs["page_range"] = (1, 30)
+            else:
+                convert_kwargs["page_range"] = (1, 10)  # first 10 pages covers abstract/intro/methodology
 
             try:
                 result = converter.convert(
