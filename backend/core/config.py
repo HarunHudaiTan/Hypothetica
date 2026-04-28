@@ -113,7 +113,7 @@ CRITERIA_MAX_WEIGHT = 0.6        # Weight given to max score in criteria aggrega
 # originality = (1 - global_similarity ** OVERLAP_CURVE_POWER) * 100
 # Power=1 is linear. Power>1 convex-ifies low similarities (inflates “novel” when mean was used).
 # Power=2 with mean(global) let irrelevant papers dilute one real match; we now use max(global).
-OVERLAP_CURVE_POWER = 1.0
+OVERLAP_CURVE_POWER = 1.5
 
 # Layer 2 aggregation policy
 # Per-paper similarity = weighted mean of the 4 criteria (no max within paper).
@@ -148,7 +148,7 @@ GITHUB_MAX_REPOS_TO_ANALYZE = 24    # Smaller, cleaner candidate pool
 GITHUB_README_PREVIEW_CHARS = 2000  # First N chars of README for LLM analysis
 GITHUB_MIN_README_CHARS = 400       # Basic documentation quality gate
 GITHUB_MAX_REPOS_FOR_RELEVANCE = 12 # Cap expensive LLM repo assessments
-GITHUB_QUERY_MIN_STARS = 100        # Add stars:>N directly into GitHub search query
+GITHUB_QUERY_MIN_STARS = 10         # Add stars:>N directly into GitHub search query
 
 # =============================================================================
 # RAG CONFIGURATION

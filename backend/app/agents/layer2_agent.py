@@ -83,7 +83,8 @@ class Layer2Aggregator:
         self,
         layer1_results: List[Layer1Result],
         user_sentences: List[str],
-        cost_breakdown: CostBreakdown = None
+        cost_breakdown: CostBreakdown = None,
+        benchmark_mode: bool = False,
     ) -> Layer2Result:
         if not layer1_results:
             return self._create_empty_result(user_sentences)
@@ -120,24 +121,29 @@ class Layer2Aggregator:
         # Step 4: Aggregate criteria for UI display
         aggregated_criteria = self._aggregate_criteria(layer1_results)
 
-        # Step 5: Sentence annotations for UI (does NOT affect final score)
-        sentence_annotations = self._compute_sentence_annotations(
-            layer1_results, user_sentences
-        )
-        red = sum(1 for a in sentence_annotations if a.label == OriginalityLabel.LOW)
-        yellow = sum(1 for a in sentence_annotations if a.label == OriginalityLabel.MEDIUM)
-        green = sum(1 for a in sentence_annotations if a.label == OriginalityLabel.HIGH)
-        logger.info(f"[Layer2] Sentence annotations: {red} RED, {yellow} YELLOW, {green} GREEN")
+        # Step 5: Sentence annotations for UI (skipped in benchmark mode)
+        if benchmark_mode:
+            logger.info("[Layer2] Skipping sentence annotations and summary (benchmark_mode)")
+            sentence_annotations = []
+            summary = ""
+        else:
+            sentence_annotations = self._compute_sentence_annotations(
+                layer1_results, user_sentences
+            )
+            red = sum(1 for a in sentence_annotations if a.label == OriginalityLabel.LOW)
+            yellow = sum(1 for a in sentence_annotations if a.label == OriginalityLabel.MEDIUM)
+            green = sum(1 for a in sentence_annotations if a.label == OriginalityLabel.HIGH)
+            logger.info(f"[Layer2] Sentence annotations: {red} RED, {yellow} YELLOW, {green} GREEN")
 
-        # Step 6: Generate summary
-        summary = self._generate_summary(
-            global_originality=global_originality,
-            aggregated_criteria=aggregated_criteria,
-            sentence_annotations=sentence_annotations,
-            num_papers=len(layer1_results),
-            layer1_results=layer1_results,
-            paper_similarity_score_list=paper_similarity_score_list,
-        )
+            # Step 6: Generate summary
+            summary = self._generate_summary(
+                global_originality=global_originality,
+                aggregated_criteria=aggregated_criteria,
+                sentence_annotations=sentence_annotations,
+                num_papers=len(layer1_results),
+                layer1_results=layer1_results,
+                paper_similarity_score_list=paper_similarity_score_list,
+            )
 
         # Update cost
         if cost_breakdown:
@@ -197,15 +203,17 @@ class Layer2Aggregator:
     @staticmethod
     def _compute_global_similarity(paper_similarity_score_list: List[float]) -> float:
         """
-        Global similarity = max of per-paper similarity scores.
+        Global similarity = 0.7 * max + 0.3 * mean of per-paper similarity scores.
 
-        If any analyzed paper is a strong match, overlap should be high regardless
-        of how weak the other retrievals are. Mean was letting irrelevant papers
-        dilute a single genuine prior-art hit (e.g. ResNet with mixed retrieval).
+        Pure max was too sensitive to a single noisy outlier paper inflating the result.
+        The blend preserves the signal that one strong match is enough to flag overlap,
+        while dampening the effect of one overscored irrelevant paper.
         """
         if not paper_similarity_score_list:
             return 0.0
-        return max(paper_similarity_score_list)
+        best = max(paper_similarity_score_list)
+        mean = sum(paper_similarity_score_list) / len(paper_similarity_score_list)
+        return 0.7 * best + 0.3 * mean
 
     # ------------------------------------------------------------------
     # Categorical guardrails
