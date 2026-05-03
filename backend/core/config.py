@@ -109,7 +109,13 @@ CRITERIA_WEIGHTS = {
 }
 
 SENTENCE_OVERLAP_TOP_K = 2       # Top-K scores to average per sentence (UI annotations)
-CRITERIA_MAX_WEIGHT = 0.6        # Weight given to max score in criteria aggregation (UI display)
+CRITERIA_MAX_WEIGHT = 0.7        # Weight given to max score in criteria aggregation (UI display)
+
+# Global similarity aggregation across analyzed papers:
+#   global_similarity = GLOBAL_MAX_WEIGHT * max + GLOBAL_MEAN_WEIGHT * mean
+# Max dominates so one strong match cannot be averaged away; mean adds context.
+GLOBAL_MAX_WEIGHT = 0.7
+GLOBAL_MEAN_WEIGHT = 0.3
 # originality = (1 - global_similarity ** OVERLAP_CURVE_POWER) * 100
 # Power=1 is linear. Power>1 convex-ifies low similarities (inflates “novel” when mean was used).
 # Power=2 with mean(global) let irrelevant papers dilute one real match; we now use max(global).

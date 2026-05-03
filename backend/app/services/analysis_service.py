@@ -113,6 +113,14 @@ class AnalysisService:
         )
         job.state.enriched_idea = enriched
 
+        logger.info(
+            "Job %s enriched idea output:\n%s\n%s\n%s",
+            job_id,
+            "=" * 80,
+            enriched,
+            "=" * 80,
+        )
+
         cls._update_progress(job_id, "Idea enriched with clarifications", 0.12)
 
     @classmethod

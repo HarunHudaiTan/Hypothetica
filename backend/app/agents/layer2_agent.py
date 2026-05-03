@@ -203,7 +203,8 @@ class Layer2Aggregator:
     @staticmethod
     def _compute_global_similarity(paper_similarity_score_list: List[float]) -> float:
         """
-        Global similarity = 0.7 * max + 0.3 * mean of per-paper similarity scores.
+        Global similarity = GLOBAL_MAX_WEIGHT * max + GLOBAL_MEAN_WEIGHT * mean
+        of per-paper similarity scores.
 
         Pure max was too sensitive to a single noisy outlier paper inflating the result.
         The blend preserves the signal that one strong match is enough to flag overlap,
@@ -213,7 +214,7 @@ class Layer2Aggregator:
             return 0.0
         best = max(paper_similarity_score_list)
         mean = sum(paper_similarity_score_list) / len(paper_similarity_score_list)
-        return 0.7 * best + 0.3 * mean
+        return config.GLOBAL_MAX_WEIGHT * best + config.GLOBAL_MEAN_WEIGHT * mean
 
     # ------------------------------------------------------------------
     # Categorical guardrails
