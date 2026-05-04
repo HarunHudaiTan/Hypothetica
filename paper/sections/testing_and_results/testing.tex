@@ -1,0 +1,54 @@
+\section{Testing Methodology}
+\label{sec:testing}
+
+This section describes the benchmark design and evaluation methodology used to assess Hypothetica's originality assessment system across a diverse set of research idea inputs.
+
+\subsection{Benchmark Dataset Overview}
+
+We constructed three independent benchmark datasets, one per retrieval corpus, totaling 150 labeled cases (50 per corpus). Each dataset was designed to reflect the natural idea style of its corresponding corpus, and all cases were manually authored and labeled. Rather than sampling from existing labeled repositories or relying on automated generation, we deliberately crafted each idea to probe specific behaviors of the originality assessment pipeline -- including its ability to distinguish genuine conceptual innovation from standard domain extensions.
+
+Each corpus contains approximately equal representation across the three classes (16--17 cases per class for Patents and OpenAlex; 15--20 cases per class for GitHub), ensuring that overall accuracy is not dominated by any single class and that per-class metrics are individually meaningful. A dataset skewed toward \textit{already\_exists} -- the natural outcome of random sampling from any real corpus -- would inflate overall accuracy without providing meaningful signal about novelty detection, which is the primary use case of the system.
+
+\subsection{Corpus-Specific Idea Design}
+
+A core design principle was stylistic alignment: ideas in each dataset were written to match the natural framing conventions of the corpus against which they would be retrieved.
+
+\textbf{OpenAlex (Scientific Literature).} Ideas were framed as research proposals and methodological contributions, consistent with the academic writing style of OpenAlex-indexed papers. Descriptions emphasize problem formulation, proposed mechanisms, and expected contributions -- the vocabulary a researcher would use when describing a novel method or system to peers.
+
+\textbf{GitHub (Software Repositories).} Ideas were framed as practical software projects, consistent with the repository descriptions and README summaries found on GitHub. Descriptions are implementation-oriented, referencing specific technologies, frameworks, and functional behaviors rather than abstract mechanisms.
+
+\textbf{Patents (Google Patents).} Ideas were framed as system-level inventions, consistent with the technical and functional language of patent abstracts. Descriptions emphasize novel system architectures, operational paradigms, and distinguishing technical claims rather than experimental contributions or code-level implementations.
+
+This stylistic alignment was intentional: a retrieval system indexing academic papers will surface different candidates for the same underlying idea than one indexing patents or repositories. By matching framing to corpus, we ensured that retrieval quality -- and therefore scoring -- reflects realistic deployment conditions rather than a vocabulary mismatch artifact.
+
+\subsection{Labeling Scheme: The Novelty Ladder}
+
+All cases were labeled under a strict three-tier scheme, which we refer to as the novelty ladder:
+
+\textbf{Already Exists.} The idea is widely known, commonly implemented, or straightforwardly retrievable in the target corpus. A case receives this label if a competent practitioner in the field would immediately recognize it as existing work. Representative examples include:
+\begin{itemize}
+	\item {[GitHub, Developer Tools]} ``A command-line tool that formats source code automatically according to a fixed style guide, supports multiple programming languages, and can be integrated into CI pipelines.'' (score: 46)
+	\item {[GitHub, Testing]} ``A JavaScript testing setup that uses Jest and React Testing Library to run unit tests, component tests, mocks, and coverage reports.'' (score: 8)
+	\item {[OpenAlex, AI/ML]} ``A deep residual network trained on ImageNet that uses skip connections between layers to enable training of very deep convolutional networks.'' (score: 21)
+\end{itemize}
+
+\textbf{Incremental.} The idea shares its core concept with existing work but introduces a clear, limited improvement -- a better component, an added feature, a new application domain, or a modest architectural modification. The key criterion is that the improvement is a natural extension of prior work rather than a new mechanism. Combinations of the form ``existing method X applied to domain Y'' are classified as incremental regardless of whether the specific combination has been published. Representative examples include:
+\begin{itemize}
+	\item {[GitHub, Blockchain]} ``A smart contract auditing tool that combines symbolic execution results with LLM-generated explanations of potential vulnerabilities.'' (score: 19)
+	\item {[OpenAlex, Robotics]} ``A sim-to-real transfer framework for robotic grasping that uses domain randomization over lighting, texture, and object geometry to reduce the reality gap.'' (score: 24)
+	\item {[OpenAlex, Biomedical]} ``A multimodal deep learning model that combines whole-slide histopathology images with bulk RNA sequencing profiles for cancer subtype classification.'' (score: 25)
+\end{itemize}
+
+\textbf{Novel.} The idea introduces a genuinely new mechanism, control paradigm, or representational approach that cannot be reduced to a recombination of existing components. Novel cases must change how a problem is fundamentally approached, not merely what is applied to it. We explicitly excluded fake novelty -- ideas that appear original through buzzword recombination (e.g., ``ML + X,'' ``blockchain-based Y'') but do not introduce a new underlying principle. Representative examples include:
+\begin{itemize}
+	\item {[GitHub, Testing]} ``A software testing framework that generates tests by simulating adversarial future maintainers who misunderstand the codebase in different ways, exposing bugs caused by likely human misinterpretations rather than only input edge cases.'' (score: 86)
+	\item {[GitHub, Developer Tools]} ``A version control system where commits are not stored as file diffs but as executable semantic transformations over an abstract syntax forest, allowing code history to be replayed across different programming languages.'' (score: 83)
+	\item {[OpenAlex, Quantum]} ``A quantum machine learning architecture where the training signal is encoded as entanglement entropy gradients between subsystems, replacing classical backpropagation entirely.'' (score: 93)
+	\item {[OpenAlex, Materials Science]} ``A materials discovery framework where a physical simulation of ant colony foraging is directly instantiated on a reconfigurable matter substrate to explore compositional search spaces.'' (score: 85)
+\end{itemize}
+
+This distinction between incremental and novel was the most consequential design decision. A strict interpretation of novelty -- requiring a new mechanism or paradigm rather than a new combination -- produces a labeling scheme that approximates how a domain expert or peer reviewer would assess originality, rather than how a keyword-matching system would.
+
+\subsection{Deliberate Inclusion of Borderline Cases}
+
+Each dataset includes a proportion of deliberately borderline cases -- ideas that sit close to the incremental/novel boundary and would reasonably invite disagreement among human annotators. This design choice reflects the reality of originality assessment: the boundary between a highly creative extension and a genuinely new mechanism is often ambiguous in practice, and a useful assessment tool must behave meaningfully in this region rather than only on clear-cut cases. These cases also serve as a natural stress test for the system's sensitivity near decision boundaries, and their presence partly explains the lower per-class accuracy on the incremental label observed across all three corpora.

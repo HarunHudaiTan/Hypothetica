@@ -1,0 +1,52 @@
+\section{Implementation}
+\label{sec:implementation}
+
+\subsection{Development Environment and Technology Stack}
+
+Hypothetica is developed using a highly modular, asynchronous Python backend powered by the FastAPI framework and served via Uvicorn. The system separates concerns between retrieval adapters, document processing, agent execution, and the API layer. To handle long-running, multi-agent operations without HTTP timeouts, the backend implements Server-Sent Events (SSE), streaming real-time execution logs and progress metrics directly to the client.
+
+All AI agents are powered by Google Gemini 2.5 Flash, accessed through the official google-genai SDK \citep{geminiAPI}. This model was selected for its exceptional balance of reasoning performance, low latency, and cost-efficiency. All agent classes inherit from a centralized Agent base class that manages API payload construction, structured JSON output enforcement, token usage logging, and exponential backoff strategies for rate limiting. Additionally, the system integrates Supabase (PostgreSQL) as a persistence layer to log analysis queries and track benchmark evaluation runs.
+
+\subsection{Multi-Source Evidence Retrieval}
+
+To provide a comprehensive originality assessment, the retrieval pipeline utilizes a pluggable \texttt{EvidenceAdapter} interface. This unified abstraction allows the system to seamlessly route queries to distinct data sources:
+
+\textbf{OpenAlex.} Academic works are primarily retrieved via the OpenAlex API \citep{openalexDocs}. The adapter applies strict quality filters, requiring abstracts, excluding retracted works, and limiting types to articles and preprints, to ensure high-quality semantic pools.
+
+\textbf{arXiv.} Computer science and machine learning preprints are sourced using the official arXiv API \citep{arxivAPI}, utilizing HTTP requests with XML parsing via ElementTree.
+
+\textbf{Google Patents.} Industrial prior art is captured using the \texttt{patents\_adapter}, which interfaces with the patent database via SerpApi \citep{serpapi}.
+
+\textbf{GitHub.} Open-source implementations are sourced via a custom \texttt{github\_adapter} that queries the GitHub REST API \citep{githubAPI}, applying strict quality filters (e.g., minimum star counts, recent commit activity) to eliminate abandoned projects, before extracting their README documentation.
+
+\subsection{Document Processing Pipeline}
+
+For academic papers, PDFs are converted into structured Markdown using the Docling library \citep{docling}. To optimize throughput and prevent Out-Of-Memory (OOM) errors associated with layout modeling on massive documents, OCR is explicitly disabled for natively text-embedded PDFs (such as arXiv \LaTeX{} compilations and pre-OCRed Google Patents). Instead, the system reads the embedded text layer directly. Custom regular expressions normalize headings, and the pipeline calculates text diversity metrics to filter out low-quality sections like reference lists.
+
+To handle the complex formats of patent documents, the pipeline uses a dedicated \texttt{PatentPostProcessor} that removes repetitive legal boilerplate, cleans OCR artifacts, and standardizes inconsistent claims. If full PDF conversion fails or triggers a memory limit, a graceful fallback mechanism extracts only the document's abstract, ensuring the analysis pipeline continues uninterrupted.
+
+\subsection{Vector Storage and Retrieval}
+
+The RAG architecture utilizes ChromaDB \citep{chroma}, configured with persistent local storage, to manage document chunks. Embeddings are generated using the E5-base-v2 model from the sentence-transformers library \citep{wang2022e5}, which applies specialized prefixes for queries and passages.
+
+The database serves as a unified knowledge graph. Prior to embedding, documents are split into semantic chunks that respect the extracted Markdown heading boundaries. Each chunk is stored alongside rich metadata (source identifiers, section headings, category tags). During the Candidate Originality Scoring phase, targeted metadata filtering allows the agents to retrieve focused context from specific individual documents, avoiding cross-contamination between candidates.
+
+\subsection{Agent Architecture}
+
+The system relies on a swarm of specialized agents, operating concurrently to reduce overall latency. Each agent is configured with distinct generation parameters (e.g., temperature, top-k) tailored to its specific role. All agents enforce \texttt{application/json} response types for safe downstream parsing.
+
+The architecture is divided into the following key operational roles:
+
+\textbf{Interactive Agents.} The \texttt{followup\_\allowbreak agent} conducts the initial user interview to clarify ambiguous ideas before retrieval begins.
+
+\textbf{Retrieval \& Filtering Agents.} The \texttt{query\_\allowbreak variant\_\allowbreak agent} generates diverse search terms, while the \texttt{relevant\_\allowbreak paper\_\allowbreak selector\_\allowbreak agent} evaluates cross-encoder reranked candidates to finalize the Top-K shortlist.
+
+\textbf{Analysis \& Scoring Agents.} The \texttt{candidate\_\allowbreak originality\_\allowbreak scoring\_\allowbreak agent} handles isolated, per-paper Candidate Originality Scoring across the four novelty dimensions. The \texttt{idea\_\allowbreak originality\_\allowbreak scoring\_\allowbreak agent} orchestrates Idea Originality Scoring, applying calibrated weights and threshold guardrails to compute the global similarity score.
+
+\textbf{Domain-Specific Agents.} The \texttt{github\_\allowbreak query\_\allowbreak agent}, \texttt{repo\_\allowbreak relevance\_\allowbreak agent}, and \texttt{github\_\allowbreak synthesis\_\allowbreak agent} handle the unique requirements of cross-referencing ideas against executable open-source codebases.
+
+\textbf{Validation \& Synthesis Agents.} The \texttt{reality\_\allowbreak check\_\allowbreak agent} serves as a pragmatic filter assessing physical and technical viability. Finally, \texttt{heading\_\allowbreak selector\_\allowbreak agent} synthesizes the final structured Markdown report and manages context windows.
+
+\subsection{User Interface}
+
+The frontend is a responsive Single-Page Application (SPA) built with React. State management handles the asynchronous SSE streams, dynamically revealing agent activities and progress logs in real-time. Once the backend finalizes the report, the interface renders interactive, color-coded sentence highlights. These highlights map dynamically back to the retrieved chunk metadata, allowing users to expand specific evidence panels and directly examine the supporting paragraphs from academic papers, patent claims, or repository documentation.
