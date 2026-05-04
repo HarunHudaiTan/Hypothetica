@@ -61,3 +61,6 @@ frontend/dist/
 *.swp
 *.tmp
 docs/sentence_level_scoring.md
+
+# LaTeX build artifacts
+paper/build/

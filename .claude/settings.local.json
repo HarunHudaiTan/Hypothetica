@@ -12,7 +12,11 @@
       "WebFetch(domain:info.arxiv.org)",
       "WebFetch(domain:groups.google.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(mkdir -p /Users/harun/Documents/GitHub/Hypothetica/paper/sections /Users/harun/Documents/GitHub/Hypothetica/paper/figures)",
+      "Bash(cp /Users/harun/Downloads/els-cas-templates/cas-dc.cls /Users/harun/Downloads/els-cas-templates/cas-common.sty /Users/harun/Downloads/els-cas-templates/cas-model2-names.bst /Users/harun/Documents/GitHub/Hypothetica/paper/)",
+      "Read(//Users/harun/Downloads/**)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

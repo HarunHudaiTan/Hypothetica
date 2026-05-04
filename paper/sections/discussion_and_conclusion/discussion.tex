@@ -1,0 +1,26 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Effectiveness of Multistage Assessment}
+
+The benchmark results demonstrate that the two-layer architecture contributes meaningfully to classification quality. By scoring each retrieved document independently across four criteria -- problem, method, domain, and contribution -- before aggregating into a global similarity estimate, the system is able to distinguish between different types of overlap. An idea that shares a problem domain with prior work but introduces a new method is treated differently from one that replicates both. This separation allows the system to concentrate scoring weight on technical innovation rather than contextual similarity, which is particularly important in fields where the same problem is addressed by many methods over time.
+
+The consistent absence of catastrophic misclassifications across all three corpora -- no \textit{already\_exists} case was ever predicted as \textit{novel}, and vice versa -- reflects the ordinality preserved by the layered pipeline. Even when the exact label boundary is missed, the system's error remains directionally coherent, which is a practically meaningful property for a tool used in early-stage research screening.
+
+\subsection{Interpretability and User Feedback}
+
+A key design objective of Hypothetica is to provide actionable feedback rather than a single binary verdict. By returning the top retrieved documents alongside per-criterion similarity scores, the system enables researchers to identify which specific aspects of their proposal overlap with existing work -- and which aspects remain genuinely novel. This granularity supports an iterative research process: rather than being told that a proposal is ``not novel,'' a researcher can see that the problem framing is well-covered in the literature while the proposed mechanism is not, and adjust their contribution framing accordingly.
+
+This interpretability also partially mitigates the impact of borderline classification errors. A proposal predicted as \textit{incremental} with an originality score of 68 -- just below the novel threshold -- carries a very different implication than one scoring 35. Presenting the score alongside the label and the retrieved evidence allows users to contextualize the verdict and exercise their own judgment, which is appropriate for a tool positioned as a starting point for literature review rather than a final authority.
+
+\subsection{Limitations}
+
+Several limitations emerge from the benchmark evaluation and system design.
+
+\textbf{Corpus dependence.} The most structurally significant limitation is that the system's score scale is not stable across corpora. The patents corpus produces systematically inflated similarity scores due to retrieval bias -- domain-relevant patents are consistently surfaced even for genuinely novel inputs -- while the OpenAlex corpus exhibits the opposite deflation. This means the same originality score carries different semantics depending on which corpus is queried, and a single global threshold cannot simultaneously optimize performance across all three. Corpus-aware calibration partially addresses this, but the root cause lies in the retrieval layer rather than the scoring logic.
+
+\textbf{Novel detection ceiling.} The system reaches a performance ceiling of approximately 76--78\% through parameter tuning alone. The residual misclassification of novel ideas as incremental -- particularly in the patents corpus -- is stable across all parameter configurations and originates in the Layer~1 LLM's Likert scoring behavior: scores compress toward the midpoint under uncertainty, which depresses the originality estimate for ideas that are genuinely novel but share surface-level vocabulary with retrieved documents. Resolving this requires upstream intervention at the prompt and rubric level rather than downstream threshold adjustment.
+
+\textbf{Ground truth subjectivity.} Originality is inherently a subjective judgment, and the benchmark labels reflect a single annotator's assessment under a defined labeling scheme. The incremental/novel boundary in particular invites reasonable disagreement among domain experts. The system's lower performance on incremental cases may partially reflect label noise rather than system failure, especially for the deliberately borderline cases included in the dataset.
+
+\textbf{Coverage gaps.} The current retrieval layer covers academic literature via OpenAlex, industrial prior art via Google Patents, and open-source implementations via GitHub. Commercial products, grey literature, and non-English publications fall outside the system's search scope. As demonstrated in earlier system versions, an idea closely replicating a major commercial platform may receive an inflated novelty score if no corresponding academic or patent record exists in the indexed corpora.

@@ -1,0 +1,150 @@
+\documentclass[a4paper,fleqn]{cas-dc}
+
+\usepackage[authoryear,longnamesfirst]{natbib}
+
+\graphicspath{{figures/}}
+\newcommand{\paperfigure}[3]{%
+  \IfFileExists{figures/#1}{%
+    \includegraphics[width=\linewidth,height=0.45\textheight,keepaspectratio]{figures/#1}%
+  }{%
+    \fbox{\parbox[c][0.20\textheight][c]{0.40\textwidth}{\centering Figure pending}}%
+  }%
+  \caption{#2}%
+  \label{#3}%
+}
+\newcommand{\paperfigureblock}[3]{%
+  \par\nobreak\vspace{4pt}%
+  \begin{center}
+    \IfFileExists{figures/#1}{%
+      \includegraphics[width=0.82\linewidth,height=0.32\textheight,keepaspectratio]{figures/#1}%
+    }{%
+      \fbox{\parbox[c][0.20\textheight][c]{0.40\textwidth}{\centering Figure pending}}%
+    }%
+    \par\vspace{2pt}
+    \refstepcounter{figure}%
+    {\small\textbf{Fig.~\thefigure.} #2\label{#3}}%
+  \end{center}
+}
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+\emergencystretch=3em
+\hfuzz=\maxdimen
+\hbadness=10000
+
+% Short title
+\shorttitle{Hypothetica}
+
+% Short author
+\shortauthors{H.H. Tan et~al.}
+
+% Main title
+\title[mode=title]{Hypothetica: A Multi-Agent Framework for
+  Literature-Based Novelty Assessment of Research Ideas}
+
+% First author
+\author[1]{Harun H\"{u}dai Tan}
+\cormark[1]
+\fnmark[1]
+\ead{harunhudai.tan@tedu.edu.tr}
+\credit{Conceptualization, Methodology, Software, Writing -- Original Draft}
+
+\affiliation[1]{organization={Department of Software Engineering, Ted University},
+               city={Ankara},
+               country={T\"{u}rkiye}}
+
+% Second author
+\author[1]{Baran Erol}
+\fnmark[1]
+\ead{baran.erol@tedu.edu.tr}
+\credit{Software, Validation}
+
+% Third author
+\author[1]{Ahmet Alp Malko\c{c}}
+\fnmark[1]
+\ead{ahmetalp.malkoc@tedu.edu.tr}
+\credit{Software, Validation}
+
+% Fourth author
+\author[2]{Kutay Becerir}
+\fnmark[1]
+\ead{kutay.becerir@tedu.edu.tr}
+\credit{Software, Validation}
+
+\affiliation[2]{organization={Department of Computer Engineering, Ted University},
+               city={Ankara},
+               country={T\"{u}rkiye}}
+
+% Fifth author
+\author[1]{Murat Karakaya}
+\fnmark[1]
+\ead{murat.karakaya@tedu.edu.tr}
+\credit{Supervision, Writing -- Review \& Editing}
+
+% Corresponding author text
+\cortext[1]{Corresponding author}
+
+% Footnote text
+\fntext[1]{This study was carried out as part of the SENG~491 --
+CMPE~491 -- SENG~492 -- CMPE~492 Senior Project I -- Senior Project II
+courses, under the supervision of Dr.\ Murat Karakaya at TED University.}
+
+\begin{abstract}
+Researchers often need to spend substantial time manually reviewing
+prior studies to confirm that a proposed project does not repeat
+existing work, and this process can take a significant amount of time.
+This paper introduces Hypothetica, an AI-powered system that evaluates
+the originality of proposed research ideas by comparing them with
+existing work in the arXiv literature. The system uses a multi-agent
+architecture based on large language models, combined with
+retrieval-augmented generation (RAG), to support explainable
+assessments of originality. The system runs a semantic similarity
+search in ChromaDB using E5 embeddings, extracts text from PDFs, and
+then reviews the material across four dimensions: novelty of the
+technical problem, methodological innovation, overlap in the
+application area, and stated innovation claims. Based on this process,
+it points out where a proposed research idea matches or overlaps with
+earlier studies. Hypothetica produces a numerical originality score
+and detailed reports with its respective evidence-based feedback,
+mapping each sentence in the user's research idea that overlaps with
+prior work to the related passages in existing papers. The system's
+performance was assessed using 10 varied test cases prepared from
+several domains. In the system evaluation, 40\% of the test cases
+scored above 60/100, and the highest score of originality observed was
+91/100. These results indicated that the approach performs well on
+tasks related to structured data and on tasks that involve generating
+architectures. This approach allows researchers to improve their ideas
+by using clear, practical feedback before they begin their research.
+\end{abstract}
+
+\begin{highlights}
+\item Multi-agent RAG pipeline assesses research idea originality across four criteria
+\item Pluggable adapter layer unifies academic, patent, and code evidence sources
+\item Sentence-level overlap mapping links user idea to retrieved prior art passages
+\item 76\% mean classification accuracy over 150 manually labeled benchmark cases
+\end{highlights}
+
+\begin{keywords}
+large language models \sep multi-agent systems \sep research originality \sep retrieval-augmented generation
+\end{keywords}
+
+\maketitle
+
+\input{sections/introduction_and_related_work/introduction}
+\input{sections/introduction_and_related_work/related_work}
+\input{sections/methodology/methodology}
+\input{sections/implementation/implementation}
+\input{sections/testing_and_results/testing}
+\input{sections/testing_and_results/results}
+\input{sections/discussion_and_conclusion/discussion}
+\input{sections/discussion_and_conclusion/conclusion}
+
+\printcredits
+
+\bibliographystyle{cas-model2-names}
+\bibliography{refs}
+
+\end{document}

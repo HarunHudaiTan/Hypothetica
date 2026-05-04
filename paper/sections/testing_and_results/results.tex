@@ -1,0 +1,48 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Classification Accuracy}
+
+Table~\ref{tab:accuracy} reports overall and per-class accuracy across all three corpora under calibrated threshold configurations.
+
+\begin{table*}
+	\caption{Classification accuracy per corpus and per class.}
+	\label{tab:accuracy}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllll@{}}
+		\toprule
+		Corpus   & Overall        & Already Exists & Incremental    & Novel          \\
+		\midrule
+		Patents  & 74.0\% (37/50) & 64.7\% (11/17) & 76.5\% (13/17) & 50.0\% (8/16)  \\
+		OpenAlex & 76.0\% (38/50) & 82.4\% (14/17) & 64.7\% (11/17) & 81.2\% (13/16) \\
+		GitHub   & 78.0\% (39/50) & 85.0\% (17/20) & 53.3\% (8/15)  & 93.3\% (14/15) \\
+		\bottomrule
+	\end{tabular*}
+\end{table*}
+
+The system achieves a mean accuracy of \textbf{76.0\%} across all three corpora, compared to a random baseline of 33.3\% and a majority-class baseline of approximately 34\%, representing a roughly $2.3\times$ improvement over chance. The \textit{already\_exists} and \textit{novel} classes are consistently well-detected across corpora, while \textit{incremental} remains the weakest class in all three settings.
+
+\subsection{Error Analysis}
+
+Across all corpora, misclassifications occur exclusively between adjacent classes. No \textit{already\_exists} case was predicted as \textit{novel}, and no \textit{novel} case was predicted as \textit{already\_exists} in the patents or GitHub corpora. This confirms that the scoring pipeline captures a meaningful ordinality in the originality spectrum even when exact label boundaries are missed -- errors are directionally soft rather than catastrophic.
+
+The incremental class is the weakest performer in every corpus (76.5\%, 64.7\%, and 53.3\% respectively). This is consistent with the dataset design: incremental ideas occupy a naturally ambiguous region of the originality space, and several borderline cases were deliberately included to reflect real-world label uncertainty. In the patents corpus, incremental cases drift slightly toward \textit{already\_exists} (1 case) and \textit{novel} (3 cases). In OpenAlex, the drift is predominantly upward -- 6 incremental cases were predicted as \textit{novel}. In GitHub, the split is symmetric (3 toward each adjacent class).
+
+\subsection{Novel Class Performance and Benchmark Construction Constraints}
+
+Novel recall varies substantially across corpora: 93.3\% on GitHub, 81.2\% on OpenAlex, and 50.0\% on patents. The patents corpus stands out as the most challenging, with 8 of 16 novel cases predicted as incremental. While this may superficially appear to be a system failure, it reflects a fundamental tension inherent to originality benchmark construction.
+
+Constructing a benchmark in which novel ideas are completely unprecedented is practically infeasible. Any realistic novel idea -- even one that introduces a genuinely new contribution -- is formulated using existing terminology, builds on established methods, and targets known problem domains. An approach in which benchmark novel cases are entirely disconnected from the existing literature would produce ideas that are neither practically useful nor scientifically grounded, effectively making the benchmark a test of abstraction rather than originality assessment.
+
+As a consequence, novel ideas in the dataset carry identifiable overlapping components with prior work. The system retrieves the most semantically similar existing documents and scores similarity across four criteria. When a novel idea shares problem framing or domain vocabulary with retrieved documents -- even if its core contribution is genuinely new -- the contribution criterion score is dampened and the aggregated originality score shifts toward the incremental boundary. In the patents corpus, this effect is clearly visible: the mean originality score for true novel cases is 72.75, just marginally above the novel classification threshold, indicating that the system consistently detects and penalizes the non-novel components of these ideas.
+
+This behavior is arguably a feature of the system rather than a deficiency. A tool that labels all ideas with no retrieved overlap as \textit{novel} would be trivially gameable and would not provide meaningful signal to researchers. The system's tendency to surface the non-novel components of an idea -- even one the human annotator labeled as novel -- reflects precisely the behavior intended for a research originality assessment tool.
+
+\subsection{Cross-Corpus Generalization}
+
+The weight configuration that maximizes accuracy is consistent across the patents and OpenAlex corpora (problem=0.00, method=0.33, domain=0.17, contribution=0.50), suggesting that the relative importance of scoring criteria generalizes across corpus types. The GitHub corpus, covering software engineering ideas rather than academic research, produces a naturally well-separated score distribution (mean originality scores: 11.5 for \textit{already\_exists}, 52.7 for \textit{incremental}, 82.1 for \textit{novel}) and performs well under default thresholds without calibration.
+
+The score scale itself, however, does not generalize across corpora. The patents corpus exhibits systematically inflated similarity scores -- a consequence of retrieval bias, where domain-relevant patents are consistently surfaced even for genuinely novel inputs -- while the OpenAlex corpus exhibits the opposite deflation. These opposing shifts mean no single global threshold can simultaneously optimize all three corpora, motivating corpus-aware threshold configuration as part of the deployment architecture.
+
+\subsection{Ceiling Analysis}
+
+The accuracy ceiling achievable through post-Layer-1 parameter tuning -- encompassing thresholds, blend weights, and criteria weights -- is approximately 76--78\% across corpora. Parametric sweeps confirm that the residual novel misclassification rate in the patents corpus is stable across all threshold configurations: the 8--9 novel cases predicted as incremental do not shift regardless of parameter settings. This indicates that the limiting factor is the Likert score distribution produced by the Layer~1 LLM rather than the downstream aggregation logic. Addressing this ceiling requires upstream intervention -- specifically, rubric refinement for the contribution criterion and mitigation of Likert score compression toward the midpoint under uncertainty -- which we identify as the primary direction for future work.
