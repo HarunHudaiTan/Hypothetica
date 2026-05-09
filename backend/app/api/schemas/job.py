@@ -5,6 +5,7 @@ from enum import Enum
 class JobStatus(str, Enum):
     GENERATING_QUESTIONS = "generating_questions"
     WAITING_FOR_ANSWERS = "waiting_for_answers"
+    INTERVIEWING = "interviewing"
     PROCESSING = "processing"
     COMPLETED = "completed"
     ERROR = "error"

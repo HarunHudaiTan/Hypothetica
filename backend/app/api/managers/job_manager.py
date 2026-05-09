@@ -41,6 +41,10 @@ class PipelineState:
     selected_sources: List[str] = field(default_factory=list)
     source_results: Dict[str, int] = field(default_factory=dict)
     search_funnel: Dict[str, Any] = field(default_factory=dict)
+    # Interview conversation state
+    conversation_history: List[Dict] = field(default_factory=list)
+    current_round: int = 0
+    interview_complete: bool = False
 
 
 @dataclass
@@ -119,6 +123,21 @@ class JobManager:
                 "type": "completed",
                 "results": results,
             })
+
+    def push_chat_message(self, job_id: str, message_data: Dict):
+        job = self.get_job(job_id)
+        if job:
+            job.state.conversation_history.append(message_data)
+            job.push_event({
+                "type": "chat_message",
+                **message_data,
+            })
+
+    def set_interview_complete(self, job_id: str):
+        job = self.get_job(job_id)
+        if job:
+            job.state.interview_complete = True
+            job.push_event({"type": "interview_complete"})
 
     def set_error(self, job_id: str, error: str):
         job = self.get_job(job_id)

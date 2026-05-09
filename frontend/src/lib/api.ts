@@ -44,6 +44,31 @@ export async function submitAnswers(
   }
 }
 
+export async function sendChatMessage(
+  jobId: string,
+  message: string
+): Promise<void> {
+  const res = await fetch(`${BASE}/analyze/${jobId}/chat`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.detail ?? `Failed to send message (${res.status})`);
+  }
+}
+
+export async function finalizeInterview(jobId: string): Promise<void> {
+  const res = await fetch(`${BASE}/analyze/${jobId}/finalize`, {
+    method: "POST",
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.detail ?? `Failed to finalize interview (${res.status})`);
+  }
+}
+
 export async function getSentenceMatches(
   jobId: string,
   sentence: string,
@@ -72,6 +97,14 @@ export function subscribeToEvents(
 
   es.addEventListener("questions", (e) => {
     onEvent({ type: "questions", data: JSON.parse(e.data) });
+  });
+
+  es.addEventListener("chat_message", (e) => {
+    onEvent({ type: "chat_message", data: JSON.parse(e.data) });
+  });
+
+  es.addEventListener("interview_complete", (e) => {
+    onEvent({ type: "interview_complete", data: JSON.parse(e.data) });
   });
 
   es.addEventListener("reality_check", (e) => {

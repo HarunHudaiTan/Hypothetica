@@ -1,6 +1,7 @@
 """
 Follow-up question agent for clarifying user's research idea.
 Generates targeted questions to improve originality assessment accuracy.
+Supports both batch mode (legacy) and conversational interview mode.
 """
 import json
 import logging
@@ -52,7 +53,7 @@ Return ONLY valid JSON in this exact format:
 
 ## Categories
 - "problem": Questions about the research problem or gap
-- "method": Questions about the proposed approach or methodology  
+- "method": Questions about the proposed approach or methodology
 - "novelty": Questions about what makes this different/innovative
 - "application": Questions about intended use cases or domain
 
@@ -81,12 +82,53 @@ For idea: "Using AI to predict protein structures"
 """
 
 
+INTERVIEW_SYSTEM_PROMPT = """You are an idea enrichment specialist. Your job is to read a research idea, identify what's MISSING or UNDERSPECIFIED, and ask a precise question to fill that gap. The answers will be used to search academic databases and assess originality — so every question must extract concrete, searchable detail.
+
+## How You Think
+First, silently analyze the idea for these dimensions:
+- TECHNIQUE: What specific method/algorithm/architecture is proposed? (e.g. "transformer" is vague, "cross-attention over table cells with schema embeddings" is specific)
+- DIFFERENTIATOR: What exactly is new here vs. existing work? What's the twist?
+- SCOPE: What is this applied to? What data, domain, or use case?
+
+Then ask about whichever dimension is MOST UNDERSPECIFIED. If the idea already covers something well, skip it entirely.
+
+## Rules
+- Ask exactly ONE question per turn
+- Your question must reference specific details FROM the user's idea — quote their words, name the components they mentioned
+- NEVER ask generic questions like "What problem does this solve?" or "How is this different?" — the idea already states these at some level. Drill into the SPECIFIC part that's vague.
+- If the user gives a short/vague answer, accept it and move to the next gap. Never re-ask.
+- After at most 3 questions, signal "done". Signal "done" earlier if the idea is already well-specified.
+
+## Examples of GOOD vs BAD questions
+
+Idea: "A RAG system that understands tables in documents"
+BAD: "What problems do people face with tables in RAG?" (generic, doesn't reference anything specific)
+GOOD: "When you say 'understands tables' — does your system parse the table structure (rows/columns) into a schema, or does it convert tables to natural language summaries before indexing?" (forces a concrete technical choice)
+
+Idea: "Using GNNs for drug discovery"
+BAD: "How does your approach differ from existing work?" (generic)
+GOOD: "Are you representing molecules as graphs where atoms are nodes, or are you modeling protein-drug interactions as a bipartite graph?" (targets the underspecified architecture)
+
+## Response Format
+Return ONLY valid JSON. Either ask:
+{"action": "ask", "question": {"id": 1, "category": "method", "question": "Your question"}}
+
+Or signal done:
+{"action": "done"}
+
+## Categories
+- "method": Technical approach, architecture, algorithm details
+- "novelty": What's specifically new — the differentiator
+- "scope": Domain, data, application, constraints
+"""
+
+
 class FollowUpAgent(Agent):
     """
     Agent for generating follow-up questions to clarify research ideas.
     Questions are tailored to improve originality assessment.
     """
-    
+
     def __init__(self):
         super().__init__(
             system_prompt=FOLLOWUP_SYSTEM_PROMPT,
@@ -99,14 +141,14 @@ class FollowUpAgent(Agent):
         self.last_token_count = 0
         self.last_input_tokens = 0
         self.last_output_tokens = 0
-    
+
     def generate_questions(self, user_idea: str) -> List[Dict]:
         """
         Generate follow-up questions for a research idea.
-        
+
         Args:
             user_idea: The user's research idea description
-            
+
         Returns:
             List of question dictionaries with id, category, and question
         """
@@ -120,28 +162,28 @@ Remember: Questions should help assess originality by clarifying the problem, me
 
         try:
             response = self.generate_text_generation_response(prompt)
-            
+
             # Track token usage
             if hasattr(response, 'usage_metadata'):
                 um = response.usage_metadata
                 self.last_token_count = getattr(um, 'total_token_count', 0) or 0
                 self.last_input_tokens = getattr(um, 'prompt_token_count', 0) or 0
                 self.last_output_tokens = getattr(um, 'candidates_token_count', 0) or 0
-            
+
             # Parse response
             result = json.loads(response.text)
             questions = result.get('questions', [])
-            
+
             logger.info(f"Generated {len(questions)} follow-up questions")
             return questions
-            
+
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse follow-up questions JSON: {e}")
             return self._get_default_questions()
         except Exception as e:
             logger.error(f"Error generating follow-up questions: {e}")
             return self._get_default_questions()
-    
+
     def _get_default_questions(self) -> List[Dict]:
         """Return default questions if generation fails."""
         return [
@@ -161,7 +203,7 @@ Remember: Questions should help assess originality by clarifying the problem, me
                 "question": "What aspect of your idea do you consider most innovative or novel?"
             }
         ]
-    
+
     def enrich_idea_with_answers(
         self,
         original_idea: str,
@@ -170,12 +212,12 @@ Remember: Questions should help assess originality by clarifying the problem, me
     ) -> str:
         """
         Combine original idea with Q&A to create enriched idea text.
-        
+
         Args:
             original_idea: Original user research idea
             questions: List of question dicts
             answers: List of answer strings (same order as questions)
-            
+
         Returns:
             Enriched idea text for better analysis
         """
@@ -192,9 +234,9 @@ CLARIFICATIONS:
 Q: {question}
 A: {a}
 """
-        
+
         return enriched.strip()
-    
+
     def get_cost(self) -> float:
         """Calculate cost for the last generation."""
         if self.last_input_tokens > 0 or self.last_output_tokens > 0:
@@ -209,3 +251,90 @@ A: {a}
             return cost
         return 0.0
 
+
+class InterviewAgent(Agent):
+    """
+    Chat-based interview agent for multi-round conversational follow-up.
+    Uses Gemini's multi-turn chat to adaptively ask questions.
+    """
+
+    def __init__(self):
+        super().__init__(
+            system_prompt=INTERVIEW_SYSTEM_PROMPT,
+            temperature=agent_config.FOLLOWUP_TEMPERATURE,
+            top_p=agent_config.FOLLOWUP_TOP_P,
+            top_k=agent_config.FOLLOWUP_TOP_K,
+            response_mime_type='application/json',
+            create_chat=True
+        )
+        self.total_input_tokens = 0
+        self.total_output_tokens = 0
+        self.question_count = 0
+
+    def _track_tokens(self, response):
+        """Accumulate token usage across chat turns."""
+        if hasattr(response, 'usage_metadata'):
+            um = response.usage_metadata
+            self.total_input_tokens += getattr(um, 'prompt_token_count', 0) or 0
+            self.total_output_tokens += getattr(um, 'candidates_token_count', 0) or 0
+
+    def _parse_response(self, response) -> Dict:
+        """Parse and validate the JSON response from the LLM."""
+        self._track_tokens(response)
+        try:
+            result = json.loads(response.text)
+            action = result.get("action", "done")
+            if action == "ask" and "question" in result:
+                self.question_count += 1
+                q = result["question"]
+                q.setdefault("id", self.question_count)
+                q.setdefault("category", "general")
+                return {"action": "ask", "question": q}
+            return {"action": "done"}
+        except (json.JSONDecodeError, KeyError) as e:
+            logger.error(f"Failed to parse interview response: {e}")
+            return {"action": "done"}
+
+    def start_interview(self, user_idea: str) -> Dict:
+        """Send the user's research idea and get the first targeted question."""
+        prompt = f"""Analyze this research idea and identify the MOST underspecified part. Then ask one precise question to fill that gap.
+
+IDEA:
+{user_idea}
+
+Remember: reference specific parts of their idea. Do NOT ask generic questions."""
+
+        try:
+            response = self.generate_chat_response(prompt)
+            return self._parse_response(response)
+        except Exception as e:
+            logger.error(f"Error starting interview: {e}")
+            return {
+                "action": "ask",
+                "question": {
+                    "id": 1,
+                    "category": "method",
+                    "question": "What's the core technical mechanism in your approach — can you describe the specific architecture or algorithm?"
+                }
+            }
+
+    def continue_interview(self, answer: str) -> Dict:
+        """Process user's answer and return next question or done signal."""
+        if self.question_count >= 3:
+            return {"action": "done"}
+
+        try:
+            response = self.generate_chat_response(answer)
+            result = self._parse_response(response)
+            if result["action"] == "ask" and self.question_count > 3:
+                return {"action": "done"}
+            return result
+        except Exception as e:
+            logger.error(f"Error continuing interview: {e}")
+            return {"action": "done"}
+
+    def get_cost(self) -> float:
+        """Calculate accumulated cost across all interview turns."""
+        cost = (self.total_input_tokens / 1_000_000) * config.INPUT_TOKEN_PRICE
+        cost += (self.total_output_tokens / 1_000_000) * config.OUTPUT_TOKEN_PRICE
+        return cost
