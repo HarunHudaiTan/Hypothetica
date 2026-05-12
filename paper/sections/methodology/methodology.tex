@@ -17,7 +17,7 @@ The phases communicate through structured data passed from one stage to the next
 
 \subsection{User Interaction Phase}
 
-\paperfigureblock{fig_user_interaction.png}{User Interaction Diagram.}{fig:user_interaction}
+\paperfigureblock[0.55\linewidth]{fig_user_interaction.png}{User Interaction Diagram.}{fig:user_interaction}
 
 The pipeline begins with the User Interaction Phase, which transforms a raw user submission into a structured input that the rest of the system can operate on. As shown in Fig.~\ref{fig:user_interaction}, this phase takes a User Request Payload and produces an Enriched Idea that is passed forward to the Retrieval Phase.
 
@@ -59,9 +59,9 @@ The output of the Candidate Selection Phase is a set of Top K Selected Candidate
 
 \subsection{Parsing Phase}
 
-\paperfigureblock{fig_parsing.png}{Parsing Diagram.}{fig:parsing}
-
 Before any per-candidate analysis can take place, each of the selected resources needs to be turned into structured, searchable text. This is the responsibility of the Parsing Phase, shown in Fig.~\ref{fig:parsing}. The phase takes the Top-K Candidates produced by the Candidate Selection Phase and ends with a populated ChromaDB Vector Store containing the indexed chunks of every candidate, ready for retrieval during the scoring phases.
+
+\paperfigureblock{fig_parsing.png}{Parsing Diagram.}{fig:parsing}
 
 The phase begins with Parallel Document Fetching. Each candidate's full content is downloaded concurrently. PDFs are retrieved for OpenAlex, the Google Patents API is queried directly for patent descriptions, and the README content already collected during retrieval is reused for GitHub repositories. The fetched content is then converted into a Markdown representation so that the rest of the pipeline can treat resources from different adapters in the same way.
 
@@ -130,7 +130,7 @@ In parallel with the global computation, the Criteria Breakdown branch produces 
 \label{eq:breakdown}
 \end{equation}
 
-so that the most alarming candidate on a given criterion has the strongest influence on the displayed value while the others still contribute. Using the same $w_{\max}$ weight as the global similarity keeps the breakdown view consistent with the blend that drives the final score. These breakdown scores are not used in the final originality score; they exist to give users a quick visual breakdown of which dimensions of their idea overlap most with prior work.
+This ensures the most alarming candidate on a given criterion has the strongest influence on the displayed value while the others still contribute. Using the same $w_{\max}$ weight as the global similarity keeps the breakdown view consistent with the blend that drives the final score. These breakdown scores are not used in the final originality score; they exist to give users a quick visual breakdown of which dimensions of their idea overlap most with prior work.
 
 The Sentence Annotations branch operates at a finer granularity. For every sentence in the Enriched Idea, the system collects the sentence-level criterion scores assigned to it by every candidate during the previous phase, takes the maximum per criterion across candidates, and converts that maximum back into a Likert level. Each criterion is then labeled red, yellow, or green based on configurable Likert thresholds, and the overall sentence label is the worst label across its criteria. Each labeled sentence is also linked to the strongest matching evidence section retrieved from the candidate that drove the score, so that users can inspect exactly which passage in which candidate caused a given annotation. Sentence annotations are display artifacts; they do not affect the final originality score.
 

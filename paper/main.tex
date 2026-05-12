@@ -12,17 +12,17 @@
   \caption{#2}%
   \label{#3}%
 }
-\newcommand{\paperfigureblock}[3]{%
+\newcommand{\paperfigureblock}[4][0.95\linewidth]{%
   \par\nobreak\vspace{4pt}%
   \begin{center}
-    \IfFileExists{figures/#1}{%
-      \includegraphics[width=0.82\linewidth,height=0.32\textheight,keepaspectratio]{figures/#1}%
+    \IfFileExists{figures/#2}{%
+      \includegraphics[width=#1,height=0.45\textheight,keepaspectratio]{figures/#2}%
     }{%
       \fbox{\parbox[c][0.20\textheight][c]{0.40\textwidth}{\centering Figure pending}}%
     }%
     \par\vspace{2pt}
     \refstepcounter{figure}%
-    {\small\textbf{Fig.~\thefigure.} #2\label{#3}}%
+    {\small\textbf{Fig.~\thefigure.} #3\label{#4}}%
   \end{center}
 }
 
