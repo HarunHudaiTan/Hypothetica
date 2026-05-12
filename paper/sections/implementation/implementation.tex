@@ -1,6 +1,8 @@
 \section{Implementation}
 \label{sec:implementation}
 
+This section outlines the technical implementation details of the Hypothetica system. It describes the core development environment and technology stack, the architecture of the multi-source evidence retrieval and document processing pipelines, the vector storage configuration, the specific roles of the multi-agent system, and the interactive user interface.
+
 \subsection{Development Environment and Technology Stack}
 
 Hypothetica is developed using a highly modular, asynchronous Python backend powered by the FastAPI framework and served via Uvicorn. The system separates concerns between retrieval adapters, document processing, agent execution, and the API layer. To handle long-running, multi-agent operations without HTTP timeouts, the backend implements Server-Sent Events (SSE), streaming real-time execution logs and progress metrics directly to the client.
