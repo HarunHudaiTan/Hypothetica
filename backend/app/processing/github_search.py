@@ -4,6 +4,7 @@ GitHub API client for searching repositories and fetching README content.
 import base64
 import logging
 import math
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from typing import List, Dict, Optional
@@ -13,6 +14,11 @@ import requests
 from core import config
 
 logger = logging.getLogger(__name__)
+
+# Rate-limit backoff: cap any single wait so we don't sleep for an entire
+# rate-limit reset window (search resets every 60s; core resets hourly).
+_BACKOFF_MAX_SECONDS = 60.0
+_BACKOFF_MAX_RETRIES = 3
 
 TOPIC_HINTS = {
     # Framework names only — these are commonly self-tagged on GitHub
@@ -43,6 +49,58 @@ class GitHubSearchClient:
         if config.GITHUB_TOKEN:
             self._headers["Authorization"] = f"Bearer {config.GITHUB_TOKEN}"
 
+    def _wait_for_rate_limit(self, response: requests.Response, attempt: int) -> float:
+        """Pick a sleep duration when GitHub responds with a rate-limit signal."""
+        retry_after = response.headers.get("Retry-After")
+        if retry_after:
+            try:
+                return min(float(retry_after), _BACKOFF_MAX_SECONDS)
+            except ValueError:
+                pass
+        reset = response.headers.get("X-RateLimit-Reset")
+        if reset:
+            try:
+                wait = max(0, int(reset) - int(time.time()))
+                return min(wait, _BACKOFF_MAX_SECONDS)
+            except ValueError:
+                pass
+        return min(2 ** attempt, _BACKOFF_MAX_SECONDS)
+
+    def _request_with_backoff(
+        self, url: str, params: Optional[Dict] = None, timeout: int = 15
+    ) -> Optional[requests.Response]:
+        """
+        GET with retry on GitHub rate-limit responses (429 abuse limit, or
+        403 with X-RateLimit-Remaining=0). Returns the final Response, or
+        None if every retry was rate-limited.
+        """
+        for attempt in range(_BACKOFF_MAX_RETRIES + 1):
+            r = requests.get(url, headers=self._headers, params=params, timeout=timeout)
+            rate_limited = r.status_code == 429 or (
+                r.status_code == 403
+                and r.headers.get("X-RateLimit-Remaining") == "0"
+            )
+            if not rate_limited:
+                return r
+            if attempt >= _BACKOFF_MAX_RETRIES:
+                logger.warning(
+                    "[GitHub] rate-limited (%s) after %d retries; giving up on %s",
+                    r.status_code,
+                    attempt,
+                    url,
+                )
+                return r
+            wait_s = self._wait_for_rate_limit(r, attempt)
+            logger.warning(
+                "[GitHub] rate-limited (%s); sleeping %.1fs and retrying (attempt %d/%d)",
+                r.status_code,
+                wait_s,
+                attempt + 1,
+                _BACKOFF_MAX_RETRIES,
+            )
+            time.sleep(wait_s)
+        return None
+
     def search_repos(self, query: str, per_page: int = None) -> List[Dict]:
         """
         Search GitHub repositories with enhanced metadata extraction.
@@ -57,7 +115,10 @@ class GitHubSearchClient:
             "per_page": min(per_page, 100),  # API max is 100
         }
         try:
-            r = requests.get(url, headers=self._headers, params=params, timeout=15)
+            r = self._request_with_backoff(url, params=params, timeout=15)
+            if r is None:
+                logger.error(f"GitHub search exhausted retries for query '{query}'")
+                return []
             r.raise_for_status()
             
             items = r.json().get("items", [])
@@ -181,8 +242,8 @@ class GitHubSearchClient:
     def get_readme(self, owner: str, repo: str) -> Optional[str]:
         url = f"https://api.github.com/repos/{owner}/{repo}/readme"
         try:
-            r = requests.get(url, headers=self._headers, timeout=10)
-            if r.status_code != 200:
+            r = self._request_with_backoff(url, timeout=10)
+            if r is None or r.status_code != 200:
                 return None
             data = r.json()
             content = data.get("content")
@@ -238,8 +299,9 @@ class GitHubSearchClient:
             readme = self.get_readme(owner, name)
             repo["_readme_preview"] = readme[:config.GITHUB_README_PREVIEW_CHARS] if readme else ""
 
-        with ThreadPoolExecutor(max_workers=min(len(all_repos), 10)) as executor:
-            list(executor.map(_fetch_readme, all_repos))
+        if all_repos:
+            with ThreadPoolExecutor(max_workers=min(len(all_repos), 10)) as executor:
+                list(executor.map(_fetch_readme, all_repos))
 
         # Step 4: Filter and score per query (README data now available)
         per_query_results: Dict[str, List[Dict]] = {}

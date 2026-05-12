@@ -51,6 +51,7 @@ def save_benchmark_row(
     case: Dict[str, Any],
     result: Dict[str, Any],
     source_name: str,
+    table_name: str,
     job_id: Optional[str] = None,
     benchmark_run_id: Optional[str] = None,
 ) -> Optional[str]:
@@ -107,13 +108,17 @@ def save_benchmark_row(
         "job_id": job_id,
     }
 
+    if case.get("length"):
+        row["length"] = case["length"]
+
     try:
         client = _get_client()
-        resp = client.table("benchmark2").insert(row).execute()
+        resp = client.table(table_name).insert(row).execute()
         if resp.data and len(resp.data) > 0:
             rid = resp.data[0].get("id")
             logger.info(
-                "Benchmark row saved: run=%s case=%s id=%s",
+                "Benchmark row saved: table=%s run=%s case=%s id=%s",
+                table_name,
                 benchmark_run_id,
                 case["case_id"],
                 rid,

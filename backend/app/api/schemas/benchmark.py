@@ -22,7 +22,11 @@ class BenchmarkRunRequest(BaseModel):
         description="Override JSON path, relative to repo root or absolute under repo root.",
     )
     persist_supabase: bool = True
-    job_timeout_seconds: int = Field(default=900, ge=60, le=7200)
+    table_name: str = Field(
+        ...,
+        min_length=1,
+        description="Supabase table to insert benchmark rows into (e.g. 'benchmark2', 'openalex_v3_benchmark').",
+    )
 
 
 class BenchmarkRunResponse(BaseModel):

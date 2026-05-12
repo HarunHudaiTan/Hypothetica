@@ -1,0 +1,317 @@
+[
+  {
+    "id": "idea_001",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "Developer Tools",
+    "idea": "A command-line tool that automatically formats source code according to a fixed style guide and can run inside CI pipelines."
+  },
+  {
+    "id": "idea_002",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "Web Development",
+    "idea": "A React component library with reusable buttons, forms, modals, tables, navigation components, theming, and TypeScript support."
+  },
+  {
+    "id": "idea_003",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "DevOps",
+    "idea": "A Docker Compose setup that runs a web application, PostgreSQL database, Redis cache, and Nginx reverse proxy for local development."
+  },
+  {
+    "id": "idea_004",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "Machine Learning",
+    "idea": "A PyTorch project that trains a convolutional image classifier on CIFAR-10 with data augmentation and validation accuracy tracking."
+  },
+  {
+    "id": "idea_005",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "Testing",
+    "idea": "A JavaScript testing setup using Jest and React Testing Library for unit tests, component tests, mocks, and coverage reports."
+  },
+  {
+    "id": "idea_006",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "Backend",
+    "idea": "A REST API built with FastAPI that supports user registration, JWT authentication, CRUD operations, database models, and automatic OpenAPI documentation. The project follows a typical backend structure with routers, schemas, services, and persistence layers."
+  },
+  {
+    "id": "idea_007",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "Data Engineering",
+    "idea": "An ETL pipeline that extracts CSV files, transforms columns using pandas, loads cleaned data into PostgreSQL, and schedules recurring jobs with Airflow. The system includes basic logging, retry behavior, and task dependency management."
+  },
+  {
+    "id": "idea_008",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "Cybersecurity",
+    "idea": "A password strength checker that evaluates length, character diversity, dictionary words, entropy estimates, and common breached-password patterns. It returns a score and gives user-facing suggestions for improving weak passwords."
+  },
+  {
+    "id": "idea_009",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "LLM Applications",
+    "idea": "A retrieval-augmented generation chatbot that loads PDF documents, chunks text, embeds chunks into a vector database, retrieves relevant passages, and answers user questions with source citations. The system combines document ingestion, semantic search, and LLM-based response generation."
+  },
+  {
+    "id": "idea_010",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "Computer Vision",
+    "idea": "An object detection project using YOLO to detect people, cars, and bicycles in images and videos. The repository includes pretrained weights, inference scripts, visualization utilities, and example input/output files."
+  },
+  {
+    "id": "idea_011",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "Automation",
+    "idea": "A GitHub Actions workflow that runs linting, unit tests, type checks, Docker builds, and deployment steps whenever code is pushed to the main branch. The workflow is defined using YAML configuration files and separates jobs for code quality, test execution, image building, and production deployment. It can also use secrets for authentication, cache dependencies between runs, and report build status directly on pull requests. This is a standard continuous integration and continuous deployment setup for modern software projects."
+  },
+  {
+    "id": "idea_012",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "NLP",
+    "idea": "A sentiment analysis repository that fine-tunes a transformer model on labeled movie reviews and exposes predictions through a simple web API. The training script tokenizes the dataset, fine-tunes the model, evaluates accuracy or F1-score on a validation split, and saves the trained checkpoint. The API accepts user text, runs inference, and returns a positive or negative sentiment label with confidence. This type of project is a common applied NLP example built around pretrained transformer models."
+  },
+  {
+    "id": "idea_013",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "Blockchain",
+    "idea": "A Solidity smart contract project implementing an ERC-20 token with deployment scripts, unit tests, and Hardhat configuration. The contract defines standard token behavior such as balances, transfers, allowances, approvals, and total supply. The repository includes scripts for local blockchain deployment, automated tests for contract functions, and configuration for compiling and verifying the contract. This is a widely used template pattern for Ethereum-based token development."
+  },
+  {
+    "id": "idea_014",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "Game Development",
+    "idea": "A Unity 2D platformer game with player movement, jumping, enemies, collectibles, score tracking, and level transitions. The project includes scripts for physics-based movement, collision handling, enemy patrol behavior, item pickup logic, and UI updates. Levels are built from tilemaps or prefabs, and the player progresses by reaching checkpoints or completing stages. This represents a standard beginner-to-intermediate Unity game development project."
+  },
+  {
+    "id": "idea_015",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "Monitoring",
+    "idea": "A Prometheus and Grafana monitoring stack that collects application metrics, visualizes CPU and memory usage, and triggers alerts when thresholds are exceeded. Prometheus scrapes metrics from services or exporters, Grafana displays dashboards, and alert rules notify operators when abnormal behavior occurs. The stack may be deployed with Docker Compose or Kubernetes manifests. This is an established observability setup for backend services and infrastructure monitoring."
+  },
+  {
+    "id": "idea_016",
+    "label": "incremental",
+    "length": "short",
+    "domain": "Developer Tools",
+    "idea": "A code formatter that learns project-specific formatting preferences from repository history instead of relying only on a fixed global style file."
+  },
+  {
+    "id": "idea_017",
+    "label": "incremental",
+    "length": "short",
+    "domain": "LLM Applications",
+    "idea": "A RAG framework that detects table-heavy chunks and routes them through a table-aware parser before LLM answer generation."
+  },
+  {
+    "id": "idea_018",
+    "label": "incremental",
+    "length": "short",
+    "domain": "DevOps",
+    "idea": "A CI optimizer that predicts which tests are likely to become flaky or irrelevant for a pull request by combining dependency graphs with historical workflow outcomes."
+  },
+  {
+    "id": "idea_019",
+    "label": "incremental",
+    "length": "short",
+    "domain": "Cybersecurity",
+    "idea": "A remediation-oriented secret management tool that automatically rewrites insecure credential handling into safer environment-isolated secret injection patterns."
+  },
+  {
+    "id": "idea_020",
+    "label": "incremental",
+    "length": "short",
+    "domain": "Mobile Development",
+    "idea": "A Flutter habit tracker that predicts likely missed habits on device and adjusts reminder timing automatically."
+  },
+  {
+    "id": "idea_021",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "Backend",
+    "idea": "A FastAPI backend framework that infers fine-grained access-control policies from observed API usage patterns and automatically proposes least-privilege RBAC updates during development."
+  },
+  {
+    "id": "idea_022",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "Data Engineering",
+    "idea": "A data quality framework that learns evolving distribution fingerprints from historical pipeline runs and automatically generates adaptive validation constraints when dataset semantics drift over time."
+  },
+  {
+    "id": "idea_023",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "Testing",
+    "idea": "A test generation tool that analyzes changed functions in a pull request and asks an LLM to propose missing unit tests with explanations. The tool links each suggested test to the exact changed code region it is meant to cover."
+  },
+  {
+    "id": "idea_024",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "Computer Vision",
+    "idea": "An object detection repository that improves small-object detection by combining YOLO inference with image tiling and automatic result merging. The method splits high-resolution images into overlapping crops and reconciles duplicate detections afterward."
+  },
+  {
+    "id": "idea_025",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "NLP",
+    "idea": "A multilingual text classification library that automatically detects input language, routes text to language-specific tokenizers, and fine-tunes a shared transformer backbone. The system improves multilingual handling without training a fully separate model for every language."
+  },
+  {
+    "id": "idea_026",
+    "label": "incremental",
+    "length": "long",
+    "domain": "Blockchain",
+    "idea": "A smart contract auditing tool that combines symbolic execution results with LLM-generated explanations of potential vulnerabilities. The symbolic engine identifies suspicious execution paths, reentrancy risks, arithmetic issues, or access-control weaknesses, while the LLM converts the findings into developer-friendly explanations and suggested fixes. The system does not replace formal auditing but improves usability by making low-level analyzer outputs easier to understand. This is an incremental combination of existing program analysis and LLM-based explanation."
+  },
+  {
+    "id": "idea_027",
+    "label": "incremental",
+    "length": "long",
+    "domain": "Game Development",
+    "idea": "A Unity enemy AI package that uses behavior trees with reinforcement-learning-tuned parameters to adapt enemy difficulty to player performance. Designers still define the high-level behavior tree structure, but parameters such as aggression, reaction delay, patrol range, and attack frequency are adjusted based on player success or failure. The system aims to preserve authorial control while making difficulty more responsive. This extends standard behavior-tree AI with adaptive tuning rather than introducing a completely new game AI paradigm."
+  },
+  {
+    "id": "idea_028",
+    "label": "incremental",
+    "length": "long",
+    "domain": "Monitoring",
+    "idea": "A log analysis dashboard that clusters similar error messages using sentence embeddings and shows representative root-cause summaries for each cluster. Logs from multiple services are embedded into a semantic vector space, grouped by similarity, and displayed as incident-like clusters instead of isolated lines. An LLM summarizes the dominant failure pattern, affected services, and likely starting point for debugging. The system improves existing log dashboards by adding semantic grouping and summarization."
+  },
+  {
+    "id": "idea_029",
+    "label": "incremental",
+    "length": "long",
+    "domain": "Documentation",
+    "idea": "A documentation generator that builds API docs from source code comments and also creates LLM-generated usage examples for each public function. The generator extracts function signatures, parameter descriptions, return types, and docstrings, then uses repository context to produce realistic examples. Developers can approve, edit, or reject generated examples before publishing. The idea extends traditional documentation tools with context-aware example generation rather than replacing the documentation workflow entirely."
+  },
+  {
+    "id": "idea_030",
+    "label": "incremental",
+    "length": "long",
+    "domain": "Accessibility",
+    "idea": "A browser extension that scans web pages for accessibility violations and uses an LLM to suggest corrected ARIA labels and semantic HTML replacements. The extension identifies missing alt text, poor heading hierarchy, unlabeled controls, contrast problems, and misuse of interactive elements. Instead of only reporting violations, it proposes concrete code-level fixes that developers can inspect. This is incremental because it combines established accessibility auditing with LLM-assisted repair suggestions."
+  },
+  {
+    "id": "idea_031",
+    "label": "novel",
+    "length": "short",
+    "domain": "Developer Tools",
+    "idea": "A version control system that stores commits as executable semantic transformations over an abstract syntax forest instead of textual file diffs."
+  },
+  {
+    "id": "idea_032",
+    "label": "novel",
+    "length": "short",
+    "domain": "Machine Learning",
+    "idea": "A neural training library where model parameters are compressed symbolic programs that rewrite themselves during learning."
+  },
+  {
+    "id": "idea_033",
+    "label": "novel",
+    "length": "short",
+    "domain": "Web Development",
+    "idea": "A frontend framework that synthesizes interfaces from user-intent constraints instead of rendering a fixed component tree."
+  },
+  {
+    "id": "idea_034",
+    "label": "novel",
+    "length": "short",
+    "domain": "NLP",
+    "idea": "A text editor where documents are stored as competing semantic interpretations rather than token sequences."
+  },
+  {
+    "id": "idea_035",
+    "label": "novel",
+    "length": "short",
+    "domain": "Programming Languages",
+    "idea": "A programming language where functions propagate uncertainty about missing context as a first-class runtime value."
+  },
+  {
+    "id": "idea_036",
+    "label": "novel",
+    "length": "medium",
+    "domain": "LLM Applications",
+    "idea": "A repository assistant that maintains a living causal graph of software behavior. Every function, test, issue, deployment, and production incident becomes a node, allowing developers to query not only what changed, but why a bug emerged."
+  },
+  {
+    "id": "idea_037",
+    "label": "novel",
+    "length": "medium",
+    "domain": "DevOps",
+    "idea": "A deployment system that treats infrastructure as an immune system. Services emit danger signals when abnormal interactions appear, and autonomous repair agents migrate through the cluster to isolate, heal, or replace failing components."
+  },
+  {
+    "id": "idea_038",
+    "label": "novel",
+    "length": "medium",
+    "domain": "Cybersecurity",
+    "idea": "A malware analysis sandbox where suspicious programs run inside a procedurally generated fake operating system. The system mutates APIs in real time to force malware to reveal hidden assumptions about its target environment."
+  },
+  {
+    "id": "idea_039",
+    "label": "novel",
+    "length": "medium",
+    "domain": "Data Engineering",
+    "idea": "A database migration system that models schema evolution as a reversible developmental process. Tables differentiate, merge, and specialize according to lineage rules while preserving query compatibility across schema generations."
+  },
+  {
+    "id": "idea_040",
+    "label": "novel",
+    "length": "medium",
+    "domain": "Mobile Development",
+    "idea": "A mobile app runtime that compiles user behavior into temporary personalized micro-features on device. The interface grows new functions when patterns become useful and removes them when they stop being used."
+  },
+  {
+    "id": "idea_041",
+    "label": "novel",
+    "length": "long",
+    "domain": "Testing",
+    "idea": "A software testing framework that generates tests by simulating adversarial future maintainers who misunderstand the codebase in different ways. Instead of only searching for input edge cases, the framework models likely human misreadings of function names, comments, abstractions, and architectural boundaries. It then creates tests that protect against bugs introduced by those misunderstandings. The goal is to test not only program behavior, but also the robustness of the codebase against plausible maintenance errors."
+  },
+  {
+    "id": "idea_042",
+    "label": "novel",
+    "length": "long",
+    "domain": "Computer Vision",
+    "idea": "A vision debugging pipeline where image models are tested through counterfactual synthetic worlds that evolve until they discover the minimal physical law change needed to make the model fail. Instead of only perturbing pixels or generating adversarial noise, the system modifies world-level properties such as gravity, material reflectance, object permanence, lighting causality, or camera geometry. The resulting failures reveal which physical assumptions the model secretly depends on. This turns model debugging into a search over possible worlds rather than individual images."
+  },
+  {
+    "id": "idea_043",
+    "label": "novel",
+    "length": "long",
+    "domain": "Blockchain",
+    "idea": "A smart contract platform where contracts are represented as living state machines that negotiate interface changes with dependent contracts before accepting upgrades. When a contract proposes a new function, state transition, or storage layout, affected contracts simulate whether their own invariants would break under the change. Upgrades are accepted only after a compatibility negotiation process completes across the dependency graph. This shifts smart contract evolution away from isolated upgradeability patterns and toward cooperative protocol-level adaptation."
+  },
+  {
+    "id": "idea_044",
+    "label": "novel",
+    "length": "long",
+    "domain": "Game Development",
+    "idea": "A game engine where non-player characters inherit behavioral memories from previous players instead of using only scripted AI or learned policies trained offline. Each installation contributes patterns of negotiation, betrayal, exploration, combat, and cooperation into a shared cultural memory layer. New NPC populations are initialized from this evolving memory, causing different servers or worlds to develop distinct social norms over time. The result is a game world where character behavior emerges from accumulated player history rather than static designer-authored behavior trees."
+  },
+  {
+    "id": "idea_045",
+    "label": "novel",
+    "length": "long",
+    "domain": "Documentation",
+    "idea": "A documentation system where explanations are not written directly but grown through simulated novice misunderstandings. The system creates synthetic learners with different backgrounds, lets them attempt to understand an API or concept from a draft explanation, and records where their mental models fail. The documentation is then rewritten to reduce the predicted probability of future conceptual errors. Instead of optimizing pages for completeness alone, the system optimizes for misunderstanding prevention across multiple reader profiles."
+  }
+]

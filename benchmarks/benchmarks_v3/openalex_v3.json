@@ -1,0 +1,317 @@
+[
+  {
+    "id": "idea_001",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "AI/ML",
+    "idea": "A deep residual network trained on ImageNet that uses skip connections between convolutional layers to enable stable training of very deep image classification models."
+  },
+  {
+    "id": "idea_002",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "NLP",
+    "idea": "A transformer-based language model pre-trained with masked language modeling and next sentence prediction, then fine-tuned for question answering and text classification."
+  },
+  {
+    "id": "idea_003",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "AI/ML",
+    "idea": "A generative adversarial network where a generator and discriminator are trained adversarially so the generator learns to synthesize realistic images."
+  },
+  {
+    "id": "idea_004",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "Quantum",
+    "idea": "A variational quantum eigensolver using a parameterized quantum circuit and a classical optimizer to approximate molecular ground-state energies."
+  },
+  {
+    "id": "idea_005",
+    "label": "already_exists",
+    "length": "short",
+    "domain": "Cybersecurity",
+    "idea": "A network intrusion detection system that trains an autoencoder on normal traffic and flags packets with high reconstruction error as anomalies."
+  },
+  {
+    "id": "idea_006",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "Biomedical",
+    "idea": "A cancer immunotherapy approach where T-cells are extracted from a patient, edited ex vivo using CRISPR-Cas9 to knock out the PD-1 gene, and reinfused to improve anti-tumor immune activity. The goal is to reduce inhibitory checkpoint signaling and make the edited immune cells more effective against tumor cells."
+  },
+  {
+    "id": "idea_007",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "Materials Science",
+    "idea": "A machine learning model trained on DFT-calculated formation energies to predict the thermodynamic stability of perovskite oxides. The model uses chemical composition and crystal-structure descriptors to estimate whether a candidate material is likely to be stable before expensive simulation or synthesis."
+  },
+  {
+    "id": "idea_008",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "Cybersecurity",
+    "idea": "A federated learning system in which multiple clients train a shared model using local datasets while avoiding direct sharing of raw records. Differential privacy noise is added to client updates so that the central server receives useful aggregate learning signals without easily recovering individual training examples."
+  },
+  {
+    "id": "idea_009",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "Robotics",
+    "idea": "A robotic manipulation system trained with reinforcement learning to perform dexterous grasping under sparse reward conditions. The method improves learning efficiency by combining reward shaping with hindsight experience replay, allowing failed attempts to be reused as informative training examples."
+  },
+  {
+    "id": "idea_010",
+    "label": "already_exists",
+    "length": "medium",
+    "domain": "Drug Discovery",
+    "idea": "A graph neural network for molecular property prediction that represents atoms as nodes and bonds as edges. By learning atom and bond embeddings through message passing, the model estimates properties such as toxicity, solubility, or binding affinity for use in virtual screening."
+  },
+  {
+    "id": "idea_011",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "NLP",
+    "idea": "A sequence-to-sequence neural machine translation model that encodes a source sentence into hidden representations and decodes the target sentence one token at a time using an attention mechanism. Instead of compressing the whole source sentence into a single fixed vector, the decoder dynamically attends to different source-side hidden states during generation. This allows the model to better handle long sentences, word alignment, and context-dependent translation decisions. The approach became a foundational method in neural machine translation before transformer-based architectures became dominant."
+  },
+  {
+    "id": "idea_012",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "AI/ML",
+    "idea": "A diffusion-based generative image model that learns to reverse a gradual noising process. During training, clean images are corrupted step by step with Gaussian noise, and the neural network learns to predict either the noise or the denoised signal at different timesteps. At inference time, the model starts from random noise and iteratively removes noise until a coherent image emerges. This framework has been widely used for high-quality image synthesis, text-to-image generation, image editing, and conditional generation tasks."
+  },
+  {
+    "id": "idea_013",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "Biomedical",
+    "idea": "A convolutional neural network trained on digitized histopathology whole-slide images to classify tissue regions as malignant or benign. The system processes image patches extracted from large microscopy slides, learns visual patterns associated with cancer morphology, and aggregates patch-level predictions into slide-level diagnostic outputs. Such models have been studied extensively for breast cancer detection and related pathology tasks, often being evaluated against expert pathologist annotations. The core contribution is automated visual diagnosis from medical images using supervised deep learning."
+  },
+  {
+    "id": "idea_014",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "AI/ML",
+    "idea": "A neural architecture search method that uses reinforcement learning to automatically design convolutional neural network architectures. A controller model proposes candidate architectures layer by layer, each candidate is trained or partially evaluated on an image classification task, and the validation performance is used as a reward signal to improve future architecture proposals. Over repeated search iterations, the system discovers network structures that can outperform manually designed baselines. This represents an established approach in automated machine learning and architecture optimization."
+  },
+  {
+    "id": "idea_015",
+    "label": "already_exists",
+    "length": "long",
+    "domain": "Materials Science",
+    "idea": "A message passing neural network used as a surrogate model for molecular dynamics simulations by predicting interatomic energies and forces. The model represents atoms as graph nodes and interactions as edges, repeatedly exchanging information between neighboring atoms to learn local chemical environments. Once trained on quantum-mechanical reference data such as DFT calculations, the network can approximate potential energy surfaces much faster than direct electronic-structure simulation. This enables larger-scale or longer-timescale molecular simulations while retaining useful accuracy."
+  },
+  {
+    "id": "idea_016",
+    "label": "incremental",
+    "length": "short",
+    "domain": "AI/ML",
+    "idea": "A residual image classifier that dynamically switches between batch, group, and layer normalization depending on batch size, feature statistics, and memory pressure during training."
+  },
+  {
+    "id": "idea_017",
+    "label": "incremental",
+    "length": "short",
+    "domain": "Federated Learning",
+    "idea": "A federated aggregation algorithm that weights client updates according to inverse local class imbalance to improve fairness across non-i.i.d. clients."
+  },
+  {
+    "id": "idea_018",
+    "label": "incremental",
+    "length": "short",
+    "domain": "Quantum",
+    "idea": "A variational quantum eigensolver that replaces hardware-efficient circuits with a tensor-network ansatz to reduce parameter count."
+  },
+  {
+    "id": "idea_019",
+    "label": "incremental",
+    "length": "short",
+    "domain": "Robotics",
+    "idea": "A sim-to-real grasping framework that adapts its domain-randomization ranges online using real-world failure feedback after each deployment episode."
+  },
+  {
+    "id": "idea_020",
+    "label": "incremental",
+    "length": "short",
+    "domain": "Cybersecurity",
+    "idea": "A federated intrusion detection system using robust aggregation to reduce the effect of poisoned client updates."
+  },
+  {
+    "id": "idea_021",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "NLP",
+    "idea": "A clinical language model for medical named entity recognition that augments BioBERT-style representations with temporal normalization and dosage-consistency constraints. Instead of only extracting conditions, medications, and dosages, the system links them into patient-specific treatment timelines and penalizes medically inconsistent entity sequences during fine-tuning."
+  },
+  {
+    "id": "idea_022",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "Biomedical",
+    "idea": "A base-editing planning system that selects among multiple cytosine and adenine editor variants using patient-specific haplotype context, predicted bystander edits, and tissue-specific off-target risk. The contribution is not the base editor itself, but an optimization layer that chooses the safest editing strategy for a given inherited mutation."
+  },
+  {
+    "id": "idea_023",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "Drug Discovery",
+    "idea": "A molecular graph neural network that combines standard 2D atom-bond topology with 3D conformer geometry. By incorporating spatial distance and orientation information, the model improves binding affinity estimation for protein-ligand docking compared with topology-only molecular representations."
+  },
+  {
+    "id": "idea_024",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "Materials Science",
+    "idea": "A crystal graph convolutional network for formation energy prediction that adds explicit long-range electrostatic interaction features. Ewald summation terms are used alongside local graph features so the model can better capture ionic and periodic crystal effects."
+  },
+  {
+    "id": "idea_025",
+    "label": "incremental",
+    "length": "medium",
+    "domain": "Climate",
+    "idea": "A transformer-based climate downscaling model that converts coarse global climate model outputs into high-resolution regional temperature and precipitation maps. The model uses attention over spatial patches to capture long-range dependencies between geographic regions."
+  },
+  {
+    "id": "idea_026",
+    "label": "incremental",
+    "length": "long",
+    "domain": "AI/ML",
+    "idea": "A diffusion model for protein structure generation conditioned on amino acid sequence and functional annotations. The system starts from noisy structural representations and iteratively denoises them into plausible protein backbones while using conditioning signals to guide the generation toward desired biochemical functions. Compared with unconditional protein generation, the method aims to improve controllability by incorporating sequence-level constraints and enzyme-related functional tags. This is best viewed as an incremental extension of diffusion-based protein design and conditional generative modeling rather than a fully new paradigm."
+  },
+  {
+    "id": "idea_027",
+    "label": "incremental",
+    "length": "long",
+    "domain": "Economics",
+    "idea": "A multi-agent reinforcement learning system for market-making in which several trading agents compete in a simulated limit order book. Each agent observes price levels, order flow, inventory, and recent market state, then learns a quoting policy that balances spread capture against inventory risk. A transformer encoder is used by each agent to model temporal patterns in the order book before selecting actions. The novelty lies mainly in combining existing MARL market simulation with transformer-based order book representation, making it an incremental research contribution."
+  },
+  {
+    "id": "idea_028",
+    "label": "incremental",
+    "length": "long",
+    "domain": "Biomedical",
+    "idea": "A multimodal survival prediction model for lung adenocarcinoma that combines whole-slide histopathology images with bulk RNA sequencing profiles. Image patch embeddings are extracted from tumor tissue regions, gene expression features are encoded separately, and a cross-attention module learns relationships between visual morphology and molecular signatures. The fused representation is then used to predict patient survival risk. The approach extends existing multimodal biomedical deep learning by improving the interaction mechanism between pathology images and omics data rather than proposing an entirely new learning paradigm."
+  },
+  {
+    "id": "idea_029",
+    "label": "incremental",
+    "length": "long",
+    "domain": "AI/ML",
+    "idea": "A vision-language model that grounds natural language descriptions into regions of 3D point clouds obtained from LiDAR scans. The system projects geometric point features and text embeddings into a shared contrastive representation space, allowing phrases such as object names, spatial relations, or scene descriptions to be matched with corresponding 3D regions. It extends existing image-text grounding methods to 3D perception by changing the input modality and representation pipeline. This makes it a realistic incremental contribution in embodied AI, autonomous driving, and spatial scene understanding."
+  },
+  {
+    "id": "idea_030",
+    "label": "incremental",
+    "length": "long",
+    "domain": "Robotics",
+    "idea": "A model-based reinforcement learning system for legged locomotion that learns a differentiable terrain model from proprioceptive sensor data. Instead of relying only on external cameras or prebuilt maps, the robot estimates terrain properties such as slope, compliance, and roughness through its own movement feedback. The learned terrain model is then used inside a gradient-based trajectory optimizer to plan stable gaits. The method builds on established model-based control, differentiable planning, and proprioceptive terrain adaptation, making it incremental but technically meaningful."
+  },
+  {
+    "id": "idea_031",
+    "label": "novel",
+    "length": "short",
+    "domain": "AI/ML",
+    "idea": "A training framework where neural weight updates are produced by acoustic standing-wave interference patterns rather than explicitly computed gradients."
+  },
+  {
+    "id": "idea_032",
+    "label": "novel",
+    "length": "short",
+    "domain": "Quantum",
+    "idea": "A quantum learning architecture where training signals are encoded as entanglement entropy gradients between subsystems of a many-body state."
+  },
+  {
+    "id": "idea_033",
+    "label": "novel",
+    "length": "short",
+    "domain": "Cybersecurity",
+    "idea": "A network defense system where endpoint identities exist only as transient physical-layer signal patterns generated by programmable RF scatterers."
+  },
+  {
+    "id": "idea_034",
+    "label": "novel",
+    "length": "short",
+    "domain": "Materials Science",
+    "idea": "A self-healing electronic material where chemotactic nanoparticles restore broken conductive paths by following local electric-field gradients."
+  },
+  {
+    "id": "idea_035",
+    "label": "novel",
+    "length": "short",
+    "domain": "Robotics",
+    "idea": "A robot controller whose policy is encoded in reversible phase transitions of a soft material rather than in digital parameters."
+  },
+  {
+    "id": "idea_036",
+    "label": "novel",
+    "length": "medium",
+    "domain": "Biomedical",
+    "idea": "A living therapeutic made of engineered gut bacteria that continuously monitors metabolomic signals associated with pre-diabetic drift. When the synthetic circuit detects a risky metabolic pattern, the bacteria autonomously secrete a tunable insulin-sensitizer peptide proportional to the detected deviation."
+  },
+  {
+    "id": "idea_037",
+    "label": "novel",
+    "length": "medium",
+    "domain": "Materials Science",
+    "idea": "A materials discovery system where ant-colony search is physically implemented on a reconfigurable microfluidic chip. Each droplet represents a candidate crystal composition, while chemical concentration gradients act as pheromone fields that guide exploration toward high-conductivity material regions."
+  },
+  {
+    "id": "idea_038",
+    "label": "novel",
+    "length": "medium",
+    "domain": "NLP",
+    "idea": "A language model that represents uncertainty as a superposition of incompatible semantic frames rather than a probability distribution over next tokens. The model collapses toward a specific interpretation only when queried within a concrete pragmatic context."
+  },
+  {
+    "id": "idea_039",
+    "label": "novel",
+    "length": "medium",
+    "domain": "Climate",
+    "idea": "A distributed ocean-surface albedo modulation system using engineered cyanobacteria rafts with tunable pigmentation. The rafts self-organize their coverage through stigmergic signaling inspired by slime mold aggregation, creating decentralized and reversible solar reflection."
+  },
+  {
+    "id": "idea_040",
+    "label": "novel",
+    "length": "medium",
+    "domain": "Drug Discovery",
+    "idea": "A drug design framework where a small molecule acts as a programmable conformational router whose binding behavior changes depending on endogenous metabolite context. Instead of only inhibiting or activating a protein, the compound redirects signaling paths differently across cellular states."
+  },
+  {
+    "id": "idea_041",
+    "label": "novel",
+    "length": "long",
+    "domain": "Robotics",
+    "idea": "A swarm of microrobots that collectively solves protein folding by physically enacting an energy-minimization process. Each microrobot represents one amino acid residue and interacts with nearby robots through programmable magnetic forces corresponding to simplified biochemical attraction and repulsion terms. As the swarm moves, local interactions cause the physical arrangement to converge toward low-energy conformations. Rather than simulating folding on digital hardware, the method treats the robot swarm itself as an embodied analog optimizer for molecular structure discovery. This makes the proposal distinct from conventional computational protein-folding pipelines."
+  },
+  {
+    "id": "idea_042",
+    "label": "novel",
+    "length": "long",
+    "domain": "AI/ML",
+    "idea": "A continual learning system where forgetting is not treated as a failure to be prevented but as a structured compression process. After each task, the model reorganizes old knowledge into fractal attractors in weight space, leaving sparse regions between attractors available for learning new tasks. New information is encouraged to settle into these gaps instead of overwriting previous task representations. The framework reframes catastrophic forgetting as a geometric organization problem rather than only a regularization or replay problem, making it conceptually different from standard continual learning methods."
+  },
+  {
+    "id": "idea_043",
+    "label": "novel",
+    "length": "long",
+    "domain": "NLP",
+    "idea": "A cross-lingual transfer model that learns language-universal representations by aligning the topology of semantic manifolds across languages using persistent homology. Instead of relying on parallel corpora, bilingual dictionaries, or shared subword vocabularies, the method extracts topological signatures from monolingual semantic spaces and learns mappings that preserve holes, clusters, and connectivity patterns. The system assumes that languages encode similar conceptual structures even when their surface forms differ strongly. This makes the approach a novel alternative to conventional multilingual alignment methods based on translation pairs or contrastive text supervision."
+  },
+  {
+    "id": "idea_044",
+    "label": "novel",
+    "length": "long",
+    "domain": "Quantum",
+    "idea": "A protein design protocol that encodes amino acid sequence space as the codebook of a quantum error-correcting code. In this framework, structurally stable protein sequences correspond to valid codewords, while unstable or non-foldable sequences appear as invalid states outside the logical subspace. Generative sampling is guided by the geometry of the code rather than by explicit energy evaluation or supervised stability prediction. The central claim is that error-correcting structure can act as an implicit prior over foldable biological sequences, creating a cross-domain design mechanism between quantum information theory and protein engineering."
+  },
+  {
+    "id": "idea_045",
+    "label": "novel",
+    "length": "long",
+    "domain": "Biomedical",
+    "idea": "A brain-computer interface that decodes imagined speech by modeling the hidden coarticulation dynamics of the vocal tract from cortical surface potentials. Instead of mapping neural activity directly to words, the system reconstructs an intermediate sequence of silent articulatory gestures, then converts those gestures into phoneme sequences. The model treats imagined speech as an unobserved motor-control process and uses a structured probabilistic decoder to infer how the tongue, lips, and vocal tract would have moved if the person had spoken aloud. This creates a mechanistic decoding layer between brain signals and language output."
+  }
+]

@@ -27,6 +27,9 @@ logger = logging.getLogger(__name__)
 
 _REPO_ROOT = Path(__file__).resolve().parents[3]
 
+# Per-case timeout when waiting on job_manager. Not exposed via the API.
+JOB_TIMEOUT_SECONDS = 900
+
 # preset name → (adapter name, default dataset path relative to repo root)
 PRESET_ADAPTERS: dict[str, tuple[str, str]] = {
     "patents": ("google_patents", "benchmarks/patents_benchmark.json"),
@@ -75,6 +78,7 @@ def load_benchmark_cases(path: Path) -> list[dict[str, Any]]:
                 "case_id": str(cid),
                 "domain": str(c.get("domain", "") or ""),
                 "originality_label": str(lbl),
+                "length": str(c.get("length", "") or ""),
                 "idea": idea,
             }
         )
@@ -172,7 +176,7 @@ def execute_benchmark_run(
     limit: Optional[int],
     dataset_path_override: Optional[str],
     persist_supabase: bool,
-    job_timeout_seconds: int,
+    table_name: str,
 ) -> None:
     started = datetime.now(timezone.utc).isoformat()
     _set_run_state(
@@ -207,7 +211,7 @@ def execute_benchmark_run(
                 case["case_id"],
             )
             log_entry = run_one_benchmark_case(
-                case, adapter, float(job_timeout_seconds)
+                case, adapter, float(JOB_TIMEOUT_SECONDS)
             )
 
             if log_entry.get("full_result") and persist_supabase:
@@ -215,6 +219,7 @@ def execute_benchmark_run(
                     case,
                     log_entry["full_result"],
                     adapter,
+                    table_name=table_name,
                     job_id=log_entry.get("job_id"),
                     benchmark_run_id=run_id,
                 )
@@ -264,7 +269,7 @@ def start_background_benchmark(
     limit: Optional[int],
     dataset_path_override: Optional[str],
     persist_supabase: bool,
-    job_timeout_seconds: int,
+    table_name: str,
 ) -> str:
     run_id = uuid.uuid4().hex[:12]
     _set_run_state(run_id, status="queued")
@@ -276,7 +281,7 @@ def start_background_benchmark(
             limit,
             dataset_path_override,
             persist_supabase,
-            job_timeout_seconds,
+            table_name,
         ),
         daemon=True,
     )

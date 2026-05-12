@@ -19,7 +19,7 @@ async def start_benchmark_run(req: BenchmarkRunRequest):
         limit=req.limit,
         dataset_path_override=req.dataset_path,
         persist_supabase=req.persist_supabase,
-        job_timeout_seconds=req.job_timeout_seconds,
+        table_name=req.table_name,
     )
     return BenchmarkRunResponse(run_id=run_id, status="started")
 
