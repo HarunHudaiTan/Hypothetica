@@ -84,8 +84,11 @@ The second track is the Sentence-Level Overlap Analysis, which examines the user
 The Likert scores produced by the two tracks are then mapped to floats in the $[0, 1]$ range, where 1 corresponds to near-complete overlap and 0 corresponds to no meaningful overlap. The Similarity Score Calculation step combines the four candidate-level criteria scores into a single per-candidate similarity score using a weighted average:
 
 \begin{equation}
-	\text{sim}_{\text{candidate}} = w_p \cdot S_{\text{problem}} + w_m \cdot S_{\text{method}} + w_d \cdot S_{\text{domain}} + w_c \cdot S_{\text{contribution}}
-	\label{eq:sim_candidate}
+\begin{split}
+	\text{sim}_{\text{candidate}} &= w_p \cdot S_{\text{problem}} + w_m \cdot S_{\text{method}} \\
+	&+ w_d \cdot S_{\text{domain}} + w_c \cdot S_{\text{contribution}}
+\end{split}
+\label{eq:sim_candidate}
 \end{equation}
 
 The output of this phase, for each candidate, is a Candidate Originality Scoring Result containing the per-candidate similarity score, the four criteria scores together with their justifications, the sentence-level overlap analysis, and the matched evidence sections retrieved from the candidate. These results are the structured input to the next phase, where they are aggregated into a single global originality score for the user's idea.
@@ -99,8 +102,11 @@ The Candidate Originality Scoring phase produces an independent similarity profi
 The Global Similarity Computation branch determines the final originality verdict. Each candidate already carries a per-candidate similarity score $\text{sim}_i$ produced in the previous phase, where $i$ indexes the $N$ selected candidates. A naive aggregation that simply averages these scores would dilute a strong overlap signal whenever the retrieval pipeline returned a few weakly related candidates alongside a genuinely close match. To preserve that signal while still being robust to noise, the global similarity is computed as a blend of the maximum and the average of the per-candidate scores:
 
 \begin{equation}
-	\text{sim}_{\text{global}} = w_{\max} \cdot \max_{i}(\text{sim}_{i}) + \frac{w_{\text{mean}}}{N} \sum_{i=1}^{N} \text{sim}_{i}
-	\label{eq:sim_global}
+\begin{split}
+	\text{sim}_{\text{global}} &= w_{\max} \cdot \max_{i}(\text{sim}_{i}) \\
+	&+ \frac{w_{\text{mean}}}{N} \sum_{i=1}^{N} \text{sim}_{i}
+\end{split}
+\label{eq:sim_global}
 \end{equation}
 
 The two weights $w_{\max}$ and $w_{\text{mean}}$ sum to one and are configurable. Setting $w_{\max}$ higher than $w_{\text{mean}}$ means that a single candidate with high overlap dominates the result, which matches the intuition that one strongly overlapping prior work is enough to challenge the originality of an idea. At the same time, including the average term dampens the effect of a single overscored outlier, so an isolated noisy candidate cannot single-handedly collapse the score.
@@ -117,12 +123,15 @@ The exponent $p$ is greater than one, which makes the curve concave with respect
 In parallel with the global computation, the Criteria Breakdown branch produces a single value per criterion across all candidates for display purposes. For each criterion separately, letting $c_i$ denote the score of candidate $i$ on that criterion, the system combines the per-candidate scores using the same blend of maximum and mean as the global similarity:
 
 \begin{equation}
-	S_{\text{breakdown}} = w_{\max} \cdot \max_{i}(c_i) + \frac{1 - w_{\max}}{N} \cdot \sum_{i=1}^{N} c_i
-	\label{eq:breakdown}
+\begin{split}
+	S_{\text{breakdown}} &= w_{\max} \cdot \max_{i}(c_i) \\
+	&+ \frac{1 - w_{\max}}{N} \cdot \sum_{i=1}^{N} c_i
+\end{split}
+\label{eq:breakdown}
 \end{equation}
 
 so that the most alarming candidate on a given criterion has the strongest influence on the displayed value while the others still contribute. Using the same $w_{\max}$ weight as the global similarity keeps the breakdown view consistent with the blend that drives the final score. These breakdown scores are not used in the final originality score; they exist to give users a quick visual breakdown of which dimensions of their idea overlap most with prior work.
 
 The Sentence Annotations branch operates at a finer granularity. For every sentence in the Enriched Idea, the system collects the sentence-level criterion scores assigned to it by every candidate during the previous phase, takes the maximum per criterion across candidates, and converts that maximum back into a Likert level. Each criterion is then labeled red, yellow, or green based on configurable Likert thresholds, and the overall sentence label is the worst label across its criteria. Each labeled sentence is also linked to the strongest matching evidence section retrieved from the candidate that drove the score, so that users can inspect exactly which passage in which candidate caused a given annotation. Sentence annotations are display artifacts; they do not affect the final originality score.
 
-The three branches are then combined into the Idea Originality Scoring Result, which contains the final originality score and label, the aggregated criteria values, the per-sentence annotations with their linked evidence, and a short natural-language summary generated by a dedicated Summary Agent. The summary takes the global score, the aggregated criteria, and the distribution of sentence labels as input, and produces a one-to-two-sentence explanation that highlights the main areas of overlap and offers an actionable recommendation. This final, structured object is what the system passes to the user interface to render the originality report.
+The three branches are then combined into the Idea Originality Scoring Result, which contains the final originality score and label, the aggregated criteria values, the per-sentence annotations with their linked evidence, and a short natural-language summary generated by a dedicated Summary Agent. The summary takes the global score, the aggregated criteria, and the distribution of sentence labels as input, and produces a one-to-two-sentence explanation that highlights the main areas of overlap and offers an actionable recommendation. This final, structured object is what the system passes to the user interface to render the originality report. The following section describes how these components are realised in the system's implementation.
