@@ -15,6 +15,20 @@ interface Props {
 }
 
 const ROMAN = ["i", "ii", "iii", "iv", "v", "vi"];
+const SOURCE_FIRST = ["openalex", "github"];
+const SOURCE_LAST = ["arxiv"];
+
+function rank(key: string): number {
+  const f = SOURCE_FIRST.indexOf(key);
+  if (f !== -1) return f;
+  const l = SOURCE_LAST.indexOf(key);
+  if (l !== -1) return 1000 + l;
+  return 500;
+}
+
+function orderedKeys(keys: string[]): string[] {
+  return [...keys].sort((a, b) => rank(a) - rank(b));
+}
 
 export default function SourceSelection({ onSourcesChange, disabled }: Props) {
   const [sources, setSources] = useState<Record<string, Source>>({});
@@ -58,7 +72,7 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
       setSourcesAvailability(data.sources);
 
       if (selectedSources.length === 0) {
-        const available = Object.keys(data.sources).filter(
+        const available = orderedKeys(Object.keys(data.sources)).filter(
           (key) => data.sources[key]
         );
         if (available.length > 0) {
@@ -103,7 +117,9 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
     );
   }
 
-  const entries = Object.entries(sources);
+  const entries = orderedKeys(Object.keys(sources)).map(
+    (key) => [key, sources[key]] as const
+  );
 
   return (
     <div>
