@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { jsPDF } from "jspdf";
 import type { AnalysisResults, SentenceAnnotation } from "../types/api";
 import OriginalityGauge from "./OriginalityGauge";
 import CriteriaBreakdown from "./CriteriaBreakdown";
@@ -24,7 +25,6 @@ interface Props {
 export default function ResultsView({
   results,
   jobId,
-  realityCheck,
   onNewAnalysis,
 }: Props) {
   const [selectedSentence, setSelectedSentence] =
@@ -34,17 +34,119 @@ export default function ResultsView({
   const statLabels = evidenceStatsLabels(evidenceSource);
   const githubEvidence = results.github_result;
 
-  const reportText = [
-    `# Originality Assessment Report\n`,
-    `## Score: ${results.originality_score}/100\n`,
-    `## Summary\n${results.comprehensive_report || results.summary}\n`,
-    `## Sentence Analysis`,
-    ...results.sentence_annotations.map((ann) => {
-      const emoji =
-        ann.label === "high" ? "🟢" : ann.label === "medium" ? "🟡" : "🔴";
-      return `${emoji} [${Math.round(ann.similarity_score * 100)}% similarity] ${ann.sentence}`;
-    }),
-  ].join("\n");
+  const handleDownloadPdf = () => {
+    const doc = new jsPDF({ unit: "pt", format: "letter" });
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const marginX = 56;
+    const marginY = 64;
+    const usableW = pageW - marginX * 2;
+    let y = marginY;
+
+    const ensureSpace = (needed: number) => {
+      if (y + needed > pageH - marginY) {
+        doc.addPage();
+        y = marginY;
+      }
+    };
+
+    const writeBlock = (
+      text: string,
+      opts: {
+        size?: number;
+        font?: "helvetica" | "times";
+        style?: "normal" | "bold" | "italic";
+        gap?: number;
+        color?: [number, number, number];
+      } = {}
+    ) => {
+      const size = opts.size ?? 11;
+      doc.setFont(opts.font ?? "times", opts.style ?? "normal");
+      doc.setFontSize(size);
+      doc.setTextColor(...(opts.color ?? [26, 20, 17]));
+      const lines = doc.splitTextToSize(text, usableW) as string[];
+      const lineH = size * 1.35;
+      for (const line of lines) {
+        ensureSpace(lineH);
+        doc.text(line, marginX, y);
+        y += lineH;
+      }
+      y += opts.gap ?? 6;
+    };
+
+    writeBlock("HYPOTHETICA", {
+      font: "helvetica",
+      style: "bold",
+      size: 9,
+      color: [122, 111, 92],
+      gap: 4,
+    });
+    writeBlock("Originality Assessment Report", {
+      size: 24,
+      style: "bold",
+      gap: 14,
+    });
+    writeBlock(`Issue No. ${jobId.slice(0, 6)}`, {
+      font: "helvetica",
+      size: 9,
+      color: [122, 111, 92],
+      gap: 18,
+    });
+
+    writeBlock("Score", {
+      font: "helvetica",
+      style: "bold",
+      size: 10,
+      color: [200, 48, 24],
+      gap: 4,
+    });
+    writeBlock(`${results.originality_score} / 100`, {
+      size: 28,
+      style: "bold",
+      gap: 18,
+    });
+
+    writeBlock("Summary", {
+      font: "helvetica",
+      style: "bold",
+      size: 10,
+      color: [200, 48, 24],
+      gap: 6,
+    });
+    writeBlock(results.comprehensive_report || results.summary || "—", {
+      size: 11,
+      gap: 18,
+    });
+
+    writeBlock("Sentence Analysis", {
+      font: "helvetica",
+      style: "bold",
+      size: 10,
+      color: [200, 48, 24],
+      gap: 8,
+    });
+    for (const ann of results.sentence_annotations) {
+      const marker =
+        ann.label === "high" ? "[HIGH]" : ann.label === "medium" ? "[MED]" : "[LOW]";
+      const pct = `${Math.round(ann.similarity_score * 100)}%`;
+      const color: [number, number, number] =
+        ann.label === "high"
+          ? [63, 122, 31]
+          : ann.label === "medium"
+          ? [184, 138, 58]
+          : [200, 48, 24];
+      writeBlock(`${marker} ${pct}`, {
+        font: "helvetica",
+        style: "bold",
+        size: 9,
+        color,
+        gap: 2,
+      });
+      writeBlock(ann.sentence, { size: 11, gap: 10 });
+    }
+
+    doc.save(`originality_report_${jobId.slice(0, 6)}.pdf`);
+  };
 
   return (
     <>
@@ -248,14 +350,14 @@ export default function ResultsView({
           </span>
           <span>Submit Another</span>
         </button>
-        <a
-          href={`data:text/markdown;charset=utf-8,${encodeURIComponent(reportText)}`}
-          download="originality_report.md"
+        <button
+          type="button"
+          onClick={handleDownloadPdf}
           className="group inline-flex items-center gap-2 px-5 py-3 border border-[color:var(--color-ink)] text-[color:var(--color-ink)] small-caps font-bold hover:bg-[color:var(--color-ink)] hover:text-[color:var(--color-paper)] transition-colors"
         >
           <span className="font-mono group-hover:translate-y-0.5 transition-transform">↓</span>
-          <span>download .md</span>
-        </a>
+          <span>download .pdf</span>
+        </button>
       </div>
 
       {selectedSentence && (
