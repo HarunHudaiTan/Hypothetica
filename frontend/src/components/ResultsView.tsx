@@ -48,8 +48,6 @@ export default function ResultsView({
 
   return (
     <>
-      <RealityCheckBanner realityCheck={realityCheck} results={results} />
-
       {/* Issue header */}
       <div className="grid grid-cols-12 gap-6 mb-12 items-stretch">
         <div className="col-span-12 md:col-span-7 flex flex-col justify-between gap-8">
@@ -353,95 +351,3 @@ function SearchQueriesList({
   );
 }
 
-function RealityCheckBanner({
-  realityCheck,
-  results,
-}: {
-  realityCheck: RealityCheckInfo | null;
-  results: AnalysisResults;
-}) {
-  const rc =
-    (realityCheck?.result as Record<string, unknown>) ??
-    (results.reality_check as Record<string, unknown> | undefined);
-  if (!rc) return null;
-
-  const exists = rc.already_exists === true;
-  const examples = (rc.existing_examples ?? []) as Array<{
-    name: string;
-    similarity: number;
-    description: string;
-  }>;
-  const assessment = rc.assessment as string | undefined;
-  const recommendation = rc.recommendation as string | undefined;
-  const noveltyAspects = (rc.novelty_aspects ?? []) as string[];
-
-  if (!exists) return null;
-
-  return (
-    <div className="mb-10 border-l-2 border-[color:var(--color-ochre)] pl-5 py-4 bg-[color:var(--color-paper-shade)]">
-      <p className="small-caps text-[color:var(--color-ochre)] mb-2">
-        AI overview
-      </p>
-      <p className="font-display text-xl text-[color:var(--color-ink)] mb-3 leading-snug">
-        This idea may already exist.
-      </p>
-      {assessment && (
-        <p className="font-body text-[color:var(--color-ink-soft)] leading-relaxed mb-4">
-          {assessment}
-        </p>
-      )}
-
-      {examples.length > 0 && (
-        <details className="mb-4">
-          <summary className="small-caps text-[color:var(--color-ochre)] cursor-pointer hover:underline underline-offset-4">
-            extant works · {examples.length}
-          </summary>
-          <ul className="mt-3 space-y-2">
-            {examples.slice(0, 5).map((ex, i) => (
-              <li key={i} className="flex items-baseline gap-3 font-body text-sm">
-                <span className="font-mono text-xs text-[color:var(--color-ochre)] w-10 flex-shrink-0 numeric-tabular">
-                  {Math.round(ex.similarity * 100)}%
-                </span>
-                <span>
-                  <span className="font-display italic text-[color:var(--color-ink)]">
-                    {ex.name}
-                  </span>
-                  <span className="text-[color:var(--color-ink-fade)]">
-                    {" "}· {ex.description}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </details>
-      )}
-
-      {noveltyAspects.length > 0 && (
-        <div className="mb-3">
-          <p className="small-caps text-[color:var(--color-moss)] mb-1">
-            potentially novel aspects
-          </p>
-          <ul className="font-body text-sm text-[color:var(--color-ink-soft)] list-none space-y-1">
-            {noveltyAspects.map((a, i) => (
-              <li key={i} className="flex gap-2">
-                <span className="text-[color:var(--color-moss)]">·</span>
-                <span>{a}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {recommendation && (
-        <p className="font-display italic text-sm text-[color:var(--color-ink-soft)] mb-3">
-          {recommendation}
-        </p>
-      )}
-
-      <p className="font-mono text-[10px] text-[color:var(--color-ink-fade)] border-t border-[color:var(--color-rule)] pt-2">
-        advisory only · the score below derives solely from grounded analysis of
-        retrieved evidence.
-      </p>
-    </div>
-  );
-}
