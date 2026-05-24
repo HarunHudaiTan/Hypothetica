@@ -102,18 +102,17 @@ Built with React 19, TypeScript, Vite, and Tailwind CSS 4.
 
 ### Infrastructure
 
-- **Docker Compose**: two services — `backend` (port 8005) and `frontend` (port 3000 via nginx)
 - **Supabase**: persists analysis queries and benchmark results
 - **ChromaDB**: in-memory vector store for document chunks during analysis
 - **FastAPI**: async API with SSE support
+- **Nginx**: serves frontend and proxies API requests (via `frontend/Dockerfile`)
 
 ## Installation & Setup
 
 ### Prerequisites
-- Docker and Docker Compose
 - Google AI API key (Gemini 2.5 Flash)
 
-### Quick Start
+### Setup
 
 1. **Clone the repository**:
    ```bash
@@ -134,15 +133,6 @@ Built with React 19, TypeScript, Vite, and Tailwind CSS 4.
    OPENALEX_MAILTO=your_email
    EOF
    ```
-
-3. **Start the application**:
-   ```bash
-   docker compose up --build
-   ```
-
-4. **Access the application**:
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8005/api/health
 
 ### Development Setup
 
