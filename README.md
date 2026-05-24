@@ -110,6 +110,7 @@ Built with React 19, TypeScript, Vite, and Tailwind CSS 4.
 ## Installation & Setup
 
 ### Prerequisites
+- Python 3.11
 - Google AI API key (Gemini 2.5 Flash)
 
 ### Setup
