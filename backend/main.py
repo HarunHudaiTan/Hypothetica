@@ -1,4 +1,6 @@
 """Entry point for the Hypothetica API server."""
+import os
+os.environ['USE_TF'] = '0'
 import uvicorn
 
 if __name__ == "__main__":
