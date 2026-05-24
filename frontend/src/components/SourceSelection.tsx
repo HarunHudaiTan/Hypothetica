@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { motion } from "motion/react";
 import type { EvidenceSelection } from "../types/api";
 
 interface Source {
@@ -13,11 +14,27 @@ interface Props {
   disabled: boolean;
 }
 
-// Single source selection - user picks one adapter at a time
+const ROMAN = ["i", "ii", "iii", "iv", "v", "vi"];
+const SOURCE_FIRST = ["openalex", "github"];
+const SOURCE_LAST = ["arxiv"];
+
+function rank(key: string): number {
+  const f = SOURCE_FIRST.indexOf(key);
+  if (f !== -1) return f;
+  const l = SOURCE_LAST.indexOf(key);
+  if (l !== -1) return 1000 + l;
+  return 500;
+}
+
+function orderedKeys(keys: string[]): string[] {
+  return [...keys].sort((a, b) => rank(a) - rank(b));
+}
 
 export default function SourceSelection({ onSourcesChange, disabled }: Props) {
   const [sources, setSources] = useState<Record<string, Source>>({});
-  const [sourcesAvailability, setSourcesAvailability] = useState<Record<string, boolean>>({});
+  const [sourcesAvailability, setSourcesAvailability] = useState<
+    Record<string, boolean>
+  >({});
   const [selectedSources, setSelectedSources] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -49,144 +66,139 @@ export default function SourceSelection({ onSourcesChange, disabled }: Props) {
     try {
       setLoading(true);
       const response = await fetch("/api/sources");
-      if (!response.ok) {
-        throw new Error("Failed to fetch sources");
-      }
+      if (!response.ok) throw new Error("Failed to fetch sources");
       const data = await response.json();
       setSources(data.all_sources);
       setSourcesAvailability(data.sources);
-      
-      // Only set default if no sources are currently selected
+
       if (selectedSources.length === 0) {
-        const available = Object.keys(data.sources).filter(key => data.sources[key]);
+        const available = orderedKeys(Object.keys(data.sources)).filter(
+          (key) => data.sources[key]
+        );
         if (available.length > 0) {
-          // Default to first available source (single selection)
           setSelectedSources([available[0]]);
         }
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unknown error");
-      console.error("Failed to fetch sources:", err);
     } finally {
       setLoading(false);
     }
   };
 
   const handleSourceToggle = (sourceName: string) => {
-    // Single selection - replace current selection with new one
     setSelectedSources([sourceName]);
   };
 
   if (loading) {
     return (
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-        <div className="animate-pulse">
-          <div className="h-6 bg-slate-200 rounded mb-4"></div>
-          <div className="space-y-3">
-            <div className="h-4 bg-slate-200 rounded"></div>
-            <div className="h-4 bg-slate-200 rounded w-3/4"></div>
-          </div>
-        </div>
+      <div className="space-y-3">
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            className="h-16 bg-[color:var(--color-paper-shade)] animate-pulse"
+            style={{ animationDelay: `${i * 120}ms` }}
+          />
+        ))}
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="bg-white rounded-2xl shadow-sm border border-red-200 p-6">
-        <div className="text-red-600">
-          <p className="font-medium">Error loading sources</p>
-          <p className="text-sm mt-1">{error}</p>
-        </div>
+      <div className="border-l-2 border-[color:var(--color-vermillion)] pl-4 py-3 bg-[color:var(--color-paper-shade)]">
+        <p className="small-caps text-[color:var(--color-vermillion)]">
+          Erratum · sources unavailable
+        </p>
+        <p className="text-sm font-body text-[color:var(--color-ink-soft)] mt-1">
+          {error}
+        </p>
       </div>
     );
   }
 
-  return (
-    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-      <h2 className="text-xl font-semibold text-slate-800 mb-2">
-        Select Evidence Source
-      </h2>
-      <p className="text-slate-500 mb-4 text-sm">
-        Choose one source to search for evidence. You can analyze papers, patents, or GitHub repositories.
-      </p>
+  const entries = orderedKeys(Object.keys(sources)).map(
+    (key) => [key, sources[key]] as const
+  );
 
-      <div className="space-y-3">
-        {Object.entries(sources).map(([key, source]) => {
+  return (
+    <div>
+      <div className="space-y-0">
+        {entries.map(([key, source], idx) => {
           const isSelected = selectedSources.includes(key);
           const isAvailable = sourcesAvailability[key] ?? false;
-          
+
           return (
-            <div
+            <motion.button
               key={key}
-              className={`
-                flex items-start space-x-3 p-3 rounded-lg border-2 transition-all
-                ${!isAvailable 
-                  ? 'border-slate-100 bg-slate-50 opacity-60' 
-                  : isSelected 
-                    ? 'border-indigo-500 bg-indigo-50' 
-                    : 'border-slate-200 hover:border-slate-300'
-                }
-              `}
+              type="button"
+              onClick={() => isAvailable && handleSourceToggle(key)}
+              disabled={disabled || !isAvailable}
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 + idx * 0.08 }}
+              className={`relative w-full text-left flex items-baseline gap-6 py-5 border-b border-[color:var(--color-rule)] transition-all group ${
+                isAvailable
+                  ? "cursor-pointer hover:bg-[color:var(--color-paper-shade)]/60"
+                  : "opacity-40 cursor-not-allowed"
+              }`}
             >
-              <input
-                type="radio"
-                id={key}
-                name="source-selection"
-                checked={isSelected}
-                disabled={disabled || !isAvailable}
-                onChange={() => handleSourceToggle(key)}
-                className={`
-                  mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0
-                  ${!isAvailable ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
-                `}
+              {/* Selection ribbon */}
+              <span
+                aria-hidden
+                className={`absolute left-0 top-0 bottom-0 w-1 transition-all ${
+                  isSelected
+                    ? "bg-[color:var(--color-vermillion)]"
+                    : "bg-transparent group-hover:bg-[color:var(--color-rule)]"
+                }`}
               />
-              <div className="flex-1">
-                <label 
-                  htmlFor={key}
-                  className={`
-                    font-medium text-sm cursor-pointer
-                    ${!isAvailable ? 'text-slate-400' : 'text-slate-700'}
-                  `}
-                >
-                  {source.name}
+
+              <span className="small-caps text-[color:var(--color-ink-fade)] w-8 flex-shrink-0 pl-3">
+                {ROMAN[idx] ?? idx + 1}
+              </span>
+
+              <span className="flex-1 min-w-0">
+                <span className="flex items-baseline gap-3 flex-wrap">
+                  <span
+                    className={`font-display text-xl md:text-2xl tracking-tight ${
+                      isSelected
+                        ? "text-[color:var(--color-vermillion)]"
+                        : "text-[color:var(--color-ink)]"
+                    }`}
+                  >
+                    {source.name}
+                  </span>
                   {!isAvailable && (
-                    <span className="ml-2 text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded">
-                      Not Available
+                    <span className="small-caps text-[10px] text-[color:var(--color-ink-fade)] border border-[color:var(--color-rule)] px-2 py-0.5">
+                      unavailable
                     </span>
                   )}
-                </label>
-                <p className="text-xs text-slate-500 mt-1">
+                </span>
+                <span className="block mt-1 font-body italic text-sm text-[color:var(--color-ink-fade)]">
                   {source.description}
-                </p>
-                {!isAvailable && (
-                  <p className="text-xs text-amber-600 mt-1">
-                    {key === "google_patents"
-                      ? "Requires SERPAPI_KEY environment variable"
-                      : key === "openalex"
-                        ? "Requires OPENALEX_API_KEY in your environment"
-                        : "Source configuration needed"}
-                  </p>
-                )}
-              </div>
-            </div>
+                </span>
+              </span>
+
+              <span className="flex-shrink-0 pr-3">
+                {isSelected ? (
+                  <span className="font-mono text-xs small-caps text-[color:var(--color-vermillion)]">
+                    selected ●
+                  </span>
+                ) : isAvailable ? (
+                  <span className="font-mono text-[color:var(--color-ink-fade)] opacity-0 group-hover:opacity-100 transition-opacity">
+                    →
+                  </span>
+                ) : null}
+              </span>
+            </motion.button>
           );
         })}
       </div>
 
-      {selectedSources.length === 0 && (
-        <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
-          <p className="text-sm text-amber-800">
-            ⚠️ At least one source must be selected to continue
-          </p>
-        </div>
-      )}
-
-      <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-        <p className="text-xs text-blue-700">
-          💡 <strong>Tip:</strong> Match the source to your idea—academic literature, patents, or open-source repositories each surface different evidence.
-        </p>
-      </div>
+      <p className="mt-6 font-display italic text-sm text-[color:var(--color-ink-fade)]">
+        ❡ One archive may be tried at a time. Match the source to the work ·
+        peer literature, prior art, or implementation.
+      </p>
     </div>
   );
 }

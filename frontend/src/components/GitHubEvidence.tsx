@@ -1,174 +1,214 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import type { GitHubAnalysis, RepoRelevanceResult } from "../types/api";
 
 interface Props {
   analysis: GitHubAnalysis;
 }
 
-const VERDICT_CONFIG = {
+const VERDICT: Record<
+  string,
+  { label: string; accent: string; glyph: string }
+> = {
   pursue_as_is: {
-    label: "Pursue As-Is",
-    color: "text-green-700",
-    bg: "bg-green-50",
-    border: "border-green-200",
-    icon: "✅",
+    label: "Pursue as written",
+    accent: "var(--color-moss)",
+    glyph: "✓",
   },
   refine_scope: {
-    label: "Refine Scope",
-    color: "text-amber-700",
-    bg: "bg-amber-50",
-    border: "border-amber-200",
-    icon: "🔧",
+    label: "Refine the scope",
+    accent: "var(--color-ochre)",
+    glyph: "✦",
   },
   reconsider: {
-    label: "Reconsider",
-    color: "text-red-700",
-    bg: "bg-red-50",
-    border: "border-red-200",
-    icon: "⚠️",
+    label: "Reconsider the work",
+    accent: "var(--color-vermillion)",
+    glyph: "⚠",
   },
 };
 
-const REPO_VERDICT_STYLES: Record<string, { bg: string; text: string; dot: string }> = {
-  strong_overlap: { bg: "bg-red-100", text: "text-red-700", dot: "bg-red-500" },
-  partial_overlap: { bg: "bg-amber-100", text: "text-amber-700", dot: "bg-amber-500" },
-  tangential: { bg: "bg-blue-100", text: "text-blue-700", dot: "bg-blue-500" },
-  unrelated: { bg: "bg-slate-100", text: "text-slate-500", dot: "bg-slate-400" },
+const REPO_VERDICT: Record<string, { label: string; accent: string }> = {
+  strong_similarity: {
+    label: "strong similarity",
+    accent: "var(--color-vermillion)",
+  },
+  partial_similarity: { label: "partial similarity", accent: "var(--color-ochre)" },
+  tangential: { label: "tangential", accent: "var(--color-gold)" },
+  unrelated: { label: "unrelated", accent: "var(--color-ink-mute)" },
 };
-
-function formatVerdict(v: string): string {
-  return v.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-}
 
 export default function GitHubEvidence({ analysis }: Props) {
   const [expanded, setExpanded] = useState(false);
-  const verdict = VERDICT_CONFIG[analysis.verdict] ?? VERDICT_CONFIG.pursue_as_is;
-  const relevant = analysis.repo_results.filter((r) => r.verdict !== "unrelated");
+  const v = VERDICT[analysis.verdict] ?? VERDICT.pursue_as_is;
+  const relevant = analysis.repo_results.filter(
+    (r) => r.verdict !== "unrelated"
+  );
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-      {/* Header */}
-      <div className="px-6 py-5 border-b border-slate-100">
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2.5">
-            <svg className="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-            </svg>
-            <h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wider">
-              GitHub Evidence
+    <div className="border border-[color:var(--color-rule)] bg-[color:var(--color-paper-shade)]">
+      <div className="px-6 py-5 border-b border-[color:var(--color-rule)]">
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <p className="small-caps text-[color:var(--color-ink-fade)] mb-1">
+              appendix B
+            </p>
+            <h3 className="font-display text-2xl tracking-tight">
+              Implementation Evidence
             </h3>
+            <p className="font-display italic text-sm text-[color:var(--color-ink-fade)]">
+              what the open-source archive already contains
+            </p>
           </div>
-          <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${verdict.bg} ${verdict.color} ${verdict.border} border`}>
-            <span>{verdict.icon}</span>
-            <span>{verdict.label}</span>
+          <div
+            className="border-l-2 pl-3 py-1"
+            style={{ borderColor: v.accent }}
+          >
+            <p
+              className="small-caps"
+              style={{ color: v.accent }}
+            >
+              editorial verdict
+            </p>
+            <p
+              className="font-display text-lg leading-tight"
+              style={{ color: v.accent }}
+            >
+              {v.glyph} {v.label}
+            </p>
           </div>
         </div>
 
-        <p className="text-sm text-slate-600 leading-relaxed">{analysis.synthesis}</p>
+        <p className="font-body text-[15px] leading-relaxed text-[color:var(--color-ink-soft)] mt-4">
+          {analysis.synthesis}
+        </p>
 
-        <div className="flex items-center gap-4 mt-3 text-xs text-slate-400">
-          <span>{analysis.repos_analyzed} repos analyzed</span>
-          <span className="text-slate-300">·</span>
-          <span>{analysis.repos_relevant} relevant</span>
-        </div>
+        <p className="mt-3 font-mono text-[11px] text-[color:var(--color-ink-fade)]">
+          {analysis.repos_analyzed} repos canvassed ·{" "}
+          {analysis.repos_relevant} held relevant
+        </p>
       </div>
 
-      {/* Collapsible repo list */}
       {relevant.length > 0 && (
-        <div>
+        <>
           <button
             onClick={() => setExpanded(!expanded)}
-            className="w-full flex items-center justify-between px-6 py-3 text-sm text-slate-600 hover:bg-slate-50 transition-colors"
+            className="w-full px-6 py-3 text-left small-caps text-[color:var(--color-ink-fade)] hover:text-[color:var(--color-ink)] hover:bg-[color:var(--color-paper)] transition-colors flex items-center justify-between"
           >
-            <span className="font-medium">
-              {expanded ? "Hide" : "Show"} repository details ({relevant.length})
+            <span>
+              <span className="font-mono mr-2">
+                {expanded ? "–" : "+"}
+              </span>
+              repository roster ({relevant.length})
             </span>
-            <svg
-              className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            <span className="font-mono text-xs">
+              {expanded ? "▴" : "▾"}
+            </span>
           </button>
-
-          {expanded && (
-            <div className="border-t border-slate-100 divide-y divide-slate-100">
-              {relevant.map((repo) => (
-                <RepoCard key={repo.repo_full_name} repo={repo} />
-              ))}
-            </div>
-          )}
-        </div>
+          <AnimatePresence>
+            {expanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="overflow-hidden border-t border-[color:var(--color-rule)]"
+              >
+                <ol className="divide-y divide-[color:var(--color-rule)]">
+                  {relevant.map((repo) => (
+                    <RepoEntry key={repo.repo_full_name} repo={repo} />
+                  ))}
+                </ol>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
       )}
     </div>
   );
 }
 
-function RepoCard({ repo }: { repo: RepoRelevanceResult }) {
-  const style = REPO_VERDICT_STYLES[repo.verdict] ?? REPO_VERDICT_STYLES.unrelated;
-  const overlapPct = Math.round(repo.overlap_score * 100);
+function RepoEntry({ repo }: { repo: RepoRelevanceResult }) {
+  const v = REPO_VERDICT[repo.verdict] ?? REPO_VERDICT.unrelated;
+  const pct = Math.round(repo.similarity_score * 100);
 
   return (
-    <div className="px-6 py-4">
-      <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2 mb-1">
+    <li className="px-6 py-4">
+      <div className="grid grid-cols-[1fr_auto] gap-4">
+        <div className="min-w-0">
+          <div className="flex items-baseline gap-3 flex-wrap mb-1">
             <a
               href={repo.repo_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 hover:underline truncate"
+              className="font-display italic text-lg text-[color:var(--color-ink)] hover:text-[color:var(--color-vermillion)] underline underline-offset-2 decoration-1 decoration-[color:var(--color-rule)] hover:decoration-[color:var(--color-vermillion)]"
             >
               {repo.repo_full_name}
             </a>
-            <span className="flex items-center gap-1 text-xs text-slate-400 flex-shrink-0">
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              {repo.stars.toLocaleString()}
+            <span className="font-mono text-[10px] text-[color:var(--color-ink-fade)]">
+              ★ {repo.stars.toLocaleString()}
             </span>
           </div>
-
           {repo.description && (
-            <p className="text-xs text-slate-500 mb-2 line-clamp-1">{repo.description}</p>
-          )}
-
-          <div className="space-y-1">
-            <p className="text-xs text-slate-600">
-              <span className="font-medium text-slate-500">Covers:</span> {repo.what_it_covers}
+            <p className="font-body text-sm text-[color:var(--color-ink-soft)] mb-2 line-clamp-2">
+              {repo.description}
             </p>
-            <p className="text-xs text-slate-600">
-              <span className="font-medium text-emerald-600">Gap:</span> {repo.what_it_misses}
+          )}
+          <div className="font-body text-xs space-y-1">
+            <p>
+              <span className="small-caps text-[color:var(--color-ink-fade)] mr-2">
+                covers
+              </span>
+              <span className="text-[color:var(--color-ink-soft)]">
+                {repo.what_it_covers}
+              </span>
+            </p>
+            <p>
+              <span
+                className="small-caps mr-2"
+                style={{ color: "var(--color-moss)" }}
+              >
+                gap
+              </span>
+              <span className="text-[color:var(--color-ink-soft)]">
+                {repo.what_it_misses}
+              </span>
             </p>
           </div>
-        </div>
-
-        <div className="flex flex-col items-end gap-2 flex-shrink-0">
-          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold ${style.bg} ${style.text}`}>
-            <span className={`w-1.5 h-1.5 rounded-full ${style.dot}`} />
-            {formatVerdict(repo.verdict)}
-          </span>
-          <div className="flex items-center gap-1.5">
-            <div className="w-16 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-              <div
-                className={`h-full rounded-full ${overlapPct >= 70 ? "bg-red-500" : overlapPct >= 40 ? "bg-amber-500" : "bg-green-500"}`}
-                style={{ width: `${overlapPct}%` }}
-              />
+          {repo.topics.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-2 font-mono text-[10px] text-[color:var(--color-ink-fade)]">
+              {repo.topics.slice(0, 6).map((t) => (
+                <span key={t} className="lowercase">
+                  · {t}
+                </span>
+              ))}
             </div>
-            <span className="text-[10px] font-bold text-slate-500">{overlapPct}%</span>
+          )}
+        </div>
+        <div className="text-right flex flex-col items-end gap-1">
+          <span
+            className="small-caps"
+            style={{ color: v.accent }}
+          >
+            {v.label}
+          </span>
+          <span
+            className="font-display text-2xl leading-none numeric-tabular"
+            style={{ color: v.accent }}
+          >
+            {pct}%
+          </span>
+          <div className="w-20 h-px bg-[color:var(--color-rule)] mt-1">
+            <div
+              className="h-full"
+              style={{
+                width: `${pct}%`,
+                background: v.accent,
+                height: "3px",
+              }}
+            />
           </div>
         </div>
       </div>
-
-      {repo.topics.length > 0 && (
-        <div className="flex items-center gap-1 mt-2 flex-wrap">
-          {repo.topics.slice(0, 5).map((t) => (
-            <span key={t} className="text-[10px] px-1.5 py-0.5 bg-slate-100 text-slate-500 rounded">
-              {t}
-            </span>
-          ))}
-        </div>
-      )}
-    </div>
+    </li>
   );
 }

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion } from "motion/react";
+import { jsPDF } from "jspdf";
 import type { AnalysisResults, SentenceAnnotation } from "../types/api";
 import OriginalityGauge from "./OriginalityGauge";
 import CriteriaBreakdown from "./CriteriaBreakdown";
@@ -23,7 +25,6 @@ interface Props {
 export default function ResultsView({
   results,
   jobId,
-  realityCheck,
   onNewAnalysis,
 }: Props) {
   const [selectedSentence, setSelectedSentence] =
@@ -33,72 +34,250 @@ export default function ResultsView({
   const statLabels = evidenceStatsLabels(evidenceSource);
   const githubEvidence = results.github_result;
 
-  const reportText = [
-    `# Originality Assessment Report\n`,
-    `## Score: ${results.originality_score}/100\n`,
-    `## Summary\n${results.comprehensive_report || results.summary}\n`,
-    `## Sentence Analysis`,
-    ...results.sentence_annotations.map((ann) => {
-      const emoji =
-        ann.label === "high" ? "🟢" : ann.label === "medium" ? "🟡" : "🔴";
-      return `${emoji} [${Math.round(ann.similarity_score * 100)}% overlap] ${ann.sentence}`;
-    }),
-  ].join("\n");
+  const handleDownloadPdf = () => {
+    const doc = new jsPDF({ unit: "pt", format: "letter" });
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const marginX = 56;
+    const marginY = 64;
+    const usableW = pageW - marginX * 2;
+    let y = marginY;
+
+    const ensureSpace = (needed: number) => {
+      if (y + needed > pageH - marginY) {
+        doc.addPage();
+        y = marginY;
+      }
+    };
+
+    const writeBlock = (
+      text: string,
+      opts: {
+        size?: number;
+        font?: "helvetica" | "times";
+        style?: "normal" | "bold" | "italic";
+        gap?: number;
+        color?: [number, number, number];
+      } = {}
+    ) => {
+      const size = opts.size ?? 11;
+      doc.setFont(opts.font ?? "times", opts.style ?? "normal");
+      doc.setFontSize(size);
+      doc.setTextColor(...(opts.color ?? [26, 20, 17]));
+      const lines = doc.splitTextToSize(text, usableW) as string[];
+      const lineH = size * 1.35;
+      for (const line of lines) {
+        ensureSpace(lineH);
+        doc.text(line, marginX, y);
+        y += lineH;
+      }
+      y += opts.gap ?? 6;
+    };
+
+    writeBlock("HYPOTHETICA", {
+      font: "helvetica",
+      style: "bold",
+      size: 9,
+      color: [122, 111, 92],
+      gap: 4,
+    });
+    writeBlock("Originality Assessment Report", {
+      size: 24,
+      style: "bold",
+      gap: 14,
+    });
+    writeBlock(`Issue No. ${jobId.slice(0, 6)}`, {
+      font: "helvetica",
+      size: 9,
+      color: [122, 111, 92],
+      gap: 18,
+    });
+
+    writeBlock("Score", {
+      font: "helvetica",
+      style: "bold",
+      size: 10,
+      color: [200, 48, 24],
+      gap: 4,
+    });
+    writeBlock(`${results.originality_score} / 100`, {
+      size: 28,
+      style: "bold",
+      gap: 18,
+    });
+
+    writeBlock("Summary", {
+      font: "helvetica",
+      style: "bold",
+      size: 10,
+      color: [200, 48, 24],
+      gap: 6,
+    });
+    writeBlock(results.comprehensive_report || results.summary || "—", {
+      size: 11,
+      gap: 18,
+    });
+
+    writeBlock("Sentence Analysis", {
+      font: "helvetica",
+      style: "bold",
+      size: 10,
+      color: [200, 48, 24],
+      gap: 8,
+    });
+    for (const ann of results.sentence_annotations) {
+      const marker =
+        ann.label === "high" ? "[HIGH]" : ann.label === "medium" ? "[MED]" : "[LOW]";
+      const pct = `${Math.round(ann.similarity_score * 100)}%`;
+      const color: [number, number, number] =
+        ann.label === "high"
+          ? [63, 122, 31]
+          : ann.label === "medium"
+          ? [184, 138, 58]
+          : [200, 48, 24];
+      writeBlock(`${marker} ${pct}`, {
+        font: "helvetica",
+        style: "bold",
+        size: 9,
+        color,
+        gap: 2,
+      });
+      writeBlock(ann.sentence, { size: 11, gap: 10 });
+    }
+
+    doc.save(`originality_report_${jobId.slice(0, 6)}.pdf`);
+  };
 
   return (
     <>
-      {/* Reality check disclaimer — advisory only, does not affect score */}
-      <RealityCheckBanner realityCheck={realityCheck} results={results} />
+      {/* Issue header */}
+      <div className="grid grid-cols-12 gap-6 mb-12 items-stretch">
+        <div className="col-span-12 md:col-span-7 flex flex-col justify-between gap-8">
+          <div>
+            <p className="small-caps text-[color:var(--color-ink-fade)] mb-2">
+              Issue № {jobId.slice(0, 6)}
+            </p>
+            <h2 className="font-display text-[clamp(2.6rem,6vw,4.5rem)] tracking-tight leading-[0.92] text-[color:var(--color-ink)]">
+              The Verdict
+            </h2>
+            <p className="font-body text-[color:var(--color-ink-soft)] text-base mt-2 max-w-md leading-snug">
+              assessed against {results.papers?.length ?? 0} sources of
+              prior art
+            </p>
+          </div>
 
-      {/* User Idea + Score Section */}
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 mb-6">
-        {/* User's Idea with highlighting */}
-        <div className="mb-6">
-          <h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wider mb-3">
-            Your Research Idea
-            <span className="text-xs font-normal text-slate-400 ml-2">
-              (highlighted areas show overlap with existing research)
-            </span>
+          <div className="hairline" />
+
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-6">
+            <HeaderStat
+              label="prior art consulted"
+              value={(results.papers?.length ?? 0).toString().padStart(2, "0")}
+              hint={
+                results.stats
+                  ? `from ${results.stats.total_fetched.toLocaleString()} fetched`
+                  : undefined
+              }
+            />
+            <HeaderStat
+              label="criteria assessed"
+              value="04"
+              hint="problem · method · domain · contribution"
+            />
+            <HeaderStat
+              label="processing time"
+              value={formatDuration(results.total_processing_time)}
+              hint={
+                results.stats
+                  ? `${results.stats.total_chunks.toLocaleString()} chunks indexed`
+                  : undefined
+              }
+            />
+            <HeaderStat
+              label="cost of assessment"
+              value={`$${results.cost.estimated_cost_usd.toFixed(3)}`}
+              hint="across all agents"
+            />
+          </dl>
+        </div>
+        <div className="col-span-12 md:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="border border-[color:var(--color-rule)] bg-[color:var(--color-paper-shade)] p-6 h-full"
+          >
+            <OriginalityGauge
+              score={results.originality_score}
+              summary={results.summary}
+            />
+          </motion.div>
+        </div>
+      </div>
+
+      <span className="hairline-double block mb-10" />
+
+      {/* The manuscript */}
+      <section className="grid grid-cols-12 gap-6 mb-14">
+        <aside className="hidden lg:block col-span-3 pt-2">
+          <p className="small-caps text-[color:var(--color-ink-fade)] mb-2">
+            chapter iii
+          </p>
+          <p className="font-display italic text-xl text-[color:var(--color-ink-soft)] leading-tight">
+            The manuscript, annotated.
+          </p>
+          <div className="hairline my-4" />
+          <p className="font-mono text-[11px] text-[color:var(--color-ink-fade)] leading-relaxed">
+            Vermillion underlines mark<br />
+            <span className="text-[color:var(--color-vermillion)]">high similarity</span>;{" "}
+            ochre marks<br />
+            <span className="text-[color:var(--color-ochre)]">moderate similarity</span>.<br /><br />
+            Click any mark to see<br />
+            the matching passage<br />
+            in the source.
+          </p>
+        </aside>
+        <div className="col-span-12 lg:col-span-9">
+          <h3 className="font-display text-3xl tracking-tight mb-1">
+            Author's Submission, with Annotation
           </h3>
-          <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
-            <HighlightedIdea 
+          <p className="font-display italic text-[color:var(--color-ink-fade)] mb-5 text-sm">
+            Hypothetica marks where the corpus knows your idea
+          </p>
+
+          <div className="relative bg-[color:var(--color-paper-shade)] border border-[color:var(--color-rule)] p-7 md:p-9">
+            <span className="absolute top-2 right-3 font-mono text-[10px] text-[color:var(--color-ink-fade)]">
+              ✦
+            </span>
+            <HighlightedIdea
               annotations={results.sentence_annotations}
               jobId={jobId}
             />
           </div>
-          {/* Legend */}
-          <div className="flex items-center gap-4 mt-2 text-xs text-slate-500">
-            <span className="flex items-center gap-1">
-              <span className="w-3 h-2 bg-red-200 rounded-sm border-b-2 border-red-400" />
-              High overlap
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="w-3 h-2 bg-amber-200 rounded-sm border-b-2 border-amber-400" />
-              Moderate overlap
-            </span>
-            <span className="text-slate-400">Click highlighted text to see evidence</span>
-          </div>
         </div>
+      </section>
 
-        {/* Originality Gauge with Summary */}
-        <OriginalityGauge 
-          score={results.originality_score} 
-          summary={results.summary}
-        />
-      </div>
+      <span className="hairline-double block mb-10" />
 
-      {/* Main results grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left column: Criteria + Stats + Cost */}
-        <div className="space-y-6">
+      {/* Apparatus + bibliography */}
+      <div className="grid grid-cols-12 gap-x-6 gap-y-10">
+        <aside className="col-span-12 lg:col-span-4 space-y-6">
+          {/* Criteria */}
+          {results.aggregated_criteria && (
+            <section className="bg-[color:var(--color-paper-shade)]/70 border border-[color:var(--color-rule)] p-6">
+              <CriteriaBreakdown criteria={results.aggregated_criteria} />
+            </section>
+          )}
 
           {/* Stats */}
           {results.stats && (
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-              <h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wider mb-3">
+            <section className="bg-[color:var(--color-paper-shade)]/70 border border-[color:var(--color-rule)] p-6">
+              <h3 className="font-display text-2xl tracking-tight mb-1">
                 Statistics
               </h3>
-              <div className="grid grid-cols-2 gap-3">
+              <p className="font-body text-[14px] text-[color:var(--color-ink-soft)] mb-4 leading-snug">
+                retrieval and indexing metrics
+              </p>
+              <dl className="grid grid-cols-2 gap-x-4 gap-y-4 mb-3">
                 <Stat
                   label={statLabels.analyzed}
                   value={results.stats.papers_processed}
@@ -115,73 +294,72 @@ export default function ResultsView({
                   label={statLabels.fetched}
                   value={results.stats.total_fetched}
                 />
-              </div>
+              </dl>
               <SearchQueriesList stats={results.stats} />
-            </div>
-          )}
-
-          {/* Criteria */}
-          {results.aggregated_criteria && (
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-              <CriteriaBreakdown criteria={results.aggregated_criteria} />
-            </div>
+            </section>
           )}
 
           {/* Cost */}
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-            <h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wider mb-3">
-              Cost Breakdown
+          <section className="bg-[color:var(--color-paper-shade)]/70 border border-[color:var(--color-rule)] p-6">
+            <h3 className="font-display text-2xl tracking-tight mb-1">
+              Cost of Assessment
             </h3>
-            <div className="space-y-2 text-sm">
+            <p className="font-body text-[14px] text-[color:var(--color-ink-soft)] mb-4 leading-snug">
+              token spend across every agent
+            </p>
+            <dl className="font-mono text-[12px] divide-y divide-[color:var(--color-rule)]">
               {Object.entries(results.cost.breakdown).map(([key, val]) => (
-                <div key={key} className="flex justify-between">
-                  <span className="text-slate-500 capitalize">{key}</span>
-                  <span className="text-slate-700 font-medium">
+                <div key={key} className="flex items-baseline justify-between py-2">
+                  <dt className="text-[color:var(--color-ink-soft)] uppercase tracking-wider font-bold">
+                    {key.replace(/_/g, " ")}
+                  </dt>
+                  <dd className="text-[color:var(--color-ink)] numeric-tabular">
                     ${val.toFixed(4)}
-                  </span>
+                  </dd>
                 </div>
               ))}
-              <div className="border-t border-slate-100 pt-2 flex justify-between font-semibold">
-                <span className="text-slate-700">Total</span>
-                <span className="text-indigo-600">
+              <div className="flex items-baseline justify-between py-2 border-t-[3px] border-double border-[color:var(--color-ink)] mt-1">
+                <dt className="small-caps text-[color:var(--color-ink)] font-bold">total</dt>
+                <dd className="font-display text-xl text-[color:var(--color-vermillion)] numeric-tabular">
                   ${results.cost.estimated_cost_usd.toFixed(4)}
-                </span>
+                </dd>
               </div>
-            </div>
-          </div>
-        </div>
+            </dl>
+          </section>
+        </aside>
 
-        {/* Right column: Analyzed Papers (spans 2 cols) */}
-        <div className="lg:col-span-2">
-          {githubEvidence && (
-            <div className="mb-6">
-              <GitHubEvidence analysis={githubEvidence} />
-            </div>
-          )}
+        <div className="col-span-12 lg:col-span-8 space-y-8">
+          {githubEvidence && <GitHubEvidence analysis={githubEvidence} />}
           {results.papers && results.papers.length > 0 && (
-            <PaperTable papers={results.papers} originalityScore={results.originality_score} />
+            <PaperTable
+              papers={results.papers}
+              originalityScore={results.originality_score}
+            />
           )}
         </div>
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-4 mt-8">
+      <div className="mt-16 flex flex-col md:flex-row items-start md:items-center gap-4">
         <button
           onClick={onNewAnalysis}
-          className="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+          className="group relative inline-flex items-center gap-3 px-7 py-3.5 bg-[color:var(--color-ink)] text-[color:var(--color-paper)] font-display text-lg tracking-tight shadow-[0_5px_0_0_var(--color-vermillion)] hover:shadow-[0_2px_0_0_var(--color-vermillion)] hover:translate-y-[3px] transition-all"
         >
-          New Analysis
+          <span className="font-mono text-sm opacity-70 group-hover:rotate-180 transition-transform duration-500">
+            ↺
+          </span>
+          <span>Submit Another</span>
         </button>
-        <a
-          href={`data:text/markdown;charset=utf-8,${encodeURIComponent(reportText)}`}
-          download="originality_report.md"
-          className="px-5 py-2.5 border border-slate-300 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors"
+        <button
+          type="button"
+          onClick={handleDownloadPdf}
+          className="group inline-flex items-center gap-2 px-5 py-3 border border-[color:var(--color-ink)] text-[color:var(--color-ink)] small-caps font-bold hover:bg-[color:var(--color-ink)] hover:text-[color:var(--color-paper)] transition-colors"
         >
-          Download Report
-        </a>
+          <span className="font-mono group-hover:translate-y-0.5 transition-transform">↓</span>
+          <span>download .pdf</span>
+        </button>
       </div>
 
-      {/* Modal */}
       {selectedSentence && (
         <MatchesModal
           annotation={selectedSentence}
@@ -193,16 +371,56 @@ export default function ResultsView({
   );
 }
 
-function Stat({ label, value }: { label: string; value: number }) {
+function HeaderStat({
+  label,
+  value,
+  hint,
+}: {
+  label: string;
+  value: string;
+  hint?: string;
+}) {
   return (
-    <div className="bg-slate-50 rounded-lg p-3 text-center">
-      <div className="text-lg font-bold text-slate-800">{value}</div>
-      <div className="text-xs text-slate-500">{label}</div>
+    <div className="flex flex-col">
+      <span className="small-caps text-[color:var(--color-ink-soft)] font-bold order-2 mt-1">
+        {label}
+      </span>
+      <span
+        className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none text-[color:var(--color-ink)] numeric-tabular order-1"
+        style={{ fontVariationSettings: '"opsz" 144, "SOFT" 30, "WONK" 1' }}
+      >
+        {value}
+      </span>
+      {hint && (
+        <span className="font-body text-[13px] text-[color:var(--color-ink-soft)] order-3 mt-1 leading-snug">
+          {hint}
+        </span>
+      )}
     </div>
   );
 }
 
-/** arXiv / patent search strings from QueryVariantAgent (also in job stats API). */
+function formatDuration(seconds: number): string {
+  if (!seconds || seconds < 0) return "·";
+  if (seconds < 60) return `${Math.round(seconds)}s`;
+  const m = Math.floor(seconds / 60);
+  const s = Math.round(seconds % 60);
+  return `${m}m ${s.toString().padStart(2, "0")}s`;
+}
+
+function Stat({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="flex flex-col">
+      <dt className="small-caps text-[color:var(--color-ink-soft)] font-bold order-2 mt-1">
+        {label}
+      </dt>
+      <dd className="font-display text-3xl text-[color:var(--color-ink)] numeric-tabular order-1">
+        {value.toLocaleString()}
+      </dd>
+    </div>
+  );
+}
+
 function SearchQueriesList({
   stats,
 }: {
@@ -214,120 +432,24 @@ function SearchQueriesList({
       : (stats.query_variants_list?.map((v) => v.query).filter(Boolean) as
           | string[]
           | undefined) ?? [];
-  if (raw.length === 0) {
-    return null;
-  }
+  if (raw.length === 0) return null;
   return (
-    <div className="mt-4 pt-4 border-t border-slate-100">
-      <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-        Literature search queries
-      </h4>
-      <p className="text-[11px] text-slate-400 mb-2">
-        Phrases used to retrieve papers (query-variant model).
-      </p>
-      <ol className="list-decimal pl-4 space-y-1.5 text-sm text-slate-600">
+    <details className="mt-4 group border-t border-[color:var(--color-rule)] pt-3">
+      <summary className="small-caps text-[color:var(--color-ink-soft)] font-bold cursor-pointer hover:text-[color:var(--color-vermillion)] transition-colors list-none flex items-center gap-2">
+        <span className="font-mono">+</span>
+        retrieval queries ({raw.length})
+      </summary>
+      <ol className="mt-3 space-y-2 font-mono text-[11px] text-[color:var(--color-ink-soft)]">
         {raw.map((q, i) => (
-          <li key={i} className="break-words">
-            {q}
+          <li key={i} className="flex gap-3">
+            <span className="text-[color:var(--color-ink-fade)] flex-shrink-0">
+              {(i + 1).toString().padStart(2, "0")}.
+            </span>
+            <span className="break-words">{q}</span>
           </li>
         ))}
       </ol>
-    </div>
+    </details>
   );
 }
 
-function RealityCheckBanner({
-  realityCheck,
-  results,
-}: {
-  realityCheck: RealityCheckInfo | null;
-  results: AnalysisResults;
-}) {
-  const rc =
-    (realityCheck?.result as Record<string, unknown>) ??
-    (results.reality_check as Record<string, unknown> | undefined);
-  if (!rc) return null;
-
-  const exists = rc.already_exists === true;
-  const examples = (rc.existing_examples ?? []) as Array<{
-    name: string;
-    similarity: number;
-    description: string;
-  }>;
-  const assessment = rc.assessment as string | undefined;
-  const recommendation = rc.recommendation as string | undefined;
-  const noveltyAspects = (rc.novelty_aspects ?? []) as string[];
-
-  if (!exists) return null;
-
-  return (
-    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-6">
-      <div className="flex items-start gap-3">
-        <span className="text-xl flex-shrink-0">⚠️</span>
-        <div className="flex-1">
-          <h3 className="text-sm font-bold text-amber-800 mb-1">
-            This idea may already exist
-          </h3>
-          {assessment && (
-            <p className="text-sm text-amber-700 leading-relaxed mb-3">
-              {assessment}
-            </p>
-          )}
-
-          {examples.length > 0 && (
-            <details className="mb-3">
-              <summary className="text-sm text-amber-700 cursor-pointer font-medium hover:text-amber-900">
-                Similar existing products/research ({examples.length})
-              </summary>
-              <div className="mt-2 space-y-2">
-                {examples.slice(0, 5).map((ex, i) => (
-                  <div
-                    key={i}
-                    className="bg-white rounded-lg px-3 py-2 border border-amber-100 flex items-start gap-2"
-                  >
-                    <span className="text-xs font-bold text-amber-600 flex-shrink-0 mt-0.5">
-                      {Math.round(ex.similarity * 100)}%
-                    </span>
-                    <div>
-                      <span className="text-sm font-medium text-slate-800">
-                        {ex.name}
-                      </span>
-                      <p className="text-xs text-slate-500 mt-0.5">
-                        {ex.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </details>
-          )}
-
-          {noveltyAspects.length > 0 && (
-            <div className="mb-3">
-              <p className="text-xs font-semibold text-green-700 mb-1">
-                Potentially novel aspects:
-              </p>
-              <ul className="text-xs text-green-600 list-disc list-inside space-y-0.5">
-                {noveltyAspects.map((a, i) => (
-                  <li key={i}>{a}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {recommendation && (
-            <p className="text-xs text-amber-600 italic mb-3">
-              {recommendation}
-            </p>
-          )}
-
-          <p className="text-[11px] text-amber-400 border-t border-amber-200 pt-2">
-            This is an advisory check based on LLM pretraining data and does not
-            affect the originality score above. The score is calculated solely
-            from grounded analysis of retrieved evidence.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
