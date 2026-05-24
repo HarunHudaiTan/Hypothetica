@@ -2,49 +2,116 @@
 
 **Research Originality Assessment Tool**
 
-Hypothetica is an AI-powered system that evaluates the originality of research ideas by systematically analyzing them against existing academic literature. It helps researchers, students, and innovators assess whether their concepts are novel or if similar work already exists.
+Hypothetica is an AI-powered system that evaluates the originality of research ideas by analyzing them against existing academic literature, open-source repositories, and patents. It helps researchers, students, and innovators assess whether their concepts are novel or if similar work already exists.
 
 ## Features
 
-- **AI-Powered Analysis**: Uses advanced language models (Gemini 2.5 Flash) and retrieval-augmented generation (RAG) for comprehensive originality assessment
-- **Interactive Workflow**: Step-by-step process with follow-up questions for idea clarification
-- **Reality Check**: Preliminary screening using LLM's general knowledge to identify obvious existing solutions
-- **Academic Paper Search**: Automated retrieval and analysis of relevant research papers from arXiv
-- **Detailed Reports**: Layered analysis with overlap scoring, criteria-based evaluation, and evidence-backed results
-- **Real-time Progress**: Live updates during analysis with detailed progress tracking
-- **Cost Tracking**: Built-in token usage and cost monitoring for API calls
+- **Multi-Source Evidence**: Search arXiv, OpenAlex, GitHub repositories, and Google Patents in one pipeline
+- **Chat Interview**: AI-driven clarification phase to refine the research idea before analysis
+- **Reality Check**: Preliminary LLM screening to flag obviously existing work
+- **Two-Layer Analysis**: Per-paper criterion scoring (Layer 1) followed by deterministic aggregation (Layer 2)
+- **Criteria-Based Scoring**: Problem, method, domain, and contribution evaluated independently per paper
+- **Sentence Annotations**: UI-level sentence highlighting showing which parts of the idea overlap with evidence
+- **Real-Time Progress**: Live SSE stream with detailed pipeline stage updates
+- **Cost Tracking**: Per-job token usage and API cost monitoring
 
 ## Architecture
 
-### Backend (Python/FastAPI)
-- **Core Components**:
-  - `AnalysisService`: Orchestrates the entire originality assessment pipeline
-  - `PaperSearchService`: Handles academic paper discovery and retrieval
-  - `PaperProcessingService`: Processes PDFs, extracts text, and creates vector embeddings
-  - `OriginalityService`: Performs multi-layer originality analysis
-  - `ChromaStore`: Vector database for efficient similarity search
-- **AI Agents**:
-  - `FollowUpAgent`: Generates targeted questions to clarify research ideas
-  - `RealityCheckAgent`: Performs preliminary screening for existing solutions
-  - `HeadingSelectorAgent`: Identifies relevant sections in academic papers
+### Backend (Python / FastAPI)
 
-### Frontend (React/TypeScript)
-- Modern single-page application built with React and TypeScript
-- Real-time progress updates via Server-Sent Events (SSE)
-- Responsive design with Tailwind CSS
-- Component-based architecture for maintainability
+**Services**
+- `AnalysisService` — orchestrates the full pipeline: interview → search → process → score → report
+- `PaperSearchService` — multi-adapter search dispatch and result deduplication
+- `PaperProcessingService` — PDF download, text extraction, chunking, and embedding
+- `OriginalityService` — runs Layer 1 and Layer 2 analysis, returns scored results
+- `AdapterService` — unified interface over all source adapters
+- `GitHubService` — GitHub-specific search, filtering, and README retrieval
+- `BenchmarkRunService` — headless analysis runs for benchmark evaluation
+
+**Source Adapters** (`app/adapters/`)
+| Adapter | Source | Notes |
+|---|---|---|
+| `arxiv` | arXiv preprint server | Default source |
+| `openalex` | OpenAlex scholarly metadata | Requires `OPENALEX_MAILTO` for better rate limits |
+| `github` | GitHub repositories | Requires `GITHUB_TOKEN` |
+| `patents` | Google Patents via SerpApi | Requires `SERPAPI_API_KEY` |
+
+**Agents** (`app/agents/`)
+| Agent | Role |
+|---|---|
+| `RealityCheckAgent` | Preliminary LLM screening before full pipeline |
+| `FollowUpAgent` | Conversational interview to clarify the research idea |
+| `QueryVariantAgent` | Generates diverse search query variants from the refined idea |
+| `RelevantPaperSelectorAgent` | Filters retrieved papers for relevance |
+| `HeadingSelectorAgent` | Identifies relevant sections within papers |
+| `Layer1Agent` | 5 stateless LLM calls per paper (4 criteria + sentence-level) |
+| `Layer2Agent` | Summary and narrative generation from scored results |
+| `ReportGeneratorAgent` | Compiles the final originality report |
+| `GitHubQueryAgent` | Generates GitHub-specific search queries |
+| `GitHubSynthesisAgent` | Synthesizes GitHub evidence into structured findings |
+| `RepoRelevanceAgent` | Scores individual GitHub repos for relevance |
+
+**Retrieval Pipeline** (`app/retrieval/`)
+- Embedding model: `intfloat/e5-base-v2` (auto-detects CUDA / MPS / CPU)
+- Vector store: ChromaDB (in-memory)
+- Reranking: cross-encoder reranker, top-20 → top-5 final papers
+
+### Scoring Pipeline
+
+Layer 1 runs 5 independent LLM calls per paper:
+- **4 criterion calls**: problem, method, domain, contribution — each scored on a 1–5 Likert scale
+- **1 sentence call**: per-sentence overlap anchored to the criterion scores
+
+Layer 2 aggregation (deterministic):
+```
+paper_threat     = 0.5 * max(criteria) + 0.5 * weighted_mean(criteria)
+global_overlap   = 0.7 * max(paper_threats) + 0.3 * mean(paper_threats)
+originality      = (1 - global_overlap ^ 1.5) * 100
+```
+
+Criteria weights: contribution=0.45, method=0.30, problem=0.15, domain=0.10
+
+Guardrails:
+- Any criterion = Likert 5 → overlap floor 0.65
+- 2+ criteria ≥ Likert 4 → overlap floor 0.50
+
+Score bands: 0–40 = low originality, 40–70 = medium, 70–100 = high
+
+### Frontend (React / TypeScript)
+
+Built with React 19, TypeScript, Vite, and Tailwind CSS 4.
+
+**Components** (`frontend/src/components/`)
+| Component | Purpose |
+|---|---|
+| `IdeaInput` | Initial idea submission form |
+| `SourceSelection` | Source adapter picker |
+| `SettingsPanel` | Pipeline configuration |
+| `ChatInterview` | Conversational follow-up interface |
+| `PipelineProgress` | Real-time stage progress display |
+| `ResultsView` | Top-level results layout |
+| `OriginalityGauge` | Visual score dial |
+| `PaperTable` | Per-paper breakdown table |
+| `SimilarPapersSection` | Similar paper cards with evidence |
+| `CriteriaBreakdown` | Per-criterion score visualization |
+| `SentenceHighlighting` | Color-coded sentence overlap annotations |
+| `HighlightedIdea` | Annotated idea text with overlap markers |
+| `MatchesModal` | RAG chunk matches for a selected sentence |
+| `GitHubEvidence` | GitHub-specific evidence display |
+| `Header` | App header |
 
 ### Infrastructure
-- **Docker**: Containerized deployment with docker-compose
-- **Nginx**: Reverse proxy for API routing and static file serving
-- **ChromaDB**: Vector database for document chunks and embeddings
-- **FastAPI**: High-performance async API framework
+
+- **Docker Compose**: two services — `backend` (port 8005) and `frontend` (port 3000 via nginx)
+- **Supabase**: persists analysis queries and benchmark results
+- **ChromaDB**: in-memory vector store for document chunks during analysis
+- **FastAPI**: async API with SSE support
 
 ## Installation & Setup
 
 ### Prerequisites
 - Docker and Docker Compose
-- Google AI API key (for Gemini models)
+- Google AI API key (Gemini 2.5 Flash)
 
 ### Quick Start
 
@@ -57,7 +124,15 @@ Hypothetica is an AI-powered system that evaluates the originality of research i
 2. **Set up environment**:
    ```bash
    mkdir -p envfiles
-   echo "GOOGLE_API_KEY=your_api_key_here" > envfiles/.env
+   cat > envfiles/.env << EOF
+   GOOGLE_API_KEY=your_google_api_key
+   # Optional — enables additional sources:
+   GITHUB_TOKEN=your_github_token
+   SERPAPI_API_KEY=your_serpapi_key
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_SERVICE_ROLE_KEY=your_supabase_key
+   OPENALEX_MAILTO=your_email
+   EOF
    ```
 
 3. **Start the application**:
@@ -71,14 +146,14 @@ Hypothetica is an AI-powered system that evaluates the originality of research i
 
 ### Development Setup
 
-#### Backend Development
+**Backend**
 ```bash
 cd backend
 pip install -r requirements.txt
 python main.py
 ```
 
-#### Frontend Development
+**Frontend**
 ```bash
 cd frontend
 npm install
@@ -87,71 +162,74 @@ npm run dev
 
 ## Usage
 
-1. **Input Your Idea**: Describe your research concept or hypothesis in the text area
-2. **Answer Clarifying Questions**: Respond to AI-generated follow-up questions to refine your idea
-3. **Monitor Progress**: Watch real-time updates as the system searches papers and analyzes originality
-4. **Review Results**: Examine detailed originality scores, matched papers, and specific overlaps
+1. **Submit idea** — describe your research concept
+2. **Select source** — choose arXiv, OpenAlex, GitHub, or Patents
+3. **Chat interview** — answer AI follow-up questions to refine the idea (or skip)
+4. **Monitor progress** — watch real-time pipeline stages
+5. **Review results** — examine originality score, per-paper breakdowns, sentence-level overlaps, and matched evidence
 
-### API Usage
+## API Reference
 
-The backend provides a REST API for programmatic access:
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/analyze` | Start a new analysis job |
+| `GET` | `/api/analyze/{job_id}/status` | Poll job status and results |
+| `GET` | `/api/analyze/{job_id}/stream` | SSE stream for real-time updates |
+| `POST` | `/api/analyze/{job_id}/chat` | Send a chat message during interview |
+| `POST` | `/api/analyze/{job_id}/answers` | Submit answers and start analysis |
+| `POST` | `/api/analyze/{job_id}/finalize` | End interview early and start analysis |
+| `POST` | `/api/analyze/{job_id}/matches` | Get RAG chunk matches for a sentence |
+| `GET` | `/api/adapters` | List available source adapters |
+| `GET` | `/api/health` | Health check |
 
+**Example**
 ```bash
 # Start analysis
 curl -X POST http://localhost:8005/api/analyze \
   -H "Content-Type: application/json" \
-  -d '{"user_idea": "Your research idea here"}'
+  -d '{"user_idea": "A transformer-based model for protein folding prediction"}'
 
-# Check status
-curl http://localhost:8005/api/analyze/{job_id}/status
-
-# Get streaming updates
+# Stream progress
 curl http://localhost:8005/api/analyze/{job_id}/stream
+
+# Get final results
+curl http://localhost:8005/api/analyze/{job_id}/status
 ```
 
 ## Configuration
 
-### Pipeline Parameters (in `backend/core/config.py`)
-- `PAPERS_PER_QUERY_VARIANT`: Papers to fetch per search query (default: 150)
-- `MAX_PAPERS_TO_ANALYZE`: Final papers for detailed analysis (default: 5)
-- `HIGH_OVERLAP_THRESHOLD`: Threshold for low originality detection (default: 0.7)
-- `EMBEDDING_MODEL`: Sentence transformer model (default: intfloat/e5-base-v2)
+Key parameters in `backend/core/config.py`:
 
-### Environment Variables
-- `GOOGLE_API_KEY`: Required for Gemini API access
+| Parameter | Default | Description |
+|---|---|---|
+| `PAPERS_PER_QUERY_VARIANT` | 150 | Papers fetched per search query variant |
+| `RERANK_TOPK` | 20 | Papers after reranking |
+| `MAX_PAPERS_TO_ANALYZE` | 5 | Papers sent to Layer 1 |
+| `EMBEDDING_MODEL` | `intfloat/e5-base-v2` | Sentence embedding model |
+| `LLM_MODEL` | `gemini-2.5-flash` | LLM for all agents |
+| `HIGH_OVERLAP_THRESHOLD` | 0.7 | Overlap score = low originality |
+| `OVERLAP_CURVE_POWER` | 1.5 | Power curve exponent for final score |
 
-## How It Works
+## Benchmarks
 
-1. **Idea Submission**: User submits research idea
-2. **Reality Check**: LLM evaluates if similar concepts already exist
-3. **Clarification**: AI generates targeted follow-up questions
-4. **Paper Search**: System searches arXiv for relevant academic papers
-5. **Content Processing**: PDFs are downloaded, processed, and chunked into vector embeddings
-6. **Layer 1 Analysis**: Sentence-level comparison between user idea and paper content
-7. **Layer 2 Analysis**: Deeper semantic analysis with evidence extraction
-8. **Results Compilation**: Generates comprehensive originality report
+Benchmark data and results live in `benchmarks/`. Sources: arXiv, OpenAlex, GitHub.
 
-## Key Technologies
+```bash
+cd benchmarks
+python run_benchmark.py          # run evaluation
+python sweep_scoring_params.py   # parameter sweep
+```
 
-- **Language Models**: Google Gemini 2.5 Flash for reasoning and generation
-- **Embeddings**: Sentence Transformers for semantic similarity
-- **Vector Search**: ChromaDB for efficient document retrieval
-- **PDF Processing**: Custom extraction and chunking pipeline
-- **Frontend**: React with Vite for modern web development
-- **Backend**: FastAPI with async processing and SSE support
+Results stored in `benchmarks/results_v3/`.
 
-## Contributing
+## Database Migrations
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Make your changes and add tests
-4. Run the application locally to verify
-5. Submit a pull request
+SQL migrations in `db/migrations/` — apply against Supabase:
+- `001_create_queries_table.sql`
+- `002_add_github_analysis.sql`
+- `003_benchmark_layer_outputs.sql`
+- `004_benchmark_table.sql`
 
 ## License
 
 [Add license information here]
-
-## Contact
-
-For questions or support, please open an issue on GitHub.
