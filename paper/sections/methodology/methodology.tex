@@ -86,13 +86,11 @@ The second track is the Sentence-Level Overlap Analysis, which examines the user
 The Likert scores produced by the two tracks are then mapped to floats in the $[0, 1]$ range, where 1 corresponds to near-complete overlap and 0 corresponds to no meaningful overlap. The Similarity Score Calculation step combines the four candidate-level criteria scores into a single per-candidate similarity score using a weighted average:
 
 \begin{equation}
-\begin{alignedat}{2}
-	\text{sim}_{\text{candidate}}
-	&= w_p \cdot S_{\text{problem}}
-	&\quad{}+{}& w_m \cdot S_{\text{method}} \\
-	&\quad{}+ w_d \cdot S_{\text{domain}}
-	&\quad{}+{}& w_c \cdot S_{\text{contribution}}
-\end{alignedat}
+	\text{sim}_{\text{candidate}} =
+	w_p \cdot S_{\text{problem}}
+	+ w_m \cdot S_{\text{method}}
+	+ w_d \cdot S_{\text{domain}}
+	+ w_c \cdot S_{\text{contribution}}
 \label{eq:sim_candidate}
 \end{equation}
 
