@@ -125,11 +125,6 @@ OVERLAP_CURVE_POWER = 1.5
 # Per-paper similarity = weighted mean of the 4 criteria (no max within paper).
 # Global similarity   = max over analyzed papers (best match wins — mean diluted real overlap).
 
-# Categorical guardrails
-GUARDRAIL_CRITICAL_FLOOR = 0.65  # Min overlap when any criterion = Likert 5 (1.0)
-GUARDRAIL_HIGH_COUNT = 2         # Number of criteria >= Likert 4 to trigger high guardrail
-GUARDRAIL_HIGH_FLOOR = 0.50      # Min overlap when GUARDRAIL_HIGH_COUNT criteria >= Likert 4
-
 # =============================================================================
 # CHROMADB CONFIGURATION
 # =============================================================================

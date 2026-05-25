@@ -52,3 +52,34 @@ This distinction between incremental and novel was the most consequential design
 \subsection{Deliberate Inclusion of Borderline Cases}
 
 Each dataset includes a proportion of deliberately borderline cases -- ideas that sit close to the incremental/novel boundary and would reasonably invite disagreement among human annotators. This design choice reflects the reality of originality assessment: the boundary between a highly creative extension and a genuinely new mechanism is often ambiguous in practice, and a useful assessment tool must behave meaningfully in this region rather than only on clear-cut cases. These cases also serve as a natural stress test for the system's sensitivity near decision boundaries, and their presence partly explains the lower per-class accuracy on the incremental label observed across all three corpora.
+
+\subsection{Default Pipeline Parameters}
+\label{subsec:params}
+
+Table~\ref{tab:params} lists the fixed parameter values used in all experiments. Retrieval and selection parameters control how many candidates reach the scoring phases; scoring parameters determine how per-candidate similarity scores are combined into the final originality verdict.
+
+\begin{table}[width=.95\linewidth,cols=3,pos=ht]
+\caption{Default pipeline parameters used in all experiments.}\label{tab:params}
+\begin{tabular*}{\tblwidth}{@{} LLL@{} }
+\toprule
+Parameter & Value & Role \\
+\midrule
+\multicolumn{3}{l}{\textit{Retrieval \& Selection}} \\
+Papers per query variant & 150 & Retrieval depth (OpenAlex) \\
+Embedding top-$k$ & 100 & Candidates after vector filtering \\
+Rerank top-$k$ & 20 & Candidates after cross-encoder \\
+Final selection $K$ & 5 & Papers sent to scoring \\
+\midrule
+\multicolumn{3}{l}{\textit{Criteria Weights}} \\
+$w_{\text{problem}}$ & 0.15 & Context signal \\
+$w_{\text{method}}$ & 0.30 & Novelty signal \\
+$w_{\text{domain}}$ & 0.10 & Context signal \\
+$w_{\text{contribution}}$ & 0.45 & Primary novelty signal \\
+\midrule
+\multicolumn{3}{l}{\textit{Global Aggregation}} \\
+$w_{\max}$ & 0.70 & Weight of strongest match \\
+$w_{\text{mean}}$ & 0.30 & Weight of mean across papers \\
+Power $p$ & 1.5 & Originality curve exponent \\
+\bottomrule
+\end{tabular*}
+\end{table}
