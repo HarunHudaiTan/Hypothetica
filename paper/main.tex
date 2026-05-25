@@ -1,4 +1,4 @@
-\documentclass[a4paper,fleqn]{cas-dc}
+\documentclass[a4paper,fleqn]{cas-sc}
 
 \usepackage[authoryear,longnamesfirst]{natbib}
 
@@ -12,18 +12,19 @@
   \caption{#2}%
   \label{#3}%
 }
-\newcommand{\paperfigureblock}[4][0.95\linewidth]{%
-  \par\nobreak\vspace{4pt}%
+\NewDocumentCommand{\paperfigureblock}{O{0.95\linewidth} O{0.62\textheight} m m m}{%
+  \par\nobreak\smallskip
   \begin{center}
-    \IfFileExists{figures/#2}{%
-      \includegraphics[width=#1,height=0.45\textheight,keepaspectratio]{figures/#2}%
+    \IfFileExists{figures/#3}{%
+      \includegraphics[width=#1,height=#2,keepaspectratio]{figures/#3}%
     }{%
       \fbox{\parbox[c][0.20\textheight][c]{0.40\textwidth}{\centering Figure pending}}%
     }%
     \par\vspace{2pt}
     \refstepcounter{figure}%
-    {\small\textbf{Fig.~\thefigure.} #3\label{#4}}%
+    {\small\textbf{Fig.~\thefigure.} #4\label{#5}}%
   \end{center}
+  \par\smallskip
 }
 
 \begin{document}
@@ -44,10 +45,15 @@
 % Main title
 \title[mode=title]{Hypothetica: A Multi-Agent Framework for
   Literature-Based Novelty Assessment of Research Ideas}
+\tnotemark[1]
+
+% Title footnote
+\tnotetext[1]{This study was carried out as part of the SENG~491 --
+CMPE~491 -- SENG~492 -- CMPE~492 Senior Project I -- Senior Project II
+courses, under the supervision of Dr.\ Murat Karakaya at TED University.}
 
 % First author
 \author[1]{Harun H\"{u}dai Tan}
-\fnmark[1]
 \ead{harunhudai.tan@tedu.edu.tr}
 \credit{Conceptualization, Methodology, Software, Writing -- Original Draft}
 
@@ -57,19 +63,16 @@
 
 % Second author
 \author[1]{Baran Erol}
-\fnmark[1]
 \ead{baran.erol@tedu.edu.tr}
 \credit{Software, Validation}
 
 % Third author
 \author[1]{Ahmet Alp Malko\c{c}}
-\fnmark[1]
 \ead{ahmetalp.malkoc@tedu.edu.tr}
 \credit{Software, Validation}
 
 % Fourth author
 \author[2]{Kutay Becerir}
-\fnmark[1]
 \ead{kutay.becerir@tedu.edu.tr}
 \credit{Software, Validation}
 
@@ -80,17 +83,11 @@
 % Fifth author
 \author[1]{Murat Karakaya}
 \cormark[1]
-\fnmark[1]
 \ead{murat.karakaya@tedu.edu.tr}
 \credit{Supervision, Writing -- Review \& Editing}
 
 % Corresponding author text
 \cortext[1]{Corresponding author: murat.karakaya@tedu.edu.tr}
-
-% Footnote text
-\fntext[1]{This study was carried out as part of the SENG~491 --
-CMPE~491 -- SENG~492 -- CMPE~492 Senior Project I -- Senior Project II
-courses, under the supervision of Dr.\ Murat Karakaya at TED University.}
 
 \begin{abstract}
 Researchers often need to spend substantial time manually reviewing

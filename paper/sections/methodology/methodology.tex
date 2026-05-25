@@ -11,13 +11,7 @@ Hypothetica approaches the problem differently by working at the semantic level.
 
 \subsection{System Overview}
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{"figures/Hypothetica Flowchart/GeneralOverview.png"}
-\par\vspace{2pt}
-\refstepcounter{figure}%
-{\fontfamily{ptm}\selectfont\small\textbf{Figure \thefigure:} System Overview Diagram.\label{fig:overview}}
-\end{figure*}
+\paperfigureblock[0.88\linewidth][0.36\textheight]{"Hypothetica Flowchart/GeneralOverview.png"}{System Overview Diagram.}{fig:overview}
 
 Hypothetica is structured as a multi-phase pipeline that takes a natural language research idea as input and produces a structured originality assessment as output, as shown in Fig.~\ref{fig:overview}. The pipeline begins that takes a natural language research idea as input and produces a structured originality assessment as output. The pipeline begins with a User Interaction Phase that turns the raw submission into an enriched, well-defined idea description, and continues through a Retrieval Phase that gathers candidate prior art from the user's selected evidence source. A Candidate Selection Phase then narrows this pool down to a small, high-quality shortlist through a combination of vector-based filtering, cross-encoder reranking, and an LLM-based selection step. Once the shortlist is fixed, the Parsing Phase converts each selected resource into structured, searchable text and indexes it in a vector store. The two scoring phases that follow are where the originality verdict is produced: the Candidate Originality Scoring phase analyzes each shortlisted resource independently against the user's idea and produces per-criterion similarity scores together with sentence-level overlap evidence, and the Idea Originality Scoring phase aggregates these per-resource results into a single global originality score, a labeled breakdown across the four originality criteria, and a sentence-level annotation of the user's idea. The final output, presented to the user through the interface, includes the global originality score, a color-coded breakdown of the idea where each sentence is labeled as having high, moderate, or low originality, and expandable evidence panels that show the specific passages that drove each label.
 
@@ -25,7 +19,7 @@ The phases communicate through structured data passed from one stage to the next
 
 \subsection{User Interaction Phase}
 
-\paperfigureblock[0.55\linewidth]{"Hypothetica Flowchart/User-Interaction-Phase.png"}{User Interaction Diagram.}{fig:user_interaction}
+\paperfigureblock[0.48\linewidth][0.50\textheight]{"Hypothetica Flowchart/User-Interaction-Phase.png"}{User Interaction Diagram.}{fig:user_interaction}
 
 The pipeline begins with the User Interaction Phase, which transforms a raw user submission into a structured input that the rest of the system can operate on. As shown in Fig.~\ref{fig:user_interaction}, this phase takes a User Request Payload and produces an Enriched Idea that is passed forward to the Retrieval Phase.
 
@@ -37,7 +31,7 @@ The user's responses to these questions are then passed to the Idea Enrichment s
 
 \subsection{Retrieval Phase}
 
-\paperfigureblock{"Hypothetica Flowchart/Retrieval-Phase.png"}{Retrieval Phase Diagram.}{fig:retrieval}
+\paperfigureblock[0.52\linewidth][0.58\textheight]{"Hypothetica Flowchart/Retrieval-Phase.png"}{Retrieval Phase Diagram.}{fig:retrieval}
 
 Once the Enriched Idea Context is produced, the pipeline enters the Retrieval Phase, which is responsible for retrieving a large pool of candidate resources from the selected adapter. As shown in Fig.~\ref{fig:retrieval}, this phase takes the Retrieval Input consisting of the Enriched Idea and the Selected Adapter chosen earlier by the user and outputs N Unique Candidates that are forwarded to the Candidate Selection Phase. The main challenge at this stage is balancing recall and precision. If the search is too narrow, it risks missing important prior work altogether. On the other hand, if it is too broad, it brings back a large number of documents, many of which are not relevant. For this reason, the Retrieval Phase is designed to focus more on recall, while precision is improved later during the filtering steps.
 
@@ -53,7 +47,7 @@ The final output of the Retrieval Phase is a set of N Unique Candidates, where N
 
 \subsection{Candidate Selection Phase}
 
-\paperfigureblock{"Hypothetica Flowchart/Candidate-Selection-Phase.png"}{Candidate Selection Diagram.}{fig:candidate_selection}
+\paperfigureblock[0.52\linewidth][0.58\textheight]{"Hypothetica Flowchart/Candidate-Selection-Phase.png"}{Candidate Selection Diagram.}{fig:candidate_selection}
 
 The Candidate Selection Phase is responsible for tightening this pool down to a small, high-quality set of resources that will be used for detailed analysis. As shown in Fig.~\ref{fig:candidate_selection}, the input to this phase is the Candidate Selection Input, consisting of N Candidates from the Retrieval Phase together with the Enriched Idea, and the output is a set of Top K Selected Candidates that will be passed to the Parsing Phase. The phase is structured as a three-step process that combines vector-based filtering, a more accurate but heavier reranking step, and finally a Large Language Model for judgment.
 
@@ -67,9 +61,9 @@ The output of the Candidate Selection Phase is a set of Top K Selected Candidate
 
 \subsection{Parsing Phase}
 
-Before any per-candidate analysis can take place, each of the selected resources needs to be turned into structured, searchable text. This is the responsibility of the Parsing Phase, shown in Fig.~\ref{fig:parsing}. The phase takes the Top-K Candidates produced by the Candidate Selection Phase and ends with a populated ChromaDB Vector Store containing the indexed chunks of every candidate, ready for retrieval during the scoring phases.
+\paperfigureblock[0.56\linewidth][0.58\textheight]{"Hypothetica Flowchart/Parsing-Phase.png"}{Parsing Diagram.}{fig:parsing}
 
-\paperfigureblock{"Hypothetica Flowchart/Parsing-Phase.png"}{Parsing Diagram.}{fig:parsing}
+Before any per-candidate analysis can take place, each of the selected resources needs to be turned into structured, searchable text. This is the responsibility of the Parsing Phase, shown in Fig.~\ref{fig:parsing}. The phase takes the Top-K Candidates produced by the Candidate Selection Phase and ends with a populated ChromaDB Vector Store containing the indexed chunks of every candidate, ready for retrieval during the scoring phases.
 
 The phase begins with Parallel Document Fetching. Each candidate's full content is downloaded concurrently. PDFs are retrieved for OpenAlex, the Google Patents API is queried directly for patent descriptions, and the README content already collected during retrieval is reused for GitHub repositories. The fetched content is then converted into a Markdown representation so that the rest of the pipeline can treat resources from different adapters in the same way.
 
@@ -79,7 +73,7 @@ The remaining steps are repeated for each candidate. The Document Chunking Proce
 
 \subsection{Candidate Originality Scoring}
 
-\paperfigureblock{"Hypothetica Flowchart/Candidate-Originality-Scoring-Phase-Layer-1.png"}{Candidate Originality Scoring Diagram.}{fig:candidate_scoring}
+\paperfigureblock[0.72\linewidth][0.54\textheight]{"Hypothetica Flowchart/Candidate-Originality-Scoring-Phase-Layer-1.png"}{Candidate Originality Scoring Diagram.}{fig:candidate_scoring}
 
 The Candidate Originality Scoring phase is where each candidate is independently compared against the user's idea to produce a structured similarity profile. As shown in Fig.~\ref{fig:candidate_scoring}, the input to this phase is the Enriched Idea together with the processed candidates and the ChromaDB index, and the output is a per-candidate Candidate Originality Scoring Result containing a similarity score, criteria-level scores, sentence-level analysis, matched sections, and a justification for each score. The phase loops over every candidate and treats each one as a separate scoring task, so that one strongly overlapping resource cannot be averaged away by a group of weakly related ones.
 
@@ -92,10 +86,13 @@ The second track is the Sentence-Level Overlap Analysis, which examines the user
 The Likert scores produced by the two tracks are then mapped to floats in the $[0, 1]$ range, where 1 corresponds to near-complete overlap and 0 corresponds to no meaningful overlap. The Similarity Score Calculation step combines the four candidate-level criteria scores into a single per-candidate similarity score using a weighted average:
 
 \begin{equation}
-\begin{split}
-	\text{sim}_{\text{candidate}} &= w_p \cdot S_{\text{problem}} + w_m \cdot S_{\text{method}} \\
-	&+ w_d \cdot S_{\text{domain}} + w_c \cdot S_{\text{contribution}}
-\end{split}
+\begin{alignedat}{2}
+	\text{sim}_{\text{candidate}}
+	&= w_p \cdot S_{\text{problem}}
+	&\quad{}+{}& w_m \cdot S_{\text{method}} \\
+	&\quad{}+ w_d \cdot S_{\text{domain}}
+	&\quad{}+{}& w_c \cdot S_{\text{contribution}}
+\end{alignedat}
 \label{eq:sim_candidate}
 \end{equation}
 
@@ -103,17 +100,18 @@ The output of this phase, for each candidate, is a Candidate Originality Scoring
 
 \subsection{Idea Originality Scoring}
 
-\paperfigureblock{"Hypothetica Flowchart/Idea-Originality-Scoring-Phase-Layer-2.png"}{Idea Originality Scoring Chart.}{fig:idea_scoring}
+\paperfigureblock[0.86\linewidth][0.42\textheight]{"Hypothetica Flowchart/Idea-Originality-Scoring-Phase-Layer-2.png"}{Idea Originality Scoring Chart.}{fig:idea_scoring}
 
 The Candidate Originality Scoring phase produces an independent similarity profile for every Top-K candidate. The Idea Originality Scoring phase takes this collection of per-candidate results and turns it into a single, user-facing assessment of how original the user's idea is. As shown in Fig.~\ref{fig:idea_scoring}, the input to this phase is the set of scoring results for every candidate, and the output is the Idea Originality Scoring Result that drives the entire results page in the user interface. The phase has three parallel branches -- Aggregated Criteria, Global Similarity Computation, and Sentence Annotations -- followed by a final originality score derived from the global similarity.
 
 The Global Similarity Computation branch determines the final originality verdict. Each candidate already carries a per-candidate similarity score $\text{sim}_i$ produced in the previous phase, where $i$ indexes the $N$ selected candidates. A naive aggregation that simply averages these scores would dilute a strong overlap signal whenever the retrieval pipeline returned a few weakly related candidates alongside a genuinely close match. To preserve that signal while still being robust to noise, the global similarity is computed as a blend of the maximum and the average of the per-candidate scores:
 
 \begin{equation}
-\begin{split}
-	\text{sim}_{\text{global}} &= w_{\max} \cdot \max_{i}(\text{sim}_{i}) \\
-	&+ \frac{w_{\text{mean}}}{N} \sum_{i=1}^{N} \text{sim}_{i}
-\end{split}
+\begin{alignedat}{2}
+	\text{sim}_{\text{global}}
+	&= w_{\max} \cdot \max_{i}(\text{sim}_{i})
+	&\quad{}+{}& \frac{w_{\text{mean}}}{N} \sum_{i=1}^{N} \text{sim}_{i}
+\end{alignedat}
 \label{eq:sim_global}
 \end{equation}
 
@@ -131,10 +129,11 @@ The exponent $p$ is greater than one, which makes the curve concave with respect
 In parallel with the global computation, the Criteria Breakdown branch produces a single value per criterion across all candidates for display purposes. For each criterion separately, letting $c_i$ denote the score of candidate $i$ on that criterion, the system combines the per-candidate scores using the same blend of maximum and mean as the global similarity:
 
 \begin{equation}
-\begin{split}
-	S_{\text{breakdown}} &= w_{\max} \cdot \max_{i}(c_i) \\
-	&+ \frac{1 - w_{\max}}{N} \cdot \sum_{i=1}^{N} c_i
-\end{split}
+\begin{alignedat}{2}
+	S_{\text{breakdown}}
+	&= w_{\max} \cdot \max_{i}(c_i)
+	&\quad{}+{}& \frac{1 - w_{\max}}{N} \cdot \sum_{i=1}^{N} c_i
+\end{alignedat}
 \label{eq:breakdown}
 \end{equation}
 

@@ -5,7 +5,7 @@
 
 Table~\ref{tab:accuracy} reports overall and per-class accuracy across all three corpora under calibrated threshold configurations.
 
-\begin{table*}
+\begin{table}[width=\textwidth,cols=5,pos=ht]
 	\caption{Classification accuracy per corpus and per class.}
 	\label{tab:accuracy}
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllll@{}}
@@ -17,7 +17,7 @@ Table~\ref{tab:accuracy} reports overall and per-class accuracy across all three
 		GitHub   & 78.0\% (39/50) & 85.0\% (17/20) & 53.3\% (8/15)  & 93.3\% (14/15) \\
 		\bottomrule
 	\end{tabular*}
-\end{table*}
+\end{table}
 
 The system achieves a mean accuracy of \textbf{76.0\%} across all three corpora, compared to a random baseline of 33.3\% and a majority-class baseline of approximately 34\%, representing a roughly $2.3\times$ improvement over chance. The \textit{already\_exists} and \textit{novel} classes are consistently well-detected across corpora, while \textit{incremental} remains the weakest class in all three settings.
 
