@@ -7,13 +7,13 @@ This section outlines the technical implementation details of the Hypothetica sy
 
 Hypothetica is developed using a highly modular, asynchronous Python backend powered by the FastAPI framework and served via Uvicorn. The system separates concerns between retrieval adapters, document processing, agent execution, and the API layer. To handle long-running, multi-agent operations without HTTP timeouts, the backend implements Server-Sent Events (SSE), streaming real-time execution logs and progress metrics directly to the client.
 
-All AI agents are powered by Google Gemini 2.5 Flash, accessed through the official google-genai SDK \citep{geminiAPI}. This model was selected for its exceptional balance of reasoning performance, low latency, and cost-efficiency. All agent classes inherit from a centralized Agent base class that manages API payload construction, structured JSON output enforcement, token usage logging, and exponential backoff strategies for rate limiting. Additionally, the system integrates Supabase (PostgreSQL) as a persistence layer to log analysis queries and track benchmark evaluation runs.
+All AI agents are powered by Google Gemini 2.5 Flash, accessed through the official google-genai SDK \citep{geminiAPI}. This model was selected for its exceptional balance of reasoning performance, low latency, and cost-efficiency. All specialized agent classes inherit from a centralized Agent base class that manages API payload construction, structured JSON output enforcement, token usage logging, and exponential backoff strategies for rate limiting, while aggregator and orchestration modules coordinate these agents. Additionally, the system integrates Supabase (PostgreSQL) as a persistence layer to log analysis queries and track benchmark evaluation runs.
 
 \subsection{Multi-Source Evidence Retrieval}
 
 To provide a comprehensive originality assessment, the retrieval pipeline utilizes a pluggable \texttt{EvidenceAdapter} interface. This unified abstraction allows the system to seamlessly route queries to distinct data sources:
 
-\textbf{OpenAlex.} Academic works are primarily retrieved via the OpenAlex API \citep{openalexDocs}. The adapter applies strict quality filters, requiring abstracts, excluding retracted works, and limiting types to articles and preprints, to ensure high-quality semantic pools.
+\textbf{OpenAlex.} Academic works are primarily retrieved via the OpenAlex API \citep{openalexDocs}. The adapter applies strict quality filters, requiring abstracts, excluding retracted works, and limiting types to articles and preprints to ensure high-quality semantic pools.
 
 \textbf{Google Patents.} Industrial prior art is captured using the \texttt{patents\_adapter}, which interfaces with the patent database via SerpApi \citep{serpapi}.
 
@@ -39,13 +39,13 @@ The architecture is divided into the following key operational roles:
 
 \textbf{Interactive Agents.} The \texttt{followup\_\allowbreak agent} conducts the initial user interview to clarify ambiguous ideas before retrieval begins.
 
-\textbf{Retrieval \& Filtering Agents.} The \texttt{query\_\allowbreak variant\_\allowbreak agent} generates diverse search terms, while the \texttt{relevant\_\allowbreak paper\_\allowbreak selector\_\allowbreak agent} evaluates cross-encoder reranked candidates to finalize the Top-K shortlist.
+\textbf{Retrieval \& Filtering Agents.} The \texttt{query\_\allowbreak variant\_\allowbreak agent} generates diverse search terms, the \texttt{relevant\_\allowbreak paper\_\allowbreak selector\_\allowbreak agent} evaluates cross-encoder reranked candidates to finalize the Top-K shortlist, and the \texttt{heading\_\allowbreak selector\_\allowbreak agent} identifies the most relevant sections of the papers to target for parsing.
 
 \textbf{Analysis \& Scoring Agents.} The \texttt{candidate\_\allowbreak originality\_\allowbreak scoring\_\allowbreak agent} handles isolated, per-paper Candidate Originality Scoring across the four novelty dimensions. The \texttt{idea\_\allowbreak originality\_\allowbreak scoring\_\allowbreak agent} orchestrates Idea Originality Scoring, applying calibrated weights and threshold guardrails to compute the global similarity score.
 
 \textbf{Domain-Specific Agents.} The \texttt{github\_\allowbreak query\_\allowbreak agent}, \texttt{repo\_\allowbreak relevance\_\allowbreak agent}, and \texttt{github\_\allowbreak synthesis\_\allowbreak agent} handle the unique requirements of cross-referencing ideas against executable open-source codebases.
 
-\textbf{Validation \& Synthesis Agents.} The \texttt{reality\_\allowbreak check\_\allowbreak agent} serves as a pragmatic filter assessing physical and technical viability. Finally, \texttt{heading\_\allowbreak selector\_\allowbreak agent} synthesizes the final structured Markdown report and manages context windows.
+\textbf{Validation \& Synthesis Agents.} The \texttt{reality\_\allowbreak check\_\allowbreak agent} serves as a pragmatic filter assessing physical and technical viability. Finally, the \texttt{report\_\allowbreak generator\_\allowbreak agent} synthesizes the final structured Markdown report and manages context windows.
 
 \subsection{User Interface}
 
