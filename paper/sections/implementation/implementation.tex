@@ -15,7 +15,7 @@ All AI agents are powered by Google Gemini 2.5 Flash, accessed through the offic
 
 \subsection{Multi-Source Evidence Retrieval}
 
-To provide a comprehensive originality assessment, the retrieval pipeline utilizes a pluggable \texttt{EvidenceAdapter} interface. This unified abstraction allows the system to seamlessly route queries to distinct data sources:
+To support a multi-source originality assessment, the retrieval pipeline uses a pluggable \texttt{EvidenceAdapter} interface. This shared abstraction allows the system to route queries to distinct data sources:
 
 \textbf{OpenAlex.} Academic works are primarily retrieved via the OpenAlex API \citep{openalexDocs}. The adapter applies strict quality filters, requiring abstracts, excluding retracted works, and limiting types to articles and preprints to ensure high-quality semantic pools.
 
@@ -31,7 +31,7 @@ To handle the complex formats of patent documents, the pipeline uses a dedicated
 
 \subsection{Vector Storage and Retrieval}
 
-The RAG architecture utilizes ChromaDB \citep{chroma}, configured with persistent local storage, to manage document chunks. Embeddings are generated using the E5-base-v2 model from the sentence-transformers library \citep{wang2022e5}, which applies specialized prefixes for queries and passages.
+The RAG architecture uses ChromaDB \citep{chroma}, configured with persistent local storage, to manage document chunks. Embeddings are generated using the E5-base-v2 model from the sentence-transformers library \citep{wang2022e5}, which applies specialized prefixes for queries and passages.
 
 The database serves as a unified knowledge graph. Prior to embedding, documents are split into semantic chunks that respect the extracted Markdown heading boundaries. Each chunk is stored alongside rich metadata (source identifiers, section headings, category tags). During the Candidate Originality Scoring phase, targeted metadata filtering allows the agents to retrieve focused context from specific individual documents, avoiding cross-contamination between candidates.
 

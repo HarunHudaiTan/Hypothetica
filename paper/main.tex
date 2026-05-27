@@ -14,17 +14,19 @@
   \label{#3}%
 }
 \NewDocumentCommand{\paperfigureblock}{O{0.95\linewidth} O{0.62\textheight} m m m}{%
-  \par\nobreak\smallskip
-  \begin{center}
+  \par\smallskip
+  \noindent\begin{minipage}{\linewidth}
+    \centering
     \IfFileExists{figures/#3}{%
       \includegraphics[width=#1,height=#2,keepaspectratio]{figures/#3}%
     }{%
       \fbox{\parbox[c][0.20\textheight][c]{0.40\textwidth}{\centering Figure pending}}%
     }%
-    \par\vspace{2pt}
+    \par\vspace{6pt}%
     \refstepcounter{figure}%
-    {\small\textbf{Fig.~\thefigure.} #4\label{#5}}%
-  \end{center}
+    \label{#5}%
+    {\sffamily\small\textbf{\color{scolor}Fig.~\thefigure:}~#4\par}%
+  \end{minipage}
   \par\smallskip
 }
 
@@ -91,39 +93,30 @@ courses, under the supervision of Dr.\ Murat Karakaya at TED University.}
 \cortext[1]{Corresponding author: murat.karakaya@tedu.edu.tr}
 
 \begin{abstract}
-Researchers often need to spend substantial time manually reviewing
+Researchers often need to spend a lot of time manually reviewing
 prior studies to confirm that a proposed project does not repeat
-existing work, and this process can take a significant amount of time.
+existing work, and this process can be slow.
 This paper introduces Hypothetica, an AI-powered system that evaluates
 the originality of proposed research ideas by comparing them with
-existing work in the arXiv literature. The system uses a multi-agent
-architecture based on large language models, combined with
-retrieval-augmented generation (RAG), to support explainable
-assessments of originality. The system runs a semantic similarity
-search in ChromaDB using E5 embeddings, extracts text from PDFs, and
-then reviews the material across four dimensions: novelty of the
-technical problem, methodological innovation, overlap in the
-application area, and stated innovation claims. Based on this process,
-it points out where a proposed research idea matches or overlaps with
-earlier studies. Hypothetica produces a numerical originality score
-and detailed reports with its respective evidence-based feedback,
-mapping each sentence in the user's research idea that overlaps with
-prior work to the related passages in existing papers. The system's
-performance was assessed using 10 varied test cases prepared from
-several domains. In the system evaluation, 40\% of the test cases
-scored above 60/100, and the highest score of originality observed was
-91/100. These results indicated that the approach performs well on
-tasks related to structured data and on tasks that involve generating
-architectures. This approach allows researchers to improve their ideas
-by using clear, practical feedback before they begin their research.
+prior art from academic literature, patents, and public code
+repositories. The system uses a multi-agent architecture based on large
+language models, combined with retrieval-augmented generation (RAG), to
+support explainable assessments of originality. The system retrieves
+candidate evidence from OpenAlex, arXiv, Google Patents, and GitHub,
+then reviews the material across four dimensions: problem similarity,
+method similarity, domain similarity, and contribution similarity.
+Hypothetica produces a numerical originality score and detailed
+reports with evidence-based feedback, mapping sentences in the user's
+research idea to related passages in the retrieved sources. The
+system's performance was assessed on a 135-case benchmark spanning
+three evidence corpora: OpenAlex, Google Patents, and GitHub. In this
+evaluation, Hypothetica achieved 75.6\% mean classification accuracy,
+with all misclassifications occurring only between adjacent originality
+classes. These results indicate that the approach provides a coherent
+originality signal across different evidence sources and can help
+researchers refine their ideas using clear, practical feedback before
+they begin their research.
 \end{abstract}
-
-\begin{highlights}
-\item Multi-agent RAG pipeline assesses research idea originality across four criteria
-\item Pluggable adapter layer unifies academic, patent, and code evidence sources
-\item Sentence-level overlap mapping links user idea to retrieved prior art passages
-\item 76\% mean classification accuracy over 150 manually labeled benchmark cases
-\end{highlights}
 
 \begin{keywords}
 large language models \sep multi-agent systems \sep research originality \sep retrieval-augmented generation

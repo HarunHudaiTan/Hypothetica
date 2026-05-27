@@ -114,7 +114,7 @@ The LaTeX Workshop preview opens the same PDF as `build/main.pdf`, but it refres
 
 ### Template-Specific Fields in `main.tex`
 
-The paper uses the Elsevier CAS double-column template (`cas-dc`). Key fields:
+The paper uses the Elsevier CAS single-column template (`cas-sc`). Key fields:
 
 | Field | Purpose |
 |---|---|
@@ -145,7 +145,7 @@ docker-compose.yml
 refs.bib
 sections/**/*.tex
 figures/*
-cas-dc.cls
+cas-sc.cls
 cas-common.sty
 cas-model2-names.bst
 ```
