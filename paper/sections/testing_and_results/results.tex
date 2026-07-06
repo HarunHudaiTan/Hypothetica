@@ -6,8 +6,6 @@ This section reports the performance of Hypothetica on the 135-case benchmark de
  
 \subsection{Classification Accuracy}
  
-Table~\ref{tab:accuracy} reports overall and per-class accuracy across all three corpora.
- 
 \begin{table}[width=\textwidth,cols=5,pos=ht]
     \caption{Classification accuracy per corpus and per class.}
     \label{tab:accuracy}
@@ -24,7 +22,7 @@ Table~\ref{tab:accuracy} reports overall and per-class accuracy across all three
     \end{tabular*}
 \end{table}
  
-The system achieves a mean accuracy of \textbf{75.6\%} across all three corpora, compared to a random baseline of 33.3\% and a majority-class baseline of approximately 34\%, representing a roughly $2.3\times$ improvement over chance. OpenAlex is the best-performing corpus overall, with per-class accuracy at 80.0\% across all three classes. Patents and GitHub show complementary failure modes: Patents struggles on incremental cases (46.7\%) while achieving high novel recall (93.3\%), whereas GitHub correctly classifies all already\_exists and novel cases in this benchmark but performs poorly on incremental cases (20.0\%).
+Table~\ref{tab:accuracy} reports overall and per-class accuracy across all three corpora, providing the first view of how consistently the pipeline separates the three originality labels before more detailed error analysis. The system achieves a mean accuracy of \textbf{75.6\%} across all three corpora, compared to a random baseline of 33.3\% and a majority-class baseline of approximately 34\%, representing a roughly $2.3\times$ improvement over chance. OpenAlex is the best-performing corpus overall, with per-class accuracy at 80.0\% across all three classes. Patents and GitHub show complementary failure modes: Patents struggles on incremental cases (46.7\%) while achieving high novel recall (93.3\%), whereas GitHub correctly classifies all already\_exists and novel cases in this benchmark but performs poorly on incremental cases (20.0\%).
 
 \subsection{Confusion Matrix and Macro-Level Metrics}
 
@@ -117,8 +115,6 @@ The incremental class is the weakest performer in every corpus (46.7\%, 80.0\%, 
  
 The direction of incremental errors differs by corpus, and this difference provides evidence about how each retrieval layer behaves. In the Patents corpus, incremental ideas drift upward: 7 of 8 incremental misclassifications are predicted as \textit{novel}. One interpretation is that the patents retrieval layer surfaces highly relevant prior art for already\_exists ideas but retrieves less precise matches for incremental ideas, causing the scoring agents to assign lower similarity and push the score above the incremental boundary. In the GitHub corpus, incremental errors split evenly between \textit{already\_exists} and \textit{novel}. GitHub's score distribution is bimodal in this benchmark -- ideas either match an existing repository closely (low score) or find no close repository match (high score) -- with very few ideas landing naturally in the middle band that the incremental class occupies.
  
-To illustrate the scoring behavior concretely, Table~\ref{tab:examples} shows representative cases from each class and corpus, together with their raw originality scores under calibrated thresholds.
- 
 \begin{table}[width=\textwidth,cols=5,pos=ht]
     \caption{Representative benchmark cases and their raw originality scores. Scores shown are the values produced by the pipeline before threshold-based label assignment.}
     \label{tab:examples}
@@ -150,7 +146,7 @@ To illustrate the scoring behavior concretely, Table~\ref{tab:examples} shows re
     \end{tabular*}
 \end{table}
  
-The score distribution in Table~\ref{tab:examples} illustrates the intended behavior of the scoring pipeline. Already\_exists ideas score in the single digits to low twenties, below the lower threshold in all three corpora. Novel ideas cluster in the high seventies to nineties, above the upper threshold. The incremental band -- where calibration matters most -- shows scores in the 38--63 range, sitting between the two thresholds in most configurations. The cases that fall outside their intended band (such as the incremental idea scoring 100 in the Patents run, idea\_029, which is the EHR clinical language model case) represent borderline inputs that the pipeline finds harder to place.
+To illustrate the scoring behavior concretely, Table~\ref{tab:examples} shows representative cases from each class and corpus, together with their raw originality scores under calibrated thresholds. The score distribution in the table illustrates the intended behavior of the scoring pipeline. Already\_exists ideas score in the single digits to low twenties, below the lower threshold in all three corpora. Novel ideas cluster in the high seventies to nineties, above the upper threshold. The incremental band -- where calibration matters most -- shows scores in the 38--63 range, sitting between the two thresholds in most configurations. The cases that fall outside their intended band (such as the incremental idea scoring 100 in the Patents run, idea\_029, which is the EHR clinical language model case) represent borderline inputs that the pipeline finds harder to place.
  
 \subsection{Novel Class Performance and Benchmark Construction Constraints}
  
