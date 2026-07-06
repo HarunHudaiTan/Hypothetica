@@ -1,6 +1,8 @@
 \section{Discussion}
 \label{sec:discussion}
 
+These results suggest that Hypothetica is most useful as a research screening tool rather than as a final judge of novelty. The system is good at separating clear cases from one another: ideas that already exist usually receive low originality scores, while clearly novel ideas tend to score high. The difficult cases are the ones in between, especially incremental ideas that share part of their problem, method, or domain with existing work. This is expected, because the boundary between an incremental contribution and a genuinely new idea is often unclear even for human reviewers. The discussion below focuses on what the results show about the pipeline, how the evidence-based feedback can help users, and where the current system still needs improvement.
+
 \subsection{Effectiveness of Multistage Assessment}
 
 The benchmark results show that the two-layer architecture contributes meaningfully to classification quality. By scoring each retrieved document independently across four criteria -- problem, method, domain, and contribution -- before aggregating into a global similarity estimate, the system is able to distinguish between different types of overlap. An idea that shares a problem domain with prior work but introduces a new method is treated differently from one that replicates both. This separation allows the system to concentrate scoring weight on technical innovation rather than contextual similarity, which is particularly important in fields where the same problem is addressed by many methods over time.
@@ -15,7 +17,7 @@ This interpretability also partially mitigates the impact of borderline classifi
 
 \subsection{Limitations}
 
-Several limitations emerge from the benchmark evaluation and system design.
+Several limitations emerge from the benchmark evaluation and system design. Most of them are not isolated implementation issues, but consequences of how originality assessment depends on retrieval quality, corpus coverage, and subjective label boundaries. For this reason, the limitations below should be read as constraints on how the system should be interpreted and deployed, rather than as simple errors in the pipeline.
 
 \textbf{Corpus dependence.} The most important structural limitation is that the system's score scale is not stable across corpora. The patents corpus produces systematically inflated similarity scores due to retrieval bias -- domain-relevant patents are consistently surfaced even for novel inputs -- while the OpenAlex corpus exhibits the opposite deflation. This means the same originality score carries different semantics depending on which corpus is queried, and a single global threshold cannot tune performance across all three. Corpus-aware calibration partially addresses this, but the root cause lies in the retrieval layer rather than the scoring logic.
 
