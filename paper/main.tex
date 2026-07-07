@@ -4,31 +4,6 @@
 \usepackage[authoryear,longnamesfirst]{natbib}
 
 \graphicspath{{figures/}}
-\newcommand{\paperfigure}[3]{%
-  \IfFileExists{figures/#1}{%
-    \includegraphics[width=\linewidth,height=0.45\textheight,keepaspectratio]{figures/#1}%
-  }{%
-    \fbox{\parbox[c][0.20\textheight][c]{0.40\textwidth}{\centering Figure pending}}%
-  }%
-  \caption{#2}%
-  \label{#3}%
-}
-\NewDocumentCommand{\paperfigureblock}{O{0.95\linewidth} O{0.62\textheight} m m m}{%
-  \par\smallskip
-  \noindent\begin{minipage}{\linewidth}
-    \centering
-    \IfFileExists{figures/#3}{%
-      \includegraphics[width=#1,height=#2,keepaspectratio]{figures/#3}%
-    }{%
-      \fbox{\parbox[c][0.20\textheight][c]{0.40\textwidth}{\centering Figure pending}}%
-    }%
-    \par\vspace{6pt}%
-    \refstepcounter{figure}%
-    \label{#5}%
-    {\sffamily\small\textbf{\color{scolor}Fig.~\thefigure:}~#4\par}%
-  \end{minipage}
-  \par\smallskip
-}
 
 \begin{document}
 \let\WriteBookmarks\relax
@@ -36,8 +11,6 @@
 \def\textpagefraction{.001}
 
 \emergencystretch=3em
-\hfuzz=\maxdimen
-\hbadness=10000
 
 % Short title
 \shorttitle{Hypothetica}
@@ -61,7 +34,9 @@ courses, under the supervision of Dr.\ Murat Karakaya at TED University.}
 \credit{Conceptualization, Methodology, Software, Writing -- Original Draft}
 
 \affiliation[1]{organization={Department of Software Engineering, Ted University},
+               addressline={Ziya G\"{o}kalp Caddesi No: 48, Kolej, \c{C}ankaya},
                city={Ankara},
+               postcode={06420},
                country={T\"{u}rkiye}}
 
 % Second author
@@ -80,7 +55,9 @@ courses, under the supervision of Dr.\ Murat Karakaya at TED University.}
 \credit{Software, Validation}
 
 \affiliation[2]{organization={Department of Computer Engineering, Ted University},
+               addressline={Ziya G\"{o}kalp Caddesi No: 48, Kolej, \c{C}ankaya},
                city={Ankara},
+               postcode={06420},
                country={T\"{u}rkiye}}
 
 % Fifth author
@@ -118,6 +95,12 @@ researchers refine their ideas using clear, practical feedback before
 they begin their research.
 \end{abstract}
 
+\begin{highlights}
+\item Hypothetica assesses research idea originality using a multi-agent RAG pipeline.
+\item The system compares ideas against academic literature, patents, and public code repositories.
+\item A 135-case benchmark shows 75.6\% mean accuracy with only adjacent-class errors.
+\end{highlights}
+
 \begin{keywords}
 large language models \sep multi-agent systems \sep research originality \sep retrieval-augmented generation
 \end{keywords}
@@ -134,6 +117,17 @@ large language models \sep multi-agent systems \sep research originality \sep re
 \input{sections/discussion_and_conclusion/conclusion}
 
 \printcredits
+
+\section*{Declaration of competing interest}
+
+The authors declare that they have no known competing financial interests
+or personal relationships that could have appeared to influence the work
+reported in this paper.
+
+\section*{Data availability}
+
+The source code and benchmark datasets supporting this study will be made
+publicly available in the project repository upon publication.
 
 \bibliographystyle{cas-model2-names}
 \bibliography{refs}

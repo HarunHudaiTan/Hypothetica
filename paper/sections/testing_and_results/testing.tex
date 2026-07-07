@@ -21,7 +21,7 @@ In real use, the follow-up question agent and idea enrichment step are intended 
  
 \subsection{Corpus-Specific Idea Design}
  
-A core design principle was stylistic alignment: ideas in each dataset were written to match the natural framing conventions of the corpus against which they would be retrieved.
+A core design principle was stylistic alignment: ideas in each dataset were written to match the natural framing conventions of the corpus against which they would be retrieved. This alignment was intended to make retrieval quality and scoring reflect the target deployment setting rather than a vocabulary mismatch between the idea description and the indexed corpus. The three corpus-specific framings were defined as follows:
  
 \textbf{OpenAlex (Scientific Literature).} Ideas were framed as research proposals and methodological contributions, consistent with the academic writing style of OpenAlex-indexed papers. Descriptions emphasize problem formulation, proposed mechanisms, and expected contributions -- the vocabulary a researcher would use when describing a novel method or system to peers.
  
@@ -29,11 +29,9 @@ A core design principle was stylistic alignment: ideas in each dataset were writ
  
 \textbf{Patents (Google Patents).} Ideas were framed as system-level inventions, consistent with the technical and functional language of patent abstracts. Descriptions emphasize novel system architectures, operating patterns, and distinguishing technical claims rather than experimental contributions or code-level implementations.
  
-This stylistic alignment was intentional: a retrieval system indexing academic papers will surface different candidates for the same underlying idea than one indexing patents or repositories. By matching framing to corpus, we aimed to make retrieval quality -- and therefore scoring -- reflect the intended deployment setting rather than a vocabulary mismatch artifact.
- 
 \subsection{Labeling Scheme: The Novelty Ladder}
  
-All cases were labeled under a strict three-tier scheme, which we refer to as the novelty ladder:
+All cases were labeled under a strict three-tier scheme, which we refer to as the novelty ladder. The scheme was designed to distinguish ideas that already exist in the target corpus, ideas that extend existing work, and ideas that introduce a clearly new contribution:
  
 \textbf{Already Exists.} The idea is widely known, commonly implemented, or straightforwardly retrievable in the target corpus. A case receives this label if it would likely be recognized by a practitioner in the field as existing work. Representative examples include:
  

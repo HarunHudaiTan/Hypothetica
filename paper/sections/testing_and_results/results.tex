@@ -202,7 +202,7 @@ Overall, the ablation study suggests that the system's performance does not aris
 \subsection{Ceiling Analysis}
 \label{sec:ceiling}
  
-The accuracy ceiling achievable through post-Layer-1 parameter tuning -- encompassing thresholds, blend weights, and criteria weights -- is approximately 73--80\% across corpora, with OpenAlex reaching 80\% and Patents and GitHub capped lower by structural issues in their score distributions.
+The accuracy ceiling achievable through post-Layer-1 parameter tuning -- encompassing thresholds, blend weights, and criteria weights -- is approximately 73--80\% across corpora, with OpenAlex reaching 80\% and Patents and GitHub capped lower by structural issues in their score distributions. These ceilings indicate that the remaining errors are not primarily caused by final threshold placement, but by the similarity signals produced before aggregation.
  
 For Patents, the ceiling is limited by incremental accuracy: parametric sweeps confirm that the 7--8 incremental cases predicted as novel do not shift regardless of threshold configuration, because their raw scores (50--79) sit well above any boundary that would also correctly classify novel ideas. Pushing the upper threshold high enough to capture these cases would misclassify the novel ideas that score in the same range.
  

@@ -37,9 +37,7 @@ The database serves as a unified knowledge graph. Prior to embedding, documents 
 
 \subsection{Agent Architecture}
 
-The system relies on a swarm of specialized agents, operating concurrently to reduce overall latency. Each agent is configured with distinct generation parameters (e.g., temperature, top-k) tailored to its specific role. All agents enforce \texttt{application/json} response types for safe downstream parsing.
-
-The architecture is divided into the following key operational roles:
+The system relies on a swarm of specialized agents, operating concurrently to reduce overall latency. Each agent is configured with distinct generation parameters (e.g., temperature, top-k) tailored to its specific role. All agents enforce \texttt{application/json} response types for safe downstream parsing. The architecture is divided into the following key operational roles:
 
 \textbf{Interactive Agents.} The \texttt{followup\_\allowbreak agent} conducts the initial user interview to clarify ambiguous ideas before retrieval begins.
 
