@@ -17,11 +17,11 @@ All AI agents are powered by Google Gemini 2.5 Flash, accessed through the offic
 
 To support a multi-source originality assessment, the retrieval pipeline uses a pluggable \texttt{EvidenceAdapter} interface. This shared abstraction allows the system to route queries to distinct data sources:
 
-\textbf{OpenAlex.} Academic works are primarily retrieved via the OpenAlex API \citep{openalexDocs}. The adapter applies strict quality filters, requiring abstracts, excluding retracted works, and limiting types to articles and preprints to ensure high-quality semantic pools.
+\textbf{OpenAlex:} Academic works are primarily retrieved via the OpenAlex API \citep{openalexDocs}. The adapter applies strict quality filters, requiring abstracts, excluding retracted works, and limiting types to articles and preprints to ensure high-quality semantic pools.
 
-\textbf{Google Patents.} Industrial prior art is captured using the \texttt{patents\_adapter}, which interfaces with the patent database via SerpApi \citep{serpapi}.
+\textbf{Google Patents:} Industrial prior art is captured using the \texttt{patents\_adapter}, which interfaces with the patent database via SerpApi \citep{serpapi}.
 
-\textbf{GitHub.} Open-source implementations are sourced via a custom \texttt{github\_adapter} that queries the GitHub REST API \citep{githubAPI}, applying strict quality filters (e.g., minimum star counts, recent commit activity) to eliminate abandoned projects, before extracting their README documentation.
+\textbf{GitHub:} Open-source implementations are sourced via a custom \texttt{github\_adapter} that queries the GitHub REST API \citep{githubAPI}, applying strict quality filters (e.g., minimum star counts, recent commit activity) to eliminate abandoned projects, before extracting their README documentation.
 
 \subsection{Document Processing Pipeline}
 
@@ -39,15 +39,15 @@ The database serves as a unified knowledge graph. Prior to embedding, documents 
 
 The system relies on a swarm of specialized agents, operating concurrently to reduce overall latency. Each agent is configured with distinct generation parameters (e.g., temperature, top-k) tailored to its specific role. All agents enforce \texttt{application/json} response types for safe downstream parsing. The architecture is divided into the following key operational roles:
 
-\textbf{Interactive Agents.} The \texttt{followup\_\allowbreak agent} conducts the initial user interview to clarify ambiguous ideas before retrieval begins.
+\textbf{Interactive Agents:} The \texttt{followup\_\allowbreak agent} conducts the initial user interview to clarify ambiguous ideas before retrieval begins.
 
-\textbf{Retrieval \& Filtering Agents.} The \texttt{query\_\allowbreak variant\_\allowbreak agent} generates diverse search terms, the \texttt{relevant\_\allowbreak paper\_\allowbreak selector\_\allowbreak agent} evaluates cross-encoder reranked candidates to finalize the Top-K shortlist, and the \texttt{heading\_\allowbreak selector\_\allowbreak agent} identifies the most relevant sections of the papers to target for parsing.
+\textbf{Retrieval \& Filtering Agents:} The \texttt{query\_\allowbreak variant\_\allowbreak agent} generates diverse search terms, the \texttt{relevant\_\allowbreak paper\_\allowbreak selector\_\allowbreak agent} evaluates cross-encoder reranked candidates to finalize the Top-K shortlist, and the \texttt{heading\_\allowbreak selector\_\allowbreak agent} identifies the most relevant sections of the papers to target for parsing.
 
-\textbf{Analysis \& Scoring Agents.} The \texttt{candidate\_\allowbreak originality\_\allowbreak scoring\_\allowbreak agent} handles isolated, per-paper Candidate Originality Scoring across the four novelty dimensions. The \texttt{idea\_\allowbreak originality\_\allowbreak scoring\_\allowbreak agent} orchestrates Idea Originality Scoring, applying calibrated weights and threshold guardrails to compute the global similarity score.
+\textbf{Analysis \& Scoring Agents:} The \texttt{candidate\_\allowbreak originality\_\allowbreak scoring\_\allowbreak agent} handles isolated, per-paper Candidate Originality Scoring across the four novelty dimensions. The \texttt{idea\_\allowbreak originality\_\allowbreak scoring\_\allowbreak agent} orchestrates Idea Originality Scoring, applying calibrated weights and threshold guardrails to compute the global similarity score.
 
-\textbf{Domain-Specific Agents.} The \texttt{github\_\allowbreak query\_\allowbreak agent}, \texttt{repo\_\allowbreak relevance\_\allowbreak agent}, and \texttt{github\_\allowbreak synthesis\_\allowbreak agent} handle the unique requirements of cross-referencing ideas against executable open-source codebases.
+\textbf{Domain-Specific Agents:} The \texttt{github\_\allowbreak query\_\allowbreak agent}, \texttt{repo\_\allowbreak relevance\_\allowbreak agent}, and \texttt{github\_\allowbreak synthesis\_\allowbreak agent} handle the unique requirements of cross-referencing ideas against executable open-source codebases.
 
-\textbf{Validation \& Synthesis Agents.} The \texttt{reality\_\allowbreak check\_\allowbreak agent} serves as a pragmatic filter assessing physical and technical viability. Finally, the \texttt{report\_\allowbreak generator\_\allowbreak agent} synthesizes the final structured Markdown report and manages context windows.
+\textbf{Validation \& Synthesis Agents:} The \texttt{reality\_\allowbreak check\_\allowbreak agent} serves as a pragmatic filter assessing physical and technical viability. Finally, the \texttt{report\_\allowbreak generator\_\allowbreak agent} synthesizes the final structured Markdown report and manages context windows.
 
 \subsection{User Interface}
 
