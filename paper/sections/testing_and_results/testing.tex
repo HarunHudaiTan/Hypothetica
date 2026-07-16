@@ -1,16 +1,50 @@
-\section{Experiments}
-\label{sec:testing}
- 
-This section describes the benchmark design and evaluation methodology used to assess Hypothetica's originality assessment system across a diverse set of research idea inputs. The evaluation is designed to test the full pipeline under retrieval conditions that resemble the intended application setting rather than only measuring isolated model behavior. Each benchmark case is evaluated against one evidence source, passed through the same retrieval, reranking, parsing, and scoring stages used by the application, and then mapped to one of three originality labels.
+\section{Benchmark Data Design}
+\label{sec:benchmark}
 
-The methodology has three goals. First, it keeps the benchmark balanced across corpora, originality labels, and input lengths, so that aggregate accuracy is less likely to be driven by class imbalance or by unusually verbose inputs. Second, it aligns each idea with the writing style of its target corpus, because scientific papers, patents, and software repositories expose different kinds of evidence. Third, it defines a labeling scheme before evaluation, which makes the results interpretable as a test of originality assessment rather than a loose relevance-matching exercise.
+This section describes how the benchmark datasets were prepared: how the ideas were authored, how they were stratified by length, and how each idea was placed on a three-tier novelty ladder. The design has three goals. First, it keeps the benchmark balanced across corpora, originality labels, and input lengths, so that aggregate accuracy is less likely to be driven by class imbalance or by unusually verbose inputs. Second, it aligns each idea with the writing style of its target corpus, because scientific papers, patents, and software repositories expose different kinds of evidence. Third, it defines a labeling scheme before evaluation, which makes the results interpretable as a test of originality assessment rather than a loose relevance-matching exercise.
  
 \subsection{Benchmark Dataset Overview}
  
 We constructed three independent benchmark datasets, one per retrieval corpus, totaling 135 labeled cases (45 per corpus). Each dataset was designed to reflect the natural idea style of its corresponding corpus, and all cases were manually authored and labeled. Rather than sampling from existing labeled repositories or relying on automated generation, we crafted each idea to probe specific behaviors of the originality assessment pipeline -- including its ability to distinguish stronger conceptual changes from standard domain extensions.
  
 Each corpus contains equal representation across the three classes (15 cases per class per corpus), reducing the risk that overall accuracy is dominated by any single class and making per-class metrics more informative. A dataset skewed toward \textit{already\_exists} -- a likely outcome of random sampling from many real corpora -- could inflate overall accuracy without providing meaningful signal about novelty detection, which is the primary use case of the system.
- 
+
+Table~\ref{tab:dataset} summarizes the composition of the three datasets. Each corpus is fully balanced across the three originality classes and the three length tiers introduced below (five cases per class--length cell), and spans a diverse set of application domains so that accuracy is not driven by a single topic.
+
+\begin{table}[width=\textwidth,cols=6,pos=ht]
+    \caption{Benchmark dataset composition. Each corpus contains 45 manually authored and labeled cases, balanced across three originality classes and three length tiers (5 cases per class--length cell).}
+    \label{tab:dataset}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccl@{}}
+        \toprule
+        Corpus & Cases & Per class & Per tier & Domains & Representative domains \\
+        \midrule
+        OpenAlex (papers)  & 45 & 15 & 15 & 11 & AI/ML, Biomedical, Quantum \\
+        GitHub (repos)     & 45 & 15 & 15 & 19 & DevOps, Testing, Blockchain \\
+        Patents (Google)   & 45 & 15 & 15 & 20 & Autonomous vehicles, Finance, Healthcare \\
+        \midrule
+        Total & 135 & 45 & 45 & --- & --- \\
+        \bottomrule
+    \end{tabular*}
+\end{table}
+
+Table~\ref{tab:datastats} reports descriptive statistics of the idea text itself. Because every stage of the pipeline consumes the raw idea string, its length is a relevant covariate: the three length tiers map onto clearly separated token bands (roughly 35, 67, and 143 tokens on average for short, medium, and long ideas), confirming that the stratification produces distinct input-size regimes rather than overlapping ones.
+
+\begin{table}[width=\textwidth,cols=6,pos=ht]
+    \caption{Descriptive statistics of the 135 benchmark ideas. Token counts are approximate (characters/4). Class balance is fixed by design at 15 \textit{already\_exists} / 15 \textit{incremental} / 15 \textit{novel} per corpus.}
+    \label{tab:datastats}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccc@{}}
+        \toprule
+        Corpus & Cases & Class balance & Mean tokens & Median & Range \\
+        \midrule
+        OpenAlex & 45  & 15/15/15 & 89 & 75 & 28--172 \\
+        GitHub   & 45  & 15/15/15 & 74 & 58 & 27--147 \\
+        Patents  & 45  & 15/15/15 & 74 & 64 & 26--146 \\
+        \midrule
+        All      & 135 & 45/45/45 & 79 & 66 & 26--172 \\
+        \bottomrule
+    \end{tabular*}
+\end{table}
+
 \subsection{Idea Length Stratification}
  
 A key design dimension in this benchmark is \textbf{idea length}. Within each class and each corpus, ideas are evenly distributed across three length tiers: \textit{short} (one to two sentences), \textit{medium} (three to four sentences), and \textit{long} (five or more sentences), with five cases per tier per class. This stratification tests whether the pipeline's performance is sensitive to the amount of detail provided in the input description.
@@ -61,10 +95,19 @@ This distinction between incremental and novel was the most consequential design
  
 \subsection{Deliberate Inclusion of Borderline Cases}
  
-Each dataset includes a proportion of borderline cases -- ideas that sit close to the incremental/novel boundary and would reasonably invite disagreement among human annotators. This design choice reflects the practical difficulty of originality assessment: the boundary between a creative extension and a new mechanism is often ambiguous, and a useful assessment tool should behave meaningfully in this region rather than only on clear-cut cases. These cases also stress-test the system's sensitivity near decision boundaries, and their presence partly explains the lower per-class accuracy on the incremental label observed across all three corpora.
+Each dataset includes a proportion of borderline cases -- ideas that sit close to the incremental/novel boundary and would reasonably invite disagreement among human annotators. This design choice reflects the practical difficulty of originality assessment: the boundary between a creative extension and a new mechanism is often ambiguous, and a useful assessment tool should behave meaningfully in this region rather than only on clear-cut cases. These cases also stress-test the system's sensitivity near decision boundaries, where a useful assessment tool should still behave meaningfully rather than collapse to one extreme.
  
+\section{Experiments}
+\label{sec:testing}
+
+This section describes the experimental protocol used to evaluate Hypothetica: the scenarios each idea is run through, the fixed pipeline configuration under which every run is performed, and the metrics used to evaluate the resulting labels. The protocol is designed so that all reported numbers are directly comparable, and so that any observed differences in performance can be attributed to the factor under study -- the corpus, the input length, or an ablated component -- rather than to incidental changes in configuration. To this end, every benchmark case is processed by the same deployed pipeline with identical parameters, and only the single variable of interest is changed within each scenario. The remainder of the section first defines the test scenarios, then lists the default pipeline parameters and the threshold-calibration procedure, and finally specifies the evaluation metrics applied to the resulting predictions.
+
+\subsection{Test Scenarios}
+
+Every benchmark case is evaluated against a single evidence source and passed through the same retrieval, reranking, parsing, and scoring stages used by the deployed application, then mapped to one of the three originality labels. Three scenarios are considered. The \emph{main classification} scenario runs all 135 cases through the full pipeline and compares each predicted label against its gold label, per corpus and per class. The \emph{length-sensitivity} scenario regroups the same predictions by input length tier to isolate the effect of description detail. The \emph{ablation} scenario, run on the OpenAlex corpus, removes or simplifies one component at a time -- query-variant generation, cross-encoder reranking, sentence-level filtering, criterion weighting, and idea enrichment -- to measure each component's contribution. The follow-up question and enrichment step of the deployed system is bypassed in all scenarios, so the reported numbers reflect raw, unenriched idea text.
+
 \subsection{Default Pipeline Parameters}
- 
+
 Table~\ref{tab:params} lists the fixed parameter values used in all experiments. Retrieval and selection parameters control how many candidates reach the scoring phases; scoring parameters determine how per-candidate similarity scores are combined into the final originality verdict.
  
 \begin{table}[width=\textwidth,cols=3,pos=ht]
@@ -85,9 +128,15 @@ Table~\ref{tab:params} lists the fixed parameter values used in all experiments.
         Global aggregation $(w_{\max},w_{\text{mean}})$ & $(0.70,0.30)$ & Max-mean similarity aggregation across candidates \\
         Originality curve exponent $p$ & 1.5 & Nonlinear conversion from similarity to originality \\
         Sentence overlap thresholds & 0.70 / 0.40 & High- and medium-overlap annotation cutoffs \\
-        Default score thresholds & $<$40 / 40--69 / $\geq$70 & Already\_exists, incremental, and novel labels before corpus calibration \\
+        Default score thresholds & $<$40 / 40--69 / $\geq$70 & Uncalibrated label boundaries prior to per-corpus calibration \\
         \bottomrule
     \end{tabular*}
 \end{table}
- 
- 
+
+\textbf{Threshold calibration.} Because the raw similarity scale differs across retrieval sources (Section~\ref{sec:crosscorpus}), the results in Section~\ref{sec:results} are reported under per-corpus calibrated thresholds, obtained by selecting the two class boundaries that maximize agreement with the gold labels on each corpus. Only the two thresholds are calibrated; the retrieval and scoring stages are identical across corpora. These figures should therefore be read as achievable accuracy once a deployment is tuned to a target corpus rather than as held-out generalization, and the ceiling this calibration reaches is analyzed in Section~\ref{sec:ceiling}.
+
+\subsection{Evaluation Metrics}
+
+Predicted labels are compared against gold labels using several complementary metrics. \emph{Overall} and \emph{per-class accuracy} measure the fraction of correctly labeled cases in aggregate and within each originality class. Because the classes are balanced, we also report \emph{macro-averaged precision, recall, and F1}, which weight each class equally and expose errors that overall accuracy alone can hide. \emph{Confusion matrices} characterize the direction of errors -- in particular whether misclassifications remain between adjacent classes or jump across the full scale. Accuracy is additionally broken down by length tier, and the ablation scenario is reported as overall OpenAlex accuracy under each configuration. As reference points on this balanced benchmark, a random classifier reaches $33.3\%$ and a majority-class classifier approximately $34\%$.
+
+

@@ -1,8 +1,8 @@
-\section{Results}
+\section{Results and Discussion}
 \label{sec:results}
 %=============================================================
 
-This section reports the performance of Hypothetica on the 135-case benchmark described in Section~\ref{sec:testing}. The results are organized from aggregate classification accuracy to more diagnostic analyses of where the system succeeds and fails. In addition to overall accuracy, the section examines macro-level metrics, confusion matrices, input-length effects, representative scoring examples, cross-corpus behavior, and component ablations.
+This section reports the performance of Hypothetica on the 135-case benchmark described in Section~\ref{sec:benchmark}. The results are organized from aggregate classification accuracy to more diagnostic analyses of where the system succeeds and fails. In addition to overall accuracy, the section examines macro-level metrics, confusion matrices, input-length effects, representative scoring examples, cross-corpus behavior, and component ablations.
  
 \subsection{Classification Accuracy}
  
@@ -107,7 +107,7 @@ The GitHub corpus is the exception: accuracy is flat at 73.3\% across all three 
  
 These results have a practical implication for the user-interaction stage. In production use, the follow-up question agent elicits additional details before retrieval begins, effectively converting short inputs into richer descriptions. The length gap observed in this benchmark -- where the follow-up step was bypassed -- suggests that the interview step may contribute to classification quality for users who submit brief idea descriptions.
  
-\subsection{Error Analysis}
+\subsection{Performance Analysis}
  
 Across all corpora, misclassifications occur exclusively between adjacent classes. No \textit{already\_exists} case was predicted as \textit{novel}, and no \textit{novel} case was predicted as \textit{already\_exists} in any corpus. This suggests that the scoring pipeline captures a meaningful ordinality in the originality spectrum even when exact label boundaries are missed.
  
